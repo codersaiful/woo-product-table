@@ -873,7 +873,25 @@ span.wpt_colunm_type>i {
     color: #00a2ca;
     border-radius: 4px;
 }
-a.wpt_get_pro_form_top_link {
+
+h3.wpt_admin_form_links {
+    display: block;
+    padding-top: 9px;
+    font-size: 90%;
+}
+h3.wpt_admin_form_links a {
+    background: #f9f9f9;
+    padding: 2px 8px;
+    border-radius: 3px;
+    border: 1px solid #ddd;
+    text-decoration: none !important;
+}
+h3.wpt_admin_form_links a:hover {
+    background: #007692;
+    border: 1px solid #007692;
+    color: white;
+}
+h3.wpt_admin_form_links a.wpt_get_pro_form_top_link {
     color: #ffb901;
     border: 1px solid #007692;
     padding: 2px 15px;
@@ -885,10 +903,12 @@ a.wpt_get_pro_form_top_link {
     transition: .3s all;
     margin-right: 10px;
 }
-a.wpt_get_pro_form_top_link:hover {
+h3.wpt_admin_form_links a.wpt_get_pro_form_top_link:hover {
     color: #007692;
     border: 1px solid #00769269;
     padding: 2px 25px;
     border-radius: 3px;
     background: #f1f1f196;
 }
+.wpt_admin_form_links a{text-decoration: none;}
+.wpt_admin_form_links a:hover{text-decoration: underline;}
