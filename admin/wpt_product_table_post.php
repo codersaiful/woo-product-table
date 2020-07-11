@@ -9,7 +9,7 @@ if ( ! function_exists('wpt_product_table_post') ) {
  * @link https://codex.wordpress.org/Post_Types See details at WordPress.org about Custom Post Type
  */
 function wpt_product_table_post() {
-        $icon = WPT_Product_Table::getPath( 'BASE_URL' ) . 'images/table_icon.png';
+        $icon = WPT_Product_Table::getPath( 'BASE_URL' ) . 'assets/images/table_icon.png';
 	$labels = array(
 		'name'                  => _x( 'Product Table', 'Product Table', 'wpt_pro' ),
 		'singular_name'         => _x( 'PRODUCT TABLE', 'PRODUCT TABLE', 'wpt_pro' ),
