@@ -1,0 +1,1721 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: WOO Product Table Pro\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-25 05:14+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.2.1; wp-5.0.4\n"
+"Language: "
+
+#: woo-product-table-pro.php:53 admin/tabs/conditions.php:25
+msgid "ID"
+msgstr ""
+
+#: woo-product-table-pro.php:54
+msgid "SL"
+msgstr ""
+
+#: woo-product-table-pro.php:55
+msgid "Thumbnails"
+msgstr ""
+
+#: woo-product-table-pro.php:56 admin/tabs/conditions.php:27
+msgid "Product Title"
+msgstr ""
+
+#: woo-product-table-pro.php:57
+msgid "Description"
+msgstr ""
+
+#: woo-product-table-pro.php:58
+msgid "Category"
+msgstr ""
+
+#: woo-product-table-pro.php:59
+msgid "Tags"
+msgstr ""
+
+#: woo-product-table-pro.php:60
+msgid "SKU"
+msgstr ""
+
+#: woo-product-table-pro.php:61
+msgid "Weight(kg)"
+msgstr ""
+
+#: woo-product-table-pro.php:62
+msgid "Length(cm)"
+msgstr ""
+
+#: woo-product-table-pro.php:63
+msgid "Width(cm)"
+msgstr ""
+
+#: woo-product-table-pro.php:64
+msgid "Height(cm)"
+msgstr ""
+
+#: woo-product-table-pro.php:65
+msgid "Rating"
+msgstr ""
+
+#: woo-product-table-pro.php:66
+msgid "Stock"
+msgstr ""
+
+#: woo-product-table-pro.php:67
+msgid "Price"
+msgstr ""
+
+#: woo-product-table-pro.php:68
+msgid "Wish List"
+msgstr ""
+
+#: woo-product-table-pro.php:69
+msgid "Quantity"
+msgstr ""
+
+#: woo-product-table-pro.php:70
+msgid "Total Price"
+msgstr ""
+
+#: woo-product-table-pro.php:71 includes/ajax_add_to_cart.php:347
+msgid "Short Message"
+msgstr ""
+
+#: woo-product-table-pro.php:72 woo-product-table-pro.php:146
+msgid "Quick View"
+msgstr ""
+
+#: woo-product-table-pro.php:73 admin/tabs/conditions.php:23
+msgid "Date"
+msgstr ""
+
+#: woo-product-table-pro.php:74
+msgid "Modified Date"
+msgstr ""
+
+#: woo-product-table-pro.php:75
+msgid "Attributes"
+msgstr ""
+
+#: woo-product-table-pro.php:76
+msgid "Variations"
+msgstr ""
+
+#: woo-product-table-pro.php:77
+msgid "Action"
+msgstr ""
+
+#: woo-product-table-pro.php:78
+msgid "Check"
+msgstr ""
+
+#: woo-product-table-pro.php:79
+msgid "Quote Request"
+msgstr ""
+
+#: woo-product-table-pro.php:107
+msgid "Customized Design"
+msgstr ""
+
+#: woo-product-table-pro.php:108
+msgid "Default Style"
+msgstr ""
+
+#: woo-product-table-pro.php:109
+msgid "Beautifull Blacky"
+msgstr ""
+
+#: woo-product-table-pro.php:110
+msgid "Smart Thin"
+msgstr ""
+
+#: woo-product-table-pro.php:111
+msgid "Select None"
+msgstr ""
+
+#: woo-product-table-pro.php:112
+msgid "Green Style"
+msgstr ""
+
+#: woo-product-table-pro.php:113
+msgid "Blue Style"
+msgstr ""
+
+#: woo-product-table-pro.php:144
+msgid "Products Not founded!"
+msgstr ""
+
+#: woo-product-table-pro.php:145
+msgid "Load more"
+msgstr ""
+
+#: woo-product-table-pro.php:147
+msgid "Loading.."
+msgstr ""
+
+#: woo-product-table-pro.php:148
+msgid "Search"
+msgstr ""
+
+#: woo-product-table-pro.php:149 woo-product-table-pro.php:178
+#: admin/configuration_page.php:284 admin/tabs/config.php:267
+#: admin/tabs/config_backup.php:258
+msgid "Search Keyword"
+msgstr ""
+
+#: woo-product-table-pro.php:152
+msgid "Filter:"
+msgstr ""
+
+#: woo-product-table-pro.php:153 admin/configuration_page.php:553
+msgid "Reset"
+msgstr ""
+
+#: woo-product-table-pro.php:154
+msgid "Instant Search.."
+msgstr ""
+
+#: woo-product-table-pro.php:155
+msgid "Browse the list"
+msgstr ""
+
+#: woo-product-table-pro.php:156
+msgid "Add to Quote"
+msgstr ""
+
+#: woo-product-table-pro.php:157
+msgid "Adding.."
+msgstr ""
+
+#: woo-product-table-pro.php:158
+msgid "Quoted"
+msgstr ""
+
+#: woo-product-table-pro.php:159
+msgid "Item"
+msgstr ""
+
+#: woo-product-table-pro.php:160
+msgid "Items"
+msgstr ""
+
+#: woo-product-table-pro.php:161
+msgid "Added"
+msgstr ""
+
+#: woo-product-table-pro.php:162
+msgid "Not available"
+msgstr ""
+
+#: woo-product-table-pro.php:163 admin/configuration_page.php:481
+#: admin/tabs/config.php:464 admin/tabs/config_backup.php:455
+msgid ""
+"Product variations is not set Properly. May be: price is not inputted. may "
+"be: Out of Stock."
+msgstr ""
+
+#: woo-product-table-pro.php:164 admin/configuration_page.php:505
+#: admin/tabs/config.php:488 admin/tabs/config_backup.php:479
+msgid "There is no more products based on current Query."
+msgstr ""
+
+#: woo-product-table-pro.php:165 admin/configuration_page.php:489
+#: admin/tabs/config.php:472 admin/tabs/config_backup.php:463
+msgid "Please select all items."
+msgstr ""
+
+#: woo-product-table-pro.php:166 woo-product-table-pro.php:183
+#: admin/configuration_page.php:447 admin/configuration_page.php:497
+#: admin/tabs/config.php:430 admin/tabs/config.php:480
+#: admin/tabs/config_backup.php:421 admin/tabs/config_backup.php:471
+msgid "Out of Stock"
+msgstr ""
+
+#: woo-product-table-pro.php:167 admin/configuration_page.php:513
+#: admin/tabs/config.php:496 admin/tabs/config_backup.php:487
+msgid "Adding in Progress"
+msgstr ""
+
+#: woo-product-table-pro.php:168 admin/configuration_page.php:521
+#: admin/tabs/config.php:504 admin/tabs/config_backup.php:495
+msgid "No Right Combination"
+msgstr ""
+
+#: woo-product-table-pro.php:169 admin/configuration_page.php:537
+#: admin/tabs/config.php:520 admin/tabs/config_backup.php:511
+msgid "Sorry! Out of Stock!"
+msgstr ""
+
+#: woo-product-table-pro.php:170 admin/configuration_page.php:546
+#: admin/tabs/config.php:529 admin/tabs/config_backup.php:520
+msgid "Type your Message."
+msgstr ""
+
+#: woo-product-table-pro.php:171 admin/configuration_page.php:529
+#: admin/tabs/config.php:512 admin/tabs/config_backup.php:503
+msgid "Sorry, Please choose right combination."
+msgstr ""
+
+#: woo-product-table-pro.php:177
+#, php-format
+msgid "Search Box (%sAll Fields Optional%s)"
+msgstr ""
+
+#: woo-product-table-pro.php:179 admin/tabs/conditions.php:16
+msgid "Order By"
+msgstr ""
+
+#: woo-product-table-pro.php:180
+msgid "Order"
+msgstr ""
+
+#: woo-product-table-pro.php:182 admin/configuration_page.php:439
+#: admin/tabs/config.php:422 admin/tabs/config_backup.php:413
+msgid "In Stock"
+msgstr ""
+
+#: woo-product-table-pro.php:184 admin/configuration_page.php:456
+#: admin/tabs/config.php:439 admin/tabs/config_backup.php:430
+msgid "On Back Order"
+msgstr ""
+
+#: admin/configuration_page.php:40
+msgid "Common Configuration"
+msgstr ""
+
+#: admin/configuration_page.php:41
+msgid ""
+"Remember: Each product table has indivisual configuration, wheich is First "
+"Importance. But to This Configuration has no \"First importance\"."
+msgstr ""
+
+#: admin/configuration_page.php:46 admin/tabs/config.php:28
+#: admin/tabs/config_backup.php:20
+msgid "Basic Settings"
+msgstr ""
+
+#: admin/configuration_page.php:51 admin/tabs/config.php:33
+#: admin/tabs/config_backup.php:25
+msgid "Add to Cart Icon"
+msgstr ""
+
+#: admin/configuration_page.php:54 admin/tabs/config.php:36
+#: admin/tabs/config_backup.php:28
+msgid "No Icon"
+msgstr ""
+
+#: admin/configuration_page.php:55 admin/tabs/config.php:37
+#: admin/tabs/config_backup.php:29
+msgid "Only Icon"
+msgstr ""
+
+#: admin/configuration_page.php:56 admin/tabs/config.php:38
+#: admin/tabs/config_backup.php:30
+msgid "Left Icon and Text"
+msgstr ""
+
+#: admin/configuration_page.php:57 admin/tabs/config.php:39
+#: admin/tabs/config_backup.php:31
+msgid "Text and Right Icon"
+msgstr ""
+
+#: admin/configuration_page.php:65 admin/tabs/config.php:47
+#: admin/tabs/config_backup.php:39
+msgid "Footer Cart Option"
+msgstr ""
+
+#: admin/configuration_page.php:68 admin/tabs/config.php:50
+#: admin/tabs/config_backup.php:42
+msgid "Hide for Zero"
+msgstr ""
+
+#: admin/configuration_page.php:69 admin/tabs/config.php:51
+#: admin/tabs/config_backup.php:43
+msgid "Always Show"
+msgstr ""
+
+#: admin/configuration_page.php:70 admin/tabs/config.php:52
+#: admin/tabs/config_backup.php:44
+msgid "Always Hide"
+msgstr ""
+
+#: admin/configuration_page.php:78 admin/tabs/config.php:60
+#: admin/tabs/config_backup.php:52
+msgid "Footer Cart BG Color"
+msgstr ""
+
+#: admin/configuration_page.php:80 admin/tabs/config.php:62
+#: admin/tabs/config_backup.php:54
+msgid "BG Color"
+msgstr ""
+
+#: admin/configuration_page.php:86 admin/tabs/config.php:68
+#: admin/tabs/config_backup.php:60
+msgid "Footer Cart Position"
+msgstr ""
+
+#: admin/configuration_page.php:89 admin/tabs/config.php:71
+#: admin/tabs/config_backup.php:63
+msgid "Bottom Right"
+msgstr ""
+
+#: admin/configuration_page.php:90 admin/tabs/config.php:72
+#: admin/tabs/config_backup.php:64
+msgid "Bottom Left"
+msgstr ""
+
+#: admin/configuration_page.php:91 admin/tabs/config.php:73
+#: admin/tabs/config_backup.php:65
+msgid "Top Right"
+msgstr ""
+
+#: admin/configuration_page.php:92 admin/tabs/config.php:74
+#: admin/tabs/config_backup.php:66
+msgid "Top Left"
+msgstr ""
+
+#: admin/configuration_page.php:101 admin/tabs/config.php:83
+#: admin/tabs/config_backup.php:75
+#, php-format
+msgid "Footer Cart Size %s[Only Int]%s"
+msgstr ""
+
+#: admin/configuration_page.php:103 admin/tabs/config.php:85
+#: admin/tabs/config_backup.php:77
+msgid "Default Size. eg: 70"
+msgstr ""
+
+#: admin/configuration_page.php:111 admin/tabs/config.php:93
+#: admin/tabs/config_backup.php:85
+msgid "Mini Filter Sorting"
+msgstr ""
+
+#: admin/configuration_page.php:114 admin/configuration_page.php:128
+#: includes/functions.php:313 admin/tabs/basics.php:97
+#: admin/tabs/conditions.php:36 admin/tabs/config.php:96
+#: admin/tabs/config.php:110 admin/tabs/config_backup.php:88
+#: admin/tabs/config_backup.php:102
+msgid "None"
+msgstr ""
+
+#: admin/configuration_page.php:115 admin/configuration_page.php:129
+#: admin/tabs/config.php:97 admin/tabs/config.php:111
+#: admin/tabs/config_backup.php:89 admin/tabs/config_backup.php:103
+msgid "Ascending"
+msgstr ""
+
+#: admin/configuration_page.php:116 admin/configuration_page.php:130
+#: admin/tabs/config.php:98 admin/tabs/config.php:112
+#: admin/tabs/config_backup.php:90 admin/tabs/config_backup.php:104
+msgid "Descending"
+msgstr ""
+
+#: admin/configuration_page.php:125 admin/tabs/config.php:107
+#: admin/tabs/config_backup.php:99
+msgid "Search Box Taxonomy Sorting"
+msgstr ""
+
+#: admin/configuration_page.php:137 admin/tabs/config.php:119
+#: admin/tabs/config_backup.php:111
+#, php-format
+msgid "Thumbs Image Size %s[Only Int]%s"
+msgstr ""
+
+#: admin/configuration_page.php:139 admin/tabs/config.php:121
+#: admin/tabs/config_backup.php:113
+msgid "Thumbnail size. eg: 56"
+msgstr ""
+
+#: admin/configuration_page.php:147 admin/tabs/config.php:129
+#: admin/tabs/config_backup.php:121
+msgid "Popup Notice [New]"
+msgstr ""
+
+#: admin/configuration_page.php:150 admin/configuration_page.php:164
+#: admin/tabs/config.php:132 admin/tabs/config.php:147
+#: admin/tabs/config_backup.php:124 admin/tabs/config_backup.php:138
+msgid "Enable"
+msgstr ""
+
+#: admin/configuration_page.php:151 admin/configuration_page.php:165
+#: admin/tabs/config.php:133 admin/tabs/config.php:148
+#: admin/tabs/config_backup.php:125 admin/tabs/config_backup.php:139
+#: admin/tabs/pagination.php:9
+msgid "Disable"
+msgstr ""
+
+#: admin/configuration_page.php:161 admin/tabs/config.php:143
+#: admin/tabs/config_backup.php:135
+msgid "Thumbs Image LightBox"
+msgstr ""
+
+#: admin/configuration_page.php:172 admin/tabs/config.php:155
+#: admin/tabs/config_backup.php:146
+msgid "Disable Product Link"
+msgstr ""
+
+#: admin/configuration_page.php:175 admin/configuration_page.php:198
+#: admin/configuration_page.php:209 admin/configuration_page.php:220
+#: admin/configuration_page.php:231 admin/configuration_page.php:243
+#: admin/tabs/config.php:158 admin/tabs/config.php:181
+#: admin/tabs/config.php:192 admin/tabs/config.php:203
+#: admin/tabs/config.php:214 admin/tabs/config.php:226
+#: admin/tabs/config_backup.php:149 admin/tabs/config_backup.php:172
+#: admin/tabs/config_backup.php:183 admin/tabs/config_backup.php:194
+#: admin/tabs/config_backup.php:205 admin/tabs/config_backup.php:217
+msgid "Yes"
+msgstr ""
+
+#: admin/configuration_page.php:176 admin/configuration_page.php:197
+#: admin/configuration_page.php:208 admin/configuration_page.php:221
+#: admin/configuration_page.php:232 admin/configuration_page.php:244
+#: admin/tabs/config.php:159 admin/tabs/config.php:180
+#: admin/tabs/config.php:191 admin/tabs/config.php:204
+#: admin/tabs/config.php:215 admin/tabs/config.php:227
+#: admin/tabs/config_backup.php:150 admin/tabs/config_backup.php:171
+#: admin/tabs/config_backup.php:182 admin/tabs/config_backup.php:195
+#: admin/tabs/config_backup.php:206 admin/tabs/config_backup.php:218
+msgid "No"
+msgstr ""
+
+#: admin/configuration_page.php:183 admin/tabs/config.php:166
+#: admin/tabs/config_backup.php:157
+msgid "Product Link Open Type"
+msgstr ""
+
+#: admin/configuration_page.php:186 admin/tabs/config.php:169
+#: admin/tabs/config_backup.php:160
+msgid "New Tab"
+msgstr ""
+
+#: admin/configuration_page.php:187 admin/tabs/config.php:170
+#: admin/tabs/config_backup.php:161
+msgid "Self Tab"
+msgstr ""
+
+#: admin/configuration_page.php:194 admin/tabs/config.php:177
+#: admin/tabs/config_backup.php:168
+msgid "Direct Checkout Page[for Add to cart Selected]"
+msgstr ""
+
+#: admin/configuration_page.php:205 admin/tabs/config.php:188
+#: admin/tabs/config_backup.php:179
+msgid "Enable Quick Buy Button [Direct Checkout Page for each product]"
+msgstr ""
+
+#: admin/configuration_page.php:211 admin/tabs/config.php:194
+#: admin/tabs/config_backup.php:185
+msgid "Direct going to Checkout Page just after Added to cart for each product"
+msgstr ""
+
+#: admin/configuration_page.php:217 admin/tabs/config.php:200
+#: admin/tabs/config_backup.php:191
+#, php-format
+msgid "Disable %s[Categories and Tags]%s Link"
+msgstr ""
+
+#: admin/configuration_page.php:228 admin/tabs/config.php:211
+#: admin/tabs/config_backup.php:202
+#, php-format
+msgid "Disable %s[Load More]%s Button"
+msgstr ""
+
+#: admin/configuration_page.php:240 admin/tabs/config.php:223
+#: admin/tabs/config_backup.php:214
+msgid "Instant Search Filter"
+msgstr ""
+
+#: admin/configuration_page.php:251 admin/tabs/config.php:234
+#: admin/tabs/config_backup.php:225
+msgid "Label Text"
+msgstr ""
+
+#: admin/configuration_page.php:256 admin/tabs/config.php:239
+#: admin/tabs/config_backup.php:230
+#, php-format
+msgid "%s[Products Not founded!]%s - Message Text"
+msgstr ""
+
+#: admin/configuration_page.php:258 admin/tabs/config.php:241
+#: admin/tabs/config_backup.php:232
+msgid "Not founded any products in this query."
+msgstr ""
+
+#: admin/configuration_page.php:265 admin/tabs/config.php:248
+#: admin/tabs/config_backup.php:239
+#, php-format
+msgid "%s[Load More]%s - Button Text"
+msgstr ""
+
+#: admin/configuration_page.php:267 admin/tabs/config.php:250
+#: admin/tabs/config_backup.php:241
+msgid "Load More text write here"
+msgstr ""
+
+#: admin/configuration_page.php:274 admin/tabs/config.php:257
+#: admin/tabs/config_backup.php:248
+#, php-format
+msgid "%s[Search]%s - Button Text"
+msgstr ""
+
+#: admin/configuration_page.php:276 admin/tabs/config.php:259
+#: admin/tabs/config_backup.php:250
+msgid "Search text write here"
+msgstr ""
+
+#: admin/configuration_page.php:282 admin/tabs/config.php:265
+#: admin/tabs/config_backup.php:256
+#, php-format
+msgid "%s[Search Keyword]%s - Text"
+msgstr ""
+
+#: admin/configuration_page.php:291 admin/tabs/config.php:274
+#: admin/tabs/config_backup.php:265
+#, php-format
+msgid "%s[Loading..]%s - Button Text"
+msgstr ""
+
+#: admin/configuration_page.php:293 admin/tabs/config.php:276
+#: admin/tabs/config_backup.php:267
+msgid "Loading.. text write here"
+msgstr ""
+
+#: admin/configuration_page.php:299 admin/tabs/config.php:282
+#: admin/tabs/config_backup.php:273
+#, php-format
+msgid "%s[Instance Search]%s - Text"
+msgstr ""
+
+#: admin/configuration_page.php:301 admin/tabs/config.php:284
+#: admin/tabs/config_backup.php:275
+msgid "attr"
+msgstr ""
+
+#: admin/configuration_page.php:307 admin/tabs/config.php:290
+#: admin/tabs/config_backup.php:281
+#, php-format
+msgid "%s[Filter]%s - Text of Filter"
+msgstr ""
+
+#: admin/configuration_page.php:309 admin/tabs/config.php:292
+#: admin/tabs/config_backup.php:283
+msgid "eg: Filter"
+msgstr ""
+
+#: admin/configuration_page.php:315 admin/tabs/config.php:298
+#: admin/tabs/config_backup.php:289
+#, php-format
+msgid "%s[Reset]%s - Button Text of Filter"
+msgstr ""
+
+#: admin/configuration_page.php:317 admin/tabs/config.php:300
+#: admin/tabs/config_backup.php:291
+msgid "eg: Reset"
+msgstr ""
+
+#: admin/configuration_page.php:324 admin/tabs/config.php:307
+#: admin/tabs/config_backup.php:298
+msgid "Item [for Singular]"
+msgstr ""
+
+#: admin/configuration_page.php:326 admin/configuration_page.php:334
+#: admin/tabs/config.php:309 admin/tabs/config.php:317
+#: admin/tabs/config_backup.php:300 admin/tabs/config_backup.php:308
+msgid "Item | for All selected Button"
+msgstr ""
+
+#: admin/configuration_page.php:332 admin/tabs/config.php:315
+#: admin/tabs/config_backup.php:306
+msgid "Item [for Plural]"
+msgstr ""
+
+#: admin/configuration_page.php:341 admin/tabs/config.php:324
+#: admin/tabs/config_backup.php:315
+msgid "Add to Cart all selected [Added] Text"
+msgstr ""
+
+#: admin/configuration_page.php:343 admin/tabs/config.php:326
+#: admin/tabs/config_backup.php:317
+msgid "Added text for [Add to cart Selected]"
+msgstr ""
+
+#: admin/configuration_page.php:351 admin/configuration_page.php:353
+#: admin/tabs/config.php:334 admin/tabs/config.php:336
+#: admin/tabs/config_backup.php:325 admin/tabs/config_backup.php:327
+msgid "Search Box title"
+msgstr ""
+
+#: admin/configuration_page.php:359 admin/configuration_page.php:361
+#: admin/tabs/config.php:342 admin/tabs/config.php:344
+#: admin/tabs/config_backup.php:333 admin/tabs/config_backup.php:335
+msgid "Search Keyword text"
+msgstr ""
+
+#: admin/configuration_page.php:367 admin/tabs/config.php:350
+#: admin/tabs/config_backup.php:341
+msgid "SearchBox Order By text"
+msgstr ""
+
+#: admin/configuration_page.php:369 admin/tabs/config.php:352
+#: admin/tabs/config_backup.php:343
+msgid "Order By text"
+msgstr ""
+
+#: admin/configuration_page.php:375 admin/tabs/config.php:358
+#: admin/tabs/config_backup.php:349
+msgid "SearchBox Order text"
+msgstr ""
+
+#: admin/configuration_page.php:377 admin/tabs/config.php:360
+#: admin/tabs/config_backup.php:351
+msgid "Order text"
+msgstr ""
+
+#: admin/configuration_page.php:383 admin/tabs/config.php:366
+#: admin/tabs/config_backup.php:357
+#, php-format
+msgid "External Plugin's %s[YITH]%s "
+msgstr ""
+
+#: admin/configuration_page.php:389 admin/tabs/config.php:372
+#: admin/tabs/config_backup.php:363
+#, php-format
+msgid "%s[Quick View]%s - Button Text"
+msgstr ""
+
+#: admin/configuration_page.php:391 admin/tabs/config.php:374
+#: admin/tabs/config_backup.php:365
+msgid "eg: Quick View"
+msgstr ""
+
+#: admin/configuration_page.php:392 admin/tabs/config.php:375
+#: admin/tabs/config_backup.php:366
+#, php-format
+msgid "Only for %s YITH WooCommerce Quick View%s Plugin"
+msgstr ""
+
+#: admin/configuration_page.php:399 admin/tabs/config.php:382
+#: admin/tabs/config_backup.php:373
+#, php-format
+msgid "%s[Browse Quote list]%s - text "
+msgstr ""
+
+#: admin/configuration_page.php:401 admin/tabs/config.php:384
+#: admin/tabs/config_backup.php:375
+msgid "Browse the list - text write here"
+msgstr ""
+
+#: admin/configuration_page.php:407 admin/tabs/config.php:390
+#: admin/tabs/config_backup.php:381
+#, php-format
+msgid "%s[Add to Quote]%s - button text"
+msgstr ""
+
+#: admin/configuration_page.php:409 admin/tabs/config.php:392
+#: admin/tabs/config_backup.php:383
+msgid "Add to Quote text write here"
+msgstr ""
+
+#: admin/configuration_page.php:415 admin/tabs/config.php:398
+#: admin/tabs/config_backup.php:389
+#, php-format
+msgid "%s[Quote Adding]%s - text"
+msgstr ""
+
+#: admin/configuration_page.php:417 admin/tabs/config.php:400
+#: admin/tabs/config_backup.php:391
+msgid "Adding text write here"
+msgstr ""
+
+#: admin/configuration_page.php:423 admin/tabs/config.php:406
+#: admin/tabs/config_backup.php:397
+#, php-format
+msgid "%s[Quote Added]%s - text "
+msgstr ""
+
+#: admin/configuration_page.php:425 admin/tabs/config.php:408
+#: admin/tabs/config_backup.php:399
+msgid "Quote Added text write here"
+msgstr ""
+
+#: admin/configuration_page.php:432 admin/tabs/config.php:415
+#: admin/tabs/config_backup.php:406
+#, php-format
+msgid "Table's Default Content %sSince 3.3%s"
+msgstr ""
+
+#: admin/configuration_page.php:437 admin/tabs/config.php:420
+#: admin/tabs/config_backup.php:411
+msgid "[In Stock] for Table Column"
+msgstr ""
+
+#: admin/configuration_page.php:445 admin/tabs/config.php:428
+#: admin/tabs/config_backup.php:419
+msgid "[Out of Stock] for Table Column"
+msgstr ""
+
+#: admin/configuration_page.php:454 admin/tabs/config.php:437
+#: admin/tabs/config_backup.php:428
+msgid "[On Back Order] for Table Column"
+msgstr ""
+
+#: admin/configuration_page.php:466 admin/tabs/config.php:449
+#: admin/tabs/config_backup.php:440
+msgid "All Messages"
+msgstr ""
+
+#: admin/configuration_page.php:471 admin/tabs/config.php:454
+#: admin/tabs/config_backup.php:445
+msgid "Variations [Not available] Message"
+msgstr ""
+
+#: admin/configuration_page.php:473 admin/tabs/config.php:456
+#: admin/tabs/config_backup.php:447
+msgid "Not Available"
+msgstr ""
+
+#: admin/configuration_page.php:479 admin/tabs/config.php:462
+#: admin/tabs/config_backup.php:453
+msgid ""
+"[Product variations is not set Properly. May be: price is not inputted. may "
+"be: Out of Stock.] Message"
+msgstr ""
+
+#: admin/configuration_page.php:487 admin/tabs/config.php:470
+#: admin/tabs/config_backup.php:461
+msgid "[Please select all items.] Message"
+msgstr ""
+
+#: admin/configuration_page.php:495 admin/tabs/config.php:478
+#: admin/tabs/config_backup.php:469
+msgid "[Out of Stock] Message"
+msgstr ""
+
+#: admin/configuration_page.php:503 admin/tabs/config.php:486
+#: admin/tabs/config_backup.php:477
+msgid "[There is no more products based on current Query.] Message"
+msgstr ""
+
+#: admin/configuration_page.php:511 admin/tabs/config.php:494
+#: admin/tabs/config_backup.php:485
+msgid "[ Adding in Progress ] Message"
+msgstr ""
+
+#: admin/configuration_page.php:519 admin/tabs/config.php:502
+#: admin/tabs/config_backup.php:493
+msgid "[ No Right Combination ] Message"
+msgstr ""
+
+#: admin/configuration_page.php:527 admin/tabs/config.php:510
+#: admin/tabs/config_backup.php:501
+msgid "[ Sorry, Please choose right combination. ] Message"
+msgstr ""
+
+#: admin/configuration_page.php:535 admin/tabs/config.php:518
+#: admin/tabs/config_backup.php:509
+msgid "[ Sorry! Out of Stock! ] Message"
+msgstr ""
+
+#: admin/configuration_page.php:544 admin/tabs/config.php:527
+#: admin/tabs/config_backup.php:518
+msgid "[Type your Message.] Message"
+msgstr ""
+
+#: admin/configuration_page.php:552
+msgid "Submit"
+msgstr ""
+
+#: admin/fac_support_page.php:11
+msgid "Contact & Support"
+msgstr ""
+
+#: admin/fac_support_page.php:20
+msgid "CodeAstrology Portfolios"
+msgstr ""
+
+#: admin/fac_support_page.php:21
+msgid "CodeAstrology Profile"
+msgstr ""
+
+#: admin/fac_support_page.php:22 admin/menu_plugin_setting_link.php:14
+msgid "CodeAstrology Support"
+msgstr ""
+
+#: admin/fac_support_page.php:23
+msgid "CodeAstrology.com"
+msgstr ""
+
+#: admin/fac_support_page.php:26
+msgid "We are Freelancer"
+msgstr ""
+
+#: admin/fac_support_page.php:30
+msgid "More Video Tutorial"
+msgstr ""
+
+#: admin/fac_support_page.php:31
+msgid "Custom Design Of Woo Product Table Pro"
+msgstr ""
+
+#: admin/fac_support_page.php:32
+msgid "Custom Field Support In WooCommerce Product Table"
+msgstr ""
+
+#: admin/fac_support_page.php:33
+msgid "Custom Taxnomoy Support In WooCommerce Product Table Pro"
+msgstr ""
+
+#: admin/fac_support_page.php:34
+msgid "How to use Woo Product Table Pro - Basic to Advance"
+msgstr ""
+
+#: admin/menu_plugin_setting_link.php:12
+msgid "Add new Shortcode"
+msgstr ""
+
+#: admin/menu_plugin_setting_link.php:12
+msgid "Create Table"
+msgstr ""
+
+#: admin/menu_plugin_setting_link.php:13
+msgid "Configure for Universal"
+msgstr ""
+
+#: admin/menu_plugin_setting_link.php:13 admin/menu_plugin_setting_link.php:28
+msgid "Configure"
+msgstr ""
+
+#: admin/menu_plugin_setting_link.php:14
+msgid "Support"
+msgstr ""
+
+#: admin/menu_plugin_setting_link.php:28
+msgid "Configuration WPTpro"
+msgstr ""
+
+#: admin/menu_plugin_setting_link.php:29
+msgid "FAQ & Support page - Contact With US"
+msgstr ""
+
+#: admin/menu_plugin_setting_link.php:29
+#, php-format
+msgid "FAQ %s& Contact%s"
+msgstr ""
+
+#: admin/post_metabox_form.php:16
+msgid "Column"
+msgstr ""
+
+#: admin/post_metabox_form.php:17
+msgid "Basics"
+msgstr ""
+
+#: admin/post_metabox_form.php:18
+msgid "Design"
+msgstr ""
+
+#: admin/post_metabox_form.php:19
+msgid "Conditions"
+msgstr ""
+
+#: admin/post_metabox_form.php:20
+msgid "Search Box And Filter"
+msgstr ""
+
+#: admin/post_metabox_form.php:21 admin/tabs/table_style.php:352
+msgid "Pagination"
+msgstr ""
+
+#: admin/post_metabox_form.php:22
+msgid "Mobile Issue"
+msgstr ""
+
+#: admin/post_metabox_form.php:23
+msgid "Configuration"
+msgstr ""
+
+#: admin/post_metabox_form.php:45
+msgid "file is not found in tabs folder"
+msgstr ""
+
+#: admin/wpt_product_table_post.php:14
+msgctxt "Product Table"
+msgid "Product Table"
+msgstr ""
+
+#: admin/wpt_product_table_post.php:15
+msgctxt "PRODUCT TABLE"
+msgid "PRODUCT TABLE"
+msgstr ""
+
+#: admin/wpt_product_table_post.php:16 admin/wpt_product_table_post.php:43
+msgid "PRODUCT TABLE"
+msgstr ""
+
+#: admin/wpt_product_table_post.php:17 admin/wpt_product_table_post.php:21
+msgid "Product Table"
+msgstr ""
+
+#: admin/wpt_product_table_post.php:18
+msgid "Product Table Archives"
+msgstr ""
+
+#: admin/wpt_product_table_post.php:19
+msgid "Product Table Attributes"
+msgstr ""
+
+#: admin/wpt_product_table_post.php:20
+msgid "Parent Shortcode:"
+msgstr ""
+
+#: admin/wpt_product_table_post.php:22 admin/wpt_product_table_post.php:23
+msgid "Add New"
+msgstr ""
+
+#: admin/wpt_product_table_post.php:24
+msgid "New Product Table"
+msgstr ""
+
+#: admin/wpt_product_table_post.php:25
+msgid "Edit Product Table"
+msgstr ""
+
+#: admin/wpt_product_table_post.php:26
+msgid "Update Product Table"
+msgstr ""
+
+#: admin/wpt_product_table_post.php:27
+msgid "View Product Table"
+msgstr ""
+
+#: admin/wpt_product_table_post.php:28
+msgid "View Product Tables"
+msgstr ""
+
+#: admin/wpt_product_table_post.php:29
+msgid "Search Product Table"
+msgstr ""
+
+#: admin/wpt_product_table_post.php:30
+msgid "Not found"
+msgstr ""
+
+#: admin/wpt_product_table_post.php:31
+msgid "Not found in Trash"
+msgstr ""
+
+#: admin/wpt_product_table_post.php:32
+msgid "Featured Image"
+msgstr ""
+
+#: admin/wpt_product_table_post.php:33
+msgid "Set featured image"
+msgstr ""
+
+#: admin/wpt_product_table_post.php:34
+msgid "Remove featured image"
+msgstr ""
+
+#: admin/wpt_product_table_post.php:35
+msgid "Use as featured image"
+msgstr ""
+
+#: admin/wpt_product_table_post.php:36
+msgid "Insert into Product Table"
+msgstr ""
+
+#: admin/wpt_product_table_post.php:37
+msgid "Uploaded to this Product Table"
+msgstr ""
+
+#: admin/wpt_product_table_post.php:38
+msgid "Product Table list"
+msgstr ""
+
+#: admin/wpt_product_table_post.php:39
+msgid "Product Table list navigation"
+msgstr ""
+
+#: admin/wpt_product_table_post.php:40
+msgid "Filter Product Table list"
+msgstr ""
+
+#: admin/wpt_product_table_post.php:44
+msgid "Generate your shortcode for Product Table."
+msgstr ""
+
+#: admin/wpt_product_table_post.php:84
+msgid "Copy"
+msgstr ""
+
+#: includes/ajax_add_to_cart.php:349
+msgid "Short Message for Order"
+msgstr ""
+
+#: includes/ajax_add_to_cart.php:365
+msgid "Please enter Short Message"
+msgstr ""
+
+#: includes/ajax_add_to_cart.php:405 includes/ajax_add_to_cart.php:423
+msgid "Message"
+msgstr ""
+
+#: includes/no_woocommerce.php:7
+msgid "Tell us: if need Help"
+msgstr ""
+
+#: includes/no_woocommerce.php:7
+msgid "[WOO Product Table] WooCommerce not Active/Installed"
+msgstr ""
+
+#: includes/shortcode.php:1312
+msgid "Name"
+msgstr ""
+
+#: includes/shortcode.php:1313 admin/tabs/conditions.php:19
+msgid "Menu Order"
+msgstr ""
+
+#: includes/shortcode.php:1314 admin/tabs/conditions.php:29
+msgid "Type"
+msgstr ""
+
+#: includes/shortcode.php:1315
+msgid "Reviews"
+msgstr ""
+
+#: includes/shortcode.php:1324
+msgid "ASCENDING"
+msgstr ""
+
+#: includes/shortcode.php:1325 admin/tabs/conditions.php:9
+msgid "DESCENDING"
+msgstr ""
+
+#: includes/shortcode.php:1326 admin/tabs/conditions.php:10
+msgid "Random"
+msgstr ""
+
+#: admin/tabs/basics.php:22
+#, php-format
+msgid "Category Includes %s (Click to choose Categories) %s"
+msgstr ""
+
+#: admin/tabs/basics.php:34
+msgid "Product ID Include (Separate with comma)"
+msgstr ""
+
+#: admin/tabs/basics.php:39
+msgid "Product ID Exclude (Separate with comma)"
+msgstr ""
+
+#: admin/tabs/basics.php:44
+#, php-format
+msgid "Category Exclude %s (Click to choose Categories) %s"
+msgstr ""
+
+#: admin/tabs/basics.php:73
+#, php-format
+msgid "Tag Includes %s (Click to choose Tags) %s"
+msgstr ""
+
+#: admin/tabs/basics.php:84
+msgid "Ajax Action (Enable/Disable)"
+msgstr ""
+
+#: admin/tabs/basics.php:86
+msgid "Active Ajax (Default)"
+msgstr ""
+
+#: admin/tabs/basics.php:87
+msgid "Disable Ajax Action"
+msgstr ""
+
+#: admin/tabs/basics.php:93
+msgid "Mini Cart Position"
+msgstr ""
+
+#: admin/tabs/basics.php:95
+msgid "Top (Default)"
+msgstr ""
+
+#: admin/tabs/basics.php:96
+msgid "Bottom"
+msgstr ""
+
+#: admin/tabs/basics.php:104
+msgid "Set a Class name for Table"
+msgstr ""
+
+#: admin/tabs/basics.php:105
+msgid "Product Table Class Name (Optional)"
+msgstr ""
+
+#: admin/tabs/basics.php:109
+msgid "Temporary Number for Table"
+msgstr ""
+
+#: admin/tabs/basics.php:111
+msgid ""
+"This is not very important, But should different number for different "
+"shortcode of your table. Mainly to identify each table."
+msgstr ""
+
+#: admin/tabs/basics.php:116
+msgid "(Add to cart) Text"
+msgstr ""
+
+#: admin/tabs/basics.php:117
+msgid "Add to cart"
+msgstr ""
+
+#: admin/tabs/basics.php:117
+msgid "Example: Buy"
+msgstr ""
+
+#: admin/tabs/basics.php:118
+#, php-format
+msgid "Put a Space (\" \") for getting default %s Add to Cart Text %s"
+msgstr ""
+
+#: admin/tabs/basics.php:122
+msgid "(Add to cart(Selected]) Text"
+msgstr ""
+
+#: admin/tabs/basics.php:123
+msgid "Add to Cart (Selected)"
+msgstr ""
+
+#: admin/tabs/basics.php:123
+msgid "Example: Add to cart Selected"
+msgstr ""
+
+#: admin/tabs/basics.php:127
+msgid "(All Check/Uncheck) Text"
+msgstr ""
+
+#: admin/tabs/basics.php:128
+msgid "All Check/Uncheck"
+msgstr ""
+
+#: admin/tabs/basics.php:128
+msgid "Example: All Check/Uncheck"
+msgstr ""
+
+#: admin/tabs/basics.php:132
+msgid "AuthorID/UserID/VendorID (Optional)"
+msgstr ""
+
+#: admin/tabs/basics.php:134 admin/tabs/basics.php:139
+msgid ""
+"Only AuthorID or AuthorName field for both [AuthorID/UserID/VendorID] or "
+"[author_name/username/VendorUserName]. Don't use both."
+msgstr ""
+
+#: admin/tabs/basics.php:137
+msgid "author_name/username/VendorUserName (Optional)"
+msgstr ""
+
+#: admin/tabs/column_settings.php:32 admin/tabs/column_settings.php:37
+#: admin/tabs/mobile.php:65
+msgid "Move Handle"
+msgstr ""
+
+#: admin/tabs/column_settings.php:38 admin/tabs/mobile.php:66
+msgid "Active Inactive Column"
+msgstr ""
+
+#: admin/tabs/column_settings.php:49
+#, php-format
+msgid ""
+"To add %sTaxonomy%s or %sCustom_Field%s as Table Column for your Table, try "
+"from following bottom section before [Publish/Update] your post."
+msgstr ""
+
+#: admin/tabs/column_settings.php:52
+msgid "Choose Type"
+msgstr ""
+
+#: admin/tabs/column_settings.php:54
+msgid "Custom Field"
+msgstr ""
+
+#: admin/tabs/column_settings.php:55
+msgid "Custom Taxonomy"
+msgstr ""
+
+#: admin/tabs/column_settings.php:59
+msgid "Keyword (only keyword of you Taxonomy or CustomField"
+msgstr ""
+
+#: admin/tabs/column_settings.php:60
+msgid "eg: Color"
+msgstr ""
+
+#: admin/tabs/column_settings.php:64
+msgid "Table Column Title/Name"
+msgstr ""
+
+#: admin/tabs/column_settings.php:65
+msgid "eg: Product Color"
+msgstr ""
+
+#: admin/tabs/column_settings.php:69
+msgid "Add as Column)"
+msgstr ""
+
+#: admin/tabs/column_settings.php:74
+#, php-format
+msgid ""
+"For custom field, you can use %sAdvanced Custom Fields%s plugin AND for "
+"Taxonomy, you can use %sCustom Post Types and Custom Fields creator – WCK%s "
+"plugin.%sBesides there are lot of plugin available at %s, Just search on "
+"WordPress archives."
+msgstr ""
+
+#: admin/tabs/column_settings.php:88
+msgid "Hide Table Head"
+msgstr ""
+
+#: admin/tabs/conditions.php:5
+msgid "Sorting/Order"
+msgstr ""
+
+#: admin/tabs/conditions.php:8
+msgid "ASCENDING (Default)"
+msgstr ""
+
+#: admin/tabs/conditions.php:18
+msgid "Name (Default)"
+msgstr ""
+
+#: admin/tabs/conditions.php:21
+msgid "Custom Meta Value"
+msgstr ""
+
+#: admin/tabs/conditions.php:22
+msgid "Custom Meta Number (if numeric data)"
+msgstr ""
+
+#: admin/tabs/conditions.php:26
+msgid "Author"
+msgstr ""
+
+#: admin/tabs/conditions.php:31
+msgid "Modified"
+msgstr ""
+
+#: admin/tabs/conditions.php:32
+msgid "Parent"
+msgstr ""
+
+#: admin/tabs/conditions.php:33
+msgid "Rand"
+msgstr ""
+
+#: admin/tabs/conditions.php:34
+msgid "Reviews/Comment Count"
+msgstr ""
+
+#: admin/tabs/conditions.php:35
+msgid "Relevance"
+msgstr ""
+
+#: admin/tabs/conditions.php:41
+#, php-format
+msgid "Meta Value for [Custom Meta Value] of %s Custom Meta Value %s"
+msgstr ""
+
+#: admin/tabs/conditions.php:43
+msgid ""
+"Type your Right meta value here. EG: \"_sku,_price,_customNumber\" - use any "
+"one only, there should now and space"
+msgstr ""
+
+#: admin/tabs/conditions.php:49
+msgid "Set Minimum Price"
+msgstr ""
+
+#: admin/tabs/conditions.php:53
+msgid "Set Maximum Price"
+msgstr ""
+
+#: admin/tabs/conditions.php:57
+msgid "Description Type"
+msgstr ""
+
+#: admin/tabs/conditions.php:59
+msgid "Short Description"
+msgstr ""
+
+#: admin/tabs/conditions.php:60
+msgid "Long Description"
+msgstr ""
+
+#: admin/tabs/conditions.php:62
+#, php-format
+msgid ""
+"Here was %sdescription_lenght%s, But from 3.6, We have removed "
+"%sdescription_lenght%s"
+msgstr ""
+
+#: admin/tabs/conditions.php:66
+msgid "Only Stock Product"
+msgstr ""
+
+#: admin/tabs/conditions.php:68
+msgid "All Product"
+msgstr ""
+
+#: admin/tabs/conditions.php:69
+msgid "Yes (Only Stock)"
+msgstr ""
+
+#: admin/tabs/conditions.php:75
+msgid "Post Limit/Per Load Limit"
+msgstr ""
+
+#: admin/tabs/conditions.php:76
+msgid "Eg: 50 (for display 20 products"
+msgstr ""
+
+#: admin/tabs/config.php:551
+msgid ""
+"Remember: 'Get from Config' will not store other tab's change. So First "
+"Update, If you changed others tab. such: Column,Basics etc, Then change Here."
+msgstr ""
+
+#: admin/tabs/config.php:552
+msgid "Get from Config"
+msgstr ""
+
+#: admin/tabs/config.php:554
+msgid "Now you can save/update."
+msgstr ""
+
+#: admin/tabs/mobile.php:5
+msgid "Mobile Responsive"
+msgstr ""
+
+#: admin/tabs/mobile.php:7
+msgid "Default (Yes Responsive)"
+msgstr ""
+
+#: admin/tabs/mobile.php:8
+msgid "No Responsive"
+msgstr ""
+
+#: admin/tabs/mobile.php:49
+msgid "Hide On Mobile"
+msgstr ""
+
+#: admin/tabs/mobile.php:50
+msgid ""
+"Pleach check you column to hide from Mobile. For all type Table(Responsive "
+"or Non-Responsive)."
+msgstr ""
+
+#: admin/tabs/pagination.php:5
+msgid "Pagination on/of"
+msgstr ""
+
+#: admin/tabs/pagination.php:8
+msgid "Enable (Default)"
+msgstr ""
+
+#: admin/tabs/pagination.php:12
+msgid "To change style, go to Design tab"
+msgstr ""
+
+#: admin/tabs/search_n_filter.php:5
+msgid "Advance Search Box"
+msgstr ""
+
+#: admin/tabs/search_n_filter.php:7
+msgid "No Search Box"
+msgstr ""
+
+#: admin/tabs/search_n_filter.php:8
+msgid "Show Search Box"
+msgstr ""
+
+#: admin/tabs/search_n_filter.php:12
+msgid "Taxonomy Keywords for Advance Search Box (Separate with comma[,])"
+msgstr ""
+
+#: admin/tabs/search_n_filter.php:13 admin/tabs/search_n_filter.php:80
+msgid "eg: product_cat,product_tag,color,size"
+msgstr ""
+
+#: admin/tabs/search_n_filter.php:14 admin/tabs/search_n_filter.php:81
+#, php-format
+msgid ""
+"There are lot of %s for creating Taxonomy. For Example: You can use %s "
+"Plugin."
+msgstr ""
+
+#: admin/tabs/search_n_filter.php:41
+#, php-format
+msgid "Choose [%s] %s (For Advanced Searchbox Filter) %s"
+msgstr ""
+
+#: admin/tabs/search_n_filter.php:56
+msgid "To get Taxonomy customization, Please save/update this shortcode."
+msgstr ""
+
+#: admin/tabs/search_n_filter.php:72
+msgid "Mini Filter"
+msgstr ""
+
+#: admin/tabs/search_n_filter.php:74
+msgid "No Filter"
+msgstr ""
+
+#: admin/tabs/search_n_filter.php:75
+msgid "Filter Show"
+msgstr ""
+
+#: admin/tabs/search_n_filter.php:79
+msgid "Taxonomy Keywords for Filter (Separate with comma[,])"
+msgstr ""
+
+#: admin/tabs/table_style.php:80
+msgid "Select Template"
+msgstr ""
+
+#: admin/tabs/table_style.php:97
+msgid "Table Header"
+msgstr ""
+
+#: admin/tabs/table_style.php:102
+msgid "Background-Color"
+msgstr ""
+
+#: admin/tabs/table_style.php:109
+msgid "Border-Color"
+msgstr ""
+
+#: admin/tabs/table_style.php:116
+msgid "Text-Color"
+msgstr ""
+
+#: admin/tabs/table_style.php:126
+msgid "Border Width"
+msgstr ""
+
+#: admin/tabs/table_style.php:133 admin/tabs/table_style.php:301
+#: admin/tabs/table_style.php:342
+msgid "Padding"
+msgstr ""
+
+#: admin/tabs/table_style.php:139
+msgid "Text Alignment"
+msgstr ""
+
+#: admin/tabs/table_style.php:146 admin/tabs/table_style.php:401
+#: admin/tabs/table_style.php:423 admin/tabs/table_style.php:438
+#: admin/tabs/table_style.php:458 admin/tabs/table_style.php:472
+msgid "Blank (Default)"
+msgstr ""
+
+#: admin/tabs/table_style.php:147
+msgid "Initial"
+msgstr ""
+
+#: admin/tabs/table_style.php:148 admin/tabs/table_style.php:402
+msgid "Center"
+msgstr ""
+
+#: admin/tabs/table_style.php:149 admin/tabs/table_style.php:403
+msgid "Left"
+msgstr ""
+
+#: admin/tabs/table_style.php:150 admin/tabs/table_style.php:404
+#: admin/tabs/table_style.php:441
+msgid "Right"
+msgstr ""
+
+#: admin/tabs/table_style.php:158 admin/tabs/table_style.php:225
+msgid "Sorted Column BG"
+msgstr ""
+
+#: admin/tabs/table_style.php:167
+msgid "Table Body"
+msgstr ""
+
+#: admin/tabs/table_style.php:172 admin/tabs/table_style.php:274
+#: admin/tabs/table_style.php:315
+msgid "Background Color"
+msgstr ""
+
+#: admin/tabs/table_style.php:179
+msgid "Background Hover Color"
+msgstr ""
+
+#: admin/tabs/table_style.php:186 admin/tabs/table_style.php:369
+msgid "Border Color"
+msgstr ""
+
+#: admin/tabs/table_style.php:195 admin/tabs/table_style.php:287
+#: admin/tabs/table_style.php:328 admin/tabs/table_style.php:380
+msgid "Text Color"
+msgstr ""
+
+#: admin/tabs/table_style.php:202
+msgid "Link Color"
+msgstr ""
+
+#: admin/tabs/table_style.php:210
+msgid "Link Hover Color"
+msgstr ""
+
+#: admin/tabs/table_style.php:219
+msgid "TD Padding"
+msgstr ""
+
+#: admin/tabs/table_style.php:236
+msgid "Checkbox Style"
+msgstr ""
+
+#: admin/tabs/table_style.php:241
+msgid "Checkbox Color"
+msgstr ""
+
+#: admin/tabs/table_style.php:248
+msgid "Checkbox Border Color"
+msgstr ""
+
+#: admin/tabs/table_style.php:256
+msgid "Checkbox Sign Color"
+msgstr ""
+
+#: admin/tabs/table_style.php:269
+msgid "Button Style"
+msgstr ""
+
+#: admin/tabs/table_style.php:280 admin/tabs/table_style.php:321
+msgid "Hover Background Color"
+msgstr ""
+
+#: admin/tabs/table_style.php:295 admin/tabs/table_style.php:336
+msgid "Text Hover Color"
+msgstr ""
+
+#: admin/tabs/table_style.php:310
+msgid "Add To Cart Button"
+msgstr ""
+
+#: admin/tabs/table_style.php:357
+msgid "Active Color"
+msgstr ""
+
+#: admin/tabs/table_style.php:363
+msgid "Hover Color"
+msgstr ""
+
+#: admin/tabs/table_style.php:387
+msgid "Active Text Color"
+msgstr ""
+
+#: admin/tabs/table_style.php:394
+msgid "Alignment"
+msgstr ""
+
+#: admin/tabs/table_style.php:412
+msgid "Advance Searchbox Field Control"
+msgstr ""
+
+#: admin/tabs/table_style.php:416
+msgid "Keywords Field Width"
+msgstr ""
+
+#: admin/tabs/table_style.php:424
+msgid "33.33%"
+msgstr ""
+
+#: admin/tabs/table_style.php:425
+msgid "50%"
+msgstr ""
+
+#: admin/tabs/table_style.php:426
+msgid "100%"
+msgstr ""
+
+#: admin/tabs/table_style.php:431
+msgid "Keywords Field Alignment"
+msgstr ""
+
+#: admin/tabs/table_style.php:439
+msgid "Default (Left)"
+msgstr ""
+
+#: admin/tabs/table_style.php:440
+msgid "None (Center)"
+msgstr ""
+
+#: admin/tabs/table_style.php:451
+msgid "Order By Field Display/Hide"
+msgstr ""
+
+#: admin/tabs/table_style.php:459 admin/tabs/table_style.php:473
+msgid "Show"
+msgstr ""
+
+#: admin/tabs/table_style.php:460 admin/tabs/table_style.php:474
+msgid "Hide"
+msgstr ""
+
+#: admin/tabs/table_style.php:465
+msgid "Order Field Display/Hide"
+msgstr ""
+
+#: admin/tabs/table_style.php:481
+msgid "Others"
+msgstr ""
+
+#: admin/tabs/table_style.php:486
+msgid "Footer Background Color"
+msgstr ""
+
+#: admin/tabs/table_style.php:512
+msgid ""
+"Remember: Reset will not store other tab's change. So First Update, If you "
+"changed others tab. such: Column,Basics etc"
+msgstr ""
+
+#: admin/tabs/table_style.php:513
+msgid "Reset Style to Default"
+msgstr ""
+
+#. Name of the plugin
+msgid "WOO Product Table Pro"
+msgstr ""
+
+#. Description of the plugin
+msgid ""
+"WooCommerce all products display as a table in one page by shortcode. Fully "
+"responsive and mobile friendly. Easily customizable - color,background,title,"
+"text color etc."
+msgstr ""
+
+#. URI of the plugin
+msgid "https://codecanyon.net/item/woo-product-table-pro/20676867"
+msgstr ""
+
+#. Author of the plugin
+msgid "CodeAstrology"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://codecanyon.net/user/codeastrology"
+msgstr ""

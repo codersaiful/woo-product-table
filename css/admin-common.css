@@ -1,0 +1,315 @@
+/**
+ * Common Form And input button CSS Style
+ * for All type UltraAddons Plugin
+ * Version: 1.0.1
+ * Working based on Date:
+7/9/2020 - Overflow hidden removed from ultraaddons-panel
+ */
+
+/**Heading**/
+.ultraaddons h2, 
+.ultraaddons-panel h2, 
+.ultraaddons-panel h1 {
+    color: #2a8db0;
+    font-size: 18px;
+    text-transform: uppercase;
+    padding: 0;
+    margin: 0 0 25px 0;
+}
+.ultraaddons .with-background, .ultraaddons-panel .with-background {
+    background: #ececec7a;
+    padding: 33px;
+    margin-top: -40px;
+    margin-left: -20px;
+    width: calc(100% - 11px);
+    padding-left: 20px;
+    border-bottom: 1px solid #ecececc9;
+}
+.ultraaddons .no-border-bottom, .ultraaddons-panel .no-border-bottom {
+    border-bottom: 0 none;
+}
+.ultraaddons .with-background.no-top, .ultraaddons-panel .with-background.no-top {margin-top: 0;}
+.ultraaddons .plugin-name, .ultraaddons-panel .plugin-name {font-size: 2.4em;}
+
+.ultraaddons .plugin-version, .ultraaddons-panel .plugin-version {
+    color: #007694;
+    background: #a9a9a92e;
+    display: inline-block;
+    padding: 2px 13px;
+    border-radius: 15px;
+    border: 2px solid #007694;
+    font-size: 60%;
+}
+.ultraaddons .with-background.slim-title, .ultraaddons-panel .with-background.slim-title {
+    font-size: 13px;
+    padding-top: 14px;
+    padding-bottom: 15px;
+}
+
+.ultraaddons .with-background.light-background, 
+.ultraaddons-panel .with-background.light-background{
+    background: #eaeaea26;
+    color: black;
+}
+.ultraaddons .with-background.red-background, 
+.ultraaddons-panel .with-background.red-background{
+    background: #F44336;
+    color: #ffffff;
+}
+.ultraaddons .with-background.black-background, 
+.ultraaddons-panel .with-background.black-background{
+    background: #000000;
+    color: #73d17a;
+}
+.ultraaddons .with-background.gradient-background, 
+.ultraaddons-panel .with-background.gradient-background{
+    background: linear-gradient(65deg, #007693 0%, rgb(0, 118, 147) 50%, #29000e 100%);
+    color: #ffffff;
+    border-bottom: 1px solid #260514;
+}
+
+/*For Input Box and Select Tag*/
+.ultraaddons .ua_input,
+.ultraaddons .ua_select,
+.ultraaddons-wrapper .ua_input,
+.ultraaddons-wrapper .ua_select
+
+{
+	width: 100%;
+	max-width: 400px;
+	border: 1px solid #d8d8d8;
+	border-radius: 8px;
+	padding: 4px 10px;
+	height: 38px;
+	min-width: 90px;
+	box-shadow: none;
+	color: #000000;
+}
+
+.ultraaddons .ua_input:focus,
+.ultraaddons .ua_select:focus,
+.ultraaddons-wrapper .ua_input:focus,
+.ultraaddons-wrapper .ua_select:focus
+{
+    border: 1px solid #a7d9ec;
+    box-shadow: none;
+}
+
+
+
+/**********UltraAddons Panel and Wrapper*************/
+.ultraaddons-wrapper{
+    width: 100%;
+    float: initial;
+}
+.ultraaddons-panel{
+    border: 1px solid #d8d8d8;
+    background-color: #fff;
+    clear: both;
+    width: calc(100% - 60px);
+    position: relative;
+    margin-bottom: 38px;
+    padding:40px 20px;
+}
+
+.ultraaddons-panel.no-background{
+    border: 0 none;
+    background-color: transparent;
+    padding-top: 0;
+}
+
+/********Panel Table Default*******/
+.ultraaddons-panel table, .ultraaddons-table, .ultraaddons table {
+    width: 100%;
+}
+.ultraaddons-panel table tr th{
+    min-width: 200px;
+    max-height: 600px;
+    width: 275px;
+    padding-right: 10px;
+    word-break: break-word;
+    text-align: left;
+    font-weight: 500;
+    color: #004354;
+    }
+.ultraaddons-panel table tr th label{font-weight: 400;text-shadow: -1px 0 0px #0572a982;}
+.ultraaddons-panel table tr th,
+.ultraaddons-panel table tr td{
+    padding: 16px 0 28px 0;
+    vertical-align: text-bottom;
+}
+
+
+
+
+/******** Submit Reset Button**********/
+.wp-core-ui .ultraaddons-button-wrapper .button-primary,
+.wp-core-ui .ultraaddons-button-wrapper .button-default,
+.wp-core-ui .ultraaddons .button-primary,
+.wp-core-ui .ultraaddons .button-default{
+    border-radius: 3px;
+    text-transform: uppercase;
+    box-shadow: none;
+    border: 0;
+    font-weight: 700;
+    font-size: 11px;
+    padding: 0px 14px;
+    outline: none;
+    height: auto;
+    transition: all ease 0.3s;
+    background-color: #d6d6d6;
+    color: #656565;
+    text-shadow: none;
+    vertical-align: middle;
+    line-height: 26px;
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+    margin-right: 10px;
+    text-transform: uppercase;
+}
+.wp-core-ui .ultraaddons-button-wrapper .button-primary:hover,
+.wp-core-ui .ultraaddons-button-wrapper .button-default:hover,
+.wp-core-ui .ultraaddons .button-primary:hover,
+.wp-core-ui .ultraaddons .button-default:hover{
+    background-color: #cacaca;
+    color: #515151;
+}
+
+.wp-core-ui .ultraaddons-button-wrapper .button-primary,
+.wp-core-ui .ultraaddons-button-primary
+{
+    background-color: #007694;
+    color: #fff;
+    
+}
+
+.wp-core-ui .ultraaddons-button-wrapper .button-primary:hover,
+.wp-core-ui .ultraaddons-button-primary:hover{
+    background-color: #375f6b;
+    color: #fff;
+    cursor: pointer;
+}
+
+
+/******Color Picket********/
+
+.ultraaddons .wp-picker-container .wp-color-result.button {
+    border-color: #eaeaea;
+}
+.ultraaddons .wp-color-result-text {
+    background: #ffffff;
+    color: gray;
+}
+.wp-core-ui .ultraaddons .wp-picker-container .button.button-small,
+.wp-core-ui .ultraaddons-panel .wp-picker-container .button.button-small,
+.wp-core-ui .ultraaddons .wp-picker-container .button.button-small
+{
+    min-height: 30px;
+    margin: 0 5px;
+    background-color: #cacaca;
+    border-color: #cacaca;
+    color: #515151;
+    font-weight: bold;
+    padding: 0 25px;
+}
+
+.wp-core-ui .ultraaddons .wp-picker-container .button.button-small:focus {
+    box-shadow: 0 0 0 1px #868686;
+    outline: 0 solid transparent;
+    outline-offset: 0;
+}
+
+
+
+
+
+/*******For Radio Button And Checkbox***********/
+.ultraaddons .switch {
+  position: relative;
+  display: inline-block;
+  width: 68px;
+  height: 27px;
+}
+
+.ultraaddons .switch input {display:none;}
+
+.ultraaddons .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #eaeaea;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border: 1px solid #bdbdbd;
+}
+
+.ultraaddons .slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 5px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.ultraaddons input:checked + .slider {
+  background-color: #2ab934a6;
+  border: 1px solid #2ab934;
+}
+
+.ultraaddons input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+.ultraaddons input:checked + .slider:before {
+  -webkit-transform: translateX(39px);
+  -ms-transform: translateX(39px);
+  transform: translateX(39px);
+}
+
+/*------ ADDED CSS ---------*/
+.ultraaddons .on
+{
+  display: none;
+}
+
+.ultraaddons .on, .ultraaddons .off
+{
+  color: white;
+  position: absolute;
+  transform: translate(-50%,-50%);
+  top: 50%;
+  left: 50%;
+  font-size: 10px;
+  font-family: Verdana, sans-serif;
+}
+.ultraaddons .off {
+    color: #403434;
+    font-weight: bold;
+    left: 60%;
+}
+.ultraaddons .on {
+    
+}
+
+.ultraaddons input:checked+ .slider .on{display: block;}
+
+.ultraaddons input:checked + .slider .off{display: none;}
+
+/*--------- END --------*/
+
+/* Rounded sliders */
+.ultraaddons .slider.round {
+  border-radius: 39px;
+}
+
+.ultraaddons .slider.round:before {
+  border-radius: 50%;
+}

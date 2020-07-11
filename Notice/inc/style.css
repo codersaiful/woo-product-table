@@ -1,0 +1,17 @@
+.notice_box,.nttc_button_wrapper{margin:20px auto;}
+.nttc_button_wrapper a.nttc_button{
+    background: #007cba;
+    border-color: #007cba;
+    color: #fff;
+    text-decoration: none;
+    text-shadow: none;
+        margin: 15px 13px 3px 0;
+    padding: 12px 36px;
+    height: auto;
+    line-height: 1.4285714;
+    white-space: normal;
+    font-size: 19px;
+    min-height: 46px;
+    text-decoration: none;
+    text-shadow: none;
+}

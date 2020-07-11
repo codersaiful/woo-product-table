@@ -1,0 +1,217 @@
+== Changelog ==
+5.6
+sku issue solved and flatsome theme issue fixed
+
+5.2
+Auto Responisve for Mobile, Tab, Desktop
+Faster speed
+Load More issue fix on new version
+taxonomy, Custom field issue fixed
+Minicart Load Alert Remove
+column remove from tab option added
+Drescription column removed and added in Product Title column
+Cart meta issue, Duplicate cart item issue fixed
+
+5.1
+Admin tab issue fix
+other plugin's conflict issue fixed
+javascript other cart plugin issue fixed
+
+5.0
+Translation issue fixed
+Different Configuration available for different table shortcode
+Bug Fix
+SSL issue fix for style and js file
+Individual configurations Bug Fix
+Sku,price,custom_metafiled wise ordering fix
+And so on...
+
+4.9
+Set custom Category/Taxonomy in Search box with custom Order
+Post_Include feature added. Able to set specific product in table with custom order Easily.
+
+4.8
+Yoast SEO conflict Remove
+Custom-field spelling fix
+Mini-Filter fixed, Now only show available Taxonomy
+Advance Search box option change to select tag and customizeable
+
+4.7
+Footer Cart Customization features
+
+4.6
+Awesome Footer Cart Added
+Per product cart count and will update globally
+Cart quantity will display with per [Add to cart] button - for added item
+Cart quantity will display with per product - for addedToCartSelected button
+Adding spin for loading - add to cart.
+Quote Request issue fix,
+js issue fixed,
+All text - Translateable 
+'Products not founded' message is changeable from configure
+Old shortcode's feature has totally removed
+Added and Adding remvoe from basic tab
+
+4.5
+product_cat_ids attributes supported in new shortcode.
+
+4.4
+Table Design customizer Added
+Table's all element is custimzeable
+
+
+=4.3 (01/29/2019) =
+Pagination On/Off feature added
+
+=4.2 (01/24/2019) =
+Table head Hiding Mobile's CSS issue Fix
+AddToCart's vertical middle issue fixed for Responisve version
+MiniCart's None Issue fixed
+TempNumber updated - Now anybody can use any post duplicator plugin.
+
+=4.1 (01/22/2019)=
+More Ligthweight
+Table configuration saved as Table ID
+Use Table  by Table ID
+Edit any table from Table ID
+Lessen The Shortcode Length
+Enable to Hide Table Header
+Add Custom Taxonomy By a Click easily, no need to add in shortcode
+Add Custom Field By  a Click easily, no need to add in shortcode
+No need shortcode editing
+Able to change and customize of table's style,colum,content from custom_post type
+But Fix
+Variation wise LightBox image Display
+And So many many feature Update
+
+= 4.0 (01/18/2019)=
+Bug Fix
+Attribute Display in another column
+Variations in different column issue fixed.
+Light Updated
+Full Size image display in Light Box 
+Return to default quantity after added to cart
+Uncheck automatically after added to cart
+
+= 3.9 (11/28/2018)=
+Shortcode Supporting in Custom Field.
+Default value issue fixed for Variation of product.
+Variations in different column issue fixed.
+Now able to add Attributes as Individual Column.
+Popup Notice Enable/Disable Feature added.
+
+= 3.8 (11/27/2018)=
+Cart Validation Message
+Compatible with all Min Max Plugin
+Removed default quantity from configuration page
+Code Optimized for better performance and speed.
+Load More button show/hide option
+
+= 3.7 (11/21/2018)=
+Advance search box's added default search order and order_by based on shortcode
+date and modied_date collumn added at Table
+Configure Page's design changed - So smart/so cool
+"On Back Order" available now in Table
+Mini cart update
+Advance Cart Update
+send 'add_to_cart','added_to_cart' event
+
+
+= 3.6 (10/29/2018)=
+Configuration's value Reset option fix when plugin update
+Filter Text change option  of Filter
+Reset Button Text change option of Filter
+Thumbs image size issue fix
+Mini-cart Update automatically
+Fix Responsive Issue for TD's height
+Fix Responsive Issue for TD's width
+product_description issue fixed
+
+= 3.5 (10/17/2018)=
+Bug Fix for CSS add to cart button in shop page
+Bug fix for Instant search's result all check
+Hide Load_More Button when all "unlimited product"
+Load More button's bug fix, when click Search of "Advance Search"
+
+= 3.4 (10/11/2018)=
+Table design is updated based on new Design Trend.
+Product Table Sort by SKU and also able to sort by any type Custom Meta value
+Suppose you will able to sort by Custom Field Value
+Able to sort by Custom Taxonomy
+Front-End sorting will work properly based on Price
+New Table template added named "Beautiful Blacky"
+Documentation Updated based on new feature
+New and Modern design for Documentation
+Design is Updated for Our plugin's Dashboard part
+
+= 3.3 =
+Search Box's Spelling fix.
+Search Box's all text are changeable from Configure Page.
+[Type your Message] Placeholder is changeable from configure page
+Variations issue solved for any type variations.
+Table Stock column's "In Stock" and "Out of Stock" is now change able from configure page.
+Mini Cart's "Cart","View Cart" and "Checkout" Text also change able from configure page
+Bug fix
+
+= 3.2 =
+Categories, tags unlink bug fix, when click Search Button
+Ajax Action Bug fix, when Search and Load button clicked
+Custom Icon for Add to cart button. Such: Only Icon, No icon, with left icon, with right icon
+
+= 3.1 =
+YITH Quick View supported.
+Product displaying from publish, added post_status => 'publish'
+Added Custom Message at Configure page for "There is no product based on current Query."
+Setting product_single page link for external and grouped product
+Bug Fix for URL of variations product when "no_ajax_action"
+Link remove for Categories and Tags from Configure page
+[Quick Buy] Feature Added for Each Product. See in configure page "Enable Quick Buy Button" and set it as Yes to Activate.
+Image/Thumbs lighBox Enable Disable Features Added
+Mobile Responsive issue fix of "smart thin" table Template
+Instance Search Issue Fixed. Now "Instance Search" is case insensitive.
+Search Box's item sorting. Able to control from Configure page.
+
+
+= 3.0 =
+Search Button's Bug Fix
+Instance Search's Bug fix
+Live column Sorting ascending/descending
+Cart Removing Feature at Mini-Cart
+Able to change "Items/Item" text from configure
+Able to customize message from configure
+Front-end Live search also with Menu Order
+Able to remove Ajax Action
+External/Affiliate product's Issue Fix
+All Message customize able.
+New Table Template [Smart Thin] - like Excel
+Add to cart selected, Direct checkout page
+
+= UPTO VERSION: 2.9 =
+Sorting by WC Order menu
+Unlimited variations Supported
+Compatible with YITH Request Quote Pluginn (Free + Premium)
+Compatible with YITH Wishlist Plugin
+Advance Instant Search
+Advance Ajax Search and Filter
+Ajax cart, Widget cart, cart count Update
+Custom Message set at Order,
+Custom Filed for Table Column
+Custom Taxonomy for table colum,
+Search by Custom Texonomy, Category, Tag, keyword, Order
+Ajax Page load for pagination,
+Live cart option at top/bottom and auto Update
+Shortcode Generator from Dashboard Updated
+100% Mobile Friendly
+Customize Default Features
+
+= 2.8 =
+Column is Sortable by click on column name
+[Product Table] menu at top of [WooCommerce] menu
+Any size Thumbnail accepting
+
+
+
+https://codeastrology.net/woo-product-table-pro/doc/#changelog
+
+
+Working on admin/style_js_adding_admin.php file
