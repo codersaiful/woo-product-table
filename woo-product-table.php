@@ -478,13 +478,11 @@ class WPT_Product_Table{
             include_once $this->path('BASE_DIR','admin/post_metabox.php');
             include_once $this->path('BASE_DIR','admin/duplicate.php');
             include_once $this->path('BASE_DIR','admin/functions.php'); //Added at V7.0.0 @date 
-            //include_once $this->path('BASE_DIR','Notice/handle.php');
             
             include_once $this->path('BASE_DIR','admin/menu_plugin_setting_link.php');
             include_once $this->path('BASE_DIR','admin/style_js_adding_admin.php');
             include_once $this->path('BASE_DIR','admin/fac_support_page.php');
             include_once $this->path('BASE_DIR','admin/configuration_page.php');
-            include_once $this->path('BASE_DIR','admin/updater.php');
        }
        
        
