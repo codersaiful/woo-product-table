@@ -44,7 +44,8 @@ if( !function_exists( 'wpt_admin_form_top' ) ){
         }
     }
 }
-add_action( 'wpto_form_top', 'wpt_admin_form_top' );
+add_action( 'wpto_form_top', 'wpt_admin_form_top', 10);
+
 
 if( !function_exists( 'wpt_ctrl_s_text_at_top' ) ){
     /**

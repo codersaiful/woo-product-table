@@ -349,7 +349,6 @@ class WPT_Product_Table{
    
    
    public function __construct() {
-       
        /**
         * Getting All Install plugin Details Here
         * To check required plugin Availability, Version etc.
@@ -608,6 +607,7 @@ class WPT_Product_Table{
        ob_start();
        //check current value
        $current_value = get_option('wpt_configure_options');
+       $current_value = $current_value ? $current_value : get_option('wptf_configure_options');
        $default_value = self::$default;
        $default_value['plugin_name'] = self::getName();
        $default_value['plugin_version'] =  self::getVersion();

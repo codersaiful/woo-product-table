@@ -8,7 +8,7 @@ if( !function_exists( 'wpt_admin_enqueue' ) ){
      */
     function wpt_admin_enqueue(){
 
-        wp_enqueue_style( 'wpt-admin-css', WPT_Product_Table::getPath( 'BASE_URL' ) . 'assets/css/admin.css', array(), '1.0.0', 'all' );
+        wp_enqueue_style( 'wpt-admin', WPT_Product_Table::getPath( 'BASE_URL' ) . 'assets/css/admin.css', array(), '1.0.0', 'all' );
 
         /**
          * Including UltraAddons CSS form Style
@@ -54,7 +54,7 @@ if( !function_exists( 'wpt_admin_js_fast_load' ) ){
      * For first load, It's specially loaded
      */
     function wpt_admin_js_fast_load(){
-        wp_enqueue_script( 'wpt-admin-js', WPT_Product_Table::getPath( 'BASE_URL' ) . 'assets/js/admin.js', array( 'jquery' ), '1.0.0', true );
+        wp_enqueue_script( 'wpt-admin', WPT_Product_Table::getPath( 'BASE_URL' ) . 'assets/js/admin.js', array( 'jquery' ), '1.0.0', true );
     }
 }
 add_action( 'admin_enqueue_scripts', 'wpt_admin_js_fast_load', 1 );
