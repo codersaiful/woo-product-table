@@ -75,7 +75,7 @@ ul#wpt_column_sortable,
 ul#wpt_keyword_hide_mobile
 {
     background:  white;
-    padding:  4px 0;
+    /*padding:  4px 0;*/
     margin: 0;
 }
 
@@ -83,8 +83,7 @@ ul#wpt_keyword_hide_mobile
 .wpt_mobile_hide_keyword
 {
     width: 100%;
-    background: #f9f9f9;
-    padding: 6px 0 6px 45px;
+    padding: 10px;
 }
 .wpt_shortable_data
 {
@@ -94,17 +93,13 @@ ul#wpt_column_sortable li>span.handle,
 ul#wpt_keyword_hide_mobile li>span.handle
 {
     background: #c7c7c76e no-repeat center center;
-    height: 100%;
     width: 41px;
-    position: absolute;
+    position: relative;
     cursor: move;
-    top: 0;
 }
 ul#wpt_column_sortable li>span.handle.checkbox_handle,
 ul#wpt_keyword_hide_mobile li>span.handle.checkbox_handle
 {
-    top: 0;
-    right: 0;
     width: 52px !important;
     background: #ffffff none !important;
 }
@@ -168,11 +163,6 @@ div#wpt_meta_value_wrapper {
     display:  block;
 }
 
-.fieldwrap.wpt_result_footer {
-    display:  block;
-    padding: 8px;
-}
-
 .shortcode_output {
     display:  block;
     width:  100%;
@@ -200,20 +190,16 @@ div#wpt_meta_value_wrapper {
 
 /****Admin section Right Side*****/
 div.wpt_rightside div.wpt_right_side_in_wrapper {
-    padding: 10px;
-    margin-top: 30px;
     background: #e5e5e5;
     margin-left: 17px;
     border: 1px solid #4caf50;
+    margin-bottom: 17px;
 }
 div.wpt_rightside img.rate_us_image {
     max-width: 100%;
 }
 .rate_us_wrapper h1 {
     color: #989898;
-}
-.wpt_rightside {
-    padding-top: 14px;
 }
 .need_help_wrapper h1 {
     color: #4caf50;
@@ -275,10 +261,6 @@ span.configure_section_title {
     width: 300px;
     padding: 15px;
     text-align: left;
-}
-.fieldwrap.wpt_result_footer {
-    padding-top: 0px !important;
-    padding-left: 0px;
 }
 .wpt_all_messages tr td input {
     width: 325px;
@@ -533,9 +515,6 @@ span.purchase_code_active {
     top: 10px;
     z-index: 0;
 }
-#wpt_configuration_form .fieldwrap {
-    margin-top: 3px;
-}
 .column_warning{
     color: #c10098ad;
     margin: 3px 0;
@@ -553,16 +532,20 @@ span.purchase_code_active {
 .wpt_column_setting_single_extra {
     margin-top: 10px;
     background: transparent;
-    width: calc(100% - 75px);
+    width: 100%;
 }
 .wpt_column_setting_single_extra>div {
     margin-top: 10px;
 }
 .wpt_column_setting_extra input[type=text],
 .wpt_column_setting_single_extra input[type=text]{width: 100%;}
+ul#wpt_column_sortable>li.wpt_sortable_peritem {
+    position: relative;
+    display: flex;
+    padding: 0;
+}
 ul#wpt_column_sortable>li.wpt_sortable_peritem.enabled {
     border-top: 2px solid #007693;
-    padding-top: 9px;
 }
 ul#wpt_column_sortable li.wpt_sortable_peritem.enabled>span.handle, ul#wpt_keyword_hide_mobile li>span.handle {
     background: #007692 no-repeat center center;
@@ -722,10 +705,10 @@ li.wpt_sortable_peritem.enabled {
 }
 .ultraaddons-panel table tr td.responsive .wpt_responsive_each_wraper {
 }
-.wpt_tab_content.tab-content table th {
+/*.wpt_tab_content.tab-content table th {
     width: 250px !important;
     min-width: 200px;
-}
+}*/
 div#wpt_configuration_form .ultraaddons-panel {
     /*
     padding-top: 10px;
@@ -770,9 +753,9 @@ ul#wpt_column_sortable>li.wpt_sortable_peritem:last-child span.wpt_column_arrow.
     width: 86px;
     height: 29px;
 }
-#wpt_configuration_form .ultraaddons-panel table tr th{
+/*#wpt_configuration_form .ultraaddons-panel table tr th{
     width: 300px !important;
-}
+}*/
 
 #wpt_configuration_form .wpt-panel {
     width: calc(100% - 43px);
@@ -912,3 +895,10 @@ h3.wpt_admin_form_links a.wpt_get_pro_form_top_link:hover {
 }
 .wpt_admin_form_links a{text-decoration: none;}
 .wpt_admin_form_links a:hover{text-decoration: underline;}
+/* Responsive Design Starts */
+@media screen and (max-width: 782px){
+    .wpt_column_setting_single_extra>div label {
+        display: block;
+        margin: 15px 0;
+    }
+}

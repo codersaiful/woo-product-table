@@ -313,3 +313,16 @@
 .ultraaddons .slider.round:before {
   border-radius: 50%;
 }
+/* Responsive Design Starts */
+@media screen and (max-width: 782px){
+    .ultraaddons .fieldwrap,
+    #wpt_configuration_form .ultraaddons-panel table tr th {
+        width: 100%;
+    }
+    .ultraaddons-panel table tr th, .ultraaddons-panel table tr td {
+        display: block;
+    }
+    .ultraaddons-panel table tr th label {
+        font-size: 2em;
+    }
+}
