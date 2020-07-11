@@ -22,8 +22,16 @@ if( !function_exists( 'wpt_admin_form_top' ) ){
      * Docs and Support Link to Our Form Top
      */
     function wpt_admin_form_top(){
+        /**
+         * @Hook Filter: wpt_admin_form_top_links
+         * To Disable Top Links of Get pro, Documentation at the top of our Forms
+         * @return Boolean True to displa link, false to hide links from the top of our Admin Post Edit form
+         */
+        $validation = apply_filters( 'wpt_admin_form_top_links', true, $post );
+        if( $validation ){
         ?>
         <h3 style="margin: 0">
+            <a style="wpt_get_pro_form_top_link" target="_blank" href="https://codecanyon.net/item/woo-product-table-pro/20676867">Get Pro</a> | 
             <a target="_blank" href="https://doc.codeastrology.com/woo-product-table-pro/#intro">Documentation</a> | 
             <a target="_blank" href="https://codeastrology.com/support/">Get Support</a> | 
             <a target="_blank" href="https://codeastrology.com/support/forums/forum/woo-product-table-pro-making-quick-order-table/">Forum</a> | 
@@ -31,6 +39,7 @@ if( !function_exists( 'wpt_admin_form_top' ) ){
 
         </h3>    
         <?php
+        }
     }
 }
 add_action( 'wpto_form_top', 'wpt_admin_form_top' );
