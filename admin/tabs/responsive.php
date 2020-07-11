@@ -4,7 +4,7 @@ $meta_responsive = get_post_meta( $post->ID, 'responsive', true );
 $column_array = $meta_column_array = get_post_meta( $post->ID, 'column_array', true );
  
 if( !$meta_column_array && empty( $meta_column_array ) ){
-    $column_array = WOO_Product_Table::$columns_array;
+    $column_array = WPT_Product_Table::$columns_array;
 }
 
 $supported_device = array(

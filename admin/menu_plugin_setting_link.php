@@ -1,6 +1,6 @@
 <?php
 
-add_filter('plugin_action_links_' . WOO_Product_Table::getPath('PLUGIN_BASE_FILE'), 'wpt_add_action_links');
+add_filter('plugin_action_links_' . WPT_Product_Table::getPath('PLUGIN_BASE_FILE'), 'wpt_add_action_links');
 
 /**
  * For showing configure or add new link on plugin page

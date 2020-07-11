@@ -19,7 +19,7 @@ function wpt_configuration_page(){
 
     if( isset( $_POST['data'] ) && isset( $_POST['reset_button'] ) ){
         //Reset 
-        $value = WOO_Product_Table::$default;
+        $value = WPT_Product_Table::$default;
         update_option( 'wpt_configure_options',  $value  );
        
     }else if( isset( $_POST['data'] ) && isset( $_POST['configure_submit'] ) ){
@@ -35,13 +35,13 @@ function wpt_configuration_page(){
         <div id="wpt_configuration_form section ultraaddons-panel" class="wpt_leftside">
             <div style="padding-top: 15px; padding-bottom: 15px; padding-left: 15px;" class="fieldwrap wpt_result_footer">
                 <div class="ultraaddons-panel">
-                    <h1 class="wp-heading-inline plugin_name plugin-name"><?php echo WOO_Product_Table::getName(); ?> <span class="plugin-version">v <?php echo WOO_Product_Table::getVersion(); ?></span></h1>
+                    <h1 class="wp-heading-inline plugin_name plugin-name"><?php echo WPT_Product_Table::getName(); ?> <span class="plugin-version">v <?php echo WPT_Product_Table::getVersion(); ?></span></h1>
                     <h1 class="plugin-settings with-background no-top slim-title"><?php esc_html_e( 'Common Configuration', 'wpt_pro' );?></h1>
                     <p><?php esc_html_e( 'Remember: Each product table has indivisual configuration, wheich is First Importance. But to This Configuration has no "First importance".', 'wpt_pro' );?></p>
                 </div>
                 <form action="" method="POST">
-                    <input name="data[plugin_version]" type="hidden" value="<?php echo WOO_Product_Table::getVersion(); ?>" style="">
-                    <input name="data[plugin_name]" type="hidden" value="<?php echo WOO_Product_Table::getName(); ?>" style="">
+                    <input name="data[plugin_version]" type="hidden" value="<?php echo WPT_Product_Table::getVersion(); ?>" style="">
+                    <input name="data[plugin_name]" type="hidden" value="<?php echo WPT_Product_Table::getName(); ?>" style="">
                     <div class="section ultraaddons-panel">
                         <h2 class="with-background dark-background"><?php esc_html_e( 'Basic Settings', 'wpt_pro' );?></h2>
                         <table class="ultraaddons-table">

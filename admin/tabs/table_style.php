@@ -74,7 +74,7 @@ if( is_array( $meta_table_style_inPost ) && !isset( $_GET['reset'] ) ){
     $wpt_table_style_reset = true;
 }
 //*********************/
-$wpt_style_file_selection_options = WOO_Product_Table::$style_form_options;
+$wpt_style_file_selection_options = WPT_Product_Table::$style_form_options;
 ?>
 <div class="section ultraaddons-panel">
     <div class="wpt_column">

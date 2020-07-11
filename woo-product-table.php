@@ -47,7 +47,7 @@ $shortCodeText = 'Product_Table';
 * @since 1.0.0
 */
 include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
-WOO_Product_Table::getInstance();
+WPT_Product_Table::getInstance();
 
 $column_array = array(
     'product_id'    => __( 'ID', 'wpt_pro' ),
@@ -82,12 +82,12 @@ $column_array = array(
     'blank'  => __( 'Blank', 'wpt_pro' ),
 );
 $column_array = apply_filters( 'wpto_column_array', $column_array );
-WOO_Product_Table::$columns_array =  $column_array;
+WPT_Product_Table::$columns_array =  $column_array;
 
 /**
  * @since 1.7
  */
-WOO_Product_Table::$colums_disable_array = array(
+WPT_Product_Table::$colums_disable_array = array(
     'product_id',
     'serial_number',
     'description',  //has been removed at V5.2
@@ -111,7 +111,7 @@ WOO_Product_Table::$colums_disable_array = array(
 );
 
 //Set Style Selection Options.
-WOO_Product_Table::$style_form_options = array(
+WPT_Product_Table::$style_form_options = array(
     'custom'       =>  __( 'Customized Design', 'wpt_pro' ),
     'default'       =>  __( 'Default Style', 'wpt_pro' ),
     'blacky'        =>  __( 'Beautifull Blacky', 'wpt_pro' ),
@@ -126,7 +126,7 @@ WOO_Product_Table::$style_form_options = array(
  * @since 1.0.0 -5
  */
 $shortCodeText = apply_filters( 'wpto_shortcode_text', $shortCodeText );
-WOO_Product_Table::$shortCode = $shortCodeText;
+WPT_Product_Table::$shortCode = $shortCodeText;
 
 /**
  * Set Default Value For Every where, 
@@ -195,15 +195,15 @@ $default = array(
     
 );
 $default = apply_filters( 'wpto_default_configure', $default );
-WOO_Product_Table::$default = $default;
+WPT_Product_Table::$default = $default;
 
 /**
  * Main Manager Class for WOO Product Table Plugin.
  * All Important file included here.
- * Set Path and Constant also set WOO_Product_Table Class
+ * Set Path and Constant also set WPT_Product_Table Class
  * Already set $_instance, So no need again call
  */
-class WOO_Product_Table{
+class WPT_Product_Table{
     
     /**
      * Static Property
@@ -318,7 +318,7 @@ class WOO_Product_Table{
    protected static $mode = 1;
    
     /**
-    * Get the instane of WOO_Product_Table
+    * Get the instane of WPT_Product_Table
     *
     * @return self
     */
@@ -750,5 +750,5 @@ class WOO_Product_Table{
 /**
 * Plugin Install and Uninstall
 */
-register_activation_hook(__FILE__, array( 'WOO_Product_Table','install' ) );
-register_deactivation_hook( __FILE__, array( 'WOO_Product_Table','uninstall' ) );
+register_activation_hook(__FILE__, array( 'WPT_Product_Table','install' ) );
+register_deactivation_hook( __FILE__, array( 'WPT_Product_Table','uninstall' ) );

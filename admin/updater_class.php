@@ -19,7 +19,7 @@ class WOO_WPT_Plugin_updater{
 
 
     public function __construct($purchase_Code = false,$item_code = false) {
-        //$this->item_code = WOO_Product_Table::$item_id;
+        //$this->item_code = WPT_Product_Table::$item_id;
         $this->purchase_Code = $purchase_Code && !empty( $purchase_Code ) ? $purchase_Code : $this->purchase_Code;
         $this->item_code = $item_code && !empty( $item_code ) ? $item_code : $this->item_code;
         $this->final_json_url = $this->json_root_url . 'item_id=' . $this->item_code . '&license_key=' . $this->purchase_Code;

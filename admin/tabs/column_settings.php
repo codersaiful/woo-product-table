@@ -1,17 +1,17 @@
 <?php
-$colums_disable_array = WOO_Product_Table::$colums_disable_array; //For first time only
+$colums_disable_array = WPT_Product_Table::$colums_disable_array; //For first time only
 
 $for_add =  $meta_column_array = $columns_array = $updated_columns_array = get_post_meta( $post->ID, 'column_array', true );
 if( !$meta_column_array && empty( $meta_column_array ) ){
-    $for_add = $updated_columns_array = WOO_Product_Table::$columns_array;
+    $for_add = $updated_columns_array = WPT_Product_Table::$columns_array;
 }
-$columns_array = WOO_Product_Table::$columns_array;
+$columns_array = WPT_Product_Table::$columns_array;
 //unset($columns_array['description']); //Again Start Description Column From V6.0.25
 $meta_enable_column_array = get_post_meta( $post->ID, 'enabled_column_array', true );
 $column_settings = get_post_meta( $post->ID, 'column_settings', true ); 
 //var_dump($column_settings);
 
-$additional_collumn = array_diff(array_keys($for_add), array_keys( WOO_Product_Table::$columns_array ));
+$additional_collumn = array_diff(array_keys($for_add), array_keys( WPT_Product_Table::$columns_array ));
 
 
 

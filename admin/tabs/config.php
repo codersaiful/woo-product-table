@@ -22,8 +22,8 @@ if( isset( $_GET['default'] ) ){
 ?>
 
 
-    <input name="config[plugin_version]" type="hidden" value="<?php echo WOO_Product_Table::getVersion(); ?>" style="">
-    <input name="config[plugin_name]" type="hidden" value="<?php echo WOO_Product_Table::getName(); ?>" style="">
+    <input name="config[plugin_version]" type="hidden" value="<?php echo WPT_Product_Table::getVersion(); ?>" style="">
+    <input name="config[plugin_name]" type="hidden" value="<?php echo WPT_Product_Table::getName(); ?>" style="">
     <div style="padding-top: 15px;padding-bottom: 15px;" class="fieldwrap wpt_result_footer">
         <div class="section ultraaddons-panel">
             <h1 class="with-background light-background"><?php esc_html_e( 'Basic Settings', 'wpt_pro' );?></h1>

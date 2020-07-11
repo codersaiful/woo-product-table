@@ -429,12 +429,12 @@ function wpt_check_sortOrder( $got_value = false, $this_value = 'nothing' ){
  * @return Array 
  */
 function wpt_default_columns_array(){
-    $column_array = WOO_Product_Table::$columns_array;
+    $column_array = WPT_Product_Table::$columns_array;
     /**
      * To this disable array, Only available keywords of Column Keyword Array
      * 
      */
-    $disable_column_keyword = WOO_Product_Table::$colums_disable_array;
+    $disable_column_keyword = WPT_Product_Table::$colums_disable_array;
     foreach( $disable_column_keyword as $value ){
         unset( $column_array[$value] );
     }

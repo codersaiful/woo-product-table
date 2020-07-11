@@ -20,7 +20,7 @@ $meta_mobile =  get_post_meta( $post->ID, 'mobile', true );
 </div>
 
 <?php
-$colums_disable_array = array();//WOO_Product_Table::$colums_disable_array;
+$colums_disable_array = array();//WPT_Product_Table::$colums_disable_array;
 $colums_disable_array = array_map(function($value){
     $minus_from_disabledArray = array(
         'quick',
@@ -46,7 +46,7 @@ if( isset( $meta_mobile['disable'] ) && is_array( $meta_mobile['disable'] ) ){
 
 $meta_column_array = $columns_array = get_post_meta( $post->ID, 'column_array', true ); //Getting value from updated column tab
 if( !$meta_column_array && empty( $meta_column_array ) ){
-    $columns_array = WOO_Product_Table::$columns_array;
+    $columns_array = WPT_Product_Table::$columns_array;
 }
 unset( $columns_array['product_title'] );
 unset( $columns_array['price'] );

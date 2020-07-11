@@ -14,8 +14,8 @@ function wpt_selected_data(  $wpt_post_config, $keyword, $gotten_value ){
 ?>
 
 
-<input name="config[plugin_version]" type="hidden" value="<?php echo WOO_Product_Table::getVersion(); ?>" style="">
-<input name="config[plugin_name]" type="hidden" value="<?php echo WOO_Product_Table::getName(); ?>" style="">
+<input name="config[plugin_version]" type="hidden" value="<?php echo WPT_Product_Table::getVersion(); ?>" style="">
+<input name="config[plugin_name]" type="hidden" value="<?php echo WPT_Product_Table::getName(); ?>" style="">
 <div style="padding-top: 15px;padding-bottom: 15px;" class="fieldwrap wpt_result_footer">
         <span class="configure_section_title"><?php esc_html_e( 'Basic Settings', 'wpt_pro' );?></span><?php wpt_selected_data(  $wpt_post_config, 'custom_add_to_cart',  'add_cart_no_icon' );?>
         <table class="wpt_config_form">

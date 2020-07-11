@@ -1,10 +1,10 @@
 <?php
 
 include 'updater_class.php';
-$option_name = WOO_Product_Table::$options_name;
+$option_name = WPT_Product_Table::$options_name;
 $purchase_code = get_option( $option_name );
-$updtr = new WOO_WPT_Plugin_updater($purchase_code,WOO_Product_Table::$item_id);
-$updtr->current_version = WOO_Product_Table::getVersion();
+$updtr = new WOO_WPT_Plugin_updater($purchase_code,WPT_Product_Table::$item_id);
+$updtr->current_version = WPT_Product_Table::getVersion();
 $updtr->plugin_folder = 'woo-product-table-pro';
 $updtr->plugin_file = 'woo-product-table-pro';
 $updtr->setUpdateMessage('<br>Please <a style="color: #d00;" href="' . admin_url('edit.php?post_type=wpt_product_table&page=wpt-activate-purchase-code') . '">Active your license</a> by your Purchase Code.');
@@ -17,10 +17,10 @@ add_action( 'load-index.php', 'wpt_plugin_updater_loader' );
 add_action( 'load-plugin-install.php', 'wpt_plugin_updater_loader' );
 add_action( 'load-plugin-editor.php', 'wpt_plugin_updater_loader' );
 function wpt_plugin_updater_loader() {
-    $option_name = WOO_Product_Table::$options_name;
+    $option_name = WPT_Product_Table::$options_name;
     $purchase_code = get_option( $option_name );
-    $updtr = new WOO_WPT_Plugin_updater($purchase_code,WOO_Product_Table::$item_id);
-    $updtr->current_version = WOO_Product_Table::getVersion();
+    $updtr = new WOO_WPT_Plugin_updater($purchase_code,WPT_Product_Table::$item_id);
+    $updtr->current_version = WPT_Product_Table::getVersion();
     $updtr->plugin_folder = 'woo-product-table-pro';
     $updtr->plugin_file = 'woo-product-table-pro';
     $updtr->setUpdateMessage('<br>Please <a style="color: #d00;" href="' . admin_url('edit.php?post_type=wpt_product_table&page=wpt-activate-purchase-code') . '">Active your license</a> by your Purchase Code.');
@@ -36,16 +36,16 @@ function wpt_updater_admin_menu() {
 add_action( 'admin_menu', 'wpt_updater_admin_menu' );
 
 function wpt_activate_purchase_code_page(){
-    $option_name = WOO_Product_Table::$options_name;//'wpt_codecanyon_purchase_code';
+    $option_name = WPT_Product_Table::$options_name;//'wpt_codecanyon_purchase_code';
     if( isset( $_POST['purchase_code'] ) && !empty( $_POST['purchase_code'] ) ){
         $inserted_purchase_code = $_POST['purchase_code'];
         update_option( $option_name, $inserted_purchase_code );
-        $submit = new WOO_WPT_Plugin_updater( $inserted_purchase_code,WOO_Product_Table::$item_id);
+        $submit = new WOO_WPT_Plugin_updater( $inserted_purchase_code,WPT_Product_Table::$item_id);
         $submit->updateTransient();
     }
     $status = "<span class='purchase_code_inactive'>Inactive</span>";
     $purchase_code = get_option( $option_name );
-    $updtr = new WOO_WPT_Plugin_updater($purchase_code,WOO_Product_Table::$item_id);
+    $updtr = new WOO_WPT_Plugin_updater($purchase_code,WPT_Product_Table::$item_id);
     $saved_transient = get_transient($updtr->getTransientName() . '_response');
     if($saved_transient){
         $response = $saved_transient;
@@ -56,7 +56,7 @@ function wpt_activate_purchase_code_page(){
     
     $today = time();
     $supported_until = $response_item_id = $support_end_msg = false;
-    $item_id = WOO_Product_Table::$item_id;
+    $item_id = WPT_Product_Table::$item_id;
     if( isset( $response['supported_until'] ) && isset( $response['item']['id'] ) ){
         $supported_until = strtotime($response['supported_until']);
         $response_item_id = $response['item']['id'];
@@ -68,7 +68,7 @@ function wpt_activate_purchase_code_page(){
         
         $support_end_msg .= '<p class="updated notice notice-success">';
         $support_end_msg .= "You able to get Automatic update from Plugin page.";
-        $support_end_msg .= '<br><img class="rate_us_image" src="' . WOO_Product_Table::getPath( 'BASE_URL' ) . 'images/updater.png">';
+        $support_end_msg .= '<br><img class="rate_us_image" src="' . WPT_Product_Table::getPath( 'BASE_URL' ) . 'images/updater.png">';
         
         $support_end_msg .= '</p>';
     }elseif( $supported_until && $supported_until < $today && $response_item_id == $item_id ){
