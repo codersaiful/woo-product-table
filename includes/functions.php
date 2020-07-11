@@ -304,13 +304,11 @@ if( !function_exists( 'wpt_per_item_fragment' ) ) {
                         $pr_id = (String) $perItem['product_id'];
                         $pr_value = (String) $perItem['quantity'];
                         $product_response[$pr_id] = (String)  (isset( $product_response[$pr_id] ) ? $product_response[$pr_id] + $pr_value : $pr_value);
-                        //$fragments["span.wpt_ccount.wpt_ccount_$pr_id"] = "<span class='wpt_ccount wpt_ccount_$pr_id'>$pr_value</span>";
                     }
                 }
-                //$fragments["span.wpt_ccount"] = "";
+
                 if( is_array( $product_response ) && count( $product_response ) > 0 ){
                     foreach( $product_response as $key=>$value ){
-                        //var_dump($perItem);
                         $pr_id = (String) $key;
                         $pr_value = (String) $value;
                         $fragments["span.wpt_ccount.wpt_ccount_$pr_id"] = "<span class='wpt_ccount wpt_ccount_$pr_id'>$pr_value</span>";
@@ -713,8 +711,6 @@ if( !function_exists( 'wpt_custom_search_join' ) ){
         global $wpdb;
         $validation = $wp_query->get( 'wpt_query_type' );
         if(!empty( $validation ) && $validation == 'search' && ( !empty($wp_query->query_vars['s']) || !empty($wp_query->query_vars['wpt_custom_search']) ) ){
-        //if(!empty( $validation ) && $validation == 'search' && !empty($wp_query->query_vars['s']) ){
-        //if(!empty( $validation ) && $validation == 'search'){
             $join .=' LEFT JOIN '.$wpdb->postmeta. ' ON '. $wpdb->posts . '.ID = ' . $wpdb->postmeta . '.post_id ';
         }
         return $join;
@@ -733,7 +729,6 @@ if( !function_exists( 'wpt_custom_search_where' ) ){
         $validation = $wp_query->get( 'wpt_query_type' );
 
         if(!empty( $validation ) && $validation == 'search'  && ( !empty($wp_query->query_vars['s']) || !empty($wp_query->query_vars['wpt_custom_search']) ) ):
-        //if(!empty( $validation ) && $validation == 'search'):
         $search_term = $wp_query->get( 'wpt_custom_search' );
         $search_from = false;
         if( is_string( $search_term ) && !empty($search_term) ){
@@ -757,17 +752,11 @@ if( !function_exists( 'wpt_custom_search_where' ) ){
 
                 if( $table_name == 'posts' ){
                     $inter_sql[] =  $wpdb->posts . ".". $search_item . ' LIKE \'' . $percent . esc_sql( like_escape( $search_term ) ) . $percent . '\'';
-                    //$where .=  $wpdb->posts . ".". $search_item . ' LIKE \'' . $percent . esc_sql( like_escape( $search_term ) ) . $percent . '\'';
                 }elseif( $table_name == 'postmeta' ){
                     $inter_sql[] = "(" . $wpdb->postmeta.".meta_key='{$search_item}' AND " . $wpdb->postmeta . ".meta_value LIKE'" . $percent . esc_sql( like_escape( $search_term ) ) . $percent . "')";
-                    //$where .= " (" . $wpdb->postmeta.".meta_key='_sku' AND " . $wpdb->postmeta . ".meta_value='{$search_term}')";
                 }
             }
             $inter_sql_implode = implode( ' OR ', $inter_sql );
-            //$where .= ' ' . $wpdb->posts . '.post_title LIKE \'%' . esc_sql( like_escape( $search_term ) ) . '%\'';
-            //$where .= ' OR ' . $wpdb->posts . '.post_content LIKE \'%' . esc_sql( like_escape( $search_term ) ) . '%\'';
-
-            //var_dump(!empty( $inter_sql_implode ) ? ' AND (' . $inter_sql_implode . ')' : false);
             $where .= !empty( $inter_sql_implode ) ? ' AND (' . $inter_sql_implode . ')' : false;
         }else{
 
