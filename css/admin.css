@@ -873,3 +873,22 @@ span.wpt_colunm_type>i {
     color: #00a2ca;
     border-radius: 4px;
 }
+a.wpt_get_pro_form_top_link {
+    color: #ffb901;
+    border: 1px solid #007692;
+    padding: 2px 15px;
+    display: inline-block;
+    border-radius: 10px;
+    background: #007692;
+    text-decoration: none;
+    font-weight: bold;
+    transition: .3s all;
+    margin-right: 10px;
+}
+a.wpt_get_pro_form_top_link:hover {
+    color: #007692;
+    border: 1px solid #00769269;
+    padding: 2px 25px;
+    border-radius: 3px;
+    background: #f1f1f196;
+}
