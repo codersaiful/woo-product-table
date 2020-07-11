@@ -761,46 +761,4 @@ function wpt_custom_search_distinct( $where ) {
 
  }
  add_filter('init','wpt_search_filter');
- 
-function wpt_qty_button_in_table( $template, $template_name, $template_path ) {
-        global $wp_query;
-        
-
-        if ( is_product() ) {
-                return $template;
-        }
-
-        if ( is_cart() ) {
-                return $template;
-        }
-        
-        /***
-        if(!isset( $GLOBALS['wpt_product_table'] )){
-            return $template;
-        }
-         */
-
-        global $woocommerce;
-
-        $_template     = $template;
-
-        $plugin_path   = WPT_BASE_DIR . '/template/';
-        $template_path = ( ! $template_path ) ? $woocommerce->template_url : null;
-        $template      = locate_template( array( $template_path . $template_name, $template_name ) );
-        if ( ! $template && file_exists( $plugin_path . $template_name ) ) {
-                $template = $plugin_path . $template_name;
-        }
-
-        if ( ! $template ) {
-                $template = $_template;
-        }
-
-        return $template;
-}
-$config = get_option('wpt_configure_options');
-
-$qty_button = isset( $config['qty_incr_decr_btn'] ) ? $config['qty_incr_decr_btn'] : false;
-
-if($qty_button && $qty_button == 'yes'){
-    add_filter('woocommerce_locate_template', 'wpt_qty_button_in_table',11,3);
-}
+//Removed Qty Template Features from HEre
