@@ -213,5 +213,3 @@ Any size Thumbnail accepting
 
 https://codeastrology.net/woo-product-table-pro/doc/#changelog
 
-
-Working on admin/style_js_adding_admin.php file

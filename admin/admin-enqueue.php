@@ -5,7 +5,7 @@
  * @since 1.0.0
  * @update 1.0.3
  */
-function wpt_style_js_adding_admin(){
+function wpt_admin_enqueue(){
     
     wp_enqueue_style( 'wpt-admin-css', WPT_Product_Table::getPath( 'BASE_URL' ) . 'assets/css/admin.css', array(), '1.0.0', 'all' );
     
@@ -44,7 +44,7 @@ function wpt_style_js_adding_admin(){
     //WordPress Default Media Added only for addmin
     wp_enqueue_media();
 }
-add_action( 'admin_enqueue_scripts', 'wpt_style_js_adding_admin', 99 );
+add_action( 'admin_enqueue_scripts', 'wpt_admin_enqueue', 99 );
 
 /**
  * For first load, It's specially loaded

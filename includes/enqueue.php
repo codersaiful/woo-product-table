@@ -5,7 +5,7 @@
  * 
  * @since 1.0.0
  */
-function wpt_style_js_adding(){
+function wpt_enqueue(){
     //Custom CSS Style for Woo Product Table's Table (Universal-for all table) and (template-for defien-table)
     wp_enqueue_style( 'wpt-universal', WPT_Product_Table::getPath('BASE_URL') . 'assets/css/universal.css', array(), WPT_Product_Table::getVersion(), 'all' );
     wp_enqueue_style( 'wpt-template-table', WPT_Product_Table::getPath('BASE_URL') . 'assets/css/template.css', array(), WPT_Product_Table::getVersion(), 'all' );
@@ -44,4 +44,4 @@ function wpt_style_js_adding(){
     wp_localize_script( 'wpt-custom-js', 'WPT_DATA', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ),'priceFormat' => wpt_price_formatter() ) );
     //wp_localize_script($handle, $object_name, $l10n);
 }
-add_action( 'wp_enqueue_scripts', 'wpt_style_js_adding', 99 );
+add_action( 'wp_enqueue_scripts', 'wpt_enqueue', 99 );

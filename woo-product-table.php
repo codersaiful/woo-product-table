@@ -480,7 +480,7 @@ class WPT_Product_Table{
             include_once $this->path('BASE_DIR','admin/functions.php'); //Added at V7.0.0 @date 
             
             include_once $this->path('BASE_DIR','admin/menu_plugin_setting_link.php');
-            include_once $this->path('BASE_DIR','admin/style_js_adding_admin.php');
+            include_once $this->path('BASE_DIR','admin/admin-enqueue.php');
             include_once $this->path('BASE_DIR','admin/fac_support_page.php');
             include_once $this->path('BASE_DIR','admin/configuration_page.php');
        }
@@ -489,7 +489,7 @@ class WPT_Product_Table{
     if( !class_exists( 'Mobile_Detect' ) ){
         include_once $this->path('BASE_DIR','modules/Mobile_Detect.php'); //MObile or Table Defice Detector
     }
-    include_once $this->path('BASE_DIR','includes/style_js_adding.php');
+    include_once $this->path('BASE_DIR','includes/enqueue.php');
     include_once $this->path('BASE_DIR','includes/functions.php');
     include_once $this->path('BASE_DIR','includes/ajax_add_to_cart.php'); 
     include_once $this->path('BASE_DIR','includes/shortcode.php');
