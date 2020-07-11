@@ -66,46 +66,53 @@ add_action( 'init', 'wpt_product_table_post', 0 );
 
 }
 
-
-//Showing shortcode in All Shortcode page
-function wpt_shortcode_column_head($default){
-    if ( 'wpt_product_table' == get_post_type() ){
-    $default['wpt_shortcode'] = "Shortcode";
+if( !function_exists( 'wpt_shortcode_column_head' ) ){
+    //Showing shortcode in All Shortcode page
+    function wpt_shortcode_column_head($default){
+        if ( 'wpt_product_table' == get_post_type() ){
+        $default['wpt_shortcode'] = "Shortcode";
+        }
+        return $default;
     }
-    return $default;
 }
 add_filter('manage_posts_columns', 'wpt_shortcode_column_head');
 
-function wpt_shortcode_column_content($column_name, $post_id){
-    if ($column_name == 'wpt_shortcode') {
-        $post_title = get_the_title( $post_id );
-        $post_title = preg_replace( '/[#$%^&*()+=\-\[\]\';,.\/{}|":<>?~\\\\]/',"$1", $post_title );
-        echo "<input style='display: inline-block;width:300px;' class='wpt_auto_select_n_copy' type='text' value=\"[Product_Table id='{$post_id}' name='{$post_title}']\" id='wpt_shotcode_content_{$post_id}' readonly>";
-        echo '<a style="font-size: 12px !important;padding: 4px 13px !important" class="button button-primary wpt_copy_button_metabox" data-target_id="wpt_shotcode_content_' . $post_id . '">'. esc_html__( 'Copy','wpt_pro' ).'</a>';
-        echo '<p style="color: green;font-weight:bold;display:none; padding-left: 12px;" class="wpt_shotcode_content_' . $post_id . '"></p>';
-    }  
+if( !function_exists( 'wpt_shortcode_column_content' ) ){
+    function wpt_shortcode_column_content($column_name, $post_id){
+        if ($column_name == 'wpt_shortcode') {
+            $post_title = get_the_title( $post_id );
+            $post_title = preg_replace( '/[#$%^&*()+=\-\[\]\';,.\/{}|":<>?~\\\\]/',"$1", $post_title );
+            echo "<input style='display: inline-block;width:300px;' class='wpt_auto_select_n_copy' type='text' value=\"[Product_Table id='{$post_id}' name='{$post_title}']\" id='wpt_shotcode_content_{$post_id}' readonly>";
+            echo '<a style="font-size: 12px !important;padding: 4px 13px !important" class="button button-primary wpt_copy_button_metabox" data-target_id="wpt_shotcode_content_' . $post_id . '">'. esc_html__( 'Copy','wpt_pro' ).'</a>';
+            echo '<p style="color: green;font-weight:bold;display:none; padding-left: 12px;" class="wpt_shotcode_content_' . $post_id . '"></p>';
+        }  
+    }
 }
 add_action('manage_posts_custom_column', 'wpt_shortcode_column_content', 2, 2);
 
 
 //Permalink Hiding Option
 add_filter( 'get_sample_permalink_html', 'wpt_permalink_hiding' );
-function wpt_permalink_hiding( $return ) {
-    if ( 'wpt_product_table' == get_post_type() ){
-        $return = '';
+if( !function_exists( 'wpt_permalink_hiding' ) ){
+    function wpt_permalink_hiding( $return ) {
+        if ( 'wpt_product_table' == get_post_type() ){
+            $return = '';
+        }
+        return $return;
     }
-    return $return;
 }
 
 
 //Hiding Preview Button from all shortcode page
 add_filter( 'page_row_actions', 'wpt_preview_button_hiding', 10, 2 );
 add_filter( 'post_row_actions', 'wpt_preview_button_hiding', 10, 2 );
-function wpt_preview_button_hiding( $actions, $post ) {
+if( !function_exists( 'wpt_preview_button_hiding' ) ){
+    function wpt_preview_button_hiding( $actions, $post ) {
 
-    if ( 'wpt_product_table' == get_post_type() ){
-        unset( $actions['inline hide-if-no-js'] );
-        unset( $actions['view'] );
+        if ( 'wpt_product_table' == get_post_type() ){
+            unset( $actions['inline hide-if-no-js'] );
+            unset( $actions['view'] );
+        }
+        return $actions;
     }
-    return $actions;
 }

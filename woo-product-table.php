@@ -25,14 +25,32 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Defining constant
  */
-define( 'WPT_PLUGIN_BASE_FOLDER', plugin_basename( dirname( __FILE__ ) ) );
-define( 'WPT_PLUGIN_BASE_FILE', plugin_basename( __FILE__ ) );
-define( "WPT_BASE_URL", plugins_url() . '/'. plugin_basename( dirname( __FILE__ ) ) . '/' );
-define( "WPT_DIR_BASE", dirname( __FILE__ ) . '/' );
-define( "WPT_BASE_DIR", str_replace( '\\', '/', WPT_DIR_BASE ) );
+if( !defined( 'WPT_PLUGIN_BASE_FOLDER' ) ){
+    define( 'WPT_PLUGIN_BASE_FOLDER', plugin_basename( dirname( __FILE__ ) ) );
+}
 
-define( "WPT_PLUGIN_FOLDER_NAME",plugin_basename( dirname( __FILE__ ) ) ); //aDDED TO NEW VERSION
-define( "WPT_PLUGIN_FILE_NAME", __FILE__ ); //aDDED TO NEW VERSION
+if( !defined( 'WPT_PLUGIN_BASE_FILE' ) ){
+    define( 'WPT_PLUGIN_BASE_FILE', plugin_basename( __FILE__ ) );
+}
+
+if( !defined( 'WPT_BASE_URL' ) ){
+    define( "WPT_BASE_URL", plugins_url() . '/'. plugin_basename( dirname( __FILE__ ) ) . '/' );
+}
+
+if( !defined( 'WPT_DIR_BASE' ) ){
+    define( "WPT_DIR_BASE", dirname( __FILE__ ) . '/' );
+}
+if( !defined( 'WPT_BASE_DIR' ) ){
+    define( "WPT_BASE_DIR", str_replace( '\\', '/', WPT_DIR_BASE ) );
+}
+
+if( !defined( 'WPT_PLUGIN_FOLDER_NAME' ) ){
+    define( "WPT_PLUGIN_FOLDER_NAME",plugin_basename( dirname( __FILE__ ) ) ); //aDDED TO NEW VERSION
+}
+
+if( !defined( 'WPT_PLUGIN_FILE_NAME' ) ){
+    define( "WPT_PLUGIN_FILE_NAME", __FILE__ ); //aDDED TO NEW VERSION
+}
 
 /**
  * Default Configuration for WOO Product Table Pro

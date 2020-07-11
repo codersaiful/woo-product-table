@@ -268,28 +268,29 @@ if( !function_exists( 'wpt_add_extra_inside_items' ) ){
 
 add_filter( 'wpto_inside_item_arr', 'wpt_add_extra_inside_items' ); //$items,$keyword, $column_settings, $columns_array, $post
 
-/**
- * getting Config value. If get config value from post, then it will receive from post, Otherwise, will take data from Configuration value.
- * 
- * @param type $table_ID Mainly post ID of wpt_product_table. That means: its post id of product table
- * @return type Array
- */
-function wpt_get_config_value( $table_ID ){
-    $config_value = $temp_config_value = get_option( 'wpt_configure_options' );
-    $config = get_post_meta( $table_ID, 'config', true );
-    if( !empty( $config ) && is_array( $config ) ){
-        $config_value = $config;
+if( !function_exists( 'wpt_get_config_value' ) ){
+    /**
+     * getting Config value. If get config value from post, then it will receive from post, Otherwise, will take data from Configuration value.
+     * 
+     * @param type $table_ID Mainly post ID of wpt_product_table. That means: its post id of product table
+     * @return type Array
+     */
+    function wpt_get_config_value( $table_ID ){
+        $config_value = $temp_config_value = get_option( 'wpt_configure_options' );
+        $config = get_post_meta( $table_ID, 'config', true );
+        if( !empty( $config ) && is_array( $config ) ){
+            $config_value = $config;
+        }
+        $config_value['footer_cart'] = $temp_config_value['footer_cart'];
+        $config_value['footer_cart_size'] = $temp_config_value['footer_cart_size'];
+        $config_value['footer_possition'] = $temp_config_value['footer_possition'];
+        $config_value['footer_bg_color'] = $temp_config_value['footer_bg_color'];
+        $config_value['thumbs_lightbox'] = $temp_config_value['thumbs_lightbox'];
+        $config_value['disable_cat_tag_link'] = $temp_config_value['disable_cat_tag_link'];
+        return $config_value;
     }
-    $config_value['footer_cart'] = $temp_config_value['footer_cart'];
-    $config_value['footer_cart_size'] = $temp_config_value['footer_cart_size'];
-    $config_value['footer_possition'] = $temp_config_value['footer_possition'];
-    $config_value['footer_bg_color'] = $temp_config_value['footer_bg_color'];
-    $config_value['thumbs_lightbox'] = $temp_config_value['thumbs_lightbox'];
-    $config_value['disable_cat_tag_link'] = $temp_config_value['disable_cat_tag_link'];
-    return $config_value;
 }
 // Hook into Woocommerce when adding a product to the cart
-
 add_filter( 'woocommerce_add_to_cart_fragments', 'wpt_per_item_fragment', 999 , 1 );
 
 if( !function_exists( 'wpt_per_item_fragment' ) ) {
