@@ -345,65 +345,7 @@ class WPT_Product_Table{
             return;
         }
         
-        $plugin     = 'woo-product-table/woo-product-table.php';
-        $link_text  = '<strong><a href="' . esc_url( 'https://wordpress.org/plugins/woo-product-table/' ) . '" target="_blank">' . esc_html__( 'Woo Product Table – Free WooCommerce Table view solution', 'wpt_pro' ) . '</a></strong>';
-        //Check Installation of WOO Product Table Free Version
-        if( !isset( $installed_plugins[$plugin] ) ) {
-            $message = sprintf(
-                   esc_html__( '"%1$s" requires "%2$s" to be Installed and Activated.', 'wpt_pro' ),
-                   '<strong>' . esc_html__( 'Woo Product Table Pro', 'wpt_pro' ) . '</strong>',
-                   $link_text
-            );
-            self::$own['message']       = $message;//'You to activate your Plugin';
-            add_action( 'admin_notices', [ $this, 'admin_notice' ] );
-            return;
-        }
-        
-        //Check Activation of Woo Product Table Free Version
-        //var_dump($installed_plugins[$plugin]);
-        if( isset( $installed_plugins[$plugin] ) && !is_plugin_active( $plugin ) ) {
-            self::$own['perpose']       = 'activation';
-            self::$own['plugin']        = $plugin;
-            self::$own['btn_text']      = 'Activate Now';
-            self::$own['type']          = 'error';
-            $message = sprintf(
-                   /* translators: 1: Plugin name 2: WooPrdouct Table */
-                   esc_html__( '"%1$s" requires "%2$s" to be activated.', 'wpt_pro' ),
-                   '<strong>' . esc_html__( 'Woo Product Table Pro', 'wpt_pro' ) . '</strong>',
-                   '<strong><a href="' . esc_url( 'https://wordpress.org/plugins/woo-product-table/' ) . '" target="_blank">' . esc_html__( 'Woo Product Table – Free WooCommerce Table view solution', 'wpt_pro' ) . '</a></strong>'
-           );
-
-            
-            
-            self::$own['message']       = $message;//'You to activate your Plugin';
-            add_action( 'admin_notices', [ $this, 'admin_notice' ] );
-            return;
-        }
-        
-        /**
-         * Need to check Installed Version of WPT Plugin (Free Version)
-         * @since 6.1.0.12
-         */
-        $WPT_Version = isset( $installed_plugins[$plugin]['Version'] ) ? $installed_plugins[$plugin]['Version'] : '';
-        // Check for required PHP version
-        if ( version_compare( $WPT_Version, self::MINIMUM_WPT_VERSION, '<' ) ) {
-            self::$own['perpose']       = 'upgrade';
-            self::$own['plugin']        = $plugin;
-            self::$own['btn_text']      = __( 'Upgrade Now', 'wpt' );
-            self::$own['type']          = 'error';
-            $message = sprintf(
-                   /* translators: 1: Plugin name 2: WooPrdouct Table */
-                   esc_html__( '"%1$s" requires "%2$s" to be upgraded to latest version.', 'wpt_pro' ),
-                   '<strong>' . esc_html__( 'Woo Product Table Pro', 'wpt_pro' ) . '</strong>',
-                   '<strong><a href="' . esc_url( 'https://wordpress.org/plugins/woo-product-table/' ) . '" target="_blank">' . esc_html__( 'Woo Product Table – Free WooCommerce Table view solution', 'wpt_pro' ) . '</a></strong>'
-           );
-
-            
-            self::$own['message']       = $message;//'You to Upgrade your Plugin';
-            add_action( 'admin_notices', [ $this, 'admin_notice' ] );
-            return;
-        }
-        
+        //Qty Plus/Minus Button Plugin Compulsory for Our Product Table Plugin
         $plugin = 'wc-quantity-plus-minus-button/init.php';
         $link_text = '<strong><a href="' . esc_url( 'https://wordpress.org/plugins/wc-quantity-plus-minus-button/' ) . '" target="_blank">' . esc_html__( 'Quantity Plus/Minus Button for WooCommerce', 'wpt_pro' ) . '</a></strong>';
         //Check Installation of Quantity Plus Minus Button Plugin
@@ -493,9 +435,6 @@ class WPT_Product_Table{
     include_once $this->path('BASE_DIR','includes/functions.php');
     include_once $this->path('BASE_DIR','includes/ajax_add_to_cart.php'); 
     include_once $this->path('BASE_DIR','includes/shortcode.php');
-     
-    //For New Version Of Table
-    include_once $this->path('BASE_DIR','table/table.php');
        
    }
    
@@ -602,24 +541,6 @@ class WPT_Product_Table{
     */
    public static function detectDevice( $userAgent = null ) {
        return new Mobile_Detect( null, $userAgent );
-   }
-   
-   /**
-    * Getting Device Info Here
-    * 
-    * @return string Getting Device Name, Such: Mobile, Table or Desktop
-    */
-   public static function getDevice() {
-       $device = 'Desktop';
-       $detect = self::detectDevice();
-       
-       if($detect->isTablet()){
-           $device = "Tablet";
-       }elseif($detect->isMobile()){
-           $device = "Mobile";
-       }
-       
-       return $device;
    }
    
    /**
