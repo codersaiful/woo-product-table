@@ -29,6 +29,11 @@ if( !defined( 'WPT_PLUGIN_BASE_FOLDER' ) ){
     define( 'WPT_PLUGIN_BASE_FOLDER', plugin_basename( dirname( __FILE__ ) ) );
 }
 
+if( !defined( 'WPT_CAPABILITY' ) ){
+    $wpt_capability = apply_filters( 'wpt_menu_capability', 'manage_woocommerce' );
+    define( 'WPT_CAPABILITY', $wpt_capability );
+}
+
 if( !defined( 'WPT_PLUGIN_BASE_FILE' ) ){
     define( 'WPT_PLUGIN_BASE_FILE', plugin_basename( __FILE__ ) );
 }
@@ -95,11 +100,11 @@ $column_array = array(
     'check'         => __( 'Check', 'wpt_pro' ),
     'quoterequest'  => __( 'Quote Request', 'wpt_pro' ),
     'description'   =>  __( 'Description', 'wpt_pro' ), //has been removed at V5.2 //Again start at 6.0.25
-    'shortcode'  => __( 'Shortcode', 'wpt_pro' ),
-    'content'  => __( 'Content', 'wpt_pro' ),
+    //'shortcode'  => __( 'Shortcode', 'wpt_pro' ),
+    //'content'  => __( 'Content', 'wpt_pro' ),
     'blank'  => __( 'Blank', 'wpt_pro' ),
 );
-$column_array = apply_filters( 'wpto_column_array', $column_array );
+$column_array = apply_filters( 'wpto_default_column_arr', $column_array );
 WPT_Product_Table::$columns_array =  $column_array;
 
 /**

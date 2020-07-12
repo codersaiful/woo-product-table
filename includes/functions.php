@@ -79,46 +79,6 @@ if( !function_exists( 'wpt_device_wise_table_col' ) ){
  */
 add_filter( 'wpto_enabled_column_array', 'wpt_device_wise_table_col',10, 2 );
 
-if( !function_exists( 'wpt_shortcode_column_add' ) ){
-    
-    function wpt_shortcode_column_add($column_settings){
-
-       $shortcode = isset( $column_settings['shortcode']['content'] ) ? $column_settings['shortcode']['content'] : false;
-       ?>
-<label>Input Your Shortcode Content:</label>
-        <input type="text" name="column_settings[shortcode][content]" value='<?php echo esc_attr( $shortcode ); ?>'>
-        <div>
-            <b>Supported Dynamic Value</b>
-            <ul>
-                <li><code>%product_id%</code>: Product ID</li>
-                <li><code>%id%</code>: Product ID</li>
-                <li><code>%ID%</code>: Product ID</li>
-                <li><code>%sku%</code>: Product SKU</li>
-                <li><code>%name%</code>: Product Title</li>
-            </ul>
-        </div>
-       <?php
-   }
-}
-add_action( 'wpto_column_setting_form_shortcode', 'wpt_shortcode_column_add' );
-
-if( !function_exists( 'wpt_content_column_add' ) ){
-    
-    
-   function wpt_content_column_add($column_settings){
-
-        $my_values = isset( $column_settings['content']['content'] ) ? $column_settings['content']['content'] : false;
-
-        $settings = array(
-            'textarea_name'     =>'column_settings[content][content]',
-            'textarea_rows'     => 3,
-            'teeny'             => true,
-            );
-        wp_editor( wp_kses_post( $my_values ), 'wpt_content_column', $settings ); 
-    }
-
-}
-add_action( 'wpto_column_setting_form_content', 'wpt_content_column_add' );
 
 
 

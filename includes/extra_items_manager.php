@@ -6,6 +6,16 @@ if( !is_array( $extra_items ) || ( is_array( $extra_items ) && count( $extra_ite
 }
 
 foreach( $extra_items as $keyword ){
+    
+    
+    /**
+     * @Hook Filter: wpto_template_folder
+     * Items Template folder location for Each Keyword,
+     * such: product_title, product_id, content,shortcode etc
+     * 
+     * 
+     */
+    $items_directory = apply_filters('wpto_template_folder', $items_directory,$keyword, $table_ID, $product );
     /**
      * New Feature, Mainly for detect File Name. 
      * Such: for custom_field type, Scrip will load custom_field.php file inside Items Directory

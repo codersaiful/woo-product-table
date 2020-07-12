@@ -58,7 +58,7 @@ function wpt_shortcode_generator( $atts = false ) {
          * Filter of common Array
          * @Hook Filter: wpto_column_array
          */
-        $column_array = apply_filters( 'wpto_column_array', $column_array, $table_ID, $atts, $column_settings, $enabled_column_array ); //Added at 6.0.25
+        $column_array = apply_filters( 'wpto_column_arr', $column_array, $table_ID, $atts, $column_settings, $enabled_column_array ); //Added at 6.0.25
         $enabled_column_array = apply_filters( 'wpto_enabled_column_array', $enabled_column_array, $table_ID, $atts, $column_settings, $column_array ); //Added at 6.0.25
         $column_settings = apply_filters( 'wpto_column_settings', $column_settings, $table_ID, $enabled_column_array ); //Added at 6.0.25
         
@@ -917,6 +917,15 @@ function wpt_table_row_generator( $table_row_generator_array ){
             foreach( $table_column_keywords as $keyword => $keyword_title ){
                 if( is_string( $keyword ) ){
                     $in_extra_manager = false;
+                    
+                    /**
+                     * @Hook Filter: wpto_template_folder
+                     * Items Template folder location for Each Keyword,
+                     * such: product_title, product_id, content,shortcode etc
+                     * 
+                     * 
+                     */
+                    $items_directory = apply_filters('wpto_template_folder', $items_directory,$keyword, $table_ID, $product );
                     /**
                      * New Feature, Mainly for detect File Name. 
                      * Such: for custom_field type, Scrip will load custom_field.php file inside Items Directory
