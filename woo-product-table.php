@@ -211,9 +211,6 @@ $default = array(
     'table_in_stock'        =>  __( 'In Stock', 'wpt_pro' ),//'In Stock',
     'table_out_of_stock'    =>  __( 'Out of Stock', 'wpt_pro' ),//'Out of Stock',
     'table_on_back_order'   =>  __( 'On Back Order', 'wpt_pro' ),//'On Back Order',
-    'qty_incr_decr_btn'   =>  'yes'
- 
-    
 );
 $default = apply_filters( 'wpto_default_configure', $default );
 WPT_Product_Table::$default = $default;
@@ -496,7 +493,7 @@ class WPT_Product_Table{
 
         $message = '<p>' . $message . '</p>';
         if( $url ){
-            $style = isset( $type ) && $type == 'error' ? 'style="background: #ff584c;border-color: #E91E63;"' : 'style="background: #ffb900;border-color: ##c37400;"';
+            $style = isset( $type ) && $type == 'error' ? 'style="background: #ff584c;border-color: #E91E63;"' : 'style="background: #ffb900;border-color: #c37400;"';
             $message .= '<p>' . sprintf( '<a href="%s" class="button-primary" %s>%s</a>', $url,$style, $btn_text ) . '</p>';
         }
         printf( '<div class="notice notice-' . $type . ' is-dismissible"><p>%1$s</p></div>', $message );

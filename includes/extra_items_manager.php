@@ -7,15 +7,6 @@ if( !is_array( $extra_items ) || ( is_array( $extra_items ) && count( $extra_ite
 
 foreach( $extra_items as $keyword ){
     
-    
-    /**
-     * @Hook Filter: wpto_template_folder
-     * Items Template folder location for Each Keyword,
-     * such: product_title, product_id, content,shortcode etc
-     * 
-     * 
-     */
-    $items_directory_1 = apply_filters('wpto_template_folder', $items_directory,$keyword, $table_ID, $product );
     /**
      * New Feature, Mainly for detect File Name. 
      * Such: for custom_field type, Scrip will load custom_field.php file inside Items Directory
@@ -32,6 +23,16 @@ foreach( $extra_items as $keyword ){
     * Like this, we can add new type: acf, when file will open from acf.php from items
     */
    $type = apply_filters( 'wpto_column_type', $type, $keyword, $table_ID, $product, $column_settings ); //@Filter Added 
+   
+   /**
+     * @Hook Filter: wpto_template_folder
+     * Items Template folder location for Each Keyword,
+     * such: product_title, product_id, content,shortcode etc
+     * 
+     * Abble to change Template Root Directory Based on $keyword, $column_type, $table_ID, Global $product
+     * 
+     */
+   $items_directory_1 = apply_filters('wpto_template_folder', $items_directory,$keyword, $type, $table_ID, $product );
    
    /**
     * @Hook Filter: wpto_item_dir_type_($type) change directory based on Column type

@@ -130,16 +130,15 @@ if( is_array( $meta_enable_column_array ) && !empty( $meta_enable_column_array )
 
 
         <?php
-            $add_new_settings = array(
+            $add_new_col_type = array(
                 'default' => "Default/No Type",
                 'custom_field' => 'Custom Field',
                 'taxonomy' => 'Taxonomy',
-                'blank_type' => 'Blank', //for more
             );
-            $add_new_settings = apply_filters( 'wpto_addnew_settings', $add_new_settings, $columns_array, $column_settings, $post );
-            if( is_array( $add_new_settings ) && count( $add_new_settings ) > 1 ){
+            $add_new_col_type = apply_filters( 'wpto_addnew_col_arr', $add_new_col_type, $columns_array, $column_settings, $post );
+            if( is_array( $add_new_col_type ) && count( $add_new_col_type ) > 1 ){
             echo '<select class="add_new_column_type_select ua_select">';
-            foreach($add_new_settings as $an_key => $an_val){
+            foreach($add_new_col_type as $an_key => $an_val){
                 echo "<option value='{$an_key}'>$an_val</option>";
             }
             echo '</select>';

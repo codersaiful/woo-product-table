@@ -51,16 +51,6 @@ if( !function_exists( 'wpt_configuration_page' ) ){
                             <table class="ultraaddons-table">
                                 <tbody>
                                     <tr>
-                                        <th><label class="wpt_label" for="wpt_table_qty_incr_decr_btn"><?php esc_html_e( 'Enable Quantity [+] or [-] Buttons', 'wpt_pro' ); ?></label></th>
-                                        <td>
-                                            <select name="data[qty_incr_decr_btn]" id="wpt_table_qty_incr_decr_btn" class="wpt_fullwidth ua_input" >
-                                                <option value="yes" <?php wpt_selected( 'qty_incr_decr_btn', 'yes' ); ?>><?php esc_html_e( 'Yes', 'wpt_pro' ); ?></option>
-                                                <option value="no" <?php wpt_selected( 'qty_incr_decr_btn', 'no' ); ?>><?php esc_html_e( 'No', 'wpt_pro' ); ?></option>
-                                            </select>
-
-                                        </td>
-                                    </tr>
-                                    <tr>
                                         <th><label class="wpt_label" for="wpt_table_custom_add_to_cart"><?php esc_html_e( 'Add to Cart Icon', 'wpt_pro' ); ?></label></th>
                                         <td>
                                             <select name="data[custom_add_to_cart]" id="wpt_table_custom_add_to_cart" class="wpt_fullwidth ua_input" >

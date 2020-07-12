@@ -918,14 +918,6 @@ function wpt_table_row_generator( $table_row_generator_array ){
                 if( is_string( $keyword ) ){
                     $in_extra_manager = false;
                     
-                    /**
-                     * @Hook Filter: wpto_template_folder
-                     * Items Template folder location for Each Keyword,
-                     * such: product_title, product_id, content,shortcode etc
-                     * 
-                     * 
-                     */
-                    $items_directory_1 = apply_filters('wpto_template_folder', $items_directory,$keyword, $table_ID, $product );
                     
                     /**
                      * New Feature, Mainly for detect File Name. 
@@ -943,6 +935,17 @@ function wpt_table_row_generator( $table_row_generator_array ){
                     * Like this, we can add new type: acf, when file will open from acf.php from items
                     */
                     $type = apply_filters( 'wpto_column_type', $type, $keyword, $table_ID, $product, $column_settings );
+                    
+                    /**
+                     * @Hook Filter: wpto_template_folder
+                     * Items Template folder location for Each Keyword,
+                     * such: product_title, product_id, content,shortcode etc
+                     * 
+                     * Abble to change Template Root Directory Based on $keyword, $column_type, $table_ID, Global $product
+                     * 
+                     */
+                    $items_directory_1 = apply_filters('wpto_template_folder', $items_directory,$keyword, $type, $table_ID, $product );
+                    
                     
                     /**
                      * @Hook Filter: wpto_item_dir_type_($type) change directory based on Column type
