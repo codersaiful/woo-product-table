@@ -904,6 +904,10 @@ span.wpt_colunm_type>i {
 }
 .wpt_admin_form_links a{text-decoration: none;}
 .wpt_admin_form_links a:hover{text-decoration: underline;}
+.wpt-column-info li {
+    display: inline-block;
+    margin: 5px 10px 5px 0;
+}
 
 /* Responsive Design Starts */
 @media screen and (max-width: 782px){
