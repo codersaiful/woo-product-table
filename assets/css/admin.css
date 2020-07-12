@@ -632,7 +632,7 @@ li.wpt_sortable_peritem.enabled {
 }
 
 
-.wpt_nav_tab small {
+.wpt_nav_tab small,.wpt_nav_tab i.wpt_pro_badge {
     background: #00cbff;
     position: absolute;
     top: -5px;
@@ -644,6 +644,12 @@ li.wpt_sortable_peritem.enabled {
     font-size: 11px;
     border: 1px solid #007694;
     bottom: unset;
+}
+.wpt_nav_tab i.wpt_pro_badge {
+    background: #f44336;
+    border: 0 none;
+    font-size: 8px;
+    padding: 0 6px;
 }
 .wpt_nav_tab span {
     color: red;
@@ -898,6 +904,7 @@ span.wpt_colunm_type>i {
 }
 .wpt_admin_form_links a{text-decoration: none;}
 .wpt_admin_form_links a:hover{text-decoration: underline;}
+
 /* Responsive Design Starts */
 @media screen and (max-width: 782px){
     .wpt_column_setting_single_extra>div label {

@@ -9,12 +9,11 @@
     $tab_array = array(
         'column_settings'   => __( "Column", 'wpt_pro' ),
         'basics'            => __( 'Basics', 'wpt_pro' ),
-        'table_style'       => __( 'Design', 'wpt_pro' ),
+        'table_style'       => sprintf(__( 'Design %sPro%s', 'wpt_pro' ), '<i class="wpt_pro_badge">', '</i>' ),
         'conditions'        => __( 'Conditions', 'wpt_pro' ),
         'search_n_filter'   => __( 'Search Box And Filter','wpt_pro' ),
-        //'pagination'        => __( 'Pagination', 'wpt_pro' ), //Has removed and content transfer to Basic TAb
         'mobile'            => __( 'Mobile Issue', 'wpt_pro' ),
-        'config'            => __( 'Configuration', 'wpt_pro' ),
+        'config'            => sprintf(__( 'Configuration %sPro%s', 'wpt_pro' ), '<i class="wpt_pro_badge">', '</i>' ),
     );
     $tab_array = apply_filters( 'wpto_admin_tab_array', $tab_array, $post );
     echo '<nav class="nav-tab-wrapper">';
@@ -25,6 +24,8 @@
     }
     echo '</nav>';
 
+    
+    
 
     //Now start for Tab Content
     $active_tab_content = 'tab-content-active';
@@ -44,9 +45,12 @@
         
         $tab_validation = apply_filters( 'wpto_form_tab_validation_' . $tab, true, $post, $tab_array  );
         
-        $tab_file_of_admin = WPT_BASE_DIR . 'admin/tabs/' . $tab . '.php';
-        $tab_file_of_admin = apply_filters( 'wpto_admin_tab_file_loc', $tab_file_of_admin, $tab, $post, $tab_array );
-        $tab_file_of_admin = apply_filters( 'wpto_admin_tab_file_loc_' . $tab, $tab_file_of_admin, $post, $tab_array );
+        $tab_dir_loc = WPT_BASE_DIR . 'admin/tabs/';
+        $tab_dir_loc = apply_filters( 'wpto_admin_tab_folder_dir', $tab_dir_loc, $tab, $post, $tab_array );
+        
+        $tab_file = $tab_dir_loc . $tab . '.php';
+        $tab_file_admin = apply_filters( 'wpto_admin_tab_file_loc', $tab_file, $tab, $post, $tab_array );
+        $tab_file_of_admin = apply_filters( 'wpto_admin_tab_file_loc_' . $tab, $tab_file_admin, $post, $tab_array );
         if ( $tab_validation && is_file( $tab_file_of_admin ) ) {
 
             include $tab_file_of_admin; 
