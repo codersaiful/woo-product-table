@@ -339,6 +339,12 @@
             }
         });
 
+
+        $(document).on('change','li.wpt_sortable_peritem.column_keyword_content',function(){
+            console.log(window.tinyMCE.triggerSave());
+            $('.button,button').removeClass('wpt_ajax_update');
+        });
+        console.log(wp.editor);
         //*********************** AJAX Save - AJAX data save
         $('body').append("<div class='wpt_notify'><h1>Saving...</h1></div>");
         

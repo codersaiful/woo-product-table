@@ -15,7 +15,7 @@ foreach( $extra_items as $keyword ){
      * 
      * 
      */
-    $items_directory = apply_filters('wpto_template_folder', $items_directory,$keyword, $table_ID, $product );
+    $items_directory_1 = apply_filters('wpto_template_folder', $items_directory,$keyword, $table_ID, $product );
     /**
      * New Feature, Mainly for detect File Name. 
      * Such: for custom_field type, Scrip will load custom_field.php file inside Items Directory
@@ -39,10 +39,10 @@ foreach( $extra_items as $keyword ){
     * Such: For all default type column, request file available in includes/items folder
     * but for other type, such: acf, custom_field,taxonomy, we can set another Directory location from Addons or fro Pro version
     */
-   $items_directory = apply_filters('wpto_item_dir_type_' . $type, $items_directory, $table_ID, $product, $column_settings ); //@Filter Added 
+   $items_directory_2 = apply_filters('wpto_item_dir_type_' . $type, $items_directory_1, $table_ID, $product, $column_settings ); //@Filter Added 
    
    $file_name = $type !== 'default' ? $type : $keyword;
-    $file = $items_directory . $file_name . '.php';
+    $file = $items_directory_2 . $file_name . '.php';
     $file = apply_filters( 'wpto_template_loc', $file, $keyword, $type, $table_ID, $product, $file_name, $column_settings ); //@Filter Added 
     $file = apply_filters( 'wpto_template_loc_type_' . $type, $file, $keyword, $table_ID, $product, $file_name, $column_settings ); //@Filter Added
     $file = $requested_file = apply_filters( 'wpto_template_loc_item_' . $keyword, $file,$type, $product, $table_ID, $file_name );

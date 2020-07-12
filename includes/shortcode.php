@@ -910,8 +910,8 @@ function wpt_table_row_generator( $table_row_generator_array ){
                     . "{$data_tax}>"; //Data Tax has come from Taxonomy or Mini Filter
             
             
-                    //var_dump($table_column_keywords);
-            $items_permanent_dir = __DIR__ . '/items/';
+
+            $items_permanent_dir = WPT_DIR_BASE . 'includes/items/';
             $items_permanent_dir = apply_filters('wpto_item_permanent_dir', $items_permanent_dir, $table_ID, $product );
             $items_directory = apply_filters('wpto_item_dir', $items_permanent_dir, $table_ID, $product );
             foreach( $table_column_keywords as $keyword => $keyword_title ){
@@ -925,7 +925,8 @@ function wpt_table_row_generator( $table_row_generator_array ){
                      * 
                      * 
                      */
-                    $items_directory = apply_filters('wpto_template_folder', $items_directory,$keyword, $table_ID, $product );
+                    $items_directory_1 = apply_filters('wpto_template_folder', $items_directory,$keyword, $table_ID, $product );
+                    
                     /**
                      * New Feature, Mainly for detect File Name. 
                      * Such: for custom_field type, Scrip will load custom_field.php file inside Items Directory
@@ -949,10 +950,10 @@ function wpt_table_row_generator( $table_row_generator_array ){
                      * Such: For all default type column, request file available in includes/items folder
                      * but for other type, such: acf, custom_field,taxonomy, we can set another Directory location from Addons or fro Pro version
                      */
-                    $items_directory = apply_filters('wpto_item_dir_type_' . $type, $items_directory, $table_ID, $product, $column_settings ); //Added Filter
+                    $items_directory_2 = apply_filters('wpto_item_dir_type_' . $type, $items_directory_1, $table_ID, $product, $column_settings ); //Added Filter
                     
                     $file_name = $type !== 'default' ? $type : $keyword;
-                    $file = $items_directory . $file_name . '.php';
+                    $file = $items_directory_2 . $file_name . '.php';
                     
                     $file = apply_filters( 'wpto_template_loc', $file, $keyword, $type, $table_ID, $product, $file_name, $column_settings ); //@Filter Added 
                     $file = apply_filters( 'wpto_template_loc_type_' . $type, $file, $keyword, $table_ID, $product, $file_name, $column_settings ); //@Filter Added
