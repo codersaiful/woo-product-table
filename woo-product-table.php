@@ -100,8 +100,6 @@ $column_array = array(
     'check'         => __( 'Check', 'wpt_pro' ),
     'quoterequest'  => __( 'Quote Request', 'wpt_pro' ),
     'description'   =>  __( 'Description', 'wpt_pro' ), //has been removed at V5.2 //Again start at 6.0.25
-    //'shortcode'  => __( 'Shortcode', 'wpt_pro' ),
-    //'content'  => __( 'Content', 'wpt_pro' ),
     'blank'  => __( 'Blank', 'wpt_pro' ),
 );
 $column_array = apply_filters( 'wpto_default_column_arr', $column_array );
