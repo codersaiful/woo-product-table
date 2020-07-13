@@ -1,5 +1,11 @@
 <?php
 
+/**************
+ * FRONTEND *********FRONTEND ENQUEUE****************FRONTEND
+ * WPT MODULE
+ *  MAIN MODULE 
+ */
+
 if( !function_exists( 'wpt_enqueue' ) ){
     /**
      * CSS or Style file add for FrontEnd Section. 
