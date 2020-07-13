@@ -41,8 +41,12 @@ if( !function_exists( 'wpt_enqueue' ) ){
         * @since 5.7.8
         */
        //wp_enqueue_script( 'floatThead', WPT_Product_Table::getPath('BASE_URL') . 'assets/js/jquery.floatThead.min.js', array( 'jquery' ), '2.1.4', true );
-
-       wp_localize_script( 'wpt-custom-js', 'WPT_DATA', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ),'priceFormat' => wpt_price_formatter() ) );
+       $WPT_DATA = array( 
+           'ajaxurl' => admin_url( 'admin-ajax.php' ),
+           'checkout_url' => 'ddd',
+           'priceFormat' => wpt_price_formatter(),
+           );
+       wp_localize_script( 'wpt-custom-js', 'WPT_DATA', $WPT_DATA );
        //wp_localize_script($handle, $object_name, $l10n);
    }
 }

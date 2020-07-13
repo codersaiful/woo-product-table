@@ -15,3 +15,15 @@ if( !function_exists( 'wpt_configuration_page_head' ) ){
     }
 }
 add_action( 'wpto_admin_configuration_head', 'wpt_configuration_page_head',10 );
+
+if( !function_exists( 'wpt_configuration_page_version_data' ) ){
+    function wpt_configuration_page_version_data(){
+        ?>
+        <input name="data[plugin_version]" type="hidden" value="<?php echo WPT_Product_Table::getVersion(); ?>">
+        <input name="data[plugin_name]" type="hidden" value="<?php echo WPT_Product_Table::getName(); ?>"> 
+            
+         <?php
+    }
+}
+add_action( 'wpto_admin_configuration_form_version_data', 'wpt_configuration_page_version_data' );
+

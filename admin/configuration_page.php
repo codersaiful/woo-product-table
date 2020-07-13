@@ -40,8 +40,8 @@ if( !function_exists( 'wpt_configuration_page' ) ){
                 <?php do_action( 'wpto_admin_configuration_head' ); ?>
                 <div class="fieldwrap">
                     <form action="" method="POST">
-                        <input name="data[plugin_version]" type="hidden" value="<?php echo WPT_Product_Table::getVersion(); ?>" style="">
-                        <input name="data[plugin_name]" type="hidden" value="<?php echo WPT_Product_Table::getName(); ?>" style="">
+                        <?php do_action( 'wpto_admin_configuration_form_version_data' ); ?>
+                        <?php do_action( 'wpto_admin_configuration_form_top' ); ?>
                         <div class="section ultraaddons-panel">
                             <h2 class="with-background dark-background"><?php esc_html_e( 'Basic Settings', 'wpt_pro' );?></h2>
                             <table class="ultraaddons-table">
