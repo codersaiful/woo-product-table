@@ -40,7 +40,13 @@ if( !function_exists( 'wpt_configuration_page' ) ){
                 <?php do_action( 'wpto_admin_configuration_head' ); ?>
                 <div class="fieldwrap">
                     <form action="" method="POST">
-                        <?php do_action( 'wpto_admin_configuration_form_version_data' ); ?>
+                        <?php 
+                    /**
+                     * Here wil will include two input Like bellow:
+                     * <input name="config[plugin_version]" type="hidden" value="<?php echo WOO_Product_Table::getVersion(); ?>">
+                        <input name="config[plugin_name]" type="hidden" value="<?php echo WOO_Product_Table::getName(); ?>">
+                     */
+                    do_action( 'wpto_admin_configuration_form_version_data' ); ?>
                         <?php do_action( 'wpto_admin_configuration_form_top' ); ?>
                         <div class="section ultraaddons-panel">
                             <h2 class="with-background dark-background"><?php esc_html_e( 'Basic Settings', 'wpt_pro' );?></h2>
