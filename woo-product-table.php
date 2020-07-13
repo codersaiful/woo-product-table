@@ -7,7 +7,7 @@
  * Author URI: https://codecanyon.net/user/codeastrology
  * Tags: woocommerce product,woocommerce product table, product table
  * 
- * Version: 2.7.0.0
+ * Version: 2.7.0
  * Requires at least:    4.0.0
  * Tested up to:         5.3.2
  * WC requires at least: 3.0.0
@@ -33,6 +33,11 @@ if( !defined( 'WPT_CAPABILITY' ) ){
     $wpt_capability = apply_filters( 'wpt_menu_capability', 'manage_woocommerce' );
     define( 'WPT_CAPABILITY', $wpt_capability );
 }
+
+if( !defined( 'WPT_PLUGIN' ) ){
+    define( 'WPT_PLUGIN', 'woo-product-table/woo-product-table.php' );
+}
+
 
 if( !defined( 'WPT_PLUGIN_BASE_FILE' ) ){
     define( 'WPT_PLUGIN_BASE_FILE', plugin_basename( __FILE__ ) );
@@ -442,6 +447,8 @@ class WPT_Product_Table{
             include_once $this->path('BASE_DIR','admin/admin-enqueue.php');
             include_once $this->path('BASE_DIR','admin/fac_support_page.php');
             include_once $this->path('BASE_DIR','admin/configuration_page.php');
+            //Admin Section Action Hook, which we can Control from Addon
+            include_once $this->path('BASE_DIR','admin/action-hook.php');
        }
        
        

@@ -30,18 +30,14 @@ if( !function_exists( 'wpt_configuration_page' ) ){
             update_option( 'wpt_configure_options',  $value );
         }
         $current_config_value = get_option( 'wpt_configure_options' );
+        
+        
         ?>
         <div class="wrap wpt_wrap wpt_configure_page ultraaddons">
             <h1 class="wp-heading-inline plugin_name"></h1>
             <div class="clear"></div>
             <div id="wpt_configuration_form" class="wpt_leftside ">
-                <div class="fieldwrap ultraaddons-head">
-                    <div class="ultraaddons-panel">
-                        <h1 class="wp-heading-inline plugin_name plugin-name"><?php echo WPT_Product_Table::getName(); ?> <span class="plugin-version">v <?php echo WPT_Product_Table::getVersion(); ?></span></h1>
-                        <h1 class="plugin-settings with-background no-top slim-title"><?php esc_html_e( 'Common Configuration', 'wpt_pro' );?></h1>
-                        <p><?php esc_html_e( 'Remember: Each product table has indivisual configuration, wheich is First Importance. But to This Configuration has no "First importance".', 'wpt_pro' );?></p>
-                    </div>
-                </div>
+                <?php do_action( 'wpto_admin_configuration_head' ); ?>
                 <div class="fieldwrap">
                     <form action="" method="POST">
                         <input name="data[plugin_version]" type="hidden" value="<?php echo WPT_Product_Table::getVersion(); ?>" style="">
