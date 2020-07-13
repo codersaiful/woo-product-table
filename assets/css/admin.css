@@ -585,6 +585,7 @@ ul#wpt_column_sortable li.wpt_sortable_peritem.enabled>span.handle, ul#wpt_keywo
     float: left;
 }
 .column_add_extra_items>label,
+.wpt_column_setting_extra>label,
 .column_tag_for_all>label{
     display: block;
     border-bottom: 1px solid #f5f5f5;
