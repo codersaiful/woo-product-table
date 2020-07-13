@@ -301,9 +301,6 @@ table.wpt_product_table tr.wpt_row td.wpt_quantity div.quantity{
 table.wpt_product_table tr.wpt_row td.wpt_quantity{
     text-align: center;
 }
-table.wpt_product_table tr.wpt_row td.wpt_quantity .quantity {
-    padding: 5px 0;
-}
 
 
 /***********************Style For PopUP*****************************/
@@ -1197,7 +1194,6 @@ table.wpt_product_table tr.wpt_selected_tr .wpt_quantity{
     #wpt_table.no_responsive {
         overflow: auto;
         width: 100%;
-        display: block;
     }
     #wpt_table:not(.no_responsive) .wpt_for_product_desc.wpt_check {
         position: absolute;
