@@ -1,9 +1,10 @@
 /**
  * Common Form And input button CSS Style
  * for All type UltraAddons Plugin
- * Version: 1.0.1
+ * Version: 1.0.2
  * Working based on Date:
 7/9/2020 - Overflow hidden removed from ultraaddons-panel
+13/7/2020 - Features panel added
  */
 
 /**Heading**/
@@ -313,6 +314,81 @@
 .ultraaddons .slider.round:before {
   border-radius: 50%;
 }
+
+
+
+
+/* Features Design */
+.ultraaddons .ultraaddons-feature-panel {
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 50px 20px;
+    margin-bottom: 20px;
+}
+.ultraaddons-feature-panel .col{
+    float: left;
+    width: 50%;
+}
+.ultraaddons-feature-panel .col.has-img {
+    text-align: center;
+}
+.ultraaddons-feature-panel .col-left.has-text {
+    text-align: right;
+}
+.ultraaddons-feature-panel .col-right.has-text {
+    text-align: left;
+}
+.ultraaddons-feature-panel img {
+    border-radius: 50%;
+    max-width: 350px;
+    border: 6px solid #ffffff;
+    box-shadow: 4px 4px 14px 9px #00000014;
+    width: 100%;
+}
+.ultraaddons-feature-panel:after{
+    content: "";
+    display: block;
+    clear: both;
+}
+.ultraaddons-feature-panel .col-left{
+
+}
+.ultraaddons-feature-panel .col-right{
+    
+}
+.ultraaddons .ultraaddons-feature-panel h2 {
+    text-transform: inherit;
+    margin: 20px 0;
+}
+.ultraaddons-feature-panel .col h2 {
+    font-size: 2.5em;
+    font-family: sans-serif;
+    line-height: initial;
+    border-bottom: 1px solid #aaaaaa42;
+    padding-bottom: 15px;
+}
+.ultraaddons-feature-panel.feature-head h1 {
+    font-size: 3.8em;
+    color: #32373c;
+    font-weight: 600;
+}
+
+.ultraaddons-feature-panel.feature-head h1 {
+    font-size: 3.8em;
+    color: #32373c;
+    font-weight: 600;
+}
+
+.ultraaddons-feature-panel .col li {
+    line-height: 1.5;
+    margin: 0;
+}
+.ultraaddons-feature-panel .col p,
+.ultraaddons-feature-panel .col li,
+.ultraaddons-feature-panel .col code {
+    font-size: 120%;
+}
+
 /* Responsive Design Starts */
 @media screen and (max-width: 782px){
     .ultraaddons .fieldwrap,
@@ -324,5 +400,20 @@
     }
     .ultraaddons-panel table tr th label {
         font-size: 2em;
+    }
+}
+
+@media screen and (max-width: 992px){
+    .ultraaddons-feature-panel .col {
+        float: none;
+        width: 100%;
+    }
+    .ultraaddons-feature-panel .col-left.has-text {
+        text-align: left;
+    }
+}
+@media screen and (min-width: 992px){
+    .ultraaddons-feature-panel.even .col-right {
+        float: right;
     }
 }

@@ -1,4 +1,8 @@
 <?php
+/*************
+ * WPT
+ * MAIN MODULE
+ */
 
 if( !function_exists( 'wpt_column_setting_for_tax_cf' ) ){
     
