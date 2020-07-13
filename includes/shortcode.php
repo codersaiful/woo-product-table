@@ -13,6 +13,10 @@ add_shortcode( $shortCodeText, 'wpt_shortcode_generator' );
  */
 function wpt_shortcode_generator( $atts = false ) {
     //Getting WooProductTable Pro
+    $table_show = apply_filters('wpt_table_show_top', true, $atts );
+    if( !$table_show ){
+        return;
+    }
     $config_value = get_option( 'wpt_configure_options' );
     $html = '';
     $GLOBALS['wpt_product_table'] = "Yes";
@@ -393,8 +397,22 @@ function wpt_shortcode_generator( $atts = false ) {
 
     }
     /****************************************************************************/
+    ob_start();
+    /**
+     * To Insert Content at Top of the Table, Just inside of Wrapper tag of Table
+     * Available Args $table_ID, $args, $config_value, $atts;
+     */
+    do_action( 'wpto_action_start_table', $table_ID, $args, $config_value, $atts );
+    $html .= ob_get_clean();
     
-    
+    /**
+     * To Show or Hide Table
+     * Use following Filter
+     */
+    $table_show = apply_filters( 'wpto_table_show', true,  $table_ID, $args, $config_value, $atts );
+    if( !$table_show ){
+        return $html;
+    }
     
     /**
      * Initialize Page Number
@@ -474,6 +492,14 @@ function wpt_shortcode_generator( $atts = false ) {
             . "id='table_id_" . esc_attr( $temp_number ) . "' "
             . "class='" . esc_attr( $wrapper_class_arr ) . "' "
             . ">"; //Table Wrapper Div start here with class. //Added woocommerce class at wrapper div in V1.0.4
+    
+    ob_start();
+    /**
+     * To Insert Content at Top of the Table, Just inside of Wrapper tag of Table
+     * Available Args $table_ID, $args, $config_value, $atts;
+     */
+    do_action( 'wpto_action_table_wrapper_top', $table_ID, $args, $config_value, $atts );
+    $html .= ob_get_clean();
     
     $html .= ($minicart_position == 'top' ? $table_minicart_message_box : false);//$minicart_position //"<div class='tables_cart_message_box_{$temp_number}'></div>";
     
@@ -617,6 +643,14 @@ function wpt_shortcode_generator( $atts = false ) {
      * @since 1.9
      */
     $html .= ($minicart_position == 'bottom' ? $table_minicart_message_box : false);
+    
+    ob_start();
+    /**
+     * To Insert Content at Bottom of the Table, Just inside of Wrapper tag of Table
+     * Available Args $table_ID, $args, $config_value, $atts;
+     */
+    do_action( 'wpto_action_table_wrapper_bottom', $table_ID, $args, $config_value, $atts );
+    $html .= ob_get_clean();
     
     $html .= "</div>"; //End of Table wrapper.
     $html .= apply_filters('wpt_after_table_wrapper', ''); //Apply Filter Just After Table Wrapper div tag
