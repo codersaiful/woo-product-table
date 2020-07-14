@@ -154,7 +154,7 @@
         if ( typeof config_json === 'undefined' ){
             return false;
         }
-        
+        console.log(config_json);
         /**
          * Config Generate part
          * Mainly getting config_json value based on table id. To get new value if available in inside any function, Use like following
@@ -1604,8 +1604,10 @@
          */
         function loadMiniFilter(){
             $('.wpt_product_table_wrapper .wpt_filter_wrapper select.filter_select').each(function(){
+                
                 var id = $(this).attr('id');
                 var temp_number = $(this).data('temp_number');
+                var config_json = getConfig_json( temp_number );
                 var key =  $(this).data('key');
                 var label =  $(this).data('label');
                 var taxArray = new Array();
@@ -1626,9 +1628,10 @@
                     }
                 });
                 
-                console.log(config_json.sort_mini_filter);
-                console.log(taxArray);
-                console.log(taxArray.sort());
+
+                console.log(config_json,config_json.sort_mini_filter === 'ASC');
+                //console.log(taxArray);
+                //console.log(taxArray.sort());
                 if(config_json.sort_mini_filter === 'ASC'){
                     taxArray.sort();
                     //taxArray.sort(function(a,b){return a-b});
