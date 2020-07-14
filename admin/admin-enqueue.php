@@ -55,6 +55,19 @@ if( !function_exists( 'wpt_admin_js_fast_load' ) ){
      */
     function wpt_admin_js_fast_load(){
         wp_enqueue_script( 'wpt-admin', WPT_Product_Table::getPath( 'BASE_URL' ) . 'assets/js/admin.js', array( 'jquery' ), '1.0.0', true );
+        
+        $ajax_url = admin_url( 'admin-ajax.php' );
+        $version = class_exists( 'WOO_Product_Table' ) && WOO_Product_Table::getVersion() ? __( 'WTP Pro: ', 'wpt_pro' ) . WOO_Product_Table::getVersion() : WPT_Product_Table::getVersion();
+        $WPT_DATA = array( 
+           'ajaxurl' => $ajax_url,
+           'ajax_url' => $ajax_url,
+           'site_url' => site_url(),
+           'checkout_url' => wc_get_checkout_url(),
+           'cart_url' => wc_get_cart_url(),
+           'priceFormat' => wpt_price_formatter(),
+           'version' => $version,
+           );
+       wp_localize_script( 'wpt-admin', 'WPT_DATA_ADMIN', $WPT_DATA );
     }
 }
 add_action( 'admin_enqueue_scripts', 'wpt_admin_js_fast_load', 1 );

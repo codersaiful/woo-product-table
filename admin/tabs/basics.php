@@ -41,10 +41,10 @@ $meta_basics = get_post_meta( $post->ID, 'basics', true );
         <table class="ultraaddons-table">
             <tr>
                 <th>
-                    <label class="wpt_label"><?php esc_html_e( 'Product ID Include', 'wpt_pro' );?> <span style="color: #00B500;font-weight: normal;font-size: 80%; background-color: #ddd; padding: 0 5px;">New</span></label>
+                    <label class="wpt_label"><?php esc_html_e( 'Product ID Include', 'wpt_pro' );?></label>
                 </th>
                 <td>
-                    <input name="basics[post_include]" data-name="post_include" value="<?php echo isset( $meta_basics['post_include'] ) ? $meta_basics['post_include'] : ''; ?>" class="ua_input" type="text" placeholder="Example: 1,2,3,4">
+                    <input id="product_id_includes" name="basics[post_include]" data-name="post_include" value="<?php echo isset( $meta_basics['post_include'] ) ? $meta_basics['post_include'] : ''; ?>" class="ua_input" type="text" placeholder="Example: 1,2,3,4">
                     <p>To make table with specific product, Input product's ID - separate with comma.</p>
                 </td>
             </tr>
