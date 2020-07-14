@@ -290,97 +290,97 @@
         $( document.body ).trigger( 'wc_fragment_refresh' );
         $( document.body ).trigger( 'removed_from_cart' );
         WPT_MiniCart();
+        
+        //if(config_json.thumbs_lightbox === '1' || config_json.thumbs_lightbox === 1){
+        /**
+         * Popup Image 
+         */
+        $('body').on('click', '.wpt_product_table_wrapper .wpt_thumbnails_popup img', function() {
+            var thisImg = $(this);
+            var image_width, final_image_url, variation_id,imgSize;
+            //For vatiation management
+            variation_id = $(this).attr('data-variation_id');
 
-        if(config_json.thumbs_lightbox === '1' || config_json.thumbs_lightbox === 1){
-            /**
-             * Popup Image 
-             */
-            $('body').on('click', '.wpt_product_table_wrapper .wpt_thumbnails_popup img', function() {
-                var thisImg = $(this);
-                var image_width, final_image_url, variation_id,imgSize;
-                //For vatiation management
-                variation_id = $(this).attr('data-variation_id');
-                
-                if('undefined' !== typeof variation_id){
-                    $.ajax({
-                        type: 'POST',
-                        url: ajax_url,
-                        data: {
-                            action: 'wpt_variation_image_load',
-                            variation_id: variation_id,
-                        },
-                        success: function(result){
-                            if(" " === result || "" === result){
-                                image_width = thisImg.parent().data('width');
-                                final_image_url = thisImg.parent().data('url');
-                                IMG_Generator(thisImg,final_image_url, image_width);
-                            }else{
-                                imgSize = result.split(" ");
-                                final_image_url = imgSize[0];
-                                image_width = imgSize[1];
-                                IMG_Generator(thisImg,final_image_url, image_width);
-                            }                            
-                        }
-                    });
-                    
-                }else{
-                    image_width = $(this).parent().data('width');
-                    final_image_url = $(this).parent().data('url');
-                    IMG_Generator(thisImg,final_image_url, image_width);
-                }
-                
-                
-            });
-            
-            /**
-             * Image Generator for Variation product based on Variation ID
-             * Variation Wise Image Generator
-             * Added at 4.0.20
-             * 
-             * @param {type} thisImg Getting Current Image Event
-             * @param {type} final_image_url 
-             * @param {type} image_width
-             * @returns {undefined}
-             */
-            function IMG_Generator(thisImg,final_image_url, image_width){
-                
-                var image_height, product_title,placeholder_image,wrapper_style;
-                
-                image_height = 'auto';
-                
-                if('undefined' === typeof final_image_url){
-                    placeholder_image = $(thisImg).attr('src');
-                    console.log("No Thumbnail Image founded");
-                    final_image_url = placeholder_image;//Set final image size to place holder image when not found
-                    wrapper_style = '';//Default blank value for style of wrapper, when not found any image
-                }else{
-                    //Setting style of height width
-                    wrapper_style = "style='width: " + image_width + "px; height:" + image_height + "px'";
-                }
-                product_title = $(thisImg).closest('tr').data('title');
-                var html = '<div id="wpt_thumbs_popup" class="wpt_thumbs_popup"><div class="wpt_popup_image_wrapper" ' + wrapper_style + '><span title="Close" id="wpt_popup_close">&times;</span><h2 class="wpt_wrapper_title">' + product_title + '</h2><div class="wpt_thums_inside">';
-                html += '<img class="wpt_popup_image" src="' + final_image_url + '">';
-                
-                html += '</div></div></div>';
-                if ($('body').append(html)) {
-                    var PopUp = $('.wpt_thumbs_popup, #wpt_thumbs_popup');
-                    PopUp.fadeIn('slow');
-                    var Wrapper = $('div.wpt_popup_image_wrapper');
-                    Wrapper.fadeIn();
-                }
+            if('undefined' !== typeof variation_id){
+                $.ajax({
+                    type: 'POST',
+                    url: ajax_url,
+                    data: {
+                        action: 'wpt_variation_image_load',
+                        variation_id: variation_id,
+                    },
+                    success: function(result){
+                        if(" " === result || "" === result){
+                            image_width = thisImg.parent().data('width');
+                            final_image_url = thisImg.parent().data('url');
+                            IMG_Generator(thisImg,final_image_url, image_width);
+                        }else{
+                            imgSize = result.split(" ");
+                            final_image_url = imgSize[0];
+                            image_width = imgSize[1];
+                            IMG_Generator(thisImg,final_image_url, image_width);
+                        }                            
+                    }
+                });
+
+            }else{
+                image_width = $(this).parent().data('width');
+                final_image_url = $(this).parent().data('url');
+                IMG_Generator(thisImg,final_image_url, image_width);
             }
 
-            $('body').on('click', '.wpt_popup_image_wrapper', function() {
-                return false;
-                
-            });
-            $('body').on('click', '#wpt_thumbs_popup span#wpt_popup_close, #wpt_thumbs_popup', function() {
-                $('#wpt_thumbs_popup').fadeOut(function(){
-                    $(this).remove();
-                });
-                
-            });
+
+        });
+
+        /**
+         * Image Generator for Variation product based on Variation ID
+         * Variation Wise Image Generator
+         * Added at 4.0.20
+         * 
+         * @param {type} thisImg Getting Current Image Event
+         * @param {type} final_image_url 
+         * @param {type} image_width
+         * @returns {undefined}
+         */
+        function IMG_Generator(thisImg,final_image_url, image_width){
+
+            var image_height, product_title,placeholder_image,wrapper_style;
+
+            image_height = 'auto';
+
+            if('undefined' === typeof final_image_url){
+                placeholder_image = $(thisImg).attr('src');
+                console.log("No Thumbnail Image founded");
+                final_image_url = placeholder_image;//Set final image size to place holder image when not found
+                wrapper_style = '';//Default blank value for style of wrapper, when not found any image
+            }else{
+                //Setting style of height width
+                wrapper_style = "style='width: " + image_width + "px; height:" + image_height + "px'";
+            }
+            product_title = $(thisImg).closest('tr').data('title');
+            var html = '<div id="wpt_thumbs_popup" class="wpt_thumbs_popup"><div class="wpt_popup_image_wrapper" ' + wrapper_style + '><span title="Close" id="wpt_popup_close">&times;</span><h2 class="wpt_wrapper_title">' + product_title + '</h2><div class="wpt_thums_inside">';
+            html += '<img class="wpt_popup_image" src="' + final_image_url + '">';
+
+            html += '</div></div></div>';
+            if ($('body').append(html)) {
+                var PopUp = $('.wpt_thumbs_popup, #wpt_thumbs_popup');
+                PopUp.fadeIn('slow');
+                var Wrapper = $('div.wpt_popup_image_wrapper');
+                Wrapper.fadeIn();
+            }
         }
+
+        $('body').on('click', '.wpt_popup_image_wrapper', function() {
+            return false;
+
+        });
+        $('body').on('click', '#wpt_thumbs_popup span#wpt_popup_close, #wpt_thumbs_popup', function() {
+            $('#wpt_thumbs_popup').fadeOut(function(){
+                $(this).remove();
+            });
+
+        });
+        //}
 
         $('body').on('click','a.button.wpt_woo_add_cart_button.outofstock_add_to_cart_button.disabled',function(e){
             e.preventDefault();
@@ -1625,14 +1625,20 @@
                         });
                     }
                 });
-
-                /*
+                
+                console.log(config_json.sort_mini_filter);
+                console.log(taxArray);
+                console.log(taxArray.sort());
                 if(config_json.sort_mini_filter === 'ASC'){
-                    taxArray.sort(function(a,b){return a-b});
+                    taxArray.sort();
+                    //taxArray.sort(function(a,b){return a-b});
                 }else if(config_json.sort_mini_filter === 'DESC'){
-                    taxArray.sort(function(a,b){return b-a});
+                    taxArray.sort();
+                    taxArray.reverse();
+                    
+                    //taxArray.sort(function(a,b){return b-a});
                 }
-                */
+                
                var html = '<option value="">' + label + '</option>';
                 taxArray.forEach(function(value,number){
                     html += '<option value="' + key + '_' + temp_number + '_' + number + '">' + value + '</option>';

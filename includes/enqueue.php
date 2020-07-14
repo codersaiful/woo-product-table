@@ -47,11 +47,16 @@ if( !function_exists( 'wpt_enqueue' ) ){
         * @since 5.7.8
         */
        //wp_enqueue_script( 'floatThead', WPT_Product_Table::getPath('BASE_URL') . 'assets/js/jquery.floatThead.min.js', array( 'jquery' ), '2.1.4', true );
+       $ajax_url = admin_url( 'admin-ajax.php' );
+       $version = class_exists( 'WOO_Product_Table' ) && WOO_Product_Table::getVersion() ? __( 'WTP Pro: ', 'wpt_pro' ) . WOO_Product_Table::getVersion() : WPT_Product_Table::getVersion();
        $WPT_DATA = array( 
-           'ajaxurl' => admin_url( 'admin-ajax.php' ),
+           'ajaxurl' => $ajax_url,
+           'ajax_url' => $ajax_url,
+           'site_url' => site_url(),
            'checkout_url' => wc_get_checkout_url(),
            'cart_url' => wc_get_cart_url(),
            'priceFormat' => wpt_price_formatter(),
+           'version' => $version,
            );
        wp_localize_script( 'wpt-custom-js', 'WPT_DATA', $WPT_DATA );
    }

@@ -249,7 +249,7 @@ if( !function_exists( 'wpt_get_config_value' ) ){
         $config_value['footer_cart_size'] = $temp_config_value['footer_cart_size'];
         $config_value['footer_possition'] = $temp_config_value['footer_possition'];
         $config_value['footer_bg_color'] = $temp_config_value['footer_bg_color'];
-        $config_value['thumbs_lightbox'] = $temp_config_value['thumbs_lightbox'];
+        //$config_value['thumbs_lightbox'] = $temp_config_value['thumbs_lightbox'];
         $config_value['disable_cat_tag_link'] = $temp_config_value['disable_cat_tag_link'];
         return $config_value;
     }

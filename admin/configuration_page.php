@@ -102,14 +102,7 @@ if( !function_exists( 'wpt_configuration_page' ) ){
                                         </td>
                                     </tr>
 
-                                    <tr> 
-                                        <th> <label class="wpt_label" for="wpt_table_sku_search"><?php esc_html_e( 'Custom Field Taxonomy Search', 'wpt_pro' ); ?></label></th>
-                                        <td>
-                                            <p style="color: #0071a1;padding: 0;margin: 0;">
-                                                Feature has transfered to <b>Dashboard->Product Table Edit -> Configuration Tab -> Advance Search -> Search From</b>
-                                            </p>
-                                        </td>
-                                    </tr>
+                                    
 
                                     <tr>
                                         <th><label class="wpt_label" for="wpt_table_sort_mini_filter"><?php esc_html_e( 'Mini Filter Sorting', 'wpt_pro' ); ?></label></th>
@@ -150,16 +143,7 @@ if( !function_exists( 'wpt_configuration_page' ) ){
                                         </td>
                                     </tr>
 
-
-                                    <tr> 
-                                        <th><label class="wpt_label" for="wpt_table_thumbs_lightbox"><?php esc_html_e( 'Thumbs Image LightBox', 'wpt_pro' ); ?></label></th>
-                                        <td>
-                                            <select name="data[thumbs_lightbox]" id="wpt_table_thumbs_lightbox" class="wpt_fullwidth ua_input" >
-                                                <option value="1" <?php wpt_selected( 'thumbs_lightbox', '1' ); ?>><?php esc_html_e( 'Enable', 'wpt_pro' ); ?></option>
-                                                <option value="0" <?php wpt_selected( 'thumbs_lightbox', '0' ); ?>><?php esc_html_e( 'Disable', 'wpt_pro' ); ?></option>
-                                            </select>
-                                        </td>
-                                    </tr>
+                                    
                                     <tr> 
                                         <th> <label class="wpt_label" for="wpt_table_disable_product_link"><?php esc_html_e( 'Disable Product Link', 'wpt_pro' ); ?></label></th>
                                         <td>
