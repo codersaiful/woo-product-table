@@ -17,6 +17,17 @@ if( !function_exists( 'wpt_admin_body_class' ) ){
 }
 add_filter( 'admin_body_class', 'wpt_admin_body_class' );
 
+if( !function_exists( 'wpt_selected' ) ){
+    /**
+     * Executing selected item for options
+     * 
+     * @since 2.4 
+     */
+    function wpt_selected(  $keyword, $gotten_value ){
+        $current_config_value = get_option( 'wpt_configure_options' );
+        echo ( isset( $current_config_value[$keyword] ) && $current_config_value[$keyword] == $gotten_value ? 'selected' : false  );
+    }
+}
 
 
 

@@ -33,7 +33,7 @@
             ajax_url = woocommerce_params.ajax_url;
         }
         */
-        console.log(ajax_url);//Only for Developer
+        console.log(WPT_DATA,ajax_url);//Only for Developer
         if( ajax_url === 'undefined' + ajax_url_additional  ){
             console.log( 'WOO PRODUCT TABLE is not Available to this page \nOR:::SORRY!!!!: woocommerce_params is Undefine also ajax_url also undefined. So ajax will not work not. Contact with codersaiful@gmail.com' );
             return false;
@@ -154,7 +154,6 @@
         if ( typeof config_json === 'undefined' ){
             return false;
         }
-        console.log(config_json);
         /**
          * Config Generate part
          * Mainly getting config_json value based on table id. To get new value if available in inside any function, Use like following
@@ -1629,9 +1628,6 @@
                 });
                 
 
-                console.log(config_json,config_json.sort_mini_filter === 'ASC');
-                //console.log(taxArray);
-                //console.log(taxArray.sort());
                 if(config_json.sort_mini_filter === 'ASC'){
                     taxArray.sort();
                     //taxArray.sort(function(a,b){return a-b});
