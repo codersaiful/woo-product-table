@@ -720,7 +720,7 @@
                 setValueToTargetTD_IfAvailable('sku', targetAttributeObject.sku);
                 
                 //Set Total Price display_price
-                var targetQty = $('#table_id_' + temp_number + ' #product_id_' + product_id + ' td.wpt_quantity .quantity input.input-text.qty.text').val();
+                var targetQty = $('#table_id_' + temp_number + ' #product_id_' + product_id + ' wpt_quantity .quantity input.input-text.qty.text').val();
                 if(!targetQty){
                     targetQty = 1;
                 }
@@ -899,7 +899,7 @@
             
             $('#table_id_' + temp_number + ' input.enabled.wpt_tabel_checkbox.wpt_td_checkbox:checked').each(function() {
                 var product_id = $(this).data('product_id');
-                var thisButton = $('tr.wpt_row_product_id_' + product_id + ' td.wpt_action a.button.wpt_woo_add_cart_button');
+                var thisButton = $('tr.wpt_row_product_id_' + product_id + ' wpt_action a.button.wpt_woo_add_cart_button');
                 thisButton.removeClass('added');
                 thisButton.addClass( 'disabled' );
                 thisButton.addClass( 'loading' );
@@ -978,7 +978,7 @@
                     $('#table_id_' + temp_number + ' input.enabled.wpt_tabel_checkbox.wpt_td_checkbox:checked').each(function() {
                         var product_id = $(this).data('product_id');
                         
-                        var thisButton = $('tr.wpt_row_product_id_' + product_id + ' td.wpt_action a.button.wpt_woo_add_cart_button');
+                        var thisButton = $('tr.wpt_row_product_id_' + product_id + ' wpt_action a.button.wpt_woo_add_cart_button');
                         thisButton.removeClass('disabled');
                         thisButton.removeClass('loading');
                         thisButton.addClass('added');
@@ -1367,13 +1367,13 @@
             
            
            if( filterBoxYesNo ){
-                $(hideAbleClass + ' td.wpt_check input.enabled.wpt_tabel_checkbox').removeClass('wpt_td_checkbox');
+                $(hideAbleClass + ' wpt_check input.enabled.wpt_tabel_checkbox').removeClass('wpt_td_checkbox');
                 $(hideAbleClass).css('display','none');
                 $(hideAbleClass).removeClass('visible_row');
 
                 $(finalClassSelctor).fadeIn();
                 $(finalClassSelctor).addClass('visible_row');
-                $(finalClassSelctor + ' td.wpt_check input.enabled.wpt_tabel_checkbox').addClass('wpt_td_checkbox');
+                $(finalClassSelctor + ' wpt_check input.enabled.wpt_tabel_checkbox').addClass('wpt_td_checkbox');
             }
             
             /**
@@ -1805,9 +1805,10 @@
     }
    
     $(document).on('submit','div.advance_table_wrapper table.advance_table.wpt_product_table form',function(e){
+            console.log(333);
             WPT_BlankNotice();
             var product_id = $(this).parents('tr').data('product_id');
-            var thisButton = $('tr.wpt_row_product_id_' + product_id + ' td.wpt_action button.single_add_to_cart_button');
+            var thisButton = $('tr.wpt_row_product_id_' + product_id + ' .wpt_action button.single_add_to_cart_button');
             var thisTable = $(this).parents('div.wpt_product_table_wrapper');
             var table_id = $(this).parents('div.wpt_product_table_wrapper').attr('id');
             
@@ -1836,14 +1837,14 @@
                 if(config_json.popup_notice === '1'){
                     Advance_NoticeBoard(notice);//Gettince Notice
                 }
-                    $( document.body ).trigger( 'added_to_cart' ); //Trigger and sent added_to_cart event
-                    $( document ).trigger( 'wc_fragments_refreshed' );
+                    
                     thisButton.removeClass('disabled');
                     thisButton.removeClass('loading');
                     thisButton.addClass('added');
                 //WPT_MiniCart();
             }).done(function(){
-                
+                $( document.body ).trigger( 'added_to_cart' ); //Trigger and sent added_to_cart event
+                    $( document ).trigger( 'wc_fragments_refreshed' );
                 //Quick Button Active here and it will go Directly to checkout Page
                 if(config_json.product_direct_checkout === 'yes'){
                     window.location.href = checkoutURL;
@@ -1950,12 +1951,12 @@
             var temp_number = $(this).parents('td').data('temp_number');
             var product_id = $(this).parents('td').data('product_id');
             
-            var targetThumbs = $('#table_id_' + temp_number + ' #product_id_' + product_id + ' td.wpt_thumbnails img');
+            var targetThumbs = $('#table_id_' + temp_number + ' #product_id_' + product_id + ' wpt_thumbnails img');
             var quoted_target = 'yith_request_temp_' + temp_number + '_id_' + product_id;
             var addToQuoteSelector = $('.' + quoted_target);
             var checkBoxSelector = $('.wpt_check_temp_' + temp_number + '_pr_' + product_id);
             function targetTD(td_name) {
-                var targetElement = $('#table_id_' + temp_number + ' #product_id_' + product_id + ' td.wpt_' + td_name);
+                var targetElement = $('#table_id_' + temp_number + ' #product_id_' + product_id + ' wpt_' + td_name);
                 return targetElement;
             }
             
