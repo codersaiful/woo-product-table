@@ -38,33 +38,7 @@ $meta_basics = get_post_meta( $post->ID, 'basics', true );
     </div>
 
 <?php do_action( 'wpto_admin_basic_tab',$meta_basics, $tab, $post, $tab_array ); ?>
-    <div class="wpt_column">
-        <table class="ultraaddons-table">
-            <tr>
-                <th>
-                    <label for="wpt_product_id_includes" class="wpt_label"><?php esc_html_e( 'Product ID Include', 'wpt_pro' );?></label>
-                </th>
-                <td>
-                    <select class="ua_select" id="wpt_product_id_includes" name="basics[post_include]" data-name="post_include" ></select>
-                    <input value="<?php echo isset( $meta_basics['post_include'] ) ? $meta_basics['post_include'] : ''; ?>" class="ua_input" type="text" placeholder="Example: 1,2,3,4">
-                    <p>To make table with specific product, Input product's ID - separate with comma.</p>
-                </td>
-            </tr>
-        </table>
-    </div>
 
-    <div class="wpt_column">
-        <table class="ultraaddons-table">
-            <tr>
-                <th>
-                    <label for="wpt_product_id_excludes" class="wpt_label"><?php esc_html_e( 'Product ID Exclude (Separate with comma)', 'wpt_pro' );?></label>
-                </th>
-                <td>
-                    <input name="basics[post_exclude]" id="wpt_product_id_excludes" data-name="post_exclude" value="<?php echo isset( $meta_basics['post_exclude'] ) ? $meta_basics['post_exclude'] : ''; ?>" class="ua_input" type="text" placeholder="Example: 1,2,3,4">
-                </td>
-            </tr>
-        </table>
-    </div>
 
 
     <div class="wpt_column">
