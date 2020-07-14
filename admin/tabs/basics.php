@@ -22,10 +22,10 @@ $meta_basics = get_post_meta( $post->ID, 'basics', true );
         <table class="ultraaddons-table">
             <tr>
                 <th>
-                    <label class="wpt_label" for="wpt_product_slugs"><?php echo sprintf( esc_html__('Category Includes %s (Click to choose Categories) %s','wpt_pro'),'<small>','</small>');?></label>
+                    <label class="wpt_label" for="wpt_category_includes"><?php echo sprintf( esc_html__('Category Includes %s (Click to choose Categories) %s','wpt_pro'),'<small>','</small>');?></label>
                 </th>
                 <td>
-                    <select style="width: 100%;" name="basics[product_cat_ids][]" data-name="product_cat_ids" id="wpt_product_ids" class="wpt_fullwidth wpt_select2 wpt_data_filed_atts ua_input" multiple>
+                    <select style="width: 100%;" name="basics[product_cat_ids][]" data-name="product_cat_ids" id="wpt_category_includes" class="wpt_fullwidth wpt_select2 wpt_data_filed_atts ua_input" multiple>
                         <?php
                         foreach ( $wpt_product_cat_object as $category ) {
                             echo "<option value='{$category->term_id}' " . ( isset( $meta_basics['product_cat_ids'] ) && is_array( $meta_basics['product_cat_ids'] ) && in_array( $category->term_id, $meta_basics['product_cat_ids'] ) ? 'selected' : false ) . ">{$category->name} - {$category->slug} ({$category->count})</option>";
@@ -41,10 +41,10 @@ $meta_basics = get_post_meta( $post->ID, 'basics', true );
         <table class="ultraaddons-table">
             <tr>
                 <th>
-                    <label class="wpt_label"><?php esc_html_e( 'Product ID Include', 'wpt_pro' );?></label>
+                    <label for="wpt_product_id_includes" class="wpt_label"><?php esc_html_e( 'Product ID Include', 'wpt_pro' );?></label>
                 </th>
                 <td>
-                    <select class="ua_select" id="product_id_includes" name="basics[post_include]" data-name="post_include" ></select>
+                    <select class="ua_select" id="wpt_product_id_includes" name="basics[post_include]" data-name="post_include" ></select>
                     <input value="<?php echo isset( $meta_basics['post_include'] ) ? $meta_basics['post_include'] : ''; ?>" class="ua_input" type="text" placeholder="Example: 1,2,3,4">
                     <p>To make table with specific product, Input product's ID - separate with comma.</p>
                 </td>
@@ -56,10 +56,10 @@ $meta_basics = get_post_meta( $post->ID, 'basics', true );
         <table class="ultraaddons-table">
             <tr>
                 <th>
-                    <label class="wpt_label"><?php esc_html_e( 'Product ID Exclude (Separate with comma)', 'wpt_pro' );?></label>
+                    <label for="wpt_product_id_excludes" class="wpt_label"><?php esc_html_e( 'Product ID Exclude (Separate with comma)', 'wpt_pro' );?></label>
                 </th>
                 <td>
-                    <input name="basics[post_exclude]" data-name="post_exclude" value="<?php echo isset( $meta_basics['post_exclude'] ) ? $meta_basics['post_exclude'] : ''; ?>" class="ua_input" type="text" placeholder="Example: 1,2,3,4">
+                    <input name="basics[post_exclude]" id="wpt_product_id_excludes" data-name="post_exclude" value="<?php echo isset( $meta_basics['post_exclude'] ) ? $meta_basics['post_exclude'] : ''; ?>" class="ua_input" type="text" placeholder="Example: 1,2,3,4">
                 </td>
             </tr>
         </table>
@@ -69,10 +69,10 @@ $meta_basics = get_post_meta( $post->ID, 'basics', true );
         <table class="ultraaddons-table">
             <tr>
                 <th>
-                    <label class="wpt_label" for="wpt_product_slugs"><?php echo sprintf( esc_html__( 'Category Exclude %s (Click to choose Categories) %s', 'wpt_pro' ), '<small>', '</small>' );?></label>
+                    <label class="wpt_label" for="wpt_product_cat_excludes"><?php echo sprintf( esc_html__( 'Category Exclude %s (Click to choose Categories) %s', 'wpt_pro' ), '<small>', '</small>' );?></label>
                 </th>
                 <td>
-                    <select name="basics[cat_explude][]" data-name="cat_explude" id="wpt_product_ids" class="wpt_fullwidth wpt_data_filed_atts ua_input" multiple>
+                    <select name="basics[cat_explude][]" data-name="cat_explude" id="wpt_product_cat_excludes" class="wpt_fullwidth wpt_data_filed_atts ua_input" multiple>
                         <?php
                         foreach ( $wpt_product_cat_object as $category ) {
                             echo "<option value='{$category->term_id}' " . ( isset( $meta_basics['cat_explude'] ) && is_array( $meta_basics['cat_explude'] ) && in_array( $category->term_id, $meta_basics['cat_explude'] ) ? 'selected' : false ) . ">{$category->name} - {$category->slug} ({$category->count})</option>";
@@ -107,10 +107,10 @@ $meta_basics = get_post_meta( $post->ID, 'basics', true );
         <table class="ultraaddons-table">
             <tr>
                 <th>
-                    <label class="wpt_label" for="product_tag_ids"><?php  echo sprintf( esc_html__( 'Tag Includes %s (Click to choose Tags) %s', 'wpt_pro' ), '<small>', '</small>' );?></label>
+                    <label class="wpt_label" for="wpt_product_tag_includes"><?php  echo sprintf( esc_html__( 'Tag Includes %s (Click to choose Tags) %s', 'wpt_pro' ), '<small>', '</small>' );?></label>
                 </th>
                 <td>
-                    <select name="basics[product_tag_ids][]" data-name="product_tag_ids" id="product_tag_ids" class="wpt_fullwidth wpt_data_filed_atts ua_input" multiple>
+                    <select name="basics[product_tag_ids][]" data-name="product_tag_ids" id="wpt_product_tag_includes" class="wpt_fullwidth wpt_data_filed_atts ua_input" multiple>
                         <?php
                         foreach ( $wpt_product_tag_object as $tags ) {
                             echo "<option value='{$tags->term_id}' " . ( isset( $meta_basics['product_tag_ids'] ) &&  is_array( $meta_basics['product_tag_ids'] ) && in_array( $tags->term_id, $meta_basics['product_tag_ids'] ) ? 'selected' : false ) . ">{$tags->name} - {$tags->slug} ({$tags->count})</option>";
@@ -126,10 +126,10 @@ $meta_basics = get_post_meta( $post->ID, 'basics', true );
         <table class="ultraaddons-table">
             <tr>
                 <th>
-                    <label class="wpt_label wpt_table_ajax_action" for='wpt_table_minicart_position'><?php esc_html_e('Ajax Action (Enable/Disable)','wpt_pro');?></label>
+                    <label class="wpt_label wpt_table_ajax_action" for='wpt_table_ajax_enable'><?php esc_html_e('Ajax Action (Enable/Disable)','wpt_pro');?></label>
                 </th>
                 <td>
-                    <select name="basics[ajax_action]" data-name='ajax_action' id="wpt_table_ajax_action" class="wpt_fullwidth wpt_data_filed_atts ua_input" >
+                    <select name="basics[ajax_action]" data-name='ajax_action' id="wpt_table_ajax_enable" class="wpt_fullwidth wpt_data_filed_atts ua_input" >
                         <option value="ajax_active" <?php echo isset( $meta_basics['ajax_action'] ) && $meta_basics['ajax_action'] == 'ajax_active' ? 'selected' : false; ?>><?php esc_html_e('Active Ajax (Default)','wpt_pro');?></option>
                         <option value="no_ajax_action" <?php echo isset( $meta_basics['ajax_action'] ) && $meta_basics['ajax_action'] == 'no_ajax_action' ? 'selected' : false; ?>><?php esc_html_e('Disable Ajax Action','wpt_pro');?></option>
                     </select>
@@ -142,10 +142,10 @@ $meta_basics = get_post_meta( $post->ID, 'basics', true );
         <table class="ultraaddons-table">
             <tr>
                 <th>
-                    <label class="wpt_label wpt_table_ajax_action" for='wpt_table_minicart_position'><?php esc_html_e('Ajax for Pagination (Enable/Disable)','wpt_pro');?></label>
+                    <label class="wpt_label wpt_table_ajax_action" for='wpt_table_ajax_pagination'><?php esc_html_e('Ajax for Pagination (Enable/Disable)','wpt_pro');?></label>
                 </th>
                 <td>
-                    <select name="basics[pagination_ajax]" data-name='pagination_ajax' id="wpt_table_ajax_action" class="wpt_fullwidth wpt_data_filed_atts ua_input" >
+                    <select name="basics[pagination_ajax]" data-name='pagination_ajax' id="wpt_table_ajax_pagination" class="wpt_fullwidth wpt_data_filed_atts ua_input" >
                         <option value="pagination_ajax" <?php echo isset( $meta_basics['pagination_ajax'] ) && $meta_basics['pagination_ajax'] == 'pagination_ajax' ? 'selected' : false; ?>><?php esc_html_e('Ajax Pagination (Default)','wpt_pro');?></option>
                         <option value="no_pagination_ajax" <?php echo isset( $meta_basics['pagination_ajax'] ) && $meta_basics['pagination_ajax'] == 'no_pagination_ajax' ? 'selected' : false; ?>><?php esc_html_e('Disable Ajax Pagination','wpt_pro');?></option>
                     </select>                   
@@ -176,11 +176,11 @@ $meta_basics = get_post_meta( $post->ID, 'basics', true );
         <table class="ultraaddons-table">
             <tr>
                 <th>
-                    <label style="display: inline;width: inherit;" class="wpt_label wpt_column_hide_unhide_tab" for="wpt_column_hide_unhide"><?php esc_html_e( 'Table Head', 'wpt_pro' );?></label>
+                    <label style="display: inline;width: inherit;" class="wpt_label wpt_column_hide_unhide_tab" for="wpt_table_head_enable"><?php esc_html_e( 'Table Head', 'wpt_pro' );?></label>
                 </th>
                 <td>
                     <label class="switch">
-                        <input  name="column_settings[table_head]" type="checkbox" id="wpt_column_hide_unhide" <?php echo isset( $column_settings['table_head'] ) ? 'checked="checked"' : ''; ?>>
+                        <input  name="column_settings[table_head]" type="checkbox" id="wpt_table_head_enable" <?php echo isset( $column_settings['table_head'] ) ? 'checked="checked"' : ''; ?>>
                         <div class="slider round"><!--ADDED HTML -->
                             <span class="on">Hide</span><span class="off">Show</span><!--END-->
                         </div>
@@ -202,10 +202,10 @@ $meta_basics = get_post_meta( $post->ID, 'basics', true );
             <table class="ultraaddons-table">
                 <tr>
                     <th>
-                        <label class="wpt_label" for="wpt_table_shorting"><?php esc_html_e( 'Pagination on/of', 'wpt_pro' ); ?></label>
+                        <label class="wpt_label" for="wpt_table_pagination_enable"><?php esc_html_e( 'Pagination on/of', 'wpt_pro' ); ?></label>
                     </th>
                     <td>
-                        <select name="pagination[start]" data-name='sort' id="wpt_table_shorting" class="wpt_fullwidth wpt_data_filed_atts ua_input" >
+                        <select name="pagination[start]" data-name='sort' id="wpt_table_pagination_enable" class="wpt_fullwidth wpt_data_filed_atts ua_input" >
 
                             <option value="1" <?php echo isset( $pagination['start'] ) && $pagination['start'] == '1' ? 'selected' : ''; ?>><?php esc_html_e( 'Enable (Default)', 'wpt_pro' ); ?></option>
                             <option value="0" <?php echo isset( $pagination['start'] ) && $pagination['start'] == '0' ? 'selected' : ''; ?>><?php esc_html_e( 'Disable', 'wpt_pro' ); ?></option>
@@ -338,7 +338,7 @@ $meta_basics = get_post_meta( $post->ID, 'basics', true );
                     <label class="wpt_label wpt_table_ajax_action" for='wpt_table_product_type'><?php esc_html_e('Product Type (Product/Variation Product)','wpt_pro');?></label>
                 </th>
                 <td>
-                    <select name="basics[product_type]" data-name='product_type' id="wpt_table_ajax_action" class="wpt_fullwidth wpt_data_filed_atts ua_input" >
+                    <select name="basics[product_type]" data-name='product_type' id="wpt_table_product_type" class="wpt_fullwidth wpt_data_filed_atts ua_input" >
                         <option value="" <?php echo isset( $meta_basics['product_type'] ) && $meta_basics['product_type'] == '' ? 'selected' : false; ?>><?php esc_html_e('Product','wpt_pro');?></option>
                         <option value="product_variation" <?php echo isset( $meta_basics['product_type'] ) && $meta_basics['product_type'] == 'product_variation' ? 'selected' : false; ?>><?php esc_html_e('Only Variation Product','wpt_pro');?></option>
                     </select>

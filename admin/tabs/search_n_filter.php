@@ -22,7 +22,7 @@ $meta_search_n_filter =  get_post_meta( $post->ID, 'search_n_filter', true );
         <table class="ultraaddons-table">
             <tr>
                 <th>
-                    <label class="wpt_label" for="wpt_search_from"><?php esc_html_e( 'Search From', 'wpt_pro' ); ?></label>
+                    <label class="wpt_label"><?php esc_html_e( 'Search From', 'wpt_pro' ); ?></label>
                 </th>
                 <td>
                     <ul class="wpt-tag-list">

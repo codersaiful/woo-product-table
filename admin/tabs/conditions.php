@@ -53,7 +53,7 @@ $meta_conditions =  get_post_meta( $post->ID, 'conditions', true );
             </tr>
         </table>
     </div>
-    <div style="display: none;" class="wpt_column" id="wpt_meta_value_wrapper">
+    <div style="display: none;" class="wpt_column">
         <table class="ultraaddons-table">
             <tr>
                 <th>
@@ -128,10 +128,10 @@ $meta_conditions =  get_post_meta( $post->ID, 'conditions', true );
         <table class="ultraaddons-table">
             <tr>
                 <th>
-                    <label class="wpt_label" for="wpt_table_only_stock"><?php esc_html_e( 'Only Sale Products', 'wpt_pro' ); ?></label>
+                    <label class="wpt_label" for="wpt_table_only_sale"><?php esc_html_e( 'Only Sale Products', 'wpt_pro' ); ?></label>
                 </th>
                 <td>
-                    <select name="conditions[only_sale]" data-name='only_sale' id="wpt_table_only_stock" class="wpt_fullwidth wpt_data_filed_atts ua_input" >
+                    <select name="conditions[only_sale]" data-name='only_sale' id="wpt_table_only_sale" class="wpt_fullwidth wpt_data_filed_atts ua_input" >
                         <option value="no" <?php echo isset( $meta_conditions['only_sale'] ) && $meta_conditions['only_sale'] == 'no' ? 'selected' : ''; ?>><?php esc_html_e( 'All Product', 'wpt_pro' ); ?></option>
                         <option value="yes" <?php echo isset( $meta_conditions['only_sale'] ) && $meta_conditions['only_sale'] == 'yes' ? 'selected' : ''; ?>><?php esc_html_e( 'Yes (Only Sale)', 'wpt_pro' ); ?></option>
                     </select>
@@ -158,7 +158,7 @@ $meta_conditions =  get_post_meta( $post->ID, 'conditions', true );
         <table class="ultraaddons-table">
             <tr>
                 <th>
-                    <label class="wpt_label" for="wpt_table_type"><?php esc_html_e( 'Third Party Addons Supporting ', 'wpt_pro' ); ?></label>
+                    <label class="wpt_label" for="wpt_table_table_type"><?php esc_html_e( 'Third Party Addons Supporting ', 'wpt_pro' ); ?></label>
                 </th>
                 <td>
                     <select name="conditions[table_type]" data-name='table_type' id="wpt_table_table_type" class="wpt_fullwidth wpt_data_filed_atts ua_input" >
