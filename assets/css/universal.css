@@ -16,10 +16,10 @@ pre.xdebug-var-dump>small {font-size: 88%;letter-spacing: -1px;}
 /*When add Shop Icon in Add to cart button. Since Version: 3.2*/
 @font-face {
   font-family: 'WooCommerce';
-  src: url("../../woocommerce/assets/fonts/WooCommerce.eot");
-  src: url("../../woocommerce/assets/fonts/WooCommerce.eot?#iefix") format("embedded-opentype"), 
-      url("../../woocommerce/assets/fonts/WooCommerce.woff") format("woff"), url("../../../woocommerce/assets/fonts/WooCommerce.ttf") format("truetype"), 
-      url("../../woocommerce/assets/fonts/WooCommerce.svg#WooCommerce") format("svg");
+  src: url("../../../woocommerce/assets/fonts/WooCommerce.eot");
+  src: url("../../../woocommerce/assets/fonts/WooCommerce.eot?#iefix") format("embedded-opentype"), 
+      url("../../../woocommerce/assets/fonts/WooCommerce.woff") format("woff"), url("../../../../woocommerce/assets/fonts/WooCommerce.ttf") format("truetype"), 
+      url("../../../woocommerce/assets/fonts/WooCommerce.svg#WooCommerce") format("svg");
   font-weight: normal;
   font-style: normal; }
 /**
@@ -162,11 +162,8 @@ div.wpt_product_table_wrapper input[type=radio]:checked+label:after {
 
 
 /*******For All Table*********/
-.wpt_price{
-    text-align: center;
-}
+
 .wpt_action{
-    text-align: right;
     min-width: 140px;
 }
 .item_inside_cell.wpt_action{
