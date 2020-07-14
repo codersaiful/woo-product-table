@@ -52,7 +52,11 @@
         $tab_file_admin = apply_filters( 'wpto_admin_tab_file_loc', $tab_file, $tab, $post, $tab_array );
         $tab_file_of_admin = apply_filters( 'wpto_admin_tab_file_loc_' . $tab, $tab_file_admin, $post, $tab_array );
         if ( $tab_validation && is_file( $tab_file_of_admin ) ) {
-
+            
+            /**
+             * Adding content to Any admin Tab of Form
+             */
+            do_action( 'wpto_admin_tab_' . $tab, $post, $tab_array );
             include $tab_file_of_admin; 
         }elseif( $tab_validation ){
             echo '<h2>' . $tab . '.php ' . esc_html__( 'file is not found in tabs folder','wpt_pro' ) . '</h2>';

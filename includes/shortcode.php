@@ -102,8 +102,8 @@ function wpt_shortcode_generator( $atts = false ) {
         //Basics Part
         $product_cat_id_single = ( isset($atts['product_cat_ids']) && !empty( $atts['product_cat_ids'] ) ? $atts['product_cat_ids'] : false );
         $product_cat_ids = isset( $basics['product_cat_ids'] ) ? $basics['product_cat_ids'] : $product_cat_id_single;
-        $post_include = wpt_explode_string_to_array($basics['post_include']);
-        $post_exclude = wpt_explode_string_to_array($basics['post_exclude']);
+        $post_include = isset( $basics['post_include'] ) ? $basics['post_include'] : false; //wpt_explode_string_to_array($basics['post_include']);
+        $post_exclude = isset( $basics['post_exclude'] ) ? $basics['post_exclude'] : false; //wpt_explode_string_to_array($basics['post_exclude']);
         $cat_explude = isset( $basics['cat_explude'] ) ? $basics['cat_explude'] : false;
         $product_tag_ids = isset( $basics['product_tag_ids'] ) ? $basics['product_tag_ids'] : false;
         $ajax_action = $basics['ajax_action'];//isset( $basics['ajax_action'] ) ? $basics['ajax_action'] : false;
