@@ -44,7 +44,8 @@ $meta_basics = get_post_meta( $post->ID, 'basics', true );
                     <label class="wpt_label"><?php esc_html_e( 'Product ID Include', 'wpt_pro' );?></label>
                 </th>
                 <td>
-                    <input id="product_id_includes" name="basics[post_include]" data-name="post_include" value="<?php echo isset( $meta_basics['post_include'] ) ? $meta_basics['post_include'] : ''; ?>" class="ua_input" type="text" placeholder="Example: 1,2,3,4">
+                    <select class="ua_select" id="product_id_includes" name="basics[post_include]" data-name="post_include" ></select>
+                    <input value="<?php echo isset( $meta_basics['post_include'] ) ? $meta_basics['post_include'] : ''; ?>" class="ua_input" type="text" placeholder="Example: 1,2,3,4">
                     <p>To make table with specific product, Input product's ID - separate with comma.</p>
                 </td>
             </tr>
