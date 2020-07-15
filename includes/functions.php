@@ -18,7 +18,7 @@ if( !function_exists( 'wpt_column_setting_for_tax_cf' ) ){
      */
     function wpt_column_setting_for_tax_cf( $column_settings, $table_ID, $enabled_column_array ){
         if(is_array( $enabled_column_array ) && count( $enabled_column_array ) > 0 ){
-            foreach($enabled_column_array as $enbl_col){
+            foreach($enabled_column_array as $enbl_col=>$val){
                 if( substr($enbl_col, 0,3) == 'cf_' ){
                     $column_settings[$enbl_col]['type'] = 'custom_field';
                     $column_settings[$enbl_col]['type_name'] = 'Custom Field';
