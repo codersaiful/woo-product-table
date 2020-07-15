@@ -178,15 +178,6 @@ div#wpt_meta_value_wrapper {
 }
 /**************Style for Shortcode Generator Section End Here******************/
 
-/*Custom style for Multiple Select */
-.select2-container--default .select2-selection--multiple .select2-selection__choice {
-    background-color: rgba(228, 228, 228, 0.18);
-    border: 1px solid rgba(170, 170, 170, 0.45);
-    border-radius: 4px;
-    margin: 5px 5px 0px 0px;
-    padding: 4px 3px;
-    color: black;
-}
 
 /****Admin section Right Side*****/
 div.wpt_rightside div.wpt_right_side_in_wrapper {
@@ -983,6 +974,15 @@ body.wpt_admin_body .select2-container--default .select2-results__option--highli
 }
 body.wpt_admin_body .select2-container--default .select2-selection--multiple .select2-selection__rendered li {
     display: flex;
+}
+body.wpt_admin_body .select2-container--default .select2-selection--multiple .select2-selection__choice {
+    background-color: rgb(255, 255, 255);
+    border: 1px solid white;
+    border-radius: 4px;
+    margin: 5px 5px 3px 2px;
+    padding: 4px 5px;
+    color: black;
+    box-shadow: 1px 1px 3px 0px #0000003b;
 }
 /* Responsive Design Starts */
 @media screen and (max-width: 782px){
