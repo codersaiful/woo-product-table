@@ -179,6 +179,38 @@
         if(wpt_table_sort_order_by === 'meta_value' || wpt_table_sort_order_by === 'meta_value_num'){
             $("#wpt_meta_value_wrapper").fadeIn();
         }
+        
+        
+        $(document).on('change','select.wpt_toggle',function(){
+            var target_val,target_calss,Temp,TempElmnt;
+            var val = $(this).val();
+            var dataON = $(this).data('on');
+            var dataOFF = $(this).data('off');
+            if(dataON){
+                Temp = dataON.split("|");
+                target_val = Temp[0];
+                target_calss = Temp[1];
+                TempElmnt = $(target_calss);
+                if(val === target_val){
+                    TempElmnt.fadeIn();
+                }else{
+                    TempElmnt.fadeOut();
+                }
+            }
+            if(dataOFF){
+                Temp = dataON.split("|");
+                target_val = Temp[0];
+                target_calss = Temp[1];
+                TempElmnt = $(target_calss);
+                if(val === target_val){
+                    TempElmnt.fadeOut();
+                }else{
+                    TempElmnt.fadeIn();
+                }
+            }
+        });
+        
+        
         /**
          * Column Section Managing
          */

@@ -989,6 +989,9 @@ body.wpt_admin_body .ultraaddons-panel p {
     font-size: 17px;
     color: #888;
 }
+body.wpt_admin_body .wpt_auto_hide{
+    display: none;
+}
 /* Responsive Design Starts */
 @media screen and (max-width: 782px){
     .wpt_column_setting_single_extra>div label {

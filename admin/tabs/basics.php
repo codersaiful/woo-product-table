@@ -22,7 +22,7 @@ $meta_basics = get_post_meta( $post->ID, 'basics', true );
         <table class="ultraaddons-table">
             <tr>
                 <th>
-                    <label class="wpt_label" for="wpt_category_includes"><?php echo sprintf( esc_html__('Category Includes %s (Click to choose Categories) %s','wpt_pro'),'<small>','</small>');?></label>
+                    <label class="wpt_label" for="wpt_category_includes"><?php echo esc_html__('Category Includes','wpt_pro');?></label>
                 </th>
                 <td>
                     <select style="width: 100%;" name="basics[product_cat_ids][]" data-name="product_cat_ids" id="wpt_category_includes" class="wpt_fullwidth wpt_select2 wpt_data_filed_atts ua_input" multiple>
@@ -32,6 +32,7 @@ $meta_basics = get_post_meta( $post->ID, 'basics', true );
                         }
                         ?>
                     </select>
+                    <p><?php echo esc_html__( 'Click to choose. Selected categories product will be display in your table.', 'wpt_pro') ?></p>
                 </td>
             </tr>
         </table>
@@ -45,7 +46,7 @@ $meta_basics = get_post_meta( $post->ID, 'basics', true );
         <table class="ultraaddons-table">
             <tr>
                 <th>
-                    <label class="wpt_label" for="wpt_product_cat_excludes"><?php echo sprintf( esc_html__( 'Category Exclude %s (Click to choose Categories) %s', 'wpt_pro' ), '<small>', '</small>' );?></label>
+                    <label class="wpt_label" for="wpt_product_cat_excludes"><?php echo esc_html__( 'Category Exclude', 'wpt_pro' );?></label>
                 </th>
                 <td>
                     <select name="basics[cat_explude][]" data-name="cat_explude" id="wpt_product_cat_excludes" class="wpt_fullwidth wpt_data_filed_atts ua_select wpt_select2" multiple>
@@ -55,6 +56,7 @@ $meta_basics = get_post_meta( $post->ID, 'basics', true );
                         }
                         ?>
                     </select>
+                    <p><?php echo esc_html__( 'Click to choose. Selected Categories products will be exclude from your table.', 'wpt_pro') ?></p>
                 </td>
             </tr>
         </table>

@@ -53,7 +53,7 @@ $meta_conditions =  get_post_meta( $post->ID, 'conditions', true );
             </tr>
         </table>
     </div>
-    <div style="display: none;" class="wpt_column">
+    <div style="display: none;" class="wpt_column" id="wpt_meta_value_wrapper">
         <table class="ultraaddons-table">
             <tr>
                 <th>
