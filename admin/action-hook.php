@@ -90,6 +90,7 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
             <h3 class="with-background dark-background"><?php esc_html_e( 'Basic Settings', 'wpt_pro' );?></h3>
             <table class="ultraaddons-table">
                 <tbody>
+                <?php if( $page == 'configuration_page' ){ ?>
                     <tr>
                         <th><label class="wpt_label" for="wpt_table_custom_add_to_cart"><?php esc_html_e( 'Add to Cart Icon', 'wpt_pro' ); ?></label></th>
                         <td>
@@ -139,9 +140,7 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
                             <input name="data[footer_cart_size]" class="wpt_data_filed_atts ua_input" value="<?php echo $current_config_value['footer_cart_size']; ?>" id="wpt_table_thumbs_image_size" type="number" placeholder="<?php esc_attr_e( 'Default Size. eg: 70', 'wpt_pro' ); ?>" min="50" max="" pattern="[0-9]*" inputmode="numeric">
                         </td>
                     </tr>
-
-
-
+        <?php } ?>
                     <tr>
                         <th><label class="wpt_label" for="wpt_table_sort_mini_filter"><?php esc_html_e( 'Mini Filter Sorting', 'wpt_pro' ); ?></label></th>
                         <td>
@@ -177,17 +176,6 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
                             <select name="data[popup_notice]" id="wpt_table_popup_notice" class="wpt_fullwidth ua_input" >
                                 <option value="1" <?php wpt_selected( 'popup_notice', '1' ); ?>><?php esc_html_e( 'Enable', 'wpt_pro' ); ?></option>
                                 <option value="0" <?php wpt_selected( 'popup_notice', '0' ); ?>><?php esc_html_e( 'Disable', 'wpt_pro' ); ?></option>
-                            </select>
-                        </td>
-                    </tr>
-
-
-                    <tr> 
-                        <th> <label class="wpt_label" for="wpt_table_disable_product_link"><?php esc_html_e( 'Disable Product Link', 'wpt_pro' ); ?></label></th>
-                        <td>
-                            <select name="data[disable_product_link]" id="wpt_table_disable_product_link" class="wpt_fullwidth ua_input" >
-                                <option value="1" <?php wpt_selected( 'disable_product_link', '1' ); ?>><?php esc_html_e( 'Yes', 'wpt_pro' ); ?></option>
-                                <option value="0" <?php wpt_selected( 'disable_product_link', '0' ); ?>><?php esc_html_e( 'No', 'wpt_pro' ); ?></option>
                             </select>
                         </td>
                     </tr>

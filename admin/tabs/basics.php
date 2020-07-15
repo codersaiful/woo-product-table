@@ -48,7 +48,7 @@ $meta_basics = get_post_meta( $post->ID, 'basics', true );
                     <label class="wpt_label" for="wpt_product_cat_excludes"><?php echo sprintf( esc_html__( 'Category Exclude %s (Click to choose Categories) %s', 'wpt_pro' ), '<small>', '</small>' );?></label>
                 </th>
                 <td>
-                    <select name="basics[cat_explude][]" data-name="cat_explude" id="wpt_product_cat_excludes" class="wpt_fullwidth wpt_data_filed_atts ua_input" multiple>
+                    <select name="basics[cat_explude][]" data-name="cat_explude" id="wpt_product_cat_excludes" class="wpt_fullwidth wpt_data_filed_atts ua_select wpt_select2" multiple>
                         <?php
                         foreach ( $wpt_product_cat_object as $category ) {
                             echo "<option value='{$category->term_id}' " . ( isset( $meta_basics['cat_explude'] ) && is_array( $meta_basics['cat_explude'] ) && in_array( $category->term_id, $meta_basics['cat_explude'] ) ? 'selected' : false ) . ">{$category->name} - {$category->slug} ({$category->count})</option>";
@@ -86,7 +86,7 @@ $meta_basics = get_post_meta( $post->ID, 'basics', true );
                     <label class="wpt_label" for="wpt_product_tag_includes"><?php  echo sprintf( esc_html__( 'Tag Includes %s (Click to choose Tags) %s', 'wpt_pro' ), '<small>', '</small>' );?></label>
                 </th>
                 <td>
-                    <select name="basics[product_tag_ids][]" data-name="product_tag_ids" id="wpt_product_tag_includes" class="wpt_fullwidth wpt_data_filed_atts ua_input" multiple>
+                    <select name="basics[product_tag_ids][]" data-name="product_tag_ids" id="wpt_product_tag_includes" class="wpt_fullwidth wpt_data_filed_atts  ua_select wpt_select2" multiple>
                         <?php
                         foreach ( $wpt_product_tag_object as $tags ) {
                             echo "<option value='{$tags->term_id}' " . ( isset( $meta_basics['product_tag_ids'] ) &&  is_array( $meta_basics['product_tag_ids'] ) && in_array( $tags->term_id, $meta_basics['product_tag_ids'] ) ? 'selected' : false ) . ">{$tags->name} - {$tags->slug} ({$tags->count})</option>";
