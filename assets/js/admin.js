@@ -131,7 +131,6 @@
             removingActiveClass();
             $('body.wpt_admin_body #wpt_configuration_form #' + tabName).addClass('tab-content-active');
             $('body.wpt_admin_body #wpt_configuration_form .nav-tab-wrapper a.wpt_nav_tab.wpt_nav_for_' + tabName).addClass('nav-tab-active');
-            console.log(tabName);
         }
         
         $('body.wpt_admin_body').on('click',' #wpt_configuration_form a.wpt_nav_tab',function(e){
@@ -341,10 +340,9 @@
 
 
         $(document).on('change','li.wpt_sortable_peritem.column_keyword_content',function(){
-            console.log(window.tinyMCE.triggerSave());
             $('.button,button').removeClass('wpt_ajax_update');
         });
-        console.log(wp.editor);
+
         //*********************** AJAX Save - AJAX data save
         $('body').append("<div class='wpt_notify'><h1>Saving...</h1></div>");
         
