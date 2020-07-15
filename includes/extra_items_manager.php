@@ -52,8 +52,9 @@ foreach( $extra_items as $keyword ){
         $file = apply_filters( 'wpto_defult_file_loc', $file, $keyword, $product, $table_ID );
     }
     $tag = isset( $column_settings[$keyword]['tag'] ) && !empty( $column_settings[$keyword]['tag'] ) ? $column_settings[$keyword]['tag'] : 'div';
+    $tag_class = isset( $column_settings[$keyword]['tag_class'] ) && !empty( $column_settings[$keyword]['tag_class'] ) ? $column_settings[$keyword]['tag_class'] : '';
     echo $tag ? "<$tag "
-            . "class='item_inside_cell wpt_" . esc_attr( $keyword ) . "' "
+            . "class='item_inside_cell wpt_" . esc_attr( $keyword ) . " " . esc_attr( $tag_class ) . "' "
             . "data-keyword='" . esc_attr( $keyword ) . "' "
             . "data-sku='" . esc_attr( $product->get_sku() ) . "' "
             . ">" : '';

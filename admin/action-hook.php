@@ -137,7 +137,7 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
                     <tr>
                         <th><label class="wpt_label" for="wpt_table_footer_cart_size"><?php echo sprintf(esc_html__( 'Footer Cart Size %s[Only Int]%s', 'wpt_pro' ), '<small>', '</small>' ); ?></label></th>
                         <td>
-                            <input name="data[footer_cart_size]" class="wpt_data_filed_atts ua_input" value="<?php echo $current_config_value['footer_cart_size']; ?>" id="wpt_table_thumbs_image_size" type="number" placeholder="<?php esc_attr_e( 'Default Size. eg: 70', 'wpt_pro' ); ?>" min="50" max="" pattern="[0-9]*" inputmode="numeric">
+                            <input name="data[footer_cart_size]" class="wpt_data_filed_atts ua_input" value="<?php echo $current_config_value['footer_cart_size']; ?>" id="wpt_table_footer_cart_size" type="number" placeholder="<?php esc_attr_e( 'Default Size. eg: 70', 'wpt_pro' ); ?>" min="50" max="" pattern="[0-9]*" inputmode="numeric">
                         </td>
                     </tr>
         <?php } ?>
@@ -156,7 +156,7 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
                     <tr>
                         <th><label class="wpt_label" for="wpt_table_sort_searchbox_filter"><?php esc_html_e( 'Search Box Taxonomy Sorting', 'wpt_pro' ); ?></label></th>
                         <td>
-                            <select name="data[sort_searchbox_filter]" id="wpt_table_sort_mini_filter" class="wpt_fullwidth ua_input" >
+                            <select name="data[sort_searchbox_filter]" id="wpt_table_sort_searchbox_filter" class="wpt_fullwidth ua_input" >
                                 <option value="0" <?php wpt_selected( 'sort_searchbox_filter', '0' ); ?>><?php esc_html_e( 'None', 'wpt_pro' ); ?></option>
                                 <option value="ASC" <?php wpt_selected( 'sort_searchbox_filter', 'ASC' ); ?>><?php esc_html_e( 'Ascending', 'wpt_pro' ); ?></option>
                                 <option value="DESC" <?php wpt_selected( 'sort_searchbox_filter', 'DESC' ); ?>><?php esc_html_e( 'Descending', 'wpt_pro' ); ?></option>
@@ -182,7 +182,7 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
                     <tr> 
                         <th>  <label class="wpt_label" for="wpt_table_product_link_target"><?php esc_html_e( 'Product Link Open Type', 'wpt_pro' ); ?></label>
                         <td>
-                            <select name="data[product_link_target]" id="wpt_table_disable_product_link" class="wpt_fullwidth ua_input" >
+                            <select name="data[product_link_target]" id="wpt_table_product_link_target" class="wpt_fullwidth ua_input" >
                                 <option value="_blank" <?php wpt_selected( 'product_link_target', '_blank' ); ?>><?php esc_html_e( 'New Tab', 'wpt_pro' ); ?></option>
                                 <option value="_self" <?php wpt_selected( 'product_link_target', '_self' ); ?>><?php esc_html_e( 'Self Tab', 'wpt_pro' ); ?></option>
                             </select>
@@ -210,7 +210,7 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
                     <tr> 
                         <th><label class="wpt_label" for="wpt_table_disable_cat_tag_link"><?php echo sprintf(esc_html__( 'Disable %s[Categories and Tags]%s Link', 'wpt_pro' ), '<strong>', '</strong>' ); ?></label> </th>
                         <td>
-                            <select name="data[disable_cat_tag_link]" id="wpt_table_disable_product_link" class="wpt_fullwidth ua_input" >
+                            <select name="data[disable_cat_tag_link]" id="wpt_table_disable_cat_tag_link" class="wpt_fullwidth ua_input" >
                                 <option value="1" <?php wpt_selected( 'disable_cat_tag_link', '1' ); ?>><?php esc_html_e( 'Yes', 'wpt_pro' ); ?></option>
                                 <option value="0" <?php wpt_selected( 'disable_cat_tag_link', '0' ); ?>><?php esc_html_e( 'No', 'wpt_pro' ); ?></option>
                             </select>
@@ -277,7 +277,7 @@ if( !function_exists( 'wpt_configure_label_part' ) ){
                     <tr> 
                         <th><label for="wpt_table_search_keyword_text" class="wpt_label"><?php echo sprintf(esc_html__( '%s[Search Keyword]%s - Text', 'wpt_pro' ), '<b>', '</b>' ); ?></label></th>
                         <td>
-                            <input name="data[search_keyword_text]" class="wpt_data_filed_atts ua_input" value="<?php echo $current_config_value['search_keyword_text']; ?>" id="wpt_table_search_button_textt" type="text" placeholder="<?php esc_attr_e( 'Search Keyword', 'wpt_pro' ); ?>">
+                            <input name="data[search_keyword_text]" class="wpt_data_filed_atts ua_input" value="<?php echo $current_config_value['search_keyword_text']; ?>" id="wpt_table_search_keyword_text" type="text" placeholder="<?php esc_attr_e( 'Search Keyword', 'wpt_pro' ); ?>">
                         </td>
                     </tr>
 
@@ -288,7 +288,7 @@ if( !function_exists( 'wpt_configure_label_part' ) ){
                         </td>
                     </tr>
                     <tr> 
-                        <th> <label for="wpt_table_instant_search_textt" class="wpt_label"><?php echo sprintf(esc_html__( '%s[Instance Search]%s - Text', 'wpt_pro' ), '<b>', '</b>' ); ?></label></th>
+                        <th> <label for="wpt_table_instant_search_text" class="wpt_label"><?php echo sprintf(esc_html__( '%s[Instance Search]%s - Text', 'wpt_pro' ), '<b>', '</b>' ); ?></label></th>
                         <td>
                             <input name="data[instant_search_text]" class="wpt_data_filed_atts ua_input" value="<?php echo $current_config_value['instant_search_text']; ?>" id="wpt_table_instant_search_text" type="text" placeholder="<?php esc_attr_e( 'attr', 'wpt_pro' ); ?>"> 
                         </td>
@@ -313,15 +313,15 @@ if( !function_exists( 'wpt_configure_label_part' ) ){
                         </td>
                     </tr>
                     <tr> 
-                        <th> <label for="wpt_table_item" class="wpt_label"><?php esc_html_e( 'Item [for Plural]', 'wpt_pro' ); ?></label></th>
+                        <th> <label for="wpt_table_items" class="wpt_label"><?php esc_html_e( 'Item [for Plural]', 'wpt_pro' ); ?></label></th>
                         <td>
-                            <input name="data[items]" class="wpt_data_filed_atts ua_input" value="<?php echo $current_config_value['items']; ?>" id="wpt_table_item" type="text" placeholder="<?php esc_attr_e( 'Item | for All selected Button', 'wpt_pro' ); ?>">
+                            <input name="data[items]" class="wpt_data_filed_atts ua_input" value="<?php echo $current_config_value['items']; ?>" id="wpt_table_items" type="text" placeholder="<?php esc_attr_e( 'Item | for All selected Button', 'wpt_pro' ); ?>">
                         </td>
                     </tr>
                     <tr>
-                        <th><label class="wpt_label" for="wpt_table_footer_possition"><?php esc_html_e( 'Item/Products Count system [New]', 'wpt_pro' ); ?></label></th>
+                        <th><label class="wpt_label" for="wpt_table_product_count"><?php esc_html_e( 'Item/Products Count system [New]', 'wpt_pro' ); ?></label></th>
                         <td>
-                            <select name="data[item_count]" id="wpt_table_footer_possition" class="wpt_fullwidth ua_input" >
+                            <select name="data[item_count]" id="wpt_table_product_count" class="wpt_fullwidth ua_input" >
                                 <option value="" <?php wpt_selected( 'item_count', '' ); ?>><?php esc_html_e( 'Products Wise', 'wpt_pro' ); ?></option>
                                 <option value="all" <?php wpt_selected( 'item_count', 'all' ); ?>><?php esc_html_e( 'All Items', 'wpt_pro' ); ?></option>
                             </select>
@@ -329,9 +329,9 @@ if( !function_exists( 'wpt_configure_label_part' ) ){
                         </td>
                     </tr>
                     <tr> 
-                        <th> <label for="wpt_table_item" class="wpt_label"><?php esc_html_e( 'Add to Cart all selected [Added] Text', 'wpt_pro' ); ?></label></th>
+                        <th> <label for="wpt_table_item_add_selct_all" class="wpt_label"><?php esc_html_e( 'Add to Cart all selected [Added] Text', 'wpt_pro' ); ?></label></th>
                         <td>
-                            <input name="data[add2cart_all_added_text]" class="wpt_data_filed_atts ua_input" value="<?php echo $current_config_value['add2cart_all_added_text']; ?>" id="wpt_table_item" type="text" placeholder="<?php esc_attr_e( 'Added text for [Add to cart Selected]', 'wpt_pro' ); ?>">
+                            <input name="data[add2cart_all_added_text]" class="wpt_data_filed_atts ua_input" value="<?php echo $current_config_value['add2cart_all_added_text']; ?>" id="wpt_table_item_add_selct_all" type="text" placeholder="<?php esc_attr_e( 'Added text for [Add to cart Selected]', 'wpt_pro' ); ?>">
                         </td>
 
                     </tr>
@@ -355,9 +355,9 @@ if( !function_exists( 'wpt_configure_label_part' ) ){
                         </td>
                     </tr>
                     <tr>
-                        <th><label for="wpt_table_search_box_order" class="wpt_label"><?php esc_html_e( 'SearchBox Order text', 'wpt_pro' ); ?></label></label></th>
+                        <th><label for="wpt_table_search_eee" class="wpt_label"><?php esc_html_e( 'SearchBox Order text', 'wpt_pro' ); ?></label></label></th>
                         <td>
-                            <input name="data[search_box_order]" class="wpt_data_filed_atts ua_input" value="<?php echo $current_config_value['search_box_order']; ?>" id="wpt_table_search_box_title" type="text" placeholder="<?php esc_attr_e( 'Order text', 'wpt_pro' ); ?>">
+                            <input name="data[search_box_order]" class="wpt_data_filed_atts ua_input" value="<?php echo $current_config_value['search_box_order']; ?>" id="wpt_table_search_eee" type="text" placeholder="<?php esc_attr_e( 'Order text', 'wpt_pro' ); ?>">
                         </td>
                     </tr>
                 </tbody>
@@ -391,7 +391,7 @@ if( !function_exists( 'wpt_configure_external_part' ) ){
                     <tr> 
                         <th> <label for="wpt_table_yith_browse_list" class="wpt_label"><?php echo sprintf(esc_html__( '%s[Browse Quote list]%s - text ', 'wpt_pro' ), '<b>', '</b>' ); ?></label></th>
                         <td>
-                            <input name="data[yith_browse_list]" class="wpt_data_filed_atts ua_input" value="<?php echo $current_config_value['yith_browse_list']; ?>" id="wpt_table_yith_add_to_quote_text" type="text" placeholder="<?php esc_attr_e( 'Browse the list - text write here', 'wpt_pro' ); ?>">
+                            <input name="data[yith_browse_list]" class="wpt_data_filed_atts ua_input" value="<?php echo $current_config_value['yith_browse_list']; ?>" id="wpt_table_yith_browse_list" type="text" placeholder="<?php esc_attr_e( 'Browse the list - text write here', 'wpt_pro' ); ?>">
                         </td>
                     </tr>
                     <tr> 
@@ -501,19 +501,19 @@ if( !function_exists( 'wpt_configure_all_message_part' ) ){
                     <tr>
                         <th><label for="wpt_table_no_more_query_message" class="wpt_label"><?php esc_html_e( '[There is no more products based on current Query.] Message', 'wpt_pro' );?></label></th>
                         <td>    
-                            <input name="data[no_more_query_message]" class="wpt_data_filed_atts ua_input" value="<?php echo $current_config_value['no_more_query_message']; ?>" id="wpt_table_out_of_stock_message" type="text" placeholder="<?php esc_attr_e( 'There is no more products based on current Query.', 'wpt_pro' );?>">
+                            <input name="data[no_more_query_message]" class="wpt_data_filed_atts ua_input" value="<?php echo $current_config_value['no_more_query_message']; ?>" id="wpt_table_no_more_query_message" type="text" placeholder="<?php esc_attr_e( 'There is no more products based on current Query.', 'wpt_pro' );?>">
                         </td>
                     </tr>
                     <tr>
-                        <th><label for="wpt_table_out_of_stock_message" class="wpt_label"><?php esc_html_e( '[ Adding in Progress ] Message', 'wpt_pro' );?></label></th>
+                        <th><label for="wpt_table_out_adding_progress" class="wpt_label"><?php esc_html_e( '[ Adding in Progress ] Message', 'wpt_pro' );?></label></th>
                         <td>    
-                            <input name="data[adding_in_progress]" class="wpt_data_filed_atts ua_input" value="<?php echo $current_config_value['adding_in_progress']; ?>" id="wpt_table_out_of_stock_message" type="text" placeholder="<?php esc_attr_e( 'Adding in Progress', 'wpt_pro' );?>">
+                            <input name="data[adding_in_progress]" class="wpt_data_filed_atts ua_input" value="<?php echo $current_config_value['adding_in_progress']; ?>" id="wpt_table_out_adding_progress" type="text" placeholder="<?php esc_attr_e( 'Adding in Progress', 'wpt_pro' );?>">
                         </td>
                     </tr>
                     <tr>
-                        <th><label for="wpt_table_out_of_stock_message" class="wpt_label"><?php esc_html_e( '[ No Right Combination ] Message', 'wpt_pro' );?></label></th>
+                        <th><label for="wpt_table_no_right_comb" class="wpt_label"><?php esc_html_e( '[ No Right Combination ] Message', 'wpt_pro' );?></label></th>
                         <td>    
-                            <input name="data[no_right_combination]" class="wpt_data_filed_atts ua_input" value="<?php echo $current_config_value['no_right_combination']; ?>" id="wpt_table_out_of_stock_message" type="text" placeholder="<?php esc_attr_e( 'No Right Combination', 'wpt_pro' );?>">
+                            <input name="data[no_right_combination]" class="wpt_data_filed_atts ua_input" value="<?php echo $current_config_value['no_right_combination']; ?>" id="wpt_table_no_right_comb" type="text" placeholder="<?php esc_attr_e( 'No Right Combination', 'wpt_pro' );?>">
                         </td>
                     </tr>
                     <tr>
@@ -523,9 +523,9 @@ if( !function_exists( 'wpt_configure_all_message_part' ) ){
                         </td>
                     </tr>
                     <tr>
-                        <th><label for="wpt_table_out_of_stock_message" class="wpt_label"><?php esc_html_e( '[ Sorry! Out of Stock! ] Message', 'wpt_pro' );?></label></th>
+                        <th><label for="wpt_table_sorry_out_stock" class="wpt_label"><?php esc_html_e( '[ Sorry! Out of Stock! ] Message', 'wpt_pro' );?></label></th>
                         <td>    
-                            <input name="data[sorry_out_of_stock]" class="wpt_data_filed_atts ua_input" value="<?php echo $current_config_value['sorry_out_of_stock']; ?>" id="wpt_table_out_of_stock_message" type="text" placeholder="<?php esc_attr_e( 'Sorry! Out of Stock!', 'wpt_pro' );?>">
+                            <input name="data[sorry_out_of_stock]" class="wpt_data_filed_atts ua_input" value="<?php echo $current_config_value['sorry_out_of_stock']; ?>" id="wpt_table_sorry_out_stock" type="text" placeholder="<?php esc_attr_e( 'Sorry! Out of Stock!', 'wpt_pro' );?>">
                         </td>
                     </tr>
                     <tr>

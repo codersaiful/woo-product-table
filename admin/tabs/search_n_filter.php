@@ -18,47 +18,7 @@ $meta_search_n_filter =  get_post_meta( $post->ID, 'search_n_filter', true );
         </table>
     </div>
 
-    <div class="wpt_column">
-        <table class="ultraaddons-table">
-            <tr>
-                <th>
-                    <label class="wpt_label"><?php esc_html_e( 'Search From', 'wpt_pro' ); ?></label>
-                </th>
-                <td>
-                    <ul class="wpt-tag-list">
-                    <?php
-                    $search_form_arr = array(
-                        'ID' => 'posts',
-                        'post_title' => 'posts',
-                        'post_content' => 'posts',
-                        'menu_order' => 'posts',
-                        'post_author' => 'posts',
-                        'post_excerpt' => 'posts',
-                        'post_parent' => 'posts',
-                        'post_name' => 'posts',
-                        'post_date' => 'posts',
-                        '_sku' => 'postmeta',
-                        '_price' => 'postmeta',
-                        '_regular_price' => 'postmeta',
-                        '_sale_price' => 'postmeta',
-                        '_sku' => 'postmeta',
-                    );
-
-                    foreach($search_form_arr as $search_key => $search_type){
-                        ?>  
-                        <li class="wpt_checkbox wpt_search_form_checkbox wpt_<?php esc_attr_e( $search_key ); ?>_checkbox">
-                            <input type="checkbox" name="search_n_filter[search_from][<?php esc_attr_e( $search_key ); ?>]" id="search_from_<?php esc_attr_e( $search_key ); ?>" value="<?php esc_attr_e( $search_type ); ?>" <?php echo isset( $meta_search_n_filter['search_from'][$search_key] ) && !empty( $meta_search_n_filter['search_from']) ? 'checked' : ''; ?>>
-                            <label for="search_from_<?php esc_attr_e( $search_key ); ?>"><?php esc_html_e( $search_key ); ?></label>
-                        </li>
-                    <?php
-                    }
-                    ?>    
-                    </ul>
-                </td>
-            </tr>
-        </table>
-
-    </div>
+    <?php do_action( 'wpto_admin_search_n_filter_tab', $meta_search_n_filter, $post ); ?>
 
     <div class="wpt_column">
         <table class="ultraaddons-table">

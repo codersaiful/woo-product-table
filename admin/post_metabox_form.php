@@ -11,7 +11,7 @@
         'basics'            => __( 'Basics', 'wpt_pro' ),
         //'table_style'       => sprintf(__( 'Design %sPro%s', 'wpt_pro' ), '<i class="wpt_pro_badge">', '</i>' ),
         'conditions'        => __( 'Conditions', 'wpt_pro' ),
-        'search_n_filter'   => __( 'Search Box And Filter','wpt_pro' ),
+        'search_n_filter'   => __( 'Search & Filter','wpt_pro' ),
         'mobile'            => __( 'Mobile Issue', 'wpt_pro' ),
         //'config'            => sprintf(__( 'Configuration %sPro%s', 'wpt_pro' ), '<i class="wpt_pro_badge">', '</i>' ),
     );

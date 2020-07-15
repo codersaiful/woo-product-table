@@ -1,5 +1,5 @@
 <?php
-$colums_disable_array = WPT_Product_Table::$colums_disable_array; //For first time only
+$colums_disable_array = WPT_Product_Table::$default_enable_columns_array;//WPT_Product_Table::$colums_disable_array; //For first time only
 
 $columns_array = WPT_Product_Table::$columns_array;
 //var_dump(WPT_Product_Table::$columns_array);
@@ -46,7 +46,7 @@ if( is_array( $meta_enable_column_array ) && !empty( $meta_enable_column_array )
         }else{
             $enabled_class = 'enabled';
             $checked_attribute = ' checked="checked"';
-            if( in_array( $keyword, $colums_disable_array ) ){
+            if( !in_array( $keyword, $colums_disable_array ) ){
                 $enabled_class = $checked_attribute = '';
             }
         }

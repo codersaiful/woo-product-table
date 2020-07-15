@@ -202,12 +202,7 @@ table.wpt_product_table thead tr{cursor: pointer;}
 .wpt_varition_section {
     
 }
-.wpt_product_table_wrapper select,.filter_select,.wpt_product_table_wrapper select.filter_select, .wpt_varition_section select{
-    border-radius: 5px;
-    padding: 2px;
-    border: 1px solid #a9a1a1;
-    margin: 1px;
-}
+
 
 /************Table Checkbox****************/
 input.wpt_tabel_checkbox.wpt_td_checkbox.disabled {
@@ -457,7 +452,9 @@ a.button.wpt_woo_add_cart_button.add_to_cart_button.disabled.loading {
 }
 .search_box_fixer{padding: 3px;}
 .wpt_search_box{overflow: hidden;}
-.wpt_search_box .search_box_wrapper{display: block;}
+.wpt_search_box .search_box_wrapper {
+    display: flex;
+}
 .wpt_search_box .wpt_search_button {
     width: 50%;
     margin-top: 10px;
@@ -483,11 +480,10 @@ h3.search_box_label {
     margin: 0;
 }
 .search_single .query_box_direct_value,.instance_search_input{
-    width: 98%;
+    width: 100%;
     border-radius: 5px;
-    padding: 4px;
+    padding: 6px 5px 5px 5px;
     border: 1px solid #a9a1a1;
-    margin-bottom: auto auto 6px auto;
 }
 .instance_search_input {
     width: 100%;
@@ -505,6 +501,7 @@ h3.search_box_label {
     width: 100%;
     margin: auto;
     min-height: 48px;
+    margin-top: 10px;
 }
 button.button.wpt_search_button {
     visibility: hidden;
@@ -552,9 +549,6 @@ span.texonomy_checkbox_single {
 
 /* Custom Style for Filter Box Start here */
 select.filter_select {
-    padding: 0 !important;
-    margin-right: 4px !important;
-    color: #585656;
     border: 1px solid #e2e2e2 !important;
 }
 .wpt_filter.fulter_half {
@@ -569,7 +563,7 @@ select.filter_select {
     text-align: left;
 }
 .wpt_filter.fullter_full .wpt_filter_wrapper{
-    padding: 5px;
+    padding: 5px 0;
 }
 /* .wpt_filter.fullter_full+br.wpt_clear{} */
 @media only screen and (max-width: 600px){
@@ -1458,6 +1452,32 @@ div.wpt_product_table_wrapper .elementor-menu-cart__product-image img {
 .wpt_table_tag_wrapper {
     display: block;
     overflow-x: auto;
+}
+
+
+.wpt_product_table_wrapper select,
+.wpt_varition_section select{
+    border-radius: 5px;
+    padding: 2px;
+    border: 1px solid #a9a1a1;
+    margin: 1px;
+}
+.wpt_filter_wrapper {
+    display: flex;
+    padding: 10px 0;
+}
+
+.wpt_filter_wrapper label, .wpt_filter_wrapper a, .wpt_filter_wrapper select {
+    font-size: 16px;
+    margin-right: 9px;
+}
+
+.wpt_filter_wrapper select,.wpt_varition_section select {
+    min-width: 120px;
+    padding-left: 16px;
+}
+.wpt_filter_wrapper span.select2 {
+    margin-right: 11px;
 }
 
 /********NEW UPDATE*********/
