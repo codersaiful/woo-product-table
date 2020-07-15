@@ -245,7 +245,7 @@ table.wpt_product_table.smart_table{
 table.wpt_product_table.smart_table tbody{
     
 }
-table.wpt_product_table.smart_table tbody>tr.wpt_row td.wpt_thumbnails img {
+table.wpt_product_table.smart_table tbody>tr.wpt_row .wpt_thumbnails img {
     margin: 0 auto;
     border-radius: 0;
     padding: 0 !important;
@@ -327,7 +327,7 @@ table.wpt_product_table.smart_table td,
 table.wpt_product_table.smart_table th {
     padding: 0 0 0 3px !important;
 }
-table.wpt_product_table.smart_table tr.wpt_row td.wpt_action, 
+table.wpt_product_table.smart_table tr.wpt_row .wpt_action, 
 table.wpt_product_table.smart_table tr.wpt_row th.wpt_action {
     padding-right: 5px important;
 }
@@ -463,7 +463,7 @@ table.custom_table tbody tr:nth-child(2n+2) td input{
 	background: #fff;
 }
 @media only screen and (min-width: 1170px) {
-	table.custom_table tbody td.wpt_product_title {
+	table.custom_table tbody .wpt_product_title {
 		max-width: 450px;
 	}
 }
@@ -471,7 +471,7 @@ table.custom_table tbody tr:nth-child(2n+2) td input{
 table#wpt_table.wpt_product_table.custom_table thead>tr>th.this_column_sorted {
 	background-color: #0a7f9c;
 }
-table#wpt_table.custom_table tr>td.this_column_sorted{
+table#wpt_table.custom_table tr>.this_column_sorted{
 	background: #f5f5f5;
 }
 
@@ -488,15 +488,15 @@ table.wpt_product_table.business_table thead th.quantity {
 
 }
 table.wpt_product_table.business_table thead th.action,
-table.wpt_product_table.business_table tbody tr td.wpt_action{
+table.wpt_product_table.business_table tbody tr .wpt_action{
     /* background: rgba(116, 175, 153, 0.04); */
 }
 
 /*Customize for Quantity Collumn*/
-table.wpt_product_table.business_table td.wpt_quantity {
+table.wpt_product_table.business_table .wpt_quantity {
     padding: 0 !important;
 }
-table.wpt_product_table.business_table tbody tr td.wpt_quantity>div.quantity input[type='number']{
+table.wpt_product_table.business_table tbody tr .wpt_quantity>div.quantity input[type='number']{
     color: #000000;
     padding: 6px;
     width: 100%;
@@ -530,7 +530,7 @@ table.wpt_product_table.business_table span.wpt_product_price>a.button.add_to_ca
 }
 
 /*Masic class Style. for colunm on Mouse Over. Manage by jQuery*/
-div.wpt_product_table_wrapper.business_wrapper table.wpt_product_table.business_table tbody tr td.wpt_masic_column{
+div.wpt_product_table_wrapper.business_wrapper table.wpt_product_table.business_table tbody tr .wpt_masic_column{
    background: rgb(255, 255, 255);
    /* rgba(154, 154, 154, 0.02) */
 }
@@ -551,7 +551,7 @@ div#wpt_table_wrapper.wpt_product_table_wrapper.business_wrapper table#wpt_table
 
 /* for shop Icon*/
 /*For Shop Icon*/
-table.add_cart_only_icon tr td.wpt_action a.button:before {
+table.add_cart_only_icon tr .wpt_action a.button:before {
     /*content: "";*/
     content: "\e01d";    
     z-index: 99999;
@@ -560,14 +560,14 @@ table.add_cart_only_icon tr td.wpt_action a.button:before {
     font-size: initial;
     padding: 0 9px;
 }
-table.add_cart_only_icon tr td.wpt_action a.button{
+table.add_cart_only_icon tr .wpt_action a.button{
     font-size: 0 !important;
 }
-table.add_cart_only_icon tr td.wpt_action a.button.added:before{
+table.add_cart_only_icon tr .wpt_action a.button.added:before{
     font-style: italic;
     font-stretch: semi-expanded;
 }
-table.add_cart_left_icon tr td.wpt_action a.button:before {
+table.add_cart_left_icon tr .wpt_action a.button:before {
     /*content: "";*/
     content: "\e01d";    
     z-index: 99999;
@@ -578,7 +578,7 @@ table.add_cart_left_icon tr td.wpt_action a.button:before {
     font-size: 76%;
     margin-right: 5px;
 }
-table.add_cart_right_icon tr td.wpt_action a.button:after {
+table.add_cart_right_icon tr .wpt_action a.button:after {
     /*content: "";*/
     content: "\e01d";    
     z-index: 99999;
@@ -599,10 +599,10 @@ table.add_cart_right_icon tr td.wpt_action a.button:after {
 
 /*  responsive */
 @media only screen and (max-width: 767px) {
-    td.wpt_product_title {
+    .wpt_product_title {
         padding-bottom: 1px;
     }
-    td.wpt_action {
+    .wpt_action {
         padding-top: 1px;
     }
 }
