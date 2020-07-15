@@ -133,7 +133,7 @@
     font-weight: 500;
     color: #004354;
     }
-.ultraaddons-panel table tr th label{font-weight: 400;text-shadow: -1px 0 0px #0572a982;}
+.ultraaddons-panel table tr th label{font-weight: 400;text-shadow: -1px 0 0px #0572a982;font-size: 17px;}
 .ultraaddons-panel table tr th,
 .ultraaddons-panel table tr td{
     padding: 16px 0 28px 0;

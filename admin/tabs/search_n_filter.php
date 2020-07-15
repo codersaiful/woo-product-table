@@ -9,7 +9,7 @@ $meta_search_n_filter =  get_post_meta( $post->ID, 'search_n_filter', true );
                     <label class="wpt_label" for="wpt_search_box"><?php esc_html_e( 'Advance Search Box', 'wpt_pro' ); ?></label>
                 </th>
                 <td>
-                    <select name="search_n_filter[search_box]" data-name='search_box' id="wpt_search_box" class="wpt_fullwidth wpt_data_filed_atts ua_input" >
+                    <select name="search_n_filter[search_box]" data-name='search_box' id="wpt_search_box" class="wpt_fullwidth wpt_data_filed_atts ua_input wpt_toggle" data-on="yes|.wpt_snf_on_off" >
                         <option value="no" <?php echo isset( $meta_search_n_filter['search_box'] ) && $meta_search_n_filter['search_box'] == 'no' ? 'selected' : ''; ?>><?php esc_html_e( 'No Search Box', 'wpt_pro' ); ?></option>
                         <option value="yes" <?php echo isset( $meta_search_n_filter['search_box'] ) && $meta_search_n_filter['search_box'] == 'yes' ? 'selected' : ''; ?>><?php esc_html_e( 'Show Search Box', 'wpt_pro' ); ?></option>
                     </select>
@@ -20,8 +20,8 @@ $meta_search_n_filter =  get_post_meta( $post->ID, 'search_n_filter', true );
 
     <?php do_action( 'wpto_admin_search_n_filter_tab', $meta_search_n_filter, $post ); ?>
 
-    <div class="wpt_column">
-        <table class="ultraaddons-table">
+
+        <table class="ultraaddons-table wpt_snf_on_off wpt_auto_hide">
             <tr>
                 <th>
                     <label class="wpt_label" for="wpt_taxonomy_keywords"><?php esc_html_e( 'Taxonomy Keywords for Advance Search Box (Separate with comma[,])', 'wpt_pro' ); ?></label>
@@ -36,7 +36,6 @@ $meta_search_n_filter =  get_post_meta( $post->ID, 'search_n_filter', true );
                 </td>
             </tr>
         </table>
-    </div>
 
     <?php
         if( isset( $meta_search_n_filter['taxonomy_keywords'] ) && strlen( $meta_search_n_filter['taxonomy_keywords'] ) > 0 ){
@@ -56,8 +55,7 @@ $meta_search_n_filter =  get_post_meta( $post->ID, 'search_n_filter', true );
                 $tax_object = get_terms( $per_keyword, $args );
                 if( !isset( $tax_object->errors ) ){
     ?>
-    <div class="wpt_column">
-        <table class="ultraaddons-table">
+        <table class="ultraaddons-table wpt_snf_on_off wpt_auto_hide">
             <tr>
                 <th>
                     <label class="wpt_label" for="filter_for_<?php echo $per_keyword; ?>"><?php echo sprintf( esc_html__('Choose [%s] %s (For Advanced Searchbox Filter) %s','wpt_pro'),$per_keyword,'<small>','</small>');?></label>
@@ -74,13 +72,12 @@ $meta_search_n_filter =  get_post_meta( $post->ID, 'search_n_filter', true );
                 </td>
             </tr>
         </table>
-    </div>
     <?php               
                 }
             }
         }else{
     ?>
-    <p style="background-color: #dd9933;padding: 8px;"><?php esc_html_e( 'To get Taxonomy customization, Please save/update this shortcode.', 'wpt_pro' ); ?></p>
+    <p class=" wpt_snf_on_off wpt_auto_hide" style="background-color: #dd9933;padding: 8px;"><?php esc_html_e( 'To get Taxonomy customization, Please save/update this shortcode.', 'wpt_pro' ); ?></p>
     <?php
         }
     ?>
@@ -102,7 +99,7 @@ $meta_search_n_filter =  get_post_meta( $post->ID, 'search_n_filter', true );
                     <label class="wpt_label" for="wpt_filter_box"><?php esc_html_e( 'Mini Filter', 'wpt_pro' ); ?></label>
                 </th>
                 <td>
-                    <select name="search_n_filter[filter_box]" data-name='filter_box' id="wpt_filter_box" class="wpt_fullwidth wpt_data_filed_atts ua_input" >
+                    <select name="search_n_filter[filter_box]" data-name='filter_box' id="wpt_filter_box" class="wpt_fullwidth wpt_data_filed_atts ua_input wpt_toggle"  data-on="yes|.wpt_filtr_on_off">
                         <option value="no" <?php echo isset( $meta_search_n_filter['filter_box'] ) && $meta_search_n_filter['filter_box'] == 'no' ? 'selected' : ''; ?>><?php esc_html_e( 'No Filter', 'wpt_pro' ); ?></option>
                         <option value="yes" <?php echo isset( $meta_search_n_filter['filter_box'] ) && $meta_search_n_filter['filter_box'] == 'yes' ? 'selected' : ''; ?>><?php esc_html_e( 'Filter Show', 'wpt_pro' ); ?></option>
                     </select>
@@ -111,7 +108,7 @@ $meta_search_n_filter =  get_post_meta( $post->ID, 'search_n_filter', true );
         </table>
     </div>
     <div class="wpt_column">
-        <table class="ultraaddons-table">
+        <table class="ultraaddons-table wpt_filtr_on_off wpt_auto_hide">
             <tr>
                 <th>
                     <label class="wpt_label" for="wpt_filter"><?php esc_html_e( 'Taxonomy Keywords for Filter (Separate with comma[,])', 'wpt_pro' ); ?></label>
