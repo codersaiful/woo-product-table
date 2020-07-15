@@ -238,7 +238,6 @@
                 return false;
             }
             keyword = taxt_cf_type + taxt_cf_input;
-            console.log(taxt_cf_input);
             
             html = '<li class="wpt_sortable_peritem  column_keyword_' + keyword + ' enabled">';
                 html += '<span title="Move Handle" class="handle ui-sortable-handle"></span>';
