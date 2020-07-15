@@ -78,10 +78,11 @@ include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 WPT_Product_Table::getInstance();
 
 $column_array = array(
-    'product_id'    => __( 'ID', 'wpt_pro' ),
-    'serial_number' => __( 'SL', 'wpt_pro' ),
+    
     'thumbnails'    => __( 'Thumbnails', 'wpt_pro' ),
     'product_title' => __( 'Products', 'wpt_pro' ),
+    'action'        => __( 'Action', 'wpt_pro' ),
+    'check'         => __( 'Check', 'wpt_pro' ),
     'category'      => __( 'Category', 'wpt_pro' ),
     'tags'          => __( 'Tags', 'wpt_pro' ),
     'sku'           => __( 'SKU', 'wpt_pro' ),
@@ -101,15 +102,28 @@ $column_array = array(
     'modified_date' =>  __( 'Modified Date', 'wpt_pro' ),
     'attribute' =>  __( 'Attributes', 'wpt_pro' ),
     'variations' =>  __( 'Variations', 'wpt_pro' ),
-    'action'        => __( 'Action', 'wpt_pro' ),
-    'check'         => __( 'Check', 'wpt_pro' ),
+    
+    
     'quoterequest'  => __( 'Quote Request', 'wpt_pro' ),
     'description'   =>  __( 'Description', 'wpt_pro' ), //has been removed at V5.2 //Again start at 6.0.25
     'blank'  => __( 'Blank', 'wpt_pro' ),
+    'product_id'    => __( 'ID', 'wpt_pro' ),
+    'serial_number' => __( 'SL', 'wpt_pro' ),
 );
 $column_array = apply_filters( 'wpto_default_column_arr', $column_array );
 WPT_Product_Table::$columns_array =  $column_array;
-
+$default_enabled_col_array = array(
+    'thumbnails'    => 'thumbnails',  
+    'product_title' => 'product_title',  
+    'action'        => 'action',  
+    'check'         => 'check',  
+);
+/**
+ * Filter for Default Enabled Column
+ * Available Args $default_enabled_col_array, $column_array
+ */
+$default_enabled_col_array = apply_filters( 'wpto_default_enable_column_arr', $default_enabled_col_array, $column_array );
+WPT_Product_Table::$default_enable_columns_array =  $default_enabled_col_array;
 /**
  * @since 1.7
  */
@@ -319,6 +333,15 @@ class WPT_Product_Table{
      * @var Array
      */
     public static $colums_disable_array = array();
+    
+    /**
+     * Only for Admin when create a new Post for Product Table
+     * 
+     * 
+     * @since 7.0.0
+     * @var Array
+     */
+    public static $default_enable_columns_array = array();
 
     /**
      * Set Array for Style Form Section Options
