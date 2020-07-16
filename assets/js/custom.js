@@ -1840,7 +1840,10 @@
                 //WPT_MiniCart();
             }).done(function(){
                 $( document.body ).trigger( 'added_to_cart' ); //Trigger and sent added_to_cart event
-                    $( document ).trigger( 'wc_fragments_refreshed' );
+                $( document.body ).trigger( 'updated_cart_totals' );
+                $( document.body ).trigger( 'wc_fragments_refreshed' );
+                $( document.body ).trigger( 'wc_fragments_refresh' );
+                $( document.body ).trigger( 'wc_fragment_refresh' );
                 //Quick Button Active here and it will go Directly to checkout Page
                 if(config_json.product_direct_checkout === 'yes'){
                     window.location.href = checkoutURL;
