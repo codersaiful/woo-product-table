@@ -102,8 +102,6 @@ $column_array = array(
     'modified_date' =>  __( 'Modified Date', 'wpt_pro' ),
     'attribute' =>  __( 'Attributes', 'wpt_pro' ),
     'variations' =>  __( 'Variations', 'wpt_pro' ),
-    
-    
     'quoterequest'  => __( 'Quote Request', 'wpt_pro' ),
     'description'   =>  __( 'Description', 'wpt_pro' ), //has been removed at V5.2 //Again start at 6.0.25
     'blank'  => __( 'Blank', 'wpt_pro' ),
@@ -179,7 +177,7 @@ $default = array(
     'footer_cart_size'           =>  '74',
     'footer_bg_color'           =>  '#0a7f9c',
     'footer_possition'           =>  'footer_possition',
-    'item_count'            =>  '',//products,all,''
+    'item_count'            =>  'all',//products,all,''
     'sort_mini_filter'      =>  'ASC',
     'sort_searchbox_filter' =>  'ASC',
     'custom_add_to_cart'    =>  'add_cart_left_icon',
