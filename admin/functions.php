@@ -83,7 +83,7 @@ if( !function_exists( 'wpt_product_includes_select_option' ) ){
                 $html .= "<option title=" . esc_attr( $text ) . " value=". $p_post->ID ." selected>$title</option>";
             }
         }
-        //wp_reset_postdata();   wp_reset_query();
+        wp_reset_postdata();   wp_reset_query();
         return $html;
     }
 }
