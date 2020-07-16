@@ -110,7 +110,7 @@ function wpt_shortcode_generator( $atts = false ) {
         $pagination_ajax = isset( $basics['pagination_ajax'] ) ? $basics['pagination_ajax'] : 'pagination_ajax';
         $minicart_position = $basics['minicart_position'];//isset( $basics['ajax_action'] ) ? $basics['ajax_action'] : false;
         $table_class = $basics['table_class'];//isset( $basics['ajax_action'] ) ? $basics['ajax_action'] : false;
-        $temp_number = $basics['temp_number'];// + $ID; //$ID has removed from temp_number
+        $temp_number = $ID;//Temp Number Has REmoved Totally $basics['temp_number'];// + $ID; //$ID has removed from temp_number
         $add_to_cart_text = $basics['add_to_cart_text'];
         
 

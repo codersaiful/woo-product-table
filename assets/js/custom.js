@@ -1610,6 +1610,8 @@
                 var key =  $(this).data('key');
                 var label =  $(this).data('label');
                 var taxArray = new Array();
+                var taxValArray = new Array();
+                taxArray.sort();
                 $('#table_id_' + temp_number + ' tbody tr').each(function(){
                     var tax = $(this).data(key);
                     if(tax && tax !== ''){
@@ -1623,11 +1625,12 @@
                             var taxID = taxDetails[0];
                             var taxValue = taxDetails[1];
                             taxArray[taxID] = taxValue;
+                            taxValArray[taxValue] = taxID;
                         });
                     }
                 });
-                
 
+                
                 if(config_json.sort_mini_filter === 'ASC'){
                     taxArray.sort();
                     //taxArray.sort(function(a,b){return a-b});
@@ -1638,9 +1641,9 @@
                     //taxArray.sort(function(a,b){return b-a});
                 }
                 
-               var html = '<option value="">' + label + '</option>';
+                var html = '<option value="">' + label + '</option>';
                 taxArray.forEach(function(value,number){
-                    html += '<option value="' + key + '_' + temp_number + '_' + number + '">' + value + '</option>';
+                    html += '<option value="' + key + '_' + temp_number + '_' + taxValArray[value] + '">' + value + '</option>';
                 });
                 $(this).html(html);
             });
@@ -1840,7 +1843,10 @@
                 //WPT_MiniCart();
             }).done(function(){
                 $( document.body ).trigger( 'added_to_cart' ); //Trigger and sent added_to_cart event
-                    $( document ).trigger( 'wc_fragments_refreshed' );
+                $( document.body ).trigger( 'updated_cart_totals' );
+                $( document.body ).trigger( 'wc_fragments_refreshed' );
+                $( document.body ).trigger( 'wc_fragments_refresh' );
+                $( document.body ).trigger( 'wc_fragment_refresh' );
                 //Quick Button Active here and it will go Directly to checkout Page
                 if(config_json.product_direct_checkout === 'yes'){
                     window.location.href = checkoutURL;
