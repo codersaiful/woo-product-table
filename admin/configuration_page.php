@@ -49,7 +49,7 @@ if( !function_exists( 'wpt_configuration_page' ) ){
                     do_action( 'wpto_admin_configuration_form_top', $settings,$current_config_value ); 
                     
                     
-                    do_action( 'wpto_admin_configuration_form', $settings,$current_config_value ); 
+                    do_action( 'wpto_admin_configuration_form', $settings,$current_config_value,'data' ); //'data' It's Forms Field Name Such: <input name='data[search_box]'>
                     
                     do_action( 'wpto_admin_configuration_form_bottom', $settings,$current_config_value ); 
                     ?>
