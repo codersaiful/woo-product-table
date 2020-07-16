@@ -31,7 +31,12 @@ if( $table_type == 'advance_table'){
         $add_to_cart_url = '?add-to-cart=' .  $data['id'];//( $ajax_action == 'no_ajax_action' ? '?add-to-cart=' .  $data['id'] : '?add-to-cart=' .  $data['id'] );// '?add-to-cart=' .  $data['id'];
     }
 
+    $add_to_cart_url = apply_filters( 'wpto_add_to_cart_url', $add_to_cart_url, $settings, $column_settings, $table_ID, $product );
+    
+    
     $add_to_cart_text_final = ( $product_type == 'grouped' || $product_type == 'external' || $add_to_cart_text == ' ' ? $product->add_to_cart_text() : $add_to_cart_text );//'?add-to-cart=' .  $data['id']; //home_url() .  
+    $add_to_cart_text_final = apply_filters( 'wpto_add_to_cart_text', $add_to_cart_text_final, $settings, $column_settings, $table_ID, $product );
+    
     echo apply_filters('woocommerce_loop_add_to_cart_link', 
             sprintf('<a rel="nofollow" data-add_to_cart_url="%s" href="%s" data-quantity="%s" data-product_id="%s" data-product_sku="%s" class="%s">%s</a>', 
                     esc_attr( $add_to_cart_url ),
