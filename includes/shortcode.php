@@ -952,6 +952,24 @@ function wpt_table_row_generator( $table_row_generator_array ){
                 if( is_string( $keyword ) ){
                     $in_extra_manager = false;
                     
+                    /**
+                     * Variable $setting for All Keyword/Items
+                     * User able get Diect setting Variable from Items file
+                     * Such: from action.php file Directory: WPT Plugin -> items -> action.php
+                     * Setting Declear For All Items (TD or Inside Item of TD
+                     * @since version 2.7.0
+                     */
+                    $settings = isset( $column_settings[$keyword] ) ? $column_settings[$keyword] : false;
+
+                    /**
+                     * @Hook Filter: wpto_keyword_settings_$keyword
+                     * Each Column/ Each Item/ Each Item has Indivisual Setting.\
+                     * User able to chagne Setting from Addon Plugin
+                     * 
+                     * Suppose Custom_Field.php file using following Setting
+                     * $settings = isset( $column_settings[$keyword] ) ? $column_settings[$keyword] : false;
+                     */
+                    $settings = apply_filters( 'wpto_keyword_settings_' . $keyword, $settings, $column_settings, $table_ID, $product  );
                     
                     /**
                      * New Feature, Mainly for detect File Name. 
@@ -968,7 +986,7 @@ function wpt_table_row_generator( $table_row_generator_array ){
                     * Same for Taxonomy.\
                     * Like this, we can add new type: acf, when file will open from acf.php from items
                     */
-                    $type = apply_filters( 'wpto_column_type', $type, $keyword, $table_ID, $product, $column_settings );
+                    $type = apply_filters( 'wpto_column_type', $type, $keyword, $table_ID, $product, $settings, $column_settings );
                     
                     /**
                      * @Hook Filter: wpto_template_folder
@@ -978,7 +996,7 @@ function wpt_table_row_generator( $table_row_generator_array ){
                      * Abble to change Template Root Directory Based on $keyword, $column_type, $table_ID, Global $product
                      * 
                      */
-                    $items_directory_1 = apply_filters('wpto_template_folder', $items_directory,$keyword, $type, $table_ID, $product );
+                    $items_directory_1 = apply_filters('wpto_template_folder', $items_directory,$keyword, $type, $table_ID, $product, $settings, $column_settings );
                     
                     
                     /**
@@ -987,18 +1005,18 @@ function wpt_table_row_generator( $table_row_generator_array ){
                      * Such: For all default type column, request file available in includes/items folder
                      * but for other type, such: acf, custom_field,taxonomy, we can set another Directory location from Addons or fro Pro version
                      */
-                    $items_directory_2 = apply_filters('wpto_item_dir_type_' . $type, $items_directory_1, $table_ID, $product, $column_settings ); //Added Filter
+                    $items_directory_2 = apply_filters('wpto_item_dir_type_' . $type, $items_directory_1, $table_ID, $product, $settings, $column_settings ); //Added Filter
                     
                     $file_name = $type !== 'default' ? $type : $keyword;
                     $file = $items_directory_2 . $file_name . '.php';
                     
-                    $file = apply_filters( 'wpto_template_loc', $file, $keyword, $type, $table_ID, $product, $file_name, $column_settings ); //@Filter Added 
-                    $file = apply_filters( 'wpto_template_loc_type_' . $type, $file, $keyword, $table_ID, $product, $file_name, $column_settings ); //@Filter Added
-                    $file  = $requested_file = apply_filters( 'wpto_template_loc_item_' . $keyword, $file, $table_ID, $product, $file_name, $column_settings ); //@Filter Changed added Args $fileName
+                    $file = apply_filters( 'wpto_template_loc', $file, $keyword, $type, $table_ID, $product, $file_name, $column_settings, $settings ); //@Filter Added 
+                    $file = apply_filters( 'wpto_template_loc_type_' . $type, $file, $keyword, $table_ID, $product, $file_name, $column_settings, $settings ); //@Filter Added
+                    $file  = $requested_file = apply_filters( 'wpto_template_loc_item_' . $keyword, $file, $table_ID, $product, $file_name, $column_settings, $settings ); //@Filter Changed added Args $fileName
 
                     if( !file_exists( $file ) ){
                         $file = $items_permanent_dir . 'default.php';
-                        $file = apply_filters( 'wpto_defult_file_loc', $file, $keyword, $product);
+                        $file = apply_filters( 'wpto_defult_file_loc', $file, $keyword, $product, $settings);
                     }
                     ?>
                     <td class="td_or_cell wpt_<?php echo esc_attr( $keyword ); ?>"  
@@ -1014,6 +1032,9 @@ function wpt_table_row_generator( $table_row_generator_array ){
                         . "data-keyword='" . esc_attr( $keyword ) . "' "
                         . "data-sku='" . esc_attr( $product->get_sku() ) . "' "
                         . ">" : '';
+                        
+                        
+                        //Including File for TD
                         include $file;
                         echo $tag ? "</$tag>" : '';
                         if( isset( $column_settings[$keyword]['items'] ) ){
