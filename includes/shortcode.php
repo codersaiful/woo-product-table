@@ -563,7 +563,7 @@ function wpt_shortcode_generator( $atts = false ) {
             $template. '_table',
             "{$custom_table}_table",
             $table_class,
-            $config_value['custom_add_to_cart'],
+            isset( $config_value['custom_add_to_cart'] ) ? $config_value['custom_add_to_cart'] : 'no_set_custom_addtocart',
         );
     $table_class_arr = apply_filters( 'wpto_table_tag_class_arr', $table_class_arr, $table_ID, $args);
     $table_class_arr = implode( " ", $table_class_arr );

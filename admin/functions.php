@@ -18,13 +18,18 @@ if( !function_exists( 'wpt_admin_body_class' ) ){
 add_filter( 'admin_body_class', 'wpt_admin_body_class' );
 
 if( !function_exists( 'wpt_selected' ) ){
+    
     /**
-     * Executing selected item for options
+     * actually for Select Option
+     * Inside Config Tab or Inside Configuration Page
+     * Executing If available or Not. 
+     * If false $default_config, Then It will come from 
+     * get_option( 'wpt_configure_options' )
      * 
      * @since 2.4 
      */
-    function wpt_selected(  $keyword, $gotten_value ){
-        $current_config_value = get_option( 'wpt_configure_options' );
+    function wpt_selected(  $keyword, $gotten_value, $default_config = false ){
+        $current_config_value = is_array( $default_config ) ? $default_config : get_option( 'wpt_configure_options' );
         echo ( isset( $current_config_value[$keyword] ) && $current_config_value[$keyword] == $gotten_value ? 'selected' : false  );
     }
 }
