@@ -1,5 +1,5 @@
 <?php
-$colums_disable_array = WPT_Product_Table::$default_enable_columns_array;//WPT_Product_Table::$colums_disable_array; //For first time only
+$default_enable_array = WPT_Product_Table::$default_enable_columns_array;
 
 $columns_array = WPT_Product_Table::$columns_array;
 //var_dump(WPT_Product_Table::$columns_array);
@@ -20,7 +20,13 @@ if( $meta_enable_column_array && !empty( $meta_enable_column_array ) && !empty( 
 }
 
 $column_settings = get_post_meta( $post->ID, 'column_settings', true ); 
-//var_dump($column_settings);
+if( empty( $column_settings ) ){
+    $column_settings = array();
+    $column_settings['product_title']['items'] = array( 'sku', 'rating','stock', 'price', 'quantity' );
+    //Price - will be add h4 tag
+    //Sku will add special something
+    //Mobile Version er jonno Blank niye sekhane action,title,sku,qunatity,price add korte hobe.
+}
 
 $additional_collumn = array_diff(array_keys($for_add), array_keys( WPT_Product_Table::$columns_array ));
 
@@ -46,7 +52,7 @@ if( is_array( $meta_enable_column_array ) && !empty( $meta_enable_column_array )
         }else{
             $enabled_class = 'enabled';
             $checked_attribute = ' checked="checked"';
-            if( !in_array( $keyword, $colums_disable_array ) ){
+            if( !in_array( $keyword, $default_enable_array ) ){
                 $enabled_class = $checked_attribute = '';
             }
         }
