@@ -1256,6 +1256,8 @@ function wpt_search_box($temp_number, $search_box_texonomiy_keyword = array( 'pr
         $html .= '<input data-key="s" class="query_box_direct_value" id="single_keyword_' . $temp_number . '" value="" placeholder="' . $single_keyword . '"/>';
         $html .= "</div>";// End of .search_single_column
         
+        $order_by_validation = apply_filters( 'wpto_searchbox_order_show', false,$temp_number, $config_value, $search_box_texonomiy_keyword );
+        if( $order_by_validation ):
         $single_keyword = $config_value['search_box_orderby'];//__( 'Order By', 'wpt_pro' ); //search_box_orderby
         $html .= "<div class='search_single_column search_single_sort search_single_order_by'>";
         $html .= '<label class="search_keyword_label single_keyword" for="order_by' . $temp_number . '">' . $single_keyword . '</label>';
@@ -1279,7 +1281,7 @@ function wpt_search_box($temp_number, $search_box_texonomiy_keyword = array( 'pr
         $html .= '</select>';
 
         $html .= "</div>";// End of .search_single_column
-        
+        endif;
         
         
     $html .= "</div>"; //end of .search_single

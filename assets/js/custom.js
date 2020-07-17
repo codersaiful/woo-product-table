@@ -1654,8 +1654,7 @@
          * @since 2.8
          * @date 26.7.2018
          */
-        $('body').on('click','table.wpt_product_table thead tr th',function(){
-            var inactivated_column = ['wpt_check','wpt_action','wpt_quantity'];
+        $('body').on('click','div.wpt_column_sort table.wpt_product_table thead tr th',function(){
             var class_for_sorted = 'this_column_sorted';
             var temp_number = $(this).parent().data('temp_number');
             var target_class = '.' + $(this).attr('class').split(' ').join('.');
@@ -2148,54 +2147,5 @@
             });
         }     
         
-        QuantityChange();
     });
-    
-    // Quantity Buttons
-    $(document).ajaxComplete(function () {
-        QuantityChange();
-    });
-
-    function QuantityChange() {
-        $(document).off("click", ".wpt-quantity").on("click", ".wpt-quantity", function () {
-
-            var qty = $(this).siblings(".quantity").find(".qty");
-            // Read value and attributes min, max, step.
-            var val = parseFloat(qty.val());
-            var max = parseFloat(qty.attr("max"));
-            var min = parseFloat(qty.attr("min"));
-            var step = parseFloat(qty.attr("step"));
-
-            if ($(this).is(".wpt-plus")) {
-                if (val === max)
-                    return false;
-                if (isNaN(val)) {
-                    qty.val(step);
-                    return false;
-                }
-                if (val + step > max) {
-                    qty.val(max);
-                } else {
-                    qty.val(val + step);
-                }
-            } else {
-                if (val === min)
-                    return false;
-                if (isNaN(val)) {
-                    qty.val(min);
-                    return false;
-                }
-                if (val - step < min) {
-                    qty.val(min);
-                } else {
-                    qty.val(val - step);
-                }
-            }
-
-            qty.val(Math.round(qty.val() * 100) / 100);
-            qty.trigger("change");
-        });
-    }
-    
-    
 })(jQuery);
