@@ -425,7 +425,7 @@ function wpt_shortcode_generator( $atts = false ) {
      * Available Data/VAriable are: $args, $atts, $table_ID
      */
     $args = apply_filters( 'wpto_table_query_args', $args, $table_ID, $atts );
-    $html .= '<br class="wpt_clear">';
+    
     /**
      * Add to cart Check Select /check/un-check Section
      * 
@@ -475,6 +475,7 @@ function wpt_shortcode_generator( $atts = false ) {
     $wrapper_class_arr = array(
             $table_type . "_wrapper",
             " wpt_temporary_wrapper_" . $temp_number,
+            " wpt_id_" . $temp_number,
             "wpt_product_table_wrapper",
             $template . "_wrapper woocommerce",
             $checkbox,
