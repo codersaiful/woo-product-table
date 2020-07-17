@@ -90,7 +90,6 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
             <h3 class="with-background dark-background"><?php esc_html_e( 'Basic Settings', 'wpt_pro' );?></h3>
             <table class="ultraaddons-table">
                 <tbody>
-                <?php if( $page == 'configuration_page' ){ ?>
                     <tr>
                         <th><label class="wpt_label" for="wpt_table_custom_add_to_cart"><?php esc_html_e( 'Add to Cart Icon', 'wpt_pro' ); ?></label></th>
                         <td>
@@ -140,7 +139,6 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
                             <input name="<?php echo esc_attr( $field_name ); ?>[footer_cart_size]" class="wpt_data_filed_atts ua_input" value="<?php echo $current_config_value['footer_cart_size']; ?>" id="wpt_table_footer_cart_size" type="number" placeholder="<?php esc_attr_e( 'Default Size. eg: 70', 'wpt_pro' ); ?>" min="50" max="" pattern="[0-9]*" inputmode="numeric">
                         </td>
                     </tr>
-        <?php } ?>
                     <tr>
                         <th><label class="wpt_label" for="wpt_table_sort_mini_filter"><?php esc_html_e( 'Mini Filter Sorting', 'wpt_pro' ); ?></label></th>
                         <td>

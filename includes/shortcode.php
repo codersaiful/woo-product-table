@@ -418,14 +418,20 @@ function wpt_shortcode_generator( $atts = false ) {
      * Initialize Page Number
      */
     $page_number = ( get_query_var( 'page' ) ) ? get_query_var( 'page' ) : 1;
+    
+    /**
+     * Do Detect Page number, When Table will be display.
+     * 
+     */
+    $page_number = apply_filters( 'wpt_page_number', $page_number, $table_ID, $args, $column_settings, $enabled_column_array, $column_array );
     $args['paged'] =( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : $page_number;
     
     /**
      * @Hook wpto_table_query_args to customize Query Args from any plugin.
      * Available Data/VAriable are: $args, $atts, $table_ID
      */
-    $args = apply_filters( 'wpto_table_query_args', $args, $table_ID, $atts );
-    $html .= '<br class="wpt_clear">';
+    $args = apply_filters( 'wpto_table_query_args', $args, $table_ID, $atts, $column_settings, $enabled_column_array, $column_array );
+    
     /**
      * Add to cart Check Select /check/un-check Section
      * 
@@ -475,12 +481,13 @@ function wpt_shortcode_generator( $atts = false ) {
     $wrapper_class_arr = array(
             $table_type . "_wrapper",
             " wpt_temporary_wrapper_" . $temp_number,
+            " wpt_id_" . $temp_number,
             "wpt_product_table_wrapper",
             $template . "_wrapper woocommerce",
             $checkbox,
             "wpt_" . $pagination_ajax,
         );
-    $wrapper_class_arr = apply_filters( 'wpto_wrapper_tag_class_arr', $wrapper_class_arr, $table_ID, $args);
+    $wrapper_class_arr = apply_filters( 'wpto_wrapper_tag_class_arr', $wrapper_class_arr, $table_ID, $args, $column_settings, $enabled_column_array, $column_array );
     $wrapper_class_arr = implode( " ", $wrapper_class_arr );
     
     $html .= "<div "
@@ -565,7 +572,7 @@ function wpt_shortcode_generator( $atts = false ) {
             $table_class,
             isset( $config_value['custom_add_to_cart'] ) ? $config_value['custom_add_to_cart'] : 'no_set_custom_addtocart',
         );
-    $table_class_arr = apply_filters( 'wpto_table_tag_class_arr', $table_class_arr, $table_ID, $args);
+    $table_class_arr = apply_filters( 'wpto_table_tag_class_arr', $table_class_arr, $table_ID, $args, $column_settings, $enabled_column_array, $column_array);
     $table_class_arr = implode( " ", $table_class_arr );
     
     
@@ -1249,6 +1256,8 @@ function wpt_search_box($temp_number, $search_box_texonomiy_keyword = array( 'pr
         $html .= '<input data-key="s" class="query_box_direct_value" id="single_keyword_' . $temp_number . '" value="" placeholder="' . $single_keyword . '"/>';
         $html .= "</div>";// End of .search_single_column
         
+        $order_by_validation = apply_filters( 'wpto_searchbox_order_show', false,$temp_number, $config_value, $search_box_texonomiy_keyword );
+        if( $order_by_validation ):
         $single_keyword = $config_value['search_box_orderby'];//__( 'Order By', 'wpt_pro' ); //search_box_orderby
         $html .= "<div class='search_single_column search_single_sort search_single_order_by'>";
         $html .= '<label class="search_keyword_label single_keyword" for="order_by' . $temp_number . '">' . $single_keyword . '</label>';
@@ -1272,7 +1281,7 @@ function wpt_search_box($temp_number, $search_box_texonomiy_keyword = array( 'pr
         $html .= '</select>';
 
         $html .= "</div>";// End of .search_single_column
-        
+        endif;
         
         
     $html .= "</div>"; //end of .search_single
