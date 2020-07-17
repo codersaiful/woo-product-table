@@ -658,8 +658,7 @@ if( !function_exists( 'wpt_adding_body_class' ) ){
         global $post,$shortCodeText;
 
         if( isset($post->post_content) && has_shortcode( $post->post_content, $shortCodeText ) ) {
-            $class[] = 'wpt_pro_table_body';
-            $class[] = 'wpt_pro_table';
+            $class[] = 'wpt_table_body';
             $class[] = 'woocommerce';
         }
         return $class;
