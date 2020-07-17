@@ -986,11 +986,18 @@ body.wpt_admin_body .select2-container--default .select2-selection--multiple .se
     box-shadow: 1px 1px 3px 0px #0000003b;
 }
 body.wpt_admin_body .ultraaddons-panel p {
-    font-size: 17px;
+    
     color: #888;
 }
 body.wpt_admin_body .wpt_auto_hide{
     display: none;
+}
+
+body.wpt_admin_body .wpt_shortable_data div p,
+body.wpt_admin_body .ultraaddons-panel td p{
+    color: #607D8B;
+    font-style: italic;
+    font-size: 16px;
 }
 /* Responsive Design Starts */
 @media screen and (max-width: 782px){
