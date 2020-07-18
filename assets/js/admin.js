@@ -180,12 +180,26 @@
             $("#wpt_meta_value_wrapper").fadeIn();
         }
         
-        
+        /**
+         * On of Element based on Selected Value for Select Tag
+         * Add an Attribute  data-on="yes|.wpt_snf_on_off" or
+         * data-off="desired_value|.desired_class"
+         * Available data-on and data-off
+         * data-on means: element will display based on your desired value for desired element.
+         * Supposse: your 
+         * REMEMEBER: select tag's class would be '.wpt_toggle' to activate this part
+         */
+        $('select.wpt_toggle').each(function(){
+            changeOnOffElement(this)
+        });
         $(document).on('change','select.wpt_toggle',function(){
+            changeOnOffElement(this);
+        });
+        function changeOnOffElement(ElObject){
             var target_val,target_calss,Temp,TempElmnt;
-            var val = $(this).val();
-            var dataON = $(this).data('on');
-            var dataOFF = $(this).data('off');
+            var val = $(ElObject).val();
+            var dataON = $(ElObject).data('on');
+            var dataOFF = $(ElObject).data('off');
             if(dataON){
                 Temp = dataON.split("|");
                 target_val = Temp[0];
@@ -208,8 +222,7 @@
                     TempElmnt.fadeIn();
                 }
             }
-        });
-        
+        }
         
         /**
          * Column Section Managing

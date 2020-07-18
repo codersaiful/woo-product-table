@@ -21,7 +21,7 @@ $meta_search_n_filter =  get_post_meta( $post->ID, 'search_n_filter', true );
     <?php do_action( 'wpto_admin_search_n_filter_tab', $meta_search_n_filter, $post ); ?>
 
 
-        <table class="ultraaddons-table wpt_snf_on_off wpt_auto_hide">
+        <table class="ultraaddons-table wpt_snf_on_off ">
             <tr>
                 <th>
                     <label class="wpt_label" for="wpt_taxonomy_keywords"><?php esc_html_e( 'Taxonomy Keywords for Advance Search Box (Separate with comma[,])', 'wpt_pro' ); ?></label>
@@ -55,7 +55,7 @@ $meta_search_n_filter =  get_post_meta( $post->ID, 'search_n_filter', true );
                 $tax_object = get_terms( $per_keyword, $args );
                 if( !isset( $tax_object->errors ) ){
     ?>
-        <table class="ultraaddons-table wpt_snf_on_off wpt_auto_hide">
+        <table class="ultraaddons-table wpt_snf_on_off ">
             <tr>
                 <th>
                     <label class="wpt_label" for="filter_for_<?php echo $per_keyword; ?>"><?php echo sprintf( esc_html__('Choose [%s] %s (For Advanced Searchbox Filter) %s','wpt_pro'),$per_keyword,'<small>','</small>');?></label>
@@ -77,7 +77,7 @@ $meta_search_n_filter =  get_post_meta( $post->ID, 'search_n_filter', true );
             }
         }else{
     ?>
-    <p class=" wpt_snf_on_off wpt_auto_hide" style="background-color: #dd9933;padding: 8px;"><?php esc_html_e( 'To get Taxonomy customization, Please save/update this shortcode.', 'wpt_pro' ); ?></p>
+    <p class=" wpt_snf_on_off " style="background-color: #dd9933;padding: 8px;"><?php esc_html_e( 'To get Taxonomy customization, Please save/update this shortcode.', 'wpt_pro' ); ?></p>
     <?php
         }
     ?>
@@ -108,7 +108,7 @@ $meta_search_n_filter =  get_post_meta( $post->ID, 'search_n_filter', true );
         </table>
     </div>
     <div class="wpt_column">
-        <table class="ultraaddons-table wpt_filtr_on_off wpt_auto_hide">
+        <table class="ultraaddons-table wpt_filtr_on_off ">
             <tr>
                 <th>
                     <label class="wpt_label" for="wpt_filter"><?php esc_html_e( 'Taxonomy Keywords for Filter (Separate with comma[,])', 'wpt_pro' ); ?></label>

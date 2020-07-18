@@ -181,9 +181,9 @@ div#wpt_meta_value_wrapper {
 
 /****Admin section Right Side*****/
 div.wpt_rightside div.wpt_right_side_in_wrapper {
-    background: #e5e5e5;
+    background: #ffffff;
     margin-left: 17px;
-    border: 1px solid #4caf50;
+    border: 1px solid #efeded;
     margin-bottom: 17px;
 }
 div.wpt_rightside img.rate_us_image {
@@ -193,7 +193,7 @@ div.wpt_rightside img.rate_us_image {
     color: #989898;
 }
 .need_help_wrapper h1 {
-    color: #4caf50;
+    color: #74d17b;
     font-weight: bold;
     font-size: 3em;
 }
@@ -201,7 +201,13 @@ div.wpt_rightside img.rate_us_image {
     color: #9c9c9c;
 }
 .need_help_wrapper>span{display: block;}
+div.wpt_rightside div.wpt_right_side_in_wrapper>div {
+    padding: 20px;
+}
 
+div.wpt_rightside div.wpt_right_side_in_wrapper>div>* {
+    margin-bottom: 14px;
+}
 
 
 h2.social_title {
