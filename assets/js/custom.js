@@ -392,7 +392,7 @@
         /**
          * Click Action/Event on No ajax product in Add to cart button
          * No Ajax Add to cart product button Action
-         */
+         *
         $('body').on('click','a.no_ajax_action.wpt_woo_add_cart_button',function(e){
             e.preventDefault();
             var quantity = $(this).attr('data-quantity');
@@ -403,16 +403,15 @@
         /**
          * Click Action/Event on No ajax product in Add to cart button
          * for Grouped and External Product
-         */
-        $('body').on('click','tr.product_type_grouped.grouped a.no_ajax_action.wpt_woo_add_cart_button,\n\
-                        tr.product_type_external.external a.no_ajax_action.wpt_woo_add_cart_button',function(e){
+         *
+        $('body').on('click','tr.product_type_grouped.grouped a.no_ajax_action.wpt_woo_add_cart_button,tr.product_type_external.external a.no_ajax_action.wpt_woo_add_cart_button',function(e){
             e.preventDefault();
             //var quantity = $(this).attr('data-quantity');
             var uri = $(this).attr('href');
             uri = encodeURI(uri);
             window.location = uri;
         });
-        
+        //***********************************/
         
         /**
          * Add to cart button Action 
