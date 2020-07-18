@@ -65,25 +65,4 @@ if( !function_exists( 'wpt_admin_responsive_tab_file' ) ){
 
 //add_filter( 'wpto_admin_tab_file_loc_responsive', 'wpt_admin_responsive_tab_file' );
 
-if( !function_exists( 'wpt_product_includes_select_option' ) ){
-    function wpt_product_includes_select_option( $args ){
-        
-        $html = '';
-        $p_query_posts = query_posts($args);
-        if( is_array( $p_query_posts ) && count( $p_query_posts ) > 0 ){
-            foreach( $p_query_posts as $p_post ){
-                $p_product = wc_get_product($p_post->ID);
-                $data = $p_product->get_data();
-                $stock_status = isset( $data['stock_status'] ) ? $data['stock_status'] : '';
-                $price =  isset( $data['price'] ) ? get_woocommerce_currency_symbol(). '' . $data['price'] : '';
-                $img_src = wp_get_attachment_image_src( get_post_thumbnail_id( $p_post->ID ), array(50,50), false );
-                $image = isset( $img_src[0] ) ? $img_src[0] : '';
-                $text = $image . "|" . $price . "|" . $stock_status;
-                $title = ( mb_strlen( $p_post->post_title ) > 50 ) ? mb_substr( $p_post->post_title, 0, 49 ) . '...' : $p_post->post_title;
-                $html .= "<option title=" . esc_attr( $text ) . " value=". $p_post->ID ." selected>$title</option>";
-            }
-        }
-        wp_reset_postdata();   wp_reset_query();
-        return $html;
-    }
-}
+
