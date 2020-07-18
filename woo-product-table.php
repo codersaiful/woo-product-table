@@ -100,11 +100,11 @@ $column_array = array(
     'quick'         => __( 'Quick View', 'wpt_pro' ),
     'date'          =>  __( 'Date', 'wpt_pro' ),
     'modified_date' =>  __( 'Modified Date', 'wpt_pro' ),
-    'attribute' =>  __( 'Attributes', 'wpt_pro' ),
-    'variations' =>  __( 'Variations', 'wpt_pro' ),
+    'attribute'     =>  __( 'Attributes', 'wpt_pro' ),
+    'variations'    =>  __( 'Variations', 'wpt_pro' ),
     'quoterequest'  => __( 'Quote Request', 'wpt_pro' ),
     'description'   =>  __( 'Description', 'wpt_pro' ), //has been removed at V5.2 //Again start at 6.0.25
-    'blank'  => __( 'Blank', 'wpt_pro' ),
+    'blank'         => __( 'Blank', 'wpt_pro' ),
     'product_id'    => __( 'ID', 'wpt_pro' ),
     'serial_number' => __( 'SL', 'wpt_pro' ),
 );
