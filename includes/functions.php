@@ -37,6 +37,23 @@ if( !function_exists( 'wpt_column_setting_for_tax_cf' ) ){
 }
 add_filter( 'wpto_column_settings', 'wpt_column_setting_for_tax_cf', 10, 3 );
 
+if( !function_exists( 'wpt_detect_current_device' ) ){
+    function wpt_detect_current_device(){
+        $device = 'desktop';
+        $mobile_detect = new Mobile_Detect();
+        $is_tablet = $mobile_detect->isTablet();
+        $is_mobile = $mobile_detect->isMobile();
+        if( $is_tablet ){
+            $device = 'tablet';
+        }elseif( $is_mobile ){
+            $device = 'mobile';
+        }elseif( $is_tablet && !$is_mobile ){
+            $device = 'mobile';
+        }
+        return $device;
+    }
+}
+
 if( !function_exists( 'wpt_device_wise_table_col' ) ){
     /**
      * Generate $enabled_column_array based on Device 
@@ -53,18 +70,8 @@ if( !function_exists( 'wpt_device_wise_table_col' ) ){
      * @return Array
      */
     function wpt_device_wise_table_col($enabled_column_array, $table_ID){
-        $device = false;
-       $mobile_detect = new Mobile_Detect();
-       $is_tablet = $mobile_detect->isTablet();
-       $is_mobile = $mobile_detect->isMobile();
-       if( $is_tablet ){
-           $device = 'tablet';
-       }elseif( $is_mobile ){
-           $device = 'mobile';
-       }elseif( $is_tablet && !$is_mobile ){
-           $device = 'mobile';
-       }
-       
+       $device = wpt_detect_current_device();
+       $device = apply_filters( 'wpto_curent_deteted_device', $device, $enabled_column_array, $table_ID );
        if( !$device ){
            return $enabled_column_array;
        }
@@ -84,7 +91,30 @@ if( !function_exists( 'wpt_device_wise_table_col' ) ){
 add_filter( 'wpto_enabled_column_array', 'wpt_device_wise_table_col',10, 2 );
 
 
-
+if( !function_exists( 'wpt_device_wise_class' ) ){
+    /**
+     * Add Device Wise Class
+     * using Following Filter:
+     * apply_filters( 'wpto_wrapper_tag_class_arr', $wrapper_class_arr, $table_ID, $args, $column_settings, $enabled_column_array, $column_array );
+     * 
+     * @since 6.0.28
+     * @param type $enabled_column_array
+     * @return Array
+     */
+    function wpt_device_wise_class( $wrapper_class_arr ){
+       $device = wpt_detect_current_device();
+       $wrapper_class_arr[] = 'wpt_device_' . $device;
+       
+       return $wrapper_class_arr;
+   }
+}
+/**
+ * Availabvle Variable in this Filters is:
+ * $enabled_column_array, $table_ID, $atts, $column_settings, $column_array
+ * Perpose is: Change/Edit/Customize to Enabled Column Array
+ */
+add_filter( 'wpto_wrapper_tag_class_arr', 'wpt_device_wise_class');
+add_filter( 'body_class', 'wpt_device_wise_class' );
 
 if( !function_exists( 'wpt_product_title_column_add' ) ){
     
