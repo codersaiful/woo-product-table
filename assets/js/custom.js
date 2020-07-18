@@ -1450,7 +1450,7 @@
             $('#table_id_' + temp_number + ' input.enabled.wpt_tabel_checkbox:checked').each(function() { //wpt_td_checkbox
                 var product_id = $(this).data('product_id');
                 $('table.wpt_temporary_table_' + temp_number + ' tr.wpt_row#product_id_' + product_id).addClass('wpt_selected_tr');
-                var items = $('#table_id_' + temp_number + ' tr#product_id_' + product_id + ' input.input-text.qty.text').val();
+                var items = $('#table_id_' + temp_number + ' tr#product_id_' + product_id).attr('data-quantity');
                 items = parseFloat(items);
                 if(items <= 0){
                     //$('#table_id_' + temp_number + ' tr#product_id_' + product_id + ' input:checkbox').attr('checked',false);
