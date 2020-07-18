@@ -260,14 +260,6 @@ class WPT_Product_Table{
         'perpose' => 'install', //install,upgrade,activation
     );
 
-    /**
-     * It's need for Varification purchase code of CodeCanyon
-     *
-     * @var type int
-     */
-    public static $item_id = 20676867;
-    
-    public static $options_name = 'wpt_codecanyon_purchase_code';
 
     /**
      * To set Default Value for Woo Product Table, So that, we can set Default Value in Plugin Start and 
