@@ -471,7 +471,9 @@ if( !function_exists( 'wpt_custom_message_validation' ) ){
      */
     function wpt_custom_message_validation() { 
         if ( empty( $_REQUEST['wpt_custom_message'] ) ) {
-            wc_add_notice( __( 'Please enter Short Message', 'wpt_pro' ), 'error' );
+            $short_mesg_warning = __( 'Please enter Short Message', 'wpt_pro' );
+            $short_mesg_warning = apply_filters( 'wpto_short_message_warning', $short_mesg_warning, $_REQUEST );
+            wc_add_notice( $short_mesg_warning, 'error' );
             return false;
         }
         return true;
@@ -516,7 +518,11 @@ if( !function_exists( 'wpt_render_meta_on_cart_and_checkout' ) ){
             $custom_items = $cart_data;
         }
         if( isset( $cart_item['wpt_custom_message'] ) ) {
-            $custom_items[] = array( "name" => __( 'Message', 'wpt_pro' ), "value" => $cart_item['wpt_custom_message'] );
+            $msg_string = __( 'Message', 'wpt_pro' );
+            $args['cart_data'] = $cart_data;
+            $args['cart_item'] = $cart_item;
+            $msg_string = apply_filters( 'wpto_shortmessage_string',$msg_string, $args, $args );
+            $custom_items[] = array( "name" => $msg_string, "value" => $cart_item['wpt_custom_message'] );
         }
         return $custom_items;
     }
@@ -536,7 +542,12 @@ if( !function_exists( 'wpt_order_meta_handler' ) ){
      */
     function wpt_order_meta_handler( $item_id, $values, $cart_item_key ) {
         if( isset( $values['wpt_custom_message'] ) ) {
-            wc_add_order_item_meta( $item_id, __( 'Message', 'wpt_pro' ), $values['wpt_custom_message'] );
+            $msg_string = __( 'Message', 'wpt_pro' );
+            $args['item_id'] = $item_id;
+            $args['values'] = $values;
+            $args['cart_item_key'] = $cart_item_key;
+            $msg_string = apply_filters( 'wpto_shortmessage_string',$msg_string, $args );
+            wc_add_order_item_meta( $item_id, $msg_string, $values['wpt_custom_message'] );
         }
     }
 }
