@@ -458,7 +458,10 @@ if( !function_exists( 'wpt_configure_default_content_part' ) ){
          
     }
 }
-add_action( 'wpto_admin_configuration_form', 'wpt_configure_default_content_part',20, 3 );
+/**
+ * Stock Message or BackOrder Message or All about stock will manage from WooCommerce
+ */
+//add_action( 'wpto_admin_configuration_form', 'wpt_configure_default_content_part',20, 3 );
 
 
 if( !function_exists( 'wpt_configure_all_message_part' ) ){

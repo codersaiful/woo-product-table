@@ -225,9 +225,12 @@ $default = array(
     'search_box_orderby'    => __( 'Order By', 'wpt_pro' ),
     'search_box_order'      => __( 'Order', 'wpt_pro' ),
     //For Default Table's Content
+    /**
     'table_in_stock'        =>  __( 'In Stock', 'wpt_pro' ),//'In Stock',
     'table_out_of_stock'    =>  __( 'Out of Stock', 'wpt_pro' ),//'Out of Stock',
     'table_on_back_order'   =>  __( 'On Back Order', 'wpt_pro' ),//'On Back Order',
+    
+     */
 );
 $default = apply_filters( 'wpto_default_configure', $default );
 WPT_Product_Table::$default = $default;
