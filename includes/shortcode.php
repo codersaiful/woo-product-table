@@ -438,8 +438,10 @@ function wpt_shortcode_generator( $atts = false ) {
      * @version V1.0.4 
      * @date 2/5/2018
      */
+    
     $html_check = $html_check_footer = false; $filter_identy_class = 'fullter_full';
-    if( isset( $wpt_permitted_td['check'] ) ){
+    $checkbox_validation = apply_filters( 'wpto_checkbox_validation', false, $enabled_column_array,$column_settings, $table_ID, $atts );
+    if( $checkbox_validation ){
         $filter_identy_class = 'fulter_half';
         //
         $add_to_cart_selected_text = $add_to_cart_selected_text;//'Add to Cart [Selected]';

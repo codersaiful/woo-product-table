@@ -116,6 +116,35 @@ if( !function_exists( 'wpt_device_wise_class' ) ){
 add_filter( 'wpto_wrapper_tag_class_arr', 'wpt_device_wise_class');
 add_filter( 'body_class', 'wpt_device_wise_class' );
 
+
+if( !function_exists( 'wpt_checkbox_validation' ) ){
+    /**
+     * Checkbox Enable Disable
+     * using Following Filter:
+     * $checkbox_validation = apply_filters( 'wpto_checkbox_validation', false, $enabled_column_array,$column_settings, $table_ID, $atts );
+     * 
+     * @since 6.0.28
+     * @param type $enabled_column_array
+     * @return Array
+     */
+    function wpt_checkbox_validation( $bool, $enabled_column_array,$column_settings ){
+        $arrrrr = array();
+        if( !is_array( $enabled_column_array ) || !is_array( $column_settings ) ) return false;
+        
+        
+        if( isset( $enabled_column_array['check'] ) ){
+            return true;
+        }
+        
+        foreach( $column_settings as $key => $e_stng ){
+            if( isset( $e_stng['items'] ) && is_array( $e_stng['items'] ) && in_array( 'check', $e_stng['items'] ) ) return true;
+        }
+
+        return $bool;
+   }
+}
+add_filter( 'wpto_checkbox_validation', 'wpt_checkbox_validation', 10, 3);
+
 if( !function_exists( 'wpt_product_title_column_add' ) ){
     
     function wpt_product_title_column_add( $column_settings ){
