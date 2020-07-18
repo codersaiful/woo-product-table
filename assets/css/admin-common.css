@@ -140,6 +140,11 @@
     vertical-align: text-bottom;
 }
 
+.ultraaddons-panel table td p,
+.ultraaddons-table td p{
+    color: #607D8B;
+    font-style: italic;
+}
 
 
 

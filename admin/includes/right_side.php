@@ -60,7 +60,9 @@
     <div class="wpt_right_side_in_wrapper" style="padding: 10px;">
         <div class="rate_us_wrapper">
             <a href="https://codecanyon.net/downloads" target="_blank"><img class="rate_us_image" src="<?php echo WPT_Product_Table::getPath( 'BASE_URL' ); ?>assets/images/rate_us.png"></a>
-            <h1>It can take only 2 Minutes.</h1>
+            <h1>It can take only 2 Minutdddes.</h1>
+            <a href="https://wordpress.org/support/plugin/woo-product-table/reviews/?filter=5#new-post" target="_blank">Rate Us on WordPress.org</a>
+            <a href="https://codecanyon.net/item/woo-product-table-pro/20676867" target="_blank">Rate Us on CodeCanyon</a>
         </div>
     </div>
 
