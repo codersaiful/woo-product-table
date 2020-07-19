@@ -36,6 +36,69 @@
                     <p>To learn more about how to use them, <a href="https://www.wcproducttable.xyz/kb/supported-attributes-of-shortcode-and-content-column/" target="_blank">click here</a></p>
                 </div>
             </div>
+            <div class="section ultraaddons-feature-panel odd">
+                <div class="col col-left has-img">
+                    <img src="<?php echo WPT_BASE_URL . 'assets/images/features/shortcode.png';?>">
+                </div>
+                <div class="col col-right has-text">
+                    <h2>Shortcode Column</h2>
+                    <p>Using this shortcode column you can show any custom shortcode data inside our product table.</p>
+                </div>
+            </div>
+            <div class="section ultraaddons-feature-panel even">
+                <div class="col col-right has-img">
+                    <img src="<?php echo WPT_BASE_URL . 'assets/images/features/acf-support.jpg';?>">
+                </div>
+                <div class="col col-left has-text">
+                    <h2>Advanced Custom Fields Supported</h2>
+                    <p>Using this column you don't have to worry about how the custom fields content will appear in the front. We have added all custom fields type.</p>
+                </div>
+            </div>
+            <div class="section ultraaddons-feature-panel odd">
+                <div class="col col-left has-img">
+                    <img src="<?php echo WPT_BASE_URL . 'assets/images/features/blank-column.jpg';?>">
+                </div>
+                <div class="col col-right has-text">
+                    <h2>Add Unlimited Blank Column</h2>
+                    <p>Use this column when you need to re-arrange inner items in a fresh blank column.</p>
+                </div>
+            </div>
+            <div class="section ultraaddons-feature-panel even">
+                <div class="col col-right has-img">
+                    <img src="<?php echo WPT_BASE_URL . 'assets/images/features/products-include.jpg';?>">
+                </div>
+                <div class="col col-left has-text">
+                    <h2>Include/Exclude by Product ID</h2>
+                    <p>If we need to add very specific products from different categories by ID, we can select them here.</p>
+                </div>
+            </div>
+            <div class="section ultraaddons-feature-panel odd">
+                <div class="col col-left has-img">
+                    <img src="<?php echo WPT_BASE_URL . 'assets/images/features/search-from.jpg';?>">
+                </div>
+                <div class="col col-right has-text">
+                    <h2>Search using specific Meta Keyword</h2>
+                    <p>You can set here to search by sku and title or any other meta value.</p>
+                </div>
+            </div>
+            <div class="section ultraaddons-feature-panel even">
+                <div class="col col-right has-img">
+                    <img src="<?php echo WPT_BASE_URL . 'assets/images/features/custom-design.jpg';?>">
+                </div>
+                <div class="col col-left has-text">
+                    <h2>Design your Table</h2>
+                    <p>You can change the text color, background color, border, padding, and many more to match with your theme without any custom CSS.</p>
+                </div>
+            </div>
+            <div class="section ultraaddons-feature-panel odd">
+                <div class="col col-left has-img">
+                    <img src="<?php echo WPT_BASE_URL . 'assets/images/features/table-config.jpg';?>">
+                </div>
+                <div class="col col-right has-text">
+                    <h2>Change each table's configuration</h2>
+                    <p>You can change each table's settings to match your requirements.</p>
+                </div>
+            </div>
         </div>
     </div>
 </div>
