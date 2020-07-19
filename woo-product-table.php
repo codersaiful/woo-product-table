@@ -1,17 +1,17 @@
 <?php
 /**
  * Plugin Name: WOO Product Table
- * Plugin URI: https://codecanyon.net/item/woo-product-table-pro/20676867
+ * Plugin URI: https://wordpress.org/plugins/woo-product-table/
  * Description: WooCommerce all products display as a table in one page by shortcode. Fully responsive and mobile friendly. Easily customizable - color,background,title,text color etc.
- * Author: CodeAstrology
- * Author URI: https://codecanyon.net/user/codeastrology
- * Tags: woocommerce product,woocommerce product table, product table
+ * Author: Saiful Islam
+ * Author URI: https://wordpress.org/plugins/woo-product-table/
+ * Tags: wc product table, woocommerce product table, product table, wc table, quick order table, wholesale table, restaurants table
  * 
- * Version: 2.6.9
+ * Version: 2.6.1
  * Requires at least:    4.0.0
- * Tested up to:         5.3.2
+ * Tested up to:         5.4.2
  * WC requires at least: 3.0.0
- * WC tested up to: 	 3.9.1
+ * WC tested up to: 	 4.3.0
  * 
  * Text Domain: wpt_pro
  * Domain Path: /languages/

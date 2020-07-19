@@ -8,6 +8,16 @@
             </div>
         </div>
         <div class="main-contents">
+            <div class="section ultraaddons-feature-panel even">
+                <div class="col col-right has-img">
+                    <img src="<?php echo WPT_BASE_URL . 'assets/images/features/awesome-pro-support.png';?>">
+                </div>
+                <div class="col col-left has-text">
+                    <h2>AWESOEM <span>PRO</span> SUPPORT</h2>
+                    <p>We have Special Pro Agent for our Pro Customer.</p>
+
+                </div>
+            </div>
             <div class="section ultraaddons-feature-panel odd">
                 <div class="col col-left has-img">
                     <img src="<?php echo WPT_BASE_URL . 'assets/images/features/contents.jpg';?>">
@@ -97,6 +107,19 @@
                 <div class="col col-right has-text">
                     <h2>Change each table's configuration</h2>
                     <p>You can change each table's settings to match your requirements.</p>
+                </div>
+            </div>
+            <div class="section ultraaddons-feature-panel even">
+                <div class="col col-right has-img">
+                    <img src="<?php echo WPT_BASE_URL . 'assets/images/features/smile.jpg';?>">
+                </div>
+                <div class="col col-left has-text">
+                    <h2>And many more</h2>
+                    <p>Many more awesome feature is waiting...</p>
+                    <p><a href="https://wcproducttable.xyz/" target="_blank">wcproducttable.xyz</a></p>
+                    <p><a href="https://www.wcproducttable.xyz/demo-list/" target="_blank">Table Demo</a></p>
+                    <p><a href="https://www.wcproducttable.xyz/docs/" target="_blank">Basic Helps</a></p>
+                    <p><a href="http://docs.codeastrology.com/woo-product-table-pro/#intro" target="_blank">Documentation</a></p>
                 </div>
             </div>
         </div>

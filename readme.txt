@@ -1,23 +1,30 @@
 === Woo Product Table - Free WooCommerce Table view solution ===
-Contributors: codersaiful,codeastrology
+Contributors: codersaiful, codeastrology
 Donate link: https://codecanyon.net/item/woo-product-table-pro/20676867
-Tags: wc product table,woocommerce product table, product table, wc table, quick order table, wholesale table, restaurants table
+Tags: wc product table, woocommerce product table, product table, wc table, quick order table, wholesale table, restaurants table
 Requires at least: 4.0.0
-Tested up to: 5.3.2
-Requires PHP: 5.6
+Tested up to: 5.4.2
 Stable tag: 4.3
+Requires PHP: 5.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 Product Table's pro Features in FREE. Easily display your products as table by tiny shortcode. Such: [Product_Table id='1']. Support default editor, any Page Builder & Gutenberg.
 
 == Description ==
-Auto Responsive Mobile & Tab, Nice Design, Fast Speed *WooCommerce Product Table*. Tiny Shortcode, Easy customizable, Ajax Add to cart, Ajax Search, Pagination & Load More.
-*Woo Product Table - Free WooCommerce Table view solution* offers to show all products display as a table in page by light shortcode. Fully responsive and mobile friendly. Easily customizable - color,background,title,text color etc.
 
-**[$10 Discount for Limited Time](https://codecanyon.net/item/woo-product-table-pro/20676867)**
+Responsive Mobile & Tab, Nice Design, Fast Speed *WooCommerce Product Table*. Tiny Shortcode, Easily customizable, Ajax Add to cart, Ajax Search, Pagination & Load More.
+*Woo Product Table - Free WooCommerce Table view solution* offers to show all products display as a table in page by light shortcode. Fully responsive and mobile friendly. Easily customizable - color, background, title, text color etc.
+
+**Contribute at Github**
+
+Click to [Github Project](https://github.com/codersaiful/woo-product-table) to contribute.
 
 **Demo List**
+
+* [Clean Blue Table with Advanced Search](https://www.wcproducttable.xyz/demo-list/clean-blue-table-with-advanced-search/) In this table, we have redesigned our table by blue color and also we have used advanced search with lots of custom taxonomy.
+
+* [Auto Selected Checked Table](https://www.wcproducttable.xyz/automatically-all-item-selected/) In this table we have selected all the products by default.
 
 * [Custom Design Table](https://wcproducttable.xyz/all/) Here is table with custom design. You can customize your table with your design like color,background-color,font-size,padding,spacing etc from the option panel.
 
@@ -40,7 +47,13 @@ Auto Responsive Mobile & Tab, Nice Design, Fast Speed *WooCommerce Product Table
 * More demo coming soon....
 
 **WooCommerce Product Table** plugin offers to display your shop products in one page by shortcode as table. 
-
+* Multiple items in a single column
+* Basic tabs UI/UX improved
+* Developer friendly code structure
+* Product table query by only Stock Products 
+* Product table query by only Sell Products 
+* More options for image and product title 
+* Compatible with all type min-max plugin
 * Shop page as Table
 * Available add to cart in Table
 * Ajax add to cart
@@ -54,13 +67,14 @@ Auto Responsive Mobile & Tab, Nice Design, Fast Speed *WooCommerce Product Table
 Add the shortcode to any existing post or page:
 
 `[Product_Table ID='123' name='Table Name']`
-*ID* - will be post's ID(required).It will generate automatically when you create your table. 
+*ID* - will be post's ID(required). It will generate automatically when you create your table. 
 
 *name* - only for identifying your table's shortcode.(Optional)
 
 
-**[See Demo](https://wcproducttable.xyz/) || [See Features](https://codeastrology.com/wordpress-plugins/woo-product-table-free/) ||  [Pro Features](https://codeastrology.com/wordpress-plugins/woo-product-table/)  || [See Pro](https://codecanyon.net/item/woo-product-table-pro/20676867)**
-This plugin will help any body to show All product in 1 page as Table. Also able to change/customize. Go to: Dashboard->WPT Table . If anybody found any issue, Please inform me to codersaiful@gmail.com.
+**[See Demo](https://wcproducttable.xyz/) || [See Pro](https://codecanyon.net/item/woo-product-table-pro/20676867)**
+
+This plugin will help any body to show All product in 1 page as Table. Also able to change/customize. Go to: Dashboard->PRODUCT TABLE . If you have found any issue, please inform me to codersaiful@gmail.com.
 
 
 **Have a looks in short**
@@ -84,11 +98,9 @@ https://www.youtube.com/watch?v=D67b_0tQ-z8
 
 == Installation ==
 
-
 1. Upload the plugin files to the `/wp-content/plugins/woo-product-table` directory, or install the plugin through the WordPress plugins screen directly.
 2. Activate the plugin through the 'Plugins' screen in WordPress
 3. Use the Woo Table->Setting screen to configure the plugin's default setting.
-
 
 == Frequently Asked Questions ==
 
@@ -104,6 +116,10 @@ Default Shortcode is [Product_Table id='123' name='Home Table'] as well as also 
 
 Yes. You can set the product limit to show in yout able. Eg. You have 100 products in your site then you can easily show 50 of them.
 
+= Can I contribute to Woo Product Table Plugin? =
+
+Yes. you are most wellcome. Our Plugin is well commented and Customizeable. Lot's of Filter and action Available. Anybody able to easily develop new addons for Woo Product Table Plugin. Click to [Github Project](https://github.com/codersaiful/woo-product-table) to contribute.
+
 = How to use? =
 
 Install and activate. Then go to ( Dashboard -> Product Table-> Add New ). Give a suitable name of your table. Configure your table according to your need and click publish. Finally, copy the shortcode and paste it to your desired page or post.
@@ -113,19 +129,41 @@ That's it. So easy, Right !!!
 
 You can easily show specific category products. While creating new table click on the basic tab. You will find an option to select your category. You can also choose multiple categories.
 
-
 = Is it suitable for any theme ? =
- Yes. *WooCommerce Product Table* will adapt with your theme design.
+
+Yes. *WooCommerce Product Table* will adapt with your theme design.
+
+=  =
+
+
+
 
 == Screenshots ==
 
-`/assets/screenshot-1.png`
-`/assets/screenshot-2.png`
-`/assets/screenshot-3.png`
-`/assets/screenshot-4.png`
-`/assets/screenshot-5.png`
+1. New Column Design
+2. Mobile and Tablet Responsive Layout
+3. Column Inner Items
+4. Custom Design Template
+5. Multiple Items in one Column
+6. Create a New Table on WordPress and Product Table edit screen
+7. Select your desired columns to show in product table
+8. Select basic query 
+9. Set few conditions on table
+10. Setup advanced search box and mini filter
 
 == Changelog ==
+
+= 2.6.1 =
+* Unlimited Filter And Action Available 
+* Column Customizer
+* Any Product Addons Plugin Supported 
+* Any third-party Plugin Supporte 
+* Awesome Support
+* All Bug Fix 
+* Stable with Latest Woocommerce 
+* Stable with Latest WordPress 
+* 
+* 
 
 = 2.0 =
 * Auto Responsive for Mobile

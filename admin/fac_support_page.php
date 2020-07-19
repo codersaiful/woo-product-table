@@ -14,7 +14,7 @@ if( !function_exists( 'wpt_fac_support_page' ) ){
 
                 <div style="text-align:center;" class="fieldwrap wpt_result_footer">
 
-                    <img style="margin: 13px auto;max-width: 100%;" src="<?php echo WPT_BASE_URL; ?>images/cover_image.jpg">
+                    <img style="margin: 13px auto;max-width: 100%;" src="<?php echo WPT_BASE_URL; ?>assets/images/cover_image.jpg">
                     <hr>
                     <div class="wpt_faq_support_link_collection">
                         <a href="https://codecanyon.net/user/codeastrology/portfolio" target="_blank"><?php esc_html_e( 'CodeAstrology Portfolios', 'wpt_pro' );?></a>
@@ -26,14 +26,7 @@ if( !function_exists( 'wpt_fac_support_page' ) ){
                     <a href="mailto:codersaiful@gmail.com"><?php esc_html_e( 'We are Freelancer', 'wpt_pro' );?></a>
                     <br style="clear: both;">
                     <iframe width="560" height="315" src="https://www.youtube.com/embed/ZloiY3NRmW8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></iframe>
-                    <div>
-                        <h3><?php esc_html_e( 'More Video Tutorial', 'wpt_pro' );?></h3>
-                        <a href="https://youtu.be/Jl3gTcOOhRQ"><?php esc_html_e( 'Custom Design Of Woo Product Table Pro', 'wpt_pro' );?></a><br>
-                        <a href="https://youtu.be/aOzzYBr2Rug"><?php esc_html_e( 'Custom Field Support In WooCommerce Product Table', 'wpt_pro' );?></a><br>
-                        <a href="https://youtu.be/w2vZSIzAJFo"><?php esc_html_e( 'Custom Taxnomoy Support In WooCommerce Product Table Pro', 'wpt_pro' );?></a><br>
-                        <a href="https://youtu.be/D_hl2UtVTCw"><?php esc_html_e( 'How to use Woo Product Table Pro - Basic to Advance', 'wpt_pro' );?></a><br><br>
-                    </div>
-                    <br style="clear: both;">
+                <h3>Video Tutorial is Coming ....</h3>
                 </div>
                 <!-- </form> -->
 
