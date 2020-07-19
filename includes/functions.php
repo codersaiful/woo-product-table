@@ -147,42 +147,58 @@ add_filter( 'wpto_checkbox_validation', 'wpt_checkbox_validation', 10, 3);
 
 if( !function_exists( 'wpt_product_title_column_add' ) ){
     
-    function wpt_product_title_column_add( $column_settings ){
-        $title_variation = isset( $column_settings['title_variation']) ? $column_settings['title_variation'] : false;
-        $description_off =  isset( $column_settings['description_off'] ) ? $column_settings['description_off'] : 'on';
-        $description_off = $description_off == 'off' ? 'checked="checked"' : '';
+    /**
+     * Add Extra Option to Product_title Column using following Action HOOK
+     * do_action( 'wpto_column_setting_form_' . $keyword, $column_settings, $keyword, $columns_array, $updated_columns_array );
+     * 
+     * $column_settings[$keyword]['description_off'] //column_settings[<?php echo esc_attr( $keyword ); ?>][description_off]
+     * @param type $column_settings
+     * @param type $keyword Although called by $keyword name, we will get $keyword as second parameters
+     */
+    function wpt_product_title_column_add( $column_settings, $keyword ){
+        $title_variation = isset( $column_settings[$keyword]['title_variation'] ) ? $column_settings[$keyword]['title_variation'] : false;
+        $link_target = isset( $column_settings[$keyword]['link_target'] ) ? $column_settings[$keyword]['link_target'] : false;
+        $description =  isset( $column_settings[$keyword]['description'] ) ? $column_settings[$keyword]['description'] : false;
        ?>
         <div class="description_off_wrapper">
-            <label for="description_off"><input title="Disable Deactivate Description from Title Column" name="column_settings[description_off]" id="description_off" class="description_off" type="checkbox" value="off" <?php echo $description_off; ?>> Disable Description</label>
+            <label for="description"><input title="Disable Deactivate Description from Title Column" name="column_settings[<?php echo esc_attr( $keyword ); ?>][description]" id="description"  type="checkbox" value="description" <?php echo $description && $description == 'description' ? 'checked' : ''; ?>> Disable Description</label>
+            <label for="link_target_blank"><input type="checkbox" id="link_target_blank" name="column_settings[<?php echo esc_attr( $keyword ); ?>][link_target]" value="_blank" <?php echo $link_target && $link_target == '_blank' ? 'checked' : ''; ?>> New Tab (_blank)</label>
         </div>
         <div class="title_variation">
-            <label for="link"><input type="radio" id="link" name="column_settings[title_variation]" value="link" <?php echo !$title_variation || $title_variation == 'link' ? 'checked' : ''; ?>> Link Enable</label>
-            <label for="nolink"><input type="radio" id="nolink" name="column_settings[title_variation]" value="nolink" <?php echo $title_variation == 'nolink' ? 'checked' : ''; ?>> Link Disable</label>
-            <label for="yith" class="tooltip"><input type="radio" id="yith" name="column_settings[title_variation]" value="yith" <?php echo $title_variation == 'yith' ? 'checked' : ''; ?>> Link Disable + Quick View<span class="tooltip-hover down-arrow">You have to install <a href="https://wordpress.org/plugins/yith-woocommerce-quick-view/" target="_blank">YITH WooCommerce Quick View</a></span></label>
-        </div>        
-        
-        
+            <label for="link"><input type="radio" id="link" name="column_settings[<?php echo esc_attr( $keyword ); ?>][title_variation]" value="link" <?php echo !$title_variation || $title_variation == 'link' ? 'checked' : ''; ?>> Link Enable</label>
+            <label for="nolink"><input type="radio" id="nolink" name="column_settings[<?php echo esc_attr( $keyword ); ?>][title_variation]" value="nolink" <?php echo $title_variation == 'nolink' ? 'checked' : ''; ?>> Link Disable</label>
+            <label for="yith" class="tooltip"><input type="radio" id="yith" name="column_settings[<?php echo esc_attr( $keyword ); ?>][title_variation]" value="yith" <?php echo $title_variation == 'yith' ? 'checked' : ''; ?>> Link Disable + Quick View<span class="tooltip-hover down-arrow">You have to install <a href="https://wordpress.org/plugins/yith-woocommerce-quick-view/" target="_blank">YITH WooCommerce Quick View</a></span></label>
+        </div>       
        <?php
    }
 }
-add_action( 'wpto_column_setting_form_product_title', 'wpt_product_title_column_add' );
+add_action( 'wpto_column_setting_form_product_title', 'wpt_product_title_column_add', 10, 2 );
 
 if( !function_exists( 'wpt_thumbnails_column_add' ) ){
     
-    function wpt_thumbnails_column_add( $column_settings ){
-        $thumb_variation = isset( $column_settings['thumb_variation']) ? $column_settings['thumb_variation'] : false;
+    /**
+     * Add Extra Option to thumbnail column 
+     * 
+     * Using following Action Hook of admin->tabs->column_settings.php file
+     * do_action( 'wpto_column_setting_form_' . $keyword, $column_settings, $keyword, $columns_array, $updated_columns_array );
+     * 
+     * @param type $column_settings //$column_settings[$keyword]['thumb_variation'] //column_settings[<?php echo esc_attr( $keyword ); ?>][thumb_variation]
+     * @param type $keyword $keyword Although called by $keyword name, we will get $keyword as second parameters
+     */
+    function wpt_thumbnails_column_add( $column_settings, $keyword ){
+        $thumb_variation = isset( $column_settings[$keyword]['thumb_variation']) ? $column_settings[$keyword]['thumb_variation'] : false;
        ?>
         <div class="thumb_variation">
-            <label for="popup"><input type="radio" id="popup" name="column_settings[thumb_variation]" value="popup" <?php echo !$thumb_variation || $thumb_variation == 'popup' ? 'checked' : ''; ?>> Default Popup</label>
-            <label for="no_action"><input type="radio" id="no_action" name="column_settings[thumb_variation]" value="no_action" <?php echo $thumb_variation == 'no_action' ? 'checked' : ''; ?>> No Action</label>
-            <label for="url"><input type="radio" id="url" name="column_settings[thumb_variation]" value="url" <?php echo $thumb_variation == 'url' ? 'checked' : ''; ?>> Product Link</label>
-            <label for="quick_view" class="tooltip"><input type="radio" id="quick_view" name="column_settings[thumb_variation]" value="quick_view" <?php echo $thumb_variation == 'quick_view' ? 'checked' : ''; ?>> Quick View<span class="tooltip-hover down-arrow">You have to install <a href="https://wordpress.org/plugins/yith-woocommerce-quick-view/" target="_blank">YITH WooCommerce Quick View</a></span></label>
+            <label for="popup"><input type="radio" id="popup" name="column_settings[<?php echo esc_attr( $keyword ); ?>][thumb_variation]" value="popup" <?php echo !$thumb_variation || $thumb_variation == 'popup' ? 'checked' : ''; ?>> Default Popup</label>
+            <label for="no_action"><input type="radio" id="no_action" name="column_settings[<?php echo esc_attr( $keyword ); ?>][thumb_variation]" value="no_action" <?php echo $thumb_variation == 'no_action' ? 'checked' : ''; ?>> No Action</label>
+            <label for="url"><input type="radio" id="url" name="column_settings[<?php echo esc_attr( $keyword ); ?>][thumb_variation]" value="url" <?php echo $thumb_variation == 'url' ? 'checked' : ''; ?>> Product Link</label>
+            <label for="quick_view" class="tooltip"><input type="radio" id="quick_view" name="column_settings[<?php echo esc_attr( $keyword ); ?>][thumb_variation]" value="quick_view" <?php echo $thumb_variation == 'quick_view' ? 'checked' : ''; ?>> Quick View<span class="tooltip-hover down-arrow">You have to install <a href="https://wordpress.org/plugins/yith-woocommerce-quick-view/" target="_blank">YITH WooCommerce Quick View</a></span></label>
         </div>
         
        <?php
    }
 }
-add_action( 'wpto_column_setting_form_thumbnails', 'wpt_thumbnails_column_add' );
+add_action( 'wpto_column_setting_form_thumbnails', 'wpt_thumbnails_column_add', 10, 2 );
 
 
 

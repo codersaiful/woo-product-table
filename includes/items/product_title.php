@@ -1,9 +1,8 @@
 <?php
 $wpt_single_product_title = false;
-
-$title_variation = isset( $column_settings['title_variation'] ) ? $column_settings['title_variation'] : 'link';
-$description_on = isset( $column_settings['description_off'] ) ? 'no' : 'yes';
-$title_variation = isset( $column_settings['title_variation'] ) ? $column_settings['title_variation'] : 'link';
+$title_variation = isset( $column_settings[$keyword]['title_variation'] ) ? $column_settings[$keyword]['title_variation'] : 'link';
+$link_target = isset( $column_settings[$keyword]['link_target'] ) ? $column_settings[$keyword]['link_target'] : '_self';
+$description =  isset( $column_settings[$keyword]['description'] ) ? $column_settings[$keyword]['description'] : false;
 
 if($title_variation == 'link'){
     $wpt_single_product_title .= "<a class='wpt_product_title_in_td' target='{$config_value['product_link_target']}' href='" . esc_url(get_the_permalink()) . "'>" . get_the_title() . "</a>";
@@ -16,10 +15,10 @@ if($title_variation == 'link'){
 }
 
 
-$desc = $data[$description_type];
+$desc = isset( $data[$description_type] ) ? $data[$description_type] : false;
 
 //$desc_attr = strip_tags($desc);
-$wpt_single_product_title .= $description_on && $description_on == 'yes' && $desc ? "<div class='product_description'>" .  do_shortcode( $desc ) . "</div>" : '';
+$wpt_single_product_title .= $description && $desc ? "<div class='product_description'>" .  do_shortcode( $desc ) . "</div>" : '';
 
 
 

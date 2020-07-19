@@ -93,7 +93,7 @@ if( is_array( $meta_enable_column_array ) && !empty( $meta_enable_column_array )
             
             
             <div class="wpt_column_setting_single_extra">
-                <?php do_action( 'wpto_column_setting_form_' . $keyword, $column_settings, $columns_array, $updated_columns_array ); ?>
+                <?php do_action( 'wpto_column_setting_form_' . $keyword, $column_settings, $keyword, $columns_array, $updated_columns_array ); ?>
             </div>
             <span data-key="<?php echo esc_attr( $keyword ); ?>" class="extra_all_on_off on_now"><i class="on_off_icon"></i>Expand</span>
             <div class="wpt_column_setting_extra for_all extra_all_<?php echo esc_attr( $keyword ); ?>">
