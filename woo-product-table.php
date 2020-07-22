@@ -4,7 +4,7 @@
  * Plugin URI: https://wordpress.org/plugins/woo-product-table/
  * Description: WooCommerce all products display as a table in one page by shortcode. Fully responsive and mobile friendly. Easily customizable - color,background,title,text color etc.
  * Author: Saiful Islam
- * Author URI: https://wordpress.org/plugins/woo-product-table/
+ * Author URI: https://profiles.wordpress.org/codersaiful/#content-plugins
  * Tags: wc product table, woocommerce product table, product table, wc table, quick order table, wholesale table, restaurants table
  * 
  * Version: 2.6.1
