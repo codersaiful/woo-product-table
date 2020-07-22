@@ -378,11 +378,12 @@ if( !function_exists( 'wpt_paginate_links' ) ){
     function wpt_paginate_links( $args = false ){
         $html = false;
         if( $args ){
+            $format = apply_filters( 'wpto_pagination_format', '?paged=%#%', $args );
             $product_loop = new WP_Query($args);
             $big = 99999999;
             $paginate = paginate_links( array(
                 'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
-                'format' => '?paged=%#%',
+                'format' => $format,
                 'mid_size'  =>  3,
                 'prev_next' =>  false,
                 'current' => max( 1, $args['paged'] ),
