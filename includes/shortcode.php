@@ -840,6 +840,10 @@ function wpt_table_row_generator( $table_row_generator_array ){
      */
     $column_settings = apply_filters( 'wpto_column_settings', $column_settings, $table_ID, $table_column_keywords ); //Added at 6.0.25 
     
+    /**
+     * Adding Filter for Args inside Row Generator
+     */
+    $args = apply_filters( 'wpto_table_query_args_in_row', $args, $table_ID, false, $column_settings, false, false );
     
     $product_loop = new WP_Query($args);
     $product_loop = apply_filters( 'wpto_product_loop', $product_loop, $table_ID, $args );
