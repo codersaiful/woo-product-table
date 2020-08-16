@@ -916,7 +916,12 @@
                 var currentCustomMessage = $('#table_id_' + temp_number + ' #product_id_' + product_id + ' .wpt_Message input.message').val();
                 var currentVariaionId = currentAddToCartSelector.attr('data-variation_id');//currentAddToCartSelector.data('variation_id');
                 //var currentVariaion = currentAddToCartSelector.data('variation');
-                var currentVariaion = $.parseJSON(currentAddToCartSelector.attr('data-variation'));
+                var currentVariaion;
+                try{
+                        currentVariaion = $.parseJSON(currentAddToCartSelector.attr('data-variation'));
+                }catch(e){
+                        //Get error message
+                }
 
                 /*
                 var currentVariaionId = currentAddToCartSelector.attr('data-variation_id');
@@ -1050,7 +1055,12 @@
                     }
                     
                     var wpt_per_product = fragments.wpt_per_product;
-                    wpt_per_product = $.parseJSON(wpt_per_product);
+                    try{
+                            wpt_per_product = $.parseJSON(wpt_per_product);
+                    }catch(e){
+                        wpt_per_product = false;
+                            //Get error message
+                    }
 
                     if( wpt_per_product && typeof wpt_per_product  === 'object'){
                         
