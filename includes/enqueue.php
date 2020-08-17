@@ -58,6 +58,7 @@ if( !function_exists( 'wpt_enqueue' ) ){
            'priceFormat' => wpt_price_formatter(),
            'version' => $version,
            );
+       $WPT_DATA = apply_filters( 'wpto_localize_data', $WPT_DATA );
        wp_localize_script( 'wpt-custom-js', 'WPT_DATA', $WPT_DATA );
    }
 }
