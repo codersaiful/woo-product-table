@@ -66,3 +66,91 @@ if( !function_exists( 'wpt_admin_responsive_tab_file' ) ){
 //add_filter( 'wpto_admin_tab_file_loc_responsive', 'wpt_admin_responsive_tab_file' );
 
 
+if( !function_exists( 'wpt_column_style_for_all' ) ){
+    
+    /**
+     * Used:
+     * do_action( 'wpto_column_setting_form', $keyword, $column_settings, $columns_array, $updated_columns_array, $post, $additional_data );
+     * 
+     * @param type $keyword
+     * @param type $column_settings
+     * @param type $columns_array
+     */
+    function wpt_column_style_for_all( $keyword, $column_settings, $columns_array, $updated_columns_array, $post, $additional_data ){
+        
+        $style_property = isset( $additional_data['css_property'] ) && is_array( $additional_data['css_property'] ) ? $additional_data['css_property'] : array(); 
+        //$style                = isset( $item['style'] ) ? $item['style'] : false;
+        $style = isset( $column_settings[$keyword]['style'] ) ? $column_settings[$keyword]['style'] : false;
+        $item_name_prefix = "column_settings[$keyword][style]";
+        ?>
+        
+        <div class="wpt-style-wrapper style-wrapper-<?php echo esc_attr( $keyword ); ?>">
+            <h3 class="style-heading"><?php echo esc_html( 'Style Area', 'wpt_pro' ); ?></h3>
+            <div class="wpt-style-body">
+                <table class="ultraaddons-table">    
+                <?php
+                foreach( $style_property as $style_key => $label ){
+                    $value = isset( $style[ $style_key ] ) ? $style[ $style_key ] : false;
+                    ?>
+
+                    <tr class="each-style each-style-<?php echo esc_attr( $style_key ); ?>">
+                        <th><label><?php echo esc_html($label); ?></label></th>
+                        <td>
+                            <input 
+                                class="ua_input"
+                                name="<?php echo esc_attr( $item_name_prefix ); ?>[<?php echo esc_attr( $style_key ); ?>]" 
+                                value="<?php echo esc_attr( $value ); ?>" 
+                                placeholder="<?php echo esc_attr($label); ?>">   
+                        </td>
+                    </tr>
+                    <?php
+                }
+                ?>
+                </table>  
+                    <a href="#" class="wpt-reset-style"><?php echo esc_html( 'Reset Style', 'wpt' ); ?></a>
+            </div>
+        </div>    
+        
+        <?php
+    }
+}
+
+add_action( 'wpto_column_setting_form', 'wpt_column_style_for_all', 11, 6 );
+
+if( !function_exists( 'wpt_convert_style_from_arr' ) ){
+    function wpt_convert_style_from_arr( $style_arr = false ){
+        $style_string = '';
+        if( !empty( $style_arr ) && is_array( $style_arr ) ){
+            $style_arr = array_filter( $style_arr );
+            if( !is_array( $style_arr ) ){
+                return '';
+            }
+            foreach($style_arr as $key => $stl){
+                $style_string .= $key . ': ' . $stl . ';';
+            }
+        }
+        
+        return $style_string;
+    }
+}
+
+if( !function_exists( 'wpt_data_manipulation_on_save' ) ){
+    
+    /**
+     * Used Filter:
+     * $tab_data = apply_filters( 'wpto_tab_data_on_save', $tab_data, $tab, $post_id, $save_tab_array );
+     * 
+     * @param type $data
+     * @return type
+     */
+    function wpt_data_manipulation_on_save( $tab_data, $tab, $post_id, $save_tab_array ){
+        
+        if( 'column_settings' == $tab && is_array( $tab_data ) ){
+            foreach( $tab_data as $per_key => $per_data ){
+                $tab_data[$per_key]["style_str"] = isset( $per_data['style'] ) ? wpt_convert_style_from_arr( $per_data['style'] ) : 'hello';
+            }
+        }
+        return $tab_data;
+    }
+}
+add_filter( 'wpto_tab_data_on_save', 'wpt_data_manipulation_on_save', 10, 4 );

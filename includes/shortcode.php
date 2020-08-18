@@ -1031,11 +1031,15 @@ function wpt_table_row_generator( $table_row_generator_array ){
                         $file = $items_permanent_dir . 'default.php';
                         $file = apply_filters( 'wpto_defult_file_loc', $file, $keyword, $product, $settings);
                     }
+                    
+                    $style_str = isset( $column_settings[$keyword]['style_str'] ) && !empty( $column_settings[$keyword]['style_str'] ) ? $column_settings[$keyword]['style_str'] : '';
                     ?>
                     <td class="td_or_cell wpt_<?php echo esc_attr( $keyword ); ?>"  
                         data-keyword="<?php echo esc_attr( $keyword ); ?>" 
                         data-temp_number="<?php echo esc_attr( $temp_number ); ?>" 
-                        data-sku="<?php echo esc_attr( $product->get_sku() ); ?>">    
+                        data-sku="<?php echo esc_attr( $product->get_sku() ); ?>"
+                        style="<?php echo esc_attr( $style_str ); ?>"
+                        >    
                         <?php
                         //*****************************FILE INCLUDING HERE
                         $tag = isset( $column_settings[$keyword]['tag'] ) && !empty( $column_settings[$keyword]['tag'] ) ? $column_settings[$keyword]['tag'] : 'div';

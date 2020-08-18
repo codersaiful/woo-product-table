@@ -16,6 +16,20 @@
         //'config'            => sprintf(__( 'Configuration %sPro%s', 'wpt_pro' ), '<i class="wpt_pro_badge">', '</i>' ),
     );
     $tab_array = apply_filters( 'wpto_admin_tab_array', $tab_array, $post );
+    
+    $supported_css_property = array(
+        'color'        =>  'Text Color',
+        'background-color'=>'Background Color',
+        'border'=>'Border',
+    );
+    $supported_css_property = apply_filters( 'wpto_supported_css_property', $supported_css_property, $tab_array, $post );
+
+    $additional_variable = array(
+        'tab_array' => $tab_array,
+        'css_property' => $supported_css_property,
+    );
+    $additional_data = apply_filters( 'wpto_additional_variable', $additional_variable, $post );
+    
     echo '<nav class="nav-tab-wrapper">';
     $active_nav = 'nav-tab-active';
     foreach ($tab_array as $nav => $title) {

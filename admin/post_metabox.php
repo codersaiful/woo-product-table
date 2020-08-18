@@ -51,15 +51,6 @@ if( !function_exists( 'wpt_shortcode_configuration_metabox_save_meta' ) ){
          * because the save_post action can be triggered at other times.
          */
 
-        if ( ! isset( $_POST['wpt_shortcode_nonce_value'] ) ) { // Check if our nonce is set.
-                return;
-        }
-
-        // verify this came from the our screen and with proper authorization,
-        // because save_post can be triggered at other times
-        if( !wp_verify_nonce( $_POST['wpt_shortcode_nonce_value'], plugin_basename(__FILE__) ) ) {
-                return;
-        }
         /**
          * @Hook Filter: wpto_on_save_global_post
          * To change/Modify $_POST
@@ -94,7 +85,7 @@ if( !function_exists( 'wpt_shortcode_configuration_metabox_save_meta' ) ){
          * @since 6.1.0.5
          * @Hook_Version: 6.1.0.5
          */
-        add_action( 'wpto_on_save_post_before_update_meta', $post_id, $post, $save_tab_array );
+        add_action( 'wpto_on_save_post_before_update_meta', $post_id, $save_tab_array, $post );
 
         foreach( $save_tab_array as $tab ){
             $tab_data = isset( $_POST[$tab] ) ? $_POST[$tab] : false;
@@ -102,7 +93,7 @@ if( !function_exists( 'wpt_shortcode_configuration_metabox_save_meta' ) ){
             $tab_data = apply_filters( 'wpto_tab_data_on_save_' . $tab, $tab_data, $post_id, $save_tab_array );
             update_post_meta( $post_id, $tab, $tab_data );
         }
-
+        
         /**
          * @Hook Action: wpto_on_save_post
          * To change data when Form will save.

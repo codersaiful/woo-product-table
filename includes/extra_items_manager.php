@@ -72,10 +72,12 @@ foreach( $extra_items as $keyword ){
     }
     $tag = isset( $column_settings[$keyword]['tag'] ) && !empty( $column_settings[$keyword]['tag'] ) ? $column_settings[$keyword]['tag'] : 'div';
     $tag_class = isset( $column_settings[$keyword]['tag_class'] ) && !empty( $column_settings[$keyword]['tag_class'] ) ? $column_settings[$keyword]['tag_class'] : '';
+    $style_str = isset( $column_settings[$keyword]['style_str'] ) && !empty( $column_settings[$keyword]['style_str'] ) ? $column_settings[$keyword]['style_str'] : '';
     echo $tag ? "<$tag "
             . "class='item_inside_cell wpt_" . esc_attr( $keyword ) . " " . esc_attr( $tag_class ) . "' "
             . "data-keyword='" . esc_attr( $keyword ) . "' "
             . "data-sku='" . esc_attr( $product->get_sku() ) . "' "
+            . "style='" . esc_attr( $style_str ) . "' "
             . ">" : '';
     
     do_action( 'wpto_element_top', $keyword, $table_ID, $settings, $column_settings, $product );
