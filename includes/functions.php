@@ -366,7 +366,7 @@ if( !function_exists( 'wpt_paginate_links' ) ){
             $big = 99999999;
             $paginate = paginate_links( array(
                 'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
-                'format' => '?paged=%#%',
+                'format' => apply_filters( 'wpto_pagination_format', '?paged=%#%', $args ),
                 'mid_size'  =>  3,
                 'prev_next' =>  false,
                 'current' => max( 1, $args['paged'] ),

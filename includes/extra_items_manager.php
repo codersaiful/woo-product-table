@@ -4,7 +4,7 @@ $extra_items = $column_settings[$keyword]['items'];
 if( !is_array( $extra_items ) || ( is_array( $extra_items ) && count( $extra_items ) < 1 ) ){
     return;
 }
-
+$parent_column_settings = $column_settings[$keyword];
 foreach( $extra_items as $keyword ){
     
     /**
@@ -78,10 +78,16 @@ foreach( $extra_items as $keyword ){
             . "data-sku='" . esc_attr( $product->get_sku() ) . "' "
             . ">" : '';
     
+    do_action( 'wpto_element_top', $keyword, $table_ID, $settings, $column_settings, $product );
+    do_action( 'wpto_item_top', $keyword, $table_ID, $settings, $column_settings, $parent_column_settings, $product );
     /**
      * Including File for Inside Imtem or Cell
      * 
      */
     include $file;
+    
+    do_action( 'wpto_element_bottom', $keyword, $table_ID, $settings, $column_settings, $product );
+    do_action( 'wpto_item_bottom', $keyword, $table_ID, $settings, $column_settings, $parent_column_settings, $product );
+    
     echo $tag ? "</$tag>" : '';
 }

@@ -1046,6 +1046,7 @@ function wpt_table_row_generator( $table_row_generator_array ){
                         . "data-sku='" . esc_attr( $product->get_sku() ) . "' "
                         . ">" : '';
                         
+                        do_action( 'wpto_column_top', $keyword, $table_ID, $settings, $column_settings, $product );
                         
                         //Including File for TD
                         include $file;
@@ -1053,6 +1054,8 @@ function wpt_table_row_generator( $table_row_generator_array ){
                         if( isset( $column_settings[$keyword]['items'] ) ){
                             include __DIR__ . '/extra_items_manager.php';
                         }
+                        
+                        do_action( 'wpto_column_bottom', $keyword, $table_ID, $settings, $column_settings, $product );
                          ?>
                     </td>    
                     <?php
