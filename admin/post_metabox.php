@@ -98,6 +98,8 @@ if( !function_exists( 'wpt_shortcode_configuration_metabox_save_meta' ) ){
 
         foreach( $save_tab_array as $tab ){
             $tab_data = isset( $_POST[$tab] ) ? $_POST[$tab] : false;
+            $tab_data = apply_filters( 'wpto_tab_data_on_save', $tab_data, $tab, $post_id, $save_tab_array );
+            $tab_data = apply_filters( 'wpto_tab_data_on_save_' . $tab, $tab_data, $post_id, $save_tab_array );
             update_post_meta( $post_id, $tab, $tab_data );
         }
 
