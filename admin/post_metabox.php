@@ -85,7 +85,7 @@ if( !function_exists( 'wpt_shortcode_configuration_metabox_save_meta' ) ){
          * @since 6.1.0.5
          * @Hook_Version: 6.1.0.5
          */
-        add_action( 'wpto_on_save_post_before_update_meta', $post_id, $save_tab_array, $post );
+        add_action( 'wpto_on_save_post_before_update_meta', $post_id );
 
         foreach( $save_tab_array as $tab ){
             $tab_data = isset( $_POST[$tab] ) ? $_POST[$tab] : false;
@@ -100,7 +100,7 @@ if( !function_exists( 'wpt_shortcode_configuration_metabox_save_meta' ) ){
          * @since 6.1.0.5
          * @Hook_Version: 6.1.0.5
          */
-        add_action( 'wpto_on_save_post', $post_id, $post );
+        add_action( 'wpto_on_save_post', $post_id );
 
     }
 }

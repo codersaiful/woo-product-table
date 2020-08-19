@@ -1,9 +1,11 @@
 <?php
 $in_extra_manager = true;
 $extra_items = $column_settings[$keyword]['items'];
+$extra_items = apply_filters( 'wpto_extra_items_arr', $extra_items, $keyword, $column_settings, $table_ID, $product );
 if( !is_array( $extra_items ) || ( is_array( $extra_items ) && count( $extra_items ) < 1 ) ){
     return;
 }
+
 $parent_column_settings = $column_settings[$keyword];
 foreach( $extra_items as $keyword ){
     
@@ -16,6 +18,17 @@ foreach( $extra_items as $keyword ){
      */
    $settings = isset( $column_settings[$keyword] ) ? $column_settings[$keyword] : false;
 
+
+    /**
+     * @Hook Filter: wpto_keyword_settings_$keyword
+     * Each Column/ Each Item/ Each Item has Indivisual Setting.\
+     * User able to chagne Setting from Addon Plugin
+     * 
+     * Suppose Custom_Field.php file using following Setting
+     * $settings = isset( $column_settings[$keyword] ) ? $column_settings[$keyword] : false;
+     */
+    $settings = apply_filters( 'wpto_keyword_settings', $settings, $table_ID, $product, $column_settings  ); 
+    
     /**
      * @Hook Filter: wpto_keyword_settings_$keyword
      * Each Column/ Each Item/ Each Item has Indivisual Setting.\
