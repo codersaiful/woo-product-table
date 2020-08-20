@@ -37,7 +37,7 @@ if( is_array( $meta_enable_column_array ) && !empty( $meta_enable_column_array )
     //$columns_array = array_merge( $meta_enable_column_array, array_diff( $columns_array, $meta_enable_column_array ));
 }
 //$columns_array = array_merge($meta_enable_column_array,array_diff($columns_array,$meta_enable_column_array));
-//var_dump($merge_column_array);
+//var_dump($column_settings);
 ?>
 <ul id="wpt_column_sortable">
     <?php
@@ -99,7 +99,11 @@ if( is_array( $meta_enable_column_array ) && !empty( $meta_enable_column_array )
             <div class="wpt_column_setting_extra for_all extra_all_<?php echo esc_attr( $keyword ); ?>">
                 <?php do_action( 'wpto_column_setting_form', $keyword, $column_settings, $columns_array, $updated_columns_array, $post, $additional_data ); ?>
             </div>
+            <div class="wpt_column_setting_extra for_all profeatures-message">
+                <?php do_action( 'wpo_pro_feature_message', 'column_extra' ); ?>
+            </div>
             
+
         </div>
         <span class="wpt_column_arrow wpt_arrow_top" data-target="prev" data-keyword="<?php echo esc_attr( $keyword ); ?>">&uArr;</span>
         <span class="wpt_column_arrow wpt_arrow_down" data-target="next" data-keyword="<?php echo esc_attr( $keyword ); ?>">&dArr;</span>
