@@ -42,6 +42,7 @@ $data = isset( $meta_basics['data'] ) ? $meta_basics['data'] : false;
                     <?php
                     $options_item = esc_html( 'None ', 'wpt' ) . $term_name;
                     $options_item = "<option value=''>{$options_item}</option>";
+                    $options_item = ""; //REmoved Default None Value
                     if( is_array( $term_obj ) && count( $term_obj ) > 0 ){
                         $selected_term_ids = isset( $data['terms'][$term_key] ) ? $data['terms'][$term_key] : false;
                         foreach ( $term_obj as $terms ) {
@@ -60,6 +61,8 @@ $data = isset( $meta_basics['data'] ) ? $meta_basics['data'] : false;
                     }else{
                         echo esc_html( "No item for {$term_name}", 'wpt_pro' );
                     }
+                    
+                    
                     ?>
 
                 </td>
@@ -70,7 +73,13 @@ $data = isset( $meta_basics['data'] ) ? $meta_basics['data'] : false;
         </table>
     </div>
 
-<?php do_action( 'wpto_admin_basic_tab',$meta_basics, $tab, $post, $tab_array ); ?>
+<?php 
+do_action( 'wpo_pro_feature_message', 'under_taxonomy_includes' );
+/**
+ * To add something 
+ */
+do_action( 'wpto_admin_basic_tab',$meta_basics, $tab, $post, $tab_array ); 
+?>
 
 
 
@@ -241,19 +250,8 @@ $data = isset( $meta_basics['data'] ) ? $meta_basics['data'] : false;
     </div>
 
 
-    <div class="wpt_column">
-        <table class="ultraaddons-table">
-            <tr>
-                <th>
-                    <label class="wpt_label" for='wpt_table_temp_number'><?php esc_html_e( 'Temporary Number for Table', 'wpt_pro' );?></label>
-                </th>
-                <td>
-                    <input name="basics[temp_number]" class="wpt_data_filed_atts readonly ua_input" data-name="temp_number" type="text" placeholder="123" id='wpt_table_temp_number' value="<?php echo isset( $meta_basics['temp_number'] ) ? $meta_basics['temp_number'] : random_int( 10, 300 ); ?>" readonly="readonly">
-                    <p><?php esc_html_e( 'This is not very important, But should different number for different shortcode of your table. Mainly to identify each table.', 'wpt_pro' );?></p>
-                </td>
-            </tr>
-        </table>
-    </div>
+    <!-- Convert as Hidden Number the Temporary number -->
+    <input name="basics[temp_number]" data-name="temp_number" type="hidden" placeholder="123" id='wpt_table_temp_number' value="<?php echo isset( $meta_basics['temp_number'] ) ? $meta_basics['temp_number'] : random_int( 10, 600 ); ?>" readonly="readonly">
 
     <div class="wpt_column">
         <table class="ultraaddons-table">

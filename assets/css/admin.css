@@ -1005,6 +1005,14 @@ body.wpt_admin_body .ultraaddons-panel td p{
     font-style: italic;
     font-size: 16px;
 }
+.wpt-pro-only-featues {
+    background: #a2a2a2;
+}
+
+.wpt-pro-only-featues img {
+    max-width: 100%;
+    opacity: 0.7;
+}
 /* Responsive Design Starts */
 @media screen and (max-width: 782px){
     .wpt_column_setting_single_extra>div label {
