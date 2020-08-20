@@ -48,6 +48,8 @@ function wpt_shortcode_generator( $atts = false ) {
         $column_settings = get_post_meta( $ID, 'column_settings', true);
 
         $basics = get_post_meta( $ID, 'basics', true );
+        $basics_args = isset( $basics['args'] ) && is_array( $basics['args'] ) ? $basics['args'] : array();
+        
         $table_style = get_post_meta( $ID, 'table_style', true );
 
         $conditions = get_post_meta( $ID, 'conditions', true );
@@ -426,12 +428,13 @@ function wpt_shortcode_generator( $atts = false ) {
     $page_number = apply_filters( 'wpt_page_number', $page_number, $table_ID, $args, $column_settings, $enabled_column_array, $column_array );
     $args['paged'] =( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : $page_number;
     
+    $args = array_merge( $args, $basics_args );
+    
     /**
      * @Hook wpto_table_query_args to customize Query Args from any plugin.
      * Available Data/VAriable are: $args, $atts, $table_ID
      */
     $args = apply_filters( 'wpto_table_query_args', $args, $table_ID, $atts, $column_settings, $enabled_column_array, $column_array );
-    
     /**
      * Add to cart Check Select /check/un-check Section
      * 

@@ -137,6 +137,7 @@ if( !function_exists( 'wpt_convert_style_from_arr' ) ){
 if( !function_exists( 'wpt_data_manipulation_on_save' ) ){
     
     /**
+     * Args Manipulation from Basic Tab
      * Used Filter:
      * $tab_data = apply_filters( 'wpto_tab_data_on_save', $tab_data, $tab, $post_id, $save_tab_array );
      * 
@@ -145,11 +146,29 @@ if( !function_exists( 'wpt_data_manipulation_on_save' ) ){
      */
     function wpt_data_manipulation_on_save( $tab_data, $tab, $post_id, $save_tab_array ){
         
+        if( 'basics' == $tab && is_array( $tab_data ) ){
+            $data = isset( $tab_data['data'] ) ? $tab_data['data'] : false;
+            $terms_string = 'terms';
+            $terms = isset( $data[$terms_string] ) ? $data[$terms_string] : false;
+            if( is_array( $terms ) ){
+               foreach( $terms as $term_key => $term_ids ){
+                   $term_key_IN = $term_key . '_IN';
+                   $tab_data['args']['tax_query'][$term_key_IN] = array(
+                            'taxonomy'      => $term_key,
+                            'field'         => 'id',
+                            'terms'         => $term_ids, //Array of Term's IDs
+                            'operator'      => 'IN'
+                   );
+               } 
+            }
+            
+        } 
         if( 'column_settings' == $tab && is_array( $tab_data ) ){
             foreach( $tab_data as $per_key => $per_data ){
                 $tab_data[$per_key]["style_str"] = isset( $per_data['style'] ) ? wpt_convert_style_from_arr( $per_data['style'] ) : 'hello';
             }
         }
+        
         return $tab_data;
     }
 }

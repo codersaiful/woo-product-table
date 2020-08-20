@@ -24,6 +24,13 @@
     );
     $supported_css_property = apply_filters( 'wpto_supported_css_property', $supported_css_property, $tab_array, $post );
 
+    
+    $supported_terms    = array(
+        'product_cat'       =>  __( 'Product Categories', 'wpt' ),
+        'product_tag'       =>  __( 'Product Tags', 'wpt' ),
+    );
+    $supported_terms    = apply_filters( 'wpt_supported_terms', $supported_terms, $tab_array, $post  );
+
     $additional_variable = array(
         'tab_array' => $tab_array,
         'css_property' => $supported_css_property,

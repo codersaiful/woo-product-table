@@ -1,5 +1,7 @@
 <?php
 $meta_basics = get_post_meta( $post->ID, 'basics', true );
+$data = isset( $meta_basics['data'] ) ? $meta_basics['data'] : false;
+
 ?>
 
 <?php
@@ -20,21 +22,51 @@ $meta_basics = get_post_meta( $post->ID, 'basics', true );
 <div class="section ultraaddons-panel">
     <div class="wpt_column">
         <table class="ultraaddons-table">
+            <?php
+        $args = array(
+            'hide_empty'    => false, 
+            'orderby'       => 'count',
+            'order'         => 'DESC',
+        );
+        foreach( $supported_terms as $key => $each ){
+            $term_key = $key;
+            $term_name = $each;
+            $term_obj = get_terms( $term_key, $args );
+            
+            $selected_term_ids = isset( $data['terms'][$term_key] ) && !empty( $data['terms'][$term_key] ) ? $data['terms'][$term_key] : false;
+            ?>
             <tr>
-                <th>
-                    <label class="wpt_label" for="wpt_category_includes"><?php echo esc_html__('Category Includes','wpt_pro');?></label>
-                </th>
-                <td>
-                    <select style="width: 100%;" name="basics[product_cat_ids][]" data-name="product_cat_ids" id="wpt_category_includes" class="wpt_fullwidth wpt_select2 wpt_data_filed_atts ua_input" multiple>
-                        <?php
-                        foreach ( $wpt_product_cat_object as $category ) {
-                            echo "<option value='{$category->term_id}' " . ( isset( $meta_basics['product_cat_ids'] ) && is_array( $meta_basics['product_cat_ids'] ) && in_array( $category->term_id, $meta_basics['product_cat_ids'] ) ? 'selected' : false ) . ">{$category->name} - {$category->slug} ({$category->count})</option>";
+                <th><label for="wpt_term_<?php echo esc_attr( $term_key ); ?>"><?php echo esc_html( $term_name ); ?> Include</label></th>
+                <td class="">
+
+                    <?php
+                    $options_item = esc_html( 'None ', 'wpt' ) . $term_name;
+                    $options_item = "<option value=''>{$options_item}</option>";
+                    if( is_array( $term_obj ) && count( $term_obj ) > 0 ){
+                        $selected_term_ids = isset( $data['terms'][$term_key] ) ? $data['terms'][$term_key] : false;
+                        foreach ( $term_obj as $terms ) {
+                            $selected = is_array( $selected_term_ids ) && in_array( $terms->term_id,$selected_term_ids ) ? 'selected' : false;
+                            $options_item .= "<option value='{$terms->term_id}' {$selected}>{$terms->name} ({$terms->count})</option>";
                         }
-                        ?>
+                    }
+
+                    if( !empty( $options_item ) ){
+                    ?>
+                    <select name="basics[data][terms][<?php echo esc_attr( $term_key ); ?>][]" class="wpt_select2 wpt_query_terms ua_query_terms_<?php echo esc_attr( $term_key ); ?> ua_select" id="wpt_term_<?php echo esc_attr( $term_key ); ?>" multiple="multiple">
+                        <?php echo $options_item; ?>
                     </select>
-                    <p><?php echo esc_html__( 'Click to choose. Selected categories product will be display in your table.', 'wpt_pro') ?></p>
+                    
+                    <?php    
+                    }else{
+                        echo esc_html( "No item for {$term_name}", 'wpt_pro' );
+                    }
+                    ?>
+
                 </td>
-            </tr>
+            </tr>    
+            <?php
+        }
+        ?>
         </table>
     </div>
 
@@ -80,25 +112,6 @@ $meta_basics = get_post_meta( $post->ID, 'basics', true );
     $wpt_product_tag_object = get_terms('product_tag', $args);
 ?>
 
-
-    <div class="wpt_column">
-        <table class="ultraaddons-table">
-            <tr>
-                <th>
-                    <label class="wpt_label" for="wpt_product_tag_includes"><?php  echo sprintf( esc_html__( 'Tag Includes %s (Click to choose Tags) %s', 'wpt_pro' ), '<small>', '</small>' );?></label>
-                </th>
-                <td>
-                    <select name="basics[product_tag_ids][]" data-name="product_tag_ids" id="wpt_product_tag_includes" class="wpt_fullwidth wpt_data_filed_atts  ua_select wpt_select2" multiple>
-                        <?php
-                        foreach ( $wpt_product_tag_object as $tags ) {
-                            echo "<option value='{$tags->term_id}' " . ( isset( $meta_basics['product_tag_ids'] ) &&  is_array( $meta_basics['product_tag_ids'] ) && in_array( $tags->term_id, $meta_basics['product_tag_ids'] ) ? 'selected' : false ) . ">{$tags->name} - {$tags->slug} ({$tags->count})</option>";
-                        }
-                        ?>
-                    </select>
-                </td>
-            </tr>
-        </table>
-    </div>
 
     <div class="wpt_column">
         <table class="ultraaddons-table">
