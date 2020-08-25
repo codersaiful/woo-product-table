@@ -17,7 +17,7 @@ $meta_search_n_filter =  get_post_meta( $post->ID, 'search_n_filter', true );
             </tr>
         </table>
     </div>
-
+    <?php do_action( 'wpo_pro_feature_message', 'pf_search_using_custom_field' ); ?>
     <?php do_action( 'wpto_admin_search_n_filter_tab', $meta_search_n_filter, $post ); ?>
 
 

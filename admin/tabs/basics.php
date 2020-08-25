@@ -106,6 +106,7 @@ do_action( 'wpto_admin_basic_tab',$meta_basics, $tab, $post, $tab_array );
 
 
 <?php
+    do_action( 'wpo_pro_feature_message', 'pf_product_includes_by_id' );
     $wpt_product_ids_tag = false;
     /**
      * To Get Category List of WooCommerce
@@ -220,21 +221,7 @@ do_action( 'wpto_admin_basic_tab',$meta_basics, $tab, $post, $tab_array );
     
     
     
-    <div class="wpt_column">
-        <table class="ultraaddons-table">
-            <tr>
-                <th>
-                    <label class="wpt_label wpt_table_ajax_action" for='wpt_table_checkbox'><?php esc_html_e('Checkbox Auto Check on Table Load (Enable/Disable)','wpt_pro');?></label>
-                </th>
-                <td>
-                    <select name="basics[checkbox]" data-name='checkbox' id="wpt_table_checkbox" class="wpt_fullwidth wpt_data_filed_atts ua_input" >
-                        <option value="wpt_no_checked_table" <?php echo isset( $meta_basics['checkbox'] ) && $meta_basics['checkbox'] == 'wpt_no_checked_table' ? 'selected' : false; ?>><?php esc_html_e('No Auto','wpt_pro');?></option>
-                        <option value="wpt_checked_table" <?php echo isset( $meta_basics['checkbox'] ) && $meta_basics['checkbox'] == 'wpt_checked_table' ? 'selected' : false; ?>><?php esc_html_e('Automatically All Check','wpt_pro');?></option>
-                    </select>                  
-                </td>
-            </tr>
-        </table>
-    </div>
+    
 
     <div class="wpt_column">
         <table class="ultraaddons-table">
@@ -266,77 +253,8 @@ do_action( 'wpto_admin_basic_tab',$meta_basics, $tab, $post, $tab_array );
             </tr>
         </table>
     </div>
-
-    <div class="wpt_column">
-        <table class="ultraaddons-table">
-            <tr>
-                <th>
-                    <label class="wpt_label" for="wpt_table_add_to_cart_selected_text"><?php esc_html_e( '(Add to cart(Selected]) Text', 'wpt_pro' );?></label>
-                </th>
-                <td>
-                    <input name="basics[add_to_cart_selected_text]"  class="wpt_data_filed_atts ua_input" data-name="add_to_cart_selected_text" type="text" value="<?php echo isset( $meta_basics['add_to_cart_selected_text'] ) ? $meta_basics['add_to_cart_selected_text'] : __( 'Add to Cart (Selected)', 'wpt_pro' ); ?>" placeholder="<?php esc_attr_e( 'Example: Add to cart Selected', 'wpt_pro' ); ?>" id="wpt_table_add_to_cart_selected_text">
-                </td>
-            </tr>
-        </table>
-    </div>
-
-    <div class="wpt_column">
-        <table class="ultraaddons-table">
-            <tr>
-                <th>
-                    <label class="wpt_label" for="wpt_table_check_uncheck_text"><?php esc_html_e( '(All Check/Uncheck) Text', 'wpt_pro' );?></label>
-                </th>
-                <td>
-                    <input name="basics[check_uncheck_text]"  class="wpt_data_filed_atts ua_input" data-name="check_uncheck_text" type="text" value="<?php echo isset( $meta_basics['check_uncheck_text'] ) ? $meta_basics['check_uncheck_text'] : __( 'All Check/Uncheck','wpt_pro' ); ?>" placeholder="<?php esc_attr_e( 'Example: All Check/Uncheck', 'wpt_pro' );?>" id="wpt_table_check_uncheck_text">
-                </td>
-            </tr>
-        </table>
-    </div>
-    <hr> 
-    <div class="wpt_column">
-        <table class="ultraaddons-table">
-            <tr>
-                <th>
-                    <label class="wpt_label" for="wpt_table_author"><?php esc_html_e( 'AuthorID/UserID/VendorID (Optional)', 'wpt_pro' );?></label>
-                </th>
-                <td>
-                    <input name="basics[author]"  class="wpt_data_filed_atts ua_input" data-name="author" type="number" value="<?php echo isset( $meta_basics['author'] ) ? $meta_basics['author'] : ''; ?>" placeholder="Author ID/Vendor ID" id="wpt_table_author">
-                    <p style="color: #006394;"><?php esc_html_e( 'Only AuthorID or AuthorName field for both [AuthorID/UserID/VendorID] or [author_name/username/VendorUserName]. Don\'t use both.', 'wpt_pro' );?></p>
-                </td>
-            </tr>
-        </table>
-    </div>
-    <div class="wpt_column">
-        <table class="ultraaddons-table">
-            <tr>
-                <th>
-                    <label class="wpt_label" for="wpt_table_author_name"><?php esc_html_e( 'author_name/username/VendorUserName (Optional)', 'wpt_pro' );?></label>
-                </th>
-                <td>
-                    <input name="basics[author_name]"  class="wpt_data_filed_atts ua_input" data-name="author_name" type="text" value="<?php echo isset( $meta_basics['author_name'] ) ? $meta_basics['author_name'] : ''; ?>" placeholder="Author username/ Vendor username" id="wpt_table_author_name">
-                    <p style="color: #006394;"><?php esc_html_e( 'Only AuthorID or AuthorName field for both [AuthorID/UserID/VendorID] or [author_name/username/VendorUserName]. Don\'t use both.', 'wpt_pro' );?></p>
-                </td>
-            </tr>
-        </table>
-    </div>
-
-    <div class="wpt_column">
-        <table class="ultraaddons-table">
-            <tr>
-                <th>
-                    <label class="wpt_label wpt_table_ajax_action" for='wpt_table_product_type'><?php esc_html_e('Product Type (Product/Variation Product)','wpt_pro');?></label>
-                </th>
-                <td>
-                    <select name="basics[product_type]" data-name='product_type' id="wpt_table_product_type" class="wpt_fullwidth wpt_data_filed_atts ua_input" >
-                        <option value="" <?php echo isset( $meta_basics['product_type'] ) && $meta_basics['product_type'] == '' ? 'selected' : false; ?>><?php esc_html_e('Product','wpt_pro');?></option>
-                        <option value="product_variation" <?php echo isset( $meta_basics['product_type'] ) && $meta_basics['product_type'] == 'product_variation' ? 'selected' : false; ?>><?php esc_html_e('Only Variation Product','wpt_pro');?></option>
-                    </select>
-                    <p>
-                        <?php esc_html_e('If select Variation product, you have to confirm, your all Variation is configured properly. Such: there will not support "any attribute" option for variation. eg: no support "Any Size" type variation.','wpt_pro');?>
-                        <br><?php esc_html_e('And if enable Variation product, Some column and feature will be disable. such: Attribute, category, tag Column, Advernce Search box.','wpt_pro');?>
-                    </p>
-                </td>
-            </tr>
-        </table>
-    </div>
+    
+    <?php do_action( 'wpo_pro_feature_message', 'pf_bulk_add_to_cart' ); ?>
+    <?php do_action( 'wpo_pro_feature_message', 'pf_authorid_username_type' ); ?>
+    <?php do_action( 'wpto_admin_basic_tab_bottom', $meta_basics, $tab, $post, $tab_array ); ?>
 </div>

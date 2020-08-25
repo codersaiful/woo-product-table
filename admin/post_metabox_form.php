@@ -9,11 +9,11 @@
     $tab_array = array(
         'column_settings'   => __( "Column", 'wpt_pro' ),
         'basics'            => __( 'Basics', 'wpt_pro' ),
-        //'table_style'       => sprintf(__( 'Design %sPro%s', 'wpt_pro' ), '<i class="wpt_pro_badge">', '</i>' ),
+        'table_style'       => sprintf(__( 'Design %sPro%s', 'wpt_pro' ), '<i class="wpt_pro_badge">', '</i>' ),
         'conditions'        => __( 'Conditions', 'wpt_pro' ),
         'search_n_filter'   => __( 'Search & Filter','wpt_pro' ),
         'mobile'            => __( 'Mobile Issue', 'wpt_pro' ),
-        //'config'            => sprintf(__( 'Configuration %sPro%s', 'wpt_pro' ), '<i class="wpt_pro_badge">', '</i>' ),
+        'config'            => sprintf(__( 'Configuration %sPro%s', 'wpt_pro' ), '<i class="wpt_pro_badge">', '</i>' ),
     );
     $tab_array = apply_filters( 'wpto_admin_tab_array', $tab_array, $post );
     
