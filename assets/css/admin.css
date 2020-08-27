@@ -1026,6 +1026,9 @@ body.wpt_admin_body .ultraaddons-panel td p{
     padding: 6px 15px;
     box-shadow: 8px 4px 4px 0 #00000038;
 }
+select.wpt_table_on_archive {
+    margin-bottom: 15px;
+}
 /* Responsive Design Starts */
 @media screen and (max-width: 782px){
     .wpt_column_setting_single_extra>div label {
