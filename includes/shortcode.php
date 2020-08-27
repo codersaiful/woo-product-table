@@ -117,8 +117,8 @@ function wpt_shortcode_generator( $atts = false ) {
         
 
         
-        $add_to_cart_selected_text = $basics['add_to_cart_selected_text'];
-        $check_uncheck_text = $basics['check_uncheck_text'];
+        $add_to_cart_selected_text = isset( $basics['add_to_cart_selected_text'] ) ? $basics['add_to_cart_selected_text'] : __( 'Add to cart selected', 'wpt_pro' );
+        $check_uncheck_text = isset( $basics['check_uncheck_text'] ) ? $basics['check_uncheck_text'] : __( 'Check/Uncheck', 'wpt_pro' );//$basics['check_uncheck_text'];
         $author = !empty( $basics['author'] ) ? $basics['author'] : false;
         $author_name = !empty( $basics['author_name'] ) ? $basics['author_name'] : false;
         

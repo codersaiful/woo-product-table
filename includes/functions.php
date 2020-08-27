@@ -725,3 +725,46 @@ if( !function_exists( 'wpt_adding_body_class' ) ){
 }
 add_filter( 'body_class', 'wpt_adding_body_class' );
 
+
+if( !function_exists( 'wpt_args_manipulation_frontend' ) ){
+    /**
+     * IN FREE
+     * Args Manipulation for FrontEnd
+     * By Useing following Filter
+     * $args = apply_filters( 'wpto_table_query_args', $args, $table_ID, $atts, $column_settings, $enabled_column_array, $column_array );
+     * 
+     * @param type $args
+     * @param type $table_ID
+     * @param type $atts
+     * @param type $column_settings
+     * @param type $enabled_column_array
+     * @param type $column_array
+     * @return type
+     */
+    function wpt_args_manipulation_frontend( $args ){
+        
+        //MainTain for Archives Page
+        global $wpdb;
+        $page_query = isset( $GLOBALS['wp_query'] ) ? $GLOBALS['wp_query']->query_vars : null;
+        $args_product_in = false;
+        if( isset( $page_query['wc_query'] ) && $page_query['wc_query'] == 'product_query' ){
+            $gen_args = array_merge( $args,$GLOBALS['wp_query']->query_vars );
+            $gen_args['post_type'] = isset( $args['post_type'] ) && !empty( $args['post_type'] ) ? $args['post_type'] : 'product';
+            $args = $gen_args;
+
+            $sql = $GLOBALS['wp_query']->request;
+            $results = $wpdb->get_results( $sql, ARRAY_A );
+            $args_product_in = array();
+            foreach( $results as $result ){
+                $args_product_in[] = $result['ID'];
+            }
+            $args['post__in'] = $args_product_in;
+            $args['paged'] = 0;
+            unset( $args['tax_query'] );
+            unset( $args['meta_query'] );
+        }
+        
+        return $args;
+    }
+}
+add_filter( 'wpto_table_query_args', 'wpt_args_manipulation_frontend' );
