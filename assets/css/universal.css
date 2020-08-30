@@ -1519,3 +1519,45 @@ div.wpt_product_table_wrapper table.wpt_product_table th.wpt_action {
     margin-bottom: 10px;
     padding-bottom: 8px;
 }
+
+/*Audio Player Style*/
+/*Audio Player Style */
+.mejs-container {
+    min-width: 300px;
+}
+.mejs-time-total {
+
+}
+
+.mejs-time-current {
+}
+.mejs-time-loaded {
+
+}
+
+.mejs-button.mejs-playpause-button {
+
+}
+.mejs-button button {
+
+}
+
+.mejs-controls {
+
+}
+
+.mejs-controls > div {
+
+}
+
+.mejs-time {
+
+}
+
+.mejs-button button:hover {
+
+}
+
+.mejs-button.mejs-volume-button, .mejs-button.mejs-fullscreen-button {
+
+}
