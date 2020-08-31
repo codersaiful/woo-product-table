@@ -429,5 +429,24 @@
             return false;
 
         });
+        
+        var myOptions = {
+            // you can declare a default color here,
+            // or in the data-default-color attribute on the input
+            defaultColor: false,
+            // a callback to fire whenever the color changes to a valid color
+            change: function(event, ui){},
+            // a callback to fire when the input is emptied or an invalid color
+            clear: function() {
+                //alert('Empty/invalid color');
+            },
+            // hide the color picker controls on load
+            hide: true,
+            // show a group of common colors beneath the square
+            // or, supply an array of colors to customize further
+            //palettes: true,
+            palettes:['#000000','#ffffff','#aabbcc','#0a7f9c','#B02B2C','#edae44','#eeee22','#83a846','#7bb0e7','#745f7e','#5f8789','#d65799','#4ecac2'],
+        };
+        $('.wpt-color, .wpt-background-color').wpColorPicker(myOptions);
     });
 })(jQuery);

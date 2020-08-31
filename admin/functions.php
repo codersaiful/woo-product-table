@@ -97,7 +97,7 @@ if( !function_exists( 'wpt_column_style_for_all' ) ){
                         <th><label><?php echo esc_html($label); ?></label></th>
                         <td>
                             <input 
-                                class="ua_input"
+                                class="ua_input wpt-<?php echo esc_attr( $style_key ); ?>"
                                 name="<?php echo esc_attr( $item_name_prefix ); ?>[<?php echo esc_attr( $style_key ); ?>]" 
                                 value="<?php echo esc_attr( $value ); ?>" 
                                 placeholder="<?php echo esc_attr($label); ?>">   
