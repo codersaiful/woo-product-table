@@ -726,6 +726,36 @@ if( !function_exists( 'wpt_adding_body_class' ) ){
 add_filter( 'body_class', 'wpt_adding_body_class' );
 
 
+if( !function_exists( 'wpt_table_edit_link' ) ){
+    
+    /**
+     * Adding Edit Table link at the bottom of Table
+     * Using Action:
+     * do_action( 'wpto_table_wrapper_bottom', $table_ID, $args, $config_value, $atts )
+     * 
+     * @global type $post
+     * @global type $shortCodeText
+     * @param type $table_ID
+     * @return string
+     */
+    function wpt_table_edit_link( $table_ID ) {
+        if( !current_user_can( WPTP_CAPABILITY ) ) return null;
+        $table_ID = (int) $table_ID;
+        ?>
+        <div class="wpt_edit_table">
+            Edit Table - <a href="<?php echo esc_attr( admin_url( 'post.php?post=' . $table_ID . '&action=edit&classic-editor' ) ); ?>" 
+                            target="_blank"
+                            title="<?php echo esc_attr( 'Edit your table. It will open on new tab.', 'wpt_pro' ); ?>"
+                            >
+            <?php echo esc_html( get_the_title( $table_ID ) ); ?>
+            </a>   
+        </div> 
+        <?php
+    }
+}
+add_action( 'wpto_table_wrapper_bottom', 'wpt_table_edit_link', 99 );
+
+
 if( !function_exists( 'wpt_args_manipulation_frontend' ) ){
     /**
      * IN FREE
@@ -742,12 +772,16 @@ if( !function_exists( 'wpt_args_manipulation_frontend' ) ){
      * @return type
      */
     function wpt_args_manipulation_frontend( $args ){
-        
         //MainTain for Archives Page
         global $wpdb;
+        $query_vars = isset( $GLOBALS['wp_query']->query_vars ) ? $GLOBALS['wp_query']->query_vars : false;
+        //var_dump($query_vars);
         $page_query = isset( $GLOBALS['wp_query'] ) ? $GLOBALS['wp_query']->query_vars : null;
         $args_product_in = false;
-        if( isset( $page_query['wc_query'] ) && $page_query['wc_query'] == 'product_query' ){
+        if( ( isset( $query_vars['post_type'] ) && !empty( $query_vars['post_type'] ) && $query_vars['post_type'] == 'product' ) 
+                || ( isset( $page_query['wc_query'] ) && $page_query['wc_query'] == 'product_query' ) 
+            ){
+        //if( isset( $page_query['wc_query'] ) && $page_query['wc_query'] == 'product_query' ){
             $gen_args = array_merge( $args,$GLOBALS['wp_query']->query_vars );
             $gen_args['post_type'] = isset( $args['post_type'] ) && !empty( $args['post_type'] ) ? $args['post_type'] : 'product';
             $args = $gen_args;
@@ -761,10 +795,12 @@ if( !function_exists( 'wpt_args_manipulation_frontend' ) ){
             $args['post__in'] = $args_product_in;
             $args['paged'] = 0;
             unset( $args['tax_query'] );
+            unset( $args['term'] );
             unset( $args['meta_query'] );
         }
-        
+        //var_dump($args);
         return $args;
     }
 }
 add_filter( 'wpto_table_query_args', 'wpt_args_manipulation_frontend' );
+
