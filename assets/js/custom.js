@@ -1595,9 +1595,7 @@
                     html = '<div class="yith_ywraq_add_item_response_message">' + response.message + '</div>';
                     html += '<a href="'+response.rqa_url+'" target="_blank">' + yith_browse_list + '</a>';
                     
-                    $('.' + selector + '_td').html( html ).show(); //response.label_browse
-                    //$('.' + selector).hide();
-                   
+                    $('.' + selector).parent().append( html ).show(); //response.label_browse
                 }else{
                     $('.' + selector).html(msg.added);
                 }

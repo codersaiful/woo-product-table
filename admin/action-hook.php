@@ -560,3 +560,17 @@ if( !function_exists( 'wpt_configure_all_part_save_btn' ) ){
 }
 add_action( 'wpto_admin_configuration_panel_bottom', 'wpt_configure_all_part_save_btn' );
 
+
+if( !function_exists( 'wpt_profeatures_message_box' ) ){
+    
+    function wpt_profeatures_message_box( $value ){
+        $img_url = WPT_BASE_URL . 'assets/images/pro-features/';
+        ?>
+        <div class="wpt-pro-only-featues <?php echo esc_attr( $value ); ?>">
+            
+            <img src="<?php echo esc_attr( $img_url . $value . '.png' ); ?>">
+        </div>
+         <?php
+    }
+}
+add_action( 'wpo_pro_feature_message', 'wpt_profeatures_message_box' );

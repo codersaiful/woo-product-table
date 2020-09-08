@@ -97,7 +97,7 @@ if( !function_exists( 'wpt_column_style_for_all' ) ){
                         <th><label><?php echo esc_html($label); ?></label></th>
                         <td>
                             <input 
-                                class="ua_input"
+                                class="ua_input wpt-<?php echo esc_attr( $style_key ); ?>"
                                 name="<?php echo esc_attr( $item_name_prefix ); ?>[<?php echo esc_attr( $style_key ); ?>]" 
                                 value="<?php echo esc_attr( $value ); ?>" 
                                 placeholder="<?php echo esc_attr($label); ?>">   
@@ -165,7 +165,9 @@ if( !function_exists( 'wpt_data_manipulation_on_save' ) ){
         } 
         if( 'column_settings' == $tab && is_array( $tab_data ) ){
             foreach( $tab_data as $per_key => $per_data ){
-                $tab_data[$per_key]["style_str"] = isset( $per_data['style'] ) ? wpt_convert_style_from_arr( $per_data['style'] ) : 'hello';
+                if( !empty( $per_key ) && is_array( $per_data ) ){
+                    $per_data[$per_key]['style_str'] = isset( $per_data['style'] ) && is_array( $per_data['style'] ) ? wpt_convert_style_from_arr( $per_data['style'] ) : '';
+                }
             }
         }
         

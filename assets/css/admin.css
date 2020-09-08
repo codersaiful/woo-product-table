@@ -1005,6 +1005,30 @@ body.wpt_admin_body .ultraaddons-panel td p{
     font-style: italic;
     font-size: 16px;
 }
+.wpt-pro-only-featues {
+    background: #a2a2a2;
+}
+
+.wpt-pro-only-featues img {
+    max-width: 100%;
+    opacity: 0.7;
+    height: auto;
+    width: auto;
+}
+.wpt-pro-only-featues:before {
+    content: "Premium";
+    z-index: 99;
+    background: #ff00001f;
+    color: white;
+    text-align: center;
+    position: absolute;
+    background: #FF5722;
+    padding: 6px 15px;
+    box-shadow: 8px 4px 4px 0 #00000038;
+}
+select.wpt_table_on_archive {
+    margin-bottom: 15px;
+}
 /* Responsive Design Starts */
 @media screen and (max-width: 782px){
     .wpt_column_setting_single_extra>div label {
