@@ -739,7 +739,7 @@ if( !function_exists( 'wpt_table_edit_link' ) ){
      * @return string
      */
     function wpt_table_edit_link( $table_ID ) {
-        if( !current_user_can( WPTP_CAPABILITY ) ) return null;
+        if( !current_user_can( WPT_CAPABILITY ) ) return null;
         $table_ID = (int) $table_ID;
         ?>
         <div class="wpt_edit_table">
