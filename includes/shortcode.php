@@ -404,7 +404,7 @@ function wpt_shortcode_generator( $atts = false ) {
      * To Insert Content at Top of the Table, Just inside of Wrapper tag of Table
      * Available Args $table_ID, $args, $config_value, $atts;
      */
-    do_action( 'wpto_action_start_table', $table_ID, $args, $config_value, $atts );
+    do_action( 'wpto_action_start_table', $table_ID, $args, $column_settings, $enabled_column_array, $config_value, $atts );
     $html .= ob_get_clean();
     
     /**
@@ -510,7 +510,7 @@ function wpt_shortcode_generator( $atts = false ) {
      * To Insert Content at Top of the Table, Just inside of Wrapper tag of Table
      * Available Args $table_ID, $args, $config_value, $atts;
      */
-    do_action( 'wpto_action_table_wrapper_top', $table_ID, $args, $config_value, $atts );
+    do_action( 'wpto_action_table_wrapper_top', $table_ID, $args, $column_settings, $enabled_column_array, $config_value, $atts );
     $html .= ob_get_clean();
     
     $html .= ($minicart_position == 'top' ? $table_minicart_message_box : false);//$minicart_position //"<div class='tables_cart_message_box_{$temp_number}'></div>";
