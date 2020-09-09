@@ -91,9 +91,9 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
             <table class="ultraaddons-table">
                 <tbody>
                     <?php if(class_exists( 'WOO_Product_Table' ) ){ ?>
-                    <tr>
+                    <tr class="table_disable_plugin_noti">
                         <th>
-                            <label class="wpt_label wpt_advance_search_on_of" for="wpt_disable_plugin_noti"><?php esc_html_e( 'Plugin Recomendation', 'wpt_pro' );?></label>
+                            <label class="wpt_label wpt_disable_plugin_noti" for="wpt_disable_plugin_noti"><?php esc_html_e( 'Plugin Recomendation', 'wpt_pro' );?></label>
                         </th>
                         <td>
                             <label class="switch">
