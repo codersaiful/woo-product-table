@@ -804,3 +804,42 @@ if( !function_exists( 'wpt_args_manipulation_frontend' ) ){
 }
 add_filter( 'wpto_table_query_args', 'wpt_args_manipulation_frontend' );
 
+if( !function_exists( 'wpt_freeze_column_maintain' ) ){
+
+    /**
+     * Freeze Column Maintain using following Action Hook
+     * do_action( 'wpto_table_wrapper_bottom', $table_ID, $args, $column_settings, $enabled_column_array, $config_value, $atts );
+     * 
+     * @param type $table_ID
+     * @param type $args
+     * @param type $column_settings
+     * @param type $enabled_column_array
+     */
+    function wpt_freeze_column_maintain( $table_ID, $args, $column_settings, $enabled_column_array ){
+        $style = false;
+        if( isset( $enabled_column_array['freeze'] ) && $column_settings['freeze'] ){
+            $style = isset( $column_settings['freeze']['style'] ) ? $column_settings['freeze']['style'] : false;
+        }
+        if( $style ){
+            $default_width = apply_filters( 'wpto_default_width_freeze_col', '120px', $table_ID );
+            $width = isset( $style['width'] ) && !empty( $style['width'] ) ? $style['width'] : $default_width;
+            $selector = '#table_id_' . $table_ID . ' .wpt_table_tag_wrapper';
+            $css_code = <<<EOF
+<style>
+$selector th.wpt_freeze,$selector td.wpt_freeze {
+    position: absolute;
+    left: 0;
+    top: auto;
+    width: $width;
+}
+
+
+$selector, $selector table, $selector tr{position: static;}
+$selector{margin-left: $width;}  
+</style>
+EOF;
+            echo $css_code;
+        }
+    }
+}
+add_action( 'wpto_table_wrapper_bottom', 'wpt_freeze_column_maintain',9910,4 );

@@ -404,7 +404,7 @@ function wpt_shortcode_generator( $atts = false ) {
      * To Insert Content at Top of the Table, Just inside of Wrapper tag of Table
      * Available Args $table_ID, $args, $config_value, $atts;
      */
-    do_action( 'wpto_action_start_table', $table_ID, $args, $config_value, $atts );
+    do_action( 'wpto_action_start_table', $table_ID, $args, $column_settings, $enabled_column_array, $config_value, $atts );
     $html .= ob_get_clean();
     
     /**
@@ -510,7 +510,7 @@ function wpt_shortcode_generator( $atts = false ) {
      * To Insert Content at Top of the Table, Just inside of Wrapper tag of Table
      * Available Args $table_ID, $args, $config_value, $atts;
      */
-    do_action( 'wpto_action_table_wrapper_top', $table_ID, $args, $config_value, $atts );
+    do_action( 'wpto_action_table_wrapper_top', $table_ID, $args, $column_settings, $enabled_column_array, $config_value, $atts );
     $html .= ob_get_clean();
     
     $html .= ($minicart_position == 'top' ? $table_minicart_message_box : false);//$minicart_position //"<div class='tables_cart_message_box_{$temp_number}'></div>";
@@ -644,7 +644,7 @@ function wpt_shortcode_generator( $atts = false ) {
     }
     $Load_More = '<div id="wpt_load_more_wrapper_' . $temp_number . '" class="wpt_load_more_wrapper ' . $config_value['disable_loading_more'] . '"><button data-temp_number="' . $temp_number . '" data-load_type="current_page" data-type="load_more" class="button wpt_load_more">' . $Load_More_Text . '</button></div>';
     $html .= ( $posts_per_page != -1 ? $Load_More : '' );//$Load_More;
-    
+        
     $html .= $html_check_footer;
     $html .= apply_filters('wpt_after_table', '', $temp_number ); //Apply Filter Just Before Table Wrapper div tag
   
@@ -661,7 +661,7 @@ function wpt_shortcode_generator( $atts = false ) {
      * To Insert Content at Bottom of the Table, Just inside of Wrapper tag of Table
      * Available Args $table_ID, $args, $config_value, $atts;
      */
-    do_action( 'wpto_table_wrapper_bottom', $table_ID, $args, $config_value, $atts );
+    do_action( 'wpto_table_wrapper_bottom', $table_ID, $args, $column_settings, $enabled_column_array, $config_value, $atts );
     $html .= ob_get_clean();
     
     $html .= "</div>"; //End of Table wrapper.

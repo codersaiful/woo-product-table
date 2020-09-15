@@ -166,7 +166,7 @@ if( !function_exists( 'wpt_data_manipulation_on_save' ) ){
         if( 'column_settings' == $tab && is_array( $tab_data ) ){
             foreach( $tab_data as $per_key => $per_data ){
                 if( !empty( $per_key ) && is_array( $per_data ) ){
-                    $per_data[$per_key]['style_str'] = isset( $per_data['style'] ) && is_array( $per_data['style'] ) ? wpt_convert_style_from_arr( $per_data['style'] ) : '';
+                    $tab_data[$per_key]['style_str'] = isset( $per_data['style'] ) && is_array( $per_data['style'] ) ? wpt_convert_style_from_arr( $per_data['style'] ) : '';
                 }
             }
         }

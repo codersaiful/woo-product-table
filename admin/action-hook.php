@@ -90,6 +90,23 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
             <h3 class="with-background dark-background"><?php esc_html_e( 'Basic Settings', 'wpt_pro' );?></h3>
             <table class="ultraaddons-table">
                 <tbody>
+                    <?php if(class_exists( 'WOO_Product_Table' ) ){ ?>
+                    <tr class="table_disable_plugin_noti">
+                        <th>
+                            <label class="wpt_label wpt_disable_plugin_noti" for="wpt_disable_plugin_noti"><?php esc_html_e( 'Plugin Recomendation', 'wpt_pro' );?></label>
+                        </th>
+                        <td>
+                            <label class="switch">
+                                <input  name="<?php echo esc_attr( $field_name ); ?>[disable_plugin_noti]" type="checkbox" id="wpt_disable_plugin_noti" <?php echo isset( $current_config_value['disable_plugin_noti'] ) ? 'checked="checked"' : ''; ?>>
+                                <div class="slider round"><!--ADDED HTML -->
+                                    <span class="on">Enable</span><span class="off">Disable</span><!--END-->
+                                </div>
+                            </label>
+                            <p><?php echo esc_html( 'To enable or disable our plugin Notification for our Product Table', 'wpt_pro' ); ?></p>
+
+                        </td>
+                    </tr>
+                    <?php } ?>
                     <tr>
                         <th><label class="wpt_label" for="wpt_table_custom_add_to_cart"><?php esc_html_e( 'Add to Cart Icon', 'wpt_pro' ); ?></label></th>
                         <td>

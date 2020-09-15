@@ -11,7 +11,7 @@
  * Requires at least:    4.0.0
  * Tested up to:         5.5.1
  * WC requires at least: 3.0.0
- * WC tested up to: 	 4.3.3
+ * WC tested up to: 	 4.5.0
  * 
  * Text Domain: wpt_pro
  * Domain Path: /languages/
@@ -78,7 +78,7 @@ include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 WPT_Product_Table::getInstance();
 
 $column_array = array(
-    
+    'freeze' => __( 'Freeze Colum', 'wpt_pro' ),
     'thumbnails'    => __( 'Thumbnails', 'wpt_pro' ),
     'product_title' => __( 'Products', 'wpt_pro' ),
     'action'        => __( 'Action', 'wpt_pro' ),
@@ -173,6 +173,7 @@ WPT_Product_Table::$shortCode = $shortCodeText;
  */
 $default = array(
     'custom_message_on_single_page'=>  true, //Set true to get form in Single Product page for Custom Message
+    'disable_plugin_noti'=>  'on',
     'footer_cart'           =>  'always_show', //hide_for_zerro
     'footer_cart_size'      =>  '74',
     'footer_bg_color'       =>  '#0a7f9c',
@@ -489,7 +490,8 @@ class WPT_Product_Table{
      * @access public
      */
     public function admin_notice() {
-        if ( ! current_user_can( 'activate_plugins' ) ) {
+        $config = get_option( 'wpt_configure_options' );
+        if ( !isset( $config['disable_plugin_noti'] ) || ! current_user_can( 'activate_plugins' ) ) {
                 return;
         }
 

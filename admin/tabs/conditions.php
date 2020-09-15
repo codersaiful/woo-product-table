@@ -61,7 +61,7 @@ $meta_conditions =  get_post_meta( $post->ID, 'conditions', true );
                 </th>
                 <td>
                     <input name="conditions[meta_value_sort]" value="<?php echo isset( $meta_conditions['meta_value_sort'] ) ? $meta_conditions['meta_value_sort'] : ''; ?>" data-name='meta_value_sort' id="wpt_product_meta_value_sort" class="wpt_fullwidth wpt_data_filed_atts ua_input" type="text">
-                    <p style="color: #00aef0;"><?php esc_html_e( 'Type your Right meta value here. EG: "_sku,_price,_customNumber" - use any one only, there should now and space', 'wpt_pro' ); ?></p>
+                    <p style="color: #00aef0;"><?php esc_html_e( 'Type your Right meta value here. EG: "_sku,_price,_customNumber" - use any one only, there should no any space or comma', 'wpt_pro' ); ?></p>
                 </td>
             </tr>
         </table>
