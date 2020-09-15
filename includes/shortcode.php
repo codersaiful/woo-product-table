@@ -644,7 +644,7 @@ function wpt_shortcode_generator( $atts = false ) {
     }
     $Load_More = '<div id="wpt_load_more_wrapper_' . $temp_number . '" class="wpt_load_more_wrapper ' . $config_value['disable_loading_more'] . '"><button data-temp_number="' . $temp_number . '" data-load_type="current_page" data-type="load_more" class="button wpt_load_more">' . $Load_More_Text . '</button></div>';
     $html .= ( $posts_per_page != -1 ? $Load_More : '' );//$Load_More;
-    
+        
     $html .= $html_check_footer;
     $html .= apply_filters('wpt_after_table', '', $temp_number ); //Apply Filter Just Before Table Wrapper div tag
   
