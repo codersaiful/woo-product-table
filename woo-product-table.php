@@ -78,7 +78,7 @@ include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 WPT_Product_Table::getInstance();
 
 $column_array = array(
-    
+    'freeze' => __( 'Freeze Colum', 'wpt_pro' ),
     'thumbnails'    => __( 'Thumbnails', 'wpt_pro' ),
     'product_title' => __( 'Products', 'wpt_pro' ),
     'action'        => __( 'Action', 'wpt_pro' ),

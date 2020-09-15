@@ -97,7 +97,9 @@ if( is_array( $meta_enable_column_array ) && !empty( $meta_enable_column_array )
             </div>
             <span data-key="<?php echo esc_attr( $keyword ); ?>" class="extra_all_on_off on_now"><i class="on_off_icon"></i>Expand</span>
             <div class="wpt_column_setting_extra for_all extra_all_<?php echo esc_attr( $keyword ); ?>">
+                <?php do_action( 'wpto_column_setting_form_inside_' . $keyword, $column_settings, $columns_array, $updated_columns_array, $post, $additional_data ); ?>
                 <?php do_action( 'wpto_column_setting_form', $keyword, $column_settings, $columns_array, $updated_columns_array, $post, $additional_data ); ?>
+                
             </div>
             <div class="wpt_column_setting_extra for_all profeatures-message">
                 <?php do_action( 'wpo_pro_feature_message', 'column_extra' ); ?>

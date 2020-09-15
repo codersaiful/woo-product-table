@@ -661,7 +661,7 @@ function wpt_shortcode_generator( $atts = false ) {
      * To Insert Content at Bottom of the Table, Just inside of Wrapper tag of Table
      * Available Args $table_ID, $args, $config_value, $atts;
      */
-    do_action( 'wpto_table_wrapper_bottom', $table_ID, $args, $config_value, $atts );
+    do_action( 'wpto_table_wrapper_bottom', $table_ID, $args, $column_settings, $enabled_column_array, $config_value, $atts );
     $html .= ob_get_clean();
     
     $html .= "</div>"; //End of Table wrapper.
