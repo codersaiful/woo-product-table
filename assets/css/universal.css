@@ -1519,7 +1519,26 @@ div.wpt_product_table_wrapper table.wpt_product_table th.wpt_action {
     margin-bottom: 10px;
     padding-bottom: 8px;
 }
+/* Scrollbar Design */
+/* width */
+::-webkit-scrollbar {
+  width: 7px;
+}
 
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #0a7f9c; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
 /*Audio Player Style*/
 /*Audio Player Style */
 .mejs-container {
