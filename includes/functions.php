@@ -781,6 +781,11 @@ if( !function_exists( 'wpt_args_manipulation_frontend' ) ){
         if( ( isset( $query_vars['post_type'] ) && !empty( $query_vars['post_type'] ) && $query_vars['post_type'] == 'product' ) 
                 || ( isset( $page_query['wc_query'] ) && $page_query['wc_query'] == 'product_query' ) 
             ){
+            
+            if( isset( $args['post__in'] ) && is_array( $args['post__in'] ) && count( $args['post__in'] ) > 0 ){
+                return $args;
+            }
+            
         //if( isset( $page_query['wc_query'] ) && $page_query['wc_query'] == 'product_query' ){
             $gen_args = array_merge( $args,$GLOBALS['wp_query']->query_vars );
             $gen_args['post_type'] = isset( $args['post_type'] ) && !empty( $args['post_type'] ) ? $args['post_type'] : 'product';
