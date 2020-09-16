@@ -425,7 +425,7 @@ function wpt_shortcode_generator( $atts = false ) {
      * Do Detect Page number, When Table will be display.
      * 
      */
-    $page_number = apply_filters( 'wpt_page_number', $page_number, $table_ID, $args, $column_settings, $enabled_column_array, $column_array );
+    $page_number = apply_filters( 'wpto_page_number', $page_number, $table_ID, $args, $column_settings, $enabled_column_array, $column_array );
     $args['paged'] =( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : $page_number;
     
     $args = array_merge( $args, $basics_args );
