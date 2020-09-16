@@ -242,7 +242,7 @@ if( !function_exists( 'wpt_column_add_extra_items' ) ){
          * To add Any Items for [Select multiple inner items]
          * Remember: It's only for Admin Product Table Edit. and data will debend on Save Only
          */
-        $items = apply_filters( 'wpto_inside_thecked_item_arr', $items, $keyword, $column_settings, $columns_array );
+        $items = apply_filters( 'wpto_inside_checked_item_arr', $items, $keyword, $column_settings, $columns_array );
         if( is_array( $items ) && count( $items ) > 0 ){
             
             //array_merge(array_flip($items),$columns_array)
