@@ -25,7 +25,7 @@ There are variety of ways to add your custom code to manipulate code by hooks:
 
 ### Using action hooks
 To execute your own code, you hook in by using the action hook ```do_action('action_name');```. Here is where to place your code:
-```
+```php
 add_action( 'action_name', 'your_function_name' );
 
 function your_function_name() {
@@ -34,7 +34,7 @@ function your_function_name() {
 ```
 ## Start Procedure of adding new Collumn
 First we have to our custom column in default column array using ```wpto_default_column_arr``` filter.
-```
+```php
 <?php
 if( !function_exists( 'new_shortcode_column' ) ){
    function new_shortcode_column( $column_array ) {
@@ -47,7 +47,7 @@ add_filter( 'wpto_default_column_arr', 'new_shortcode_column' );
 We have added our new shortcode column to default column array. Now we need a file where we can add the content for that custom shortcode.
 
 Below we have used ```wpto_template_loc_item_ . $keyword``` filter.
-```
+```php
 <?php
 if( !function_exists( 'temp_file_for_new_shortcode' ) ){
     function temp_file_for_new_shortcode( $file ){
@@ -60,7 +60,7 @@ add_filter( 'wpto_template_loc_item_new_shortcode', 'temp_file_for_new_shortcode
 ```
 
 Now we need to add a input field for get the custom shortcode from user. here we have used ```wpto_column_setting_form_ . $keyword``` action to add the input field inside column area in column tab.
-```
+```php
 <?php
 function input_for_new_shortcode($column_settings){
     $text = isset( $column_settings['new_shortcode']['text'] ) ? $column_settings['new_shortcode']['text'] : false;
@@ -71,7 +71,7 @@ function input_for_new_shortcode($column_settings){
 add_action( 'wpto_column_setting_form_new_shortcode', 'input_for_new_shortcode' );
 ```
 Now we have to show the shortcode content using our custom file. Here we create a file ```my_shortcode.php``` with following code.
-```
+```php
 <?php
 $my_shortcode = isset( $settings['text'] ) ? $settings['text'] : '';
  
