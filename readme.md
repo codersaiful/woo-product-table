@@ -12,11 +12,8 @@ Woo Product Table has Tiny Shortcode. Easy to use and No need programming knowle
 - Displaying product list as table within a minute.
 - So many lots of features [Read More](https://www.wcproducttable.xyz/)
 
-### Available Filter Hook List
+### Available Filter and Action Hooks List
 https://docs.google.com/spreadsheets/d/1RwnzuupIYC-ao2R3_P3hZU__R-8nA3p7o2XoWWntNig/edit?usp=sharing
-
-### Available Action Hook List
-https://docs.google.com/spreadsheets/d/1aK2__VKTZbPk8HMTfck4RjdFq6Z7nV7yyZOnZ0hUkK4/edit?usp=sharing
 
 # Making a sample Addons
 Here I will show, how a user can make a addon for **Woo Product Table** using our Hook. As example, I will show, how to add new column in our table.
