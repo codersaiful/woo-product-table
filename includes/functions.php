@@ -824,6 +824,8 @@ if( !function_exists( 'wpt_freeze_column_maintain' ) ){
             $default_width = apply_filters( 'wpto_default_width_freeze_col', '120px', $table_ID );
             $width = isset( $style['width'] ) && !empty( $style['width'] ) ? $style['width'] : $default_width;
             $selector = '#table_id_' . $table_ID . ' .wpt_table_tag_wrapper';
+            
+            /*
             $css_code = <<<EOF
 <style>
 $selector th.wpt_freeze,$selector td.wpt_freeze {
@@ -833,11 +835,49 @@ $selector th.wpt_freeze,$selector td.wpt_freeze {
     width: $width;
 }
 
-
+$selector td.td_or_cell.wpt_freeze .item_inside_cell{display: inline-block;}
 $selector, $selector table, $selector tr{position: static;}
 $selector{margin-left: $width;}  
 </style>
 EOF;
+    */        
+            
+ob_start();
+?>
+<style>
+ <?php echo $selector; ?> th.wpt_freeze,<?php echo $selector; ?> td.wpt_freeze {
+    position: absolute;
+    left: 0;
+    top: auto;
+    width: <?php echo $width; ?>;
+}
+<?php echo $selector; ?> th.wpt_freeze{}
+<?php echo $selector; ?> td.td_or_cell.wpt_freeze .item_inside_cell{display: inline-block;}
+<?php echo $selector; ?>, <?php echo $selector; ?> table, <?php echo $selector; ?> tr{position: static;}
+<?php echo $selector; ?>{margin-left: <?php echo $width; ?>;}  
+</style>
+<script>
+    (function($) {
+    'use strict';
+        $(document).ready(function($){
+            var height = $('<?php echo $selector; ?> table tr').not('.wpt_freeze').height();
+            console.log(height);
+            //height = 100;
+            $('th.wpt_freeze').css('height', height);
+        });
+    })(jQuery);
+    
+</script>                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+<?php
+$css_code = ob_get_clean();            
             echo $css_code;
         }
     }

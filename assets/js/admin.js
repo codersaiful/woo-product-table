@@ -1,7 +1,7 @@
 (function($) {
     'use strict';
     $(document).ready(function() {
-        if(! $('body').hasClass('wpt_admin_body ')){
+        if(! $('body').hasClass('wpt_admin_body')){
             return false;
         }
         //For select, used select2 addons of jquery
