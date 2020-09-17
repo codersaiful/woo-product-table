@@ -11,6 +11,16 @@
         if(typeof $('.wpt_product_table_wrapper .search_select').select2 === 'function' && $('.wpt_product_table_wrapper .search_select').length > 0){
             $('.wpt_product_table_wrapper .search_select,select.filter_select').select2();//, .wpt_varition_section select
         }
+        var windowWidth = $(window).width();
+
+        $(window).resize(function() {
+            
+          //to disable Reload based on Screenshize use filter wpto_localize_data
+          if( windowWidth != $(window).width()  && WPT_DATA.resize_loader) {
+            location.reload();
+            return;
+          }
+        });
         
         /**
          * Checking wpt_pro_table_body class available in body tag
@@ -1919,8 +1929,21 @@
                     });
                 }
                 
+                var items = $('#table_id_' + temp_number + ' tr#product_id_' + product_id).attr('data-quantity');
+                items = parseFloat(items);
+                if(items <= 0){
+                    return;
+                }
                 
-               itemAmount++;
+                var itemCountSystem = config_json.item_count;
+                if(typeof itemCountSystem !== 'undefined' && itemCountSystem === 'all'){
+                    
+
+                    
+                    itemAmount += items;
+                }else{
+                    itemAmount++;//To get Item Amount
+                } 
             });
 
             //Return false for if no data

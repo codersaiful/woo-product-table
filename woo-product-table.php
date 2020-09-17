@@ -29,6 +29,10 @@ if( !defined( 'WPT_PLUGIN_BASE_FOLDER' ) ){
     define( 'WPT_PLUGIN_BASE_FOLDER', plugin_basename( dirname( __FILE__ ) ) );
 }
 
+if( !defined( 'WPT_DEV_VERSION' ) ){
+    define( 'WPT_DEV_VERSION', '2.7.0.36' );
+}
+
 if( !defined( 'WPT_CAPABILITY' ) ){
     $wpt_capability = apply_filters( 'wpt_menu_capability', 'manage_woocommerce' );
     define( 'WPT_CAPABILITY', $wpt_capability );
