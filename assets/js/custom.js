@@ -1929,8 +1929,21 @@
                     });
                 }
                 
+                var items = $('#table_id_' + temp_number + ' tr#product_id_' + product_id).attr('data-quantity');
+                items = parseFloat(items);
+                if(items <= 0){
+                    return;
+                }
                 
-               itemAmount++;
+                var itemCountSystem = config_json.item_count;
+                if(typeof itemCountSystem !== 'undefined' && itemCountSystem === 'all'){
+                    
+
+                    
+                    itemAmount += items;
+                }else{
+                    itemAmount++;//To get Item Amount
+                } 
             });
 
             //Return false for if no data
