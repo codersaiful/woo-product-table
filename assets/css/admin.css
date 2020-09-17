@@ -1032,6 +1032,13 @@ select.wpt_table_on_archive {
 .wpt_tab_content.tab-content .table_disable_plugin_noti{
     display: none !important;
 }
+.wpt_devloper_version {
+    position: absolute;
+    right: 148px;
+    top: 13px;
+    color: #aabbcc94;
+    font-size: 10px;
+}
 /* Responsive Design Starts */
 @media screen and (max-width: 782px){
     .wpt_column_setting_single_extra>div label {

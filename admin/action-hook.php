@@ -38,7 +38,17 @@ if( !function_exists( 'wpt_ctrl_s_text_at_top' ) ){
      * CTRL + S link at the top of the Form
      */
     function wpt_ctrl_s_text_at_top(){
+        $dev = '';
+        if( defined( 'WPT_PRO_DEV_VERSION' ) ){
+            $dev .= 'PRO ' . WPT_PRO_DEV_VERSION;
+        }
+        
+        if( defined( 'WPT_DEV_VERSION' ) ){
+            $dev .= ' FREE ' . WPT_DEV_VERSION;
+        }
+        $ori_ver = str_replace( array( '.',' ', 'RO', 'REE' ), '', $dev );
         ?>  
+        <span class="wpt_devloper_version" title="<?php echo esc_html( 'Developer Version: ' . $dev ); ?>"><?php echo esc_html( $ori_ver ); ?></span>
         <p class="wpt_ctrl_s" title="To save Data, Just Click: [Ctrl + S]">Save: <span>Ctrl + S</span></p>
         <?php
     }
