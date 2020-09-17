@@ -11,6 +11,17 @@
         if(typeof $('.wpt_product_table_wrapper .search_select').select2 === 'function' && $('.wpt_product_table_wrapper .search_select').length > 0){
             $('.wpt_product_table_wrapper .search_select,select.filter_select').select2();//, .wpt_varition_section select
         }
+        var windowWidth = $(window).width();
+        var windowHeight = $(window).height();
+
+        $(window).resize(function() {
+            
+          //to disable Reload based on Screenshize use filter wpto_localize_data
+          if( (windowWidth != $(window).width() || windowHeight != $(window).height())  && WPT_DATA.resize_loader) {
+            location.reload();
+            return;
+          }
+        });
         
         /**
          * Checking wpt_pro_table_body class available in body tag
