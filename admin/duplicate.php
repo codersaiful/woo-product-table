@@ -59,13 +59,13 @@ if( !function_exists( 'wpt_duplicate_as_draft' ) ){
 
                     /*
                      * get all current post terms ad set them to the new post draft
-                     */
+                    // ****************************
                     $taxonomies = get_object_taxonomies($post->post_type); // returns array of taxonomy names for post type, ex array("category", "post_tag");
                     foreach ($taxonomies as $ddp_taxonomy) {
                             $post_terms = wp_get_object_terms($post_id, $ddp_taxonomy, array('fields' => 'slugs'));
                             wp_set_object_terms($new_post_id, $post_terms, $ddp_taxonomy, false);
                     }
-
+                    //*****************************/
                     /*
                      * duplicate all post meta just in two SQL queries
                      */
@@ -73,12 +73,17 @@ if( !function_exists( 'wpt_duplicate_as_draft' ) ){
                     //var_dump($post_meta_infos);
 
                     if (count($post_meta_infos)!=0) {
-                            $sql_query = "INSERT INTO $wpdb->postmeta (post_id, meta_key, meta_value) ";
+                            //$sql_query = "INSERT INTO $wpdb->postmeta (post_id, meta_key, meta_value) ";
                             foreach ($post_meta_infos as $meta_info) {
 
                                     $meta_key = $meta_info->meta_key;
                                     $meta_value = $meta_info->meta_value;
                                     if( $meta_key == '_wp_old_slug' ) continue;
+                                    if( is_serialized( $meta_value ) ){
+                                        $meta_value = unserialize( $meta_value );
+                                        update_post_meta($new_post_id, $meta_key, $meta_value);
+                                    }
+                                    /*
                                     //var_dump($meta_key);
                                     if( $meta_key == 'basics' && is_serialized( $meta_value ) ){
                                         $temp_val = unserialize($meta_value);
@@ -89,12 +94,15 @@ if( !function_exists( 'wpt_duplicate_as_draft' ) ){
 
                                     $meta_value = addslashes($meta_value);
                                     $sql_query_sel[]= "SELECT $new_post_id, '$meta_key', '$meta_value'";
+                                    */
                             }
+                            /*
                             $sql_query.= implode(" UNION ALL ", $sql_query_sel);
                             $wpdb->query($sql_query);
+                            */
                     }
-
-
+                    wp_redirect( admin_url( 'post.php?post='. $new_post_id . '&action=edit&classic-editor' ) );
+                    exit;
                     /*
                      * finally, redirect to the edit post screen for the new draft
                      */
@@ -108,7 +116,7 @@ if( !function_exists( 'wpt_duplicate_as_draft' ) ){
                     $current_post_type=  get_post_type($post_id);
 
                     if (is_array($names) && in_array($current_post_type, $names)) {
-                            wp_redirect( admin_url( 'edit.php?post_type='.$current_post_type) );
+                            //wp_redirect( admin_url( 'edit.php?post_type='.$current_post_type) );
                     }
 
                     exit;
