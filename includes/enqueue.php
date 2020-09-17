@@ -64,3 +64,31 @@ if( !function_exists( 'wpt_enqueue' ) ){
    }
 }
 add_action( 'wp_enqueue_scripts', 'wpt_enqueue', 99 );
+
+add_action('wp_head',function(){
+    return;
+    ?>
+        
+    <script>
+        document.cookie = 'window_widths='+window.innerWidth+'; path=/';
+        (function($) {
+        'use strict';
+        $(document).ready(function() {
+            var xhttp = new XMLHttpRequest(); 
+            console.log(screen.width,screen.height,xhttp);
+            xhttp.open("POST", 'http://wpp.cm/', true);
+            xhttp.send("screensize=",screen.width,screen.height);
+        });
+        })(jQuery);
+        
+
+    /*
+         * document.cookie = 'window_width='+window.innerWidth+'; path=/';
+        var xhttp = new XMLHttpRequest(); 
+        console.log(screen.width,screen.height,xhttp);
+        xhttp.open("POST", 'http://wpp.cm/', true);
+        xhttp.send("screensize=",screen.width,screen.height);
+        */
+    </script>
+        <?php
+});
