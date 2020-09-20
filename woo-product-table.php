@@ -11,7 +11,7 @@
  * Requires at least:    4.0.0
  * Tested up to:         5.5.1
  * WC requires at least: 3.0.0
- * WC tested up to: 	 4.5.0
+ * WC tested up to: 	 4.5.2
  * 
  * Text Domain: wpt_pro
  * Domain Path: /languages/
@@ -495,7 +495,9 @@ class WPT_Product_Table{
      */
     public function admin_notice() {
         $config = get_option( 'wpt_configure_options' );
-        if ( !isset( $config['disable_plugin_noti'] ) || ! current_user_can( 'activate_plugins' ) ) {
+        $disable_plugin_noti = !isset( $config['disable_plugin_noti'] ) ? true : false;
+        $disable_plugin_noti = apply_filters( 'wpto_disable_recommend_noti', $disable_plugin_noti );
+        if ( $disable_plugin_noti || ! current_user_can( 'activate_plugins' ) ) {
                 return;
         }
 
