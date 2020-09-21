@@ -117,6 +117,38 @@ add_filter( 'wpto_wrapper_tag_class_arr', 'wpt_device_wise_class');
 add_filter( 'body_class', 'wpt_device_wise_class' );
 
 
+if( !function_exists( 'wpt_table_td_class' ) ){
+    /**
+     * Add TD Class
+     * using Following Filter:
+     * apply_filters( 'wpto_td_class_arr', $td_class_arr, $keyword, $table_ID, $args, $column_settings, $table_column_keywords, $product )
+     * 
+     * @since 7.0.25
+     * @param type $td_class_arr
+     * @return Array
+     */
+    function wpt_table_td_class( $td_class_arr, $keyword, $table_ID ){
+        $not_acpt = array(
+            'action',
+            'product_title',
+            'check'
+        );
+        if( in_array( $keyword, $not_acpt ) ){
+            return $td_class_arr;
+        }
+        
+        //var_dump($td_class_arr, $args, $table_ID);
+        $mobile = get_post_meta( $table_ID, 'mobile', true );
+        if( isset( $mobile['mobile_responsive'] ) && $mobile['mobile_responsive'] == 'mobile_responsive' ){
+            $td_class_arr[] = 'wpt_for_product_desc';
+        }
+        //var_dump($td_class_arr);
+       return $td_class_arr;
+   }
+}
+add_filter( 'wpto_td_class_arr', 'wpt_table_td_class',10,3 );
+
+
 if( !function_exists( 'wpt_checkbox_validation' ) ){
     /**
      * Checkbox Enable Disable
