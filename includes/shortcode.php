@@ -941,6 +941,7 @@ function wpt_table_row_generator( $table_row_generator_array ){
                 "status_" . $data['status'],
                 
             );
+            $tr_class_arr = apply_filters( 'wpto_tr_class_arr', $tr_class_arr, $args, $table_ID, $column_settings, $table_column_keywords, $product );
             $tr_class = implode( " ", $tr_class_arr );
             /**
              * Table Row and

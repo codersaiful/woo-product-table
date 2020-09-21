@@ -11,7 +11,7 @@
  * Requires at least:    4.0.0
  * Tested up to:         5.5.1
  * WC requires at least: 3.0.0
- * WC tested up to: 	 4.5.0
+ * WC tested up to: 	 4.5.2
  * 
  * Text Domain: wpt_pro
  * Domain Path: /languages/
@@ -85,7 +85,6 @@ $column_array = array(
     'freeze' => __( 'Freeze Colum', 'wpt_pro' ),
     'thumbnails'    => __( 'Thumbnails', 'wpt_pro' ),
     'product_title' => __( 'Products', 'wpt_pro' ),
-    'action'        => __( 'Action', 'wpt_pro' ),
     'check'         => __( 'Check', 'wpt_pro' ),
     'category'      => __( 'Category', 'wpt_pro' ),
     'tags'          => __( 'Tags', 'wpt_pro' ),
@@ -111,14 +110,19 @@ $column_array = array(
     'blank'         => __( 'Blank', 'wpt_pro' ),
     'product_id'    => __( 'ID', 'wpt_pro' ),
     'serial_number' => __( 'SL', 'wpt_pro' ),
+    'action'        => __( 'Action', 'wpt_pro' ),
 );
 $column_array = apply_filters( 'wpto_default_column_arr', $column_array );
 WPT_Product_Table::$columns_array =  $column_array;
 $default_enabled_col_array = array(
+    'check'         => 'check',  
     'thumbnails'    => 'thumbnails',  
     'product_title' => 'product_title',  
+    'category' => 'category',  
+    'sku' => 'sku',  
+    'rating' => 'rating',  
+    'price' => 'price',  
     'action'        => 'action',  
-    'check'         => 'check',  
 );
 /**
  * Filter for Default Enabled Column
@@ -495,7 +499,9 @@ class WPT_Product_Table{
      */
     public function admin_notice() {
         $config = get_option( 'wpt_configure_options' );
-        if ( !isset( $config['disable_plugin_noti'] ) || ! current_user_can( 'activate_plugins' ) ) {
+        $disable_plugin_noti = !isset( $config['disable_plugin_noti'] ) ? true : false;
+        $disable_plugin_noti = apply_filters( 'wpto_disable_recommend_noti', $disable_plugin_noti );
+        if ( $disable_plugin_noti || ! current_user_can( 'activate_plugins' ) ) {
                 return;
         }
 

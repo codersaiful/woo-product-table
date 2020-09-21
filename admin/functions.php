@@ -40,7 +40,7 @@ if( !function_exists( 'wpt_admin_responsive_tab' ) ){
     function wpt_admin_responsive_tab( $tab_array ){
         unset($tab_array['mobile']);
         $tab_array['responsive'] = __( 'Responsive <small>New</small>', 'wpt_pro' );
-        $tab_array['mobile'] = __( 'Mobile <span>will remvoed</span>', 'wpt_pro' );
+        $tab_array['mobile'] = __( 'Mobile', 'wpt_pro' ); // <span>will remvoed</span>
         return $tab_array;
     }
 }

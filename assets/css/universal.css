@@ -1519,6 +1519,9 @@ div.wpt_product_table_wrapper table.wpt_product_table th.wpt_action {
     margin-bottom: 10px;
     padding-bottom: 8px;
 }
+.td_or_cell.wpt_thumbnails.wpt_for_product_desc {
+    display: flex;
+}
 /* Scrollbar Design */
 /* width */
 ::-webkit-scrollbar {

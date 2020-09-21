@@ -22,7 +22,7 @@ if( $meta_enable_column_array && !empty( $meta_enable_column_array ) && !empty( 
 $column_settings = get_post_meta( $post->ID, 'column_settings', true ); 
 if( empty( $column_settings ) ){
     $column_settings = array();
-    $column_settings['product_title']['items'] = array( 'sku', 'rating','stock', 'price', 'quantity' );
+    //$column_settings['product_title']['items'] = array( 'sku', 'rating','stock', 'price', 'quantity' );
     //Price - will be add h4 tag
     //Sku will add special something
     //Mobile Version er jonno Blank niye sekhane action,title,sku,qunatity,price add korte hobe.

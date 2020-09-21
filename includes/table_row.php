@@ -87,8 +87,17 @@ foreach( $table_column_keywords as $keyword => $keyword_title ){
         }
 
         $style_str = isset( $column_settings[$keyword]['style_str'] ) && !empty( $column_settings[$keyword]['style_str'] ) ? $column_settings[$keyword]['style_str'] : '';
+        
+        $td_class_arr = array(
+            "td_or_cell",
+            "wpt_" . $keyword,
+            "wpt_temp_" . $temp_number,
+        );
+        $td_class_arr = apply_filters( 'wpto_td_class_arr', $td_class_arr, $keyword, $table_ID, $args, $column_settings, $table_column_keywords, $product );
+        $td_class = implode( " ", $td_class_arr );
+        
         ?>
-        <td class="td_or_cell wpt_<?php echo esc_attr( $keyword ); ?>"  
+        <td class="<?php echo esc_attr( $td_class ); ?>"  
             data-keyword="<?php echo esc_attr( $keyword ); ?>" 
             data-temp_number="<?php echo esc_attr( $temp_number ); ?>" 
             data-sku="<?php echo esc_attr( $product->get_sku() ); ?>"
