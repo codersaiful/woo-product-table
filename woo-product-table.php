@@ -82,10 +82,9 @@ include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 WPT_Product_Table::getInstance();
 
 $column_array = array(
-    'freeze' => __( 'Freeze Colum', 'wpt_pro' ),
+    'check'         => __( 'Check', 'wpt_pro' ),
     'thumbnails'    => __( 'Thumbnails', 'wpt_pro' ),
     'product_title' => __( 'Products', 'wpt_pro' ),
-    'check'         => __( 'Check', 'wpt_pro' ),
     'category'      => __( 'Category', 'wpt_pro' ),
     'tags'          => __( 'Tags', 'wpt_pro' ),
     'sku'           => __( 'SKU', 'wpt_pro' ),
@@ -111,6 +110,7 @@ $column_array = array(
     'product_id'    => __( 'ID', 'wpt_pro' ),
     'serial_number' => __( 'SL', 'wpt_pro' ),
     'action'        => __( 'Action', 'wpt_pro' ),
+    'freeze' => __( 'Freeze Colum', 'wpt_pro' ),
 );
 $column_array = apply_filters( 'wpto_default_column_arr', $column_array );
 WPT_Product_Table::$columns_array =  $column_array;
