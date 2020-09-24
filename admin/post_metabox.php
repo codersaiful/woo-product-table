@@ -50,7 +50,9 @@ if( !function_exists( 'wpt_shortcode_configuration_metabox_save_meta' ) ){
          * We need to verify this came from our screen and with proper authorization,
          * because the save_post action can be triggered at other times.
          */
-
+        if( !isset( $_POST['action'] ) || ( isset( $_POST['action'] ) && $_POST['action'] !== 'editpost' ) ){
+            return;
+        }
         /**
          * @Hook Filter: wpto_on_save_global_post
          * To change/Modify $_POST
