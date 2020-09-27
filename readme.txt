@@ -126,6 +126,19 @@ You can easily show specific category products. While creating new table click o
 `/assets/screenshot-5.png`
 
 == Changelog ==
+= 2.7 =
+* Export Import Issue Fix
+* Added lots of Filter Hooks
+* Added lots of Action Hooks
+* Added User Role Administrator
+* add User cap for edit,delete,private etc for Product Table
+* Lots of new Features Added
+* Plugin Recommendation on/off features Added
+* Device Wise Different Column Feature Added
+* Jetpack Conflict/ Tab Conflic Issue Fixed
+* JavaScript Bug Fix
+* PHP Bug Fix
+
 
 = 2.0 =
 * Auto Responsive for Mobile

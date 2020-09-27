@@ -21,6 +21,8 @@
         'color'        =>  'Text Color',
         'background-color'=>'Background Color',
         'border'=>'Border',
+        'text-align'=>'Text Align',
+        'vertical-align'=>'Vertical Align',
     );
     $supported_css_property = apply_filters( 'wpto_supported_css_property', $supported_css_property, $tab_array, $post );
 
