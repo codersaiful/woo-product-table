@@ -130,6 +130,8 @@ You can easily show specific category products. While creating new table click o
 * Export Import Issue Fix
 * Added lots of Filter Hooks
 * Added lots of Action Hooks
+* Added User Role Administrator
+* add User cap for edit,delete,private etc for Product Table
 * Lots of new Features Added
 * Plugin Recommendation on/off features Added
 * Device Wise Different Column Feature Added

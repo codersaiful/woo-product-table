@@ -56,7 +56,17 @@ function wpt_product_table_post() {
 		'has_archive'           => false,
 		'exclude_from_search'   => true,
 		'publicly_queryable'    => true,
-		'capability_type'       => 'post',
+                'capability_type'       => 'post',
+                'capabilities' => array(
+                    'edit_post' => 'edit_wpt_product_table',
+                    'edit_posts' => 'edit_wpt_product_tables',
+                    'edit_others_posts' => 'edit_others_wpt_product_tables',
+                    'publish_posts' => 'publish_wpt_product_tables',
+                    'read_post' => 'read_wpt_product_table',
+                    'read_private_posts' => 'read_private_wpt_product_tables',
+                    'delete_post' => 'delete_wpt_product_table',
+                ),
+                'map_meta_cap' => true,
                 'register_meta_box_cb'  => 'wpt_shortcode_metabox',
 	);
 	register_post_type( 'wpt_product_table', $args );

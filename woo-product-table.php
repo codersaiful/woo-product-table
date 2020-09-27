@@ -34,7 +34,7 @@ if( !defined( 'WPT_DEV_VERSION' ) ){
 }
 
 if( !defined( 'WPT_CAPABILITY' ) ){
-    $wpt_capability = apply_filters( 'wpt_menu_capability', 'manage_woocommerce' );
+    $wpt_capability = apply_filters( 'wpt_menu_capability', 'manage_wpt_product_table' );
     define( 'WPT_CAPABILITY', $wpt_capability );
 }
 
@@ -660,6 +660,17 @@ class WPT_Product_Table{
        }else{
            update_option( 'wpt_configure_options', $default_value );
        }
+       
+    $role = get_role( 'administrator' );
+
+    $role->add_cap( 'edit_wpt_product_table' );
+    $role->add_cap( 'edit_wpt_product_tables' );
+    $role->add_cap( 'edit_others_wpt_product_tables' );
+    $role->add_cap( 'publish_wpt_product_tables' );
+    $role->add_cap( 'read_wpt_product_table' );
+    $role->add_cap( 'read_private_wpt_product_tables' );
+    $role->add_cap( 'delete_wpt_product_table' );
+    $role->add_cap( 'manage_wpt_product_table' );
        
    }
    
