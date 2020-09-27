@@ -47,10 +47,20 @@ if( !function_exists( 'wpt_shortcode_configuration_metabox_render' ) ){
 if( !function_exists( 'wpt_shortcode_configuration_metabox_save_meta' ) ){
     function wpt_shortcode_configuration_metabox_save_meta( $post_id, $post ) { // save the data
         /*
-         * We need to verify this came from our screen and with proper authorization,
-         * because the save_post action can be triggered at other times.
-         */
+        * We need to verify this came from our screen and with proper authorization,
+        * because the save_post action can be triggered at other times.
+        */
 
+        if ( ! isset( $_POST['wpt_shortcode_nonce_value'] ) ) { // Check if our nonce is set.
+            return;
+        }
+
+        // verify this came from the our screen and with proper authorization,
+        // because save_post can be triggered at other times
+        if( !wp_verify_nonce( $_POST['wpt_shortcode_nonce_value'], plugin_basename(__FILE__) ) ) {
+            return;
+        }
+        
         /**
          * @Hook Filter: wpto_on_save_global_post
          * To change/Modify $_POST

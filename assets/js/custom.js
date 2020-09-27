@@ -22,6 +22,12 @@
           }
         });
         
+        $('.item_inside_cell').each(function(){
+            var style = $(this).attr('style');
+            $(this).children('a').attr('style',style);
+            $(this).attr('style','');
+        });
+        
         /**
          * Checking wpt_pro_table_body class available in body tag
          * 

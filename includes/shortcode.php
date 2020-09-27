@@ -37,7 +37,9 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
             //Used meta_key column_array, enabled_column_array, basics, conditions, mobile, search_n_filter, 
             $column_array = get_post_meta( $ID, 'column_array', true );
             $enabled_column_array = get_post_meta( $ID, 'enabled_column_array', true );
-
+            if( empty( $enabled_column_array ) ){
+                return sprintf( '<p>' . esc_html( 'Table{ID: %s} column setting is not founded properly!', 'wpt_pro' ) . '</p>', $ID );
+            }
             /*
             if( !isset( $enabled_column_array['product_title'] ) ){
                 $temp_product_title['product_title'] = $column_array['product_title'];
