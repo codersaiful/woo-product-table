@@ -13,29 +13,27 @@ Product Table's pro Features in FREE. Easily display your products as table by t
 
 == Description ==
 Auto Responsive Mobile & Tab, Nice Design, Fast Speed *WooCommerce Product Table*. Tiny Shortcode, Easy customizable, Ajax Add to cart, Ajax Search, Pagination & Load More.
-*Woo Product Table - Free WooCommerce Table view solution* offers to show all products display as a table in page by light shortcode. Fully responsive and mobile friendly. Easily customizable - color,background,title,text color etc.
+*Woo Product Table - Free WooCommerce Table view solution* offers to show all products display as a table in page by light shortcode. Fully responsive and mobile friendly. Easily customizable - color, background, title, padding, margin etc.
 
-**[$10 Discount for Limited Time](https://codecanyon.net/item/woo-product-table-pro/20676867)**
+**[For Discount check our official site](https://wooproducttable.com/#discount)**
 
 **Demo List**
 
-* [Custom Design Table](https://wcproducttable.xyz/all/) Here is table with custom design. You can customize your table with your design like color,background-color,font-size,padding,spacing etc from the option panel.
+* [Custom Design Table](https://demo.wooproducttable.com/demo-list/all/) Here is table with custom design. You can customize your table with your design like color,background-color,font-size,padding,spacing etc from the option panel.
 
-* [Online Music Sell](https://wcproducttable.xyz/online-music-sell/) This table is made for a Music site. Music preview available.
+* [Online Music Sell](https://demo.wooproducttable.com/online-music-sell/) This table is made for a Music site. Music preview available.
 
-* [Restaurant Table](https://wcproducttable.xyz/restaurant/) This table is made for a restaurant. User will easily order products from table.
+* [Restaurant Table](https://demo.wooproducttable.com/restaurant/) This table is made for a restaurant. User will easily order products from table.
 
-* [Jewellery Product Table](https://wcproducttable.xyz/jewelry-products-table/) With this table you can show your jewellery products.
+* [Jewellery Product Table](https://demo.wooproducttable.com/demo-list/jewelry-products-table/) With this table you can show your jewellery products.
  
-* [Books Table](https://wcproducttable.xyz/books-table/) Sell your books with the help of table and increase user engagement.
+* [Books Table](https://demo.wooproducttable.com/books-table/) Sell your books with the help of table and increase user engagement.
 
-* [Accessories Table](https://wcproducttable.xyz/mobile-wholesale/) It's a demo of accessories table like mobile phones with different options.
+* [Jewellary Table with Mini Filter](https://demo.wooproducttable.com/using-attributes-as-taxonomy-keyword-for-filter-in-advanced-search-box/) It's a demo of mini filter table where you can filter products instantly using products attributes.
 
-* [Fashion Table](https://wcproducttable.xyz/fashion/) Simple Example of Fashion Table.
+* [Fashion Table](https://demo.wooproducttable.com/fashion/) Simple Example of Fashion Table.
 
-* [Pricing Table](https://wcproducttable.xyz/pricing-table/) You can also make your pricing table with Instant search and filter.
-
-* [Table With Custom Fields](https://wcproducttable.xyz/mobile-wholesale/) This table showing many custom fields for products.You can re-arrange the custom field column from the option panel.
+* [Table With Custom Fields](https://demo.wooproducttable.com/mobile-wholesale/) This table showing many custom fields for products.You can re-arrange the custom field column from the option panel.
 
 * More demo coming soon....
 
@@ -59,14 +57,20 @@ Add the shortcode to any existing post or page:
 *name* - only for identifying your table's shortcode.(Optional)
 
 
-**[See Demo](https://wcproducttable.xyz/) || [See Features](https://codeastrology.com/wordpress-plugins/woo-product-table-free/) ||  [Pro Features](https://codeastrology.com/wordpress-plugins/woo-product-table/)  || [See Pro](https://codecanyon.net/item/woo-product-table-pro/20676867)**
-This plugin will help any body to show All product in 1 page as Table. Also able to change/customize. Go to: Dashboard->WPT Table . If anybody found any issue, Please inform me to codersaiful@gmail.com.
+**[See Demo](https://demo.wooproducttable.com/) || [See Features](https://wooproducttable.com/) ||  [Pro Features](https://codeastrology.com/wordpress-plugins/woo-product-table/)  || [See Pro](https://codecanyon.net/item/woo-product-table-pro/20676867)**
+This plugin will help you to show All product in 1 page as Table. Also able to change/customize. Go to: Dashboard->PRODUCT TABLE . If you found any issue, Please inform me to codersaiful@gmail.com.
 
 
 **Have a looks in short**
 https://www.youtube.com/watch?v=ZloiY3NRmW8
 **Pro Version's Features**
-*All custom field and taxonomy plugin supported
+* Search using custom field
+* Filter using any terms or taxonomies
+* Create audio player using your audio products
+* Change color, font-size, background of each column and many more
+* Override shop layout
+* There are lots of column controls
+* All custom field and taxonomy plugin supported
 * More Light Weight
 * Table configuration saved as Table ID
 * Use Table  by Table ID
@@ -87,7 +91,7 @@ https://www.youtube.com/watch?v=D67b_0tQ-z8
 
 1. Upload the plugin files to the `/wp-content/plugins/woo-product-table` directory, or install the plugin through the WordPress plugins screen directly.
 2. Activate the plugin through the 'Plugins' screen in WordPress
-3. Use the Woo Table->Setting screen to configure the plugin's default setting.
+3. Use the PRODUCT TABLE -> Configure screen to configure the plugin's default setting.
 
 
 == Frequently Asked Questions ==
@@ -119,25 +123,47 @@ You can easily show specific category products. While creating new table click o
 
 == Screenshots ==
 
-`/assets/screenshot-1.png`
-`/assets/screenshot-2.png`
-`/assets/screenshot-3.png`
-`/assets/screenshot-4.png`
-`/assets/screenshot-5.png`
+1. Enabled table columns by checking the boxes
+2. Show/Hide columns on mobile and tablet devices
+3. Drag-n-drop ordering system for column's inners items
+4. WooCommerce Product Table with inner column items
+5. Restaurant menu with inner column items
+6. WooCommerce Product Table with top mini cart
+7. Enable/Disable columns by checking the boxes
+8. Basic query on table
+9. Set different types of conditions here
+10. Advanced search box with search from
+11. Add new custom taxonomy column 
+12. WooCommerce Product Table with pagination
+13. Clean WooCommerce Product Table
+14. Duplicate product table
+15. Popup notification
+16. Lots of popup notification
+17. WooCommerce product table with instant search
+18. WooCommerce default product image popup
+19. WooCommerce default product image popup
+20. Popup notification
+21. WooCommerce product table with Mini Filter
+22. Advanced Search Box
+23. WooCommerce product table with Mini Cart
+24. Auto Selected Checked Table – Automatically All Item Selected
+25. Manually responsive for mobile devices
 
 == Changelog ==
+
 = 2.7 =
-* Export Import Issue Fix
-* Added lots of Filter Hooks
-* Added lots of Action Hooks
-* Added User Role Administrator
-* add User cap for edit,delete,private etc for Product Table
-* Lots of new Features Added
-* Plugin Recommendation on/off features Added
-* Device Wise Different Column Feature Added
-* Jetpack Conflict/ Tab Conflic Issue Fixed
-* JavaScript Bug Fix
-* PHP Bug Fix
+* Fixed: Export Import Issue Fix
+* Added: Lots of Filter Hooks
+* Added: Lots of Action Hooks
+* Added: Changable user permission
+* Added: Freeze column start of table
+* Added: Lots of new features
+* Added: Manually enable/disable column for mobile and tablet
+* Added: Plugin Recommendation on/off feature
+* Added: Device Wise Different Column Feature
+* Fixed: Jetpack Conflict/ Tab Conflict Issue
+* Fixed: JavaScript Bug Fix
+* Fixed: PHP Bug Fix
 
 
 = 2.0 =
