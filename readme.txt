@@ -151,6 +151,9 @@ You can easily show specific category products. While creating new table click o
 
 == Changelog ==
 
+= 2.7.1 =
+* Fixed: Plugin Permission Issue Fixed
+
 = 2.7 =
 * Fixed: Export Import Issue Fix
 * Added: Lots of Filter Hooks
