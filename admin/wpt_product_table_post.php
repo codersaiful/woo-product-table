@@ -126,12 +126,3 @@ if( !function_exists( 'wpt_preview_button_hiding' ) ){
         return $actions;
     }
 }
-
-add_action( 'plugins_loaded', function(){
-    global $pagenow;
-    if( !current_user_can( WPT_CAPABILITY ) ){
-        WPT_Product_Table::install();
-        wp_redirect( admin_url( 'edit.php?post_type=wpt_product_table' ) );
-    }
-    
-});
