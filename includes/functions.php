@@ -920,3 +920,36 @@ $css_code = ob_get_clean();
     }
 }
 add_action( 'wpto_table_wrapper_bottom', 'wpt_freeze_column_maintain',9910,4 );
+
+
+if( !function_exists( 'wpt_item_manage_from_theme' ) ){
+
+    /**
+     * Managing Final File Location 
+     * Actually if a user keep his Item Template file at His theme,
+     * That will get First Priority 
+     * Then template file will come from user defined template location
+     * We have used following Filter
+     * apply_filters( 'wpto_item_final_loc', $file, $file_name, $items_directory_2, $keyword, $table_ID, $settings, $items_permanent_dir );
+     * 
+     * To get Item's Template From Active Theme, Use following Directory
+     * [YourTheme]/woo-product-table/items/[YourItemFileName].php
+     * 
+     * Suppose, Item name is price, than location/directory from theme will be:
+     * [YourTheme]/woo-product-table/items/price.php
+     * 
+     * @param type $file
+     * @param type $items_directory_2
+     * @param type $file_name
+     * 
+     * @return type $file This Function will return $file Location of Items
+     */
+    function wpt_item_manage_from_theme( $file, $file_name ){
+        $file_frm_theme = get_stylesheet_directory() . '/woo-product-table/items/' . $file_name . '.php';
+        if( file_exists( $file_frm_theme ) ){
+            return $file_frm_theme;
+        }
+        return $file;
+    }
+}
+add_filter( 'wpto_item_final_loc', 'wpt_item_manage_from_theme', 1, 2 );

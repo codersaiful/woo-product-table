@@ -79,7 +79,18 @@ foreach( $table_column_keywords as $keyword => $keyword_title ){
 
         $file = apply_filters( 'wpto_template_loc', $file, $keyword, $type, $table_ID, $product, $file_name, $column_settings, $settings ); //@Filter Added 
         $file = apply_filters( 'wpto_template_loc_type_' . $type, $file, $keyword, $table_ID, $product, $file_name, $column_settings, $settings ); //@Filter Added
-        $file  = $requested_file = apply_filters( 'wpto_template_loc_item_' . $keyword, $file, $table_ID, $product, $file_name, $column_settings, $settings ); //@Filter Changed added Args $fileName
+        $file  = apply_filters( 'wpto_template_loc_item_' . $keyword, $file, $table_ID, $product, $file_name, $column_settings, $settings ); //@Filter Changed added Args $fileName
+        
+        /**
+         * File Template Final Filter 
+         * We have created this to make a new features, Where user will able to load template from Theme's Directory
+         * 
+         * To Load a new template of item from Theme, Use following location
+         * [YourTheme]/woo-product-table/items/[YourItemFileName].php
+         * 
+         * Functionality Added at includes/functions.php file.
+         */
+        $file = $requested_file = apply_filters( 'wpto_item_final_loc', $file, $file_name, $items_directory_2, $keyword, $table_ID, $settings, $items_permanent_dir );
 
         if( !file_exists( $file ) ){
             $file = $items_permanent_dir . 'default.php';
