@@ -60,7 +60,9 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
             $search_n_filter = get_post_meta( $ID, 'search_n_filter', true );
             $pagination = get_post_meta( $ID, 'pagination', true );
             $config_value = wpt_get_config_value( $table_ID ); //Added at V5.0
-            array_unshift( $config_value, get_the_title( $ID ) ); //Added at V5.0
+            if( is_array( $config_value ) ){
+                array_unshift( $config_value, get_the_title( $ID ) ); //Added at V5.0
+            }
 
 
             /**
