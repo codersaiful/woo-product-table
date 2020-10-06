@@ -19,8 +19,8 @@ if( !function_exists( 'wpt_admin_form_top' ) ){
         ?>
         <ul class="wpt_admin_form_links" style="margin: 0">
             <li><a class="wpt_get_pro_form_top_link" target="_blank" title="Awesome Pro features is Waiting for you!" href="https://codecanyon.net/item/woo-product-table-pro/20676867">Get Pro</a></li>  
-            <li><a target="_blank" href="https://www.wcproducttable.xyz/demo-list/">Demo</a></li>
-            <li><a target="_blank" href="https://www.wcproducttable.xyz/docs/">Basic Helps</a></li>
+            <li><a target="_blank" href="https://demo.wooproducttable.com/">Demo</a></li>
+            <li><a target="_blank" href="https://wooproducttable.com/docs/">Basic Helps</a></li>
             <li><a target="_blank" href="https://docs.codeastrology.com/woo-product-table-pro/#intro">Documentation</a></li>
             <li><a target="_blank" href="https://codeastrology.com/support/">Get Support</a></li> 
             <li><a target="_blank" href="https://codeastrology.com/support/forums/forum/woo-product-table-pro-making-quick-order-table/">Forum</a></li>

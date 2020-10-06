@@ -60,6 +60,12 @@ Add the shortcode to any existing post or page:
 This plugin will help you to show All product in 1 page as Table. Also able to change/customize. Go to: Dashboard->PRODUCT TABLE . If you found any issue, Please inform me to codersaiful@gmail.com.
 
 
+**Columns/Item Load from Theme/ChildTheme**
+To get Item's Template From Active Theme, Use following Directory.
+* `[YourTheme]/woo-product-table/items/[YourItemFileName].php`
+Suppose: Item name is price, than location/directory from theme will be:
+* `[YourTheme]/woo-product-table/items/price.php`
+
 **Have a looks in short**
 https://www.youtube.com/watch?v=ZloiY3NRmW8
 **Pro Version's Features**
@@ -150,7 +156,12 @@ You can easily show specific category products. While creating new table click o
 
 == Changelog ==
 
-= 2.7.1 =
+= 2.7.3 =
+* New: Columns/Item's Template file load from Theme. Location: [YourTheme]/woo-product-table/items/[YourItemFileName].php
+* New: A new Filter `wpto_item_final_loc` Added
+* Doc's link Updated
+
+= 2.7.2 =
 * Fixed: Guest Purchase Issue Fixed
 
 = 2.7.1 =
