@@ -10,7 +10,7 @@ Woo Product Table has Tiny Shortcode. Easy to use and No need programming knowle
 - Developer Friendly - Available lots of Filter and Action Hook
 - Support all theme and plugin
 - Displaying product list as table within a minute.
-- So many lots of features [Read More](https://www.wcproducttable.xyz/)
+- So many lots of features [Read More](https://wooproducttable.com/)
 
 ### Available Filter and Action Hooks List
 https://docs.google.com/spreadsheets/d/1RwnzuupIYC-ao2R3_P3hZU__R-8nA3p7o2XoWWntNig/edit?usp=sharing

@@ -32,7 +32,7 @@
                         <li><code>%name%</code>: Product Title</li>
                         <li><code>%excerpt%</code>: Short Description</li>
                     </ul>
-                    <p>Example: <strong>[favorite_button post_id="%product_id%" title="%name%"]</strong><br />To see all the supported shortcodes <a href="https://www.wcproducttable.xyz/kb/supported-attributes-of-shortcode-and-content-column/" target="_blank">click here</a></p>
+                    <p>Example: <strong>[favorite_button post_id="%product_id%" title="%name%"]</strong><br />To see all the supported shortcodes <a href="https://wooproducttable.com/supported-attributes-of-shortcode-and-content-column/" target="_blank">click here</a></p>
                 </div>
             </div>
             <div class="section ultraaddons-feature-panel even">
@@ -43,7 +43,7 @@
                     <h2>Custom Table Design</h2>
                     <p>As per above section, we have designed our content column with WordPress Classic Editor. 
                         And now look the design in the front.</p>
-                    <p>To learn more about how to use them, <a href="https://www.wcproducttable.xyz/kb/supported-attributes-of-shortcode-and-content-column/" target="_blank">click here</a></p>
+                    <p>To learn more about how to use them, <a href="https://wooproducttable.com/supported-attributes-of-shortcode-and-content-column/" target="_blank">click here</a></p>
                 </div>
             </div>
             <div class="section ultraaddons-feature-panel odd">
@@ -116,9 +116,9 @@
                 <div class="col col-left has-text">
                     <h2>And many more</h2>
                     <p>Many more awesome feature is waiting...</p>
-                    <p><a href="https://wcproducttable.xyz/" target="_blank">wcproducttable.xyz</a></p>
-                    <p><a href="https://www.wcproducttable.xyz/demo-list/" target="_blank">Table Demo</a></p>
-                    <p><a href="https://www.wcproducttable.xyz/docs/" target="_blank">Basic Helps</a></p>
+                    <p><a href="https://wooproducttable.com/" target="_blank">wooproducttable.com</a></p>
+                    <p><a href="https://demo.wooproducttable.com/" target="_blank">Table Demo</a></p>
+                    <p><a href="https://wooproducttable.com/docs/" target="_blank">Basic Helps</a></p>
                     <p><a href="http://docs.codeastrology.com/woo-product-table-pro/#intro" target="_blank">Documentation</a></p>
                 </div>
             </div>
