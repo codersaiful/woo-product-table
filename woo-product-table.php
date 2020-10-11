@@ -463,6 +463,10 @@ class WPT_Product_Table{
        $this->setConstant($path_args);
        //Load File
        if( is_admin() ){
+           //Coll elementor Module, If installed Elementor
+           if ( did_action( 'elementor/loaded' ) ) {
+                include_once $this->path('BASE_DIR','modules/elementor.php'); //MObile or Table Defice Detector
+            }
             include_once $this->path('BASE_DIR','admin/wpt_product_table_post.php');
             include_once $this->path('BASE_DIR','admin/post_metabox.php');
             include_once $this->path('BASE_DIR','admin/duplicate.php');
