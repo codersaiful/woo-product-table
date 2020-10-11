@@ -156,6 +156,13 @@ You can easily show specific category products. While creating new table click o
 
 == Changelog ==
 
+= 2.7.5 =
+* Fixed: Chrome Scrollbar Issue fixed.
+
+= 2.7.4 =
+* New: a attribute on tr tag added for more customize feature from javascript
+* New: js Trigger Event added on custom.js to control plugin from different addons plugin.
+
 = 2.7.3 =
 * New: Columns/Item's Template file load from Theme. Location: [YourTheme]/woo-product-table/items/[YourItemFileName].php
 * New: A new Filter `wpto_item_final_loc` Added
