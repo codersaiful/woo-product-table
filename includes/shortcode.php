@@ -568,6 +568,14 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
             'checkbox'               => $checkbox,
         );
 
+        ob_start();
+        /**
+         * Action for before Table
+         * @since 2.7.5.2
+         */
+        do_action( 'wpto_action_before_table', $table_ID, $args, $column_settings, $enabled_column_array, $config_value, $atts );
+        $html .= ob_get_clean();
+        
         $html .= '<div class="wpt_table_tag_wrapper">'; //Table tag wrapper start
 
         $page_number_1plugs = $args['paged'] + 1;
@@ -585,13 +593,7 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
         $table_class_arr = apply_filters( 'wpto_table_tag_class_arr', $table_class_arr, $table_ID, $args, $column_settings, $enabled_column_array, $column_array);
         $table_class_arr = implode( " ", $table_class_arr );
 
-        ob_start();
-        /**
-         * Action for before Table
-         * @since 2.7.5.2
-         */
-        do_action( 'wpto_action_before_table', $table_ID, $args, $column_settings, $enabled_column_array, $config_value, $atts );
-        $html .= ob_get_clean();
+        
         $html .= "<table "
                 . "data-page_number='" . esc_attr( $page_number_1plugs ) . "' "
                 . "data-temp_number='" . esc_attr( $temp_number ) . "' "
@@ -646,7 +648,7 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
 
         $html .= '</tbody>'; //Tbody End here
         $html .= "</table>"; //Table tag wrapper End
-        
+        $html .= "</div>"; //End of .wpt-table-tag-wrapper
         ob_start();
         /**
          * Action for After Table
@@ -655,7 +657,6 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
         do_action( 'wpto_action_after_table', $table_ID, $args, $column_settings, $enabled_column_array, $config_value, $atts );
         $html .= ob_get_clean();
         
-        $html .= "</div>"; //End of .wpt-table-tag-wrapper
         $Load_More_Text = $config_value['load_more_text'];
 
         //pagination

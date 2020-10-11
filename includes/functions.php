@@ -932,13 +932,14 @@ if( !function_exists( 'wpt_add_div_at_top' ) ){
      */
     function wpt_add_div_at_top( $table_ID ){
     ?>
-<div class="wpt_second_wrapper wpt_second_wrapper_<?php echo esc_attr( $table_ID ); ?>" style="color: white;background: #abc;min-height: 50px;">
-HELLO
+<div data-product_id="<?php echo esc_attr( $table_ID ); ?>" class="wpt_second_wrapper wpt_second_wrapper_<?php echo esc_attr( $table_ID ); ?>">
+    <div class="wpt_second_content">
+    </div>
 </div>    
     <?php
     }
 }
-//add_action( 'wpto_action_before_table', 'wpt_add_div_at_top' );
+add_action( 'wpto_action_before_table', 'wpt_add_div_at_top' );
 
 if( !function_exists( 'wpt_item_manage_from_theme' ) ){
 

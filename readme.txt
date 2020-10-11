@@ -158,6 +158,7 @@ You can easily show specific category products. While creating new table click o
 
 = 2.7.5 =
 * Fixed: Chrome Scrollbar Issue fixed.
+* Added: Overflow Scrollbar Added at the top of the Table.
 * Added: Action Hook 'wpto_action_before_table' added for just before table
 * Added: Action Hook 'wpto_action_after_table' added for just after table
 

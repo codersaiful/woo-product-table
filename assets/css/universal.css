@@ -1461,11 +1461,12 @@ div.wpt_product_table_wrapper .elementor-menu-cart__product-image img {
     display: block;
 }
 
-.wpt_table_tag_wrapper {
+.wpt_table_tag_wrapper,.wpt_second_wrapper{
     display: block;
     overflow-x: auto;
 }
-
+.wpt_second_content{display: block;min-height: 1px;}
+.wpt_second_wrapper{margin-bottom: 5px;}
 
 .wpt_product_table_wrapper select,
 .wpt_varition_section select{

@@ -2139,7 +2139,14 @@
             var table_id = $(this).data('temp_number');
             var tableEl = $(this).find('table.wpt_product_table');
             var width = tableEl.width();
-            $('.wpt_second_wrapper.wpt_second_wrapper_' + table_id).css('width',width);
+            $('.wpt_second_wrapper.wpt_second_wrapper_' + table_id + ' div.wpt_second_content').css('width',width);
+        });
+                
+        $(".wpt_table_tag_wrapper").scroll(function () {
+            $(".wpt_second_wrapper").scrollLeft($(".wpt_table_tag_wrapper").scrollLeft());
+        });
+        $(".wpt_second_wrapper").scroll(function () {
+            $(".wpt_table_tag_wrapper").scrollLeft($(".wpt_second_wrapper").scrollLeft());
         });
         
         arrangingTDContentForMobile();
