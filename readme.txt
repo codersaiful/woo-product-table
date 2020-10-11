@@ -158,6 +158,8 @@ You can easily show specific category products. While creating new table click o
 
 = 2.7.5 =
 * Fixed: Chrome Scrollbar Issue fixed.
+* Added: Action Hook 'wpto_action_before_table' added for just before table
+* Added: Action Hook 'wpto_action_after_table' added for just after table
 
 = 2.7.4 =
 * New: a attribute on tr tag added for more customize feature from javascript

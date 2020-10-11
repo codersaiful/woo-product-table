@@ -921,6 +921,24 @@ $css_code = ob_get_clean();
 }
 add_action( 'wpto_table_wrapper_bottom', 'wpt_freeze_column_maintain',9910,4 );
 
+if( !function_exists( 'wpt_add_div_at_top' ) ){
+
+    /**
+     * Add a new div at the top of the table, To add a Wrapper wrapper at the Top
+     * 
+     * @param Int $table_ID
+     * @since 2.7.5.2
+     * @date 11 Oct, 2020
+     */
+    function wpt_add_div_at_top( $table_ID ){
+    ?>
+<div class="wpt_second_wrapper wpt_second_wrapper_<?php echo esc_attr( $table_ID ); ?>" style="color: white;background: #abc;min-height: 50px;">
+HELLO
+</div>    
+    <?php
+    }
+}
+//add_action( 'wpto_action_before_table', 'wpt_add_div_at_top' );
 
 if( !function_exists( 'wpt_item_manage_from_theme' ) ){
 
