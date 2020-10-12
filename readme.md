@@ -78,7 +78,7 @@ $my_shortcode = isset( $settings['text'] ) ? $settings['text'] : '';
 echo do_shortcode( $settings['text'] );
 ```
 
-How to Change Label text for URL Field and File Type Field of ACF. Use following CSS.
+How to Change Label text for URL Field and File Type Field of ACF. Use following Filter.
 ```php
 <?php
 
