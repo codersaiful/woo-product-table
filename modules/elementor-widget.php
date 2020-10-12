@@ -160,6 +160,12 @@ class WPT_Elementor_Widget extends \Elementor\Widget_Base{
             $table_id = isset( $settings['table_id'] ) && !empty( $settings['table_id'] ) ? $settings['table_id'] : false;
             if( $table_id && is_numeric( $table_id ) ){
                 echo do_shortcode( "[Product_Table id='{$table_id}']" );
+                $shortcode = do_shortcode( shortcode_unautop( $shortcode ) );
+		?>
+                <div class="wpt-elementor-wrapper wpt-elementor-wrapper-<?php echo esc_attr( $table_id ); ?>">
+                    <?php echo $shortcode; ?>
+                </div>
+		<?php
             }else{
                 echo '<h2 class="wpt_elmnt_select_note">';
                 echo esc_html__( 'Please select a Table.', 'wpt_pro' );
