@@ -77,3 +77,14 @@ $my_shortcode = isset( $settings['text'] ) ? $settings['text'] : '';
  
 echo do_shortcode( $settings['text'] );
 ```
+
+How to Change Label text for URL Field and File Type Field of ACF. Use following CSS.
+```php
+<?php
+
+function wpt_custom_extra_label_change( $label, $id ){
+    $label = get_post_meta($id, 'my_custom_label', true);
+    return $label;
+}
+add_filter( 'wpt_extra_label_text', 'wpt_custom_extra_label_change', 10, 2 );
+```
