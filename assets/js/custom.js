@@ -1459,8 +1459,8 @@
                 var targetTotalSelector = $('#table_id_' + temp_number + ' .product_id_' + product_id + ' .wpt_total_item.total_general');
                  
             
-                var targetWeightSelector = $('#table_id_' + temp_number + ' .product_id_' + product_id + ' .wpt_weight');
-                var targetWeightAttr = $('#table_id_' + temp_number + ' .product_id_' + product_id + ' .wpt_weight').attr('data-weight');
+                var targetWeightSelector = $('#table_id_' + temp_number + ' .product_id_' + product_id + ' .weight-box');
+                var targetWeightAttr = $('#table_id_' + temp_number + ' .product_id_' + product_id + ' .weight-box').attr('data-weight');
                 var totalWeight =  parseFloat(targetWeightAttr) * parseFloat(Qty_Val);
                 totalWeight = totalWeight.toFixed(2);
                 if(totalWeight === 'NaN'){

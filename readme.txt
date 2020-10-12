@@ -156,6 +156,9 @@ You can easily show specific category products. While creating new table click o
 
 == Changelog ==
 
+= 2.7.6 =
+* Fixed: Product Weight calculation issue fixed.
+
 = 2.7.5 =
 * Fixed: Chrome Scrollbar Issue fixed.
 * Added: Overflow Scrollbar Added at the top of the Table.
