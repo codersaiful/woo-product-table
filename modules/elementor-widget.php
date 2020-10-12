@@ -159,7 +159,8 @@ class WPT_Elementor_Widget extends \Elementor\Widget_Base{
             $settings = $this->get_settings_for_display();
             $table_id = isset( $settings['table_id'] ) && !empty( $settings['table_id'] ) ? $settings['table_id'] : false;
             if( $table_id && is_numeric( $table_id ) ){
-                echo do_shortcode( "[Product_Table id='{$table_id}']" );
+                $name = get_the_title( $table_id );
+                $shortcode = "[Product_Table id='{$table_id}' name='{$name}']";
                 $shortcode = do_shortcode( shortcode_unautop( $shortcode ) );
 		?>
                 <div class="wpt-elementor-wrapper wpt-elementor-wrapper-<?php echo esc_attr( $table_id ); ?>">
