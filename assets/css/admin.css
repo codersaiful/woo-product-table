@@ -747,7 +747,9 @@ div#wpt_configuration_form .ultraaddons-panel {
     padding-bottom: 10px;
     */
 }
-div#wpt_configuration_form select.wpt_select2,#wpt_product_ids,span.select2.select2-container{width: 100% !important;}
+div#wpt_configuration_form select.wpt_select2,
+#wpt_product_ids,
+#wpt_configuration_form span.select2.select2-container{width: 100% !important;}
 
 span.wpt_column_arrow {
     position: absolute;
