@@ -1588,7 +1588,6 @@
          */
         $(window).on('wpt_changed_variations',function(e,Attrs){
             if( Attrs.status ){
-                console.log(Attrs);
                 var product_id = Attrs.product_id;
                 var quoteElm = $('tr.product_id_'+product_id + ' td.wpt_quoterequest a.wpt_yith_add_to_quote_request');
                 var response_msg = quoteElm.data('msg');
