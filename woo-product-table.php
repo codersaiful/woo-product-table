@@ -477,9 +477,15 @@ class WPT_Product_Table{
        }
     //Coll elementor Module, If installed Elementor
     if ( did_action( 'elementor/loaded' ) ) {
-        include_once $this->path('BASE_DIR','modules/elementor.php'); //MObile or Table Defice Detector
-     }   
-       
+        include_once $this->path('BASE_DIR','modules/elementor.php'); //MObile or Table Defice Detector //gutenberg
+    }   
+    /**
+     * Supporting Gutenberg 
+     * 
+     * @since 2.7.6
+     */
+    //include_once $this->path('BASE_DIR','modules/gutenberg.php'); //gutenberg
+    
     if( !class_exists( 'Mobile_Detect' ) ){
         include_once $this->path('BASE_DIR','modules/Mobile_Detect.php'); //MObile or Table Defice Detector
     }
