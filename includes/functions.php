@@ -804,7 +804,7 @@ if( !function_exists( 'wpt_args_manipulation_frontend' ) ){
      * @return type
      */
     function wpt_args_manipulation_frontend( $args ){
-        
+
         if( is_page() || is_single() ){
             return $args;
         }
