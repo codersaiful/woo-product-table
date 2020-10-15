@@ -159,6 +159,7 @@ You can easily show specific category products. While creating new table click o
 = 2.7.6 =
 * Fixed: Product Weight calculation issue fixed.
 * Added: Elementor Widget Features Added.
+* Fixed: Table on Product Page (Not showing product issue) has solved
 
 = 2.7.5 =
 * Fixed: Chrome Scrollbar Issue fixed.

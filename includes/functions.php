@@ -804,6 +804,10 @@ if( !function_exists( 'wpt_args_manipulation_frontend' ) ){
      * @return type
      */
     function wpt_args_manipulation_frontend( $args ){
+        
+        if( is_page() || is_single() ){
+            return $args;
+        }
         //MainTain for Archives Page
         global $wpdb;
         $query_vars = isset( $GLOBALS['wp_query']->query_vars ) ? $GLOBALS['wp_query']->query_vars : false;
