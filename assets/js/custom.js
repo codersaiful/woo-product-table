@@ -1584,6 +1584,21 @@
         }
         
         /**
+         * Quote Button Revert on Change Variation
+         */
+        $(window).on('wpt_changed_variations',function(e,Attrs){
+            if( Attrs.status ){
+                var product_id = Attrs.product_id;
+                var quoteElm = $('tr.product_id_'+product_id + ' td.wpt_quoterequest a.wpt_yith_add_to_quote_request');
+                var response_msg = quoteElm.data('msg');
+                quoteElm.html(response_msg.text);
+                
+                quoteElm.closest('div.quoterequest').find('.yith_ywraq_add_item_response_message').remove();
+                quoteElm.closest('div.quoterequest').find('.yith_browse_link').remove();
+
+            }
+        });
+        /**
          * For Add to Quote Plugin
          * YITH add to Quote Request plugin
          * @since 2.6 
@@ -1599,7 +1614,9 @@
             }
             var msg = $(this).data('msg');
             var response_msg = $(this).attr('data-response_msg');
-            if(response_msg !== ''){
+            var type = $(this).closest('tr.wpt_row').data('type')
+            
+            if(type !== 'variable' && response_msg !== ''){
                 alert(response_msg);
                 $('.' + selector).html(msg.added);
                 return false;
@@ -1647,7 +1664,7 @@
                     //$('.' + selector + '+.yith_ywraq_add_item_browse_message').remove();
                     //$('.' + selector + '+.yith_ywraq_add_item_response_message').remove();
                     html = '<div class="yith_ywraq_add_item_response_message">' + response.message + '</div>';
-                    html += '<a href="'+response.rqa_url+'" target="_blank">' + yith_browse_list + '</a>';
+                    html += '<a class="yith_browse_link" href="'+response.rqa_url+'" target="_blank">' + yith_browse_list + '</a>';
                     
                     $('.' + selector).parent().append( html ).show(); //response.label_browse
                 }else{
