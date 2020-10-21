@@ -466,7 +466,7 @@
 
             //Changed at2.9
             var quantity = $(this).attr('data-quantity');
-            var custom_message = $('#table_id_' + temp_number + ' table#wpt_table .wpt_row_product_id_' + product_id + ' .wpt_Message input.message').val();
+            var custom_message = $('#table_id_' + temp_number + ' table#wpt_table .wpt_row_product_id_' + product_id + ' .wpt_message input.message').val();
             var variation_id = $(this).attr('data-variation_id');
             var variation = $(this).attr('data-variation');
             if(variation){
@@ -967,7 +967,7 @@
                 }
                 
                 var currentAddToCartSelector = $('#table_id_' + temp_number + ' #product_id_' + product_id + ' .wpt_action a.wpt_woo_add_cart_button');
-                var currentCustomMessage = $('#table_id_' + temp_number + ' #product_id_' + product_id + ' .wpt_Message input.message').val();
+                var currentCustomMessage = $('#table_id_' + temp_number + ' #product_id_' + product_id + ' .wpt_message input.message').val();
                 var currentVariaionId = currentAddToCartSelector.attr('data-variation_id');//currentAddToCartSelector.data('variation_id');
                 //var currentVariaion = currentAddToCartSelector.data('variation');
                 var currentVariaion;
@@ -1743,7 +1743,7 @@
             var thisColObject = $(this);
             var status = false;
             //for check box collumn //wpt_thumbnails //wpt_product_id
-            if(target_class !== '.wpt_product_id' && target_class !== '.wpt_thumbnails' && target_class !== '.wpt_quick' && target_class !== '.wpt_Message' && target_class !== '.wpt_serial_number' && target_class !== '.wpt_quoterequest' && target_class !== '.wpt_check' && target_class !== '.wpt_quantity' && target_class !== '.wpt_action'){
+            if(target_class !== '.wpt_product_id' && target_class !== '.wpt_thumbnails' && target_class !== '.wpt_quick' && target_class !== '.wpt_message' && target_class !== '.wpt_serial_number' && target_class !== '.wpt_quoterequest' && target_class !== '.wpt_check' && target_class !== '.wpt_quantity' && target_class !== '.wpt_action'){
             
                 $(target_table_wrapper_id + ' .' +class_for_sorted).removeClass(class_for_sorted);
                 
