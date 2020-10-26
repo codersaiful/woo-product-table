@@ -57,7 +57,7 @@ if( !function_exists( 'wpt_enqueue' ) ){
            'cart_url' => wc_get_cart_url(),
            'priceFormat' => wpt_price_formatter(),
            'version' => $version,
-           'resize_loader' => true,
+           'resize_loader' => apply_filters( 'wpto_resize_reloader', true ),
            );
        $WPT_DATA = apply_filters( 'wpto_localize_data', $WPT_DATA );
        wp_localize_script( 'wpt-custom-js', 'WPT_DATA', $WPT_DATA );
