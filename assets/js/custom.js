@@ -1626,7 +1626,8 @@
             var add_to_cart_info;
             var wp_nonce = $(this).data('wp_nonce');
             var product_id = $(this).data('product_id');
-            
+            var parent_id = $(this).closest('tr.wpt_row').data('parent_id');
+
             var quantity = $(this).attr('data-quantity');
             var quote_data = $(this).attr('data-quote_data');
             var yith_browse_list = $(this).data('yith_browse_list');
@@ -1635,12 +1636,28 @@
             add_to_cart_info = 'action=yith_ywraq_action&ywraq_action=add_item';
             add_to_cart_info += quote_data;
             add_to_cart_info += '&quantity=' + quantity;
+            console.log(product_id,parent_id);
+            /**
+             * When Table will show "Only Variation" as row
+             * Then Product ID will get from Parent ID
+             * And variation id will be product ID
+             * 
+             * @since 2.7.7
+             */
+            if( type === 'variation' ){
+               var variation_id = product_id;
+               product_id = parent_id;
+                add_to_cart_info += '&variation_id=' + variation_id;
+            }
+            console.log(product_id,parent_id,variation_id);
             add_to_cart_info += '&product_id=' + product_id;
             add_to_cart_info += '&wp_nonce=' + wp_nonce;
             add_to_cart_info += '&yith-add-to-cart=' + product_id;
             var yith_ajax_url;// = ywraq_frontend.ajaxurl;
             yith_ajax_url = ywraq_frontend.ajaxurl.toString().replace( '%%endpoint%%', 'yith_ywraq_action' );
-
+            console.log(quote_data);
+            console.log('attribute_pa_color=red&attribute_logo=No&quantity=1&yith-add-to-cart=14&product_id=14&variation_id=30&action=yith_ywraq_action&ywraq_action=add_item&product_id=14&wp_nonce=33eba01359');
+            console.log(add_to_cart_info);
             $.ajax({
             type   : 'POST',
             url    : yith_ajax_url,
