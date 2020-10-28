@@ -1633,10 +1633,16 @@
             var yith_browse_list = $(this).data('yith_browse_list');
             
             
+            var temp_number = $(this).closest('tr.wpt_row').data('temp_number');
+            var addToCartSelector = $('#table_id_' + temp_number + ' #product_id_' + product_id + ' a.wpt_product_title_in_td');
+            var url_params = addToCartSelector.attr('href');
+            var split_params = url_params.split('?');
+            if( typeof split_params[1] !== 'undefined' && type === 'variation' ){
+                quote_data = '&' + split_params[1];
+            }
             add_to_cart_info = 'action=yith_ywraq_action&ywraq_action=add_item';
             add_to_cart_info += quote_data;
             add_to_cart_info += '&quantity=' + quantity;
-            console.log(product_id,parent_id);
             /**
              * When Table will show "Only Variation" as row
              * Then Product ID will get from Parent ID
@@ -1649,15 +1655,11 @@
                product_id = parent_id;
                 add_to_cart_info += '&variation_id=' + variation_id;
             }
-            console.log(product_id,parent_id,variation_id);
             add_to_cart_info += '&product_id=' + product_id;
             add_to_cart_info += '&wp_nonce=' + wp_nonce;
             add_to_cart_info += '&yith-add-to-cart=' + product_id;
             var yith_ajax_url;// = ywraq_frontend.ajaxurl;
             yith_ajax_url = ywraq_frontend.ajaxurl.toString().replace( '%%endpoint%%', 'yith_ywraq_action' );
-            console.log(quote_data);
-            console.log('attribute_pa_color=red&attribute_logo=No&quantity=1&yith-add-to-cart=14&product_id=14&variation_id=30&action=yith_ywraq_action&ywraq_action=add_item&product_id=14&wp_nonce=33eba01359');
-            console.log(add_to_cart_info);
             $.ajax({
             type   : 'POST',
             url    : yith_ajax_url,
