@@ -2290,5 +2290,15 @@
             });
         }     
         
+        
+        /**
+         * Mainly for Total column
+         * I just Insert Trigger
+         * 
+         * @since 2.7.7
+         * @date 28.10.2020
+         */
+        $('.wpt_product_table input.input-text.qty.text').trigger('change');
+        
     });
 })(jQuery);
