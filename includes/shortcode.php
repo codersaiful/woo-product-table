@@ -894,6 +894,8 @@ if( !function_exists( 'wpt_table_row_generator' ) ){
 
                 $data = $product->get_data();
                 $product_type = $product->get_type();
+                $parent_id = $product->get_parent_id(); // Version 2.7.7
+                
                 (Int) $id = $data['id'];     
 
                 $taxonomy_class = 'filter_row ';

@@ -2,11 +2,12 @@
 
 echo "<tr role='row' "
 . "data-title='" . esc_attr( $data['name'] ) . "' "
-        . "data-product_id='" . $data['id'] . "' "
-        . "data-temp_number='" . $temp_number . "' "
-        . "data-type='" . $product_type . "' "
-        . "data-quantity='" . $default_quantity . "' "
-        . "id='product_id_" . $data['id'] . "' "
+        . "data-product_id='" . esc_attr( $data['id'] ) . "' "
+        . "data-temp_number='" . esc_attr( $temp_number ) . "' "
+        . "data-type='" . esc_attr( $product_type ) . "' "
+        . "data-parent_id='" . esc_attr( $parent_id ) . "' "
+        . "data-quantity='" . esc_attr( $default_quantity ) . "' "
+        . "id='product_id_" . esc_attr( $data['id'] ) . "' "
         . "class='" . esc_attr( $tr_class ) . "' "
         . "data-product_variations='" . $data_product_variations . "' "
         . "{$data_tax}>"; //Data Tax has come from Taxonomy or Mini Filter

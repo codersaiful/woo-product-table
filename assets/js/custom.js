@@ -1626,21 +1626,40 @@
             var add_to_cart_info;
             var wp_nonce = $(this).data('wp_nonce');
             var product_id = $(this).data('product_id');
-            
+            var parent_id = $(this).closest('tr.wpt_row').data('parent_id');
+
             var quantity = $(this).attr('data-quantity');
             var quote_data = $(this).attr('data-quote_data');
             var yith_browse_list = $(this).data('yith_browse_list');
             
             
+            var temp_number = $(this).closest('tr.wpt_row').data('temp_number');
+            var addToCartSelector = $('#table_id_' + temp_number + ' #product_id_' + product_id + ' a.wpt_product_title_in_td');
+            var url_params = addToCartSelector.attr('href');
+            var split_params = url_params.split('?');
+            if( typeof split_params[1] !== 'undefined' && type === 'variation' ){
+                quote_data = '&' + split_params[1];
+            }
             add_to_cart_info = 'action=yith_ywraq_action&ywraq_action=add_item';
             add_to_cart_info += quote_data;
             add_to_cart_info += '&quantity=' + quantity;
+            /**
+             * When Table will show "Only Variation" as row
+             * Then Product ID will get from Parent ID
+             * And variation id will be product ID
+             * 
+             * @since 2.7.7
+             */
+            if( type === 'variation' ){
+               var variation_id = product_id;
+               product_id = parent_id;
+                add_to_cart_info += '&variation_id=' + variation_id;
+            }
             add_to_cart_info += '&product_id=' + product_id;
             add_to_cart_info += '&wp_nonce=' + wp_nonce;
             add_to_cart_info += '&yith-add-to-cart=' + product_id;
             var yith_ajax_url;// = ywraq_frontend.ajaxurl;
             yith_ajax_url = ywraq_frontend.ajaxurl.toString().replace( '%%endpoint%%', 'yith_ywraq_action' );
-
             $.ajax({
             type   : 'POST',
             url    : yith_ajax_url,
@@ -2272,6 +2291,16 @@
 
             });
         }     
+        
+        
+        /**
+         * Mainly for Total column
+         * I just Insert Trigger
+         * 
+         * @since 2.7.7
+         * @date 28.10.2020
+         */
+        $('.wpt_product_table input.input-text.qty.text').trigger('change');
         
     });
 })(jQuery);
