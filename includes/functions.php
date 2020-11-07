@@ -361,6 +361,7 @@ if( !function_exists( 'wpt_per_item_fragment' ) ) {
                     foreach($Cart as $perItem){
                         //var_dump($perItem);
                         $pr_id = (String) $perItem['product_id'];
+                        $pr_id = apply_filters( 'wpto_id_of_item', $pr_id, $perItem );
                         $pr_value = (String) $perItem['quantity'];
                         $product_response[$pr_id] = (String)  (isset( $product_response[$pr_id] ) ? $product_response[$pr_id] + $pr_value : $pr_value);
                     }
