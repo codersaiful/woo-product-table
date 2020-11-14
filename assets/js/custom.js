@@ -673,30 +673,36 @@
 
             var targetVariationIndex = 'not_found';
             var selectAllItem = true;
-            variations_data.forEach(function(attributesObject, objectNumber) {
-                $.each(current,function(key,value){
-                    if(value === "0"){
-                        selectAllItem = false;
-                    }
-                });
-                var total_right_combination=0, total_combinationable=0;
-                if(selectAllItem){
-                    $.each(attributesObject.attributes,function(key,value){
-                        if(value === "" || value === current[key]){
-                            total_right_combination++;
+            try{
+                variations_data.forEach(function(attributesObject, objectNumber) {
+                    $.each(current,function(key,value){
+                        if(value === "0"){
+                            selectAllItem = false;
                         }
-                        total_combinationable++;
                     });
-                    if(total_right_combination === total_combinationable){
-                        targetVariationIndex = parseInt(objectNumber);
-                        
-                    }
-                    
-                }else{
-                    targetRightCombinationMsg = selectAllItemMessage; //"Please select all Items.";
-                }
+                    var total_right_combination=0, total_combinationable=0;
+                    if(selectAllItem){
+                        $.each(attributesObject.attributes,function(key,value){
+                            if(value === "" || value === current[key]){
+                                total_right_combination++;
+                            }
+                            total_combinationable++;
+                        });
+                        if(total_right_combination === total_combinationable){
+                            targetVariationIndex = parseInt(objectNumber);
 
-            });
+                        }
+
+                    }else{
+                        targetRightCombinationMsg = selectAllItemMessage; //"Please select all Items.";
+                    }
+
+                });
+
+                
+            }catch(e){
+                //e.getMessage();
+            }
             
             var wptMessageText = false;
             if (targetVariationIndex !== 'not_found') {
