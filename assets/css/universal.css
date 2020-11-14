@@ -924,7 +924,6 @@ a.button.wpt_woo_add_cart_button>span.wpt_ccount {
     background: white !important;
     color: black;
     min-width: 30px;
-    width: auto;
     height: 30px;
     border: 1px solid #e6e6e6;
     top: -15px;
@@ -934,8 +933,10 @@ a.button.wpt_woo_add_cart_button>span.wpt_ccount {
     line-height: 30px;
     font-size: 13px;
     clear: both;
-    border-radius: 50%;
+    border-radius: 20px;
     box-shadow: -1px 0px 6px rgba(0, 0, 0, 0.04);
+    padding-left: 4px;
+    padding-right: 4px;
 }
 a.button.wpt_woo_add_cart_button.button.loading>span.wpt_ccount{display: none;}
 @keyframes spin{100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}

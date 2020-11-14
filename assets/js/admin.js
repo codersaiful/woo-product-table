@@ -448,5 +448,20 @@
             palettes:['#000000','#ffffff','#aabbcc','#0a7f9c','#B02B2C','#edae44','#eeee22','#83a846','#7bb0e7','#745f7e','#5f8789','#d65799','#4ecac2'],
         };
         $('.wpt-color, .wpt-background-color').wpColorPicker(myOptions);
+        
+        $('body .wpt_tab_content textarea').on('change',function(){
+            //alert(4545454);
+            $('.form_bottom.form_bottom_submit_button').removeClass('wrapper_wpt_ajax_update');
+        });
+        
+        //console.log(tinymce.Editor);
+//        tinymce.init({
+//  selector: 'textarea',
+//  init_instance_callback: function (editor) {
+//    editor.on('Change', function (e) {
+//      alert('Editor contents was changed.');
+//    });
+//  }
+//});
     });
 })(jQuery);
