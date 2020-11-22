@@ -1524,7 +1524,7 @@ div.wpt_product_table_wrapper table.wpt_product_table th.wpt_action {
 .td_or_cell.wpt_thumbnails.wpt_for_product_desc {
     display: flex;
 }
-.wpt_check div.check {
+.wpt_check div.check,.wpt_check {
     position: relative;
 }
 /* Scrollbar Design */
