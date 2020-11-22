@@ -1596,12 +1596,14 @@
             if( Attrs.status ){
                 var product_id = Attrs.product_id;
                 var quoteElm = $('tr.product_id_'+product_id + ' td.wpt_quoterequest a.wpt_yith_add_to_quote_request');
-                var response_msg = quoteElm.data('msg');
-                quoteElm.html(response_msg.text);
-                
-                quoteElm.closest('div.quoterequest').find('.yith_ywraq_add_item_response_message').remove();
-                quoteElm.closest('div.quoterequest').find('.yith_browse_link').remove();
-
+                try{
+                    var response_msg = quoteElm.data('msg');
+                    quoteElm.html(response_msg.text);
+                    quoteElm.closest('div.quoterequest').find('.yith_ywraq_add_item_response_message').remove();
+                    quoteElm.closest('div.quoterequest').find('.yith_browse_link').remove();
+                }catch(e){
+                    // nothing needed to print
+                }
             }
         });
         /**
