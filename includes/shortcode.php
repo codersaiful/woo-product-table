@@ -944,6 +944,8 @@ if( !function_exists( 'wpt_table_row_generator' ) ){
 
 
                     $attributes = $variable->get_variation_attributes();
+                    $attributess = $product->get_variation_attributes();
+                    var_dump($attributes,$attributess);
                     $default_attributes = $variable->get_default_attributes(); //Added at 3.9.0
                     $variation_html = wpt_variations_attribute_to_select( $attributes, $data['id'], $default_attributes, $temp_number );                 
                 }

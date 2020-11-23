@@ -687,35 +687,32 @@ if( !function_exists( 'wpt_variations_attribute_to_select' ) ){
      * @return string HTML Select tag will generate from Attribute
      */
     function wpt_variations_attribute_to_select( $attributes , $product_id = false, $default_attributes = false, $temp_number = false ){
-        $html = false;
-        $html .= "<div class='wpt_varition_section' data-product_id='{$product_id}'  data-temp_number='{$temp_number}'>";
-        foreach( $attributes as $attribute_key_name=>$options ){
-
-            $label = wc_attribute_label( $attribute_key_name );
-            $attribute_name = wc_variation_attribute_name( $attribute_key_name );
-            $only_attribute = str_replace( 'attribute_', '', $attribute_name);
-            $default_value = !isset( $default_attributes[$only_attribute] ) ? false : $default_attributes[$only_attribute]; //Set in 3.9.0
-
-                    // Get an array of attributes
-                    $attr_array = get_the_terms( $product_id, $only_attribute);
-            $html .= "<select data-product_id='{$product_id}' data-attribute_name='{$attribute_name}' placeholder='{$label}'>";
-            $html .= "<option value='0'>" . $label . "</option>";
-            foreach( $options as $option ){
-                            // Get the name of the current attribute
-                            $attr_name = $option;
-                            foreach( $attr_array as $attr ){
-                                    if ( isset( $attr->slug ) && $option == $attr->slug) { $attr_name = $attr->name; }
-                            }
-
-                $html .= "<option value='" . esc_attr( $option ) . "' " . ( $default_value == $option ? 'selected' : '' ) . ">" . $attr_name . "</option>";
-            }
-            $html .= "</select>";
-
-        }
-        $html .= "<div class='wpt_message wpt_message_{$product_id}'></div>";
-        $html .= '</div>';
-
-        return $html;
+        $attribute_keys  = array_keys( $attributes );
+        global $product;
+        ?>
+            <table class="variations" cellspacing="0">
+			<tbody>
+				<?php foreach ( $attributes as $attribute_name => $options ) : ?>
+					<tr>
+						<td class="label"><label for="<?php echo esc_attr( sanitize_title( $attribute_name ) ); ?>"><?php echo wc_attribute_label( $attribute_name ); // WPCS: XSS ok. ?></label></td>
+						<td class="value">
+							<?php
+								wc_dropdown_variation_attribute_options(
+									array(
+										'options'   => $options,
+										'attribute' => $attribute_name,
+										'product'   => $product,
+									)
+								);
+								echo end( $attribute_keys ) === $attribute_name ? wp_kses_post( apply_filters( 'woocommerce_reset_variations_link', '<a class="reset_variations" href="#">' . esc_html__( 'Clear', 'woocommerce' ) . '</a>' ) ) : '';
+							?>
+						</td>
+					</tr>
+				<?php endforeach; ?>
+			</tbody>
+		</table>
+            <?php
+//        return $html;
     }
 }
 
