@@ -21,6 +21,24 @@ if( $table_type == 'advance_table'){
         echo $variation_html;
         do_action('wpt_action_variation',$product); //Sepcially for Min Max Plugin
         
+        /**
+         * 
+        // Enqueue variation scripts.
+		wp_enqueue_script( 'wc-add-to-cart-variation' );
+
+		// Get Available variations?
+		$get_variations = count( $product->get_children() ) <= apply_filters( 'woocommerce_ajax_variation_threshold', 30, $product );
+
+//		// Load the template.
+//		wc_get_template(
+//			'single-product/add-to-cart/variable.php',
+//			array(
+//				'available_variations' => $get_variations ? $product->get_available_variations() : false,
+//				'attributes'           => $product->get_variation_attributes(),
+//				'selected_attributes'  => $product->get_default_attributes(),
+//			)
+//		);
+         */
     }
 
     $ajax_action_final = ( $product_type == 'grouped' || $product_type == 'external' ? 'no_ajax_action ' : $ajax_action . ' ' );//$ajax_action;
