@@ -157,7 +157,10 @@ You can easily show specific category products. While creating new table click o
 == Changelog ==
 
 = 2.7.7 =
+ * Fixed: Checkbox click and scroll issue fixed 
+ * Fixed: JavaScript Console Error issue fixed for 'variation_data.forEach is not a function'
  * Added: Add Class for TD tag based on Array Key and Value, When String value
+ * Bug Fixed and some few new feature added.
 
 = 2.7.6 =
 * Fixed: Product Weight calculation issue fixed.
