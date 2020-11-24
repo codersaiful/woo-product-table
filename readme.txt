@@ -156,6 +156,9 @@ You can easily show specific category products. While creating new table click o
 
 == Changelog ==
 
+= 2.7.7 =
+ * Added: Add Class for TD tag based on Array Key and Value, When String value
+
 = 2.7.6 =
 * Fixed: Product Weight calculation issue fixed.
 * Added: Elementor Widget Features Added.

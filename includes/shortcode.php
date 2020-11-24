@@ -990,7 +990,7 @@ if( !function_exists( 'wpt_table_row_generator' ) ){
                 if( file_exists( $row_manager_loc ) ){
                     include $row_manager_loc;
                 }
-                do_action( 'wpto_before_row', $column_settings, $table_ID, $product, $temp_number );
+                do_action( 'wpto_after_row', $column_settings, $table_ID, $product, $temp_number );
 
                 $wpt_table_row_serial++; //Increasing Serial Number.
 
