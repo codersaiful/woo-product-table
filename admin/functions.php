@@ -15,7 +15,7 @@ if( !function_exists( 'wpt_admin_body_class' ) ){
         return;
     }
 }
-add_filter( 'admin_body_class', 'wpt_admin_body_class' );
+add_filter( 'admin_body_class', 'wpt_admin_body_class', 999 );
 
 if( !function_exists( 'wpt_selected' ) ){
     
