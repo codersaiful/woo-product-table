@@ -395,7 +395,7 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
             unset($wpt_permitted_td['tags']);
 
 
-            $args['post_type'] = array('product_variation','product');
+            $args['post_type'] = array('product_variation'); //'product'
             $args['post__in'] = $product_includes;
             $args['orderby'] = 'post__in';
 
@@ -446,7 +446,7 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
          * @version V1.0.4 
          * @date 2/5/2018
          */
-
+        
         $html_check = $html_check_footer = false; $filter_identy_class = 'fullter_full';
         $checkbox_validation = apply_filters( 'wpto_checkbox_validation', false, $enabled_column_array,$column_settings, $table_ID, $atts );
         if( $checkbox_validation ){
@@ -889,7 +889,7 @@ if( !function_exists( 'wpt_table_row_generator' ) ){
             shuffle($product_loop->posts);
         }
         $wpt_table_row_serial = (( $args['paged'] - 1) * $args['posts_per_page']) + 1; //For giving class id for each Row as well
-        if ($product_loop->have_posts()) : while ($product_loop->have_posts()): $product_loop->the_post();
+        if ( ( $product_loop->query['post_type'][0] == 'product_variation' && !empty( $product_loop->query['post__in']) && $product_loop->have_posts()) || ( $product_loop->query['post_type'][0] == 'product' && $product_loop->have_posts()) ) : while ($product_loop->have_posts()): $product_loop->the_post();
                 global $product;
 
                 $data = $product->get_data();
