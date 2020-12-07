@@ -18,14 +18,18 @@ class WPT_Elementor{
      * Init of WPT_Elementor
      */
     public function init() {
-        $widget_file = WPT_DIR_BASE . 'modules/elementor-widget.php';
-
         add_action( 'elementor/widgets/widgets_registered', [ $this, 'init_widgets' ] );
         //add_action( 'elementor/frontend/after_enqueue_styles', [ $this, 'widget_styles' ] );
     }
     
+    /**
+     * Init Widget for Elementor
+     * 
+     * @return void
+     */
     public function init_widgets() {
         $widget_file = WPT_DIR_BASE . 'modules/elementor-widget.php';
+        if( ! is_file( $widget_file ) ) return;
         include $widget_file;
         \Elementor\Plugin::instance()->widgets_manager->register_widget_type( new WPT_Elementor_Widget() );
     }

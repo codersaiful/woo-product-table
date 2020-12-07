@@ -7,6 +7,7 @@ echo "<tr role='row' "
         . "data-type='" . esc_attr( $product_type ) . "' "
         . "data-parent_id='" . esc_attr( $parent_id ) . "' "
         . "data-quantity='" . esc_attr( $default_quantity ) . "' "
+        . "data-href='" . esc_url( get_the_permalink() ) . "' "
         . "id='product_id_" . esc_attr( $data['id'] ) . "' "
         . "class='" . esc_attr( $tr_class ) . "' "
         . "data-product_variations='" . $data_product_variations . "' "
@@ -106,8 +107,19 @@ foreach( $table_column_keywords as $keyword => $keyword_title ){
             "wpt_" . $keyword,
             "wpt_temp_" . $temp_number,
         );
+        
+        /**
+         * Adding Class using Filter Hook
+         * 
+         * @Hooked: wpt_add_td_class -10 at includes/functions.php 
+         */
         $td_class_arr = apply_filters( 'wpto_td_class_arr', $td_class_arr, $keyword, $table_ID, $args, $column_settings, $table_column_keywords, $product );
-        $td_class = implode( " ", $td_class_arr );
+        if( is_array( $td_class_arr ) ){
+            $td_class = implode( " ", $td_class_arr );
+        }else{
+            $td_class = 'wpt_table_td wpt_' . $keyword;
+        }
+        
         
         ?>
         <td class="<?php echo esc_attr( $td_class ); ?>"  
@@ -117,17 +129,23 @@ foreach( $table_column_keywords as $keyword => $keyword_title ){
             style="<?php echo esc_attr( $style_str ); ?>"
             >    
             <?php
+            /**
+             * Adding Content at the top of Each Table
+             * 
+             * @Hooked: wpt_pro_add_toggle_content -10, at includes/functions.php file of Pro Version
+             */
+            do_action( 'wpto_column_top', $keyword, $table_ID, $settings, $column_settings, $product );
+
             //*****************************FILE INCLUDING HERE
             $tag = isset( $column_settings[$keyword]['tag'] ) && !empty( $column_settings[$keyword]['tag'] ) ? $column_settings[$keyword]['tag'] : 'div';
             $tag_class = isset( $column_settings[$keyword]['tag_class'] ) && !empty( $column_settings[$keyword]['tag_class'] ) ? $column_settings[$keyword]['tag_class'] : '';
             echo $tag ? "<$tag "
-            . "class='" . esc_attr( $keyword ) . " " . esc_attr( $tag_class ) . "' "
+            . "class='col_inside_tag " . esc_attr( $keyword ) . " " . esc_attr( $tag_class ) . "' "
             . "data-keyword='" . esc_attr( $keyword ) . "' "
             . "data-sku='" . esc_attr( $product->get_sku() ) . "' "
             . ">" : '';
 
-            do_action( 'wpto_column_top', $keyword, $table_ID, $settings, $column_settings, $product );
-
+            
             //Including File for TD
             include $file;
             echo $tag ? "</$tag>" : '';

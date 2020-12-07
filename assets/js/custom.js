@@ -1643,7 +1643,9 @@
             
             var temp_number = $(this).closest('tr.wpt_row').data('temp_number');
             var addToCartSelector = $('#table_id_' + temp_number + ' #product_id_' + product_id + ' a.wpt_product_title_in_td');
-            var url_params = addToCartSelector.attr('href');
+            var tableRow = $('#table_id_' + temp_number + ' #product_id_' + product_id );
+            
+            var url_params = tableRow.attr('data-href');
             var split_params = url_params.split('?');
             if( typeof split_params[1] !== 'undefined' && type === 'variation' ){
                 quote_data = '&' + split_params[1];

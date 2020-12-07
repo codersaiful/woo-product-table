@@ -78,8 +78,8 @@ foreach( $extra_items as $keyword ){
     $file = $items_directory_2 . $file_name . '.php';
     $file = apply_filters( 'wpto_template_loc', $file, $keyword, $type, $table_ID, $product, $file_name, $settings, $column_settings ); //@Filter Added 
     $file = apply_filters( 'wpto_template_loc_type_' . $type, $file, $keyword, $table_ID, $product, $file_name, $settings, $column_settings ); //@Filter Added
-    $file = apply_filters( 'wpto_template_loc_item_' . $keyword, $file,$type, $product, $table_ID, $settings,$column_settings );
-    
+    $file = apply_filters( 'wpto_template_loc_item_' . $keyword, $file, $table_ID, $product, $file_name, $column_settings, $settings );
+
     /**
      * File Template Final Filter 
      * We have created this to make a new features, Where user will able to load template from Theme's Directory
