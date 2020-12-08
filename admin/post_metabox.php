@@ -16,8 +16,52 @@ if( !function_exists( 'wpt_shortcode_metabox' ) ){
     function wpt_shortcode_metabox(){
         add_meta_box( 'wpt_shortcode_metabox_id', 'Shortcode', 'wpt_shortcode_metabox_render', 'wpt_product_table', 'normal' );
         add_meta_box( 'wpt_shortcode_configuration_metabox_id', 'Table Configuration', 'wpt_shortcode_configuration_metabox_render', 'wpt_product_table', 'normal' ); //Added at 4.1.4
+        //add_meta_box( 'wpt_column_panel_metabox_id', __( 'Available Columns', 'wpt' ), 'wpt_column_panel_metabox_render', 'wpt_product_table', 'side', 'low' ); //Added at 4.1.4
 
     }
+}
+
+if( !function_exists( 'wpt_column_panel_metabox_render' ) ){
+    /**
+     * This function showing column panel 
+     * 
+     * @since 2.7.8.1
+     */
+    function wpt_column_panel_metabox_render(){
+        global $post;
+        $default_enable_array = WPT_Product_Table::$default_enable_columns_array;
+        $columns_array = WPT_Product_Table::$columns_array;
+        $for_add =  $meta_column_array = $updated_columns_array = get_post_meta( $post->ID, 'column_array', true );
+        if( !$meta_column_array && empty( $meta_column_array ) ){
+            $for_add = $updated_columns_array = WPT_Product_Table::$columns_array;
+        }
+        if( $updated_columns_array && !empty( $updated_columns_array ) && !empty( $columns_array ) ){
+            $columns_array = array_merge( $columns_array, $updated_columns_array );
+        }
+        ksort($columns_array);
+//        $meta_enable_column_array = get_post_meta( $post->ID, 'enabled_column_array', true );
+//        if( $meta_enable_column_array && !empty( $meta_enable_column_array ) && !empty( $columns_array ) ){
+//            $columns_array = array_merge($meta_enable_column_array,$columns_array);
+//        }
+//
+//        $column_settings = get_post_meta( $post->ID, 'column_settings', true ); 
+//        if( empty( $column_settings ) ){
+//            $column_settings = array();
+//        }
+//        $additional_collumn = array_diff(array_keys($for_add), array_keys( WPT_Product_Table::$columns_array ));
+
+        ?>
+        <div class="section">
+            <p><?php echo esc_html__( 'Available columns for WOO Product Table. Add them in your table to enable column.', 'wpt' ); ?></p>
+            <ul id="wpt_column_sortable">
+                <?php foreach( $columns_array as $keyword => $title ){ ?>
+                <li data-column_key = "<?php echo esc_attr( $keyword ); ?>"><?php echo esc_html( $title ); ?></li>
+                <?php } ?>
+            </ul>
+        </div>
+        <?php
+    }
+    
 }
 
 if( !function_exists( 'wpt_shortcode_metabox_render' ) ){

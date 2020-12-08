@@ -225,6 +225,23 @@
         }
         
         /**
+         * Managing Column from Activation Column List
+         * 
+         * @since We have added this featre at Version 2.7.8.2
+         */
+        $( 'body.wpt_admin_body' ).on('click', '.add_switch_col_wrapper .switch-enable-available li.switch-enable-item', function(){
+            var keyword = $(this).data('column_keyword');
+            $(this).toggleClass('item-enabled');
+            $('#wpt_column_sortable li.wpt_sortable_peritem input.checkbox_handle_input[data-column_keyword="' + keyword + '"]').trigger('click');
+            
+//            var lenght = $( '.add_switch_col_wrapper .switch-enable-available li.switch-enable-item.item-enabled' ).length;
+//            console.log(lenght);
+//            if( lenght == 0 ){
+//                //$(this).toggleClass('item-enabled');
+//            }
+            
+        });
+        /**
          * Column Section Managing
          */
         $('body.wpt_admin_body').on('click','#wpt_column_sortable li.wpt_sortable_peritem input.checkbox_handle_input',function(){
@@ -248,6 +265,7 @@
                 //Counting colum End here
                 
                 $(this).removeClass('enabled');
+                $('.switch-enable-item-' + keyword).removeClass('item-enabled');
                 targetLiSelector.removeClass('enabled');
             }
         });
