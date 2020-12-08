@@ -118,10 +118,10 @@ $default_enabled_col_array = array(
     'check'         => 'check',  
     'thumbnails'    => 'thumbnails',  
     'product_title' => 'product_title',  
-    'category' => 'category',  
-    'sku' => 'sku',  
-    'rating' => 'rating',  
-    'price' => 'price',  
+    'category'      => 'category',  
+    'sku'           => 'sku',  
+    'quantity'      => 'quantity',  
+    'price'         => 'price',  
     'action'        => 'action',  
 );
 /**
@@ -158,7 +158,7 @@ WPT_Product_Table::$colums_disable_array = array(
 
 //Set Style Selection Options.
 WPT_Product_Table::$style_form_options = array(
-    'custom'       =>  __( 'Customized Design', 'wpt_pro' ),
+    'custom'        =>  __( 'Customized Design', 'wpt_pro' ),
     'default'       =>  __( 'Default Style', 'wpt_pro' ),
     'blacky'        =>  __( 'Beautifull Blacky', 'wpt_pro' ),
     'smart'         =>  __( 'Smart Thin', 'wpt_pro' ),
