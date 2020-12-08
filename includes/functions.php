@@ -679,12 +679,17 @@ if( !function_exists( 'wpt_array_to_option_atrribute' ) ){
 
 if( !function_exists( 'wpt_variations_attribute_to_select' ) ){
     /**
+     * This is deprecated now. We have used new file for this part
+     * new file is: includes/variation_html.php 
+     * 
      * For Variable product, Variation's attribute will generate to select tag
      * 
-     * @param Array $attributes
-     * @param Int $product_id
-     * @param Int $temp_number
-     * @return string HTML Select tag will generate from Attribute
+     * @deprecated since 2.7.8 2.7.8.0
+     * 
+     * @param   Array   $attributes
+     * @param   Int     $product_id
+     * @param   Int     $temp_number
+     * @return  string  HTML Select tag will generate from Attribute
      */
     function wpt_variations_attribute_to_select( $attributes , $product_id = false, $default_attributes = false, $temp_number = false ){
         $html = false;
