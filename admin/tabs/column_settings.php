@@ -41,7 +41,7 @@ if( is_array( $meta_enable_column_array ) && !empty( $meta_enable_column_array )
 ?>
 <ul id="wpt_column_sortable">
     <?php
-    foreach( $meta_enable_column_array as $keyword => $title ){
+    foreach( $meta_enable_column_array as $keyword => $title ){  //Here was $columns_array in new: $meta_enable_column_array
         $updated_title = isset( $updated_columns_array[$keyword] ) ? $updated_columns_array[$keyword] : $title;
         if( $meta_enable_column_array && !empty( $meta_enable_column_array ) && is_array( $meta_enable_column_array ) ){
             $enabled_class = $checked_attribute = '';
