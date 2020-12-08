@@ -1041,6 +1041,40 @@ select.wpt_table_on_archive {
     color: #aabbcc94;
     font-size: 10px;
 }
+
+
+/*new code from v2.7.8.2*/
+
+ul#wpt_column_sortable>li.wpt_sortable_peritem{display: none;}
+ul#wpt_column_sortable>li.wpt_sortable_peritem.enabled{display: flex;}
+
+.add_switch_col_wrapper .enable-available-cols ul {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.add_switch_col_wrapper .enable-available-cols ul li {
+    width: 150px;
+}
+.add_switch_col_wrapper .enable-available-cols ul li.switch-enable-item {
+    /* border: 1px solid #ddd; */
+    /* height: 55px; */
+    margin-right: 2px;
+    margin-bottom: 2px;
+    padding: 5px;
+    cursor: pointer;
+    background: #e4e4e459;
+    color: black;
+}
+.add_switch_col_wrapper .enable-available-cols ul li.switch-enable-item.item-enabled {
+    background: #007694;
+    color: white;
+}
+.add_switch_col_wrapper .enable-available-cols ul li.switch-enable-item.item-disabled {
+    background: #e4e4e459;
+    color: black;
+}
+
 /* Responsive Design Starts */
 @media screen and (max-width: 782px){
     .wpt_column_setting_single_extra>div label {
