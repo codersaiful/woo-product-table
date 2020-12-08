@@ -7,7 +7,7 @@
  * Author URI: https://codecanyon.net/user/codeastrology
  * Tags: woocommerce product,woocommerce product table, product table
  * 
- * Version: 2.7.7
+ * Version: 2.7.8
  * Requires at least:    4.0.0
  * Tested up to:         5.5.3
  * WC requires at least: 3.0.0
@@ -30,7 +30,7 @@ if( !defined( 'WPT_PLUGIN_BASE_FOLDER' ) ){
 }
 
 if( !defined( 'WPT_DEV_VERSION' ) ){
-    define( 'WPT_DEV_VERSION', '2.7.0.36' );
+    define( 'WPT_DEV_VERSION', '2.7.8.0' );
 }
 
 if( !defined( 'WPT_CAPABILITY' ) ){
