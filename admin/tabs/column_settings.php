@@ -37,11 +37,11 @@ if( is_array( $meta_enable_column_array ) && !empty( $meta_enable_column_array )
     //$columns_array = array_merge( $meta_enable_column_array, array_diff( $columns_array, $meta_enable_column_array ));
 }
 //$columns_array = array_merge($meta_enable_column_array,array_diff($columns_array,$meta_enable_column_array));
-//var_dump($column_settings);
+//var_dump($columns_array,$meta_enable_column_array);
 ?>
 <ul id="wpt_column_sortable">
     <?php
-    foreach( $columns_array as $keyword => $title ){
+    foreach( $meta_enable_column_array as $keyword => $title ){
         $updated_title = isset( $updated_columns_array[$keyword] ) ? $updated_columns_array[$keyword] : $title;
         if( $meta_enable_column_array && !empty( $meta_enable_column_array ) && is_array( $meta_enable_column_array ) ){
             $enabled_class = $checked_attribute = '';
