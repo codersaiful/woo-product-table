@@ -18,8 +18,18 @@ if( $table_type == 'advance_table'){
     //var_dump($variation_in_action);
     //var_dump($keyword,$table_column_keywords);
     if( 'variable' == $product_type && !$variation_in_action && !in_array( 'variations', $table_column_keywords) ){
-        echo $variation_html;
-        do_action('wpt_action_variation',$product); //Sepcially for Min Max Plugin
+        
+        /**
+         * Variation HTML is handled by new file
+         * we have followed woocommerce default code
+         * 
+         * @since 2.7.8
+         */
+        $variation_html_file = WPT_BASE_DIR . 'includes/variation_html.php';
+        if( is_file( $variation_html_file ) ){
+            include $variation_html_file;
+        }
+        
         
         /**
          * 
