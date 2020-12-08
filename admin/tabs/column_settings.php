@@ -41,6 +41,14 @@ if( is_array( $meta_enable_column_array ) && !empty( $meta_enable_column_array )
 ?>
 <ul id="wpt_column_sortable">
     <?php
+    /**
+     * Here was $columns_array
+     * I have added new $meta_enable_column_array
+     * 
+     * Because: In new version, We will show only Enabled Col here
+     * 
+     * 
+     */
     foreach( $meta_enable_column_array as $keyword => $title ){  //Here was $columns_array in new: $meta_enable_column_array
         $updated_title = isset( $updated_columns_array[$keyword] ) ? $updated_columns_array[$keyword] : $title;
         if( $meta_enable_column_array && !empty( $meta_enable_column_array ) && is_array( $meta_enable_column_array ) ){
