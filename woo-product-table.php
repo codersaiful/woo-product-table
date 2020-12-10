@@ -463,6 +463,14 @@ class WPT_Product_Table{
        $this->setConstant($path_args);
        //Load File
        if( is_admin() ){
+           /**
+            * Will comment this part asap, now running this
+            * 
+            * This comment for: //include_once $this->path('BASE_DIR','admin/wpt_product_table_post.php')
+            * First time, it was in Admin.
+            * Now we would like to show preview by template from plugin.
+            * So it will go out side of this if statement
+            */
             include_once $this->path('BASE_DIR','admin/wpt_product_table_post.php');
             include_once $this->path('BASE_DIR','admin/post_metabox.php');
             include_once $this->path('BASE_DIR','admin/duplicate.php');
@@ -489,6 +497,21 @@ class WPT_Product_Table{
     if( !class_exists( 'Mobile_Detect' ) ){
         include_once $this->path('BASE_DIR','modules/Mobile_Detect.php'); //MObile or Table Defice Detector
     }
+    
+    /**
+     * Not activated this, Even file still not added to this directory
+     * 
+     * Comment for include_once $this->path('BASE_DIR','includes/wpt_product_table_post.php');
+     * Has transferred to include from admin folder
+     * 
+     * Because, We would like to show preview table
+     * from plugin by using wp templating feature
+     * 
+     * Functioned at includes/functions.php
+     * @since 2.7.8.2
+     * 
+     */
+    //include_once $this->path('BASE_DIR','includes/wpt_product_table_post.php');
     include_once $this->path('BASE_DIR','includes/enqueue.php');
     include_once $this->path('BASE_DIR','includes/functions.php');
     include_once $this->path('BASE_DIR','includes/ajax_add_to_cart.php'); 
