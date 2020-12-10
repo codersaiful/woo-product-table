@@ -781,10 +781,11 @@ if( !function_exists( 'wpt_table_edit_link' ) ){
         $table_ID = (int) $table_ID;
         ?>
         <div class="wpt_edit_table">
-            Edit Table - <a href="<?php echo esc_attr( admin_url( 'post.php?post=' . $table_ID . '&action=edit&classic-editor' ) ); ?>" 
+            <a href="<?php echo esc_attr( admin_url( 'post.php?post=' . $table_ID . '&action=edit&classic-editor' ) ); ?>" 
                             target="_blank"
                             title="<?php echo esc_attr( 'Edit your table. It will open on new tab.', 'wpt_pro' ); ?>"
                             >
+            <?php echo esc_html__( 'Edit Table - ', 'wpt_pro' ); ?>
             <?php echo esc_html( get_the_title( $table_ID ) ); ?>
             </a>   
         </div> 
