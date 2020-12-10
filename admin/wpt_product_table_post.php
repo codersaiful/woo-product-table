@@ -54,6 +54,7 @@ function wpt_product_table_post() {
 		'show_in_nav_menus'     => true,
 		'can_export'            => true,
 		'has_archive'           => false,
+                //"rewrite" => [ "slug" => "product-table", "with_front" => true ],
 		'exclude_from_search'   => true,
 		'publicly_queryable'    => true,
                 'capability_type'       => 'post',
@@ -115,7 +116,6 @@ if( !function_exists( 'wpt_permalink_hiding' ) ){
 
 //Hiding Preview Button from all shortcode page
 add_filter( 'page_row_actions', 'wpt_preview_button_hiding', 10, 2 );
-add_filter( 'post_row_actions', 'wpt_preview_button_hiding', 10, 2 );
 if( !function_exists( 'wpt_preview_button_hiding' ) ){
     function wpt_preview_button_hiding( $actions, $post ) {
 
