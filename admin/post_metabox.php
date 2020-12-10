@@ -69,10 +69,26 @@ if( !function_exists( 'wpt_shortcode_metabox_render' ) ){
         global $post;
         $curent_post_id = $post->ID;
         $post_title = preg_replace( '/[#$%^&*()+=\-\[\]\';,.\/{}|":<>?~\\\\]/',"$1", $post->post_title );
+        echo '<div class="wpt-shortcode-box-inside">';
         echo '<input type="text" value="[Product_Table id=\'' . $curent_post_id . '\' name=\'' . $post_title . '\']" class="wpt_auto_select_n_copy wpt_meta_box_shortcode mb-text-input mb-field" id="wpt_metabox_copy_content" readonly>'; // class='wpt_auto_select_n_copy'
         echo '<a style="display:none;"  class="button button-primary wpt_copy_button_metabox" data-target_id="wpt_metabox_copy_content">Copy</a>';
         echo '<p style="color: #007692;font-weight:bold;display:none; padding-left: 12px;" class="wpt_metabox_copy_content"></p>';
-
+        echo '</div>';
+        ?>
+<div class="wpt-tips-github">
+    <p>
+        <b><?php echo esc_html__( 'Tips:', 'wpt_pro' ); ?></b>
+        <span>
+            <?php echo esc_html__( 'If you want to be a Contributor, Go to ', 'wpt_pro' ); ?>
+            <a target="_blank" href="https://github.com/codersaiful/woo-product-table"><?php echo esc_html__( 'Github Repo', 'wpt_pro' ); ?></a>.
+            | 
+            <?php echo esc_html__( 'Any Idea? Please ', 'wpt_pro' ); ?>
+            <a target="_blank" href="https://github.com/codersaiful/woo-product-table/discussions/new"><?php echo esc_html__( 'Send your Suggestion or Idea', 'wpt_pro' ); ?></a>
+            
+        </span>
+    </p>
+</div>
+        <?php
     }
 }
 

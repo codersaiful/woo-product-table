@@ -850,7 +850,7 @@ body.wpt_admin_body h1.nav-tab-wrapper {
     padding-top: 15px;
 }
 
-#wpt_shortcode_metabox_id .inside {
+#wpt_shortcode_metabox_id .inside .wpt-shortcode-box-inside {
     display: flex;
     margin: 10px 0;
 }
@@ -1077,6 +1077,24 @@ ul#wpt_column_sortable>li.wpt_sortable_peritem.enabled{display: flex;}
 
 svg.octicon.octicon-mark-github.v-align-middle {
     margin-bottom: -3px;
+}
+span.fork-button-wpt>a {
+    font-size: 25px;
+    color: #304a56;
+    background: #dddddd52;
+    padding: 22px;
+    display: block;
+    transition: all .3s;
+    margin: 10px 0;
+}
+span.fork-button-wpt>a:hover {
+    color: #ffffff;
+    background: #607D8B;
+}
+.wpt-tips-github p {
+    opacity: 0.6;
+    margin: 0;
+    padding: 0;
 }
 
 /* Responsive Design Starts */

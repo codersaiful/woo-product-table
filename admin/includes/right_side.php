@@ -36,7 +36,7 @@
             <small>Feel free to knock me Any time.</small>
         </div>
     </div>
-
+    
     <div class="wpt_right_side_in_wrapper" style="padding: 10px;">
         <div class="need_help_wrapper">
             <h1>Need Help?</h1>
@@ -44,7 +44,10 @@
                 <img style="max-width: 100px" src="<?php echo WPT_BASE_URL; ?>assets/images/customer_support.png">
                 <h3>Customer Support</h3>
             </a>
-            <span>Email: <a href="https://mail.google.com/mail/u/0/?view=cm&fs=1&su=<?php echo urlencode("Need help for " . site_url()); ?>&body=<?php echo urlencode("Hey Saiful, I need help.\nNow I will explain my Issue.\n...________\n"); ?>&ui=2&tf=1&to=<?php echo urlencode("Saiful Islam<codersaiful@gmail.com>"); ?>" target="_top">Gmail Me <b>(codersaiful@gmail.com)</b></a></span>
+            <span>Discussion: <a href="https://github.com/codersaiful/woo-product-table/discussions" target="_blank">Forumn and Discussion on <b>(Github)</b></a></span>
+            <span>Issue on Github: <a href="https://github.com/codersaiful/woo-product-table/issues" target="_blank">Submit your Issue on <b>(Github)</b></a></span>
+            <span>Topin on WordPress.org: <a href="https://github.com/codersaiful/woo-product-table/issues" target="_blank">Submit your topic on <b>(WordPress.org)</b></a></span>
+            <span>Email: <a href="https://mail.google.com/mail/u/0/?view=cm&fs=1&su=<?php echo urlencode("Need help for " . site_url()); ?>&body=<?php echo urlencode("Hey Saiful, I need help.\nNow I will explain my Issue.\n...________\n"); ?>&ui=2&tf=1&to=<?php echo urlencode("Saiful Islam<codersaiful@gmail.com>"); ?>" target="_blank">Gmail Me <b>(codersaiful@gmail.com)</b></a></span>
             <span>FB Group: <a target="_blank" href="https://www.facebook.com/groups/CodeAstrology/">Join to CodeAstrology Group</a></span>
             <span>Skype: <a href="#">codersaiful</a></span>
             
@@ -55,6 +58,20 @@
             <span>Facebook: <a target="_blank" href="https://www.facebook.com/codersaiful" target="_blank">Author Profile</a></span>
             
             <span>Youtube: <a href="https://www.youtube.com/playlist?list=PL__UrUIHRxdzupiUk2KKJloistwDMP28t" target="_blank">Youtube Playlist - Video Tutorial</a></span>
+        </div>
+    </div>
+    
+
+    <div class="wpt_right_side_in_wrapper" style="padding: 10px;">
+        <div class="need_help_wrapper">
+            <h1>Are you Coder?</h1>
+            
+            <span class="fork-button-wpt">To be a Contributor <a href="https://github.com/codersaiful/woo-product-table/fork?fragment=1" target="_blank">Fork and <b>(Contribute)</b></a></span>
+            
+            
+            <span>Discussion: <a href="https://github.com/codersaiful/woo-product-table/discussions" target="_blank">Forumn and Discussion on <b>(Github)</b></a></span>
+            <span>Issue on Github: <a href="https://github.com/codersaiful/woo-product-table/issues" target="_blank">Submit your Issue on <b>(Github)</b></a></span>
+            <span>Topin on WordPress.org: <a href="https://github.com/codersaiful/woo-product-table/issues" target="_blank">Submit your topic on <b>(WordPress.org)</b></a></span>
         </div>
     </div>
     <div class="wpt_right_side_in_wrapper" style="padding: 10px;">
