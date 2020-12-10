@@ -22,6 +22,7 @@ $variations_attr = function_exists( 'wc_esc_json' ) ? wc_esc_json( $variations_j
                                         'options'   => $options,
                                         'attribute' => $attribute_name,
                                         'product'   => $product,
+                                        'id'        => esc_attr( $attribute_name . '_' . $product->get_id() ),
                                         'show_option_none' => wc_attribute_label( $attribute_name ), // WPCS: XSS ok.
                                 )
                         );
