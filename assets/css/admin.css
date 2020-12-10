@@ -1075,6 +1075,10 @@ ul#wpt_column_sortable>li.wpt_sortable_peritem.enabled{display: flex;}
     color: black;
 }
 
+svg.octicon.octicon-mark-github.v-align-middle {
+    margin-bottom: -3px;
+}
+
 /* Responsive Design Starts */
 @media screen and (max-width: 782px){
     .wpt_column_setting_single_extra>div label {
