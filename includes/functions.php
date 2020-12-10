@@ -1021,7 +1021,7 @@ if( function_exists( 'wpt_table_preview_template_manager' ) ){
         }
         $type = get_post_type();
         if( $type == 'wpt_product_table' ){
-            $template = MEDILAC_CORE_BASE_DIR . 'templates/' . $type . '.php';
+            $template = WPT_BASE_DIR . 'includes/preview_table.php';
             return is_file( $template ) ? $template : $template_file;
         }
 
