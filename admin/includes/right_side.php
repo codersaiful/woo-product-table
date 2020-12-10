@@ -69,6 +69,7 @@
             <span class="fork-button-wpt">To be a Contributor <a href="https://github.com/codersaiful/woo-product-table/fork?fragment=1" target="_blank">Fork and <b>(Contribute)</b></a></span>
             
             
+            <span>GitHub: <a href="https://github.com/codersaiful/woo-product-table/discussions" target="_blank">Woo Product Table on <b>(Github)</b></a></span>
             <span>Discussion: <a href="https://github.com/codersaiful/woo-product-table/discussions" target="_blank">Forumn and Discussion on <b>(Github)</b></a></span>
             <span>Issue on Github: <a href="https://github.com/codersaiful/woo-product-table/issues" target="_blank">Submit your Issue on <b>(Github)</b></a></span>
             <span>Topin on WordPress.org: <a href="https://github.com/codersaiful/woo-product-table/issues" target="_blank">Submit your topic on <b>(WordPress.org)</b></a></span>
