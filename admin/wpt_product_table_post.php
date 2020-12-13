@@ -115,7 +115,6 @@ if( !function_exists( 'wpt_permalink_hiding' ) ){
 
 //Hiding Preview Button from all shortcode page
 add_filter( 'page_row_actions', 'wpt_preview_button_hiding', 10, 2 );
-add_filter( 'post_row_actions', 'wpt_preview_button_hiding', 10, 2 );
 if( !function_exists( 'wpt_preview_button_hiding' ) ){
     function wpt_preview_button_hiding( $actions, $post ) {
 

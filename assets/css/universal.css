@@ -1527,6 +1527,16 @@ div.wpt_product_table_wrapper table.wpt_product_table th.wpt_action {
 .wpt_check div.check,.wpt_check {
     position: relative;
 }
+
+.wpt_edit_table > a {
+    font-size: 19px;
+    color: #07abd4;
+    background: #dddddd2b;
+    padding: 10px;
+    display: inline-block;
+    margin: 10px 0;
+}
+
 /* Scrollbar Design */
 /* width */
 .wpt_product_table_wrapper ::-webkit-scrollbar {
@@ -1587,4 +1597,7 @@ div.wpt_product_table_wrapper table.wpt_product_table th.wpt_action {
 
 .mejs-button.mejs-volume-button, .mejs-button.mejs-fullscreen-button {
 
+}
+.wpt_varition_section.variations select {
+    display: block;
 }

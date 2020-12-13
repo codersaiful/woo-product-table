@@ -111,9 +111,18 @@
             </div>
             <div class="section ultraaddons-feature-panel even">
                 <div class="col col-right has-img">
-                    <img src="<?php echo WPT_BASE_URL . 'assets/images/features/smile.jpg';?>">
+                    <img src="<?php echo WPT_BASE_URL . 'assets/images/features/click-to-expand.png';?>">
                 </div>
                 <div class="col col-left has-text">
+                    <h2>Expand/Collapse Column</h2>
+                    <p>Now you can show more product information in a smart way.</p>
+                </div>
+            </div>
+            <div class="section ultraaddons-feature-panel odd">
+                <div class="col col-left has-img">
+                    <img src="<?php echo WPT_BASE_URL . 'assets/images/features/smile.jpg';?>">
+                </div>
+                <div class="col col-right has-text">
                     <h2>And many more</h2>
                     <p>Many more awesome feature is waiting...</p>
                     <p><a href="https://wooproducttable.com/" target="_blank">wooproducttable.com</a></p>

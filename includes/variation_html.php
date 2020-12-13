@@ -1,7 +1,7 @@
 <?php
 
 if( 'variable' !== $product_type ) return;
-wp_enqueue_script( 'wc-add-to-cart-variation' );
+//wp_enqueue_script( 'wc-add-to-cart-variation' );
 global $product;
 $attribute_keys  = array_keys( $attributes );
 $variations_json = wp_json_encode( $available_variations );
@@ -22,6 +22,7 @@ $variations_attr = function_exists( 'wc_esc_json' ) ? wc_esc_json( $variations_j
                                         'options'   => $options,
                                         'attribute' => $attribute_name,
                                         'product'   => $product,
+                                        'id'        => esc_attr( $attribute_name . '_' . $product->get_id() ),
                                         'show_option_none' => wc_attribute_label( $attribute_name ), // WPCS: XSS ok.
                                 )
                         );
@@ -33,4 +34,4 @@ $variations_attr = function_exists( 'wc_esc_json' ) ? wc_esc_json( $variations_j
 <?php endif; ?>
 </form>
 <?php
-do_action( 'wpt_action_variation', $product ); //Sepcially for Min Max Plugin
+//do_action( 'wpt_action_variation', $product ); //Sepcially for Min Max Plugin

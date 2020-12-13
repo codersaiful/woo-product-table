@@ -781,10 +781,11 @@ if( !function_exists( 'wpt_table_edit_link' ) ){
         $table_ID = (int) $table_ID;
         ?>
         <div class="wpt_edit_table">
-            Edit Table - <a href="<?php echo esc_attr( admin_url( 'post.php?post=' . $table_ID . '&action=edit&classic-editor' ) ); ?>" 
+            <a href="<?php echo esc_attr( admin_url( 'post.php?post=' . $table_ID . '&action=edit&classic-editor' ) ); ?>" 
                             target="_blank"
                             title="<?php echo esc_attr( 'Edit your table. It will open on new tab.', 'wpt_pro' ); ?>"
                             >
+            <?php echo esc_html__( 'Edit Table - ', 'wpt_pro' ); ?>
             <?php echo esc_html( get_the_title( $table_ID ) ); ?>
             </a>   
         </div> 
@@ -1002,3 +1003,33 @@ if( !function_exists( 'wpt_add_td_class' ) ){
     }
 }
 add_filter('wpto_td_class_arr', 'wpt_add_td_class', 10, 5);
+
+if( function_exists( 'wpt_table_preview_template_manager' ) ){
+    /**
+     * Not Activated Yet. Will Enable Asap
+     * 
+     * Normally Content show from page.php file of theme.
+     * We have set Custom Template File for our Table.
+     * If anybody click on Preview for Table
+     * 
+     * @param type $template_file Default Template , provided by WordPress Script
+     * 
+     * @since 2.7.8.1
+     * 
+     * @return type Manage Template Function
+     */
+    function wpt_table_preview_template_manager( $template_file ){
+        if( ! is_singular() ){
+            return $template_file;
+        }
+        $type = get_post_type();
+        if( $type == 'wpt_product_table' ){
+            $template = WPT_BASE_DIR . 'includes/preview_table.php';
+            var_dump($template);
+            return is_file( $template ) ? $template : $template_file;
+        }
+
+        return $template_file;
+    }
+}
+//add_filter( 'template_include', 'wpt_table_preview_template_manager' );

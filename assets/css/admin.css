@@ -1096,6 +1096,20 @@ span.fork-button-wpt>a:hover {
     margin: 0;
     padding: 0;
 }
+.add_switch_col_wrapper {
+    box-sizing: border-box;
+    display: flex;
+}
+div#wpt_configuration_form .ultraaddons-panel{width: 100%;}
+ul#wpt_column_sortable>li.wpt_sortable_peritem {
+    background: #ffffff;
+}
+ul#wpt_column_sortable>li.wpt_sortable_peritem.ui-sortable-helper {
+    background: #eceff1;
+    box-shadow: -4px 9px 12px 5px #0000007a;
+    border-color: #100000;
+}
+
 
 /* Responsive Design Starts */
 @media screen and (max-width: 782px){

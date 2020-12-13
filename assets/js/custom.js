@@ -502,14 +502,33 @@
                 },
                 success: function(response) {
 
+                    /**
+                     * Adding Trigger for WPT
+                     * At the Beggining of Success Adding to cart
+                     * 
+                     * Already Added to cart Successfully. It's just for front-end Version
+                     * 
+                     * @type type
+                     */
+                    var argStats = {};
+                    argStats['status'] = true;
+                    argStats['product_id'] = product_id;
+                    argStats['variation_id'] = variation_id;
+                    argStats['variation'] = variation;
+                    argStats['temp_number'] = temp_number;
+                    argStats['table_id'] = temp_number;
+                    $(document.body).trigger('wpt_adding_to_cart',argStats);
+                    
+                    
+                    
                     //$('body').append(response);
                     //WPT_MiniCart();
                     $( document.body ).trigger( 'added_to_cart', [ response.fragments, response.cart_hash, thisButton ] ); //Trigger and sent added_to_cart event
                     thisButton.removeClass('disabled');
                     thisButton.removeClass('loading');
                     thisButton.addClass('added');
-                    //qtyElement.val(min_quantity); //Goint to Min Quantity Removed
-                    //thisButton.attr('data-quantity',min_quantity);  //Goint to Min Quantity Removed
+                    qtyElement.val(min_quantity); //Goint to Min Quantity Removed
+                    thisButton.attr('data-quantity',min_quantity);  //Goint to Min Quantity Removed
 
                     if(config_json.popup_notice === '1'){
                         WPT_NoticeBoard();//Gettince Notice
@@ -519,7 +538,11 @@
                         window.location.href = checkoutURL;
                     }
                     
-                    //******************/
+                    /**
+                     * After Completely added to cart and after change of front-end change
+                     * 
+                     * User able to do anything by using following even
+                     */
                     var argStats = {};
                     argStats['status'] = true;
                     argStats['product_id'] = product_id;
