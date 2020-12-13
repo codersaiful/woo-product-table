@@ -1100,7 +1100,7 @@ span.fork-button-wpt>a:hover {
     box-sizing: border-box;
     display: flex;
 }
-div#wpt_configuration_form .ultraaddons-panel{width: 100%;}
+div#wpt_configuration_form #column_settings .ultraaddons-panel{width: 100%;}
 ul#wpt_column_sortable>li.wpt_sortable_peritem {
     background: #ffffff;
 }
