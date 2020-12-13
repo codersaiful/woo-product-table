@@ -31,6 +31,8 @@ if( !function_exists( 'wpt_admin_enqueue' ) ){
         wp_enqueue_script( 'jquery-ui-sortable' );
 
         /**
+         * Select2 js file has been updated to 4.1.0 at 13.12.2020
+         * 
          * Select2 jQuery Plugin file including. 
          * Here added min version. But also available regular version in same directory
          * 
