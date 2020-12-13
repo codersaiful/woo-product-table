@@ -13,6 +13,85 @@
             $(target).append(option).change();
         }
         $('select#wpt_product_ids,select#product_tag_ids,select.wpt_select2').select2();
+
+        /**
+         * Product Exclude Include Feature Added Here,
+         * Which is normally in Pro Actually
+         * 
+         * But after update WordPress version to latest 5.6 that was not working.
+         * Actually after update to latest, wpt_admin_body class was not working properly.
+         * That's why, we have added here
+         */
+        $('select#product_id_includes,select#product_id_cludes').select2({
+            //templateSelection //templateResult
+            templateSelection: function(option,ccc){
+                if (!option.id) { return option.text; }
+                if(typeof option.title === 'undefined'){
+                    return option.text;
+                }
+                var content = option.title.split('|');
+                var display = '';
+                display += '<div class="wpt_select2_item_wrap">';
+                if(option.title){
+                    display += '<div class="image wpt_item wpt_item_left">';
+                    display += '<img height="50" width="50" src="' + content[0] + '">';
+                    display += '</div>';
+                }
+                display += '<div class="details wpt_item wpt_item_right">';
+                display += '<h4>' + option.text + '</h4>';
+                display += '<p>' + content[1] + '</p>';
+                display += '<b>' + content[2] + '</b>';
+                display += '</div>';
+                display += '</div>';
+                return display;
+            },
+            
+            escapeMarkup: function (m) {
+                                    return m;
+                            },
+            ajax: {
+                url: WPT_DATA_ADMIN.ajax_url,
+                dataType: 'json',
+                data: function (params) {
+                                    return {
+                                            q: params.term, // search query
+                                            action: 'wpt_pro_admin_product_list' // AJAX action for admin-ajax.php
+                                    };
+                            },
+                processResults: function( data ) {
+                            var options = [];
+                            if ( data ) {
+
+                                    // data is the array of arrays, and each of them contains ID and the Label of the option
+                                    $.each( data, function( index, text ) { // do not forget that "index" is just auto incremented value
+                                        //var r_text = text['image'] + '<span>' +  + '</span>';
+                                        var display = '';
+                                        display += '<div class="wpt_select2_item_wrap">';
+                                        display += '<div class="image wpt_item wpt_item_left">';
+                                        display += text['image'];
+                                        display += '</div>';
+                                        display += '<div class="details wpt_item wpt_item_right">';
+                                        display += '<h4>' + text['title'] + '</h4>';
+                                        display += '<p>' + text['price'] + '</p>';
+                                        display += '<b>' + text['stock_status'] + '</b>';
+                                        display += '</div>';
+                                        display += '</div>';
+
+                                            options.push( { id: text['id'], text: display  } );
+                                    });
+
+                            }
+                            return {
+                                    results: options
+                            };
+                    },
+                    cache: true
+              // Additional AJAX parameters go here; see the end of this chapter for the full code of this example
+            },
+            minimumInputLength: 1
+
+      });
+      
         $('select#wpt_product_ids,select#product_tag_ids,select.wpt_select2').on('select2:select', function(e){
           wptSelectItem(e.target, e.params.data.id);
         });
