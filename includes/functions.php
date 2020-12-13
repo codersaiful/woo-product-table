@@ -1004,7 +1004,31 @@ if( !function_exists( 'wpt_add_td_class' ) ){
 }
 add_filter('wpto_td_class_arr', 'wpt_add_td_class', 10, 5);
 
-if( function_exists( 'wpt_table_preview_template_manager' ) ){
+
+
+if( ! function_exists( 'wpt_search_box_validation_on_off' ) ){
+    
+    /**
+     * Primarily I have set Search page off on shop page, wc Arcive page
+     * 
+     * 
+     * 
+     * @since 2.7.8.2
+     * 
+     * @return Bool
+     */
+    function wpt_search_box_validation_on_off(){
+        
+        if( is_product_taxonomy() || is_shop() ){
+            return false;
+        }
+        return true;
+    }
+}
+add_filter( 'wpto_searchbox_show', 'wpt_search_box_validation_on_off' );
+
+
+if( ! function_exists( 'wpt_table_preview_template_manager' ) ){
     /**
      * Not Activated Yet. Will Enable Asap
      * 

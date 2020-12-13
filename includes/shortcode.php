@@ -520,8 +520,14 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
 
         $html .= ($minicart_position == 'top' ? $table_minicart_message_box : false);//$minicart_position //"<div class='tables_cart_message_box_{$temp_number}'></div>";
 
+        /**
+         * Searchbox Validation Filter added.
+         * By default: we set that
+         * Table will show only at Page
+         */
+        $search_box_validation = apply_filters( 'wpto_searchbox_show', true, $table_ID, $args, $column_settings, $enabled_column_array, $config_value, $atts );
         //Search Box Hander Here
-        if( $search_box ){
+        if( $search_box && $search_box_validation ){
             /**
              * Search Box Added here, Just before of Table 
              * 
