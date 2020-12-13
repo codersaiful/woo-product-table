@@ -1,7 +1,7 @@
 <?php
 
 if( 'variable' !== $product_type ) return;
-//wp_enqueue_script( 'wc-add-to-cart-variation' );
+wp_enqueue_script( 'wc-add-to-cart-variation' );
 global $product;
 $attribute_keys  = array_keys( $attributes );
 $variations_json = wp_json_encode( $available_variations );

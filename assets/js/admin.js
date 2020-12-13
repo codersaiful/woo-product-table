@@ -7,15 +7,7 @@
         //For select, used select2 addons of jquery
         //$('.wpt_wrap select,.wpt_shortcode_gen_panel select, select#wpt_product_ids,select#product_tag_ids').select2();
         
-        function wptSelectItem(target, id) { // refactored this a bit, don't pay attention to this being a function
-            var option = $(target).children('[value='+id+']');
-            option.detach();
-            $(target).append(option).change();
-        }
-        $('select#wpt_product_ids,select#product_tag_ids,select.wpt_select2').select2();
-        $('select#wpt_product_ids,select#product_tag_ids,select.wpt_select2').on('select2:select', function(e){
-          wptSelectItem(e.target, e.params.data.id);
-        });
+        
 
         var removeAjax = function(aaa,bb){
                 $('.button,button').removeClass('wpt_ajax_update');
