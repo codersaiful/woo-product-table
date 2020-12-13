@@ -1294,6 +1294,8 @@ table.wpt_product_table tr.wpt_selected_tr .wpt_quantity{
     table.wpt_product_table tr.wpt_selected_tr>td{
         background: transparent;
     }
+    
+    .wpt_second_content{display: none;}
 }
 
 
