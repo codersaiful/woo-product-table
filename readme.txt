@@ -158,7 +158,9 @@ You can easily show specific category products. While creating new table click o
 
 = 2.7.8 =
  * Added: Column Tab - Update User Experience 
- * Fixed: Variation Issue for sorting issue
+ * Fixed: Variation Issue for sorting
+ * Fixed: return to min Quantity after Add to cart issue has fixed
+ * Added: few message added for user experience on Backend.
  * Bug Fixed
 
 = 2.7.7 =
