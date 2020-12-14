@@ -1,7 +1,7 @@
 <?php
-$meta_mobile =  get_post_meta( $post->ID, 'mobile', true );
+//$meta_mobile =  get_post_meta( $post->ID, 'mobile', true );
 ?>
-<div class="ultraaddons-panel">
+<!--<div class="ultraaddons-panel">
     <table class="ultraaddons-table">
         <tr>
             <th>
@@ -19,7 +19,7 @@ $meta_mobile =  get_post_meta( $post->ID, 'mobile', true );
         </tr>
     </table>
     
-</div>
+</div>-->
 
 <?php
 $colums_disable_array = array();//WPT_Product_Table::$colums_disable_array;
@@ -56,7 +56,7 @@ unset( $columns_array['price'] );
 unset( $columns_array['action'] );
 unset( $columns_array['check'] );
 ?>
-<ul id="wpt_keyword_hide_mobile">
+<!--<ul id="wpt_keyword_hide_mobile">
     <h1 style="color: #D01040;"><?php esc_html_e( 'Hide On Mobile', 'wpt_pro' ); ?></h1>
     <p style="padding: 0;margin: 0;"><?php esc_html_e( 'Pleach check you column to hide from Mobile. For all type Table(Responsive or Non-Responsive).', 'wpt_pro' ); ?></p>
     <hr>
@@ -82,4 +82,4 @@ unset( $columns_array['check'] );
     }
     ?>
 
-</ul>
+</ul>-->
