@@ -25,18 +25,14 @@ $meta_mobile =  get_post_meta( $post->ID, 'mobile', true );
     jQuery(document).ready(function($){
         $("select#wpt_table_mobile_responsive").click(function(){
             let sel_value = $(this).val();
-        if( 'mobile_responsive' === sel_value ){
-            $("#manual-responsive-wrapper").hide();
-        }
-        if( 'no_responsive' === sel_value ){
-            $("#wpt_keyword_hide_mobile").hide();
-        }
+            $('.responsive-part').css('display','none');
+            $('.responsive-part.' + sel_value).css('display','block');
         });
     });
 </script>
 
 <?php
-if( $meta_mobile['mobile_responsive'] == 'mobile_responsive' ) : 
+
 $colums_disable_array = array();//WPT_Product_Table::$colums_disable_array;
 $colums_disable_array = array_map(function($value){
     $minus_from_disabledArray = array(
@@ -70,8 +66,12 @@ unset( $columns_array['price'] );
 
 unset( $columns_array['action'] );
 unset( $columns_array['check'] );
+
+
 ?>
-<ul id="wpt_keyword_hide_mobile">
+<ul id="wpt_keyword_hide_mobile" class="responsive-part mobile_responsive"
+    style="display: <?php echo $meta_mobile['mobile_responsive'] == 'mobile_responsive' ? '' : 'none';  ?>"
+    >
     <h1 style="color: #D01040;"><?php esc_html_e( 'Hide On Mobile', 'wpt_pro' ); ?></h1>
     <p style="padding: 0;margin: 0;"><?php esc_html_e( 'Pleach check you column to hide from Mobile. For all type Table(Responsive or Non-Responsive).', 'wpt_pro' ); ?></p>
     <hr>
@@ -100,7 +100,9 @@ unset( $columns_array['check'] );
 </ul>
 
 <?php
-elseif( $meta_mobile['mobile_responsive'] == 'no_responsive' ):
+
+
+
 $meta_responsive = get_post_meta( $post->ID, 'responsive', true );
 
 $column_array = $meta_column_array = get_post_meta( $post->ID, 'column_array', true );
@@ -122,7 +124,9 @@ $supported_device = apply_filters( 'wpto_responsive_device_arr', $supported_devi
 if( !is_array( $supported_device ) || ( is_array( $supported_device ) && count( $supported_device ) < 1 ) || !is_array( $column_array ) || ( is_array( $column_array ) && count( $column_array ) < 1 ) ){
     return;
 }?>
-<div class="section ultraaddons" id="manual-responsive-wrapper">
+<div class="section ultraaddons responsive-part no_responsive" id="manual-responsive-wrapper"
+     style="display: <?php echo $meta_mobile['mobile_responsive'] == 'mobile_responsive' ? 'none' : '';  ?>"
+     >
     <table class="ultraaddons-table">
         <tr>
 
@@ -182,5 +186,3 @@ if( !is_array( $supported_device ) || ( is_array( $supported_device ) && count( 
         </tr>
     </table>
 </div>
-<?php endif; ?>
-<p class="warning" style="color: red;">Please click on "SAVE CHANGE" to change the effect. After that reload this page.</p>
