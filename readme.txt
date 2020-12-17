@@ -156,6 +156,10 @@ You can easily show specific category products. While creating new table click o
 
 == Changelog ==
 
+= 2.7.9 =
+ * Fixed: admin body class issue fixed
+ * Bug Fixed
+
 = 2.7.8 =
  * Added: Column Tab - Update User Experience 
  * Fixed: Variation Issue for sorting
