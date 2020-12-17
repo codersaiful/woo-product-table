@@ -12,9 +12,6 @@ $meta_mobile =  get_post_meta( $post->ID, 'mobile', true );
                     <option value="mobile_responsive" <?php echo isset( $meta_mobile['mobile_responsive'] ) && $meta_mobile['mobile_responsive'] == 'mobile_responsive' ? 'selected' : ''; ?>><?php esc_html_e( 'Auto Responsive (Not Recommended)', 'wpt_pro' ); ?></option>
                     <option value="no_responsive" <?php echo isset( $meta_mobile['mobile_responsive'] ) && $meta_mobile['mobile_responsive'] == 'no_responsive' ? 'selected' : ''; ?>><?php esc_html_e( 'Manual Responsive', 'wpt_pro' ); ?></option>
                 </select>
-                <p>
-                    If you want to work with <strong>Responsive</strong> Tab, Please select <strong>No Responsive</strong>.
-                </p>
             </td>
         </tr>
     </table>
