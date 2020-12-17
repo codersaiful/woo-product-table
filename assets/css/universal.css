@@ -1539,6 +1539,9 @@ div.wpt_product_table_wrapper table.wpt_product_table th.wpt_action {
     margin: 10px 0;
 }
 
+.wpt_varition_section.variations {
+    width: 100%;
+}
 /* Scrollbar Design */
 /* width */
 .wpt_product_table_wrapper ::-webkit-scrollbar {
@@ -1599,7 +1602,4 @@ div.wpt_product_table_wrapper table.wpt_product_table th.wpt_action {
 
 .mejs-button.mejs-volume-button, .mejs-button.mejs-fullscreen-button {
 
-}
-.wpt_varition_section.variations select {
-    display: block;
 }
