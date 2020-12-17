@@ -157,6 +157,7 @@ You can easily show specific category products. While creating new table click o
 == Changelog ==
 
 = 2.7.9 =
+ * Fixed: Responsive/Mobile Tab issue fixed
  * Fixed: admin body class issue fixed
  * Bug Fixed
 
