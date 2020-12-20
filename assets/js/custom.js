@@ -40,6 +40,8 @@
         var ajax_url,ajax_url_additional = '/wp-admin/admin-ajax.php';
         var site_url = $('div.wpt_product_table_wrapper').data('site_url');
             ajax_url = site_url + ajax_url_additional;
+        
+        var ajax_url = WPT_DATA.ajax_url;
         /*
         if ( typeof woocommerce_params === 'undefined' ){
             var site_url = $('div.wpt_product_table_wrapper').data('site_url');
