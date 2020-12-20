@@ -69,7 +69,7 @@ if( !function_exists( 'wpt_admin_js_fast_load' ) ){
            'priceFormat' => wpt_price_formatter(),
            'version' => $version,
            );
-        $WPT_DATA = apply_filters( 'wpto_data_for_js', $WPT_DATA );
+        $WPT_DATA = apply_filters( 'wpto_localize_data', $WPT_DATA );
        wp_localize_script( 'wpt-admin', 'WPT_DATA_ADMIN', $WPT_DATA );
     }
 }
