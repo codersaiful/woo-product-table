@@ -156,7 +156,7 @@ You can easily show specific category products. While creating new table click o
 
 == Changelog ==
 
-= 2.8.0 =
+= 2.8.1 =
  * Fixed: Illegal ofset issue, When creating new Table.
 
 = 2.8.0 =
