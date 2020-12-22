@@ -1,5 +1,9 @@
 <?php
 $meta_mobile =  get_post_meta( $post->ID, 'mobile', true );
+if( ! empty( $meta_mobile ) || ! is_array( $meta_mobile ) ){
+    $meta_mobile = array();
+    $meta_mobile['mobile_responsive'] = 'mobile_responsive';
+}
 ?>
 <div class="ultraaddons-panel">
     <table class="ultraaddons-table">
