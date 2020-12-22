@@ -156,6 +156,15 @@ You can easily show specific category products. While creating new table click o
 
 == Changelog ==
 
+= 2.8.1 =
+ * Fixed: Illegal ofset issue, When creating new Table.
+
+= 2.8.0 =
+ * Updated: Quantity value return to min issue has fixed.
+ * Added: Filter Added [wpto_qty_return_zero] support: true,false
+ * Added: Filter Added [wpto_qty_return_quanity] support: true,false
+ * Bug Fixed
+
 = 2.7.9 =
  * Fixed: Responsive/Mobile Tab issue fixed
  * Fixed: admin body class issue fixed

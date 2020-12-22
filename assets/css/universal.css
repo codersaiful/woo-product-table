@@ -1325,6 +1325,7 @@ table.wpt_product_table tr.wpt_selected_tr .wpt_quantity{
 }
 .wpt_product_price{
     font-weight: bold;
+    white-space: nowrap;
 }
 /*
 table.wpt_product_table tr.wpt_selected_tr>td:before{
