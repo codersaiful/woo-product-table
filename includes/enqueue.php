@@ -58,6 +58,8 @@ if( !function_exists( 'wpt_enqueue' ) ){
            'priceFormat' => wpt_price_formatter(),
            'version' => $version,
            'resize_loader' => apply_filters( 'wpto_resize_reloader', false ),
+           'return_zero'   => apply_filters( 'wpto_qty_return_zero', true ),
+           'return_quanity'   => apply_filters( 'wpto_qty_return_quanity', true ),
            );
        $WPT_DATA = apply_filters( 'wpto_localize_data', $WPT_DATA );
        wp_localize_script( 'wpt-custom-js', 'WPT_DATA', $WPT_DATA );

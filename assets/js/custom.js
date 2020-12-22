@@ -460,7 +460,8 @@
             config_json = getConfig_json( temp_number ); //Added at V5.0
             var qtyElement = $('#table_id_' + temp_number + ' #product_id_' + product_id + ' input.input-text.qty.text');
             var min_quantity = qtyElement.attr('min');//.val();
-            if( typeof min_quantity === 'undefined'){
+            console.log(typeof min_quantity);
+            if( ( typeof min_quantity === 'undefined' || min_quantity === '0' ) && !WPT_DATA.return_zero ){
                 min_quantity = 1;
             }
             //For Direct Checkout page and Quick Button Features
@@ -529,9 +530,17 @@
                     thisButton.removeClass('disabled');
                     thisButton.removeClass('loading');
                     thisButton.addClass('added');
-                    qtyElement.val(min_quantity); //Goint to Min Quantity Removed
-                    thisButton.attr('data-quantity',min_quantity);  //Goint to Min Quantity Removed
-
+                    
+                    /**
+                     * If anyone want that Quantity will not return to min qty,
+                     * Then use following filter
+                     * add_filter( 'wpto_qty_return_quanity', '__return_false' );
+                     */
+                    if(WPT_DATA.return_quanity){
+                        qtyElement.val(min_quantity);
+                        thisButton.attr('data-quantity',min_quantity);
+                    }
+                    
                     if(config_json.popup_notice === '1'){
                         WPT_NoticeBoard();//Gettince Notice
                     }
