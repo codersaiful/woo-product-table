@@ -460,7 +460,7 @@
             config_json = getConfig_json( temp_number ); //Added at V5.0
             var qtyElement = $('#table_id_' + temp_number + ' #product_id_' + product_id + ' input.input-text.qty.text');
             var min_quantity = qtyElement.attr('min');//.val();
-            console.log(typeof min_quantity);
+            
             if( ( typeof min_quantity === 'undefined' || min_quantity === '0' ) && !WPT_DATA.return_zero ){
                 min_quantity = 1;
             }
