@@ -206,6 +206,12 @@ if( !function_exists( 'wpt_ajax_table_row_load' ) ){
 
 
         }
+        
+        if( !empty( $directkey ) && isset( $directkey['orderby'] ) && isset( $directkey['order'] ) ){
+            $args['orderby'] = $directkey['orderby'];//( isset(  ) ? $directkey['orderby'] : false );
+            $args['order'] = $directkey['order'];//( isset( $directkey['order'] ) ? $directkey['order'] : false );
+        }
+        
         /**
          * Page Number Hander
          */
