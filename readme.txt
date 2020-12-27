@@ -156,8 +156,11 @@ You can easily show specific category products. While creating new table click o
 
 == Changelog ==
 
+= 2.8.2 =
+ * Fixed: Responsive Tab Issue fixed.
+
 = 2.8.1 =
- * Fixed: Illegal ofset issue, When creating new Table.
+ * Fixed: Illegal offset issue, When creating new Table.
 
 = 2.8.0 =
  * Updated: Quantity value return to min issue has fixed.
