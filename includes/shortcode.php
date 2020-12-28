@@ -161,7 +161,7 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
             $min_price = $conditions['min_price'];
             $max_price = $conditions['max_price'];
             $description_type = $conditions['description_type'];
-            $only_stock = $conditions['only_stock'] == 'yes' ? true : false;
+            $only_stock = !empty( $conditions['only_stock'] ) ? $conditions['only_stock'] : false;
             $only_sale = isset( $conditions['only_sale'] ) && $conditions['only_sale'] == 'yes' ? true : false;
             $posts_per_page = (int) $conditions['posts_per_page'];
 
@@ -234,10 +234,10 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
         }
         //Author info with Condition added 3.4  - End Here
 
-        if($only_stock){
+        if( $only_stock ){
             $args['meta_query'][] = array(//For Available product online
                     'key' => '_stock_status',
-                    'value' => 'instock'
+                    'value' => $only_stock
                 );
         }
         /**
