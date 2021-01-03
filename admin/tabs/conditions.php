@@ -116,8 +116,10 @@ $meta_conditions =  get_post_meta( $post->ID, 'conditions', true );
                 </th>
                 <td>
                     <select name="conditions[only_stock]" data-name='only_stock' id="wpt_table_only_stock" class="wpt_fullwidth wpt_data_filed_atts ua_input" >
-                        <option value="no" <?php echo isset( $meta_conditions['only_stock'] ) && $meta_conditions['only_stock'] == 'no' ? 'selected' : ''; ?>><?php esc_html_e( 'All Product', 'wpt_pro' ); ?></option>
-                        <option value="yes" <?php echo isset( $meta_conditions['only_stock'] ) && $meta_conditions['only_stock'] == 'yes' ? 'selected' : ''; ?>><?php esc_html_e( 'Yes (Only Stock)', 'wpt_pro' ); ?></option>
+                        <option value="" <?php echo isset( $meta_conditions['only_stock'] ) && $meta_conditions['only_stock'] == '' ? 'selected' : ''; ?>><?php esc_html_e( 'All Product', 'wpt_pro' ); ?></option>
+                        <option value="instock" <?php echo isset( $meta_conditions['only_stock'] ) && $meta_conditions['only_stock'] == 'instock' ? 'selected' : ''; ?>><?php esc_html_e( 'instock', 'wpt_pro' ); ?></option>
+                        <option value="onbackorder" <?php echo isset( $meta_conditions['only_stock'] ) && $meta_conditions['only_stock'] == 'onbackorder' ? 'selected' : ''; ?>><?php esc_html_e( 'onbackorder', 'wpt_pro' ); ?></option>
+                        <option value="outofstock" <?php echo isset( $meta_conditions['only_stock'] ) && $meta_conditions['only_stock'] == 'outofstock' ? 'selected' : ''; ?>><?php esc_html_e( 'outofstock', 'wpt_pro' ); ?></option>
                     </select>
                 </td>
             </tr>
