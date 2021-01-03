@@ -1427,9 +1427,11 @@
             e.preventDefault();
             var temp_number = $(this).data('temp_number');
             $('#table_id_' + temp_number + ' select.filter_select').each(function(){
-                $(this).children().first().attr('selected','selected');
+                $(this).prop('selectedIndex', 0);
+                //$(this).children().first().attr('selected','selected');
             });
-            filterTableRow(temp_number);
+            $('#table_id_' + temp_number + ' select.filter_select').trigger('change');
+            //filterTableRow(temp_number);
         });
         
          $('body').on('click', 'input.wpt_check_universal,input.enabled.wpt_tabel_checkbox.wpt_td_checkbox', function() { //wpt_td_checkbox
