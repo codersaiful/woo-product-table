@@ -417,16 +417,17 @@ class WPT_Product_Table{
             self::$own['perpose']   = 'activation';
             self::$own['plugin']    = 'wc-quantity-plus-minus-button/init.php';
             self::$own['btn_text']  = 'Activate Now';
+            $configuration_page = '<a target="_blank" href="' . esc_url( admin_url( 'edit.php?post_type=wpt_product_table&page=woo-product-table-config' ) ) . '">' . esc_html__( 'Configuration Page', 'wpt_pro' ) . '</a>';
             $message = sprintf(
                    /* translators: 1: Plugin name 2: WooPrdouct Table */
-                   esc_html__( '"%1$s" recomends "%2$s" to be activated.', 'wpt_pro' ),
+                   esc_html__( '"%1$s" recomends "%2$s" to be activated. To [hide this warning], Go to %3$s and Disable Plugin Recomendation.', 'wpt_pro' ),
                    '<strong>' . esc_html__( 'Woo Product Table', 'wpt_pro' ) . '</strong>',
-                    $link_text 
+                    $link_text,
+                    $configuration_page
                 );
             self::$own['message']   = $message;//'You to activate your Plugin';
             add_action( 'admin_notices', [ $this, 'admin_notice' ] );
         }
-        
         
         
         // Check for required PHP version
