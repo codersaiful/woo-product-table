@@ -1051,8 +1051,9 @@ if( !function_exists( 'wpt_texonomy_search_generator' ) ){
         $html .= "<div class='search_single search_single_texonomy search_single_{$texonomy_keyword}'>";
         $html .= "<label class='search_keyword_label {$texonomy_keyword}' for='{$texonomy_keyword}_{$temp_number}'>{$label}</label>";
 
+        $multiple_selectable = apply_filters( 'wpto_is_multiple_selectable', true, $texonomy_keyword, $temp_number ) ? 'multiple' : '';
 
-        $html .= "<select data-key='{$texonomy_keyword}' class='search_select query search_select_{$texonomy_keyword}' id='{$texonomy_keyword}_{$temp_number}' multiple>";
+        $html .= "<select data-key='{$texonomy_keyword}' class='search_select query search_select_{$texonomy_keyword}' id='{$texonomy_keyword}_{$temp_number}' $multiple_selectable>";
         //$html .= "<option value=''>{$label_all_items}</option>";
         $texonomy_boj = get_terms( $texonomy_keyword, $texonomy_sarch_args );
         if( count( $texonomy_boj ) > 0 ){
