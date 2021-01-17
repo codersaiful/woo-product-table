@@ -5,5 +5,5 @@ $wpt_single_price .= '<span class="wpt_product_price">';
 $wpt_single_price .= $product->get_price_html(); //Here was woocommerce_template_loop_price() at version 1.0
 $wpt_single_price .= '</span>';
 //$wpt_single_price .= " </td>";
-
+//var_dump($product->get_price());
 echo $wpt_single_price;
