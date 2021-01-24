@@ -15,14 +15,23 @@ $variations_attr = function_exists( 'wc_esc_json' ) ? wc_esc_json( $variations_j
         
         <div class="wpt_varition_section variations" data-product_id="<?php echo esc_attr( $product->get_id() ); ?>" data-temp_number="<?php echo esc_attr( $temp_number ); ?>">
         <?php foreach ( $attributes as $attribute_name => $options ) : ?>
-                
+
                 <?php
+                
+                        /**
+                         * This hooked is used for print variations label
+                         * 
+                         * @hooked wpto_before_each_variation_callback - 10
+                         */
+                        do_action( 'wpto_before_each_variation', $attribute_name, $options, $product, $temp_number );
+                        
                         wc_dropdown_variation_attribute_options(
                                 array(
                                         'options'   => $options,
                                         'attribute' => $attribute_name,
                                         'product'   => $product,
                                         'id'        => esc_attr( $attribute_name . '_' . $product->get_id() ),
+                                        'name'        => esc_attr( $attribute_name . '_' . $product->get_id() ),
                                         'show_option_none' => wc_attribute_label( $attribute_name ), // WPCS: XSS ok.
                                 )
                         );
