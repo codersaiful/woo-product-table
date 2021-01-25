@@ -1605,3 +1605,19 @@ div.wpt_product_table_wrapper table.wpt_product_table th.wpt_action {
 .mejs-button.mejs-volume-button, .mejs-button.mejs-fullscreen-button {
 
 }
+.wpt_product_table .variation-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+.variation-wrapper.reset {
+    justify-content: flex-end;
+}
+.wpt_product_table .variation-wrapper label {
+    min-width: 60px;
+    display: inline-block;
+    font-weight: 600;
+}
+.wpt_product_table .variation-wrapper a.reset_variations {
+    display: inline-block;
+    margin-left: 16px;
+}
