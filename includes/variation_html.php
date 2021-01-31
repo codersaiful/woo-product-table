@@ -17,34 +17,38 @@ $variations_attr = function_exists( 'wc_esc_json' ) ? wc_esc_json( $variations_j
         <?php foreach ( $attributes as $attribute_name => $options ) : ?>
 
                 <?php
-                $show_label = isset( $config_value['wpto_show_variation_label2'] ) && $config_value['wpto_show_variation_label2'] == 'on' ? true : false;
-                        echo $show_label ? '<div class="variation-wrapper">' : '';
-                        /**
-                         * This hooked is used for print variations label
-                         * 
-                         * @hooked wpto_before_each_variation_callback - 10
-                         */
-                        do_action( 'wpto_before_each_variation', $attribute_name, $options, $product, $config_value, $temp_number );
+                /**
+                 * This hooked is used for print variations label
+                 * 
+                 * for using for each variation
+                 */
+                do_action( 'wpto_before_each_variation', $attribute_name, $options, $product, $config_value, $temp_number );
+
+                $show_label = isset( $config_value['wpt_show_variation_label'] ) && $config_value['wpt_show_variation_label'] == 'on' ? true : false;
+                echo $show_label ? '<div class="variation-wrapper">' : '';
+                ?>
+                <label for="<?php echo esc_attr( esc_attr( $attribute_name . '_' . $product->get_id() ) );?>"><?php echo esc_html( wc_attribute_label( $attribute_name ) ); ?></label>    
+                <?php        
                         
-                        wc_dropdown_variation_attribute_options(
-                                array(
-                                        'options'   => $options,
-                                        'attribute' => $attribute_name,
-                                        'product'   => $product,
-                                        'id'        => esc_attr( $attribute_name . '_' . $product->get_id() ),
-                                        'name'        => esc_attr( $attribute_name . '_' . $product->get_id() ),
-                                        'show_option_none' => wc_attribute_label( $attribute_name ), // WPCS: XSS ok.
-                                )
-                        );
-                        echo $show_label ? '</div>' : '';
-                        if(end( $attribute_keys ) == $attribute_name){
-                            if( $show_label ){
-                            echo wp_kses_post( apply_filters( 'woocommerce_reset_variations_link', '<div class="variation-wrapper reset"><a class="reset_variations" href="#">' . esc_html__( 'Clear', 'woocommerce' ) . '</a></div>' ) );
-                            }else{
-                            echo wp_kses_post( apply_filters( 'woocommerce_reset_variations_link', '<a class="reset_variations" href="#">' . esc_html__( 'Clear', 'woocommerce' ) . '</a>' ) );
-                            
-                            }
-                        }
+                wc_dropdown_variation_attribute_options(
+                        array(
+                                'options'   => $options,
+                                'attribute' => $attribute_name,
+                                'product'   => $product,
+                                'id'        => esc_attr( $attribute_name . '_' . $product->get_id() ),
+                                'name'        => esc_attr( $attribute_name . '_' . $product->get_id() ),
+                                'show_option_none' => wc_attribute_label( $attribute_name ), // WPCS: XSS ok.
+                        )
+                );
+                echo $show_label ? '</div>' : '';
+                
+                if( end( $attribute_keys ) == $attribute_name ){
+                    if( $show_label ){
+                        echo wp_kses_post( apply_filters( 'woocommerce_reset_variations_link', '<div class="variation-wrapper reset"><a class="reset_variations" href="#">' . esc_html__( 'Clear', 'woocommerce' ) . '</a></div>' ) );
+                    }else{
+                        echo wp_kses_post( apply_filters( 'woocommerce_reset_variations_link', '<a class="reset_variations" href="#">' . esc_html__( 'Clear', 'woocommerce' ) . '</a>' ) );
+                    }
+                }
                 ?>
                 
         <?php endforeach; ?>
