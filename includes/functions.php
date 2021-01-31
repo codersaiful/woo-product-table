@@ -1077,3 +1077,47 @@ if( ! function_exists( 'wpt_user_roles_by_id' ) ){
         return $user->roles;
     }
 }
+
+if( !function_exists( 'wpt_shop_archive_sorting_args' ) ){
+    
+    /**
+     * This function has fixed shop archive default sorting issue.
+     * 
+     * @param type $args
+     * @return array $args
+     */
+    function wpt_shop_archive_sorting_args( $args ){
+        if( is_shop() || is_product_taxonomy() ){
+            $_orderby = isset( $_GET['orderby'] ) && !empty( $_GET['orderby'] ) ? $_GET['orderby'] : '';
+            $args['paged'] = 1;
+            $args['post_type'] = ['product'];
+            switch( $_orderby ){
+                case 'price':
+                        $args['orderby'] = 'meta_value_num';
+                        $args['order'] = 'asc';
+                        $args['meta_key'] = '_price';
+                    break;
+                case 'price-desc':
+                        $args['orderby'] = 'meta_value_num';
+                        $args['order'] = 'desc';
+                        $args['meta_key'] = '_price';
+                    break;
+                case 'rating':
+                        $args['orderby'] = 'meta_value_num';
+                        $args['order'] = 'desc';
+                        $args['meta_key'] = '_wc_average_rating';
+                   break;
+                case 'popularity':
+                        $args['orderby'] = 'meta_value_num';
+                        $args['order'] = 'desc';
+                        $args['meta_key'] = 'total_sales';
+                    break;
+                case 'date':
+                        $args['order'] = 'desc';
+                    break;
+            }
+        }
+        return $args;
+    }
+}
+add_filter( 'wpto_table_query_args_in_row', 'wpt_shop_archive_sorting_args', 10 );
