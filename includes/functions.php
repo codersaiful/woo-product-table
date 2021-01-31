@@ -1057,3 +1057,23 @@ if( ! function_exists( 'wpt_table_preview_template_manager' ) ){
     }
 }
 //add_filter( 'template_include', 'wpt_table_preview_template_manager' );
+
+if( ! function_exists( 'wpt_user_roles_by_id' ) ){
+    
+    /**
+     * Get user roles by user ID.
+     * 
+     * https://wordpress.stackexchange.com/questions/58916/how-to-get-role-of-user
+     * @param  int $id
+     * @return array
+     */
+    function wpt_user_roles_by_id( $id )
+    {
+        $user = new WP_User( $id );
+
+        if ( empty ( $user->roles ) or ! is_array( $user->roles ) )
+            return array ();
+
+        return $user->roles;
+    }
+}
