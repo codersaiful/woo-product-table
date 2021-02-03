@@ -27,7 +27,7 @@ switch($priceFormat){
 
 $user_role = wpt_user_roles_by_id( get_current_user_id() );
 $wholesale_meta_key = $user_role[0] . '_wholesale_price'; //It's only for Wholesale plugin
-$total_price = !empty( get_post_meta($product->id, $wholesale_meta_key, true) )? get_post_meta($product->id, $wholesale_meta_key, true) : $product->get_price();
+$total_price = !empty( get_post_meta($product->get_id(), $wholesale_meta_key, true) )? get_post_meta($product->get_id(), $wholesale_meta_key, true) : $product->get_price();
 
 /**
  * Filter for Getting original Flat price to calculate Total
@@ -38,7 +38,7 @@ $total_price = !empty( get_post_meta($product->id, $wholesale_meta_key, true) )?
  * @Date 31.1.2021
  * @by Saiful
  */
-$total_price = apply_filters( 'wpto_flat_product_price', $total_price, $product->id, get_current_user_id(), $user_role, $product );
+$total_price = apply_filters( 'wpto_flat_product_price', $total_price, $product->get_id(), get_current_user_id(), $user_role, $product );
 echo "<div data-number_of_decimal='" . esc_attr( $number_of_decimal ) . "' "
         . "data-thousand_separator='" . esc_attr( $thousand_separator ) . "' "
         . "data-price_decimal_separator='" . esc_attr( $price_decimal_separator ) . "' "

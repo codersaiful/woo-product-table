@@ -1,4 +1,54 @@
 <?php
+/**
+add_filter( 'wp_nav_menu_items', 'add_mega_menu_items', 8888, 2);
+function add_mega_menu_items( $items, $args ) {
+// var_dump($args->menu);
+    if($args->menu == 627 ){ //&& $args->theme_location == 'primary-menu'
+        $categories=get_terms(
+            array(
+                'hide_empty' => true,
+                'taxonomy' => 'product_cat'
+            )
+        );
+
+        foreach ($categories as $category){
+			$active_class = false;
+			$act_id = get_queried_object_id();
+            if($category->parent == 0){
+                $child_items = '';
+                $parent_class = 'no_child';
+                $term_args = array(
+                    'taxonomy' => 'product_cat',
+                    'hide_empty' => true,
+                    'parent'   =>  $category->term_id,
+                );
+                $childs = get_terms( $term_args );
+                if( !empty( $childs ) ){
+                    $parent_class = 'has_child';
+                    $child_items .= '<ul class="sfl_childe_ul slf_parent_cat_id_' . $category->term_id . '" >';
+                    foreach( $childs as $child ){
+						$active_class = $act_id == $child->term_id ? 'sfl_active_child_term sfl_active_menu': false;
+                        $thumbnail_id = get_term_meta( $child->term_id, 'thumbnail_id', true );
+                        $cat_image = wp_get_attachment_url( $thumbnail_id );
+                        $cat_image = $cat_image ? '<img class="mega-menu-item-image" src="'. $cat_image .'">' : '';
+                        $child_items .= '<li class="sfl_child_li slf_child_li_' . $child->term_id . ' ' . $active_class . '">'
+								. '<a href="'. get_category_link( $child->term_id ) .'">' 
+                                . $cat_image
+                                . '<div>' . $child->name . '</div>'
+								. '</a>'
+                                . '</li>';
+                    }
+                    $child_items .= '</ul>';
+                }
+				$active_class = $active_class || $act_id == $category->term_id ? 'sfl_active_term sfl_active_menu': false;
+                $items .= '<li  class="sfl_parent_li parent_cat_id_' . $category->term_id . ' ' . $active_class . '"><a class="sfl_parent_class" href="'. get_category_link( $category->term_id ) .'">' . $category->name . '</a>' . $child_items . '</li>';
+            }
+        }
+    }
+
+    return $items;
+}
+ */
 $meta_basics = get_post_meta( $post->ID, 'basics', true );
 $data = isset( $meta_basics['data'] ) ? $meta_basics['data'] : false;
 
@@ -46,8 +96,27 @@ $data = isset( $meta_basics['data'] ) ? $meta_basics['data'] : false;
                     if( is_array( $term_obj ) && count( $term_obj ) > 0 ){
                         $selected_term_ids = isset( $data['terms'][$term_key] ) ? $data['terms'][$term_key] : false;
                         foreach ( $term_obj as $terms ) {
+                            $extra_message = '';
+//                            //if( 'product_cat' == $term_key ){
+//                            
+//                            $parents = get_term_parents_list($terms->term_id,$term_key, array(
+//                                'link' => false,
+//                                'separator'=> '/',
+//                                'inclusive'=> false,
+//                            ));
+//                            $parents = rtrim( $parents, '/' );
+//
+//                            if( ! empty( $parents ) ){
+//                                $parents_exp = explode('/',$parents);
+//                                $count = count( $parents_exp );
+//                                //var_dump( str_repeat( '-', $count ) );
+//                                $taxo_tree_sepa = apply_filters( 'wpto_taxonomy_tree_separator', '- ', $terms );
+//                                $extra_message = str_repeat( $taxo_tree_sepa, $count );
+//                            }
+//                                
+//                            //}
                             $selected = is_array( $selected_term_ids ) && in_array( $terms->term_id,$selected_term_ids ) ? 'selected' : false;
-                            $options_item .= "<option value='{$terms->term_id}' {$selected}>{$terms->name} ({$terms->count})</option>";
+                            $options_item .= "<option value='{$terms->term_id}' {$selected}>{$extra_message} {$terms->name} ({$terms->count})</option>";
                         }
                     }
 
