@@ -1121,3 +1121,18 @@ if( !function_exists( 'wpt_shop_archive_sorting_args' ) ){
     }
 }
 add_filter( 'wpto_table_query_args_in_row', 'wpt_shop_archive_sorting_args', 10 );
+
+/**
+ * Astra Theme Compatibility
+ * 
+ * Quantity Plus Minus Button issue solved by removed from Theme
+ * Only for Astra Theme
+ * 
+ * TIPS: At this situation, Need https://wordpress.org/plugins/wc-quantity-plus-minus-button/ Plugin
+ * 
+ * @since 2.8.3.2
+ * 
+ * @date 3.2.2021
+ * @by Saiful
+ */
+add_filter( 'astra_add_to_cart_quantity_btn_enabled', '__return_false' ); 
