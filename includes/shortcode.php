@@ -1107,12 +1107,13 @@ if( !function_exists( 'wpt_texonomy_search_generator' ) ){
                     $parents = array();
                     $parents['parent_term'] = $item->name;//explode('/',$parents);
                     $parents['data'] = explode('/',$parentssss);
-                    var_dump($parents);
+                    
 //                    $count = count( $parents );
                     //var_dump( str_repeat( '-', $count ) );
 //                    $taxo_tree_sepa = apply_filters( 'wpto_taxonomy_tree_separator', '- ', $terms );
 //                    $extra_message = str_repeat( $taxo_tree_sepa, $count );
                 }                
+                
                 
 
                         
