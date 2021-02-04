@@ -1039,14 +1039,15 @@ if( !function_exists( 'wpt_texonomy_search_generator' ) ){
         /**
          * Need for get_texonomy and get_terms
          */
-        $texonomy_sarch_args = array('hide_empty' => true,'orderby' => 'count','order' => 'DESC');
-
+        $texonomy_sarch_args = array('hide_empty' => false,'orderby' => 'count','order' => 'DESC');
+        $texonomy_sarch_args = apply_filters( 'wpto_taxonomy_query_args', $texonomy_sarch_args, $texonomy_keyword, $temp_number, $selected_taxs );
+        
         $taxonomy_details = get_taxonomy( $texonomy_keyword );
-
-        if( !$taxonomy_details ){
+        
+        if( ! $taxonomy_details ){
             return false;
         }
-        $label = apply_filters( 'wpto_searchbox_taxonomy_name', $taxonomy_details->labels->menu_name, $texonomy_keyword, $temp_number );//label;
+        $label = apply_filters( 'wpto_searchbox_taxonomy_name', $taxonomy_details->labels->menu_name, $texonomy_keyword, $temp_number, $taxonomy_details, $selected_taxs );//label;
         $label_all_items = $taxonomy_details->labels->all_items;
         $html .= "<div class='search_single search_single_texonomy search_single_{$texonomy_keyword}'>";
         $html .= "<label class='search_keyword_label {$texonomy_keyword}' for='{$texonomy_keyword}_{$temp_number}'>{$label}</label>";
@@ -1056,18 +1057,32 @@ if( !function_exists( 'wpt_texonomy_search_generator' ) ){
         $html .= "<select data-key='{$texonomy_keyword}' class='search_select query search_select_{$texonomy_keyword}' id='{$texonomy_keyword}_{$temp_number}' $multiple_selectable>";
         //$html .= "<option value=''>{$label_all_items}</option>";
         $texonomy_boj = get_terms( $texonomy_keyword, $texonomy_sarch_args );
+        
+        
+        
+        
         if( count( $texonomy_boj ) > 0 ){
             //Search box's Filter Sorting Added at Version 3.1
             $customized_texonomy_boj = false;
 
+//            $parents = get_term_parents_list($texonomy_boj->term_id,$texonomy_keyword, array(
+//                'link' => false,
+//                'separator'=> '/',
+//                'inclusive'=> false,
+//            ));
+//            var_dump($texonomy_sarch_args,$texonomy_keyword,$texonomy_boj);
+//            var_dump($parents);
+            
             if( $selected_taxs && is_array( $selected_taxs ) && count( $selected_taxs ) > 0 ){
                 foreach( $selected_taxs as $termID ){
+                    
                     $singleTerm = get_term( $termID );
                     $name = $singleTerm->name;
                     $customized_texonomy_boj[$name] = $singleTerm;
                 }
             }else{
                 foreach( $texonomy_boj as $item ){
+                    //var_dump($item);
                     $name = $item->name;
                     $customized_texonomy_boj[$name] = $item;
 
@@ -1075,10 +1090,54 @@ if( !function_exists( 'wpt_texonomy_search_generator' ) ){
                 $customized_texonomy_boj = wpt_sorting_array( $customized_texonomy_boj, $config_value['sort_searchbox_filter'] );
             }
 
+//            var_dump( $customized_texonomy_boj );
 
+            $sorted_terms = [];
             foreach( $customized_texonomy_boj as $item ){
-                $html .= "<option value='{$item->term_id}'>{$item->name}</option>"; // ({$item->count})
+                //var_dump($item);
+                $parents = get_term_parents_list($item->term_id,$texonomy_keyword, array(
+                    'link' => false,
+                    'separator'=> '/',
+                    'inclusive'=> false,
+                ));                
+                //var_dump($item->parent, $item->name ); 
+                $parentssss = rtrim( $parents, '/' );
+
+                if( ! empty( $parentssss ) ){
+                    $parents = array();
+                    $parents['parent_term'] = $item->name;//explode('/',$parents);
+                    $parents['data'] = explode('/',$parentssss);
+                    var_dump($parents);
+//                    $count = count( $parents );
+                    //var_dump( str_repeat( '-', $count ) );
+//                    $taxo_tree_sepa = apply_filters( 'wpto_taxonomy_tree_separator', '- ', $terms );
+//                    $extra_message = str_repeat( $taxo_tree_sepa, $count );
+                }                
+                
+
+                        
+                if( ! $item->parent ){
+//                    var_dump($item->name);
+                    $html .= "<option value='{$item->term_id}'>{$item->name}</option>";
+                }
+                
+//                $html .= "<option value='{$item->term_id}'>{$item->name}</option>"; // ({$item->count})
+                
+                
+                
+                $depth = count( get_ancestors( $item->term_id, $texonomy_keyword ) );
+//                var_dump($depth);
+                if( ! array_key_exists( $depth, $sorted_terms ) ){
+                    $sorted_terms[$item->name] = [];
+                }
+
+                $sorted_terms[$item->name]['terms'] = $item->name;
+                $sorted_terms[$item->name]['depth'] = $depth;
+                
+                
+//                wp_list_categories();
             }
+//            var_dump($sorted_terms);
         }
         $html .= "</select>";
 
