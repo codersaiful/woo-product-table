@@ -9,7 +9,9 @@
     $(document).ready(function() {
         //Select2
         if(typeof $('.wpt_product_table_wrapper .search_select').select2 === 'function' && $('.wpt_product_table_wrapper .search_select').length > 0){
-            $('.wpt_product_table_wrapper .search_select,select.filter_select').select2();//, .wpt_varition_section select
+            $('.wpt_product_table_wrapper .search_select,select.filter_select').select2({
+                tags: true,
+            });//, .wpt_varition_section select
         }
         var windowWidth = $(window).width();
 

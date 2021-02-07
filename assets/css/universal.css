@@ -1541,6 +1541,13 @@ div.wpt_product_table_wrapper table.wpt_product_table th.wpt_action {
     margin: 10px 0;
 }
 
+/***************Search Box or option start****************/
+/*option.level-1 {
+    padding-left: 25px;
+}*/
+/***************Search Box or option end****************/
+
+
 .wpt_varition_section.variations {
     width: 100%;
 }
