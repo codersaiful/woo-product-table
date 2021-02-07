@@ -1081,7 +1081,7 @@ if( !function_exists( 'wpt_texonomy_search_generator' ) ){
             $defaults['show_option_all'] = esc_html__( 'Choose ', 'wpt_pro' )  . $label_all_items;
         }
         
-        $defaults = apply_filters( 'wpto_dropdown_categories_default', $defaults, $texonomy_keyword, $temp_number );
+        $defaults = apply_filters( 'wpto_dropdown_categories_default', $defaults, $texonomy_keyword,$taxonomy_details, $temp_number );
         
         if( $selected_taxs && is_array( $selected_taxs ) && count( $selected_taxs ) > 0 ){
             $customized_texonomy_boj = array();
