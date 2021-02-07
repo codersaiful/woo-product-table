@@ -493,10 +493,11 @@ function wpt_wp_dropdown_categories( $args = '', $get_taxonomy = false ) {
 	$get_terms_args = $parsed_args;
 	unset( $get_terms_args['name'] );
 	$categories = get_terms( $get_terms_args );
-        if( is_array( $get_taxonomy ) ){
+
+        if( is_array( $get_taxonomy ) && ! empty( $get_taxonomy ) ){
             $categories = $get_taxonomy;
         }
-        var_dump($categories);
+
 	$name     = esc_attr( $parsed_args['name'] );
 	$class    = esc_attr( $parsed_args['class'] );
 	$id       = $parsed_args['id'] ? esc_attr( $parsed_args['id'] ) : $name;
