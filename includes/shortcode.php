@@ -1077,6 +1077,9 @@ if( !function_exists( 'wpt_texonomy_search_generator' ) ){
 		'multiple'          => $multiple_selectable,
                 'data-key'          => $texonomy_keyword,
 	);
+        if( ! $multiple_selectable ){
+            $defaults['show_option_all'] = esc_html__( 'Choose ', 'wpt_pro' )  . $label_all_items;
+        }
         
         $defaults = apply_filters( 'wpto_dropdown_categories_default', $defaults, $texonomy_keyword, $temp_number );
         
