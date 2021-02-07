@@ -538,7 +538,7 @@ function wpt_wp_dropdown_categories( $args = '', $get_taxonomy = false ) {
 			/** This filter is documented in wp-includes/category-template.php */
 			$show_option_all = apply_filters( 'list_cats', $parsed_args['show_option_all'], null );
 			$selected        = ( '0' === (string) $parsed_args['selected'] ) ? " selected='selected'" : '';
-			$output         .= "\t<option value='0'$selected>$show_option_all</option>\n";
+			$output         .= "\t<option value=''$selected>$show_option_all</option>\n";
 		}
 
 		if ( $parsed_args['show_option_none'] ) {
