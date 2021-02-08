@@ -555,7 +555,7 @@ if( !function_exists( 'wpt_order_meta_handler' ) ){
             $args['values'] = $values;
             $args['item'] = $item;
             $args['cart_item_key'] = $order_id;
-            $msg_string = apply_filters( 'wpto_shortmessage_string',$msg_string, $args );
+            $msg_string = apply_filters( 'wpto_shortmessage_string', $msg_string, $args );
             wc_add_order_item_meta( $item_id, $msg_string, $values['wpt_custom_message'] );
         }
     }
