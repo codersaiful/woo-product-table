@@ -544,7 +544,7 @@ if( !function_exists( 'wpt_order_meta_handler' ) ){
      * @param type $order_id
      * 
      * @since 1.9 6.6.2018 d.m.y
-     * @fixed 
+     * @fixed 8.2.2021 d.m.y fixed to this date
      * @return Void This Function will add Customer Custom Message to Order
      */
     function wpt_order_meta_handler( $item_id, $item, $order_id ) {
