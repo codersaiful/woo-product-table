@@ -93,6 +93,7 @@ $data = isset( $meta_basics['data'] ) ? $meta_basics['data'] : false;
                     $options_item = esc_html( 'None ', 'wpt' ) . $term_name;
                     $options_item = "<option value=''>{$options_item}</option>";
                     $options_item = ""; //REmoved Default None Value
+                    $selecteds = isset( $data['terms'][$term_key] ) ? $data['terms'][$term_key] : false;
                     if( is_array( $term_obj ) && count( $term_obj ) > 0 ){
                         $selected_term_ids = isset( $data['terms'][$term_key] ) ? $data['terms'][$term_key] : false;
                         foreach ( $term_obj as $terms ) {
@@ -121,6 +122,38 @@ $data = isset( $meta_basics['data'] ) ? $meta_basics['data'] : false;
                     }
 
                     if( !empty( $options_item ) ){
+                        
+/*****************************************                        
+                        
+                        
+                        $defaults = array(
+		'show_option_all'   => '',
+		'show_option_none'  => '',
+		'orderby'           => 'name',
+		'order'             => 'ASC',
+		'show_count'        => 0,
+		'hide_empty'        => 1,
+		'child_of'          => 0,
+		'exclude'           => '',
+		'echo'              => 1,
+		'selected'          => $selecteds,
+		'hierarchical'      => 1,//0, // 1 for Tree format, and 0 for plane format
+		'name'              => "basics[data][terms][$term_key]",//'cat',
+		'id'                => 'wpt_term_' . $term_key,//'',
+		'class'             => "wpt_select2 ua_select wpt_query_terms ua_query_terms_" . $term_key,//'postform',
+		'depth'             => 0,
+		'tab_index'         => 0,
+		'taxonomy'          => $term_key,//'category',
+		'hide_if_empty'     => false,
+		'option_none_value' => -1,
+		'value_field'       => 'term_id',
+		'multiple'          => true,
+                'data-key'          => $term_key,
+	);
+        //Helping from https://wordpress.stackexchange.com/questions/216070/wp-dropdown-categories-with-multiple-select/253403
+         wpt_wp_dropdown_categories( $defaults );
+         
+//***************************************/         
                     ?>
                     <select name="basics[data][terms][<?php echo esc_attr( $term_key ); ?>][]" class="wpt_select2 wpt_query_terms ua_query_terms_<?php echo esc_attr( $term_key ); ?> ua_select" id="wpt_term_<?php echo esc_attr( $term_key ); ?>" multiple="multiple">
                         <?php echo $options_item; ?>

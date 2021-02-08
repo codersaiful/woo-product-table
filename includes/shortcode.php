@@ -1039,7 +1039,7 @@ if( !function_exists( 'wpt_texonomy_search_generator' ) ){
         /**
          * Need for get_texonomy and get_terms
          */
-        $texonomy_sarch_args = array('hide_empty' => true,'orderby' => 'count','order' => 'DESC');
+        $texonomy_sarch_args = array('hide_empty' => true,'orderby' => 'count','order' => 'ASC');
 
         $taxonomy_details = get_taxonomy( $texonomy_keyword );
 
@@ -1053,34 +1053,94 @@ if( !function_exists( 'wpt_texonomy_search_generator' ) ){
 
         $multiple_selectable = apply_filters( 'wpto_is_multiple_selectable', true, $texonomy_keyword, $temp_number ) ? 'multiple' : '';
 
-        $html .= "<select data-key='{$texonomy_keyword}' class='search_select query search_select_{$texonomy_keyword}' id='{$texonomy_keyword}_{$temp_number}' $multiple_selectable>";
-        //$html .= "<option value=''>{$label_all_items}</option>";
-        $texonomy_boj = get_terms( $texonomy_keyword, $texonomy_sarch_args );
-        if( count( $texonomy_boj ) > 0 ){
-            //Search box's Filter Sorting Added at Version 3.1
-            $customized_texonomy_boj = false;
-
-            if( $selected_taxs && is_array( $selected_taxs ) && count( $selected_taxs ) > 0 ){
-                foreach( $selected_taxs as $termID ){
-                    $singleTerm = get_term( $termID );
-                    $name = $singleTerm->name;
-                    $customized_texonomy_boj[$name] = $singleTerm;
-                }
-            }else{
-                foreach( $texonomy_boj as $item ){
-                    $name = $item->name;
-                    $customized_texonomy_boj[$name] = $item;
-
-                }
-                $customized_texonomy_boj = wpt_sorting_array( $customized_texonomy_boj, $config_value['sort_searchbox_filter'] );
-            }
-
-
-            foreach( $customized_texonomy_boj as $item ){
-                $html .= "<option value='{$item->term_id}'>{$item->name}</option>"; // ({$item->count})
-            }
+        $defaults = array(
+		'show_option_all'   => '',
+		'show_option_none'  => '',
+		'orderby'           => 'name',
+		'order'             => $config_value['sort_searchbox_filter'],//'ASC', //$config_value['sort_searchbox_filter'],//
+		'show_count'        => 0,
+		'hide_empty'        => 1,
+		'child_of'          => 0,
+		'exclude'           => '',
+		'echo'              => 0,//1,
+		'selected'          => 0,
+		'hierarchical'      => 1,//0, // 1 for Tree format, and 0 for plane format
+		'name'              => $texonomy_keyword,//'cat',
+		'id'                => $texonomy_keyword . '_' . $temp_number,//'',
+		'class'             => "search_select query search_select_" . $texonomy_keyword,//'postform',
+		'depth'             => 0,
+		'tab_index'         => 0,
+		'taxonomy'          => $texonomy_keyword,//'category',
+		'hide_if_empty'     => false,
+		'option_none_value' => -1,
+		'value_field'       => 'term_id',
+		'multiple'          => $multiple_selectable,
+                'data-key'          => $texonomy_keyword,
+	);
+        if( ! $multiple_selectable ){
+            $defaults['show_option_all'] = esc_html__( 'Choose ', 'wpt_pro' )  . $label_all_items;
         }
-        $html .= "</select>";
+        
+        $defaults = apply_filters( 'wpto_dropdown_categories_default', $defaults, $texonomy_keyword,$taxonomy_details, $temp_number );
+        
+        if( $selected_taxs && is_array( $selected_taxs ) && count( $selected_taxs ) > 0 ){
+            $customized_texonomy_boj = array();
+            foreach( $selected_taxs as $termID ){
+                $singleTerm = get_term( $termID );
+                $name = $singleTerm->name;
+                $customized_texonomy_boj[] = $singleTerm;
+
+            }
+        }else{
+            $customized_texonomy_boj = false;
+        }
+        
+        
+        $html .= wpt_wp_dropdown_categories( $defaults, $customized_texonomy_boj );
+        
+        
+//        #### $html .= "<select data-key='{$texonomy_keyword}' class='search_select query search_select_{$texonomy_keyword}' id='{$texonomy_keyword}_{$temp_number}' $multiple_selectable>";
+//        //$html .= "<option value=''>{$label_all_items}</option>";
+//        $texonomy_boj = get_terms( $texonomy_keyword, $texonomy_sarch_args );
+//        
+//        if( count( $texonomy_boj ) > 0 ){
+//            //Search box's Filter Sorting Added at Version 3.1
+//            $customized_texonomy_boj = false;
+//
+//            if( $selected_taxs && is_array( $selected_taxs ) && count( $selected_taxs ) > 0 ){
+//                foreach( $selected_taxs as $termID ){
+//                    $singleTerm = get_term( $termID );
+//                    $name = $singleTerm->name;
+//                    $customized_texonomy_boj[$name] = $singleTerm;
+//                    
+//                    foreach( $customized_texonomy_boj as $item ){
+//                        #### $html .= "<option value='{$item->term_id}'>{$item->name}</option>"; // ({$item->count})
+//                    }
+//                    #### $html .= "</select>";
+//                }
+//                
+//                $html .= wpt_wp_dropdown_categories( $defaults );
+//            }else{
+//                foreach( $texonomy_boj as $item ){
+//                    $name = $item->name;
+//                    $customized_texonomy_boj[$name] = $item;
+//
+//                }
+//                $customized_texonomy_boj = wpt_sorting_array( $customized_texonomy_boj, $config_value['sort_searchbox_filter'] );
+//                foreach( $customized_texonomy_boj as $item ){
+//                    #### $html .= "<option value='{$item->term_id}'>{$item->name}</option>"; // ({$item->count})
+//                }
+//                #### $html .= "</select>";
+//       
+//                //multiple $multiple_selectable
+//        
+//                $html .= wpt_wp_dropdown_categories( $defaults );
+//            }
+//
+//
+//            
+//        }
+//        
 
 
 

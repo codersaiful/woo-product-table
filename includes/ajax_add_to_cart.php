@@ -540,19 +540,23 @@ if( !function_exists( 'wpt_order_meta_handler' ) ){
      * Adding Customer Message to Order
      * 
      * @param type $item_id Session ID of Item's
-     * @param type $values Value's Array of Customer message
-     * @param type $cart_item_key
+     * @param type $item Value's Array of Customer message
+     * @param type $order_id
      * 
      * @since 1.9 6.6.2018 d.m.y
+     * @fixed 8.2.2021 d.m.y fixed to this date
      * @return Void This Function will add Customer Custom Message to Order
      */
-    function wpt_order_meta_handler( $item_id, $values, $cart_item_key ) {
+    function wpt_order_meta_handler( $item_id, $item, $order_id ) {
+        $values = $item->legacy_values;
+
         if( isset( $values['wpt_custom_message'] ) ) {
             $msg_string = __( 'Message', 'wpt_pro' );
             $args['item_id'] = $item_id;
             $args['values'] = $values;
-            $args['cart_item_key'] = $cart_item_key;
-            $msg_string = apply_filters( 'wpto_shortmessage_string',$msg_string, $args );
+            $args['item'] = $item;
+            $args['cart_item_key'] = $order_id;
+            $msg_string = apply_filters( 'wpto_shortmessage_string', $msg_string, $args );
             wc_add_order_item_meta( $item_id, $msg_string, $values['wpt_custom_message'] );
         }
     }

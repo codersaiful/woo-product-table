@@ -156,6 +156,11 @@ You can easily show specific category products. While creating new table click o
 
 == Changelog ==
 
+= 2.8.3 =
+ * Fixed: Taxonomy hierarchy added.
+ * Fixed: Short Message showing in order issue has fixed.
+ * Fixed: Bug Fix.
+
 = 2.8.2 =
  * Fixed: Responsive Tab Issue fixed.
 
