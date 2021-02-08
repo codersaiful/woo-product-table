@@ -535,6 +535,8 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
              * @date 9.6.2018 d.m.y
              */
             $html .= wpt_search_box( $temp_number, $texonomiy_keywords, $sort_order_by, $sort, $search_n_filter,$table_ID );
+        }else{
+            $html .= '<button data-type="query" data-temp_number="' . $temp_number . '" id="wpt_query_search_button_' . $temp_number . '" class="button wpt_search_button query_button wpt_query_search_button wpt_query_search_button_' . $temp_number . '" style="visibility: hidden;height:1px;"></button>';
         }
         $html .= apply_filters('end_part_advance_search_box_abc','',$table_ID,$temp_number);
         /**
