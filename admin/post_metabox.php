@@ -33,6 +33,7 @@ if( !function_exists( 'wpt_column_panel_metabox_render' ) ){
          * Filter Hook was not working from theme's function file, so need this filter inside function
          */
         WPT_Product_Table::$columns_array = apply_filters( 'wpto_default_column_arr', WPT_Product_Table::$columns_array );
+        WPT_Product_Table::$default_enable_columns_array = apply_filters( 'wpto_default_enable_column_arr', WPT_Product_Table::$default_enable_columns_array );
         
         $default_enable_array = WPT_Product_Table::$default_enable_columns_array;
         $columns_array = WPT_Product_Table::$columns_array;
