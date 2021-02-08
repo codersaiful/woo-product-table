@@ -1350,6 +1350,11 @@ if( !function_exists( 'wpt_ajax_on_first_load' ) ){
      * add_action( 'wp_footer', 'wpt_ajax_on_first_load', 100 );
      * 
      * CodeSnippet Plugin URL: https://wordpress.org/plugins/code-snippets/
+     * 
+     * @since 2.8.3.5
+     * @date 8.2.2021 d.m.y
+     * @by Saiful
+     * @helped Mukul and Bari
      */
     function wpt_ajax_on_first_load(){
 
