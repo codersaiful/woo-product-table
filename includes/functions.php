@@ -1332,3 +1332,35 @@ add_filter( 'wpto_table_query_args_in_row', 'wpt_shop_archive_sorting_args', 10 
  * @by Saiful
  */
 add_filter( 'astra_add_to_cart_quantity_btn_enabled', '__return_false' ); 
+
+
+
+if( !function_exists( 'wpt_ajax_on_first_load' ) ){
+    /**
+     * Compability Code for WavePlayer
+     * 
+     * We actually added this code for
+     * WavePlayer
+     * 
+     * Because,
+     * If u want to enable this code, u have to use following ACTION HOOK to your theme/plugin
+     * Also can use CodeSnipet Plugin.
+     * 
+     * Hook is: 
+     * add_action( 'wp_footer', 'wpt_ajax_on_first_load', 100 );
+     * 
+     * CodeSnippet Plugin URL: https://wordpress.org/plugins/code-snippets/
+     */
+    function wpt_ajax_on_first_load(){
+
+$output = <<<EOT
+<script id='by-woo-product-table'>
+jQuery(document).ready(function($){
+    $("button.wpt_search_button").trigger("click");
+});
+</script>
+EOT;
+        echo $output;
+    }
+}
+//add_action( 'wp_footer', 'wpt_ajax_on_first_load', 100 );
