@@ -540,10 +540,11 @@ if( !function_exists( 'wpt_order_meta_handler' ) ){
      * Adding Customer Message to Order
      * 
      * @param type $item_id Session ID of Item's
-     * @param type $values Value's Array of Customer message
-     * @param type $cart_item_key
+     * @param type $item Value's Array of Customer message
+     * @param type $order_id
      * 
      * @since 1.9 6.6.2018 d.m.y
+     * @fixed 
      * @return Void This Function will add Customer Custom Message to Order
      */
     function wpt_order_meta_handler( $item_id, $item, $order_id ) {
