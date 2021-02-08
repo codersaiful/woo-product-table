@@ -548,7 +548,7 @@ if( !function_exists( 'wpt_order_meta_handler' ) ){
      */
     function wpt_order_meta_handler( $item_id, $item, $order_id ) {
         $values = $item->legacy_values;
-    //function wpt_order_meta_handler( $item_id, $values, $cart_item_key ) {
+
         if( isset( $values['wpt_custom_message'] ) ) {
             $msg_string = __( 'Message', 'wpt_pro' );
             $args['item_id'] = $item_id;
