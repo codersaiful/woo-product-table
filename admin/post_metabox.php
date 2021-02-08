@@ -29,6 +29,11 @@ if( !function_exists( 'wpt_column_panel_metabox_render' ) ){
      */
     function wpt_column_panel_metabox_render(){
         global $post;
+        /**
+         * Filter Hook was not working from theme's function file, so need this filter inside function
+         */
+        WPT_Product_Table::$columns_array = apply_filters( 'wpto_default_column_arr', WPT_Product_Table::$columns_array );
+        
         $default_enable_array = WPT_Product_Table::$default_enable_columns_array;
         $columns_array = WPT_Product_Table::$columns_array;
         $for_add =  $meta_column_array = $updated_columns_array = get_post_meta( $post->ID, 'column_array', true );
@@ -96,6 +101,12 @@ if( !function_exists( 'wpt_shortcode_configuration_metabox_render' ) ){
     //Now start metabox for shortcode Generator
     function wpt_shortcode_configuration_metabox_render(){
         global $post;
+        /**
+         * Filter Hook was not working from theme's function file, so need this filter inside function
+         */
+        WPT_Product_Table::$columns_array = apply_filters( 'wpto_default_column_arr', WPT_Product_Table::$columns_array );
+        WPT_Product_Table::$default_enable_columns_array = apply_filters( 'wpto_default_enable_column_arr', WPT_Product_Table::$default_enable_columns_array );
+        
         echo '<input type="hidden" name="wpt_shortcode_nonce_value" value="' . wp_create_nonce( plugin_basename( __FILE__ ) ) . '" />'; //We have to remove it later
         include __DIR__ . '/post_metabox_form.php';
         ?> 
