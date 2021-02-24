@@ -1110,6 +1110,56 @@ ul#wpt_column_sortable>li.wpt_sortable_peritem.ui-sortable-helper {
     border-color: #100000;
 }
 
+/* Notice Style for UltraAddons*/
+.wpt-ultraaddons-notice {
+    background: white;
+    padding: 30px;
+    box-shadow: 0 5px 40px 0 rgb(10 10 25 / 10%);
+    -webkit-box-shadow: 0 5px 40px 0 rgb(10 10 25 / 10%);
+    -moz-box-shadow: 0 5px 40px 0 rgb(10 10 25 / 10%);
+    display: block;
+}
+.wpt-ua-notice-wrapper {
+    display: flex;
+}
+
+.wpt-ua-logo-area img {
+    max-width: 350px;
+}
+
+.wpt-ua-message-area {
+    padding: 20px 30px;
+}
+.wpt-ua-message-area h2 {
+    margin: 0;
+    color: #4caf50;
+    font-size: 1.5em;
+}
+
+.wpt-ua-message-area p {
+    color: #383838;
+    font-size: 1.2em;
+    font-style: italic;
+    padding: 0;
+    margin: 8px 0;
+}
+
+a.button {}
+
+.wpt-ua-message-area a.button {
+    font-size: 18px;
+    /*box-shadow: 0 5px 40px 0 rgb(10 10 25 / 22%);*/
+    font-weight: 100;
+    background: #4caf50;
+    border-color: #409844;
+    color: white;
+}
+.wpt-ua-activate .wpt-ua-message-area a.button {
+    background: #ee3a8d;
+    border-color: #ee3a8d;
+    font-weight: 600;
+}
+/* Notice Style for UltraAddons | END*/
 
 /* Responsive Design Starts */
 @media screen and (max-width: 782px){
