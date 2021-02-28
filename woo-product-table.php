@@ -517,7 +517,9 @@ class WPT_Product_Table{
             add_action( 'admin_notices', [ $this, 'ultraaddons_notice' ] );
         }
 
-        include_once $this->path('BASE_DIR','modules/elementor.php'); //MObile or Table Defice Detector //gutenberg
+        if( ! is_plugin_active( $plugin ) ){
+            include_once $this->path('BASE_DIR','modules/elementor.php'); //MObile or Table Defice Detector //gutenberg
+        }
     }   
     /**
      * Supporting Gutenberg 
