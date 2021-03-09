@@ -149,17 +149,24 @@ if( !function_exists( 'wpt_data_manipulation_on_save' ) ){
     function wpt_data_manipulation_on_save( $tab_data, $tab, $post_id, $save_tab_array ){
         
         if( 'basics' == $tab && is_array( $tab_data ) ){
+            
+            /**
+             * Query Relation for Taxonomy added
+             * @version 2.8.3.5
+             */
+            $query_relation = ! isset( $tab_data['query_relation'] ) ? 'IN' : $tab_data['query_relation'];
+
             $data = isset( $tab_data['data'] ) ? $tab_data['data'] : false;
             $terms_string = 'terms';
             $terms = isset( $data[$terms_string] ) ? $data[$terms_string] : false;
             if( is_array( $terms ) ){
                foreach( $terms as $term_key => $term_ids ){
-                   $term_key_IN = $term_key . '_IN';
+                   $term_key_IN = $term_key . '_' . $query_relation;//IN
                    $tab_data['args']['tax_query'][$term_key_IN] = array(
                             'taxonomy'      => $term_key,
                             'field'         => 'id',
                             'terms'         => $term_ids, //Array of Term's IDs
-                            'operator'      => 'IN'
+                            'operator'      => $query_relation,//'IN'
                    );
                } 
             }

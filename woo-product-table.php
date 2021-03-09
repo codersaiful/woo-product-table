@@ -268,7 +268,21 @@ class WPT_Product_Table{
         'name' => 'Woo Product Table',
         'perpose' => 'install', //install,upgrade,activation
     );
-
+    /**
+     * Basic information for UltraAddons
+     *
+     * acceptable data is
+     * $plugin_url = 'https://wordpress.org/plugins/ultraaddons-elementor-lite/';
+       $plugin_slug = 'ultraaddons-elementor-lite';
+       $perpose = 'install';
+       $type = 'warning';
+     * @var type 
+     */
+    public static $ultraaddons_args = array(
+        'plugin_url'    =>  'https://wordpress.org/plugins/ultraaddons-elementor-lite/',
+        'plugin_slug'   => 'ultraaddons-elementor-lite',
+        'perpose'       =>  'install',     
+    );
 
     /**
      * To set Default Value for Woo Product Table, So that, we can set Default Value in Plugin Start and 
@@ -486,7 +500,26 @@ class WPT_Product_Table{
        }
     //Coll elementor Module, If installed Elementor
     if ( did_action( 'elementor/loaded' ) ) {
-        include_once $this->path('BASE_DIR','modules/elementor.php'); //MObile or Table Defice Detector //gutenberg
+        $wpt_ultraaddons_notice = false;
+        //UltraAddons Plugin Recommendation
+        $plugin = 'ultraaddons-elementor-lite/init.php';
+        $link_text = '<strong><a href="' . esc_url( 'https://wordpress.org/plugins/ultraaddons-elementor-lite/' ) . '" target="_blank">' . esc_html__( 'Quantity Plus/Minus Button for WooCommerce', 'wpt_pro' ) . '</a></strong>';
+        
+        if( ! isset( $installed_plugins[$plugin] ) ) {
+            $wpt_ultraaddons_notice = true;
+            
+        }else if( isset( $installed_plugins[$plugin] ) && ! is_plugin_active( $plugin ) ){
+            self::$ultraaddons_args['perpose'] = 'activate';
+            $wpt_ultraaddons_notice = true;
+        }
+        
+        if( $wpt_ultraaddons_notice ){
+            add_action( 'admin_notices', [ $this, 'ultraaddons_notice' ] );
+        }
+
+        if( ! is_plugin_active( $plugin ) ){
+            include_once $this->path('BASE_DIR','modules/elementor.php'); //MObile or Table Defice Detector //gutenberg
+        }
     }   
     /**
      * Supporting Gutenberg 
@@ -520,6 +553,36 @@ class WPT_Product_Table{
        
    }
    
+   public function ultraaddons_notice() {
+       $plugin_url = 'https://wordpress.org/plugins/ultraaddons-elementor-lite/';
+       $plugin_file = 'ultraaddons-elementor-lite/init.php';
+       $plugin_slug = 'ultraaddons-elementor-lite';
+       $perpose = isset( self::$ultraaddons_args['perpose'] ) ? self::$ultraaddons_args['perpose'] : 'install';
+       $url = wp_nonce_url( self_admin_url( 'update.php?action=' . $perpose . '-plugin&plugin=' . $plugin_slug ), $perpose . '-plugin_' . $plugin_slug );
+       $msg_title = __( "Essential for Woo Product Table", 'wpt_pro' );
+       $msg = __( "You are using Elementor, So <b>Woo Product Table</b> require <a href='{$plugin_url}' target='_blank'>UltraAddons</a>. You have to install and activate to get full features of Woo Product Table. " );
+       $btn_text = __( 'Install Now', 'wpt_pro' );
+       
+       if( 'activate' == $perpose ){
+           $btn_text = __( 'Activate', 'wpt_pro' );
+           $url = wp_nonce_url( 'plugins.php?action=activate&amp;plugin=' . $plugin_file . '&amp;plugin_status=all&amp;paged=1&amp;s', 'activate-plugin_' . $plugin_file );
+       }
+
+       ?>
+        <div class="wpt-ultraaddons-notice notice wpt-notice-warning is-dismissible wpt-ua-<?php echo esc_attr( $perpose ); ?>">
+            <div class="wpt-ua-notice-wrapper">
+                <div class="wpt-ua-logo-area">
+                    <img src="<?php echo esc_url( WPT_BASE_URL ); ?>/assets/images/svg/ultraaddons-logo">
+                </div>
+                <div class="wpt-ua-message-area">
+                    <h2><?php echo esc_html( $msg_title ); ?></h2>
+                    <p><?php echo $msg; ?></p>
+                    <a class="button" href="<?php echo esc_url( $url ); ?>"><?php echo esc_html( $btn_text ); ?></a>
+                </div>
+            </div>
+        </div>
+        <?php
+   }
    
     /**
      * Admin notice
