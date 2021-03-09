@@ -156,6 +156,9 @@ You can easily show specific category products. While creating new table click o
 
 == Changelog ==
 
+= 2.8.4 =
+ * Added: Taxonomy Relation Operation Added. eg: IN, AND
+
 = 2.8.3 =
  * Fixed: Taxonomy hierarchy added.
  * Fixed: Short Message showing in order issue has fixed.

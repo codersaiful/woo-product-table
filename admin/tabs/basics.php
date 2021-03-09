@@ -229,12 +229,12 @@ do_action( 'wpto_admin_basic_tab',$meta_basics, $tab, $post, $tab_array );
         <table class="ultraaddons-table">
             <tr>
                 <th>
-                    <label class="wpt_label wpt_table_relation" for='wpt_table_relation'><?php esc_html_e('Taxonomy Query Relation','wpt_pro');?></label>
+                    <label class="wpt_label wpt_table_operation" for='wpt_table_operation'><?php esc_html_e('Taxonomy Query Operation','wpt_pro');?></label>
                 </th>
                 <td>
-                    <select name="basics[query_relation]" data-name='ajax_action' id="wpt_table_relation" class="wpt_fullwidth wpt_data_filed_atts ua_input" >
-                        <option value="OR" <?php echo isset( $meta_basics['query_relation'] ) && $meta_basics['query_relation'] == 'OR' ? 'selected' : false; ?>><?php esc_html_e('OR Operation','wpt_pro');?></option>
-                        <option value="AND" <?php echo isset( $meta_basics['query_relation'] ) && $meta_basics['query_relation'] == 'AND' ? 'selected' : false; ?>><?php esc_html_e('And Operation','wpt_pro');?></option>
+                    <select name="basics[query_relation]" data-name='ajax_action' id="wpt_table_operation" class="wpt_fullwidth wpt_data_filed_atts ua_input" >
+                        <option value="IN" <?php echo isset( $meta_basics['query_relation'] ) && $meta_basics['query_relation'] == 'IN' ? 'selected' : false; ?>><?php esc_html_e('IN Operation','wpt_pro');?></option>
+                        <option value="AND" <?php echo isset( $meta_basics['query_relation'] ) && $meta_basics['query_relation'] == 'AND' ? 'selected' : false; ?>><?php esc_html_e('AND Operation','wpt_pro');?></option>
                     </select>
                 </td>
             </tr>

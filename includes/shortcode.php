@@ -51,7 +51,7 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
             $column_settings = get_post_meta( $ID, 'column_settings', true);
 
             $basics = get_post_meta( $ID, 'basics', true );
-            $query_relation = ! isset( $basics['query_relation'] ) ? 'OR' : $basics['query_relation'];
+//            $query_relation = ! isset( $basics['query_relation'] ) ? 'OR' : $basics['query_relation'];
             $basics_args = isset( $basics['args'] ) && is_array( $basics['args'] ) ? $basics['args'] : array();
 
             $table_style = get_post_meta( $ID, 'table_style', true );
@@ -436,7 +436,7 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
 
         
         $args = array_merge( $args, $basics_args );
-        $args['tax_query']['relation'] = $query_relation;
+        $args['tax_query']['relation'] = 'AND';//$query_relation;
         /**
          * @Hook wpto_table_query_args to customize Query Args from any plugin.
          * Available Data/VAriable are: $args, $atts, $table_ID
