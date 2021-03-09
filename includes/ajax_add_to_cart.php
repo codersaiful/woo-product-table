@@ -457,7 +457,7 @@ if( !function_exists( 'wpt_add_custom_message_field' ) ){
         echo '<table class="variations" cellspacing="0">
               <tbody>
                   <tr>
-                  <td class="label"><label for="custom_message">'.esc_html__( 'Short Message', 'wpt_pro' ).'</label></td>
+                  <td class="label"><label for="custom_message">'.esc_html__( 'Message', 'wpt_pro' ).'</label></td>
                   <td class="value">
                       <input id="custom_message" type="text" name="wpt_custom_message" placeholder="'.esc_attr__( 'Short Message for Order', 'wpt_pro' ).'" />                      
                   </td>
@@ -466,6 +466,16 @@ if( !function_exists( 'wpt_add_custom_message_field' ) ){
           </table>';
     }
 }
+/**
+ * If you want to show this Field even in Single Product Page,
+ * You have to add the following Action Hook.
+ * You can use Code Snipet plugin to activate this action
+ * or add on theme's functions.php file
+ * 
+ * Uses:
+ * add_action( 'woocommerce_before_add_to_cart_quantity', 'wpt_add_custom_message_field' );
+ */
+
 
 if( !function_exists( 'wpt_custom_message_validation' ) ){
     /**

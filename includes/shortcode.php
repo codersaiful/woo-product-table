@@ -101,6 +101,20 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
                 unset( $enabled_column_array['total'] );
                 unset( $enabled_column_array['quantity'] );
             }
+            
+            /**
+             * Only for Message
+             */
+            if( isset( $enabled_column_array['message'] ) && $table_type != 'normal_table' ){
+                /**
+                 * For ThirdParty Plugin Support, We have
+                 * Disable shortMesage from Column
+                 * and added it into Single Product.
+                 */
+                unset( $enabled_column_array['message'] );
+                add_action( 'woocommerce_before_add_to_cart_quantity', 'wpt_add_custom_message_field' );
+            }
+            
             //Collumn Setting part
             $table_head = !isset( $column_settings['table_head'] ) ? true : false; //Table head availabe or not
 
