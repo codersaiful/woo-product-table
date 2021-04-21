@@ -24,10 +24,12 @@ $variations_attr = function_exists( 'wc_esc_json' ) ? wc_esc_json( $variations_j
                  */
                 do_action( 'wpto_before_each_variation', $attribute_name, $options, $product, $config_value, $temp_number );
 
-                $show_label = isset( $config_value['wpt_show_variation_label'] ) && $config_value['wpt_show_variation_label'] == 'on' ? true : false;
+                $show_label = isset( $config_value['wpt_show_variation_label'] ) && $config_value['wpt_show_variation_label'] == 'on';
                 echo $show_label ? '<div class="variation-wrapper">' : '';
                 ?>
-                <label for="<?php echo esc_attr( esc_attr( $attribute_name . '_' . $product->get_id() ) );?>"><?php echo esc_html( wc_attribute_label( $attribute_name ) ); ?></label>    
+                <?php if ( $show_label ) { ?>
+                        <label for="<?php echo esc_attr( esc_attr( $attribute_name . '_' . $product->get_id() ) );?>"><?php echo esc_html( wc_attribute_label( $attribute_name ) ); ?></label>
+                <?php } ?>
                 <?php        
                         
                 wc_dropdown_variation_attribute_options(
