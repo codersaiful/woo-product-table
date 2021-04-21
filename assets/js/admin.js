@@ -517,7 +517,7 @@
 
             //The XHR Goodness
             $.post(postURL, data, function(response){}).done(function(){
-                $('.wpt_notify h1').html('Saved Poroduct Table');
+                $('.wpt_notify h1').html('Saved Product Table');
                 $('.wpt_notify').fadeOut();
             }).fail(function(){
                 $('.wpt_notify h1').html('Unable to Save, Please try again.');

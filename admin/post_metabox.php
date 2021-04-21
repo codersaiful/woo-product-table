@@ -88,7 +88,7 @@ if( !function_exists( 'wpt_shortcode_metabox_render' ) ){
             <?php echo esc_html__( 'If you want to be a Contributor, Go to ', 'wpt_pro' ); ?>
             <a target="_blank" href="https://github.com/codersaiful/woo-product-table"><?php echo esc_html__( 'Github Repo', 'wpt_pro' ); ?></a>.
             | 
-            <?php echo esc_html__( 'Any Idea? Please ', 'wpt_pro' ); ?>
+            <?php echo esc_html__( 'Any Ideas? Please ', 'wpt_pro' ); ?>
             <a target="_blank" href="https://github.com/codersaiful/woo-product-table/discussions/new"><?php echo esc_html__( 'Send your Suggestion or Idea', 'wpt_pro' ); ?></a>
             
         </span>
