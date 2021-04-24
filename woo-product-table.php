@@ -572,7 +572,7 @@ class WPT_Product_Table{
         <div class="wpt-ultraaddons-notice notice wpt-notice-warning is-dismissible wpt-ua-<?php echo esc_attr( $perpose ); ?>">
             <div class="wpt-ua-notice-wrapper">
                 <div class="wpt-ua-logo-area">
-                    <img src="<?php echo esc_url( WPT_BASE_URL ); ?>/assets/images/svg/ultraaddons-logo">
+                    <img src="<?php echo esc_url( WPT_BASE_URL ); ?>assets/images/svg/ultraaddons-logo.svg">
                 </div>
                 <div class="wpt-ua-message-area">
                     <h2><?php echo esc_html( $msg_title ); ?></h2>
