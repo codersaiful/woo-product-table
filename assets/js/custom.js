@@ -266,7 +266,9 @@
          */
         function WPT_MiniCart(){
             var minicart_type = $('div.tables_cart_message_box').attr('data-type');
-                        
+            if(typeof minicart_type === 'undefined'){
+                return;
+            }            
             $.ajax({
                 type: 'POST',
                 url: ajax_url,
