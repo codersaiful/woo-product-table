@@ -101,6 +101,20 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
                 unset( $enabled_column_array['total'] );
                 unset( $enabled_column_array['quantity'] );
             }
+            
+            /**
+             * Only for Message
+             */
+            if( isset( $enabled_column_array['message'] ) && $table_type != 'normal_table' ){
+                /**
+                 * For ThirdParty Plugin Support, We have
+                 * Disable shortMesage from Column
+                 * and added it into Single Product.
+                 */
+                unset( $enabled_column_array['message'] );
+                add_action( 'woocommerce_before_add_to_cart_quantity', 'wpt_add_custom_message_field' );
+            }
+            
             //Collumn Setting part
             $table_head = !isset( $column_settings['table_head'] ) ? true : false; //Table head availabe or not
 
@@ -1085,7 +1099,21 @@ if( !function_exists( 'wpt_texonomy_search_generator' ) ){
             $defaults['show_option_all'] = esc_html__( 'Choose ', 'wpt_pro' )  . $label_all_items;
         }
         
+        /**
+         * we have removed this filter for new version.
+         * 
+         * @deprecated since version 2.8.3.5
+         */
         $defaults = apply_filters( 'wpto_dropdown_categories_default', $defaults, $texonomy_keyword,$taxonomy_details, $temp_number );
+        
+        /**
+         * New Added for Taxonomy Args
+         * on Search Box
+         * Advance Search Box
+         * 
+         * @since 2.8.3.5
+         */
+        $defaults = apply_filters( 'wpto_dropdown_taxonomy_default_args', $defaults, $texonomy_keyword,$taxonomy_details, $temp_number );
         
         if( $selected_taxs && is_array( $selected_taxs ) && count( $selected_taxs ) > 0 ){
             $customized_texonomy_boj = array();

@@ -457,7 +457,7 @@ if( !function_exists( 'wpt_add_custom_message_field' ) ){
         echo '<table class="variations" cellspacing="0">
               <tbody>
                   <tr>
-                  <td class="label"><label for="custom_message">'.esc_html__( 'Short Message', 'wpt_pro' ).'</label></td>
+                  <td class="label"><label for="custom_message">'.esc_html__( 'Message', 'wpt_pro' ).'</label></td>
                   <td class="value">
                       <input id="custom_message" type="text" name="wpt_custom_message" placeholder="'.esc_attr__( 'Short Message for Order', 'wpt_pro' ).'" />                      
                   </td>
@@ -466,6 +466,16 @@ if( !function_exists( 'wpt_add_custom_message_field' ) ){
           </table>';
     }
 }
+/**
+ * If you want to show this Field even in Single Product Page,
+ * You have to add the following Action Hook.
+ * You can use Code Snipet plugin to activate this action
+ * or add on theme's functions.php file
+ * 
+ * Uses:
+ * add_action( 'woocommerce_before_add_to_cart_quantity', 'wpt_add_custom_message_field' );
+ */
+
 
 if( !function_exists( 'wpt_custom_message_validation' ) ){
     /**
@@ -487,7 +497,7 @@ if( !function_exists( 'wpt_custom_message_validation' ) ){
 }
 
 
-if( !function_exists( 'wpt_save_custom_message_field' ) ){
+if( ! function_exists( 'wpt_save_custom_message_field' ) ){
     /**
      * Saving Custom Message Data here
      * 
@@ -524,18 +534,18 @@ if( !function_exists( 'wpt_render_meta_on_cart_and_checkout' ) ){
             $custom_items = $cart_data;
         }
         if( isset( $cart_item['wpt_custom_message'] ) ) {
-            $msg_string = __( 'Message', 'wpt_pro' );
+            $msg_label = __( 'Message', 'wpt_pro' );
             $args['cart_data'] = $cart_data;
             $args['cart_item'] = $cart_item;
-            $msg_string = apply_filters( 'wpto_shortmessage_string',$msg_string, $args, $args );
-            $custom_items[] = array( "name" => $msg_string, "value" => $cart_item['wpt_custom_message'] );
+            $msg_label = apply_filters( 'wpto_shortmessage_string',$msg_label, $args );
+            $custom_items[] = array( "name" => $msg_label, "value" => $cart_item['wpt_custom_message'] );
         }
         return $custom_items;
     }
 }
 add_filter( 'woocommerce_get_item_data', 'wpt_render_meta_on_cart_and_checkout', 10, 2 );
 
-if( !function_exists( 'wpt_order_meta_handler' ) ){
+if( ! function_exists( 'wpt_order_meta_handler' ) ){
     /**
      * Adding Customer Message to Order
      * 
@@ -549,15 +559,16 @@ if( !function_exists( 'wpt_order_meta_handler' ) ){
      */
     function wpt_order_meta_handler( $item_id, $item, $order_id ) {
         $values = $item->legacy_values;
-
-        if( isset( $values['wpt_custom_message'] ) ) {
-            $msg_string = __( 'Message', 'wpt_pro' );
+        $wpt_custom_message = isset( $values['wpt_custom_message'] ) && !empty( $values['wpt_custom_message'] ) ? $values['wpt_custom_message'] : false;
+        if( $wpt_custom_message ) {
+            $msg_label = __( 'Message', 'wpt_pro' );
             $args['item_id'] = $item_id;
             $args['values'] = $values;
             $args['item'] = $item;
             $args['cart_item_key'] = $order_id;
-            $msg_string = apply_filters( 'wpto_shortmessage_string', $msg_string, $args );
-            wc_add_order_item_meta( $item_id, $msg_string, $values['wpt_custom_message'] );
+            $msg_label = apply_filters( 'wpto_shortmessage_string', $msg_label, $args );
+            $unique = md5( $order_id . '_' . $wpt_custom_message);
+            wc_add_order_item_meta( $item_id, $msg_label, $wpt_custom_message, $unique );
         }
     }
 }
