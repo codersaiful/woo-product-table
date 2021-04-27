@@ -724,6 +724,20 @@ nav.inside-nav-tab-wrapper a.nav-tab.nav-tab-active:hover{
     background: #e4e4e478;
     color: #8a7373;
 }
+.inside-column-setting-header h2{
+    font-size: 20px !important;
+    padding: 0 !important;
+}
+
+#inside-tablet ul#wpt_column_sortable li.wpt_sortable_peritem.enabled>span.handle, 
+#inside-tablet ul#wpt_keyword_hide_mobile li>span.handle {
+    background-color: #000000;
+}
+#inside-mobile ul#wpt_column_sortable li.wpt_sortable_peritem.enabled>span.handle, 
+#inside-mobile ul#wpt_keyword_hide_mobile li>span.handle {
+    background-color: #4c4c4c;
+}
+
 nav.inside-nav-tab-wrapper a:hover {
     background: #d6d6d6;
     color: white;

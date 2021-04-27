@@ -49,7 +49,7 @@ if( !is_array( $final_cols_arr ) ){
 
 <div class="inside-column-settings-wrapper">
     <div class="inside-column-setting-header">
-        <h3><?php echo esc_html__( 'Devicewise Column Setting', 'wpt_pro' ); ?></h3>
+        <h2><?php echo esc_html__( 'Devicewise Column Setting', 'wpt_pro' ); ?></h2>
         <p><?php echo esc_html__( 'Desktop is default, if not set any column for tablet and mobile.', 'wpt_pro' ); ?></p>
     </div>
     <nav class="inside-nav-tab-wrapper">
@@ -58,42 +58,33 @@ if( !is_array( $final_cols_arr ) ){
         <a data-target="inside-mobile" class="wpt_inside_nav_tab nav-tab">Mobile</a>
     </nav>
     <div id="inside-desktop" class="inside_tab_content tab-content tab-content-active">
-        <?php 
-        
-/**
- * Available Column list, where available all columns part
- * 
- * @since 2.8.4.1
- * @by Saiful
- * @date 27.4.2021
- */
+<?php 
 $column_list_file = __DIR__ . '/inc-column/column-list.php';
-
 include $column_list_file;
 
-
-//var_dump($meta_enable_column_array);
-/**
- * Available Column list, where available all columns part
- * 
- * @since 2.8.4.1
- * @by Saiful
- * @date 27.4.2021
- */
 $availe_column_list_file = __DIR__ . '/inc-column/available-column-list.php';
-
 include $availe_column_list_file;
-
-
-        ?>
+?>
     </div>
     
     <div id="inside-tablet" class="inside_tab_content tab-content">
-        <h2>Tablet</h2>
+<?php 
+$column_list_file = __DIR__ . '/inc-column/column-list.php';
+include $column_list_file;
+
+$availe_column_list_file = __DIR__ . '/inc-column/available-column-list.php';
+include $availe_column_list_file;
+?>
     </div>
     
     <div id="inside-mobile" class="inside_tab_content tab-content">
-        <h2>Mobile</h2>
+<?php 
+$column_list_file = __DIR__ . '/inc-column/column-list.php';
+include $column_list_file;
+
+$availe_column_list_file = __DIR__ . '/inc-column/available-column-list.php';
+include $availe_column_list_file;
+?>
     </div>
     
 </div>
