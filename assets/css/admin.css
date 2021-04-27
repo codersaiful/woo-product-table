@@ -692,9 +692,24 @@ table.wp-list-table.widefat.plugins tr.active[data-slug='woo-product-table-pro']
 .inside-column-settings-wrapper {
     display: block;
     width: 100%;
+    padding: 0 15px 15px 15px;
+    box-sizing: border-box;
 }
+.inside-column-settings-wrapper {}
 
-.inside-column-settings-wrapper .wpt_tab_content.tab-content {
+.inside-column-settings-wrapper .inside_tab_content {
+    padding: 15px;
+    width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    /* background: #ddd; */
+    margin-bottom: 35px;
+    box-shadow: 0 10px 20px 0 #00000026;
+    display: none;
+}
+.inside-column-settings-wrapper .inside_tab_content.tab-content.tab-content-active{display: block;}
+.inside-column-settings-wrapper .inside_tab_content.tab-content {
     /* display: block; */
     width: 100% !important;
     /* display: flex; */
@@ -705,7 +720,14 @@ nav.inside-nav-tab-wrapper {
     width: 100%;
     clear: both;
 }
-nav.inside-nav-tab-wrapper a:hover{background: red;}
+nav.inside-nav-tab-wrapper a.nav-tab.nav-tab-active:hover{
+    background: #e4e4e478;
+    color: #8a7373;
+}
+nav.inside-nav-tab-wrapper a:hover {
+    background: #d6d6d6;
+    color: white;
+}
 nav.inside-nav-tab-wrapper a{cursor: pointer;}
 
 nav.inside-nav-tab-wrapper:after {content: "";display: block;width: 100%;clear: both;}

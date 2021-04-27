@@ -57,23 +57,9 @@ if( !is_array( $final_cols_arr ) ){
         <a data-target="inside-tablet" class="wpt_inside_nav_tab nav-tab">Tablet</a>
         <a data-target="inside-mobile" class="wpt_inside_nav_tab nav-tab">Mobile</a>
     </nav>
-    <div id="inside-desktop" class="wpt_tab_content tab-content tab-content-active">
-        <h2>Desktop</h2>
-    </div>
-    
-    <div id="inside-tablet" class="wpt_tab_content tab-content">
-        <h2>Tablet</h2>
-    </div>
-    
-    <div id="inside-mobile" class="wpt_tab_content tab-content">
-        <h2>Mobile</h2>
-    </div>
-    
-</div>
-
-
-<?php 
-
+    <div id="inside-desktop" class="inside_tab_content tab-content tab-content-active">
+        <?php 
+        
 /**
  * Available Column list, where available all columns part
  * 
@@ -98,6 +84,22 @@ $availe_column_list_file = __DIR__ . '/inc-column/available-column-list.php';
 
 include $availe_column_list_file;
 
+
+        ?>
+    </div>
+    
+    <div id="inside-tablet" class="inside_tab_content tab-content">
+        <h2>Tablet</h2>
+    </div>
+    
+    <div id="inside-mobile" class="inside_tab_content tab-content">
+        <h2>Mobile</h2>
+    </div>
+    
+</div>
+
+
+<?php 
 
 /**
  * Add new column part
