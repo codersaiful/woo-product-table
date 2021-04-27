@@ -1210,7 +1210,7 @@
             var temp_number = thisID.replace('single_keyword_','');
             $('#wpt_query_search_button_' + temp_number).trigger('click');
         }));
-        $('body').on('change','.search_select,.query_box_direct_value',function(){
+        $('body').on('change,focus','.search_select,.query_box_direct_value',function(){
             var thisID = $(this).parents('.wpt_product_table_wrapper').attr('id');
             var temp_number = thisID.replace('table_id_','');
            $('#wpt_query_search_button_' + temp_number).trigger('click');
