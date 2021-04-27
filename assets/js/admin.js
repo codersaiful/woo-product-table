@@ -200,6 +200,18 @@
           },1000);
         }
         
+        /**
+         * Inside Tab of Column
+         * 
+         * @type String
+         */
+        $('body').on('click','#wpt_configuration_form .inside-column-settings-wrapper .inside-nav-tab-wrapper a', function(){
+            $('.inside-nav-tab-wrapper a.nav-tab-active').removeClass('nav-tab-active');
+            $(this).addClass('nav-tab-active');
+            var target_tab = $(this).data('target');
+            $('.inside-column-settings-wrapper .wpt_tab_content.tab-content-active').removeClass('tab-content-active');
+            $('.inside-column-settings-wrapper .wpt_tab_content#'+target_tab).addClass('tab-content-active');
+        });
         /**************Admin Panel's Setting Tab Start Here For Tab****************/
         var selectLinkTabSelector = "body.wpt_admin_body #wpt_configuration_form a.wpt_nav_tab";
         var selectTabContentSelector = "body.wpt_admin_body #wpt_configuration_form .wpt_tab_content";
@@ -212,7 +224,7 @@
             $('body.wpt_admin_body #wpt_configuration_form .nav-tab-wrapper a.wpt_nav_tab.wpt_nav_for_' + tabName).addClass('nav-tab-active');
         }
         
-        $('body.wpt_admin_body').on('click',' #wpt_configuration_form a.wpt_nav_tab',function(e){
+        $('body.wpt_admin_body').on('click','#wpt_configuration_form a.wpt_nav_tab',function(e){
             e.preventDefault(); //Than prevent for click action of hash keyword
             var targetTabContent = $(this).data('tab');//getting data value from data-tab attribute
             

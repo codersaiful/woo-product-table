@@ -47,14 +47,48 @@ if( !is_array( $final_cols_arr ) ){
 //var_dump($columns_array,$meta_enable_column_array);
 ?>
 
-
+<div class="inside-column-settings-wrapper">
+    <div class="inside-column-setting-header">
+        <h3><?php echo esc_html__( 'Devicewise Column Setting', 'wpt_pro' ); ?></h3>
+        <p><?php echo esc_html__( 'Desktop is default, if not set any column for tablet and mobile.', 'wpt_pro' ); ?></p>
+    </div>
+    <nav class="inside-nav-tab-wrapper">
+        <a data-target="inside-desktop" class="wpt_inside_nav_tab nav-tab nav-tab-active">Desktop</a>
+        <a data-target="inside-tablet" class="wpt_inside_nav_tab nav-tab">Tablet</a>
+        <a data-target="inside-mobile" class="wpt_inside_nav_tab nav-tab">Mobile</a>
+    </nav>
+    <div id="inside-desktop" class="wpt_tab_content tab-content tab-content-active">
+        <h2>Desktop</h2>
+    </div>
+    
+    <div id="inside-tablet" class="wpt_tab_content tab-content">
+        <h2>Tablet</h2>
+    </div>
+    
+    <div id="inside-mobile" class="wpt_tab_content tab-content">
+        <h2>Mobile</h2>
+    </div>
+    
+</div>
 
 
 <?php 
 
+/**
+ * Available Column list, where available all columns part
+ * 
+ * @since 2.8.4.1
+ * @by Saiful
+ * @date 27.4.2021
+ */
+$column_list_file = __DIR__ . '/inc-column/column-list.php';
+
+include $column_list_file;
+
+
 //var_dump($meta_enable_column_array);
 /**
- * Column list, where available all columns part
+ * Available Column list, where available all columns part
  * 
  * @since 2.8.4.1
  * @by Saiful
@@ -79,3 +113,4 @@ include $availe_column_list_file;
 $add_new_col_file = __DIR__ . '/inc-column/add-new-column.php';
 
 include $add_new_col_file;
+?>

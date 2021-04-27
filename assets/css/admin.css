@@ -688,6 +688,29 @@ table.wp-list-table.widefat.plugins tr.active[data-slug='woo-product-table-pro']
     position: relative;
 }
 
+/*Inside Column Tab Start*/
+.inside-column-settings-wrapper {
+    display: block;
+    width: 100%;
+}
+
+.inside-column-settings-wrapper .wpt_tab_content.tab-content {
+    /* display: block; */
+    width: 100% !important;
+    /* display: flex; */
+}
+
+nav.inside-nav-tab-wrapper {
+    display: block;
+    width: 100%;
+    clear: both;
+}
+nav.inside-nav-tab-wrapper a:hover{background: red;}
+nav.inside-nav-tab-wrapper a{cursor: pointer;}
+
+nav.inside-nav-tab-wrapper:after {content: "";display: block;width: 100%;clear: both;}
+/*Inside Column Tab End*/
+
 .ultraaddons ul.wpt-tag-list {
     padding: 0;
     margin: 0;
