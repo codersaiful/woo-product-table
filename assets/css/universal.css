@@ -1043,7 +1043,7 @@ div.wpt-footer-cart-wrapper.always_hide{display: none;}
 
 @-webkit-keyframes wpt-icon-float-away {
     0% {
-        opacity: .5;
+        opacity: .4;
     }
     100% {
         opacity: 0;
@@ -1054,7 +1054,7 @@ div.wpt-footer-cart-wrapper.always_hide{display: none;}
 
 @keyframes wpt-icon-float-away {
     0% {
-        opacity: .5;
+        opacity: .4;
     }
     100% {
         opacity: 0;
