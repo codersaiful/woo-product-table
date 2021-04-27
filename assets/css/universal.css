@@ -1631,9 +1631,9 @@ div.wpt_product_table_wrapper table.wpt_product_table th.wpt_action {
 
 .col_inside_tag.audio {
     /* width: 60px; */
-    height: 60px;
+    height: 65px;
 }
 
 .col_inside_tag.audio * {
-    max-width: 50px;
+    max-width: 65px;
 }
