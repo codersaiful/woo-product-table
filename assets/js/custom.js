@@ -1121,9 +1121,9 @@
             WPT_MiniCart();
         });
         //**************************/
-        
-        $('div.wpt-footer-cart-wrapper>a').css('background-color',footer_bg_color);
-        $('body').append('<style>div.wpt-footer-cart-wrapper>a:after{background-color: ' + footer_bg_color + ';}</style>');
+        console.log("Saiful",footer_bg_color);
+//        $('div.wpt-footer-cart-wrapper>a').css('background-color',footer_bg_color);
+        $('body').append('<style>div.wpt-footer-cart-wrapper>a:after,div.wpt-footer-cart-wrapper>a{background-color: ' + footer_bg_color + ';}</style>');
         
         /**
          * set Fragments Refresh

@@ -1029,8 +1029,8 @@ div.wpt-footer-cart-wrapper.always_hide{display: none;}
     right: 0;
     z-index: -1;
     opacity: 0;
-    -webkit-animation-duration: 1s;
-    animation-duration: 1s;
+    -webkit-animation-duration: 1.5s;
+    animation-duration: 1.5s;
     -webkit-animation-fill-mode: forwards;
     animation-fill-mode: forwards;
     -webkit-animation-name: wpt-icon-float-away;
@@ -1047,8 +1047,8 @@ div.wpt-footer-cart-wrapper.always_hide{display: none;}
     }
     100% {
         opacity: 0;
-        -webkit-transform: scale(1.8);
-        transform: scale(1.8)
+        -webkit-transform: scale(1.3);
+        transform: scale(1.3)
     }
 }
 
@@ -1058,8 +1058,8 @@ div.wpt-footer-cart-wrapper.always_hide{display: none;}
     }
     100% {
         opacity: 0;
-        -webkit-transform: scale(1.8);
-        transform: scale(1.8)
+        -webkit-transform: scale(1.3);
+        transform: scale(1.3)
     }
 }
 
