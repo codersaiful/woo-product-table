@@ -100,7 +100,7 @@
                 $('.button,button').removeClass('wpt_ajax_update');
             };
         //code for Sortable
-        $( "#wpt_column_sortable" ).sortable({
+        $( ".wpt_column_sortable" ).sortable({
             handle:'.handle',
             stop: removeAjax,
         });
@@ -323,7 +323,7 @@
         $( 'body.wpt_admin_body' ).on('click', '.add_switch_col_wrapper .switch-enable-available li.switch-enable-item', function(){
             var keyword = $(this).data('column_keyword');
             $(this).toggleClass('item-enabled');
-            $('#wpt_column_sortable li.wpt_sortable_peritem input.checkbox_handle_input[data-column_keyword="' + keyword + '"]').trigger('click');
+            $('.wpt_column_sortable li.wpt_sortable_peritem input.checkbox_handle_input[data-column_keyword="' + keyword + '"]').trigger('click');
             
 //            var lenght = $( '.add_switch_col_wrapper .switch-enable-available li.switch-enable-item.item-enabled' ).length;
 //            console.log(lenght);
@@ -335,9 +335,9 @@
         /**
          * Column Section Managing
          */
-        $('body.wpt_admin_body').on('click','#wpt_column_sortable li.wpt_sortable_peritem input.checkbox_handle_input',function(){
+        $('body.wpt_admin_body').on('click','.wpt_column_sortable li.wpt_sortable_peritem input.checkbox_handle_input',function(){
             var keyword = $(this).data('column_keyword');
-            var targetLiSelector = $('#wpt_column_sortable li.wpt_sortable_peritem.column_keyword_' + keyword);
+            var targetLiSelector = $('.wpt_column_sortable li.wpt_sortable_peritem.column_keyword_' + keyword);
             
             if ($(this).prop('checked')) {
                 $(this).addClass('enabled');
@@ -346,7 +346,7 @@
                 //Counting Column//
                 var column_keyword;
                 column_keyword = [];
-                $('#wpt_column_sortable li.wpt_sortable_peritem.enabled .wpt_shortable_data input.colum_data_input').each(function(Index) {
+                $('.wpt_column_sortable li.wpt_sortable_peritem.enabled .wpt_shortable_data input.colum_data_input').each(function(Index) {
                     column_keyword[Index] = $(this).data('keyword');
                 });
                 if (column_keyword.length < 2) {
@@ -403,7 +403,7 @@
                     html += '<input name="enabled_column_array[' + keyword + ']" value="' + taxt_cf_title + '" title="Active Inactive Column" class="checkbox_handle_input  enabled" type="checkbox" data-column_keyword="' + keyword + '" checked="checked">';
                 html += '</span>';
             html += '</li>';
-            $('#wpt_column_sortable').append(html);
+            $('.wpt_column_sortable').append(html);
             
         });
         
@@ -455,7 +455,7 @@
                return;
             }
             //Check if already same keyword is Available
-            if($('#wpt_column_sortable li.wpt_sortable_peritem').hasClass('column_keyword_' + keyword)){
+            if($('.wpt_column_sortable li.wpt_sortable_peritem').hasClass('column_keyword_' + keyword)){
                 alert('Same keyword already in list');
                 return;
             }
@@ -466,7 +466,7 @@
                 
                 
                 
-                $('#wpt_column_sortable').append(html);
+                $('.wpt_column_sortable').append(html);
                 $('.and_new_column_key').val('');
                 $('.and_new_column_label').val('');
                 $('.add_new_column_type_select').val('');

@@ -1,5 +1,6 @@
-<ul id="wpt_column_sortable">
+<ul id="wpt_column_sortable" class="wpt_column_sortable">
     <?php
+    
     /**
      * Here was $columns_array
      * I have added new $meta_enable_column_array
@@ -77,7 +78,7 @@
         <span class="wpt_column_arrow wpt_arrow_top" data-target="prev" data-keyword="<?php echo esc_attr( $keyword ); ?>">&uArr;</span>
         <span class="wpt_column_arrow wpt_arrow_down" data-target="next" data-keyword="<?php echo esc_attr( $keyword ); ?>">&dArr;</span>
         <span title="<?php esc_attr_e( 'Move Handle', 'wpt_pro' );?>" class="handle checkbox_handle">
-            <input name="enabled_column_array[<?php echo $keyword; ?>]" 
+            <input name="<?php echo esc_attr( $enabled_column_array );?>[<?php echo $keyword; ?>]" 
                    value="<?php echo $keyword; ?>" 
                    title="<?php echo esc_html__( 'Active Inactive Column', 'wpt_pro' );?>" 
                    class="checkbox_handle_input <?php echo esc_attr( $enabled_class ); ?>" 

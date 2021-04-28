@@ -22,10 +22,6 @@ if( $meta_enable_column_array && !empty( $meta_enable_column_array ) && !empty( 
 $column_settings = get_post_meta( $post->ID, 'column_settings', true ); 
 if( empty( $column_settings ) ){
     $column_settings = array();
-    //$column_settings['product_title']['items'] = array( 'sku', 'rating','stock', 'price', 'quantity' );
-    //Price - will be add h4 tag
-    //Sku will add special something
-    //Mobile Version er jonno Blank niye sekhane action,title,sku,qunatity,price add korte hobe.
 }
 
 $additional_collumn = array_diff(array_keys($for_add), array_keys( WPT_Product_Table::$columns_array ));
@@ -45,6 +41,14 @@ if( !is_array( $final_cols_arr ) ){
 }
 //$columns_array = array_merge($meta_enable_column_array,array_diff($columns_array,$meta_enable_column_array));
 //var_dump($columns_array,$meta_enable_column_array);
+
+
+//var_dump($updated_columns_array,$meta_enable_column_array);
+
+/**
+ * Some input name keyword as variable
+ */
+$enabled_column_array_name = 'enabled_column_array';
 ?>
 
 <div class="inside-column-settings-wrapper">
@@ -57,8 +61,12 @@ if( !is_array( $final_cols_arr ) ){
         <a data-target="inside-tablet" class="wpt_inside_nav_tab nav-tab">Tablet</a>
         <a data-target="inside-mobile" class="wpt_inside_nav_tab nav-tab">Mobile</a>
     </nav>
+    
+    
     <div id="inside-desktop" class="inside_tab_content tab-content tab-content-active">
 <?php 
+$enabled_column_array = $enabled_column_array_name;
+
 $column_list_file = __DIR__ . '/inc-column/column-list.php';
 include $column_list_file;
 
@@ -66,9 +74,12 @@ $availe_column_list_file = __DIR__ . '/inc-column/available-column-list.php';
 include $availe_column_list_file;
 ?>
     </div>
+    
+    
     
     <div id="inside-tablet" class="inside_tab_content tab-content">
 <?php 
+$enabled_column_array = $enabled_column_array_name . '_tablet';
 $column_list_file = __DIR__ . '/inc-column/column-list.php';
 include $column_list_file;
 
@@ -77,8 +88,13 @@ include $availe_column_list_file;
 ?>
     </div>
     
+    
+    
+    
+    
     <div id="inside-mobile" class="inside_tab_content tab-content">
 <?php 
+$enabled_column_array = $enabled_column_array_name . '_mobile';
 $column_list_file = __DIR__ . '/inc-column/column-list.php';
 include $column_list_file;
 
