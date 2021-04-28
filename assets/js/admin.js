@@ -326,12 +326,6 @@
             
             $(this).closest('.tab-content').find('.wpt_column_sortable li.wpt_sortable_peritem input.checkbox_handle_input[data-column_keyword="' + keyword + '"]').trigger('click');
             
-//            var lenght = $( '.add_switch_col_wrapper .switch-enable-available li.switch-enable-item.item-enabled' ).length;
-//            console.log(lenght);
-//            if( lenght == 0 ){
-//                //$(this).toggleClass('item-enabled');
-//            }
-            
         });
         /**
          * Column Section Managing
