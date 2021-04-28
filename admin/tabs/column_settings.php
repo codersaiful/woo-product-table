@@ -60,9 +60,9 @@ $_device_name = '';
         <p><?php echo esc_html__( 'Desktop is default, if not set any column for tablet and mobile.', 'wpt_pro' ); ?></p>
     </div>
     <nav class="inside-nav-tab-wrapper">
-        <a data-target="inside-desktop" class="wpt_inside_nav_tab nav-tab nav-tab-active">Desktop</a>
-        <a data-target="inside-tablet" class="wpt_inside_nav_tab nav-tab">Tablet</a>
-        <a data-target="inside-mobile" class="wpt_inside_nav_tab nav-tab">Mobile</a>
+        <a data-target="inside-desktop" data-device="desktop" class="wpt_inside_nav_tab nav-tab nav-tab-active">Desktop</a>
+        <a data-target="inside-tablet" data-device="tablet" class="wpt_inside_nav_tab nav-tab">Tablet</a>
+        <a data-target="inside-mobile" data-device="mobile" class="wpt_inside_nav_tab nav-tab">Mobile</a>
     </nav>
     
     

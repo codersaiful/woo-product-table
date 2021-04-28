@@ -7,7 +7,7 @@
         <?php
         
         
-        ksort($columns_array);
+        //ksort($columns_array);
 //        $meta_enable_column_array = get_post_meta( $post->ID, 'enabled_column_array', true );
 //        if( $meta_enable_column_array && !empty( $meta_enable_column_array ) && !empty( $columns_array ) ){
 //            $columns_array = array_merge($meta_enable_column_array,$columns_array);

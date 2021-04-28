@@ -448,18 +448,24 @@
             if(type === 'default'){
                 type_name_show = '';
             }
+            var device_name = $('.inside-column-settings-wrapper nav.inside-nav-tab-wrapper a.wpt_inside_nav_tab.nav-tab-active').data('device');
+            var device = '_' + device_name;
+            if(device_name === 'desktop'){
+                device = '';
+            }
+            
             var html = '';
             html = '<li class="wpt_sortable_peritem  column_keyword_' + keyword + ' enabled">';
                 html += '<span title="Move Handle" class="handle ui-sortable-handle"></span>';
-                html += '<input type="hidden" name="column_settings[' + keyword + '][type]" value="' + type + '">';
-                html += '<input type="hidden" name="column_settings[' + keyword + '][type_name]" value="' + type_name + '">';
+                html += '<input type="hidden" name="column_settings' + device + '[' + keyword + '][type]" value="' + type + '">';
+                html += '<input type="hidden" name="column_settings' + device + '[' + keyword + '][type_name]" value="' + type_name + '">';
                 html += '<div class="wpt_shortable_data">';
-                    html += '<input name="column_array[' + keyword + ']" data-column_title="' + label + '" data-keyword="' + keyword + '" class="colum_data_input ' + keyword + '" type="text" value="' + label + '">';
+                    html += '<input name="column_array' + device + '[' + keyword + ']" data-column_title="' + label + '" data-keyword="' + keyword + '" class="colum_data_input ' + keyword + '" type="text" value="' + label + '">';
                     html += '<span class="wpt_colunm_type">' + type_name_show + keyword + '</span>';
                     html += "<span class='wpt_column_cross'>X</span>";
                 html += '</div>';
                 html += '<span title="Move Handle" class="handle checkbox_handle ui-sortable-handle">';
-                    html += '<input name="enabled_column_array[' + keyword + ']" value="' + keyword + '" title="Active Inactive Column" class="checkbox_handle_input  enabled" type="checkbox" data-column_keyword="' + keyword + '" checked="checked">';
+                    html += '<input name="enabled_column_array' + device + '[' + keyword + ']" value="' + keyword + '" title="Active Inactive Column" class="checkbox_handle_input  enabled" type="checkbox" data-column_keyword="' + keyword + '" checked="checked">';
                 html += '</span>';
             html += '</li>';
             
@@ -469,7 +475,7 @@
                return;
             }
             //Check if already same keyword is Available
-            if($('.wpt_column_sortable li.wpt_sortable_peritem').hasClass('column_keyword_' + keyword)){
+            if($('#inside-' + device_name + ' .wpt_column_sortable li.wpt_sortable_peritem').hasClass('column_keyword_' + keyword)){
                 alert('Same keyword already in list');
                 return;
             }
@@ -480,7 +486,7 @@
                 
                 
                 
-                $('.wpt_column_sortable').append(html);
+                $('#inside-' + device_name + ' .wpt_column_sortable').append(html);
                 $('.and_new_column_key').val('');
                 $('.and_new_column_label').val('');
                 $('.add_new_column_type_select').val('');
