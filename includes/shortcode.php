@@ -19,6 +19,8 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
             return;
         }
         $config_value = get_option( 'wpt_configure_options' );
+        $_device_name = wpt_detect_current_device();
+        $_device = $_device_name == 'desktop' ? '' : '_'.$_device_name;
         $html = '';
         $GLOBALS['wpt_product_table'] = "Yes";
         /**
@@ -36,19 +38,25 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
 
             //Used meta_key column_array, enabled_column_array, basics, conditions, mobile, search_n_filter, 
             $column_array = get_post_meta( $ID, 'column_array', true );
-            $enabled_column_array = get_post_meta( $ID, 'enabled_column_array', true );
+            $enabled_column_array = get_post_meta( $ID, 'enabled_column_array' . $_device, true );
+            
+            if( empty( $enabled_column_array ) && $_device == '_mobile' ){
+                $_device = '_tablet'; //Set Device Tablet here and we will use it for getting $column_Setting
+                $enabled_column_array = get_post_meta( $ID, 'enabled_column_array' . $_device, true );
+            }
+            
+            if( empty( $enabled_column_array ) ){
+                $_device = ''; //Set Device Desktop, I mean, empty here and we will use it for getting $column_Setting
+                $enabled_column_array = get_post_meta( $ID, 'enabled_column_array' . $_device, true );
+            }
+            
+            
+            
             if( empty( $enabled_column_array ) ){
                 return sprintf( '<p>' . esc_html( 'Table{ID: %s} column setting is not founded properly!', 'wpt_pro' ) . '</p>', $ID );
             }
-            /*
-            if( !isset( $enabled_column_array['product_title'] ) ){
-                $temp_product_title['product_title'] = $column_array['product_title'];
-                $enabled_column_array = array_merge($temp_product_title,$enabled_column_array);
-            }
-            */
-            //unset($enabled_column_array['description']); //Description column has been removed V5.2 //Again Description column Start V6.0.25
-
-            $column_settings = get_post_meta( $ID, 'column_settings', true);
+            
+            $column_settings = get_post_meta( $ID, 'column_settings' . $_device, true);
 
             $basics = get_post_meta( $ID, 'basics', true );
 //            $query_relation = ! isset( $basics['query_relation'] ) ? 'OR' : $basics['query_relation'];
@@ -185,7 +193,7 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
             //Mobile tab part
             $mobile_responsive = $mobile['mobile_responsive'];
             $table_mobileHide_keywords = isset( $mobile['disable'] ) ? $mobile['disable'] : false;
-
+            var_dump($mobile_responsive,$table_mobileHide_keywords);
             //Search and Filter
             $search_box = $search_n_filter['search_box'] == 'no' ? false : true;
             $texonomiy_keywords = wpt_explode_string_to_array( $search_n_filter['taxonomy_keywords'] ); 
