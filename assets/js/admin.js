@@ -323,7 +323,8 @@
         $( 'body.wpt_admin_body' ).on('click', '.add_switch_col_wrapper .switch-enable-available li.switch-enable-item', function(){
             var keyword = $(this).data('column_keyword');
             $(this).toggleClass('item-enabled');
-            $('.wpt_column_sortable li.wpt_sortable_peritem input.checkbox_handle_input[data-column_keyword="' + keyword + '"]').trigger('click');
+            
+            $(this).closest('.tab-content').find('.wpt_column_sortable li.wpt_sortable_peritem input.checkbox_handle_input[data-column_keyword="' + keyword + '"]').trigger('click');
             
 //            var lenght = $( '.add_switch_col_wrapper .switch-enable-available li.switch-enable-item.item-enabled' ).length;
 //            console.log(lenght);
