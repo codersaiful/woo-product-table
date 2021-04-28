@@ -30,7 +30,7 @@
         <span title="<?php esc_attr_e( 'Move Handle', 'wpt_pro' );?>" class="handle"></span>
         <div class="wpt_shortable_data">
             <input placeholder="<?php echo $keyword; ?>" 
-                   name="column_array[<?php echo $keyword; ?>]"  
+                   name="column_array<?php echo $_device_name; ?>[<?php echo $keyword; ?>]"  
                    data-column_title="<?php echo esc_attr__( $updated_title,'wpt_pro' ); ?>" 
                    data-keyword="<?php echo esc_attr( $keyword ); ?>" 
                    class="colum_data_input <?php echo esc_attr( $keyword ); ?>" 

@@ -144,6 +144,8 @@ if( !function_exists( 'wpt_shortcode_configuration_metabox_save_meta' ) ){
 
         $save_tab_array = array(
             'column_array' => 'column_array',
+            'column_array' => 'column_array_tablet',
+            'column_array' => 'column_array_mobile',
             
             'enabled_column_array' => 'enabled_column_array',
             'enabled_column_array_tablet' => 'enabled_column_array_tablet',

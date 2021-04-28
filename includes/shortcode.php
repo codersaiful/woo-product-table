@@ -37,7 +37,7 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
             $GLOBALS['wpt_product_table'] = $ID;
 
             //Used meta_key column_array, enabled_column_array, basics, conditions, mobile, search_n_filter, 
-            $column_array = get_post_meta( $ID, 'column_array', true );
+            
             $enabled_column_array = get_post_meta( $ID, 'enabled_column_array' . $_device, true );
             
             if( empty( $enabled_column_array ) && $_device == '_mobile' ){
@@ -55,7 +55,7 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
             if( empty( $enabled_column_array ) ){
                 return sprintf( '<p>' . esc_html( 'Table{ID: %s} column setting is not founded properly!', 'wpt_pro' ) . '</p>', $ID );
             }
-            
+            $column_array = get_post_meta( $ID, 'column_array' . $_device, true );
             $column_settings = get_post_meta( $ID, 'column_settings' . $_device, true);
 
             $basics = get_post_meta( $ID, 'basics', true );
@@ -516,6 +516,7 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
 
         $wrapper_class_arr = array(
                 $table_type . "_wrapper",
+                "detected_device_" . $_device . '_wrapper',
                 " wpt_temporary_wrapper_" . $temp_number,
                 " wpt_id_" . $temp_number,
                 "wpt_product_table_wrapper",
@@ -617,6 +618,7 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
         $table_class_arr = array(
                 $responsive,
                 $table_type,
+                'device_for_colum' . $_device,
                 'wpt_temporary_table_' . $temp_number,
                 'wpt_product_table',
                 $template. '_table',

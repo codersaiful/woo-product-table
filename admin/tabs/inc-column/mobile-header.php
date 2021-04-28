@@ -3,7 +3,7 @@ $default_enable_array = array();//WPT_Product_Table::$default_enable_columns_arr
 
 $columns_array = WPT_Product_Table::$columns_array;
 //var_dump(WPT_Product_Table::$columns_array);
-$for_add =  $meta_column_array = $updated_columns_array = get_post_meta( $post->ID, 'column_array', true );
+$for_add =  $meta_column_array = $updated_columns_array = get_post_meta( $post->ID, 'column_array_mobile', true );
 
 if( !$meta_column_array && empty( $meta_column_array ) ){
     $for_add = $updated_columns_array = WPT_Product_Table::$columns_array;
