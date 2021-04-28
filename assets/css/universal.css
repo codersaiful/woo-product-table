@@ -167,7 +167,10 @@ div.wpt_product_table_wrapper input[type=radio]:checked+label:after {
     min-width: 140px;
 }
 .item_inside_cell.wpt_action{
-    text-align: initial;
+    text-align: inherit;
+}
+.wpt_product_table_wrapper .qib-button.qib-button-wrapper {
+    display: inline-block;
 }
 
 br.wpt_clear {
