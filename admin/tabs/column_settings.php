@@ -79,9 +79,14 @@ include $availe_column_list_file;
     
     <div id="inside-tablet" class="inside_tab_content tab-content">
 <?php 
+
+
+
+
 $enabled_column_array = $enabled_column_array_name . '_tablet';
-$column_list_file = __DIR__ . '/inc-column/column-list.php';
-include $column_list_file;
+
+$tablet_header_file = __DIR__ . '/inc-column/tablet-header.php';
+include $tablet_header_file;
 
 $availe_column_list_file = __DIR__ . '/inc-column/available-column-list.php';
 include $availe_column_list_file;
