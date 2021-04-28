@@ -176,7 +176,7 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
             $min_price = $conditions['min_price'];
             $max_price = $conditions['max_price'];
             $description_type = $conditions['description_type'];
-            $only_stock = !empty( $conditions['only_stock'] ) ? $conditions['only_stock'] : false;
+            $only_stock = !empty( $conditions['only_stock'] ) && $conditions['only_stock'] !== 'no' ? $conditions['only_stock'] : false;
             $only_sale = isset( $conditions['only_sale'] ) && $conditions['only_sale'] == 'yes' ? true : false;
             $posts_per_page = (int) $conditions['posts_per_page'];
 
