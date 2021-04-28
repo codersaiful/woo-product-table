@@ -323,7 +323,8 @@
         $( 'body.wpt_admin_body' ).on('click', '.add_switch_col_wrapper .switch-enable-available li.switch-enable-item', function(){
             var keyword = $(this).data('column_keyword');
             $(this).toggleClass('item-enabled');
-            
+            //Detect and set Responsive Stats
+            ///detect_responsive_stats();
             $(this).closest('.tab-content').find('.wpt_column_sortable li.wpt_sortable_peritem input.checkbox_handle_input[data-column_keyword="' + keyword + '"]').trigger('click');
             
         });
@@ -351,12 +352,29 @@
                 }
                 //Counting colum End here
                 
+                
+                
                 $(this).removeClass('enabled');
                 $('.switch-enable-item-' + keyword).removeClass('item-enabled');
                 targetLiSelector.removeClass('enabled');
             }
         });
-
+        
+        detect_responsive_stats();
+        function detect_responsive_stats(){
+            var detect_responsive;
+            detect_responsive = [];
+            $('body.wpt_admin_body #inside-tablet li.wpt_sortable_peritem.enabled .wpt_shortable_data input.colum_data_input,body.wpt_admin_body #inside-mobile li.wpt_sortable_peritem.enabled .wpt_shortable_data input.colum_data_input').each(function(Index) {
+                detect_responsive[Index] = 1;
+            });
+            console.log(detect_responsive.length);
+            var hid_respn_field = $('#hidden_responsive_data');
+            if( detect_responsive.length > 0 ){
+                hid_respn_field.val('no_responsive');
+            }else{
+                hid_respn_field.val('mobile_responsive');
+            }
+        }
         /**
          * For Hide on Mobile
          * 
@@ -481,6 +499,9 @@
         $(window).bind('keydown', function(event) {
             if (event.ctrlKey || event.metaKey) {
                 if($('.form_bottom.form_bottom_submit_button').hasClass('wrapper_wpt_ajax_update') && String.fromCharCode(event.which).toLowerCase() === 's' ){
+                    //Detect and set Responsive Stats
+                    ///detect_responsive_stats();
+                    
                     event.preventDefault();
                     $('body.wpt_admin_body input#publish[name=save]').trigger('click');
                 }
@@ -500,6 +521,9 @@
         });
         
         $(document).on('click','body.wpt_admin_body .form_bottom.form_bottom_submit_button button.button.wpt_ajax_update, body.wpt_admin_body input#publish[name=save]',function(e){
+            //Detect and set Responsive Stats
+            detect_responsive_stats();
+            
             $('.wpt_notify').css('display','block');
             
             var 

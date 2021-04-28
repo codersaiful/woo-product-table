@@ -66,6 +66,7 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
 
             $conditions = get_post_meta( $ID, 'conditions', true );
             $mobile = get_post_meta( $ID, 'mobile', true );
+
             $search_n_filter = get_post_meta( $ID, 'search_n_filter', true );
             $pagination = get_post_meta( $ID, 'pagination', true );
             $config_value = wpt_get_config_value( $table_ID ); //Added at V5.0
@@ -142,6 +143,7 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
             $table_class = $basics['table_class'];//isset( $basics['ajax_action'] ) ? $basics['ajax_action'] : false;
             $temp_number = $ID;//Temp Number Has REmoved Totally $basics['temp_number'];// + $ID; //$ID has removed from temp_number
             $add_to_cart_text = $basics['add_to_cart_text'];
+            $responsive = isset( $basics['responsive'] ) ? $basics['responsive'] : 'no_responsive';
 
 
 
@@ -191,9 +193,9 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
 
 
             //Mobile tab part
-            $mobile_responsive = $mobile['mobile_responsive'];
+
             $table_mobileHide_keywords = isset( $mobile['disable'] ) ? $mobile['disable'] : false;
-            var_dump($mobile_responsive,$table_mobileHide_keywords);
+            
             //Search and Filter
             $search_box = $search_n_filter['search_box'] == 'no' ? false : true;
             $texonomiy_keywords = wpt_explode_string_to_array( $search_n_filter['taxonomy_keywords'] ); 
@@ -613,7 +615,7 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
         $page_number_1plugs = $args['paged'] + 1;
 
         $table_class_arr = array(
-                $mobile_responsive,
+                $responsive,
                 $table_type,
                 'wpt_temporary_table_' . $temp_number,
                 'wpt_product_table',
@@ -634,7 +636,7 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
                 . "data-data_json_backup='" . esc_attr( wp_json_encode( $table_row_generator_array ) ) . "' "
                 . "id='" . apply_filters('wpt_change_table_id', 'wpt_table') . "' "
                 . "class='{$table_class_arr}' "
-                //. "class='{$mobile_responsive} {$table_type} wpt_temporary_table_" . $temp_number . " wpt_product_table " . $template . "_table {$custom_table}_table $table_class " . $config_value['custom_add_to_cart'] . "' "
+
                 . ">"; //Table Tag start here.
 
         /**

@@ -54,41 +54,7 @@ if( !function_exists( 'wpt_detect_current_device' ) ){
     }
 }
 
-if( !function_exists( 'wpt_device_wise_table_col' ) ){
-    /**
-     * Generate $enabled_column_array based on Device 
-     * for Responsive Table.
-     * We have added Responsive Tab inbside Admin of WPT plugin by Action: wpto_admin_tab_array inside admin/functions.php
-     * 
-     * In this function, we will also use Mobile_Detect() Class, which already included in main plugin file.
-     * 
-     * Need responsive tab's data, which is in table meta. Where us need table ID for table wise REsponsive
-     * such: get_post_meta(POST_ID, keyword_of_meta, true);
-     * 
-     * @since 6.0.28
-     * @param type $enabled_column_array
-     * @return Array
-     */
-    function wpt_device_wise_table_col($enabled_column_array, $table_ID){
-       $device = wpt_detect_current_device();
-       $device = apply_filters( 'wpto_curent_deteted_device', $device, $enabled_column_array, $table_ID );
-       if( !$device ){
-           return $enabled_column_array;
-       }
-       $responsive_meta = get_post_meta( $table_ID, 'responsive', true );
 
-       if( isset( $responsive_meta[$device] ) && is_array( $responsive_meta[$device] ) && count( $responsive_meta[$device] ) > 0 ){
-           return $responsive_meta[$device];
-       }
-       return $enabled_column_array;
-   }
-}
-/**
- * Availabvle Variable in this Filters is:
- * $enabled_column_array, $table_ID, $atts, $column_settings, $column_array
- * Perpose is: Change/Edit/Customize to Enabled Column Array
- */
-add_filter( 'wpto_enabled_column_array', 'wpt_device_wise_table_col',10, 2 );
 
 
 if( !function_exists( 'wpt_device_wise_class' ) ){
@@ -137,12 +103,12 @@ if( !function_exists( 'wpt_table_td_class' ) ){
             return $td_class_arr;
         }
         
-        //var_dump($td_class_arr, $args, $table_ID);
-        $mobile = get_post_meta( $table_ID, 'mobile', true );
-        if( isset( $mobile['mobile_responsive'] ) && $mobile['mobile_responsive'] == 'mobile_responsive' ){
+        $basics = get_post_meta( $table_ID, 'basics', true );
+        $responsive = isset( $basics['responsive'] ) ? $basics['responsive'] : 'no_responsive';
+        if( $responsive == 'mobile_responsive' ){
             $td_class_arr[] = 'wpt_for_product_desc';
         }
-        //var_dump($td_class_arr);
+
        return $td_class_arr;
    }
 }
@@ -185,7 +151,7 @@ if( !function_exists( 'wpt_product_title_column_add' ) ){
         $description_off = $description_off == 'off' ? 'checked="checked"' : '';
        ?>
         <div class="description_off_wrapper">
-            <label for="description_off"><input title="Disable Deactivate Description from Title Column" name="column_settings[description_off]" id="description_off" class="description_off" type="checkbox" value="off" <?php echo $description_off; ?>> Disable Description</label>
+            <label for="description_off<?php echo $_device_name; ?>"><input id="description_off<?php echo $_device_name; ?>" title="Disable Deactivate Description from Title Column" name="column_settings[description_off]" id="description_off" class="description_off" type="checkbox" value="off" <?php echo $description_off; ?>> Disable Description</label>
         </div>
         <div class="title_variation">
             <label for="link<?php echo $_device_name; ?>"><input type="radio" id="link<?php echo $_device_name; ?>" name="column_settings<?php echo $_device_name; ?>[title_variation]" value="link" <?php echo !$title_variation || $title_variation == 'link' ? 'checked' : ''; ?>> Link Enable</label>
