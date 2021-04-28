@@ -294,7 +294,7 @@ if( !function_exists( 'wpt_column_add_extra_items' ) ){
             foreach($items_columns as $key => $key_val){
                 $seleced = in_array( $key,$items ) ? 'checked' : false;
                 //var_dump($key, $keyword);
-                $unique_id = $keyword . '_' . $key;
+                $unique_id = $keyword . '_' . $key . '_' . $_device_name;
                 echo '<div class="each_checkbox each_checkbox_' . $key . '">';
                 echo "<input "
                 . "id='{$unique_id}' "
