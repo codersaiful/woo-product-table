@@ -1,5 +1,5 @@
 <?php
-$default_enable_array = array();//WPT_Product_Table::$default_enable_columns_array;
+$default_enable_array = WPT_Product_Table::$default_enable_columns_array;
 
 $columns_array = WPT_Product_Table::$columns_array;
 //var_dump(WPT_Product_Table::$columns_array);
@@ -39,6 +39,8 @@ if( is_array( $meta_enable_column_array ) && !empty( $meta_enable_column_array )
 if( !is_array( $final_cols_arr ) ){
     return;
 }
+
+
 //$columns_array = array_merge($meta_enable_column_array,array_diff($columns_array,$meta_enable_column_array));
 //var_dump($columns_array,$meta_enable_column_array);
 
@@ -49,6 +51,7 @@ if( !is_array( $final_cols_arr ) ){
  * Some input name keyword as variable
  */
 $enabled_column_array_name = 'enabled_column_array';
+$_device_name = '';
 ?>
 
 <div class="inside-column-settings-wrapper">
@@ -83,10 +86,13 @@ include $availe_column_list_file;
 
 
 
-$enabled_column_array = $enabled_column_array_name . '_tablet';
+$_device_name = '_tablet';
 
 $tablet_header_file = __DIR__ . '/inc-column/tablet-header.php';
 include $tablet_header_file;
+
+$column_list_file = __DIR__ . '/inc-column/column-list.php';
+include $column_list_file;
 
 $availe_column_list_file = __DIR__ . '/inc-column/available-column-list.php';
 include $availe_column_list_file;
@@ -99,7 +105,11 @@ include $availe_column_list_file;
     
     <div id="inside-mobile" class="inside_tab_content tab-content">
 <?php 
-$enabled_column_array = $enabled_column_array_name . '_mobile';
+$_device_name = '_mobile';
+
+$tablet_header_file = __DIR__ . '/inc-column/mobile-header.php';
+include $tablet_header_file;
+
 $column_list_file = __DIR__ . '/inc-column/column-list.php';
 include $column_list_file;
 
