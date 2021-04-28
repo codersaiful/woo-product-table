@@ -1,5 +1,5 @@
 <?php
-$default_enable_array = WPT_Product_Table::$default_enable_columns_array;
+$default_enable_array = array();//WPT_Product_Table::$default_enable_columns_array;
 
 $columns_array = WPT_Product_Table::$columns_array;
 //var_dump(WPT_Product_Table::$columns_array);

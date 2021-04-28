@@ -1,5 +1,5 @@
 <?php
-$default_enable_array = WPT_Product_Table::$default_enable_columns_array;
+$default_enable_array = array();//WPT_Product_Table::$default_enable_columns_array;
 
 $columns_array = WPT_Product_Table::$columns_array;
 //var_dump(WPT_Product_Table::$columns_array);
@@ -14,12 +14,12 @@ if( $updated_columns_array && !empty( $updated_columns_array ) && !empty( $colum
 
 //var_dump(array_merge( $columns_array,$updated_columns_array ));
 //unset($columns_array['description']); //Again Start Description Column From V6.0.25
-$meta_enable_column_array = get_post_meta( $post->ID, 'enabled_column_array', true );
+$meta_enable_column_array = get_post_meta( $post->ID, 'enabled_column_array_tablet', true );
 if( $meta_enable_column_array && !empty( $meta_enable_column_array ) && !empty( $columns_array ) ){
     $columns_array = array_merge($meta_enable_column_array,$columns_array);
 }
 
-$column_settings = get_post_meta( $post->ID, 'column_settings', true ); 
+$column_settings = get_post_meta( $post->ID, 'column_settings_tablet', true ); 
 if( empty( $column_settings ) ){
     $column_settings = array();
 }

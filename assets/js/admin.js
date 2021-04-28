@@ -337,7 +337,8 @@
          */
         $('body.wpt_admin_body').on('click','.wpt_column_sortable li.wpt_sortable_peritem input.checkbox_handle_input',function(){
             var keyword = $(this).data('column_keyword');
-            var targetLiSelector = $('.wpt_column_sortable li.wpt_sortable_peritem.column_keyword_' + keyword);
+            var thisWPTSortAble = $(this).closest('.wpt_column_sortable');
+            var targetLiSelector = thisWPTSortAble.find(' li.wpt_sortable_peritem.column_keyword_' + keyword);
             
             if ($(this).prop('checked')) {
                 $(this).addClass('enabled');
