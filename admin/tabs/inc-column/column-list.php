@@ -61,12 +61,12 @@
             
             
             <div class="wpt_column_setting_single_extra">
-                <?php do_action( 'wpto_column_setting_form_' . $keyword, $column_settings, $columns_array, $updated_columns_array, $post, $additional_data ); ?>
+                <?php do_action( 'wpto_column_setting_form_' . $keyword, $column_settings, $columns_array, $updated_columns_array, $post, $additional_data, $_device_name ); ?>
             </div>
             <span data-key="<?php echo esc_attr( $keyword ); ?>" class="extra_all_on_off on_now"><i class="on_off_icon"></i>Expand</span>
             <div class="wpt_column_setting_extra for_all extra_all_<?php echo esc_attr( $keyword ); ?>">
-                <?php do_action( 'wpto_column_setting_form_inside_' . $keyword, $column_settings, $columns_array, $updated_columns_array, $post, $additional_data ); ?>
-                <?php do_action( 'wpto_column_setting_form', $keyword, $column_settings, $columns_array, $updated_columns_array, $post, $additional_data ); ?>
+                <?php do_action( 'wpto_column_setting_form_inside_' . $keyword, $column_settings, $columns_array, $updated_columns_array, $post, $additional_data, $_device_name ); ?>
+                <?php do_action( 'wpto_column_setting_form', $keyword, $column_settings, $columns_array, $updated_columns_array, $post, $additional_data, $_device_name ); ?>
                 
             </div>
             <div class="wpt_column_setting_extra for_all profeatures-message">

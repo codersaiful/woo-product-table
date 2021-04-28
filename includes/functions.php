@@ -257,7 +257,7 @@ if( !function_exists( 'wpt_column_tag_for_all' ) ){
 add_action( 'wpto_column_setting_form', 'wpt_column_tag_for_all', 10, 3 );
 
 if( !function_exists( 'wpt_column_add_extra_items' ) ){
-    function wpt_column_add_extra_items( $keyword, $column_settings, $columns_array, $post ){
+    function wpt_column_add_extra_items( $keyword, $column_settings, $columns_array, $updated_columns_array, $post, $additional_data, $_device_name ){
 
         unset( $columns_array[$keyword] );
         //unset( $columns_array['check'] );
@@ -298,7 +298,7 @@ if( !function_exists( 'wpt_column_add_extra_items' ) ){
                 echo "<input "
                 . "id='{$unique_id}' "
                 . "type='checkbox' "
-                . "name='column_settings[{$keyword}][items][]' "
+                . "name='column_settings{$_device_name}[{$keyword}][items][]' "
                 . "value='{$key}' $seleced/><label for='{$unique_id}'>$key_val <small>($key)</small></label>";
                 echo '</div>';
             }
@@ -310,7 +310,7 @@ if( !function_exists( 'wpt_column_add_extra_items' ) ){
     }
 }
 
-add_action( 'wpto_column_setting_form', 'wpt_column_add_extra_items', 10, 4 );
+add_action( 'wpto_column_setting_form', 'wpt_column_add_extra_items', 10, 7 );
 
 if( !function_exists( 'wpt_add_extra_inside_items' ) ){
     function wpt_add_extra_inside_items( $columns_array ){
