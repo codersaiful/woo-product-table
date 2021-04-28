@@ -105,17 +105,17 @@ include $availe_column_list_file;
     
     <div id="inside-mobile" class="inside_tab_content tab-content">
 <?php 
-$_device_name = '_mobile';
-
-$tablet_header_file = __DIR__ . '/inc-column/mobile-header.php';
-include $tablet_header_file;
-
-$column_list_file = __DIR__ . '/inc-column/column-list.php';
-include $column_list_file;
-
-$availe_column_list_file = __DIR__ . '/inc-column/available-column-list.php';
-include $availe_column_list_file;
-?>
+//$_device_name = '_mobile';
+//
+//$tablet_header_file = __DIR__ . '/inc-column/mobile-header.php';
+//include $tablet_header_file;
+//
+//$column_list_file = __DIR__ . '/inc-column/column-list.php';
+//include $column_list_file;
+//
+//$availe_column_list_file = __DIR__ . '/inc-column/available-column-list.php';
+//include $availe_column_list_file;
+//?>
     </div>
     
 </div>
