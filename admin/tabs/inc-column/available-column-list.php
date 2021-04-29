@@ -2,8 +2,6 @@
 <!-- Enable Active Collumn -->
 <div class="add_switch_col_wrapper">
     <div class="section ultraaddons-panel add_new_column">
-        <h3 class="with-background dark-background slim-title"><?php echo esc_html__( 'Column Activation', 'wpt_pro' ); ?> <small style="color: orange; font-size: 12px;"></small></h3>
-
         <?php
         
         
@@ -21,7 +19,7 @@
 
         ?>
         <div class="section enable-available-cols switch-enable-available">
-            <p><?php echo esc_html__( 'Activate your Preferred Column.', 'wpt_pro' ); ?></p>
+            <h2><?php echo esc_html__( 'Click from Following list to add as Column.', 'wpt_pro' ); ?></h2>
             <ul id="wpt-switch-list">
                 <?php 
                 foreach( $columns_array as $keyword => $title ){ 

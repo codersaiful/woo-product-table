@@ -70,11 +70,14 @@ $_device_name = '';
 <?php 
 $enabled_column_array = $enabled_column_array_name;
 
+$availe_column_list_file = __DIR__ . '/inc-column/available-column-list.php';
+include $availe_column_list_file;
+
+
 $column_list_file = __DIR__ . '/inc-column/column-list.php';
 include $column_list_file;
 
-$availe_column_list_file = __DIR__ . '/inc-column/available-column-list.php';
-include $availe_column_list_file;
+
 ?>
     </div>
     
@@ -91,11 +94,13 @@ $_device_name = '_tablet';
 $tablet_header_file = __DIR__ . '/inc-column/tablet-header.php';
 include $tablet_header_file;
 
+$availe_column_list_file = __DIR__ . '/inc-column/available-column-list.php';
+include $availe_column_list_file;
+
 $column_list_file = __DIR__ . '/inc-column/column-list.php';
 include $column_list_file;
 
-$availe_column_list_file = __DIR__ . '/inc-column/available-column-list.php';
-include $availe_column_list_file;
+
 ?>
     </div>
     
@@ -110,11 +115,12 @@ $_device_name = '_mobile';
 $tablet_header_file = __DIR__ . '/inc-column/mobile-header.php';
 include $tablet_header_file;
 
+$availe_column_list_file = __DIR__ . '/inc-column/available-column-list.php';
+include $availe_column_list_file;
+
 $column_list_file = __DIR__ . '/inc-column/column-list.php';
 include $column_list_file;
 
-$availe_column_list_file = __DIR__ . '/inc-column/available-column-list.php';
-include $availe_column_list_file;
 
 ?>
     </div>

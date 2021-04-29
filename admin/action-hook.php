@@ -29,7 +29,7 @@ if( !function_exists( 'wpt_admin_form_top' ) ){
                  GitHub Repo</a></li>
             <li><a target="_blank" href="https://demo.wooproducttable.com/">Demo</a></li>
             <li><a target="_blank" href="https://github.com/codersaiful/woo-product-table/discussions">Forum on Repo</a></li>
-            <li><a target="_blank" href="https://wooproducttable.com/docs/">Basic Helps</a></li>
+            <li><a target="_blank" href="https://wooproducttable.com/documentation/">Basic Helps</a></li>
             <li><a target="_blank" href="https://docs.codeastrology.com/woo-product-table-pro/#intro">Documentation</a></li>
             <li><a target="_blank" href="https://codeastrology.com/support/">Get Support</a></li> 
             
