@@ -44,7 +44,7 @@
                 <img style="max-width: 100px" src="<?php echo WPT_BASE_URL; ?>assets/images/customer_support.png">
                 <h3>Customer Support</h3>
             </a>
-            <span>Discussion: <a href="https://github.com/codersaiful/woo-product-table/discussions" target="_blank">Forumn and Discussion on <b>(Github)</b></a></span>
+            <span>Discussion: <a href="https://github.com/codersaiful/woo-product-table/discussions" target="_blank">Forum and Discussion on <b>(Github)</b></a></span>
             <span>Issue on Github: <a href="https://github.com/codersaiful/woo-product-table/issues" target="_blank">Submit your Issue on <b>(Github)</b></a></span>
             <span>Topin on WordPress.org: <a href="https://github.com/codersaiful/woo-product-table/issues" target="_blank">Submit your topic on <b>(WordPress.org)</b></a></span>
             <span>Email: <a href="https://mail.google.com/mail/u/0/?view=cm&fs=1&su=<?php echo urlencode("Need help for " . site_url()); ?>&body=<?php echo urlencode("Hey Saiful, I need help.\nNow I will explain my Issue.\n...________\n"); ?>&ui=2&tf=1&to=<?php echo urlencode("Saiful Islam<codersaiful@gmail.com>"); ?>" target="_blank">Gmail Me <b>(codersaiful@gmail.com)</b></a></span>
@@ -70,7 +70,7 @@
             
             
             <span>GitHub: <a href="https://github.com/codersaiful/woo-product-table/discussions" target="_blank">Woo Product Table on <b>(Github)</b></a></span>
-            <span>Discussion: <a href="https://github.com/codersaiful/woo-product-table/discussions" target="_blank">Forumn and Discussion on <b>(Github)</b></a></span>
+            <span>Discussion: <a href="https://github.com/codersaiful/woo-product-table/discussions" target="_blank">Forum and Discussion on <b>(Github)</b></a></span>
             <span>Issue on Github: <a href="https://github.com/codersaiful/woo-product-table/issues" target="_blank">Submit your Issue on <b>(Github)</b></a></span>
             <span>Topin on WordPress.org: <a href="https://github.com/codersaiful/woo-product-table/issues" target="_blank">Submit your topic on <b>(WordPress.org)</b></a></span>
         </div>

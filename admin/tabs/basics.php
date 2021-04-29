@@ -279,7 +279,7 @@ do_action( 'wpto_admin_basic_tab',$meta_basics, $tab, $post, $tab_array );
             <table class="ultraaddons-table">
                 <tr>
                     <th>
-                        <label class="wpt_label" for="wpt_table_pagination_enable"><?php esc_html_e( 'Pagination on/of', 'wpt_pro' ); ?></label>
+                        <label class="wpt_label" for="wpt_table_pagination_enable"><?php esc_html_e( 'Pagination on/off', 'wpt_pro' ); ?></label>
                     </th>
                     <td>
                         <select name="pagination[start]" data-name='sort' id="wpt_table_pagination_enable" class="wpt_fullwidth wpt_data_filed_atts ua_input" >
