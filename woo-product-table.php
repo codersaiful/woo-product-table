@@ -326,11 +326,13 @@ class WPT_Product_Table{
     const MINIMUM_PHP_VERSION = '5.6';
     
     /**
-     * To check Minimum Plugin Version for Free version
-     * or Main Plugin/Module Version
-     * for our Pro Version
+     * check minimum Woo Product Table Pro Version
+     * 
+     * @Since 2.8.5.4
+     * @by Saiful
+     * @date 28.4.2021
      */
-    const MINIMUM_WPT_VERSION = '2.6.1';
+    const MINIMUM_WPT_PRO_VERSION = '7.0.6';
     
     
     /**
@@ -399,10 +401,23 @@ class WPT_Product_Table{
         * @since 6.1.0.15
         */
        $installed_plugins = get_plugins();
-
+//       var_dump($installed_plugins);
        //Condition and check php verion and WooCommerce activation
        if ( !is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
             add_action( 'admin_notices', [ $this, 'admin_notice_missing_main_plugin' ] );
+            return;
+        }
+        
+        /**
+         * Checking Pro Version Compatibility If
+         * Installed
+         */
+        $pro_v_loc = 'woo-product-table-pro/woo-product-table-pro.php';
+        $pro_installed = isset( $installed_plugins[$pro_v_loc] );
+        $pro_activated = is_plugin_active( $pro_v_loc );
+        $pro_version = isset( $installed_plugins[$pro_v_loc]['Version'] ) ? $installed_plugins[$pro_v_loc]['Version'] : false;
+        if( $pro_installed && $pro_activated && version_compare( $pro_version, self::MINIMUM_WPT_PRO_VERSION, '<' )  ){
+            add_action( 'admin_notices', [ $this, 'admin_notice_pro_version_need_update' ] );
             return;
         }
         
@@ -648,6 +663,26 @@ class WPT_Product_Table{
                    esc_html__( '"%1$s" requires "%2$s" to be installed and activated.', 'wpt_pro' ),
                    '<strong>' . esc_html__( 'Woo Product Table', 'wpt_pro' ) . '</strong>',
                    '<strong><a href="' . esc_url( 'https://wordpress.org/plugins/woocommerce/' ) . '" target="_blank">' . esc_html__( 'WooCommerce', 'wpt_pro' ) . '</a></strong>'
+           );
+
+           printf( '<div class="notice notice-error is-dismissible"><p>%1$s</p></div>', $message );
+
+    }
+    
+    /**
+     * Pro version need to be update to latest version
+     * 
+     * @since 2.8.5.4
+     * @by Saiful
+     * @Date 28.4.2021
+     */
+    public function admin_notice_pro_version_need_update() {
+
+           $message = sprintf(
+                   esc_html__( '"%1$s" requires "%2$s" to be update to minimum version:("%3$s"). Please update your [Woo Product Table Pro] version', 'wpt_pro' ),
+                   '<strong>' . esc_html__( 'Woo Product Table', 'wpt_pro' ) . '</strong>',
+                   '<strong>' . esc_html__( 'Pro Version of Woo Product Table Pro', 'wpt_pro' ) . '</strong>',
+                   '<strong>' . self::MINIMUM_WPT_PRO_VERSION . '</strong>'
            );
 
            printf( '<div class="notice notice-error is-dismissible"><p>%1$s</p></div>', $message );
