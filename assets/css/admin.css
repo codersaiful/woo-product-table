@@ -732,11 +732,11 @@ nav.inside-nav-tab-wrapper a.nav-tab.nav-tab-active:hover{
 
 #inside-tablet ul#wpt_column_sortable li.wpt_sortable_peritem.enabled>span.handle, 
 #inside-tablet ul#wpt_keyword_hide_mobile li>span.handle {
-    background-color: #000000;
+    /*background-color: #000000;*/
 }
 #inside-mobile ul#wpt_column_sortable li.wpt_sortable_peritem.enabled>span.handle, 
 #inside-mobile ul#wpt_keyword_hide_mobile li>span.handle {
-    background-color: #4c4c4c;
+    /*background-color: #4c4c4c;*/
 }
 
 nav.inside-nav-tab-wrapper a:hover {
@@ -1178,9 +1178,9 @@ ul#wpt_column_sortable>li.wpt_sortable_peritem {
     background: #ffffff;
 }
 ul#wpt_column_sortable>li.wpt_sortable_peritem.ui-sortable-helper {
-    background: #eceff1;
-    box-shadow: -4px 9px 12px 5px #0000007a;
-    border-color: #100000;
+        /* background: #000000; */
+    box-shadow: 0 1px 12px 0 #00000057;
+    /* border-color: #100000;
 }
 
 /* Notice Style for UltraAddons*/
