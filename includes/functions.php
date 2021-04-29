@@ -216,7 +216,7 @@ if( !function_exists( 'wpt_column_tag_for_all' ) ){
             ?>
             </select>
         </div>
-        <!-- <input name="column_settings[<?php echo $keyword; ?>][input_one]" value='<?php echo esc_attr( $input_one ); ?>'> -->
+        <!-- <input name="column_settings<?php echo $_device_name; ?>[<?php echo $keyword; ?>][input_one]" value='<?php echo esc_attr( $input_one ); ?>'> -->
         <?php
     }
 }
@@ -226,9 +226,10 @@ add_action( 'wpto_column_setting_form', 'wpt_column_tag_for_all', 10, 3 );
 if( !function_exists( 'wpt_column_add_extra_items' ) ){
     function wpt_column_add_extra_items( $keyword, $_device_name, $column_settings, $columns_array, $updated_columns_array, $post, $additional_data ){
 
-        unset( $columns_array[$keyword] );
+        unset( $columns_array[$keyword] ); //Unset this column. if in action, here $keyword - action
         //unset( $columns_array['check'] );
         unset( $columns_array['blank'] );
+        unset( $columns_array['freeze'] );
         /**
          * Items actually Checked Items
          */
