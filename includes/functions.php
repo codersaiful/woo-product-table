@@ -54,6 +54,73 @@ if( !function_exists( 'wpt_detect_current_device' ) ){
     }
 }
 
+if( !function_exists( 'wpt_col_settingwise_device' ) ){
+    
+    /**
+     * This will return column setting wise and founded device wise
+     * final device option.
+     * 
+     * @param int $ID It's table ID. here should be table IT. not post id
+     */
+    function wpt_col_settingwise_device( $ID ){
+        $_device_name = wpt_detect_current_device();
+        $_device = $_device_name == 'desktop' ? '' : '_'.$_device_name;
+        
+        $enabled_column_array = get_post_meta( $ID, 'enabled_column_array' . $_device, true );
+            
+        if( empty( $enabled_column_array ) && $_device == '_mobile' ){
+            $_device = '_tablet'; //Set Device Tablet here and we will use it for getting $column_Setting
+            $enabled_column_array = get_post_meta( $ID, 'enabled_column_array' . $_device, true );
+        }
+
+        if( empty( $enabled_column_array ) ){
+            $_device = ''; //Set Device Desktop, I mean, empty here and we will use it for getting $column_Setting
+            //$enabled_column_array = get_post_meta( $ID, 'enabled_column_array' . $_device, true );
+        }
+            
+        
+        return $_device;
+    }
+}
+
+if( !function_exists( 'wpt_enabled_column_array' ) ){
+    
+    /**
+     * Actually based on detected device, foudedd column setting and 
+     * getting final column settings
+     * 
+     * @param int $ID/$table_ID Description
+     * 
+     * @return array
+     */
+    function wpt_enabled_column_array( $table_ID ){
+        $_device = wpt_col_settingwise_device( $table_ID );
+        $enabled_column_array = get_post_meta( $table_ID, 'enabled_column_array' . $_device, true );
+        return $enabled_column_array;
+        /***********************************
+         * 
+         *
+        $_device_name = wpt_detect_current_device();
+        $_device = $_device_name == 'desktop' ? '' : '_'.$_device_name;
+        
+        $enabled_column_array = get_post_meta( $ID, 'enabled_column_array' . $_device, true );
+            
+        if( empty( $enabled_column_array ) && $_device == '_mobile' ){
+            $_device = '_tablet'; //Set Device Tablet here and we will use it for getting $column_Setting
+            $enabled_column_array = get_post_meta( $ID, 'enabled_column_array' . $_device, true );
+        }
+
+        if( empty( $enabled_column_array ) ){
+            $_device = ''; //Set Device Desktop, I mean, empty here and we will use it for getting $column_Setting
+            $enabled_column_array = get_post_meta( $ID, 'enabled_column_array' . $_device, true );
+        }
+        
+        return $enabled_column_array;
+        //*************************/
+    }
+}
+
+
 
 
 

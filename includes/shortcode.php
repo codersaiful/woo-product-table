@@ -21,6 +21,7 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
         $config_value = get_option( 'wpt_configure_options' );
         $_device_name = wpt_detect_current_device();
         $_device = $_device_name == 'desktop' ? '' : '_'.$_device_name;
+        
         $html = '';
         $GLOBALS['wpt_product_table'] = "Yes";
         /**
@@ -35,21 +36,23 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
         if( isset( $atts['id'] ) && !empty( $atts['id'] ) && is_numeric( $atts['id'] ) && get_post_type( (int) $atts['id'] ) == 'wpt_product_table' ){
             $ID = $table_ID = (int) $atts['id']; //Table ID added at V5.0. And as this part is already encapsule with if and return is false, so no need previous declearation
             $GLOBALS['wpt_product_table'] = $ID;
-
+            $_device = wpt_col_settingwise_device( $ID );
             //Used meta_key column_array, enabled_column_array, basics, conditions, mobile, search_n_filter, 
             
             $enabled_column_array = get_post_meta( $ID, 'enabled_column_array' . $_device, true );
             
-            if( empty( $enabled_column_array ) && $_device == '_mobile' ){
-                $_device = '_tablet'; //Set Device Tablet here and we will use it for getting $column_Setting
-                $enabled_column_array = get_post_meta( $ID, 'enabled_column_array' . $_device, true );
-            }
+//            if( empty( $enabled_column_array ) && $_device == '_mobile' ){
+//                $_device = '_tablet'; //Set Device Tablet here and we will use it for getting $column_Setting
+//                $enabled_column_array = get_post_meta( $ID, 'enabled_column_array' . $_device, true );
+//            }
+//            
+//            if( empty( $enabled_column_array ) ){
+//                $_device = ''; //Set Device Desktop, I mean, empty here and we will use it for getting $column_Setting
+//                $enabled_column_array = get_post_meta( $ID, 'enabled_column_array' . $_device, true );
+//            }
+//            
             
-            if( empty( $enabled_column_array ) ){
-                $_device = ''; //Set Device Desktop, I mean, empty here and we will use it for getting $column_Setting
-                $enabled_column_array = get_post_meta( $ID, 'enabled_column_array' . $_device, true );
-            }
-            
+            //$enabled_column_array = wpt_enabled_column_array( $ID );
             
             
             if( empty( $enabled_column_array ) ){
@@ -880,6 +883,8 @@ if( !function_exists( 'wpt_table_row_generator' ) ){
 
         $table_ID = $table_row_generator_array['args']['table_ID'];
         $config_value = wpt_get_config_value( $table_ID );
+        $_device = wpt_col_settingwise_device( $table_ID );
+        
 
         $args                   = $table_row_generator_array['args'];
         $table_column_keywords = $table_row_generator_array['wpt_table_column_keywords'];
@@ -903,7 +908,7 @@ if( !function_exists( 'wpt_table_row_generator' ) ){
         }
 
         //WILL BE USE FOR EVERY WHERE INSIDE ITEM
-        $column_settings = get_post_meta( $table_ID, 'column_settings', true);
+        $column_settings = get_post_meta( $table_ID, 'column_settings' . $_device, true);
         /**
          * @Hook Filter: 
          * Here $table_column_keywords and $enabled_column_array are same Array Actually
