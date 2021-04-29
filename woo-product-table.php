@@ -7,7 +7,7 @@
  * Author URI: https://codecanyon.net/user/codeastrology
  * Tags: woocommerce product,woocommerce product table, product table
  * 
- * Version: 2.8.3
+ * Version: 2.8.5
  * Requires at least:    4.0.0
  * Tested up to:         5.7
  * WC requires at least: 3.0.0
@@ -30,7 +30,7 @@ if( !defined( 'WPT_PLUGIN_BASE_FOLDER' ) ){
 }
 
 if( !defined( 'WPT_DEV_VERSION' ) ){
-    define( 'WPT_DEV_VERSION', '2.8.3.5' );
+    define( 'WPT_DEV_VERSION', '2.8.5.2' );
 }
 
 if( !defined( 'WPT_CAPABILITY' ) ){
@@ -118,8 +118,8 @@ $default_enabled_col_array = array(
     'check'         => 'check',  
     'thumbnails'    => 'thumbnails',  
     'product_title' => 'product_title',  
-    'category'      => 'category',  
-    'sku'           => 'sku',  
+//    'category'      => 'category',  
+//    'sku'           => 'sku',  
     'quantity'      => 'quantity',  
     'price'         => 'price',  
     'action'        => 'action',  

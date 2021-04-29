@@ -100,7 +100,7 @@
                 $('.button,button').removeClass('wpt_ajax_update');
             };
         //code for Sortable
-        $( "#wpt_column_sortable" ).sortable({
+        $( ".wpt_column_sortable" ).sortable({
             handle:'.handle',
             stop: removeAjax,
         });
@@ -200,6 +200,18 @@
           },1000);
         }
         
+        /**
+         * Inside Tab of Column
+         * 
+         * @type String
+         */
+        $('body').on('click','#wpt_configuration_form .inside-column-settings-wrapper .inside-nav-tab-wrapper a', function(){
+            $('.inside-nav-tab-wrapper a.nav-tab-active').removeClass('nav-tab-active');
+            $(this).addClass('nav-tab-active');
+            var target_tab = $(this).data('target');
+            $('.inside-column-settings-wrapper .inside_tab_content.tab-content-active').removeClass('tab-content-active');
+            $('.inside-column-settings-wrapper .inside_tab_content#'+target_tab).addClass('tab-content-active');
+        });
         /**************Admin Panel's Setting Tab Start Here For Tab****************/
         var selectLinkTabSelector = "body.wpt_admin_body #wpt_configuration_form a.wpt_nav_tab";
         var selectTabContentSelector = "body.wpt_admin_body #wpt_configuration_form .wpt_tab_content";
@@ -212,7 +224,7 @@
             $('body.wpt_admin_body #wpt_configuration_form .nav-tab-wrapper a.wpt_nav_tab.wpt_nav_for_' + tabName).addClass('nav-tab-active');
         }
         
-        $('body.wpt_admin_body').on('click',' #wpt_configuration_form a.wpt_nav_tab',function(e){
+        $('body.wpt_admin_body').on('click','#wpt_configuration_form a.wpt_nav_tab',function(e){
             e.preventDefault(); //Than prevent for click action of hash keyword
             var targetTabContent = $(this).data('tab');//getting data value from data-tab attribute
             
@@ -311,21 +323,18 @@
         $( 'body.wpt_admin_body' ).on('click', '.add_switch_col_wrapper .switch-enable-available li.switch-enable-item', function(){
             var keyword = $(this).data('column_keyword');
             $(this).toggleClass('item-enabled');
-            $('#wpt_column_sortable li.wpt_sortable_peritem input.checkbox_handle_input[data-column_keyword="' + keyword + '"]').trigger('click');
-            
-//            var lenght = $( '.add_switch_col_wrapper .switch-enable-available li.switch-enable-item.item-enabled' ).length;
-//            console.log(lenght);
-//            if( lenght == 0 ){
-//                //$(this).toggleClass('item-enabled');
-//            }
+            //Detect and set Responsive Stats
+            ///detect_responsive_stats();
+            $(this).closest('.tab-content').find('.wpt_column_sortable li.wpt_sortable_peritem input.checkbox_handle_input[data-column_keyword="' + keyword + '"]').trigger('click');
             
         });
         /**
          * Column Section Managing
          */
-        $('body.wpt_admin_body').on('click','#wpt_column_sortable li.wpt_sortable_peritem input.checkbox_handle_input',function(){
+        $('body.wpt_admin_body').on('click','.wpt_column_sortable li.wpt_sortable_peritem input.checkbox_handle_input',function(){
             var keyword = $(this).data('column_keyword');
-            var targetLiSelector = $('#wpt_column_sortable li.wpt_sortable_peritem.column_keyword_' + keyword);
+            var thisWPTSortAble = $(this).closest('.wpt_column_sortable');
+            var targetLiSelector = thisWPTSortAble.find(' li.wpt_sortable_peritem.column_keyword_' + keyword);
             
             if ($(this).prop('checked')) {
                 $(this).addClass('enabled');
@@ -334,7 +343,7 @@
                 //Counting Column//
                 var column_keyword;
                 column_keyword = [];
-                $('#wpt_column_sortable li.wpt_sortable_peritem.enabled .wpt_shortable_data input.colum_data_input').each(function(Index) {
+                $('.wpt_column_sortable li.wpt_sortable_peritem.enabled .wpt_shortable_data input.colum_data_input').each(function(Index) {
                     column_keyword[Index] = $(this).data('keyword');
                 });
                 if (column_keyword.length < 2) {
@@ -343,12 +352,29 @@
                 }
                 //Counting colum End here
                 
+                
+                
                 $(this).removeClass('enabled');
                 $('.switch-enable-item-' + keyword).removeClass('item-enabled');
                 targetLiSelector.removeClass('enabled');
             }
         });
-
+        
+        detect_responsive_stats();
+        function detect_responsive_stats(){
+            var detect_responsive;
+            detect_responsive = [];
+            $('body.wpt_admin_body #inside-tablet li.wpt_sortable_peritem.enabled .wpt_shortable_data input.colum_data_input,body.wpt_admin_body #inside-mobile li.wpt_sortable_peritem.enabled .wpt_shortable_data input.colum_data_input').each(function(Index) {
+                detect_responsive[Index] = 1;
+            });
+            console.log(detect_responsive.length);
+            var hid_respn_field = $('#hidden_responsive_data');
+            if( detect_responsive.length > 0 ){
+                hid_respn_field.val('no_responsive');
+            }else{
+                hid_respn_field.val('mobile_responsive');
+            }
+        }
         /**
          * For Hide on Mobile
          * 
@@ -391,7 +417,7 @@
                     html += '<input name="enabled_column_array[' + keyword + ']" value="' + taxt_cf_title + '" title="Active Inactive Column" class="checkbox_handle_input  enabled" type="checkbox" data-column_keyword="' + keyword + '" checked="checked">';
                 html += '</span>';
             html += '</li>';
-            $('#wpt_column_sortable').append(html);
+            $('.wpt_column_sortable').append(html);
             
         });
         
@@ -422,18 +448,24 @@
             if(type === 'default'){
                 type_name_show = '';
             }
+            var device_name = $('.inside-column-settings-wrapper nav.inside-nav-tab-wrapper a.wpt_inside_nav_tab.nav-tab-active').data('device');
+            var device = '_' + device_name;
+            if(device_name === 'desktop'){
+                device = '';
+            }
+            
             var html = '';
             html = '<li class="wpt_sortable_peritem  column_keyword_' + keyword + ' enabled">';
                 html += '<span title="Move Handle" class="handle ui-sortable-handle"></span>';
-                html += '<input type="hidden" name="column_settings[' + keyword + '][type]" value="' + type + '">';
-                html += '<input type="hidden" name="column_settings[' + keyword + '][type_name]" value="' + type_name + '">';
+                html += '<input type="hidden" name="column_settings' + device + '[' + keyword + '][type]" value="' + type + '">';
+                html += '<input type="hidden" name="column_settings' + device + '[' + keyword + '][type_name]" value="' + type_name + '">';
                 html += '<div class="wpt_shortable_data">';
-                    html += '<input name="column_array[' + keyword + ']" data-column_title="' + label + '" data-keyword="' + keyword + '" class="colum_data_input ' + keyword + '" type="text" value="' + label + '">';
+                    html += '<input name="column_array' + device + '[' + keyword + ']" data-column_title="' + label + '" data-keyword="' + keyword + '" class="colum_data_input ' + keyword + '" type="text" value="' + label + '">';
                     html += '<span class="wpt_colunm_type">' + type_name_show + keyword + '</span>';
                     html += "<span class='wpt_column_cross'>X</span>";
                 html += '</div>';
                 html += '<span title="Move Handle" class="handle checkbox_handle ui-sortable-handle">';
-                    html += '<input name="enabled_column_array[' + keyword + ']" value="' + keyword + '" title="Active Inactive Column" class="checkbox_handle_input  enabled" type="checkbox" data-column_keyword="' + keyword + '" checked="checked">';
+                    html += '<input name="enabled_column_array' + device + '[' + keyword + ']" value="' + keyword + '" title="Active Inactive Column" class="checkbox_handle_input  enabled" type="checkbox" data-column_keyword="' + keyword + '" checked="checked">';
                 html += '</span>';
             html += '</li>';
             
@@ -443,7 +475,7 @@
                return;
             }
             //Check if already same keyword is Available
-            if($('#wpt_column_sortable li.wpt_sortable_peritem').hasClass('column_keyword_' + keyword)){
+            if($('#inside-' + device_name + ' .wpt_column_sortable li.wpt_sortable_peritem').hasClass('column_keyword_' + keyword)){
                 alert('Same keyword already in list');
                 return;
             }
@@ -454,7 +486,7 @@
                 
                 
                 
-                $('#wpt_column_sortable').append(html);
+                $('#inside-' + device_name + ' .wpt_column_sortable').append(html);
                 $('.and_new_column_key').val('');
                 $('.and_new_column_label').val('');
                 $('.add_new_column_type_select').val('');
@@ -473,6 +505,9 @@
         $(window).bind('keydown', function(event) {
             if (event.ctrlKey || event.metaKey) {
                 if($('.form_bottom.form_bottom_submit_button').hasClass('wrapper_wpt_ajax_update') && String.fromCharCode(event.which).toLowerCase() === 's' ){
+                    //Detect and set Responsive Stats
+                    ///detect_responsive_stats();
+                    
                     event.preventDefault();
                     $('body.wpt_admin_body input#publish[name=save]').trigger('click');
                 }
@@ -492,6 +527,9 @@
         });
         
         $(document).on('click','body.wpt_admin_body .form_bottom.form_bottom_submit_button button.button.wpt_ajax_update, body.wpt_admin_body input#publish[name=save]',function(e){
+            //Detect and set Responsive Stats
+            detect_responsive_stats();
+            
             $('.wpt_notify').css('display','block');
             
             var 

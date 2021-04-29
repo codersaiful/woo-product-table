@@ -157,6 +157,7 @@ You can easily show specific category products. While creating new table click o
 == Changelog ==
 
 = 2.8.4 =
+ * Fixed: Product not found issue solved
  * Fixed: ShortMessage send issue has fixe. To see short message field in single product. Use: `add_action( 'woocommerce_before_add_to_cart_quantity', 'wpt_add_custom_message_field' );`
  * Added: Taxonomy Relation Operation Added. eg: IN, AND
 

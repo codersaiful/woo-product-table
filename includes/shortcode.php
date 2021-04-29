@@ -19,6 +19,9 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
             return;
         }
         $config_value = get_option( 'wpt_configure_options' );
+        $_device_name = wpt_detect_current_device();
+        $_device = $_device_name == 'desktop' ? '' : '_'.$_device_name;
+        
         $html = '';
         $GLOBALS['wpt_product_table'] = "Yes";
         /**
@@ -33,22 +36,30 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
         if( isset( $atts['id'] ) && !empty( $atts['id'] ) && is_numeric( $atts['id'] ) && get_post_type( (int) $atts['id'] ) == 'wpt_product_table' ){
             $ID = $table_ID = (int) $atts['id']; //Table ID added at V5.0. And as this part is already encapsule with if and return is false, so no need previous declearation
             $GLOBALS['wpt_product_table'] = $ID;
-
+            $_device = wpt_col_settingwise_device( $ID );
             //Used meta_key column_array, enabled_column_array, basics, conditions, mobile, search_n_filter, 
-            $column_array = get_post_meta( $ID, 'column_array', true );
-            $enabled_column_array = get_post_meta( $ID, 'enabled_column_array', true );
+            
+            $enabled_column_array = get_post_meta( $ID, 'enabled_column_array' . $_device, true );
+            
+//            if( empty( $enabled_column_array ) && $_device == '_mobile' ){
+//                $_device = '_tablet'; //Set Device Tablet here and we will use it for getting $column_Setting
+//                $enabled_column_array = get_post_meta( $ID, 'enabled_column_array' . $_device, true );
+//            }
+//            
+//            if( empty( $enabled_column_array ) ){
+//                $_device = ''; //Set Device Desktop, I mean, empty here and we will use it for getting $column_Setting
+//                $enabled_column_array = get_post_meta( $ID, 'enabled_column_array' . $_device, true );
+//            }
+//            
+            
+            //$enabled_column_array = wpt_enabled_column_array( $ID );
+            
+            
             if( empty( $enabled_column_array ) ){
                 return sprintf( '<p>' . esc_html( 'Table{ID: %s} column setting is not founded properly!', 'wpt_pro' ) . '</p>', $ID );
             }
-            /*
-            if( !isset( $enabled_column_array['product_title'] ) ){
-                $temp_product_title['product_title'] = $column_array['product_title'];
-                $enabled_column_array = array_merge($temp_product_title,$enabled_column_array);
-            }
-            */
-            //unset($enabled_column_array['description']); //Description column has been removed V5.2 //Again Description column Start V6.0.25
-
-            $column_settings = get_post_meta( $ID, 'column_settings', true);
+            $column_array = get_post_meta( $ID, 'column_array' . $_device, true );
+            $column_settings = get_post_meta( $ID, 'column_settings' . $_device, true);
 
             $basics = get_post_meta( $ID, 'basics', true );
 //            $query_relation = ! isset( $basics['query_relation'] ) ? 'OR' : $basics['query_relation'];
@@ -58,6 +69,7 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
 
             $conditions = get_post_meta( $ID, 'conditions', true );
             $mobile = get_post_meta( $ID, 'mobile', true );
+
             $search_n_filter = get_post_meta( $ID, 'search_n_filter', true );
             $pagination = get_post_meta( $ID, 'pagination', true );
             $config_value = wpt_get_config_value( $table_ID ); //Added at V5.0
@@ -134,6 +146,7 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
             $table_class = $basics['table_class'];//isset( $basics['ajax_action'] ) ? $basics['ajax_action'] : false;
             $temp_number = $ID;//Temp Number Has REmoved Totally $basics['temp_number'];// + $ID; //$ID has removed from temp_number
             $add_to_cart_text = $basics['add_to_cart_text'];
+            $responsive = isset( $basics['responsive'] ) ? $basics['responsive'] : 'no_responsive';
 
 
 
@@ -176,16 +189,16 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
             $min_price = $conditions['min_price'];
             $max_price = $conditions['max_price'];
             $description_type = $conditions['description_type'];
-            $only_stock = !empty( $conditions['only_stock'] ) ? $conditions['only_stock'] : false;
+            $only_stock = !empty( $conditions['only_stock'] ) && $conditions['only_stock'] !== 'no' ? $conditions['only_stock'] : false;
             $only_sale = isset( $conditions['only_sale'] ) && $conditions['only_sale'] == 'yes' ? true : false;
             $posts_per_page = (int) $conditions['posts_per_page'];
 
 
 
             //Mobile tab part
-            $mobile_responsive = $mobile['mobile_responsive'];
-            $table_mobileHide_keywords = isset( $mobile['disable'] ) ? $mobile['disable'] : false;
 
+            $table_mobileHide_keywords = isset( $mobile['disable'] ) ? $mobile['disable'] : false;
+            
             //Search and Filter
             $search_box = $search_n_filter['search_box'] == 'no' ? false : true;
             $texonomiy_keywords = wpt_explode_string_to_array( $search_n_filter['taxonomy_keywords'] ); 
@@ -506,6 +519,7 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
 
         $wrapper_class_arr = array(
                 $table_type . "_wrapper",
+                "detected_device_" . $_device . '_wrapper',
                 " wpt_temporary_wrapper_" . $temp_number,
                 " wpt_id_" . $temp_number,
                 "wpt_product_table_wrapper",
@@ -605,8 +619,9 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
         $page_number_1plugs = $args['paged'] + 1;
 
         $table_class_arr = array(
-                $mobile_responsive,
+                $responsive,
                 $table_type,
+                'device_for_colum' . $_device,
                 'wpt_temporary_table_' . $temp_number,
                 'wpt_product_table',
                 $template. '_table',
@@ -626,7 +641,7 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
                 . "data-data_json_backup='" . esc_attr( wp_json_encode( $table_row_generator_array ) ) . "' "
                 . "id='" . apply_filters('wpt_change_table_id', 'wpt_table') . "' "
                 . "class='{$table_class_arr}' "
-                //. "class='{$mobile_responsive} {$table_type} wpt_temporary_table_" . $temp_number . " wpt_product_table " . $template . "_table {$custom_table}_table $table_class " . $config_value['custom_add_to_cart'] . "' "
+
                 . ">"; //Table Tag start here.
 
         /**
@@ -868,6 +883,8 @@ if( !function_exists( 'wpt_table_row_generator' ) ){
 
         $table_ID = $table_row_generator_array['args']['table_ID'];
         $config_value = wpt_get_config_value( $table_ID );
+        $_device = wpt_col_settingwise_device( $table_ID );
+        
 
         $args                   = $table_row_generator_array['args'];
         $table_column_keywords = $table_row_generator_array['wpt_table_column_keywords'];
@@ -891,7 +908,7 @@ if( !function_exists( 'wpt_table_row_generator' ) ){
         }
 
         //WILL BE USE FOR EVERY WHERE INSIDE ITEM
-        $column_settings = get_post_meta( $table_ID, 'column_settings', true);
+        $column_settings = get_post_meta( $table_ID, 'column_settings' . $_device, true);
         /**
          * @Hook Filter: 
          * Here $table_column_keywords and $enabled_column_array are same Array Actually
