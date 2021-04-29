@@ -54,41 +54,74 @@ if( !function_exists( 'wpt_detect_current_device' ) ){
     }
 }
 
-if( !function_exists( 'wpt_device_wise_table_col' ) ){
+if( !function_exists( 'wpt_col_settingwise_device' ) ){
+    
     /**
-     * Generate $enabled_column_array based on Device 
-     * for Responsive Table.
-     * We have added Responsive Tab inbside Admin of WPT plugin by Action: wpto_admin_tab_array inside admin/functions.php
+     * This will return column setting wise and founded device wise
+     * final device option.
      * 
-     * In this function, we will also use Mobile_Detect() Class, which already included in main plugin file.
-     * 
-     * Need responsive tab's data, which is in table meta. Where us need table ID for table wise REsponsive
-     * such: get_post_meta(POST_ID, keyword_of_meta, true);
-     * 
-     * @since 6.0.28
-     * @param type $enabled_column_array
-     * @return Array
+     * @param int $ID It's table ID. here should be table IT. not post id
      */
-    function wpt_device_wise_table_col($enabled_column_array, $table_ID){
-       $device = wpt_detect_current_device();
-       $device = apply_filters( 'wpto_curent_deteted_device', $device, $enabled_column_array, $table_ID );
-       if( !$device ){
-           return $enabled_column_array;
-       }
-       $responsive_meta = get_post_meta( $table_ID, 'responsive', true );
+    function wpt_col_settingwise_device( $ID ){
+        $_device_name = wpt_detect_current_device();
+        $_device = $_device_name == 'desktop' ? '' : '_'.$_device_name;
+        
+        $enabled_column_array = get_post_meta( $ID, 'enabled_column_array' . $_device, true );
+            
+        if( empty( $enabled_column_array ) && $_device == '_mobile' ){
+            $_device = '_tablet'; //Set Device Tablet here and we will use it for getting $column_Setting
+            $enabled_column_array = get_post_meta( $ID, 'enabled_column_array' . $_device, true );
+        }
 
-       if( isset( $responsive_meta[$device] ) && is_array( $responsive_meta[$device] ) && count( $responsive_meta[$device] ) > 0 ){
-           return $responsive_meta[$device];
-       }
-       return $enabled_column_array;
-   }
+        if( empty( $enabled_column_array ) ){
+            $_device = ''; //Set Device Desktop, I mean, empty here and we will use it for getting $column_Setting
+            //$enabled_column_array = get_post_meta( $ID, 'enabled_column_array' . $_device, true );
+        }
+            
+        
+        return $_device;
+    }
 }
-/**
- * Availabvle Variable in this Filters is:
- * $enabled_column_array, $table_ID, $atts, $column_settings, $column_array
- * Perpose is: Change/Edit/Customize to Enabled Column Array
- */
-add_filter( 'wpto_enabled_column_array', 'wpt_device_wise_table_col',10, 2 );
+
+if( !function_exists( 'wpt_enabled_column_array' ) ){
+    
+    /**
+     * Actually based on detected device, foudedd column setting and 
+     * getting final column settings
+     * 
+     * @param int $ID/$table_ID Description
+     * 
+     * @return array
+     */
+    function wpt_enabled_column_array( $table_ID ){
+        $_device = wpt_col_settingwise_device( $table_ID );
+        $enabled_column_array = get_post_meta( $table_ID, 'enabled_column_array' . $_device, true );
+        return $enabled_column_array;
+        /***********************************
+         * 
+         *
+        $_device_name = wpt_detect_current_device();
+        $_device = $_device_name == 'desktop' ? '' : '_'.$_device_name;
+        
+        $enabled_column_array = get_post_meta( $ID, 'enabled_column_array' . $_device, true );
+            
+        if( empty( $enabled_column_array ) && $_device == '_mobile' ){
+            $_device = '_tablet'; //Set Device Tablet here and we will use it for getting $column_Setting
+            $enabled_column_array = get_post_meta( $ID, 'enabled_column_array' . $_device, true );
+        }
+
+        if( empty( $enabled_column_array ) ){
+            $_device = ''; //Set Device Desktop, I mean, empty here and we will use it for getting $column_Setting
+            $enabled_column_array = get_post_meta( $ID, 'enabled_column_array' . $_device, true );
+        }
+        
+        return $enabled_column_array;
+        //*************************/
+    }
+}
+
+
+
 
 
 if( !function_exists( 'wpt_device_wise_class' ) ){
@@ -137,12 +170,12 @@ if( !function_exists( 'wpt_table_td_class' ) ){
             return $td_class_arr;
         }
         
-        //var_dump($td_class_arr, $args, $table_ID);
-        $mobile = get_post_meta( $table_ID, 'mobile', true );
-        if( isset( $mobile['mobile_responsive'] ) && $mobile['mobile_responsive'] == 'mobile_responsive' ){
+        $basics = get_post_meta( $table_ID, 'basics', true );
+        $responsive = isset( $basics['responsive'] ) ? $basics['responsive'] : 'no_responsive';
+        if( $responsive == 'mobile_responsive' ){
             $td_class_arr[] = 'wpt_for_product_desc';
         }
-        //var_dump($td_class_arr);
+
        return $td_class_arr;
    }
 }
@@ -179,47 +212,48 @@ add_filter( 'wpto_checkbox_validation', 'wpt_checkbox_validation', 10, 3);
 
 if( !function_exists( 'wpt_product_title_column_add' ) ){
     
-    function wpt_product_title_column_add( $column_settings ){
+    function wpt_product_title_column_add( $_device_name, $column_settings ){
         $title_variation = isset( $column_settings['title_variation']) ? $column_settings['title_variation'] : false;
         $description_off =  isset( $column_settings['description_off'] ) ? $column_settings['description_off'] : 'on';
         $description_off = $description_off == 'off' ? 'checked="checked"' : '';
        ?>
         <div class="description_off_wrapper">
-            <label for="description_off"><input title="Disable Deactivate Description from Title Column" name="column_settings[description_off]" id="description_off" class="description_off" type="checkbox" value="off" <?php echo $description_off; ?>> Disable Description</label>
+            <label for="description_off<?php echo $_device_name; ?>"><input id="description_off<?php echo $_device_name; ?>" title="Disable Deactivate Description from Title Column" name="column_settings[description_off]" id="description_off" class="description_off" type="checkbox" value="off" <?php echo $description_off; ?>> Disable Description</label>
         </div>
         <div class="title_variation">
-            <label for="link"><input type="radio" id="link" name="column_settings[title_variation]" value="link" <?php echo !$title_variation || $title_variation == 'link' ? 'checked' : ''; ?>> Link Enable</label>
-            <label for="nolink"><input type="radio" id="nolink" name="column_settings[title_variation]" value="nolink" <?php echo $title_variation == 'nolink' ? 'checked' : ''; ?>> Link Disable</label>
-            <label for="yith" class="tooltip"><input type="radio" id="yith" name="column_settings[title_variation]" value="yith" <?php echo $title_variation == 'yith' ? 'checked' : ''; ?>> Link Disable + Quick View<span class="tooltip-hover down-arrow">You have to install <a href="https://wordpress.org/plugins/yith-woocommerce-quick-view/" target="_blank">YITH WooCommerce Quick View</a></span></label>
+            <label for="link<?php echo $_device_name; ?>"><input type="radio" id="link<?php echo $_device_name; ?>" name="column_settings<?php echo $_device_name; ?>[title_variation]" value="link" <?php echo !$title_variation || $title_variation == 'link' ? 'checked' : ''; ?>> Link Enable</label>
+            <label for="nolink<?php echo $_device_name; ?>"><input type="radio" id="nolink<?php echo $_device_name; ?>" name="column_settings<?php echo $_device_name; ?>[title_variation]" value="nolink" <?php echo $title_variation == 'nolink' ? 'checked' : ''; ?>> Link Disable</label>
+            <label for="yith<?php echo $_device_name; ?>" class="tooltip"><input type="radio" id="yith<?php echo $_device_name; ?>" name="column_settings<?php echo $_device_name; ?>[title_variation]" value="yith" <?php echo $title_variation == 'yith' ? 'checked' : ''; ?>> Link Disable + Quick View<span class="tooltip-hover down-arrow">You have to install <a href="https://wordpress.org/plugins/yith-woocommerce-quick-view/" target="_blank">YITH WooCommerce Quick View</a></span></label>
         </div>        
         
         
        <?php
    }
 }
-add_action( 'wpto_column_setting_form_product_title', 'wpt_product_title_column_add' );
+//$keyword, $_device_name, $column_settings, $columns_array, $updated_columns_array, $post, $additional_data
+add_action( 'wpto_column_setting_form_product_title', 'wpt_product_title_column_add', 10, 2 );
 
 if( !function_exists( 'wpt_thumbnails_column_add' ) ){
     
-    function wpt_thumbnails_column_add( $column_settings ){
+    function wpt_thumbnails_column_add( $_device_name, $column_settings ){
         $thumb_variation = isset( $column_settings['thumb_variation']) ? $column_settings['thumb_variation'] : false;
        ?>
         <div class="thumb_variation">
-            <label for="popup"><input type="radio" id="popup" name="column_settings[thumb_variation]" value="popup" <?php echo !$thumb_variation || $thumb_variation == 'popup' ? 'checked' : ''; ?>> Default Popup</label>
-            <label for="no_action"><input type="radio" id="no_action" name="column_settings[thumb_variation]" value="no_action" <?php echo $thumb_variation == 'no_action' ? 'checked' : ''; ?>> No Action</label>
-            <label for="url"><input type="radio" id="url" name="column_settings[thumb_variation]" value="url" <?php echo $thumb_variation == 'url' ? 'checked' : ''; ?>> Product Link</label>
-            <label for="quick_view" class="tooltip"><input type="radio" id="quick_view" name="column_settings[thumb_variation]" value="quick_view" <?php echo $thumb_variation == 'quick_view' ? 'checked' : ''; ?>> Quick View<span class="tooltip-hover down-arrow">You have to install <a href="https://wordpress.org/plugins/yith-woocommerce-quick-view/" target="_blank">YITH WooCommerce Quick View</a></span></label>
+            <label for="popup<?php echo $_device_name; ?>"><input type="radio" id="popup<?php echo $_device_name; ?>" name="column_settings<?php echo $_device_name; ?>[thumb_variation]" value="popup" <?php echo !$thumb_variation || $thumb_variation == 'popup' ? 'checked' : ''; ?>> Default Popup</label>
+            <label for="no_action<?php echo $_device_name; ?>"><input type="radio" id="no_action<?php echo $_device_name; ?>" name="column_settings<?php echo $_device_name; ?>[thumb_variation]" value="no_action" <?php echo $thumb_variation == 'no_action' ? 'checked' : ''; ?>> No Action</label>
+            <label for="url<?php echo $_device_name; ?>"><input type="radio" id="url<?php echo $_device_name; ?>" name="column_settings<?php echo $_device_name; ?>[thumb_variation]" value="url" <?php echo $thumb_variation == 'url' ? 'checked' : ''; ?>> Product Link</label>
+            <label for="quick_view<?php echo $_device_name; ?>" class="tooltip"><input type="radio" id="quick_view<?php echo $_device_name; ?>" name="column_settings<?php echo $_device_name; ?>[thumb_variation]" value="quick_view" <?php echo $thumb_variation == 'quick_view' ? 'checked' : ''; ?>> Quick View<span class="tooltip-hover down-arrow">You have to install <a href="https://wordpress.org/plugins/yith-woocommerce-quick-view/" target="_blank">YITH WooCommerce Quick View</a></span></label>
         </div>
         
        <?php
    }
 }
-add_action( 'wpto_column_setting_form_thumbnails', 'wpt_thumbnails_column_add' );
+add_action( 'wpto_column_setting_form_thumbnails', 'wpt_thumbnails_column_add', 10, 2 );
 
 
 
 if( !function_exists( 'wpt_column_tag_for_all' ) ){
-    function wpt_column_tag_for_all($keyword, $column_settings, $columns_array){
+    function wpt_column_tag_for_all( $keyword, $_device_name, $column_settings ){
         $input_one = isset( $column_settings[$keyword]['input_one'] ) ? $column_settings[$keyword]['input_one'] : false;
         $tag_value = isset( $column_settings[$keyword]['tag'] ) ? $column_settings[$keyword]['tag'] : false;
         $tags = array(
@@ -240,7 +274,7 @@ if( !function_exists( 'wpt_column_tag_for_all' ) ){
         ?>
         <div class="column_tag_for_all">
             <label>Select wrapper tag</label>
-            <select class="ua_select" name="column_settings[<?php echo $keyword; ?>][tag]">    
+            <select class="ua_select" name="column_settings<?php echo $_device_name; ?>[<?php echo $keyword; ?>][tag]">    
             <?php
             foreach($tags as $tag => $tag_name){
                 $seleced = $tag_value == $tag ? 'selected' : false;
@@ -249,7 +283,7 @@ if( !function_exists( 'wpt_column_tag_for_all' ) ){
             ?>
             </select>
         </div>
-        <!-- <input name="column_settings[<?php echo $keyword; ?>][input_one]" value='<?php echo esc_attr( $input_one ); ?>'> -->
+        <!-- <input name="column_settings<?php echo $_device_name; ?>[<?php echo $keyword; ?>][input_one]" value='<?php echo esc_attr( $input_one ); ?>'> -->
         <?php
     }
 }
@@ -257,11 +291,12 @@ if( !function_exists( 'wpt_column_tag_for_all' ) ){
 add_action( 'wpto_column_setting_form', 'wpt_column_tag_for_all', 10, 3 );
 
 if( !function_exists( 'wpt_column_add_extra_items' ) ){
-    function wpt_column_add_extra_items( $keyword, $column_settings, $columns_array, $post ){
+    function wpt_column_add_extra_items( $keyword, $_device_name, $column_settings, $columns_array, $updated_columns_array, $post, $additional_data ){
 
-        unset( $columns_array[$keyword] );
+        unset( $columns_array[$keyword] ); //Unset this column. if in action, here $keyword - action
         //unset( $columns_array['check'] );
         unset( $columns_array['blank'] );
+        unset( $columns_array['freeze'] );
         /**
          * Items actually Checked Items
          */
@@ -293,12 +328,12 @@ if( !function_exists( 'wpt_column_add_extra_items' ) ){
             foreach($items_columns as $key => $key_val){
                 $seleced = in_array( $key,$items ) ? 'checked' : false;
                 //var_dump($key, $keyword);
-                $unique_id = $keyword . '_' . $key;
+                $unique_id = $keyword . '_' . $key . '_' . $_device_name;
                 echo '<div class="each_checkbox each_checkbox_' . $key . '">';
                 echo "<input "
                 . "id='{$unique_id}' "
                 . "type='checkbox' "
-                . "name='column_settings[{$keyword}][items][]' "
+                . "name='column_settings{$_device_name}[{$keyword}][items][]' "
                 . "value='{$key}' $seleced/><label for='{$unique_id}'>$key_val <small>($key)</small></label>";
                 echo '</div>';
             }
@@ -310,7 +345,7 @@ if( !function_exists( 'wpt_column_add_extra_items' ) ){
     }
 }
 
-add_action( 'wpto_column_setting_form', 'wpt_column_add_extra_items', 10, 4 );
+add_action( 'wpto_column_setting_form', 'wpt_column_add_extra_items', 10, 7 );
 
 if( !function_exists( 'wpt_add_extra_inside_items' ) ){
     function wpt_add_extra_inside_items( $columns_array ){

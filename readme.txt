@@ -3,7 +3,7 @@ Contributors: codersaiful,codeastrology
 Donate link: https://codecanyon.net/item/woo-product-table-pro/20676867
 Tags: wc product table,woocommerce product table, product table, wc table, quick order table, wholesale table, restaurants table
 Requires at least: 4.0.0
-Tested up to: 5.5.7
+Tested up to: 5.7.0
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -157,6 +157,8 @@ You can easily show specific category products. While creating new table click o
 == Changelog ==
 
 = 2.8.4 =
+ * Fixed: Product not found issue solved
+ * Fixed: ShortMessage send issue has fixe. To see short message field in single product. Use: `add_action( 'woocommerce_before_add_to_cart_quantity', 'wpt_add_custom_message_field' );`
  * Added: Taxonomy Relation Operation Added. eg: IN, AND
 
 = 2.8.3 =

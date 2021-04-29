@@ -144,8 +144,17 @@ if( !function_exists( 'wpt_shortcode_configuration_metabox_save_meta' ) ){
 
         $save_tab_array = array(
             'column_array' => 'column_array',
+            'column_array_tablet' => 'column_array_tablet',
+            'column_array_mobile' => 'column_array_mobile',
+            
             'enabled_column_array' => 'enabled_column_array',
+            'enabled_column_array_tablet' => 'enabled_column_array_tablet',
+            'enabled_column_array_mobile' => 'enabled_column_array_mobile',
+            
             'column_settings' => 'column_settings',
+            'column_settings_tablet' => 'column_settings_tablet',
+            'column_settings_mobile' => 'column_settings_mobile',
+            
             'basics' => 'basics',
             'table_style' => 'table_style',
             'conditions' => 'conditions',

@@ -12,6 +12,9 @@ Woo Product Table has Tiny Shortcode. Easy to use and No need programming knowle
 - Displaying product list as table within a minute.
 - So many lots of features [Read More](https://wooproducttable.com/)
 
+## Plugin in WordPress.org
+https://wordpress.org/plugins/woo-product-table/
+
 ### Available Filter and Action Hooks List
 https://docs.google.com/spreadsheets/d/1RwnzuupIYC-ao2R3_P3hZU__R-8nA3p7o2XoWWntNig/edit?usp=sharing
 
@@ -62,13 +65,13 @@ add_filter( 'wpto_template_loc_item_new_shortcode', 'temp_file_for_new_shortcode
 Now we need to add a input field for get the custom shortcode from user. here we have used ```wpto_column_setting_form_ . $keyword``` action to add the input field inside column area in column tab.
 ```php
 <?php
-function input_for_new_shortcode($column_settings){
+function input_for_new_shortcode($_device_name, $column_settings){
     $text = isset( $column_settings['new_shortcode']['text'] ) ? $column_settings['new_shortcode']['text'] : false;
     ?>
-<input class="ua_input" name="column_settings[new_shortcode]" value="<?php echo esc_attr( $text ); ?>">
+<input class="ua_input" name="column_settings<?php echo $_device_name; ?>[new_shortcode]" value="<?php echo esc_attr( $text ); ?>">
 <?php 
 }
-add_action( 'wpto_column_setting_form_new_shortcode', 'input_for_new_shortcode' );
+add_action( 'wpto_column_setting_form_new_shortcode', 'input_for_new_shortcode', 10, 2 );
 ```
 Now we have to show the shortcode content using our custom file. Here we create a file ```my_shortcode.php``` with following code.
 ```php

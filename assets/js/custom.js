@@ -266,7 +266,9 @@
          */
         function WPT_MiniCart(){
             var minicart_type = $('div.tables_cart_message_box').attr('data-type');
-                        
+            if(typeof minicart_type === 'undefined'){
+                return;
+            }            
             $.ajax({
                 type: 'POST',
                 url: ajax_url,
@@ -1119,9 +1121,7 @@
             WPT_MiniCart();
         });
         //**************************/
-        
-        $('div.wpt-footer-cart-wrapper>a').css('background-color',footer_bg_color);
-        $('body').append('<style>div.wpt-footer-cart-wrapper>a:after{background-color: ' + footer_bg_color + ';}</style>');
+        $('body').append('<style>div.wpt-footer-cart-wrapper>a:after,div.wpt-footer-cart-wrapper>a{background-color: ' + footer_bg_color + ';}</style>');
         
         /**
          * set Fragments Refresh
@@ -1208,7 +1208,7 @@
             var temp_number = thisID.replace('single_keyword_','');
             $('#wpt_query_search_button_' + temp_number).trigger('click');
         }));
-        $('body').on('change','.search_select,.query_box_direct_value',function(){
+        $('body').on('change,focus','.search_select,.query_box_direct_value',function(){
             var thisID = $(this).parents('.wpt_product_table_wrapper').attr('id');
             var temp_number = thisID.replace('table_id_','');
            $('#wpt_query_search_button_' + temp_number).trigger('click');

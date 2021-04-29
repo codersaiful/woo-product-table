@@ -78,12 +78,12 @@ if( !function_exists( 'wpt_column_style_for_all' ) ){
      * @param type $column_settings
      * @param type $columns_array
      */
-    function wpt_column_style_for_all( $keyword, $column_settings, $columns_array, $updated_columns_array, $post, $additional_data ){
+    function wpt_column_style_for_all( $keyword, $_device_name, $column_settings, $columns_array, $updated_columns_array, $post, $additional_data ){
         
         $style_property = isset( $additional_data['css_property'] ) && is_array( $additional_data['css_property'] ) ? $additional_data['css_property'] : array(); 
         //$style                = isset( $item['style'] ) ? $item['style'] : false;
         $style = isset( $column_settings[$keyword]['style'] ) ? $column_settings[$keyword]['style'] : false;
-        $item_name_prefix = "column_settings[$keyword][style]";
+        $item_name_prefix = "column_settings{$_device_name}[$keyword][style]";
         ?>
         
         <div class="wpt-style-wrapper style-wrapper-<?php echo esc_attr( $keyword ); ?>">
@@ -117,7 +117,7 @@ if( !function_exists( 'wpt_column_style_for_all' ) ){
     }
 }
 
-add_action( 'wpto_column_setting_form', 'wpt_column_style_for_all', 11, 6 );
+add_action( 'wpto_column_setting_form', 'wpt_column_style_for_all', 11, 7 );
 
 if( !function_exists( 'wpt_convert_style_from_arr' ) ){
     function wpt_convert_style_from_arr( $style_arr = false ){
