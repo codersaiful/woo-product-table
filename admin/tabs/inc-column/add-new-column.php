@@ -42,7 +42,7 @@
             }
         ?>
                             
-                            <p>Such as Taxnomy, Custom Field, ACF Custom Field etc.</p>
+                            <p>Such as Taxonomy, Custom Field, ACF Custom Field etc.</p>
                         </td>
 
                 </tr>
