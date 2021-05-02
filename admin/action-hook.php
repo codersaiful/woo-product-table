@@ -204,11 +204,11 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
                     </tr>
 
                     <tr> 
-                        <th><label class="wpt_label" for="wpt_table_popup_notice"><?php esc_html_e( 'Popup Notice [New]', 'wpt_pro' ); ?></label></th>
+                        <th><label class="wpt_label" for="wpt_table_popup_notice"><?php esc_html_e( 'Popup Notice', 'wpt_pro' ); ?></label></th>
                         <td>
                             <select name="<?php echo esc_attr( $field_name ); ?>[popup_notice]" id="wpt_table_popup_notice" class="wpt_fullwidth ua_input" >
-                                <option value="1" <?php wpt_selected( 'popup_notice', '1', $current_config_value ); ?>><?php esc_html_e( 'Enable', 'wpt_pro' ); ?></option>
-                                <option value="0" <?php wpt_selected( 'popup_notice', '0', $current_config_value ); ?>><?php esc_html_e( 'Disable', 'wpt_pro' ); ?></option>
+                                <option value="1" <?php wpt_selected( 'popup_notice', '1', $current_config_value ); ?>><?php esc_html_e( 'Show', 'wpt_pro' ); ?></option>
+                                <option value="0" <?php wpt_selected( 'popup_notice', '0', $current_config_value ); ?>><?php esc_html_e( 'Hide', 'wpt_pro' ); ?></option>
                             </select>
                         </td>
                     </tr>
@@ -221,40 +221,43 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
                             </select>
                         </td>
                     </tr>
+                    
                     <tr> 
-                        <th><label class="wpt_label" for="wpt_table_all_selected_direct_checkout"><?php esc_html_e( 'Direct Checkout Page[for Add to cart Selected]', 'wpt_pro' ); ?></label></th>
-                        <td>
-                            <select name="<?php echo esc_attr( $field_name ); ?>[all_selected_direct_checkout]" id="wpt_table_all_selected_direct_checkout" class="wpt_fullwidth ua_input" >
-                                <option value="no" <?php wpt_selected( 'all_selected_direct_checkout', 'no', $current_config_value ); ?>><?php esc_html_e( 'No', 'wpt_pro' ); ?></option>
-                                <option value="yes" <?php wpt_selected( 'all_selected_direct_checkout', 'yes', $current_config_value ); ?>><?php esc_html_e( 'Yes', 'wpt_pro' ); ?></option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr> 
-                        <th> <label class="wpt_label" for="wpt_table_product_direct_checkout"><?php esc_html_e( 'Enable Quick Buy Button [Direct Checkout Page for each product]', 'wpt_pro' ); ?></label></th>
+                        <th> <label class="wpt_label" for="wpt_table_product_direct_checkout"><?php esc_html_e( 'Quick Buy', 'wpt_pro' ); ?></label></th>
                         <td>
                             <select name="<?php echo esc_attr( $field_name ); ?>[product_direct_checkout]" id="wpt_table_product_direct_checkout" class="wpt_fullwidth ua_input" >
-                                <option value="no" <?php wpt_selected( 'product_direct_checkout', 'no', $current_config_value ); ?>><?php esc_html_e( 'No', 'wpt_pro' ); ?></option>
-                                <option value="yes" <?php wpt_selected( 'product_direct_checkout', 'yes', $current_config_value ); ?>><?php esc_html_e( 'Yes', 'wpt_pro' ); ?></option>
+                                <option value="no" <?php wpt_selected( 'product_direct_checkout', 'no', $current_config_value ); ?>><?php esc_html_e( 'Disable', 'wpt_pro' ); ?></option>
+                                <option value="yes" <?php wpt_selected( 'product_direct_checkout', 'yes', $current_config_value ); ?>><?php esc_html_e( 'Enable', 'wpt_pro' ); ?></option>
                             </select>
-                            <p style="color: #0071a1;padding: 0;margin: 0;"><?php esc_html_e( 'Direct going to Checkout Page just after Added to cart for each product', 'wpt_pro' ); ?></p>
+                            <p><?php esc_html_e( 'Enable Quick Buy Button [Direct Checkout Page for each product]. Direct going to Checkout Page just after Added to cart for each product', 'wpt_pro' ); ?></p>
                         </td>
                     </tr>
                     <tr> 
-                        <th><label class="wpt_label" for="wpt_table_disable_cat_tag_link"><?php echo sprintf(esc_html__( 'Disable %s[Categories and Tags]%s Link', 'wpt_pro' ), '<strong>', '</strong>' ); ?></label> </th>
+                        <th><label class="wpt_label" for="wpt_table_all_selected_direct_checkout"><?php esc_html_e( 'Bundle Quick Buy ', 'wpt_pro' ); ?></label></th>
+                        <td>
+                            <select name="<?php echo esc_attr( $field_name ); ?>[all_selected_direct_checkout]" id="wpt_table_all_selected_direct_checkout" class="wpt_fullwidth ua_input" >
+                                <option value="no" <?php wpt_selected( 'all_selected_direct_checkout', 'no', $current_config_value ); ?>><?php esc_html_e( 'Disable', 'wpt_pro' ); ?></option>
+                                <option value="yes" <?php wpt_selected( 'all_selected_direct_checkout', 'yes', $current_config_value ); ?>><?php esc_html_e( 'Enable', 'wpt_pro' ); ?></option>
+                            </select>
+                            <p>Direct Checkout Page[for Add to cart Selected]</p>
+                        </td>
+                    </tr>
+                    
+                    <tr> 
+                        <th><label class="wpt_label" for="wpt_table_disable_cat_tag_link"><?php echo sprintf(esc_html__( '%sCategories, Tags%s Link', 'wpt_pro' ), '<strong>', '</strong>' ); ?></label> </th>
                         <td>
                             <select name="<?php echo esc_attr( $field_name ); ?>[disable_cat_tag_link]" id="wpt_table_disable_cat_tag_link" class="wpt_fullwidth ua_input" >
-                                <option value="1" <?php wpt_selected( 'disable_cat_tag_link', '1', $current_config_value ); ?>><?php esc_html_e( 'Yes', 'wpt_pro' ); ?></option>
-                                <option value="0" <?php wpt_selected( 'disable_cat_tag_link', '0', $current_config_value ); ?>><?php esc_html_e( 'No', 'wpt_pro' ); ?></option>
+                                <option value="1" <?php wpt_selected( 'disable_cat_tag_link', '1', $current_config_value ); ?>><?php esc_html_e( 'Disable', 'wpt_pro' ); ?></option>
+                                <option value="0" <?php wpt_selected( 'disable_cat_tag_link', '0', $current_config_value ); ?>><?php esc_html_e( 'Enable', 'wpt_pro' ); ?></option>
                             </select>
                         </td>
                     </tr>
                     <tr> 
-                        <th> <label class="wpt_label" for="wpt_table_disable_loading_more"><?php echo sprintf(esc_html__( 'Disable %s[Load More]%s Button', 'wpt_pro' ), '<b>', '</b>' ); ?></label></th>
+                        <th> <label class="wpt_label" for="wpt_table_disable_loading_more"><?php echo sprintf(esc_html__( '%sLoad More%s Button', 'wpt_pro' ), '<b>', '</b>' ); ?></label></th>
                         <td>
                             <select name="<?php echo esc_attr( $field_name ); ?>[disable_loading_more]" id="wpt_table_disable_loading_more" class="wpt_fullwidth ua_input" >
-                                <option value="load_more_hidden" <?php wpt_selected( 'disable_loading_more', 'load_more_hidden', $current_config_value ); ?>><?php esc_html_e( 'Yes', 'wpt_pro' ); ?></option>
-                                <option value="normal" <?php wpt_selected( 'disable_loading_more', 'normal', $current_config_value ); ?>><?php esc_html_e( 'No', 'wpt_pro' ); ?></option>
+                                <option value="load_more_hidden" <?php wpt_selected( 'disable_loading_more', 'load_more_hidden', $current_config_value ); ?>><?php esc_html_e( 'Hide', 'wpt_pro' ); ?></option>
+                                <option value="normal" <?php wpt_selected( 'disable_loading_more', 'normal', $current_config_value ); ?>><?php esc_html_e( 'Show', 'wpt_pro' ); ?></option>
                             </select>
                         </td>
                     </tr>
@@ -263,8 +266,8 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
                         <th> <label class="wpt_label" for="wpt_table_instant_search_filter"><?php esc_html_e( 'Instant Search Filter', 'wpt_pro' ); ?></label></th>
                         <td>
                             <select name="<?php echo esc_attr( $field_name ); ?>[instant_search_filter]" id="wpt_table_instant_search_filter" class="wpt_fullwidth ua_input" >
-                                <option value="1" <?php wpt_selected( 'instant_search_filter', '1', $current_config_value ); ?>><?php esc_html_e( 'Yes', 'wpt_pro' ); ?></option>
-                                <option value="0" <?php wpt_selected( 'instant_search_filter', '0', $current_config_value ); ?>><?php esc_html_e( 'No', 'wpt_pro' ); ?></option>
+                                <option value="1" <?php wpt_selected( 'instant_search_filter', '1', $current_config_value ); ?>><?php esc_html_e( 'Show', 'wpt_pro' ); ?></option>
+                                <option value="0" <?php wpt_selected( 'instant_search_filter', '0', $current_config_value ); ?>><?php esc_html_e( 'Hide', 'wpt_pro' ); ?></option>
                             </select>
                         </td>
                     </tr>

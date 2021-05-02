@@ -8,12 +8,12 @@ if( !function_exists( 'wpt_admin_enqueue' ) ){
      */
     function wpt_admin_enqueue(){
 
-        wp_enqueue_style( 'wpt-admin', WPT_Product_Table::getPath( 'BASE_URL' ) . 'assets/css/admin.css', array(), '1.0.0', 'all' );
+        wp_enqueue_style( 'wpt-admin', WPT_Product_Table::getPath( 'BASE_URL' ) . 'assets/css/admin.css', array(), WPT_DEV_VERSION, 'all' );
 
         /**
          * Including UltraAddons CSS form Style
          */
-        wp_enqueue_style( 'ultraaddons-css', WPT_Product_Table::getPath( 'BASE_URL' ) . 'assets/css/admin-common.css', array(), '1.0.0', 'all' );
+        wp_enqueue_style( 'ultraaddons-css', WPT_Product_Table::getPath( 'BASE_URL' ) . 'assets/css/admin-common.css', array(), WPT_DEV_VERSION, 'all' );
         wp_enqueue_style('ultraaddons-css');
 
         /**
