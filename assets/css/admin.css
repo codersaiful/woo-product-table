@@ -441,7 +441,9 @@ span.wpt_keyword {
     cursor: pointer;
     opacity: 1;
     font-size: 11px;
+    display: none;
 }
+ul#wpt_column_sortable>li.wpt_sortable_peritem:hover span.wpt_column_cross{display: inline-block;}
 
 .highlighted_text{color: #d00;}
 
@@ -1133,7 +1135,7 @@ ul#wpt_column_sortable>li.wpt_sortable_peritem.enabled{display: flex;}
     cursor: pointer;
     background: #e4e4e459;
     color: black;
-    border-radius: 9px;
+    border-radius: 5px;
     padding: 5px 8px;
     border: 1px solid #ddd;
 }

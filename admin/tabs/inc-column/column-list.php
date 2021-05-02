@@ -35,6 +35,7 @@
                    data-keyword="<?php echo esc_attr( $keyword ); ?>" 
                    class="colum_data_input <?php echo esc_attr( $keyword ); ?>" 
                    type="text" 
+                   title="<?php echo esc_attr__( 'Click for Expand/Collapse. Edit your Column Title here.', 'wpt_pro' ); ?>"
                    value="<?php echo htmlentities( $updated_title ); ?>" <?php echo $readOnly; ?>>
             
             <?php

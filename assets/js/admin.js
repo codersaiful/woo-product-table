@@ -161,10 +161,10 @@
             });
             
         });
-        $(document).on('click','.wpt_column_arrow',function(){
+        $(document).on('click','ul#wpt_column_sortable>li.wpt_sortable_peritem.enabled .wpt_column_arrow',function(){
             var target = $(this).attr('data-target');
             var keyword = $(this).attr('data-keyword');
-            var thisElement = $(this).parents('.wpt_sortable_peritem');
+            var thisElement = $(this).closest('li.wpt_sortable_peritem.enabled');
             var prev = thisElement.prev();
             var prevClass = prev.attr('class');
             var next = thisElement.next();
