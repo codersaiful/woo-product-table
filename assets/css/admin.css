@@ -82,8 +82,12 @@ ul#wpt_keyword_hide_mobile
 .wpt_shortable_data,
 .wpt_mobile_hide_keyword
 {
+    transition: 0.3s all;
     width: 100%;
-    padding: 15px 10px;
+    padding: 12px 10px 8px 10px;
+}
+li.expanded_li .wpt_shortable_data{
+    padding: 20px 10px 15px 10px;
 }
 .wpt_shortable_data
 {
@@ -133,8 +137,12 @@ ul#wpt_keyword_hide_mobile li>span.handle.checkbox_handle>input
 
 .enabled .wpt_shortable_data>input{
     background: rgba(0, 118, 147, 0);
+    border: 1px solid transparent;
+}
+.enabled:hover .wpt_shortable_data>input{
     border: 1px solid #00769324;
 }
+
 .expanded_li.enabled .wpt_shortable_data>input {
     background: #00769314;
     border: 1px solid #00769324;
@@ -611,7 +619,7 @@ span.extra_all_on_off {
 li.wpt_sortable_peritem.enabled span.extra_all_on_off {
     
     
-    background: #007693;
+    background: #636161;
     color: white;
 }
 span.extra_all_on_off.off_now {
