@@ -71,7 +71,7 @@ $meta_conditions =  get_post_meta( $post->ID, 'conditions', true );
         <table class="ultraaddons-table">
             <tr>
                 <th>
-                    <label class="wpt_label" for="wpt_product_min_price"><?php esc_html_e( 'Set Minimum Price', 'wpt_pro' ); ?></label>
+                    <label class="wpt_label" for="wpt_product_min_price"><?php esc_html_e( 'Minimum Price', 'wpt_pro' ); ?></label>
                 </th>
                 <td>
                     <input name="conditions[min_price]" data-name='min_price' value="<?php echo isset( $meta_conditions['min_price'] ) ?$meta_conditions['min_price'] : ''; ?>" id="wpt_product_min_price" class="wpt_fullwidth wpt_data_filed_atts ua_input" type="number" pattern="[0-9]*">
@@ -83,7 +83,7 @@ $meta_conditions =  get_post_meta( $post->ID, 'conditions', true );
         <table class="ultraaddons-table">
             <tr>
                 <th>
-                    <label class="wpt_label" for="wpt_product_max_price"><?php esc_html_e( 'Set Maximum Price', 'wpt_pro' ); ?></label>
+                    <label class="wpt_label" for="wpt_product_max_price"><?php esc_html_e( 'Maximum Price', 'wpt_pro' ); ?></label>
                 </th>
                 <td>
                     <input name="conditions[max_price]" data-name='max_price' value="<?php echo isset( $meta_conditions['max_price'] ) ?$meta_conditions['max_price'] : ''; ?>" id="wpt_product_max_price" class="wpt_fullwidth wpt_data_filed_atts ua_input" type="number" pattern="[0-9]*">
@@ -112,11 +112,11 @@ $meta_conditions =  get_post_meta( $post->ID, 'conditions', true );
         <table class="ultraaddons-table">
             <tr>
                 <th>
-                    <label class="wpt_label" for="wpt_table_only_stock"><?php esc_html_e( 'Only Stock Product', 'wpt_pro' ); ?></label>
+                    <label class="wpt_label" for="wpt_table_only_stock"><?php esc_html_e( 'Stock Status', 'wpt_pro' ); ?></label>
                 </th>
                 <td>
                     <select name="conditions[only_stock]" data-name='only_stock' id="wpt_table_only_stock" class="wpt_fullwidth wpt_data_filed_atts ua_input" >
-                        <option value="" <?php echo isset( $meta_conditions['only_stock'] ) && $meta_conditions['only_stock'] == '' ? 'selected' : ''; ?>><?php esc_html_e( 'All Product', 'wpt_pro' ); ?></option>
+                        <option value="" <?php echo isset( $meta_conditions['only_stock'] ) && $meta_conditions['only_stock'] == '' ? 'selected' : ''; ?>><?php esc_html_e( 'Default', 'wpt_pro' ); ?></option>
                         <option value="instock" <?php echo isset( $meta_conditions['only_stock'] ) && $meta_conditions['only_stock'] == 'instock' ? 'selected' : ''; ?>><?php esc_html_e( 'instock', 'wpt_pro' ); ?></option>
                         <option value="onbackorder" <?php echo isset( $meta_conditions['only_stock'] ) && $meta_conditions['only_stock'] == 'onbackorder' ? 'selected' : ''; ?>><?php esc_html_e( 'onbackorder', 'wpt_pro' ); ?></option>
                         <option value="outofstock" <?php echo isset( $meta_conditions['only_stock'] ) && $meta_conditions['only_stock'] == 'outofstock' ? 'selected' : ''; ?>><?php esc_html_e( 'outofstock', 'wpt_pro' ); ?></option>
@@ -130,12 +130,12 @@ $meta_conditions =  get_post_meta( $post->ID, 'conditions', true );
         <table class="ultraaddons-table">
             <tr>
                 <th>
-                    <label class="wpt_label" for="wpt_table_only_sale"><?php esc_html_e( 'Only Sale Products', 'wpt_pro' ); ?></label>
+                    <label class="wpt_label" for="wpt_table_only_sale"><?php esc_html_e( 'Sale Products', 'wpt_pro' ); ?></label>
                 </th>
                 <td>
                     <select name="conditions[only_sale]" data-name='only_sale' id="wpt_table_only_sale" class="wpt_fullwidth wpt_data_filed_atts ua_input" >
-                        <option value="no" <?php echo isset( $meta_conditions['only_sale'] ) && $meta_conditions['only_sale'] == 'no' ? 'selected' : ''; ?>><?php esc_html_e( 'All Product', 'wpt_pro' ); ?></option>
-                        <option value="yes" <?php echo isset( $meta_conditions['only_sale'] ) && $meta_conditions['only_sale'] == 'yes' ? 'selected' : ''; ?>><?php esc_html_e( 'Yes (Only Sale)', 'wpt_pro' ); ?></option>
+                        <option value="no" <?php echo isset( $meta_conditions['only_sale'] ) && $meta_conditions['only_sale'] == 'no' ? 'selected' : ''; ?>><?php esc_html_e( 'Default', 'wpt_pro' ); ?></option>
+                        <option value="yes" <?php echo isset( $meta_conditions['only_sale'] ) && $meta_conditions['only_sale'] == 'yes' ? 'selected' : ''; ?>><?php esc_html_e( 'Only Sale', 'wpt_pro' ); ?></option>
                     </select>
                 </td>
             </tr>
