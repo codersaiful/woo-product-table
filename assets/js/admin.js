@@ -343,10 +343,10 @@
                 //Counting Column//
                 var column_keyword;
                 column_keyword = [];
-                $('.wpt_column_sortable li.wpt_sortable_peritem.enabled .wpt_shortable_data input.colum_data_input').each(function(Index) {
+                $('#inside-desktop .wpt_column_sortable li.wpt_sortable_peritem.enabled .wpt_shortable_data input.colum_data_input').each(function(Index) {
                     column_keyword[Index] = $(this).data('keyword');
                 });
-                if (column_keyword.length < 2) {
+                if (column_keyword.length < 2 && $(this).closest('.inside_tab_content').attr('id') === 'inside-desktop') {
                     alert('Minimum 1 column is required!');
                     return false;
                 }
