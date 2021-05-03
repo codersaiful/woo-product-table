@@ -418,7 +418,7 @@ class WPT_Product_Table{
         $pro_version = isset( $installed_plugins[$pro_v_loc]['Version'] ) ? $installed_plugins[$pro_v_loc]['Version'] : false;
         if( $pro_installed && $pro_activated && version_compare( $pro_version, self::MINIMUM_WPT_PRO_VERSION, '<' )  ){
             add_action( 'admin_notices', [ $this, 'admin_notice_pro_version_need_update' ] );
-            return;
+//            return;
         }
         
         //Qty Plus/Minus Button Plugin Compulsory for Our Product Table Plugin
