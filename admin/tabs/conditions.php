@@ -160,12 +160,12 @@ $meta_conditions =  get_post_meta( $post->ID, 'conditions', true );
         <table class="ultraaddons-table">
             <tr>
                 <th>
-                    <label class="wpt_label" for="wpt_table_table_type"><?php esc_html_e( 'Third Party Addons Supporting ', 'wpt_pro' ); ?></label>
+                    <label class="wpt_label" for="wpt_table_table_type"><?php esc_html_e( 'Third Party Plugin Supporting ', 'wpt_pro' ); ?></label>
                 </th>
                 <td>
                     <select name="conditions[table_type]" data-name='table_type' id="wpt_table_table_type" class="wpt_fullwidth wpt_data_filed_atts ua_input" >
-                        <option value="normal_table" <?php echo isset( $meta_conditions['table_type'] ) && $meta_conditions['table_type'] == 'normal_table' ? 'selected' : ''; ?>><?php esc_html_e( 'No', 'wpt_pro' ); ?></option>
-                        <option value="advance_table" <?php echo isset( $meta_conditions['table_type'] ) && $meta_conditions['table_type'] == 'advance_table' ? 'selected' : ''; ?>><?php esc_html_e( 'Yes', 'wpt_pro' ); ?></option>
+                        <option value="normal_table" <?php echo isset( $meta_conditions['table_type'] ) && $meta_conditions['table_type'] == 'normal_table' ? 'selected' : ''; ?>><?php esc_html_e( 'Default', 'wpt_pro' ); ?></option>
+                        <option value="advance_table" <?php echo isset( $meta_conditions['table_type'] ) && $meta_conditions['table_type'] == 'advance_table' ? 'selected' : ''; ?>><?php esc_html_e( 'Enable', 'wpt_pro' ); ?></option>
                     </select>
                 </td>
             </tr>
