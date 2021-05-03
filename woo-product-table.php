@@ -811,7 +811,7 @@ class WPT_Product_Table{
      * 
      * @since 1.0.0
      */
-   public function uninstall() {
+   public static function uninstall() {
        //Nothing for now
    }
    
