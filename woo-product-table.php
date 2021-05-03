@@ -1,11 +1,11 @@
 <?php
 /**
  * Plugin Name: WOO Product Table
- * Plugin URI: https://codecanyon.net/item/woo-product-table-pro/20676867
+ * Plugin URI: https://codecanyon.net/item/woo-product-table-pro/20676867?ref=CodeAstrology&utm_source=WPT_Installed_Plugin
  * Description: WooCommerce all products display as a table in one page by shortcode. Fully responsive and mobile friendly. Easily customizable - color,background,title,text color etc.
  * Author: CodeAstrology
  * Author URI: https://codecanyon.net/user/codeastrology
- * Tags: woocommerce product,woocommerce product table, product table
+ * Tags: woocommerce product list,woocommerce product table, wc product table, product grid view, inventory, shop product table
  * 
  * Version: 2.8.5
  * Requires at least:    4.0.0
