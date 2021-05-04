@@ -340,11 +340,11 @@
                 //$(this).addClass('enabled');
                 $(this).fadeIn('fast',function(){
                     $(this).addClass('enabled')
-                });
+                }).css("display", "flex");
                 //targetLiSelector.addClass('enabled');
                 targetLiSelector.fadeIn('fast',function(){
                     targetLiSelector.addClass('enabled')
-                });
+                }).css("display", "flex");
             } else {
                 //Counting Column//
                 var column_keyword;
