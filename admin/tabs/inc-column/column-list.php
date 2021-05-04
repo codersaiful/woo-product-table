@@ -62,12 +62,30 @@
             
             
             <div class="wpt_column_setting_single_extra">
-                <?php do_action( 'wpto_column_setting_form_' . $keyword, $_device_name, $column_settings, $columns_array, $updated_columns_array, $post, $additional_data ); ?>
+                <?php 
+                /**
+                 * Adding Extra Features Based on Specific keyword
+                 * 
+                 * *****************************
+                 * @HOOKED at includes/functions.php
+                 * wpto_column_setting_form_thumbnails wpt_thumbnails_column_add 10,2
+                 */
+                do_action( 'wpto_column_setting_form_' . $keyword, $_device_name, $column_settings, $columns_array, $updated_columns_array, $post, $additional_data ); ?>
             </div>
             <span data-key="<?php echo esc_attr( $keyword ); ?>" class="extra_all_on_off on_now"><i class="on_off_icon"></i>Expand</span>
             <div class="wpt_column_setting_extra for_all extra_all_<?php echo esc_attr( $keyword ); ?>">
                 <?php do_action( 'wpto_column_setting_form_inside_' . $keyword, $_device_name, $column_settings, $columns_array, $updated_columns_array, $post, $additional_data ); ?>
-                <?php do_action( 'wpto_column_setting_form', $keyword, $_device_name, $column_settings, $columns_array, $updated_columns_array, $post, $additional_data ); ?>
+                <?php 
+                /**
+                 * Adding Extra Feature based on action hook
+                 * 
+                 * *******************************
+                 * @HOOKED at includes/functions.php
+                 * wpt_column_add_extra_items 10,7
+                 * wpt_column_tag_for_all 10,3 
+                 */
+                
+                do_action( 'wpto_column_setting_form', $keyword, $_device_name, $column_settings, $columns_array, $updated_columns_array, $post, $additional_data ); ?>
                 
             </div>
             <div class="wpt_column_setting_extra for_all profeatures-message">
