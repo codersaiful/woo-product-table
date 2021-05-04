@@ -337,8 +337,14 @@
             var targetLiSelector = thisWPTSortAble.find(' li.wpt_sortable_peritem.column_keyword_' + keyword);
             
             if ($(this).prop('checked')) {
-                $(this).addClass('enabled');
-                targetLiSelector.addClass('enabled');
+                //$(this).addClass('enabled');
+                $(this).fadeIn('fast',function(){
+                    $(this).addClass('enabled')
+                });
+                //targetLiSelector.addClass('enabled');
+                targetLiSelector.fadeIn('fast',function(){
+                    targetLiSelector.addClass('enabled')
+                });
             } else {
                 //Counting Column//
                 var column_keyword;
@@ -354,9 +360,15 @@
                 
                 
                 
-                $(this).removeClass('enabled');
+                //$(this).removeClass('enabled');
+                $(this).fadeOut(function(){
+                    $(this).removeClass('enabled');
+                });
                 $('.switch-enable-item-' + keyword).removeClass('item-enabled');
-                targetLiSelector.removeClass('enabled');
+                //targetLiSelector.removeClass('enabled');
+                targetLiSelector.fadeOut(function(){
+                    targetLiSelector.removeClass('enabled');
+                });
             }
         });
         

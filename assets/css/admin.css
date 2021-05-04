@@ -139,8 +139,12 @@ ul#wpt_keyword_hide_mobile li>span.handle.checkbox_handle>input
     background: rgba(0, 118, 147, 0);
     border: 1px solid transparent;
 }
+.wpt_shortable_data>input{
+    font-weight: bold;
+}
 .enabled:hover .wpt_shortable_data>input{
     border: 1px solid #00769324;
+    font-weight: normal;
 }
 
 .expanded_li.enabled .wpt_shortable_data>input {
