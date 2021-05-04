@@ -57,7 +57,7 @@ $_device_name = '';
 <div class="inside-column-settings-wrapper">
     <div class="inside-column-setting-header">
         <h2><?php echo esc_html__( 'Devicewise Column Setting', 'wpt_pro' ); ?></h2>
-        <p><?php echo esc_html__( 'Desktop is default, if not set any column for tablet and mobile.', 'wpt_pro' ); ?></p>
+        <br>
     </div>
     <nav class="inside-nav-tab-wrapper">
         <a data-target="inside-desktop" data-device="desktop" class="wpt_inside_nav_tab nav-tab nav-tab-active">Desktop</a>
@@ -84,6 +84,7 @@ include $column_list_file;
     
     
     <div id="inside-tablet" class="inside_tab_content tab-content">
+    
 <?php 
 
 
@@ -96,7 +97,9 @@ include $tablet_header_file;
 
 $availe_column_list_file = __DIR__ . '/inc-column/available-column-list.php';
 include $availe_column_list_file;
-
+?>
+<p class="device_wise_col_message"><?php echo esc_html__( 'Set columns for tablet, otherwise desktop columns will be shown on tablet.', 'wpt_pro' ); ?></p>
+<?php
 $column_list_file = __DIR__ . '/inc-column/column-list.php';
 include $column_list_file;
 
@@ -117,7 +120,9 @@ include $tablet_header_file;
 
 $availe_column_list_file = __DIR__ . '/inc-column/available-column-list.php';
 include $availe_column_list_file;
-
+?>
+<p class="device_wise_col_message"><?php echo esc_html__( 'Set columns for mobile, otherwise tablet columns will be shown on mobile.', 'wpt_pro' ); ?></p>
+<?php
 $column_list_file = __DIR__ . '/inc-column/column-list.php';
 include $column_list_file;
 

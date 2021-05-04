@@ -12,8 +12,15 @@
             option.detach();
             $(target).append(option).change();
         }
-        $('select#wpt_product_ids,select#product_tag_ids,select.wpt_select2').select2();
+        $('select#wpt_product_ids,select#product_tag_ids,select.wpt_select2').select2({
+            placeholder: "Select Option",
+            allowClear: true
+        });
 
+        $('select.internal_select').select2({
+            placeholder: "Select mulitple inner Items.",
+            allowClear: true
+        });
         /**
          * Product Exclude Include Feature Added Here,
          * Which is normally in Pro Actually
@@ -92,7 +99,7 @@
 
       });
       
-        $('select#wpt_product_ids,select#product_tag_ids,select.wpt_select2').on('select2:select', function(e){
+        $('select#wpt_product_ids,select#product_tag_ids,select.wpt_select2,select.internal_select').on('select2:select', function(e){
           wptSelectItem(e.target, e.params.data.id);
         });
 
@@ -337,16 +344,22 @@
             var targetLiSelector = thisWPTSortAble.find(' li.wpt_sortable_peritem.column_keyword_' + keyword);
             
             if ($(this).prop('checked')) {
-                $(this).addClass('enabled');
-                targetLiSelector.addClass('enabled');
+                //$(this).addClass('enabled');
+                $(this).fadeIn('fast',function(){
+                    $(this).addClass('enabled')
+                }).css("display", "flex");
+                //targetLiSelector.addClass('enabled');
+                targetLiSelector.fadeIn('fast',function(){
+                    targetLiSelector.addClass('enabled')
+                }).css("display", "flex");
             } else {
                 //Counting Column//
                 var column_keyword;
                 column_keyword = [];
-                $('.wpt_column_sortable li.wpt_sortable_peritem.enabled .wpt_shortable_data input.colum_data_input').each(function(Index) {
+                $('#inside-desktop .wpt_column_sortable li.wpt_sortable_peritem.enabled .wpt_shortable_data input.colum_data_input').each(function(Index) {
                     column_keyword[Index] = $(this).data('keyword');
                 });
-                if (column_keyword.length < 2) {
+                if (column_keyword.length < 2 && $(this).closest('.inside_tab_content').attr('id') === 'inside-desktop') {
                     alert('Minimum 1 column is required!');
                     return false;
                 }
@@ -354,9 +367,15 @@
                 
                 
                 
-                $(this).removeClass('enabled');
+                //$(this).removeClass('enabled');
+                $(this).fadeOut(function(){
+                    $(this).removeClass('enabled');
+                });
                 $('.switch-enable-item-' + keyword).removeClass('item-enabled');
-                targetLiSelector.removeClass('enabled');
+                //targetLiSelector.removeClass('enabled');
+                targetLiSelector.fadeOut(function(){
+                    targetLiSelector.removeClass('enabled');
+                });
             }
         });
         

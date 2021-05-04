@@ -18,7 +18,7 @@ if( !function_exists( 'wpt_admin_form_top' ) ){
         if( $validation ){
         ?>
         <ul class="wpt_admin_form_links" style="margin: 0">
-            <li><a class="wpt_get_pro_form_top_link" target="_blank" title="Awesome Pro features is Waiting for you!" href="https://codecanyon.net/item/woo-product-table-pro/20676867">Get Pro</a></li>  
+            <li><a class="wpt_get_pro_form_top_link" target="_blank" title="Awesome Pro features is Waiting for you!" href="https://codecanyon.net/item/woo-product-table-pro/20676867?ref=CodeAstrology&utm_source=WPT_Installed_Plugin">Get Pro</a></li>  
             <li>
                 <a class="Header-link " href="https://github.com/codersaiful/woo-product-table" target="_blank">
   <svg class="octicon octicon-mark-github v-align-middle" height="16" 
