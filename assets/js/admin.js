@@ -12,8 +12,15 @@
             option.detach();
             $(target).append(option).change();
         }
-        $('select#wpt_product_ids,select#product_tag_ids,select.wpt_select2').select2();
+        $('select#wpt_product_ids,select#product_tag_ids,select.wpt_select2').select2({
+            placeholder: "Select Option",
+            allowClear: true
+        });
 
+        $('select.internal_select').select2({
+            placeholder: "Select mulitple inner Items.",
+            allowClear: true
+        });
         /**
          * Product Exclude Include Feature Added Here,
          * Which is normally in Pro Actually
@@ -92,7 +99,7 @@
 
       });
       
-        $('select#wpt_product_ids,select#product_tag_ids,select.wpt_select2').on('select2:select', function(e){
+        $('select#wpt_product_ids,select#product_tag_ids,select.wpt_select2,select.internal_select').on('select2:select', function(e){
           wptSelectItem(e.target, e.params.data.id);
         });
 

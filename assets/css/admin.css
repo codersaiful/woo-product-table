@@ -87,7 +87,7 @@ ul#wpt_keyword_hide_mobile
     padding: 12px 10px 8px 10px;
 }
 li.expanded_li .wpt_shortable_data{
-    padding: 20px 10px 15px 10px;
+    padding: 20px 15px 15px 15px;
 }
 .wpt_shortable_data
 {
@@ -140,7 +140,8 @@ ul#wpt_keyword_hide_mobile li>span.handle.checkbox_handle>input
     border: 1px solid transparent;
 }
 .wpt_shortable_data>input{
-    font-weight: bold;
+    font-weight: 500;
+    color: #333333;
 }
 .enabled:hover .wpt_shortable_data>input{
     border: 1px solid #00769324;
@@ -533,12 +534,12 @@ span.purchase_code_active {
     background: #e5e5e5;
 }
 .wpt_column_setting_extra {
-    padding: 0 10px 16px 10px;
+    /* padding: 0 10px 16px 10px; */
     background: transparent;
     width: calc(100% - 20px);
     background: #ffffffd9;
     margin-top: 21px;
-    border: 1px solid #dddddd91;
+    /* border: 1px solid #dddddd91; */
     margin-bottom: 5px;
 }
 .wpt_column_setting_single_extra {

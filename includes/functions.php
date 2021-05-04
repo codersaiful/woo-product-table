@@ -292,7 +292,7 @@ add_action( 'wpto_column_setting_form', 'wpt_column_tag_for_all', 10, 3 );
 
 if( !function_exists( 'wpt_column_add_extra_items' ) ){
     function wpt_column_add_extra_items( $keyword, $_device_name, $column_settings, $columns_array, $updated_columns_array, $post, $additional_data ){
-
+        
         unset( $columns_array[$keyword] ); //Unset this column. if in action, here $keyword - action
         //unset( $columns_array['check'] );
         unset( $columns_array['blank'] );
@@ -301,6 +301,7 @@ if( !function_exists( 'wpt_column_add_extra_items' ) ){
          * Items actually Checked Items
          */
         $items = isset( $column_settings[$keyword]['items'] ) ? $column_settings[$keyword]['items'] : array();
+        $items = is_array( $items ) ? $items : array();
         $items = array_filter( $items );
         
         /**
@@ -317,29 +318,46 @@ if( !function_exists( 'wpt_column_add_extra_items' ) ){
         }
         ?>
         <div class="column_add_extra_items">
-        <label>Select multiple inner items:</label>    
-        <div class="checkbox_parent parent_<?php echo esc_attr( $keyword ); ?>">
+        <label for="<?php echo esc_attr( "column_settings{$_device_name}_{$keyword}" ); ?>">Select multiple inner items:</label>    
+<!--        <div class="checkbox_parent parent_<?php echo esc_attr( $keyword ); ?>">-->
+
+ 
+        <?php
+        $select = "";
+        $items_columns = $columns_array;
+        $items_columns = apply_filters( 'wpto_inside_item_arr', $items_columns, $keyword, $column_settings, $post );
+        $items_columns = apply_filters( 'wpto_inside_item_arr_' . $keyword, $items_columns, $column_settings, $post );
+        foreach($items_columns as $key => $key_val){
+            $seleced = in_array( $key,$items ) ? 'checked' : false;
+            $seleced_option = in_array( $key,$items ) ? 'selected' : false;
+            //var_dump($key, $keyword);
+            $unique_id = $keyword . '_' . $key . '_' . $_device_name;
+//                echo '<div class="each_checkbox each_checkbox_' . $key . '">';
+            ?>
+
+
 
 
             <?php
-            $items_columns = $columns_array;
-            $items_columns = apply_filters( 'wpto_inside_item_arr', $items_columns, $keyword, $column_settings, $post );
-            $items_columns = apply_filters( 'wpto_inside_item_arr_' . $keyword, $items_columns, $column_settings, $post );
-            foreach($items_columns as $key => $key_val){
-                $seleced = in_array( $key,$items ) ? 'checked' : false;
-                //var_dump($key, $keyword);
-                $unique_id = $keyword . '_' . $key . '_' . $_device_name;
-                echo '<div class="each_checkbox each_checkbox_' . $key . '">';
-                echo "<input "
-                . "id='{$unique_id}' "
-                . "type='checkbox' "
-                . "name='column_settings{$_device_name}[{$keyword}][items][]' "
-                . "value='{$key}' $seleced/><label for='{$unique_id}'>$key_val <small>($key)</small></label>";
-                echo '</div>';
-            }
-            ?>
-            </div>
-        <p>All Items are move able. And Settings of item will come from main column. which can be inactive as Table Column.</p>
+            $select .= "<option value='{$key}' $seleced_option> $key_val - $key</option>";
+//                echo "<input "
+//                . "id='{$unique_id}' "
+//                . "type='checkbox' "
+//                . "name='column_settings{$_device_name}[{$keyword}][items][]' "
+//                . "value='{$key}' $seleced/><label for='{$unique_id}'>$key_val <small>($key)</small></label>";
+//                echo '</div>';
+        }
+        ?>
+<!--            </div>-->
+        <select 
+            class="internal_select" 
+            multiple="multiple" 
+            id="<?php echo esc_attr( "column_settings{$_device_name}_{$keyword}" ); ?>"
+            name="<?php echo "column_settings{$_device_name}[{$keyword}][items][]"; ?>"
+            >
+            <?php echo $select; ?>
+        </select> 
+        
         </div>
         <?php
     }
