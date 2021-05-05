@@ -17,7 +17,13 @@ if( !function_exists( 'wpt_shortcode_metabox' ) ){
         add_meta_box( 'wpt_shortcode_metabox_id', 'Shortcode', 'wpt_shortcode_metabox_render', 'wpt_product_table', 'normal' );
         add_meta_box( 'wpt_shortcode_configuration_metabox_id', 'Table Configuration', 'wpt_shortcode_configuration_metabox_render', 'wpt_product_table', 'normal' ); //Added at 4.1.4
         //add_meta_box( 'wpt_column_panel_metabox_id', __( 'Available Columns', 'wpt' ), 'wpt_column_panel_metabox_render', 'wpt_product_table', 'side', 'low' ); //Added at 4.1.4
-
+        /**
+         * Added new feature for Product Table
+         * 
+         * @since 2.8.5.1
+         * @by Saiful 
+         */
+        add_meta_box( 'wpt_export_import_metabox_id', __( 'Export/Import', 'wpt_pro' ), 'wpt_export_import_metabox_render', 'wpt_product_table', 'normal' );
     }
 }
 
@@ -97,6 +103,23 @@ if( !function_exists( 'wpt_shortcode_metabox_render' ) ){
         <?php
     }
 }
+
+if( ! function_exists( 'wpt_export_import_metabox_render' ) ){
+    
+    function wpt_export_import_metabox_render(){
+        global $post;
+        $post_id = $post->ID;
+        //update_post_meta($post_id, $meta_key, $post_id);
+        //var_dump( get_post_meta($post_id));
+        $post_title = preg_replace( '/[#$%^&*()+=\-\[\]\';,.\/{}|":<>?~\\\\]/',"$1", $post->post_title );
+        ?>
+<div class="wpt-export-import-wrapper">
+    <textarea id="wpt-export-textarea" class="wpt-export-textarea ua-input"></textarea>
+</div>
+        <?php
+    }
+}
+
 
 if( !function_exists( 'wpt_shortcode_configuration_metabox_render' ) ){
     //Now start metabox for shortcode Generator
