@@ -1249,6 +1249,13 @@ a.button {}
 }
 /* Notice Style for UltraAddons | END*/
 
+/* Export Import Features start */
+.wpt-export-textarea{
+    width: 100%;
+    min-height: 100px;
+}
+/* Export Import Features end */
+
 /* Responsive Design Starts */
 @media screen and (max-width: 782px){
     .wpt_column_setting_single_extra>div label {

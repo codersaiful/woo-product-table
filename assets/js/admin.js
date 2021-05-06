@@ -4,6 +4,26 @@
         if(! $('body').hasClass('wpt_admin_body')){
             return false;
         }
+        
+        $('body').on('focus','.str_str_each_value',function(){
+
+            //style_str_value_wrapper
+            var wrapper = $(this).closest('.style_str_wrapper');
+            var targetWrapper = wrapper.data('target_value_wrapper');
+            console.log(targetWrapper,"#" + targetWrapper + " .str_str_each_value");
+            var property_name, property_value;
+            var str_str = "";
+            $("." + targetWrapper + " .str_str_each_value").each(function() {
+                property_name = $(this).data('proerty_name');
+                property_value = $(this).val();
+                if( property_value ){
+                    str_str += property_name + ": " + property_value + ";";
+                }
+            });
+            //str_str_value_string
+            $("." + targetWrapper + " .str_str_value_string").val(str_str);
+        });
+        
         //For select, used select2 addons of jquery
         //$('.wpt_wrap select,.wpt_shortcode_gen_panel select, select#wpt_product_ids,select#product_tag_ids').select2();
         

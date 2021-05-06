@@ -81,15 +81,33 @@ if( !function_exists( 'wpt_column_style_for_all' ) ){
     function wpt_column_style_for_all( $keyword, $_device_name, $column_settings, $columns_array, $updated_columns_array, $post, $additional_data ){
         
         $style_property = isset( $additional_data['css_property'] ) && is_array( $additional_data['css_property'] ) ? $additional_data['css_property'] : array(); 
-        //$style                = isset( $item['style'] ) ? $item['style'] : false;
-        $style = isset( $column_settings[$keyword]['style'] ) ? $column_settings[$keyword]['style'] : false;
-        $item_name_prefix = "column_settings{$_device_name}[$keyword][style]";
+        $class_name = "style_str{$_device_name}_{$keyword}";
+        
+        $item_name_style_str = "column_settings{$_device_name}[$keyword][style_str]";
+        $style_str = isset( $column_settings[$keyword]['style_str'] ) ? $column_settings[$keyword]['style_str'] : false;
+
+        $style_str_arr = explode( ";", $style_str );
+        $style_str_arr = array_filter( $style_str_arr );
+        $style = array();
+        foreach( $style_str_arr as $each_style ){
+            $each_style_property = explode( ": ", $each_style );
+            $str_str_key_01 = !empty( $each_style_property[0] ) ? $each_style_property[0] : ' ';
+            $str_str_key_02 = !empty( $each_style_property[1] ) ? $each_style_property[1] : ' ';
+            $style[$str_str_key_01] = $str_str_key_02;
+        }
+
         ?>
         
-        <div class="wpt-style-wrapper style-wrapper-<?php echo esc_attr( $keyword ); ?>">
+        <div 
+            data-target_value_wrapper="<?php echo esc_attr( $class_name ); ?>"
+            class="style_str_wrapper wpt-style-wrapper <?php echo esc_attr( $class_name ); ?> style-wrapper-<?php echo esc_attr( $keyword ); ?>">
+            <input 
+                type="hidden" 
+                class="str_str_value_string"
+                value="<?php echo esc_attr( $style_str ); ?>" name="<?php echo esc_attr( $item_name_style_str ); ?>">
             <h3 class="style-heading"><?php echo esc_html( 'Style Area', 'wpt_pro' ); ?></h3>
             <div class="wpt-style-body">
-                <table class="ultraaddons-table">    
+                <table class="ultraaddons-table <?php echo esc_attr( $class_name ); ?>_value_wrapper" style_str_value_wrapper>    
                 <?php
                 foreach( $style_property as $style_key => $label ){
                     $value = isset( $style[ $style_key ] ) ? $style[ $style_key ] : false;
@@ -99,8 +117,8 @@ if( !function_exists( 'wpt_column_style_for_all' ) ){
                         <th><label><?php echo esc_html($label); ?></label></th>
                         <td>
                             <input 
-                                class="ua_input wpt-<?php echo esc_attr( $style_key ); ?>"
-                                name="<?php echo esc_attr( $item_name_prefix ); ?>[<?php echo esc_attr( $style_key ); ?>]" 
+                                class="ua_input wpt-<?php echo esc_attr( $style_key ); ?> str_str_each_value"
+                                data-proerty_name="<?php echo esc_attr( $style_key ); ?>"
                                 value="<?php echo esc_attr( $value ); ?>" 
                                 placeholder="<?php echo esc_attr($label); ?>">   
                         </td>
@@ -172,13 +190,13 @@ if( !function_exists( 'wpt_data_manipulation_on_save' ) ){
             }
             
         } 
-        if( 'column_settings' == $tab && is_array( $tab_data ) ){
-            foreach( $tab_data as $per_key => $per_data ){
-                if( !empty( $per_key ) && is_array( $per_data ) ){
-                    $tab_data[$per_key]['style_str'] = isset( $per_data['style'] ) && is_array( $per_data['style'] ) ? wpt_convert_style_from_arr( $per_data['style'] ) : '';
-                }
-            }
-        }
+//        if( 'column_settings' == $tab && is_array( $tab_data ) ){
+//            foreach( $tab_data as $per_key => $per_data ){
+//                if( !empty( $per_key ) && is_array( $per_data ) ){
+//                    $tab_data[$per_key]['style_str'] = isset( $per_data['style'] ) && is_array( $per_data['style'] ) ? wpt_convert_style_from_arr( $per_data['style'] ) : '';
+//                }
+//            }
+//        }
         
         return $tab_data;
     }

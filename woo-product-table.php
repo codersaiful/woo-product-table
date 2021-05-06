@@ -7,7 +7,7 @@
  * Author URI: https://codecanyon.net/user/codeastrology
  * Tags: woocommerce product list,woocommerce product table, wc product table, product grid view, inventory, shop product table
  * 
- * Version: 2.8.5
+ * Version: 2.8.6
  * Requires at least:    4.0.0
  * Tested up to:         5.7.1
  * WC requires at least: 3.0.0
@@ -30,7 +30,7 @@ if( !defined( 'WPT_PLUGIN_BASE_FOLDER' ) ){
 }
 
 if( !defined( 'WPT_DEV_VERSION' ) ){
-    define( 'WPT_DEV_VERSION', '2.8.5.4' );
+    define( 'WPT_DEV_VERSION', '2.8.6.5' );
 }
 
 if( !defined( 'WPT_CAPABILITY' ) ){
@@ -679,13 +679,13 @@ class WPT_Product_Table{
     public function admin_notice_pro_version_need_update() {
 
            $message = sprintf(
-                   esc_html__( '"%1$s" requires "%2$s" to be update to minimum version:("%3$s"). Please update your [Woo Product Table Pro] version', 'wpt_pro' ),
+                   esc_html__( '"%1$s" recommend "%2$s" to be update to minimum version:("%3$s"). Please update your [Woo Product Table Pro] version', 'wpt_pro' ),
                    '<strong>' . esc_html__( 'Woo Product Table', 'wpt_pro' ) . '</strong>',
                    '<strong>' . esc_html__( 'Pro Version of Woo Product Table Pro', 'wpt_pro' ) . '</strong>',
                    '<strong>' . self::MINIMUM_WPT_PRO_VERSION . '</strong>'
            );
 
-           printf( '<div class="notice notice-error is-dismissible"><p>%1$s</p></div>', $message );
+           printf( '<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', $message );
 
     }
 
