@@ -679,13 +679,13 @@ class WPT_Product_Table{
     public function admin_notice_pro_version_need_update() {
 
            $message = sprintf(
-                   esc_html__( '"%1$s" requires "%2$s" to be update to minimum version:("%3$s"). Please update your [Woo Product Table Pro] version', 'wpt_pro' ),
+                   esc_html__( '"%1$s" recommend "%2$s" to be update to minimum version:("%3$s"). Please update your [Woo Product Table Pro] version', 'wpt_pro' ),
                    '<strong>' . esc_html__( 'Woo Product Table', 'wpt_pro' ) . '</strong>',
                    '<strong>' . esc_html__( 'Pro Version of Woo Product Table Pro', 'wpt_pro' ) . '</strong>',
                    '<strong>' . self::MINIMUM_WPT_PRO_VERSION . '</strong>'
            );
 
-           printf( '<div class="notice notice-error is-dismissible"><p>%1$s</p></div>', $message );
+           printf( '<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', $message );
 
     }
 
