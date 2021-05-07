@@ -7,7 +7,7 @@
  * Author URI: https://codecanyon.net/user/codeastrology
  * Tags: woocommerce product list,woocommerce product table, wc product table, product grid view, inventory, shop product table
  * 
- * Version: 2.8.6
+ * Version: 2.8.7
  * Requires at least:    4.0.0
  * Tested up to:         5.7.1
  * WC requires at least: 3.0.0
@@ -30,7 +30,7 @@ if( !defined( 'WPT_PLUGIN_BASE_FOLDER' ) ){
 }
 
 if( !defined( 'WPT_DEV_VERSION' ) ){
-    define( 'WPT_DEV_VERSION', '2.8.6.5' );
+    define( 'WPT_DEV_VERSION', '2.8.7.0' );
 }
 
 if( !defined( 'WPT_CAPABILITY' ) ){
@@ -492,16 +492,9 @@ class WPT_Product_Table{
         */
        $this->setConstant($path_args);
        //Load File
+       include_once $this->path('BASE_DIR','admin/wpt_product_table_post.php');
        if( is_admin() ){
-           /**
-            * Will comment this part asap, now running this
-            * 
-            * This comment for: //include_once $this->path('BASE_DIR','admin/wpt_product_table_post.php')
-            * First time, it was in Admin.
-            * Now we would like to show preview by template from plugin.
-            * So it will go out side of this if statement
-            */
-            include_once $this->path('BASE_DIR','admin/wpt_product_table_post.php');
+           
             include_once $this->path('BASE_DIR','admin/post_metabox.php');
             include_once $this->path('BASE_DIR','admin/duplicate.php');
             include_once $this->path('BASE_DIR','admin/functions.php'); //Added at V7.0.0 @date 
