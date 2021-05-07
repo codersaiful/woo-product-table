@@ -1422,3 +1422,19 @@ EOT;
     }
 }
 //add_action( 'wp_footer', 'wpt_ajax_on_first_load', 100 );
+
+
+function wpt_product_table_preview_template( $template_file ){
+
+    if( ! is_singular() ){
+        return $template_file;
+    }
+    $type = get_post_type();
+    if( $type == 'wpt_product_table' ){
+        $template = WPT_DIR_BASE . 'templates/table-preview.php';
+        return is_file( $template ) ? $template : $template_file;
+    }
+   
+    return $template_file;
+}
+add_filter( 'template_include', 'wpt_product_table_preview_template' );

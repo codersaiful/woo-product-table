@@ -66,6 +66,7 @@ function wpt_product_table_post() {
                     'read_private_posts' => 'read_private_wpt_product_tables',
                     'delete_post' => 'delete_wpt_product_table',
                 ),
+                "rewrite" => [ "slug" => "wpt_product_table", "with_front" => true ],
                 'map_meta_cap' => true,
                 'register_meta_box_cb'  => 'wpt_shortcode_metabox',
 	);
@@ -102,7 +103,7 @@ add_action('manage_posts_custom_column', 'wpt_shortcode_column_content', 2, 2);
 
 
 //Permalink Hiding Option
-add_filter( 'get_sample_permalink_html', 'wpt_permalink_hiding' );
+//add_filter( 'get_sample_permalink_html', 'wpt_permalink_hiding' );
 if( !function_exists( 'wpt_permalink_hiding' ) ){
     function wpt_permalink_hiding( $return ) {
         if ( 'wpt_product_table' == get_post_type() ){
@@ -114,7 +115,7 @@ if( !function_exists( 'wpt_permalink_hiding' ) ){
 
 
 //Hiding Preview Button from all shortcode page
-add_filter( 'page_row_actions', 'wpt_preview_button_hiding', 10, 2 );
+//add_filter( 'page_row_actions', 'wpt_preview_button_hiding', 10, 2 );
 if( !function_exists( 'wpt_preview_button_hiding' ) ){
     function wpt_preview_button_hiding( $actions, $post ) {
 

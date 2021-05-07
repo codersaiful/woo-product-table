@@ -492,16 +492,9 @@ class WPT_Product_Table{
         */
        $this->setConstant($path_args);
        //Load File
+       include_once $this->path('BASE_DIR','admin/wpt_product_table_post.php');
        if( is_admin() ){
-           /**
-            * Will comment this part asap, now running this
-            * 
-            * This comment for: //include_once $this->path('BASE_DIR','admin/wpt_product_table_post.php')
-            * First time, it was in Admin.
-            * Now we would like to show preview by template from plugin.
-            * So it will go out side of this if statement
-            */
-            include_once $this->path('BASE_DIR','admin/wpt_product_table_post.php');
+           
             include_once $this->path('BASE_DIR','admin/post_metabox.php');
             include_once $this->path('BASE_DIR','admin/duplicate.php');
             include_once $this->path('BASE_DIR','admin/functions.php'); //Added at V7.0.0 @date 

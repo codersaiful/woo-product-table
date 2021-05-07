@@ -157,6 +157,9 @@ You can easily show specific category products. While creating new table click o
 == Changelog ==
 
 = 2.8.6 =
+ * Product Table Preview added
+
+= 2.8.6 =
  * Illegal Offset issue fixed
 
 = 2.8.5 =
