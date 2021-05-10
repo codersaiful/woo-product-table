@@ -113,12 +113,13 @@ if( ! function_exists( 'wpt_export_import_metabox_render' ) ){
         $meta = get_post_meta($post_id);
         unset($meta['_edit_lock']);
         unset($meta['_edit_last']);
+
+        $meta = array_map('array_filter', $meta);
+        $meta = array_filter($meta);
+
         $serialize_meta = serialize($meta);
         $base64_meta = base64_encode($serialize_meta);
 
-        //var_dump(unserialize($serialize_meta));
-//        $aaa = "";//encoded data
-//        var_dump(unserialize(base64_decode($aaa, true)));
         $post_title = preg_replace( '/[#$%^&*()+=\-\[\]\';,.\/{}|":<>?~\\\\]/',"$1", $post->post_title );
         ?>
 <form class="wpt-export-import" action="" method="post">
