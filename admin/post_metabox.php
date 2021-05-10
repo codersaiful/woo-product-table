@@ -202,6 +202,15 @@ if( !function_exists( 'wpt_shortcode_configuration_metabox_save_meta' ) ){
         if( isset( $_POST['wpt-import-data'] ) && ! empty( $_POST['wpt-import-data'] ) ){
             $wpt_import_data = $_POST['wpt-import-data'];
 
+            /**
+             * Do something, when something importing on Import Box
+             * 
+             * @Hooked wpt_importing_data admin/action-hook.php 10 (top side of this file)
+             * 
+             * @since 2.8.7.1
+             * @by Saiful Islam
+             * @Date 10.5.2021
+             */
             do_action( 'wpto_import_data', $wpt_import_data, $post_id );
             return;
         }
