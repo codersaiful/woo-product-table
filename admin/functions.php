@@ -1,4 +1,7 @@
 <?php
+
+
+
 if( !function_exists( 'wpt_admin_body_class' ) ){
     /**
      * set class for Admin Body tag
@@ -31,6 +34,27 @@ if( !function_exists( 'wpt_selected' ) ){
     function wpt_selected(  $keyword, $gotten_value, $default_config = false ){
         $current_config_value = is_array( $default_config ) ? $default_config : get_option( 'wpt_configure_options' );
         echo ( isset( $current_config_value[$keyword] ) && $current_config_value[$keyword] == $gotten_value ? 'selected' : false  );
+    }
+}
+
+if( ! function_exists( 'wpt_get_base64_post_meta' ) ){
+    
+    /**
+     */
+    function wpt_get_base64_post_meta( $post_id ){
+        if( ! $post_id || ! is_numeric( $post_id ) ) return false;
+        
+        $meta = get_post_meta($post_id);
+        unset($meta['_edit_lock']);
+        unset($meta['_edit_last']);
+
+        $meta = array_map('array_filter', $meta);
+        $meta = array_filter($meta);
+
+        $serialize_meta = serialize($meta);
+        $base64_meta = base64_encode($serialize_meta);
+        
+        return $base64_meta;
     }
 }
 
