@@ -40,6 +40,15 @@ if( !function_exists( 'wpt_selected' ) ){
 if( ! function_exists( 'wpt_get_base64_post_meta' ) ){
     
     /**
+     * Getting Post Meta Value in base64 encoded formate
+     * Typically I have used it in post_metabox.php file
+     * for export box.
+     * 
+     * In future, we can use it any another place.
+     * 
+     * @since 2.8.7.1
+     * @by Saiful
+     * @date 11.5.2021
      */
     function wpt_get_base64_post_meta( $post_id ){
         if( ! $post_id || ! is_numeric( $post_id ) ) return false;
@@ -57,6 +66,34 @@ if( ! function_exists( 'wpt_get_base64_post_meta' ) ){
         return $base64_meta;
     }
 }
+
+
+if( ! function_exists( 'wpt_ajax_get_post_meta_base64' ) ){
+    
+    /**
+     * Getting base64 Post meta for Export box
+     * It will generate and handle from admin.js using
+     * ajax request
+     * and we will use POST Request
+     * 
+     * @since 2.8.7.1
+     * @by Saiful
+     * @date 11.5.2021
+     */
+    function wpt_ajax_get_post_meta_base64(){
+        if( isset( $_POST['post_id'] ) && ! empty( $_POST['post_id'] ) && isset( $_POST['action'] ) == 'wpt_set_post_meta' ){
+            $post_id = $_POST['post_id'];
+            if( ! $post_id || ! is_numeric( $post_id ) ) echo '';
+
+            echo wpt_get_base64_post_meta( $post_id );
+        }else{
+            echo '';
+        }
+        die();
+    }
+}
+add_action( 'wp_ajax_wpt_set_post_meta', 'wpt_ajax_get_post_meta_base64' );
+add_action( 'wp_ajax_nopriv_wpt_set_post_meta', 'wpt_ajax_get_post_meta_base64' );
 
 
 /**
