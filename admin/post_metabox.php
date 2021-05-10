@@ -109,16 +109,18 @@ if( ! function_exists( 'wpt_export_import_metabox_render' ) ){
     function wpt_export_import_metabox_render(){
         global $post;
         $post_id = $post->ID;
-        //update_post_meta($post_id, $meta_key, $post_id);
-        $meta = get_post_meta($post_id);
-        unset($meta['_edit_lock']);
-        unset($meta['_edit_last']);
-
-        $meta = array_map('array_filter', $meta);
-        $meta = array_filter($meta);
-
-        $serialize_meta = serialize($meta);
-        $base64_meta = base64_encode($serialize_meta);
+//        The following code has Transferred to admin/functions.php
+//        $meta = get_post_meta($post_id);
+//        unset($meta['_edit_lock']);
+//        unset($meta['_edit_last']);
+//
+//        $meta = array_map('array_filter', $meta);
+//        $meta = array_filter($meta);
+//
+//        $serialize_meta = serialize($meta);
+//        $base64_meta = base64_encode($serialize_meta);
+        
+        $base64_meta = wpt_get_base64_post_meta( $post_id );
 
         $post_title = preg_replace( '/[#$%^&*()+=\-\[\]\';,.\/{}|":<>?~\\\\]/',"$1", $post->post_title );
         ?>
