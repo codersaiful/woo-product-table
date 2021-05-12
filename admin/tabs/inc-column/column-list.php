@@ -14,11 +14,11 @@
         if( $meta_enable_column_array && !empty( $meta_enable_column_array ) && is_array( $meta_enable_column_array ) ){
             $enabled_class = $checked_attribute = '';
             if( in_array( $keyword, array_keys( $meta_enable_column_array ) ) ){
-                $enabled_class = 'enabled';
+                $enabled_class = 'enabled first-time-enabled';
                 $checked_attribute = ' checked="checked"';
             }
         }else{
-            $enabled_class = 'enabled';
+            $enabled_class = 'enabled first-time-enabled';
             $checked_attribute = ' checked="checked"';
             if( !in_array( $keyword, $default_enable_array ) ){
                 $enabled_class = $checked_attribute = '';
