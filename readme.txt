@@ -156,6 +156,12 @@ You can easily show specific category products. While creating new table click o
 
 == Changelog ==
 
+= 2.8.8 =
+ * move icon and checkbox position at topside always
+ * Priority Added PHP_INT_MAX Version: 2.8.8.0 date 12.5.2021
+ * first-time-enabled class added for first time load element
+ * Documentation menu added in submenu
+
 = 2.8.7 =
  * Product Table Preview added
  * Export/Import Features Added
