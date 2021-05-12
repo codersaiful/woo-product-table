@@ -109,13 +109,50 @@ if( ! function_exists( 'wpt_export_import_metabox_render' ) ){
     function wpt_export_import_metabox_render(){
         global $post;
         $post_id = $post->ID;
-        //update_post_meta($post_id, $meta_key, $post_id);
-        //var_dump( get_post_meta($post_id));
+//        The following code has Transferred to admin/functions.php
+//        $meta = get_post_meta($post_id);
+//        unset($meta['_edit_lock']);
+//        unset($meta['_edit_last']);
+//
+//        $meta = array_map('array_filter', $meta);
+//        $meta = array_filter($meta);
+//
+//        $serialize_meta = serialize($meta);
+//        $base64_meta = base64_encode($serialize_meta);
+        
+        $base64_meta = wpt_get_base64_post_meta( $post_id );
+
         $post_title = preg_replace( '/[#$%^&*()+=\-\[\]\';,.\/{}|":<>?~\\\\]/',"$1", $post->post_title );
         ?>
-<div class="wpt-export-import-wrapper">
-    <textarea id="wpt-export-textarea" class="wpt-export-textarea ua-input"></textarea>
-</div>
+<form class="wpt-export-import" action="" method="post">
+    <div class="wpt-export-import-wrapper">
+        <div class="wpt-export-area"> 
+            <label for="wpt-export-textarea">Export Box</label>
+            <textarea 
+                id="wpt-export-textarea" 
+                class="wpt-export-textarea ua-input" 
+                onclick="this.focus();this.select()" 
+                readonly="readonly"
+                ><?php echo esc_html( $base64_meta ); ?></textarea>
+        </div>
+        <div class="wpt-import-area"> 
+            
+            <label for="wpt-import-textarea">Import Box</label>
+            <textarea 
+                name="wpt-import-data"
+                id="wpt-import-textarea" 
+                class="wpt-import-textarea ua-input" 
+                ></textarea>
+            <div class="wpt-export-button-wrapper">
+                <button type="submit" name="wpt_import_button" class="button-primary button-primary primary button wpt-import-button">Import Table Data</button>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+    
+</form>
         <?php
     }
 }
@@ -141,6 +178,7 @@ if( !function_exists( 'wpt_shortcode_configuration_metabox_render' ) ){
 
 if( !function_exists( 'wpt_shortcode_configuration_metabox_save_meta' ) ){
     function wpt_shortcode_configuration_metabox_save_meta( $post_id, $post ) { // save the data
+        
         /*
         * We need to verify this came from our screen and with proper authorization,
         * because the save_post action can be triggered at other times.
@@ -156,6 +194,30 @@ if( !function_exists( 'wpt_shortcode_configuration_metabox_save_meta' ) ){
             return;
         }
         
+        /**
+         * Importing Data Here
+         * 
+         * @since 2.8.7.1
+         * @by Saiful
+         * @date 10.5.2021
+         */
+        
+        if( isset( $_POST['wpt-import-data'] ) && ! empty( $_POST['wpt-import-data'] ) ){
+            $wpt_import_data = $_POST['wpt-import-data'];
+
+            /**
+             * Do something, when something importing on Import Box
+             * 
+             * @Hooked wpt_importing_data admin/action-hook.php 10 (top side of this file)
+             * 
+             * @since 2.8.7.1
+             * @by Saiful Islam
+             * @Date 10.5.2021
+             */
+            do_action( 'wpto_import_data', $wpt_import_data, $post_id );
+            return;
+        }
+
         /**
          * @Hook Filter: wpto_on_save_global_post
          * To change/Modify $_POST

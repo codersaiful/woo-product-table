@@ -1250,6 +1250,7 @@ a.button {}
 /* Notice Style for UltraAddons | END*/
 
 /* Export Import Features start */
+.wpt-import-textarea,
 .wpt-export-textarea{
     width: 100%;
     min-height: 100px;

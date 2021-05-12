@@ -557,6 +557,11 @@
         $(document).on('change','li.wpt_sortable_peritem.column_keyword_content',function(){
             $('.button,button').removeClass('wpt_ajax_update');
         });
+        
+        $(document).on('click,change,focus','#wpt-import-textarea',function(){
+            $('.button,button').removeClass('wpt_ajax_update');
+        });
+        
 
         //*********************** AJAX Save - AJAX data save
         $('body').append("<div class='wpt_notify'><h1>Saving...</h1></div>");
@@ -596,6 +601,29 @@
             $.post(postURL, data, function(response){}).done(function(){
                 $('.wpt_notify h1').html('Saved Product Table');
                 $('.wpt_notify').fadeOut();
+            }).done(function() {
+                var post_id = $('#post_ID').val();
+                var ajax_url = WPT_DATA_ADMIN.ajax_url;
+                
+                $.ajax({
+                    type: 'POST',
+                    url: ajax_url,// + get_data,
+                    data: {
+                        action:         'wpt_set_post_meta',
+                        post_id:    post_id,
+                    },
+                    complete: function(){
+                        
+                    },
+                    success: function(data) {
+                        $('#wpt-export-textarea').html(data);
+                        $('#wpt-import-textarea').html(data);
+                    },
+                    error: function() {
+                        
+                    },
+                });
+                
             }).fail(function(){
                 $('.wpt_notify h1').html('Unable to Save, Please try again.');
                 $('.wpt_notify').fadeOut();
