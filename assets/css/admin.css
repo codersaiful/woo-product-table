@@ -114,7 +114,7 @@ ul#wpt_keyword_hide_mobile li>span.handle.checkbox_handle>input.enabled
     padding: 0;
     background: #26d4ff;
     position: absolute;
-    top: 32%;
+    top: 24px;
     left: 32%;
 }
 ul#wpt_column_sortable li>span.handle.checkbox_handle>input,
@@ -562,7 +562,7 @@ ul#wpt_column_sortable>li.wpt_sortable_peritem {
     box-shadow: 0px 1px 16px 0 #bbbbbb9c;
 }
 ul#wpt_column_sortable li.wpt_sortable_peritem.enabled>span.handle, ul#wpt_keyword_hide_mobile li>span.handle {
-    background: #e8e8e840 no-repeat center center;
+    background: #e8e8e840 no-repeat center 20px;
 }
 .checkbox_parent {
     display: inline-block;
