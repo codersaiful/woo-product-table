@@ -1383,9 +1383,10 @@ add_filter( 'wpto_table_query_args_in_row', 'wpt_shop_archive_sorting_args', 10 
  * 
  * @date 3.2.2021
  * @by Saiful
+ * 
+ * Priority Added PHP_INT_MAX Version: 2.8.8.0 date 12.5.2021
  */
-add_filter( 'astra_add_to_cart_quantity_btn_enabled', '__return_false' ); 
-
+add_filter( 'astra_add_to_cart_quantity_btn_enabled', '__return_false', PHP_INT_MAX );
 
 
 if( !function_exists( 'wpt_ajax_on_first_load' ) ){
