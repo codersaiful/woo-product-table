@@ -795,6 +795,9 @@
                 //Set SKU live based on Variations
                 setValueToTargetTD_IfAvailable('sku', targetAttributeObject.sku);
                 
+                // Set live stock status based onChange variation
+                setValueToTargetTD_IfAvailable('stock', targetAttributeObject.availability_html);
+                
                 //Set Total Price display_price
                 var targetQty = $('#table_id_' + temp_number + ' #product_id_' + product_id + ' wpt_quantity .quantity input.input-text.qty.text').val();
                 if(!targetQty){
