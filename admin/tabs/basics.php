@@ -257,7 +257,7 @@ do_action( 'wpto_admin_basic_tab',$meta_basics, $tab, $post, $tab_array );
                 </th>
                 <td>
                     <label class="switch">
-                        <input  name="column_settings[table_head]" type="checkbox" id="wpt_table_head_enable" <?php echo isset( $column_settings['table_head'] ) ? 'checked="checked"' : ''; ?>>
+                        <input  name="basics[table_head]" type="checkbox" id="wpt_table_head_enable" <?php echo isset( $meta_basics['table_head'] ) ? 'checked="checked"' : ''; ?>>
                         <div class="slider round"><!--ADDED HTML -->
                             <span class="on">Hide</span><span class="off">Show</span><!--END-->
                         </div>

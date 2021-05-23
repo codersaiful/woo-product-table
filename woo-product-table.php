@@ -7,11 +7,11 @@
  * Author URI: https://codecanyon.net/user/codeastrology
  * Tags: woocommerce product list,woocommerce product table, wc product table, product grid view, inventory, shop product table
  * 
- * Version: 2.8.7
+ * Version: 2.8.8
  * Requires at least:    4.0.0
- * Tested up to:         5.7.1
+ * Tested up to:         5.7.2
  * WC requires at least: 3.0.0
- * WC tested up to: 	 5.2.2
+ * WC tested up to: 	 5.3.0
  * 
  * Text Domain: wpt_pro
  * Domain Path: /languages/
@@ -30,7 +30,7 @@ if( !defined( 'WPT_PLUGIN_BASE_FOLDER' ) ){
 }
 
 if( !defined( 'WPT_DEV_VERSION' ) ){
-    define( 'WPT_DEV_VERSION', '2.8.7.0' );
+    define( 'WPT_DEV_VERSION', '2.8.8.0' );
 }
 
 if( !defined( 'WPT_CAPABILITY' ) ){
@@ -562,6 +562,13 @@ class WPT_Product_Table{
    }
    
    public function ultraaddons_notice() {
+        $config = get_option( 'wpt_configure_options' );
+        $disable_plugin_noti = !isset( $config['disable_plugin_noti'] ) ? true : false;
+        $disable_plugin_noti = apply_filters( 'wpto_disable_recommend_noti', $disable_plugin_noti );
+        if ( $disable_plugin_noti || ! current_user_can( 'activate_plugins' ) ) {
+                return;
+        }
+       
        $plugin_url = 'https://wordpress.org/plugins/ultraaddons-elementor-lite/';
        $plugin_file = 'ultraaddons-elementor-lite/init.php';
        $plugin_slug = 'ultraaddons-elementor-lite';

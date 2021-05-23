@@ -397,6 +397,10 @@
                     targetLiSelector.removeClass('enabled');
                 });
             }
+//            
+//            targetLiSelector.fadeIn(function(){
+//                $(this).css('opacity','0.3');
+//            });
         });
         
         detect_responsive_stats();
@@ -617,7 +621,6 @@
                     },
                     success: function(data) {
                         $('#wpt-export-textarea').html(data);
-                        $('#wpt-import-textarea').html(data);
                     },
                     error: function() {
                         

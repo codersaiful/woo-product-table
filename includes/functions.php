@@ -218,7 +218,7 @@ if( !function_exists( 'wpt_product_title_column_add' ) ){
         $description_off = $description_off == 'off' ? 'checked="checked"' : '';
        ?>
         <div class="description_off_wrapper">
-            <label for="description_off<?php echo $_device_name; ?>"><input id="description_off<?php echo $_device_name; ?>" title="Disable Deactivate Description from Title Column" name="column_settings[description_off]" id="description_off" class="description_off" type="checkbox" value="off" <?php echo $description_off; ?>> Disable Description</label>
+            <label for="description_off<?php echo $_device_name; ?>"><input id="description_off<?php echo $_device_name; ?>" title="Disable Deactivate Description from Title Column" name="column_settings<?php echo $_device_name; ?>[description_off]" id="description_off" class="description_off" type="checkbox" value="off" <?php echo $description_off; ?>> Disable Description</label>
         </div>
         <div class="title_variation">
             <label for="link<?php echo $_device_name; ?>"><input type="radio" id="link<?php echo $_device_name; ?>" name="column_settings<?php echo $_device_name; ?>[title_variation]" value="link" <?php echo !$title_variation || $title_variation == 'link' ? 'checked' : ''; ?>> Link Enable</label>
@@ -1383,9 +1383,10 @@ add_filter( 'wpto_table_query_args_in_row', 'wpt_shop_archive_sorting_args', 10 
  * 
  * @date 3.2.2021
  * @by Saiful
+ * 
+ * Priority Added PHP_INT_MAX Version: 2.8.8.0 date 12.5.2021
  */
-add_filter( 'astra_add_to_cart_quantity_btn_enabled', '__return_false' ); 
-
+add_filter( 'astra_add_to_cart_quantity_btn_enabled', '__return_false', PHP_INT_MAX );
 
 
 if( !function_exists( 'wpt_ajax_on_first_load' ) ){

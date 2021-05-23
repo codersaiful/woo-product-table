@@ -128,7 +128,7 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
             }
             
             //Collumn Setting part
-            $table_head = !isset( $column_settings['table_head'] ) ? true : false; //Table head availabe or not
+            $table_head = !isset( $basics['table_head'] ) ? true : false; //Table head availabe or not
 
             $table_column_keywords = $enabled_column_array;//array_keys( $enabled_column_array );
             //$table_column_keywords = array_keys( $enabled_column_array );
