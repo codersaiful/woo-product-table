@@ -506,6 +506,7 @@
                     $( document ).trigger( 'cart_page_refreshed' );
                     $( document ).trigger( 'cart_totals_refreshed' );
                     $( document ).trigger( 'wc_fragments_refreshed' );
+                    $('.wpt_row_product_id_' + product_id + ' .input-text').trigger('change');
                 },
                 success: function(response) {
 
