@@ -218,7 +218,7 @@ if( !function_exists( 'wpt_product_title_column_add' ) ){
         $description_off = $description_off == 'off' ? 'checked="checked"' : '';
        ?>
         <div class="description_off_wrapper">
-            <label for="description_off<?php echo $_device_name; ?>"><input id="description_off<?php echo $_device_name; ?>" title="Disable Deactivate Description from Title Column" name="column_settings[description_off]" id="description_off" class="description_off" type="checkbox" value="off" <?php echo $description_off; ?>> Disable Description</label>
+            <label for="description_off<?php echo $_device_name; ?>"><input id="description_off<?php echo $_device_name; ?>" title="Disable Deactivate Description from Title Column" name="column_settings<?php echo $_device_name; ?>[description_off]" id="description_off" class="description_off" type="checkbox" value="off" <?php echo $description_off; ?>> Disable Description</label>
         </div>
         <div class="title_variation">
             <label for="link<?php echo $_device_name; ?>"><input type="radio" id="link<?php echo $_device_name; ?>" name="column_settings<?php echo $_device_name; ?>[title_variation]" value="link" <?php echo !$title_variation || $title_variation == 'link' ? 'checked' : ''; ?>> Link Enable</label>
