@@ -621,7 +621,6 @@
                     },
                     success: function(data) {
                         $('#wpt-export-textarea').html(data);
-                        $('#wpt-import-textarea').html(data);
                     },
                     error: function() {
                         
