@@ -562,6 +562,13 @@ class WPT_Product_Table{
    }
    
    public function ultraaddons_notice() {
+        $config = get_option( 'wpt_configure_options' );
+        $disable_plugin_noti = !isset( $config['disable_plugin_noti'] ) ? true : false;
+        $disable_plugin_noti = apply_filters( 'wpto_disable_recommend_noti', $disable_plugin_noti );
+        if ( $disable_plugin_noti || ! current_user_can( 'activate_plugins' ) ) {
+                return;
+        }
+       
        $plugin_url = 'https://wordpress.org/plugins/ultraaddons-elementor-lite/';
        $plugin_file = 'ultraaddons-elementor-lite/init.php';
        $plugin_slug = 'ultraaddons-elementor-lite';
