@@ -1298,11 +1298,15 @@ if( !function_exists( 'wpt_search_box' ) ){
          * At Version 3.3, we have changed few features
          */
         $html .= "<div class='search_single search_single_direct'>";
+        
+        $search_keyword = isset( $_GET['search_key'] ) ? $_GET['search_key'] : '';
+        $order_by = isset( $_GET['orderby'] ) ? $_GET['orderby'] : $order_by;
+        $order = isset( $_GET['order'] ) ? $_GET['order'] : $order;
 
             $single_keyword = $config_value['search_box_searchkeyword'];//__( 'Search keyword', 'wpt_pro' );
             $html .= "<div class='search_single_column'>";
             $html .= '<label class="search_keyword_label single_keyword" for="single_keyword_' . $temp_number . '">' . $single_keyword . '</label>';
-            $html .= '<input data-key="s" class="query_box_direct_value" id="single_keyword_' . $temp_number . '" value="" placeholder="' . $single_keyword . '"/>';
+            $html .= '<input data-key="s" value="' . $search_keyword . '" class="query_box_direct_value" id="single_keyword_' . $temp_number . '" value="" placeholder="' . $single_keyword . '"/>';
             $html .= "</div>";// End of .search_single_column
 
             $order_by_validation = apply_filters( 'wpto_searchbox_order_show', false,$temp_number, $config_value, $search_box_texonomiy_keyword );
