@@ -1222,6 +1222,13 @@
             var temp_number = thisID.replace('table_id_','');
            $('#wpt_query_search_button_' + temp_number).trigger('click');
         });
+        
+        $('body').on('change','select.query_box_direct_value',function(){
+            var thisID = $(this).parents('.wpt_product_table_wrapper').attr('id');
+            var temp_number = thisID.replace('table_id_','');
+           $('#wpt_query_search_button_' + temp_number).trigger('click');
+        });
+        
         /**
          * Search Box Query and Scripting Here
          * @since 1.9
@@ -1335,9 +1342,10 @@
                 targetTableArgs.args.meta_query = targetTableArgsBackup.args.meta_query;
             }
 
-            
+
             //Display Loading on before load
             targetTableBody.prepend("<div class='wpt_loader_text'>" + config_json.loading_more_text + "</div>"); //Laoding..
+            $(document.body).trigger('wpt_query_progress',targetTableArgs);
             $.ajax({
                 type: 'POST',
                 url: ajax_url,// + get_data,
@@ -1357,6 +1365,29 @@
                     loadMiniFilter(); //@Since 4.8
                     fixAfterAjaxLoad();
                     $('div.wpt_loader_text').remove();
+                    
+                    /**
+                     * Link Generating here, based on Query
+                     * 
+                     * @type String
+                     * @since 2.8.9
+                     */
+                    var extra_link_tax_cf = "";
+                    if( !$.isEmptyObject(texonomies)){
+                        extra_link_tax_cf = "tax=" + JSON.stringify(targetTableArgs.args.tax_query)
+                    }
+                    if( !$.isEmptyObject(custom_field)){
+                        extra_link_tax_cf = "meta=" + JSON.stringify(targetTableArgs.args.meta_query)
+                    }
+
+                    generat_url_by_search_query(temp_number, extra_link_tax_cf);
+                    
+                    /**
+                     * Trigger on this event, when search will be completed
+                     * 
+                     * @since 2.8.9
+                     */
+                    $(document.body).trigger('wpt_query_done',targetTableArgs);
                 },
                 success: function(data) {
                     
@@ -1400,6 +1431,7 @@
                     targetTable.attr('data-page_number',pageNumber);
                 },
                 error: function() {
+                    $(document.body).trigger('wpt_query_faild',targetTableArgs);
                     console.log("Error On Ajax Query Load. Please check console. - wpt_query_search_button");
                 },
             });
@@ -1407,6 +1439,38 @@
             emptyInstanceSearchBox(temp_number);//When query finished, Instant search box will empty
             
         });
+        
+        
+        /**
+         * Link Generator Based On Query String
+         * 
+         * @since 2.8.9
+         * @param {type} table_id
+         * @returns {undefined}
+         */
+        function generat_url_by_search_query( table_id = 0, extra = '' ){
+            var key,value;
+            var link = window.location.origin + window.location.pathname + "?table_ID=" + table_id + "&";
+            $('.query_box_direct_value').each(function(){
+                key = $(this).attr('data-key');
+                if(key === 's'){
+                    key = 'search_key';
+                }
+                value = $(this).val();
+                if(value !== ''){
+                    link += key + "=" + value + "&";
+                }
+                
+            });
+            var page_number = $('#table_id_' + table_id + ' table').attr('data-page_number');
+            page_number = parseInt( page_number ) - 1;
+            link += "paged=" + page_number + "&";
+            
+            link += extra;
+            //window.location.href = link;
+            window.history.pushState('data', null, link.replace(/(^&)|(&$)/g, ""));
+        }
+        
         
         function loadPaginationLinks($data,temp_number){
             var targetTable = $('#table_id_' + temp_number + ' table#wpt_table');
