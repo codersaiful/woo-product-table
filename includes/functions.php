@@ -1101,6 +1101,75 @@ if( !function_exists( 'wpt_args_manipulation_frontend' ) ){
 }
 add_filter( 'wpto_table_query_args', 'wpt_args_manipulation_frontend' );
 
+
+if( ! function_exists( 'wpt_args_manage_by_get_args' ) ){
+    
+    /**
+     * Manage Query Args based on link 
+     * using Supper Global $_GET
+     * 
+     * @since 2.8.9
+     * @param type $args
+     * @return Array
+     */
+    function wpt_args_manage_by_get_args( $args, $table_ID ){
+        //var_dump($args);
+        /**
+         * Check WooCommerce Archive Page, such product taxonomy
+         * show page, search page. etc
+         */
+        if( is_shop() || is_product_taxonomy() ||  empty( $_GET ) ){
+            return $args;
+        }
+        
+        /**
+         * Check if already not set table id in link
+         */
+        if( isset( $_GET['table_ID'] ) && $_GET['table_ID'] != $table_ID ){
+            return $args;
+        }
+        
+        $MY_GETS = $_GET;
+        
+        if( isset( $_GET['search_key'] ) && ! empty( $_GET['search_key'] ) ){
+            $MY_GETS['s'] = $_GET['search_key'];
+            unset($MY_GETS['search_key']);
+        }
+        
+        /**
+         * Handle Tax Query
+         */
+        if( isset( $_GET['tax'] ) && ! empty( $_GET['tax'] ) ){
+            $tax = $_GET['tax'];
+            $tax = stripslashes( $tax );
+            $tax = json_decode($tax,true);
+
+            $MY_GETS['tax_query'] = $tax;
+            unset( $MY_GETS['tax'] );
+        }
+        
+       
+        /**
+         * Handle Meta Query
+         */
+        if( isset( $_GET['meta'] ) && ! empty( $_GET['meta'] ) ){
+            $meta = $_GET['meta'];
+            $meta = stripslashes( $meta );
+            $meta = json_decode($meta,true);
+
+            $MY_GETS['meta_query'] = $meta;
+            unset( $MY_GETS['meta'] );
+        }
+
+       $args = array_merge($args,$MY_GETS);
+
+        return $args;
+    }
+}
+add_filter( 'wpto_table_query_args', 'wpt_args_manage_by_get_args', 10, 2 );
+
+
+
 if( !function_exists( 'wpt_freeze_column_maintain' ) ){
 
     /**
