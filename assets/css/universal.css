@@ -1561,7 +1561,7 @@ a.search_box_reset {
     font-weight: normal;
     color: #ff8989;
     background: black;
-    border-radius: 15px;
+    border-radius: 5px;
     line-height: 25px;
     font-size: 11px;
     transition: all .1s;
