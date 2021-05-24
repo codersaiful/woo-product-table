@@ -1352,8 +1352,13 @@ if( !function_exists( 'wpt_search_box' ) ){
             }
         }
         $html .=  apply_filters('end_part_advance_search_box','',$table_ID);
+        $cutnt_link = get_page_link();
+        $style = isset( $_GET['table_ID'] ) ? "display:inline;": '';
+        $html .= '<a href="' . $cutnt_link . '" data-type="close-button" data-table_ID="' . $temp_number . '" id="wpt_query_reset_button_' . $temp_number . '" class="search_box_reset search_box_reset_' . $temp_number . '" style="' . $style . '">x</a>';
+        
         $html .= '</div>'; //End of .search_box_singles
 
+        
         $html .= '<button data-type="query" data-temp_number="' . $temp_number . '" id="wpt_query_search_button_' . $temp_number . '" class="button wpt_search_button query_button wpt_query_search_button wpt_query_search_button_' . $temp_number . '">' . $config_value['search_button_text'] . '</button>';
         $html .= '</div>';//End of .search_box_fixer
         $html .= '</div>';//End of .wpt_search_box
@@ -1365,7 +1370,7 @@ if( !function_exists( 'wpt_filter_box' ) ){
     /**
      * Total Search box Generator
      * 
-     * @param type $temp_number It's a Temporay Number for each Table,
+     * @param type $temp_number It's a Temporary Number for each Table,
      * @param type $search_box_texonomiy_keyword Obviously should be a Array, for product_cat tag etc
      * @return string
      */

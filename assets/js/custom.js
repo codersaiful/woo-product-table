@@ -1381,7 +1381,7 @@
                     }
 
                     generat_url_by_search_query(temp_number, extra_link_tax_cf);
-                    
+                    $('#wpt_query_reset_button_' + temp_number).fadeIn('medium');
                     /**
                      * Trigger on this event, when search will be completed
                      * 

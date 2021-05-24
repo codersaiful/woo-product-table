@@ -1145,6 +1145,7 @@ if( ! function_exists( 'wpt_args_manage_by_get_args' ) ){
             $tax = json_decode($tax,true);
 
             $MY_GETS['tax_query'] = $tax;
+            unset( $args['tax_query'] );
             unset( $MY_GETS['tax'] );
         }
         
@@ -1158,6 +1159,7 @@ if( ! function_exists( 'wpt_args_manage_by_get_args' ) ){
             $meta = json_decode($meta,true);
 
             $MY_GETS['meta_query'] = $meta;
+            unset( $args['meta_query'] );
             unset( $MY_GETS['meta'] );
         }
 

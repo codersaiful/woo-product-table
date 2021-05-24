@@ -1544,6 +1544,37 @@ div.wpt_product_table_wrapper table.wpt_product_table th.wpt_action {
     margin: 10px 0;
 }
 
+.wpt_search_box .search_box_wrapper {
+    position: relative;
+}
+
+.wpt_search_box .search_box_wrapper a.search_box_reset, 
+a.search_box_reset {
+    position: absolute;
+    right: 8px;
+    top: 0;
+    height: 25px;
+    padding: 0;
+    width: 25px;
+    text-align: center;
+    font-family: Helvetica;
+    font-weight: normal;
+    color: #ff8989;
+    background: black;
+    border-radius: 15px;
+    line-height: 25px;
+    font-size: 11px;
+    transition: all .1s;
+    outline: none !important;
+    border: none !important;
+    text-decoration: none !important;
+    display: none;
+}
+a.search_box_reset:focus,
+.wpt_search_box .search_box_wrapper a.search_box_reset:hover, a.search_box_reset:hover {
+    color: #ff4747;
+    background: #5d0202;
+}
 /***************Search Box or option start****************/
 /*option.level-1 {
     padding-left: 25px;
