@@ -144,6 +144,15 @@
                     updateCheckBoxCount(temp_number); //Selection reArrange 
                     uncheckAllCheck(temp_number);//Uncheck All CheckBox after getting New pagination
                     emptyInstanceSearchBox(temp_number);//CleanUp or do empty Instant Search
+                    
+                    
+                    if($('#table_id_' + temp_number + ' table.wpt_product_table').attr('data-queried') !== 'true'){
+                        generat_url_by_search_query(temp_number);
+                        $('#table_id_' + temp_number + ' table.wpt_product_table').attr('data-queried','true');
+                    }
+                    
+                    
+                    
 
                     pageNumber++; //Page Number Increasing 1 Plus
                     targetTable.attr('data-page_number',pageNumber);
@@ -1383,7 +1392,12 @@
                     if( !$.isEmptyObject(custom_field)){
                         extra_link_tax_cf = "meta=" + JSON.stringify(targetTableArgs.args.meta_query)
                     }
-
+                    
+                    //Set a Attr value in table tag, If already queried
+                    $('#table_id_' + temp_number + ' table.wpt_product_table').attr('data-queried','true');
+                    /**
+                     * Generate here where query
+                     */
                     generat_url_by_search_query(temp_number, extra_link_tax_cf);
                     $('#wpt_query_reset_button_' + temp_number).fadeIn('medium');
                     /**
