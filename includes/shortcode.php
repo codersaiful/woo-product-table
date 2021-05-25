@@ -1298,11 +1298,15 @@ if( !function_exists( 'wpt_search_box' ) ){
          * At Version 3.3, we have changed few features
          */
         $html .= "<div class='search_single search_single_direct'>";
+        
+        $search_keyword = isset( $_GET['search_key'] ) ? $_GET['search_key'] : '';
+        $order_by = isset( $_GET['orderby'] ) ? $_GET['orderby'] : $order_by;
+        $order = isset( $_GET['order'] ) ? $_GET['order'] : $order;
 
             $single_keyword = $config_value['search_box_searchkeyword'];//__( 'Search keyword', 'wpt_pro' );
             $html .= "<div class='search_single_column'>";
             $html .= '<label class="search_keyword_label single_keyword" for="single_keyword_' . $temp_number . '">' . $single_keyword . '</label>';
-            $html .= '<input data-key="s" class="query_box_direct_value" id="single_keyword_' . $temp_number . '" value="" placeholder="' . $single_keyword . '"/>';
+            $html .= '<input data-key="s" value="' . $search_keyword . '" class="query_box_direct_value" id="single_keyword_' . $temp_number . '" value="" placeholder="' . $single_keyword . '"/>';
             $html .= "</div>";// End of .search_single_column
 
             $order_by_validation = apply_filters( 'wpto_searchbox_order_show', false,$temp_number, $config_value, $search_box_texonomiy_keyword );
@@ -1348,8 +1352,13 @@ if( !function_exists( 'wpt_search_box' ) ){
             }
         }
         $html .=  apply_filters('end_part_advance_search_box','',$table_ID);
+        $cutnt_link = get_page_link();
+        $style = isset( $_GET['table_ID'] ) ? "display:inline;": '';
+        $html .= '<a href="' . $cutnt_link . '" data-type="close-button" data-table_ID="' . $temp_number . '" id="wpt_query_reset_button_' . $temp_number . '" class="search_box_reset search_box_reset_' . $temp_number . '" style="' . $style . '">x</a>';
+        
         $html .= '</div>'; //End of .search_box_singles
 
+        
         $html .= '<button data-type="query" data-temp_number="' . $temp_number . '" id="wpt_query_search_button_' . $temp_number . '" class="button wpt_search_button query_button wpt_query_search_button wpt_query_search_button_' . $temp_number . '">' . $config_value['search_button_text'] . '</button>';
         $html .= '</div>';//End of .search_box_fixer
         $html .= '</div>';//End of .wpt_search_box
@@ -1361,7 +1370,7 @@ if( !function_exists( 'wpt_filter_box' ) ){
     /**
      * Total Search box Generator
      * 
-     * @param type $temp_number It's a Temporay Number for each Table,
+     * @param type $temp_number It's a Temporary Number for each Table,
      * @param type $search_box_texonomiy_keyword Obviously should be a Array, for product_cat tag etc
      * @return string
      */
