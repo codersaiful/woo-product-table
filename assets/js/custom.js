@@ -121,6 +121,10 @@
                     loadMiniFilter(); //@Since 4.8
                     
                     fixAfterAjaxLoad();
+                    
+                    var current_link = window.location.href;
+                    window.history.pushState('data', null, current_link.replace(/(paged=\d)+/, "paged=" + pageNumber));
+
                 },
                 success: function(data) {
                     targetTableBody.html(data);
