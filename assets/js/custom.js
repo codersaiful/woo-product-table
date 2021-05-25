@@ -123,7 +123,7 @@
                     fixAfterAjaxLoad();
                     
                     var current_link = window.location.href;
-                    window.history.pushState('data', null, current_link.replace(/(paged=\d)+/, "paged=" + pageNumber));
+                    window.history.pushState('data', null, current_link.replace(/(paged=\d)+/, "paged=" + (pageNumber-1)));
 
                 },
                 success: function(data) {
