@@ -156,7 +156,7 @@ You can easily show specific category products. While creating new table click o
 
 == Changelog ==
 
-= 2.9.0 =
+= 2.8.9 =
  * Name change to WCTable - Product Table for WooCommerce (Woo Product Table)
 
 = 2.8.8 =
