@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: WOO Product Table
+ * Plugin Name: WCTable- WOO Product Table
  * Plugin URI: https://codecanyon.net/item/woo-product-table-pro/20676867?ref=CodeAstrology&utm_source=WPT_Installed_Plugin
  * Description: WooCommerce all products display as a table in one page by shortcode. Fully responsive and mobile friendly. Easily customizable - color,background,title,text color etc.
  * Author: CodeAstrology
@@ -526,16 +526,10 @@ class WPT_Product_Table{
         }
 
         if( ! is_plugin_active( $plugin ) ){
-            include_once $this->path('BASE_DIR','modules/elementor.php'); //MObile or Table Defice Detector //gutenberg
+            include_once $this->path('BASE_DIR','modules/elementor.php'); //Elementor Blog Added
         }
     }   
-    /**
-     * Supporting Gutenberg 
-     * 
-     * @since 2.7.6
-     */
-    //include_once $this->path('BASE_DIR','modules/gutenberg.php'); //gutenberg
-    
+        
     if( !class_exists( 'Mobile_Detect' ) ){
         include_once $this->path('BASE_DIR','modules/Mobile_Detect.php'); //MObile or Table Defice Detector
     }

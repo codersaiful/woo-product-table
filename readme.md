@@ -1,6 +1,6 @@
 ![Woo Product Table](https://raw.githubusercontent.com/codersaiful/woo-product-table/master/assets/images/wpt-logo.png)
 
-# Woo Product Table - A WooCommerce Product Table Plugin
+# WCTable- WOO Product Table - A WooCommerce Product Table Plugin
 Woo Product Table has Tiny Shortcode. Easy to use and No need programming knowledge to use. Easily able to handle by Graphical User Interface. Just like following:
 ```[Product_Table id='123']```
 

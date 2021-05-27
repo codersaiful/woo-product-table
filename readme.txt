@@ -1,4 +1,4 @@
-=== Woo Product Table - Free WooCommerce Table view solution ===
+=== WCTable - Product Table for WooCommerce (Woo Product Table) ===
 Contributors: codersaiful,codeastrology
 Donate link: https://codecanyon.net/item/woo-product-table-pro/20676867?ref=CodeAstrology&utm_source=WPT_Installed_DonateLink
 Tags: wc product table,woocommerce product table, product table, wc table, quick order table, wholesale table, restaurants table
@@ -8,11 +8,11 @@ Requires PHP: 5.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Product Table's pro Features in FREE. Easily display your products as table by tiny shortcode. Such: [Product_Table id='1']. Support default editor, any Page Builder & Gutenberg.
+Easily display your products as table by tiny shortcode. Such: [Product_Table id='1']. Support default editor, any Page Builder & Gutenberg.
 
 == Description ==
 Auto Responsive Mobile & Tab, Nice Design, Fast Speed *WooCommerce Product Table*. Tiny Shortcode, Easy customizable, Ajax Add to cart, Ajax Search, Pagination & Load More.
-*Woo Product Table - Free WooCommerce Table view solution* offers to show all products display as a table in page by light shortcode. Fully responsive and mobile friendly. Easily customizable - color, background, title, padding, margin etc.
+*WCTable - Product Table for WooCommerce (Woo Product Table)* offers to show all products display as a table in page by light shortcode. Fully responsive and mobile friendly. Easily customizable - color, background, title, padding, margin etc.
 
 **[For Discount check our official site](https://wooproducttable.com/#discount)**
 
@@ -155,6 +155,9 @@ You can easily show specific category products. While creating new table click o
 25. Manually responsive for mobile devices
 
 == Changelog ==
+
+= 2.9.0 =
+ * Name change to WCTable - Product Table for WooCommerce (Woo Product Table)
 
 = 2.8.8 =
  * move icon and checkbox position at topside always
