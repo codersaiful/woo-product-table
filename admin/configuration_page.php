@@ -29,6 +29,7 @@ if( !function_exists( 'wpt_configuration_page' ) ){
                     },$_POST['data']
                 );
             }
+            // $value 's all key_value is sanitized before update on database
             update_option( 'wpt_configure_options',  $value );
         }
         $current_config_value = get_option( 'wpt_configure_options' );
