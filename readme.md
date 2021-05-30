@@ -68,7 +68,7 @@ Now we need to add a input field for get the custom shortcode from user. here we
 function input_for_new_shortcode($_device_name, $column_settings){
     $text = isset( $column_settings['new_shortcode']['text'] ) ? $column_settings['new_shortcode']['text'] : false;
     ?>
-<input class="ua_input" name="column_settings<?php echo $_device_name; ?>[new_shortcode]" value="<?php echo esc_attr( $text ); ?>">
+<input class="ua_input" name="column_settings<?php echo esc_attr( $_device_name ); ?>[new_shortcode]" value="<?php echo esc_attr( $text ); ?>">
 <?php 
 }
 add_action( 'wpto_column_setting_form_new_shortcode', 'input_for_new_shortcode', 10, 2 );
