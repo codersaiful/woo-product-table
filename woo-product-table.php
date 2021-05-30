@@ -585,7 +585,7 @@ class WPT_Product_Table{
                 </div>
                 <div class="wpt-ua-message-area">
                     <h2><?php echo esc_html( $msg_title ); ?></h2>
-                    <p><?php echo $msg; ?></p>
+                    <p><?php echo esc_html( $msg ); ?></p>
                     <a class="button" href="<?php echo esc_url( $url ); ?>"><?php echo esc_html( $btn_text ); ?></a>
                 </div>
             </div>
