@@ -1301,7 +1301,7 @@ if( !function_exists( 'wpt_search_box' ) ){
         
         $search_keyword = isset( $_GET['search_key'] ) ? sanitize_text_field( $_GET['search_key'] ) : '';
         $order_by = isset( $_GET['orderby'] ) ? sanitize_text_field( $_GET['orderby'] ) : $order_by;
-        $order = isset( $_GET['order'] ) ? $_GET['order'] : $order;
+        $order = isset( $_GET['order'] ) ? sanitize_text_field( $_GET['order'] ) : $order;
 
             $single_keyword = $config_value['search_box_searchkeyword'];//__( 'Search keyword', 'wpt_pro' );
             $html .= "<div class='search_single_column'>";
