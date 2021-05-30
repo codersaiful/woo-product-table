@@ -1113,7 +1113,6 @@ if( ! function_exists( 'wpt_args_manage_by_get_args' ) ){
      * @return Array
      */
     function wpt_args_manage_by_get_args( $args, $table_ID ){
-        //var_dump($args);
         /**
          * Check WooCommerce Archive Page, such product taxonomy
          * show page, search page. etc
@@ -1166,8 +1165,7 @@ if( ! function_exists( 'wpt_args_manage_by_get_args' ) ){
         }
         
        $args = array_merge($args,$MY_GETS);
-
-        return $args;
+       return $args;
     }
 }
 add_filter( 'wpto_table_query_args', 'wpt_args_manage_by_get_args', 10, 2 );
