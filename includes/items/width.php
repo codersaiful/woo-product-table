@@ -1,2 +1,2 @@
 <?php
-echo $data['width'];
+echo wp_kses_post( $data['width'] );

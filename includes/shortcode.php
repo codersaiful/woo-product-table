@@ -1040,7 +1040,7 @@ if( !function_exists( 'wpt_table_row_generator' ) ){
         else:
             //$html .= "<div class='wpt_loader_text wpt_product_not_found'>" . $config_value['product_not_founded'] . "</div>";
             ?>
-                        <div class='wpt_loader_text wpt_product_not_found'><?php echo $config_value['product_not_founded']; ?></div>
+                        <div class='wpt_loader_text wpt_product_not_found'><?php echo wp_kses_post( $config_value['product_not_founded'] ); ?></div>
             <?php
         endif;
 

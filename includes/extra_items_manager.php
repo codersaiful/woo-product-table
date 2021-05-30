@@ -98,7 +98,7 @@ foreach( $extra_items as $keyword ){
     $tag = isset( $column_settings[$keyword]['tag'] ) && !empty( $column_settings[$keyword]['tag'] ) ? $column_settings[$keyword]['tag'] : 'div';
     $tag_class = isset( $column_settings[$keyword]['tag_class'] ) && !empty( $column_settings[$keyword]['tag_class'] ) ? $column_settings[$keyword]['tag_class'] : '';
     $style_str = isset( $column_settings[$keyword]['style_str'] ) && !empty( $column_settings[$keyword]['style_str'] ) ? $column_settings[$keyword]['style_str'] : '';
-    echo $tag ? "<$tag "
+    echo $tag ? "<" . esc_html( $tag ) . " "
             . "class='item_inside_cell wpt_" . esc_attr( $keyword ) . " " . esc_attr( $tag_class ) . "' "
             . "data-keyword='" . esc_attr( $keyword ) . "' "
             . "data-sku='" . esc_attr( $product->get_sku() ) . "' "
@@ -116,5 +116,5 @@ foreach( $extra_items as $keyword ){
     do_action( 'wpto_element_bottom', $keyword, $table_ID, $settings, $column_settings, $product );
     do_action( 'wpto_item_bottom', $keyword, $table_ID, $settings, $column_settings, $parent_column_settings, $product );
     
-    echo $tag ? "</$tag>" : '';
+    echo $tag ? "</" . esc_html( $tag ) . ">" : '';
 }

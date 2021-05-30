@@ -321,7 +321,7 @@ if( !function_exists( 'wpt_variation_image_load' ) ){
         $variation_id = isset( $_POST['variation_id'] ) ? $_POST['variation_id'] : false;
         if( $variation_id ){
             $img_src = wp_get_attachment_image_src( get_post_thumbnail_id( $variation_id ), 'full', false );   
-            echo $img_src[0] . ' ' . $img_src[1];
+            echo esc_url( $img_src[0] ) . ' ' . esc_html( $img_src[1] );
         }
 
         die();

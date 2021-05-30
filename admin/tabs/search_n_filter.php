@@ -64,10 +64,10 @@ $meta_search_n_filter =  get_post_meta( $post->ID, 'search_n_filter', true );
         <table class="ultraaddons-table wpt_snf_on_off ">
             <tr>
                 <th>
-                    <label class="wpt_label" for="filter_for_<?php echo $per_keyword; ?>"><?php echo sprintf( esc_html__('Choose [%s] %s (For Advanced Searchbox Filter) %s','wpt_pro'),$per_keyword,'<small>','</small>');?></label>
+                    <label class="wpt_label" for="filter_for_<?php echo esc_attr( $per_keyword ); ?>"><?php echo sprintf( esc_html__('Choose [%s] %s (For Advanced Searchbox Filter) %s','wpt_pro'),$per_keyword,'<small>','</small>');?></label>
                 </th>
                 <td>
-                    <select name="search_n_filter[<?php echo $per_keyword; ?>][]" data-name="<?php echo $per_keyword; ?>" id="filter_for_<?php echo $per_keyword; ?>" class="wpt_fullwidth wpt_data_filed_atts wpt_select2 ua_input" multiple>
+                    <select name="search_n_filter[<?php echo esc_attr( $per_keyword ); ?>][]" data-name="<?php echo esc_attr( $per_keyword ); ?>" id="filter_for_<?php echo esc_attr( $per_keyword ); ?>" class="wpt_fullwidth wpt_data_filed_atts wpt_select2 ua_input" multiple>
                         <?php
                         foreach ( $tax_object as $tax_item ) {
                             $tax_array_key = $per_keyword;

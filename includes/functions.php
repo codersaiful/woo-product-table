@@ -218,12 +218,12 @@ if( !function_exists( 'wpt_product_title_column_add' ) ){
         $description_off = $description_off == 'off' ? 'checked="checked"' : '';
        ?>
         <div class="description_off_wrapper">
-            <label for="description_off<?php echo $_device_name; ?>"><input id="description_off<?php echo $_device_name; ?>" title="Disable Deactivate Description from Title Column" name="column_settings<?php echo $_device_name; ?>[description_off]" id="description_off" class="description_off" type="checkbox" value="off" <?php echo $description_off; ?>> Disable Description</label>
+            <label for="description_off<?php echo esc_attr( $_device_name ); ?>"><input id="description_off<?php echo esc_attr( $_device_name ); ?>" title="Disable Deactivate Description from Title Column" name="column_settings<?php echo esc_attr( $_device_name ); ?>[description_off]" id="description_off" class="description_off" type="checkbox" value="off" <?php echo $description_off; ?>> Disable Description</label>
         </div>
         <div class="title_variation">
-            <label for="link<?php echo $_device_name; ?>"><input type="radio" id="link<?php echo $_device_name; ?>" name="column_settings<?php echo $_device_name; ?>[title_variation]" value="link" <?php echo !$title_variation || $title_variation == 'link' ? 'checked' : ''; ?>> Link Enable</label>
-            <label for="nolink<?php echo $_device_name; ?>"><input type="radio" id="nolink<?php echo $_device_name; ?>" name="column_settings<?php echo $_device_name; ?>[title_variation]" value="nolink" <?php echo $title_variation == 'nolink' ? 'checked' : ''; ?>> Link Disable</label>
-            <label for="yith<?php echo $_device_name; ?>" class="tooltip"><input type="radio" id="yith<?php echo $_device_name; ?>" name="column_settings<?php echo $_device_name; ?>[title_variation]" value="yith" <?php echo $title_variation == 'yith' ? 'checked' : ''; ?>> Link Disable + Quick View<span class="tooltip-hover down-arrow">You have to install <a href="https://wordpress.org/plugins/yith-woocommerce-quick-view/" target="_blank">YITH WooCommerce Quick View</a></span></label>
+            <label for="link<?php echo esc_attr( $_device_name ); ?>"><input type="radio" id="link<?php echo esc_attr( $_device_name ); ?>" name="column_settings<?php echo esc_attr( $_device_name ); ?>[title_variation]" value="link" <?php echo !$title_variation || $title_variation == 'link' ? 'checked' : ''; ?>> Link Enable</label>
+            <label for="nolink<?php echo esc_attr( $_device_name ); ?>"><input type="radio" id="nolink<?php echo esc_attr( $_device_name ); ?>" name="column_settings<?php echo esc_attr( $_device_name ); ?>[title_variation]" value="nolink" <?php echo $title_variation == 'nolink' ? 'checked' : ''; ?>> Link Disable</label>
+            <label for="yith<?php echo esc_attr( $_device_name ); ?>" class="tooltip"><input type="radio" id="yith<?php echo esc_attr( $_device_name ); ?>" name="column_settings<?php echo esc_attr( $_device_name ); ?>[title_variation]" value="yith" <?php echo $title_variation == 'yith' ? 'checked' : ''; ?>> Link Disable + Quick View<span class="tooltip-hover down-arrow">You have to install <a href="https://wordpress.org/plugins/yith-woocommerce-quick-view/" target="_blank">YITH WooCommerce Quick View</a></span></label>
         </div>        
         
         
@@ -239,10 +239,10 @@ if( !function_exists( 'wpt_thumbnails_column_add' ) ){
         $thumb_variation = isset( $column_settings['thumb_variation']) ? $column_settings['thumb_variation'] : false;
        ?>
         <div class="thumb_variation">
-            <label for="popup<?php echo $_device_name; ?>"><input type="radio" id="popup<?php echo $_device_name; ?>" name="column_settings<?php echo $_device_name; ?>[thumb_variation]" value="popup" <?php echo !$thumb_variation || $thumb_variation == 'popup' ? 'checked' : ''; ?>> Default Popup</label>
-            <label for="no_action<?php echo $_device_name; ?>"><input type="radio" id="no_action<?php echo $_device_name; ?>" name="column_settings<?php echo $_device_name; ?>[thumb_variation]" value="no_action" <?php echo $thumb_variation == 'no_action' ? 'checked' : ''; ?>> No Action</label>
-            <label for="url<?php echo $_device_name; ?>"><input type="radio" id="url<?php echo $_device_name; ?>" name="column_settings<?php echo $_device_name; ?>[thumb_variation]" value="url" <?php echo $thumb_variation == 'url' ? 'checked' : ''; ?>> Product Link</label>
-            <label for="quick_view<?php echo $_device_name; ?>" class="tooltip"><input type="radio" id="quick_view<?php echo $_device_name; ?>" name="column_settings<?php echo $_device_name; ?>[thumb_variation]" value="quick_view" <?php echo $thumb_variation == 'quick_view' ? 'checked' : ''; ?>> Quick View<span class="tooltip-hover down-arrow">You have to install <a href="https://wordpress.org/plugins/yith-woocommerce-quick-view/" target="_blank">YITH WooCommerce Quick View</a></span></label>
+            <label for="popup<?php echo esc_attr( $_device_name ); ?>"><input type="radio" id="popup<?php echo esc_attr( $_device_name ); ?>" name="column_settings<?php echo esc_attr( $_device_name ); ?>[thumb_variation]" value="popup" <?php echo !$thumb_variation || $thumb_variation == 'popup' ? 'checked' : ''; ?>> Default Popup</label>
+            <label for="no_action<?php echo esc_attr( $_device_name ); ?>"><input type="radio" id="no_action<?php echo esc_attr( $_device_name ); ?>" name="column_settings<?php echo esc_attr( $_device_name ); ?>[thumb_variation]" value="no_action" <?php echo $thumb_variation == 'no_action' ? 'checked' : ''; ?>> No Action</label>
+            <label for="url<?php echo esc_attr( $_device_name ); ?>"><input type="radio" id="url<?php echo esc_attr( $_device_name ); ?>" name="column_settings<?php echo esc_attr( $_device_name ); ?>[thumb_variation]" value="url" <?php echo $thumb_variation == 'url' ? 'checked' : ''; ?>> Product Link</label>
+            <label for="quick_view<?php echo esc_attr( $_device_name ); ?>" class="tooltip"><input type="radio" id="quick_view<?php echo esc_attr( $_device_name ); ?>" name="column_settings<?php echo esc_attr( $_device_name ); ?>[thumb_variation]" value="quick_view" <?php echo $thumb_variation == 'quick_view' ? 'checked' : ''; ?>> Quick View<span class="tooltip-hover down-arrow">You have to install <a href="https://wordpress.org/plugins/yith-woocommerce-quick-view/" target="_blank">YITH WooCommerce Quick View</a></span></label>
         </div>
         
        <?php
@@ -274,7 +274,7 @@ if( !function_exists( 'wpt_column_tag_for_all' ) ){
         ?>
         <div class="column_tag_for_all">
             <label>Select wrapper tag</label>
-            <select class="ua_select" name="column_settings<?php echo $_device_name; ?>[<?php echo $keyword; ?>][tag]">    
+            <select class="ua_select" name="column_settings<?php echo esc_attr( $_device_name ); ?>[<?php echo $keyword; ?>][tag]">    
             <?php
             foreach($tags as $tag => $tag_name){
                 $seleced = $tag_value == $tag ? 'selected' : false;
@@ -283,7 +283,7 @@ if( !function_exists( 'wpt_column_tag_for_all' ) ){
             ?>
             </select>
         </div>
-        <!-- <input name="column_settings<?php echo $_device_name; ?>[<?php echo $keyword; ?>][input_one]" value='<?php echo esc_attr( $input_one ); ?>'> -->
+        <!-- <input name="column_settings<?php echo esc_attr( $_device_name ); ?>[<?php echo $keyword; ?>][input_one]" value='<?php echo esc_attr( $input_one ); ?>'> -->
         <?php
     }
 }

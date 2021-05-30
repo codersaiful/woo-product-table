@@ -68,13 +68,13 @@ unset( $columns_array['check'] );
             $enabled_class = $checked_attribute = '';
         }
     ?>
-    <li class="hide_on_mobile_permits <?php echo $enabled_class; ?> column_keyword_<?php echo esc_attr( $keyword ); ?>">
+    <li class="hide_on_mobile_permits <?php echo esc_attr( $enabled_class ); ?> column_keyword_<?php echo esc_attr( $keyword ); ?>">
         
         <div class="wpt_mobile_hide_keyword">
             <b  data-column_title="<?php echo esc_attr( $title ); ?>" data-keyword="<?php echo esc_attr( $keyword ); ?>" class="mobile_issue_field <?php echo esc_attr( $keyword ); ?>" type="text" ><?php echo $title; ?></b>
         </div>
         <span title="<?php echo esc_attr( $keyword ); ?>"  title="<?php esc_attr_e( 'Move Handle', 'wpt_pro' ); ?>" class="handle checkbox_handle">
-            <input  name="mobile[disable][]" value="<?php echo esc_attr( $keyword ); ?>"  title="<?php esc_attr_e( 'Active Inactive Column', 'wpt_pro' ); ?>" class="checkbox_handle_input <?php echo $enabled_class; ?>" type="checkbox" data-column_keyword="<?php echo esc_attr( $keyword ); ?>" <?php echo $checked_attribute; ?>>
+            <input  name="mobile[disable][]" value="<?php echo esc_attr( $keyword ); ?>"  title="<?php esc_attr_e( 'Active Inactive Column', 'wpt_pro' ); ?>" class="checkbox_handle_input <?php echo esc_attr( $enabled_class ); ?>" type="checkbox" data-column_keyword="<?php echo esc_attr( $keyword ); ?>" <?php echo $checked_attribute; ?>>
         </span>
     </li>
     <?php

@@ -6,4 +6,4 @@ $wpt_single_price .= $product->get_price_html(); //Here was woocommerce_template
 $wpt_single_price .= '</span>';
 //$wpt_single_price .= " </td>";
 //var_dump($product->get_price());
-echo $wpt_single_price;
+echo wp_kses_post( $wpt_single_price );

@@ -23,5 +23,5 @@ $product_id = $id;
  }else{
      $customfield_content = $custom_meta;
  }
- echo $customfield_content;
+ echo wp_kses_post( $customfield_content );
  

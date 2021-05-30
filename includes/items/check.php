@@ -23,5 +23,5 @@ $wpt_single_check .= "<input "
     . ( $checkbox == 'wpt_checked_table' && $enable_disable == 'enabled' ? " checked='checked'" : "" )
     . ">"
     . "<label for='check_id_{$temp_number}_" . $data['id'] . "'></label>";
-echo $wpt_single_check;
+echo wp_kses_post( $wpt_single_check );
               

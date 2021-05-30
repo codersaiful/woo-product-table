@@ -4,11 +4,11 @@ if( isset( $_GET['debug'] ) ){
 <b>Filter for Locate File:</b>
 <pre>
 Filter in Code: 'wpto_template_loc_item_' . $keyword
-Filter: wpto_template_loc_item_<?php echo $keyword; ?><br>
+Filter: wpto_template_loc_item_<?php echo esc_html( $keyword ); ?><br>
 Available Args: $file, $table_ID, $product
 
 using:
-add_filter('wpto_template_loc_item_<?php echo $keyword; ?>','your_prefix_your_function');
+add_filter('wpto_template_loc_item_<?php echo esc_html( $keyword ); ?>','your_prefix_your_function');
 </pre>
 <?php
 }
@@ -35,9 +35,9 @@ if( $in_extra_manager ){
 }
 
 ?>
-<code><?php echo $wrap_info; ?>::<?php echo $keyword; ?></code>
+<code><?php echo $wrap_info; ?>::<?php echo esc_html( $keyword ); ?></code>
 <pre>
 File Not Founded.
-Looking file at <?php echo $requested_file; ?><br>
+Looking file at <?php echo esc_url( $requested_file ); ?><br>
 For More Details: your_page_url.com?debug=wpt
 </pre>
