@@ -241,7 +241,7 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
          * Issue of Query for Load More Button
          */
         if( isset( $_GET['s'] ) && !empty( $_GET['s'] ) ){
-            $args['s'] = $_GET['s'];
+            $args['s'] = sanitize_text_field( $_GET['s'] );
         }else{
             unset( $args['s'] );
         }
@@ -1299,8 +1299,8 @@ if( !function_exists( 'wpt_search_box' ) ){
          */
         $html .= "<div class='search_single search_single_direct'>";
         
-        $search_keyword = isset( $_GET['search_key'] ) ? $_GET['search_key'] : '';
-        $order_by = isset( $_GET['orderby'] ) ? $_GET['orderby'] : $order_by;
+        $search_keyword = isset( $_GET['search_key'] ) ? sanitize_text_field( $_GET['search_key'] ) : '';
+        $order_by = isset( $_GET['orderby'] ) ? sanitize_text_field( $_GET['orderby'] ) : $order_by;
         $order = isset( $_GET['order'] ) ? $_GET['order'] : $order;
 
             $single_keyword = $config_value['search_box_searchkeyword'];//__( 'Search keyword', 'wpt_pro' );
