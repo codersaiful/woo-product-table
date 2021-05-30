@@ -466,7 +466,7 @@ class WPT_Product_Table{
         }
 
        $dir = dirname( __FILE__ ); //dirname( __FILE__ )
-       
+
        /**
         * See $path_args for Set Path and set Constant
         * 
@@ -475,7 +475,7 @@ class WPT_Product_Table{
        $path_args = array(
            'PLUGIN_BASE_FOLDER'     =>  plugin_basename( $dir ),
            'PLUGIN_BASE_FILE'       =>  plugin_basename( __FILE__ ),
-           'BASE_URL'               =>  plugins_url() . '/'. plugin_basename( $dir ) . '/', //using plugins_url() instead of WP_PLUGIN_URL
+           'BASE_URL'               => trailingslashit( plugins_url( '',__FILE__) ),
            'BASE_DIR'               =>  str_replace( '\\', '/', $dir . '/' ),
        );
        /**
