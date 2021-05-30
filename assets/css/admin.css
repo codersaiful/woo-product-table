@@ -1069,6 +1069,12 @@ body.wpt_admin_body .select2-container--default .select2-selection--multiple .se
     color: black;
     box-shadow: 1px 1px 3px 0px #0000003b;
 }
+
+body.wpt_admin_body .select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
+    margin-top: 3px;
+}
+
+
 body.wpt_admin_body .ultraaddons-panel p {
     
     color: #888;
