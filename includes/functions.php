@@ -1129,24 +1129,27 @@ if( ! function_exists( 'wpt_args_manage_by_get_args' ) ){
             return $args;
         }
         
-        $MY_GETS = $_GET;
-        
+        $MY_GETS = array(
+            'table_ID' => ! empty( $_GET['table_ID'] ) ? absint($_GET['table_ID']) : false,
+            'orderby' => ! empty( $_GET['orderby'] ) ? sanitize_text_field($_GET['orderby']) : false,
+            'order' => ! empty( $_GET['order'] ) ? sanitize_text_field($_GET['order']) : false,
+        );
+        $MY_GETS = array_filter( $MY_GETS );
+
         if( isset( $_GET['search_key'] ) && ! empty( $_GET['search_key'] ) ){
-            $MY_GETS['s'] = $_GET['search_key'];
-            unset($MY_GETS['search_key']);
+            $MY_GETS['s'] = sanitize_text_field( $_GET['search_key'] );
         }
-        
+
         /**
          * Handle Tax Query
          */
         if( isset( $_GET['tax'] ) && ! empty( $_GET['tax'] ) ){
-            $tax = $_GET['tax'];
+            $tax = sanitize_text_field( $_GET['tax'] );
             $tax = stripslashes( $tax );
             $tax = json_decode($tax,true);
 
             $MY_GETS['tax_query'] = $tax;
             unset( $args['tax_query'] );
-            unset( $MY_GETS['tax'] );
         }
         
        
@@ -1154,15 +1157,14 @@ if( ! function_exists( 'wpt_args_manage_by_get_args' ) ){
          * Handle Meta Query
          */
         if( isset( $_GET['meta'] ) && ! empty( $_GET['meta'] ) ){
-            $meta = $_GET['meta'];
+            $meta = sanitize_text_field( $_GET['meta'] );
             $meta = stripslashes( $meta );
             $meta = json_decode($meta,true);
 
             $MY_GETS['meta_query'] = $meta;
             unset( $args['meta_query'] );
-            unset( $MY_GETS['meta'] );
         }
-
+        
        $args = array_merge($args,$MY_GETS);
 
         return $args;
