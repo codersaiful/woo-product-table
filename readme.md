@@ -1,7 +1,7 @@
-![Woo Product Table](https://raw.githubusercontent.com/codersaiful/woo-product-table/master/assets/images/wpt-logo.png)
+![Product Table for WooCommerce](https://raw.githubusercontent.com/codersaiful/woo-product-table/master/assets/images/wpt-logo.png)
 
-# WCTable- WOO Product Table - A WooCommerce Product Table Plugin
-Woo Product Table has Tiny Shortcode. Easy to use and No need programming knowledge to use. Easily able to handle by Graphical User Interface. Just like following:
+# Product Table for WooCommerce - A WooCommerce Product Table Plugin
+Product Table for WooCommerce has Tiny Shortcode. Easy to use and No need programming knowledge to use. Easily able to handle by Graphical User Interface. Just like following:
 ```[Product_Table id='123']```
 
 ## Features
@@ -19,7 +19,7 @@ https://wordpress.org/plugins/woo-product-table/
 https://docs.google.com/spreadsheets/d/1RwnzuupIYC-ao2R3_P3hZU__R-8nA3p7o2XoWWntNig/edit?usp=sharing
 
 # Making a sample Addons
-Here I will show, how a user can make a addon for **Woo Product Table** using our Hook. As example, I will show, how to add new column in our table.
+Here I will show, how a user can make a addon for **Product Table for WooCommerce** using our Hook. As example, I will show, how to add new column in our table.
 
 ### Using hooks
 There are variety of ways to add your custom code to manipulate code by hooks:
