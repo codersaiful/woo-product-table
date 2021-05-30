@@ -1408,7 +1408,7 @@ if( !function_exists( 'wpt_shop_archive_sorting_args' ) ){
      */
     function wpt_shop_archive_sorting_args( $args ){
         if( is_shop() || is_product_taxonomy() ){
-            $_orderby = isset( $_GET['orderby'] ) && !empty( $_GET['orderby'] ) ? $_GET['orderby'] : '';
+            $_orderby = isset( $_GET['orderby'] ) && !empty( $_GET['orderby'] ) ? sanitize_text_field( $_GET['orderby'] ) : '';
             $args['paged'] = 1;
             $args['post_type'] = ['product'];
             switch( $_orderby ){
