@@ -626,7 +626,7 @@ function wpt_wp_dropdown_categories( $args = '', $get_taxonomy = false ) {
 	$output = apply_filters( 'wp_dropdown_cats', $output, $parsed_args );
 
 	if ( $parsed_args['echo'] ) {
-		echo $output;
+		echo $output; //Total function copy from WordPress and renamed just
 	}
 
 	return $output;
@@ -1184,31 +1184,16 @@ if( !function_exists( 'wpt_freeze_column_maintain' ) ){
      * @param type $enabled_column_array
      */
     function wpt_freeze_column_maintain( $table_ID, $args, $column_settings, $enabled_column_array ){
+
         $style = false;
         if( isset( $enabled_column_array['freeze'] ) && $column_settings['freeze'] ){
-            $style = isset( $column_settings['freeze']['style'] ) ? $column_settings['freeze']['style'] : false;
+            $style = isset( $column_settings['freeze']['style_str'] ) ? $column_settings['freeze']['style_str'] : false;
         }
-        if( $style ){
-            $default_width = apply_filters( 'wpto_default_width_freeze_col', '120px', $table_ID );
-            $width = isset( $style['width'] ) && !empty( $style['width'] ) ? $style['width'] : $default_width;
-            $selector = esc_html( '#table_id_' . $table_ID . ' .wpt_table_tag_wrapper' );
-            
-            /*
-            $css_code = <<<EOF
-<style>
-$selector th.wpt_freeze,$selector td.wpt_freeze {
-    position: absolute;
-    left: 0;
-    top: auto;
-    width: $width;
-}
 
-$selector td.td_or_cell.wpt_freeze .item_inside_cell{display: inline-block;}
-$selector, $selector table, $selector tr{position: static;}
-$selector{margin-left: $width;}  
-</style>
-EOF;
-    */        
+        if( $style ){
+            $width = apply_filters( 'wpto_default_width_freeze_col', '140px', $table_ID );
+            $selector = esc_attr( '#table_id_' . $table_ID . ' .wpt_table_tag_wrapper' );
+   
             
 ob_start();
 ?>
@@ -1231,8 +1216,7 @@ ob_start();
     'use strict';
         $(document).ready(function($){
             var height = $('<?php echo $selector; ?> table tr').not('.wpt_freeze').height();
-            console.log(height);
-            //height = 100;
+
             $('th.wpt_freeze').css('height', height);
         });
     })(jQuery);
