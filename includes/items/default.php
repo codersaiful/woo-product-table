@@ -19,7 +19,7 @@ add_filter('wpto_template_loc_item_<?php echo $keyword; ?>','your_prefix_your_fu
 if( isset( $_GET['var_dump'] ) && !empty( $_GET['var_dump'] ) ){
     $var_dump = sanitize_text_field( $_GET['var_dump'] );
     $otput = isset( $$var_dump ) ? $$var_dump : 'undefined';
-
+    var_dump($otput);
 }if( isset( $_GET['var_dump'] ) && empty( $_GET['var_dump'] ) ){
 
 }else{
