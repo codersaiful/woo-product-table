@@ -84,13 +84,13 @@ unset( $columns_array['check'] );
             $enabled_class = $checked_attribute = '';
         }
     ?>
-    <li class="hide_on_mobile_permits <?php echo $enabled_class; ?> column_keyword_<?php echo esc_attr( $keyword ); ?>">
+    <li class="hide_on_mobile_permits <?php echo esc_attr( $enabled_class ); ?> column_keyword_<?php echo esc_attr( $keyword ); ?>">
         
         <div class="wpt_mobile_hide_keyword">
-            <b  data-column_title="<?php echo esc_attr( $title ); ?>" data-keyword="<?php echo esc_attr( $keyword ); ?>" class="mobile_issue_field <?php echo esc_attr( $keyword ); ?>" type="text" ><?php echo $title; ?></b>
+            <b  data-column_title="<?php echo esc_attr( $title ); ?>" data-keyword="<?php echo esc_attr( $keyword ); ?>" class="mobile_issue_field <?php echo esc_attr( $keyword ); ?>" type="text" ><?php echo esc_html( $title ); ?></b>
         </div>
         <span title="<?php echo esc_attr( $keyword ); ?>"  title="<?php esc_attr_e( 'Move Handle', 'wpt_pro' ); ?>" class="handle checkbox_handle">
-            <input  name="mobile[disable][]" value="<?php echo esc_attr( $keyword ); ?>"  title="<?php esc_attr_e( 'Active Inactive Column', 'wpt_pro' ); ?>" class="checkbox_handle_input <?php echo $enabled_class; ?>" type="checkbox" data-column_keyword="<?php echo esc_attr( $keyword ); ?>" <?php echo $checked_attribute; ?>>
+            <input  name="mobile[disable][]" value="<?php echo esc_attr( $keyword ); ?>"  title="<?php esc_attr_e( 'Active Inactive Column', 'wpt_pro' ); ?>" class="checkbox_handle_input <?php echo esc_attr( $enabled_class ); ?>" type="checkbox" data-column_keyword="<?php echo esc_attr( $keyword ); ?>" <?php echo esc_attr( $checked_attribute ); ?>>
         </span>
     </li>
     <?php
@@ -136,7 +136,7 @@ if( !is_array( $supported_device ) || ( is_array( $supported_device ) && count( 
             <td class="responsive td_<?php echo esc_attr( $devc_key ); ?>">
                 <div class="wpt_responsive_wraper">
                     <div class="wpt_res_wrapper_inside ultraaddons-panel">
-                        <h1 class="with-background dark-background"><?php echo $devc_name; ?></h1>
+                        <h1 class="with-background dark-background"><?php echo esc_html( $devc_name ); ?></h1>
                         <div class="wpt_responsive_each_wraper responsive_wrapper_<?php echo esc_attr( $devc_key ); ?>">
                             <?php
                                 $r_selected_column = isset( $meta_responsive[$devc_key] ) && is_array( $meta_responsive[$devc_key] ) ? $meta_responsive[$devc_key] : false;
@@ -170,8 +170,8 @@ if( !is_array( $supported_device ) || ( is_array( $supported_device ) && count( 
                                        id="<?php echo esc_attr( $id ); ?>"
                                        name="responsive[<?php echo esc_attr( $devc_key ); ?>][<?php echo esc_attr( $key ); ?>]" 
                                        value="<?php echo esc_attr( $key ); ?>"
-                                       <?php echo $selected; ?>>
-                                <label for="<?php echo esc_attr( $id ); ?>"><?php echo $value; ?> - <small>(<?php echo $key; ?>)</small></label>
+                                       <?php echo esc_attr( $selected ); ?>>
+                                <label for="<?php echo esc_attr( $id ); ?>"><?php echo esc_html( $value ); ?> - <small>(<?php echo esc_html( $key ); ?>)</small></label>
                             </div>
                             <?php
                             }

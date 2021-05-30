@@ -1,18 +1,19 @@
-=== Woo Product Table - Free WooCommerce Table view solution ===
+=== Product Table for WooCommerce ===
 Contributors: codersaiful,codeastrology
 Donate link: https://codecanyon.net/item/woo-product-table-pro/20676867?ref=CodeAstrology&utm_source=WPT_Installed_DonateLink
 Tags: wc product table,woocommerce product table, product table, wc table, quick order table, wholesale table, restaurants table
 Requires at least: 4.0.0
 Tested up to: 5.7.2
+Stable tag: 2.8.9
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Product Table's pro Features in FREE. Easily display your products as table by tiny shortcode. Such: [Product_Table id='1']. Support default editor, any Page Builder & Gutenberg.
+Easily display your products as table by tiny shortcode. Such: [Product_Table id='1']. Support default editor, any Page Builder & Gutenberg.
 
 == Description ==
-Auto Responsive Mobile & Tab, Nice Design, Fast Speed *WooCommerce Product Table*. Tiny Shortcode, Easy customizable, Ajax Add to cart, Ajax Search, Pagination & Load More.
-*Woo Product Table - Free WooCommerce Table view solution* offers to show all products display as a table in page by light shortcode. Fully responsive and mobile friendly. Easily customizable - color, background, title, padding, margin etc.
+Auto Responsive Mobile & Tab, Nice Design, Fast Speed *Product Table for WooCommerce*. Tiny Shortcode, Easy customizable, Ajax Add to cart, Ajax Search, Pagination & Load More.
+*Product Table for WooCommerce* offers to show all products display as a table in page by light shortcode. Fully responsive and mobile friendly. Easily customizable - color, background, title, padding, margin etc.
 
 **[For Discount check our official site](https://wooproducttable.com/#discount)**
 
@@ -36,7 +37,7 @@ Auto Responsive Mobile & Tab, Nice Design, Fast Speed *WooCommerce Product Table
 
 * More demo coming soon....
 
-**WooCommerce Product Table** plugin offers to display your shop products in one page by shortcode as table. 
+**Product Table for WooCommerce** plugin offers to display your shop products in one page by shortcode as table. 
 
 * Shop page as Table
 * Available add to cart in Table
@@ -101,7 +102,7 @@ https://www.youtube.com/watch?v=D67b_0tQ-z8
 
 == Frequently Asked Questions ==
 
-= Why Woo Product Table? =
+= Why Product Table for WooCommerce? =
 
 To see your all products as a table in a page by shortcode.User friendly interface with easy options.If you want to increase user engagement in your site then it's the best solution.
 
@@ -124,7 +125,7 @@ You can easily show specific category products. While creating new table click o
 
 
 = Is it suitable for any theme ? =
- Yes. *WooCommerce Product Table* will adapt with your theme design.
+ Yes. *Product Table for WooCommerce* will adapt with your theme design.
 
 == Screenshots ==
 
@@ -155,6 +156,9 @@ You can easily show specific category products. While creating new table click o
 25. Manually responsive for mobile devices
 
 == Changelog ==
+
+= 2.8.9 =
+ * Name change to Product Table for WooCommerce
 
 = 2.8.8 =
  * move icon and checkbox position at topside always

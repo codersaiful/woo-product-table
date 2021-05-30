@@ -1,2 +1,2 @@
 <?php
-echo $data['height'];
+echo esc_html( $data['height'] );

@@ -23,4 +23,4 @@ $wpt_single_product_title .= $description_on && $description_on == 'yes' && $des
 
 
 
-echo $wpt_single_product_title;
+echo wp_kses_post( $wpt_single_product_title );

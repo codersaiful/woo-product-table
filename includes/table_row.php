@@ -139,7 +139,7 @@ foreach( $table_column_keywords as $keyword => $keyword_title ){
             //*****************************FILE INCLUDING HERE
             $tag = isset( $column_settings[$keyword]['tag'] ) && !empty( $column_settings[$keyword]['tag'] ) ? $column_settings[$keyword]['tag'] : 'div';
             $tag_class = isset( $column_settings[$keyword]['tag_class'] ) && !empty( $column_settings[$keyword]['tag_class'] ) ? $column_settings[$keyword]['tag_class'] : '';
-            echo $tag ? "<$tag "
+            echo $tag ? "<" . esc_html( $tag ) . " "
             . "class='col_inside_tag " . esc_attr( $keyword ) . " " . esc_attr( $tag_class ) . "' "
             . "data-keyword='" . esc_attr( $keyword ) . "' "
             . "data-sku='" . esc_attr( $product->get_sku() ) . "' "
@@ -148,7 +148,7 @@ foreach( $table_column_keywords as $keyword => $keyword_title ){
             
             //Including File for TD
             include $file;
-            echo $tag ? "</$tag>" : '';
+            echo $tag ? "</" . esc_html( $tag ) . ">" : '';
             if( isset( $column_settings[$keyword]['items'] ) ){
                 include __DIR__ . '/extra_items_manager.php';
             }

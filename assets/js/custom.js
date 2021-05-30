@@ -39,26 +39,20 @@
             return false; 
         }        
         
-        var ajax_url,ajax_url_additional = '/wp-admin/admin-ajax.php';
-        var site_url = $('div.wpt_product_table_wrapper').data('site_url');
-            ajax_url = site_url + ajax_url_additional;
+            
+        var plugin_url = WPT_DATA.plugin_url;
+        var include_url = WPT_DATA.include_url;
+        var content_url = WPT_DATA.content_url;
         
         var ajax_url = WPT_DATA.ajax_url;
-        /*
-        if ( typeof woocommerce_params === 'undefined' ){
-            var site_url = $('div.wpt_product_table_wrapper').data('site_url');
-            ajax_url = site_url + ajax_url_additional;
-            //woocommerce_params //wc_add_to_cart_params
-        }else{
-            ajax_url = woocommerce_params.ajax_url;
-        }
-        */
-        console.log(WPT_DATA,ajax_url);//Only for Developer
-        if( ajax_url === 'undefined' + ajax_url_additional  ){
+        var site_url = WPT_DATA.site_url;
+        
+        console.log(WPT_DATA);//Only for Developer
+        if( ajax_url === 'undefined'  ){
             console.log( 'WOO PRODUCT TABLE is not Available to this page \nOR:::SORRY!!!!: woocommerce_params is Undefine also ajax_url also undefined. So ajax will not work not. Contact with codersaiful@gmail.com' );
             return false;
         }
-        
+
         /**
          * Pagination
          * @type Objectt
@@ -169,11 +163,11 @@
         $('table.wpt_product_table td select').trigger('change');
         function fixAfterAjaxLoad() {
         $('table.wpt_product_table td select').trigger('change');
-            //$.getScript(site_url + "/wp-includes/js/mediaelement/mediaelement-and-player.min.js");
-            //$.getScript(site_url + "/wp-practice/wp-includes/js/mediaelement/mediaelement-migrate.min.js");
-            $.getScript(site_url + "/wp-includes/js/mediaelement/wp-mediaelement.min.js");
-            $.getScript(site_url + "/wp-content/plugins/woocommerce/assets/js/frontend/add-to-cart-variation.min.js");
-            $.getScript(site_url + "/wp-content/plugins/woocommerce/assets/js/frontend/add-to-cart-variation.js");
+            //$.getScript(include_url + "/js/mediaelement/mediaelement-and-player.min.js");
+            //$.getScript(include_url + "/js/mediaelement/mediaelement-migrate.min.js");
+            $.getScript(include_url + "/js/mediaelement/wp-mediaelement.min.js");
+            $.getScript(plugin_url + "/woocommerce/assets/js/frontend/add-to-cart-variation.min.js");
+            $.getScript(plugin_url + "/woocommerce/assets/js/frontend/add-to-cart-variation.js");
         }
     
     

@@ -1,2 +1,2 @@
 <?php
-echo $data['length'];
+echo esc_html( $data['length'] );

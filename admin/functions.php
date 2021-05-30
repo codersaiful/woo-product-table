@@ -82,7 +82,7 @@ if( ! function_exists( 'wpt_ajax_get_post_meta_base64' ) ){
      */
     function wpt_ajax_get_post_meta_base64(){
         if( isset( $_POST['post_id'] ) && ! empty( $_POST['post_id'] ) && isset( $_POST['action'] ) == 'wpt_set_post_meta' ){
-            $post_id = $_POST['post_id'];
+            $post_id = sanitize_text_field( $_POST['post_id'] );
             if( ! $post_id || ! is_numeric( $post_id ) ) echo '';
 
             echo wpt_get_base64_post_meta( $post_id );

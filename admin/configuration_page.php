@@ -20,7 +20,16 @@ if( !function_exists( 'wpt_configuration_page' ) ){
 
         }else if( isset( $_POST['data'] ) && isset( $_POST['configure_submit'] ) ){
             //configure_submit
-            $value = ( is_array( $_POST['data'] ) ? $_POST['data'] : false  );
+            $value = false;
+            if( is_array( $_POST['data'] ) ){
+                $value = array_map(
+                    function ($field){
+                        //All post value is santized here using array_map
+                        return sanitize_text_field( $field );
+                    },$_POST['data']
+                );
+            }
+            // $value 's all key_value is sanitized before update on database
             update_option( 'wpt_configure_options',  $value );
         }
         $current_config_value = get_option( 'wpt_configure_options' );

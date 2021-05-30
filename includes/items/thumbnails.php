@@ -22,4 +22,4 @@ if($thumb_variation == 'quick_view'){
 $wpt_single_thumbnails .= $tag_start.$thumbs_img.$tag_end;
 //$wpt_single_thumbnails .= "</td>";
 
-echo $wpt_single_thumbnails;
+echo wp_kses_post( $wpt_single_thumbnails );

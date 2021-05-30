@@ -1,13 +1,13 @@
 <?php
 /**
- * Plugin Name: WOO Product Table
+ * Plugin Name: Product Table for WooCommerce
  * Plugin URI: https://codecanyon.net/item/woo-product-table-pro/20676867?ref=CodeAstrology&utm_source=WPT_Installed_Plugin
  * Description: WooCommerce all products display as a table in one page by shortcode. Fully responsive and mobile friendly. Easily customizable - color,background,title,text color etc.
- * Author: CodeAstrology
- * Author URI: https://codecanyon.net/user/codeastrology
+ * Author: Saiful Islam
+ * Author URI: https://profiles.wordpress.org/codersaiful/
  * Tags: woocommerce product list,woocommerce product table, wc product table, product grid view, inventory, shop product table
  * 
- * Version: 2.8.9
+ * Version: 2.9.0
  * Requires at least:    4.0.0
  * Tested up to:         5.7.2
  * WC requires at least: 3.0.0
@@ -30,7 +30,7 @@ if( !defined( 'WPT_PLUGIN_BASE_FOLDER' ) ){
 }
 
 if( !defined( 'WPT_DEV_VERSION' ) ){
-    define( 'WPT_DEV_VERSION', '2.8.9.0' );
+    define( 'WPT_DEV_VERSION', '2.9.0.3' );
 }
 
 if( !defined( 'WPT_CAPABILITY' ) ){
@@ -466,7 +466,7 @@ class WPT_Product_Table{
         }
 
        $dir = dirname( __FILE__ ); //dirname( __FILE__ )
-       
+
        /**
         * See $path_args for Set Path and set Constant
         * 
@@ -475,7 +475,7 @@ class WPT_Product_Table{
        $path_args = array(
            'PLUGIN_BASE_FOLDER'     =>  plugin_basename( $dir ),
            'PLUGIN_BASE_FILE'       =>  plugin_basename( __FILE__ ),
-           'BASE_URL'               =>  plugins_url() . '/'. plugin_basename( $dir ) . '/', //using plugins_url() instead of WP_PLUGIN_URL
+           'BASE_URL'               => trailingslashit( plugins_url( '',__FILE__) ),
            'BASE_DIR'               =>  str_replace( '\\', '/', $dir . '/' ),
        );
        /**
@@ -526,16 +526,10 @@ class WPT_Product_Table{
         }
 
         if( ! is_plugin_active( $plugin ) ){
-            include_once $this->path('BASE_DIR','modules/elementor.php'); //MObile or Table Defice Detector //gutenberg
+            include_once $this->path('BASE_DIR','modules/elementor.php'); //Elementor Blog Added
         }
     }   
-    /**
-     * Supporting Gutenberg 
-     * 
-     * @since 2.7.6
-     */
-    //include_once $this->path('BASE_DIR','modules/gutenberg.php'); //gutenberg
-    
+        
     if( !class_exists( 'Mobile_Detect' ) ){
         include_once $this->path('BASE_DIR','modules/Mobile_Detect.php'); //MObile or Table Defice Detector
     }
@@ -591,7 +585,7 @@ class WPT_Product_Table{
                 </div>
                 <div class="wpt-ua-message-area">
                     <h2><?php echo esc_html( $msg_title ); ?></h2>
-                    <p><?php echo $msg; ?></p>
+                    <p><?php echo wp_kses_post( $msg ); ?></p>
                     <a class="button" href="<?php echo esc_url( $url ); ?>"><?php echo esc_html( $btn_text ); ?></a>
                 </div>
             </div>

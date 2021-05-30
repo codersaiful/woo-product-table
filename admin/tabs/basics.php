@@ -109,10 +109,44 @@ $data = isset( $meta_basics['data'] ) ? $meta_basics['data'] : false;
         //Helping from https://wordpress.stackexchange.com/questions/216070/wp-dropdown-categories-with-multiple-select/253403
          wpt_wp_dropdown_categories( $defaults );
          
-//***************************************/         
+//***************************************/  
                     ?>
                     <select name="basics[data][terms][<?php echo esc_attr( $term_key ); ?>][]" class="wpt_select2 wpt_query_terms ua_query_terms_<?php echo esc_attr( $term_key ); ?> ua_select" id="wpt_term_<?php echo esc_attr( $term_key ); ?>" multiple="multiple">
-                        <?php echo $options_item; ?>
+                        <?php
+                        $allowed_atts = array(
+                            'selected'      => array(),
+                            'value'      => array(),
+                            
+//                            'align'      => array(),
+//                            'class'      => array(),
+//                            'type'       => array(),
+//                            'id'         => array(),
+//                            'dir'        => array(),
+//                            'lang'       => array(),
+//                            'style'      => array(),
+//                            'xml:lang'   => array(),
+//                            'src'        => array(),
+//                            'alt'        => array(),
+//                            'href'       => array(),
+//                            'rel'        => array(),
+//                            'rev'        => array(),
+//                            'target'     => array(),
+//                            'novalidate' => array(),
+//                            'type'       => array(),
+//                            'value'      => array(),
+//                            'name'       => array(),
+//                            'tabindex'   => array(),
+//                            'action'     => array(),
+//                            'method'     => array(),
+//                            'for'        => array(),
+//                            'width'      => array(),
+//                            'height'     => array(),
+//                            'data'       => array(),
+//                            'title'      => array(),
+                    );
+                    
+                    $allowed_tags['option']     = $allowed_atts;
+                        echo wp_kses( $options_item, $allowed_tags ); ?>
                     </select>
                     
                     <?php    
