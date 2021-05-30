@@ -218,7 +218,7 @@ if( !function_exists( 'wpt_product_title_column_add' ) ){
         $description_off = $description_off == 'off' ? 'checked="checked"' : '';
        ?>
         <div class="description_off_wrapper">
-            <label for="description_off<?php echo esc_attr( $_device_name ); ?>"><input id="description_off<?php echo esc_attr( $_device_name ); ?>" title="Disable Deactivate Description from Title Column" name="column_settings<?php echo esc_attr( $_device_name ); ?>[description_off]" id="description_off" class="description_off" type="checkbox" value="off" <?php echo $description_off; ?>> Disable Description</label>
+            <label for="description_off<?php echo esc_attr( $_device_name ); ?>"><input id="description_off<?php echo esc_attr( $_device_name ); ?>" title="Disable Deactivate Description from Title Column" name="column_settings<?php echo esc_attr( $_device_name ); ?>[description_off]" id="description_off" class="description_off" type="checkbox" value="off" <?php echo esc_attr( $description_off ); ?>> Disable Description</label>
         </div>
         <div class="title_variation">
             <label for="link<?php echo esc_attr( $_device_name ); ?>"><input type="radio" id="link<?php echo esc_attr( $_device_name ); ?>" name="column_settings<?php echo esc_attr( $_device_name ); ?>[title_variation]" value="link" <?php echo !$title_variation || $title_variation == 'link' ? 'checked' : ''; ?>> Link Enable</label>
@@ -274,7 +274,7 @@ if( !function_exists( 'wpt_column_tag_for_all' ) ){
         ?>
         <div class="column_tag_for_all">
             <label>Select wrapper tag</label>
-            <select class="ua_select" name="column_settings<?php echo esc_attr( $_device_name ); ?>[<?php echo $keyword; ?>][tag]">    
+            <select class="ua_select" name="column_settings<?php echo esc_attr( $_device_name ); ?>[<?php echo esc_attr( $keyword ); ?>][tag]">    
             <?php
             foreach($tags as $tag => $tag_name){
                 $seleced = $tag_value == $tag ? 'selected' : false;
@@ -283,7 +283,7 @@ if( !function_exists( 'wpt_column_tag_for_all' ) ){
             ?>
             </select>
         </div>
-        <!-- <input name="column_settings<?php echo esc_attr( $_device_name ); ?>[<?php echo $keyword; ?>][input_one]" value='<?php echo esc_attr( $input_one ); ?>'> -->
+        
         <?php
     }
 }
@@ -339,7 +339,7 @@ if( !function_exists( 'wpt_column_add_extra_items' ) ){
 
 
             <?php
-            $select .= "<option value='{$key}' $seleced_option> $key_val - $key</option>";
+            $select .= "<option value='" . esc_attr( $key ) . "' " . esc_attr( $seleced_option ) . "> " . esc_html( $key_val . " - " . $key ) . "</option>";
 //                echo "<input "
 //                . "id='{$unique_id}' "
 //                . "type='checkbox' "
@@ -353,9 +353,9 @@ if( !function_exists( 'wpt_column_add_extra_items' ) ){
             class="internal_select" 
             multiple="multiple" 
             id="<?php echo esc_attr( "column_settings{$_device_name}_{$keyword}" ); ?>"
-            name="<?php echo "column_settings{$_device_name}[{$keyword}][items][]"; ?>"
+            name="<?php echo esc_attr( "column_settings{$_device_name}[{$keyword}][items][]" ); ?>"
             >
-            <?php echo $select; ?>
+            <?php echo $select; //WPCS: XSS ok(checked). ?>
         </select> 
         
         </div>
@@ -1191,7 +1191,7 @@ if( !function_exists( 'wpt_freeze_column_maintain' ) ){
         if( $style ){
             $default_width = apply_filters( 'wpto_default_width_freeze_col', '120px', $table_ID );
             $width = isset( $style['width'] ) && !empty( $style['width'] ) ? $style['width'] : $default_width;
-            $selector = '#table_id_' . $table_ID . ' .wpt_table_tag_wrapper';
+            $selector = esc_html( '#table_id_' . $table_ID . ' .wpt_table_tag_wrapper' );
             
             /*
             $css_code = <<<EOF
@@ -1213,7 +1213,9 @@ EOF;
 ob_start();
 ?>
 <style>
- <?php echo $selector; ?> th.wpt_freeze,<?php echo $selector; ?> td.wpt_freeze {
+ <?php
+ //$selector WPCS checked and OK
+ echo $selector; ?> th.wpt_freeze,<?php echo $selector; ?> td.wpt_freeze {
     position: absolute;
     left: 0;
     top: auto;

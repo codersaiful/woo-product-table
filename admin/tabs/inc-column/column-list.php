@@ -36,7 +36,7 @@
                    class="colum_data_input <?php echo esc_attr( $keyword ); ?>" 
                    type="text" 
                    title="<?php echo esc_attr__( 'Click for Expand/Collapse. Edit your Column Title here.', 'wpt_pro' ); ?>"
-                   value="<?php echo htmlentities( $updated_title ); ?>" <?php echo $readOnly; ?>>
+                   value="<?php echo htmlentities( $updated_title ); ?>" <?php echo esc_attr( $readOnly ); ?>>
             
             <?php
             //Type Maintenance
@@ -102,7 +102,7 @@
                    title="<?php echo esc_html__( 'Active Inactive Column', 'wpt_pro' );?>" 
                    class="checkbox_handle_input <?php echo esc_attr( $enabled_class ); ?>" 
                    type="checkbox" 
-                   data-column_keyword="<?php echo esc_attr( $keyword ); ?>" <?php echo $checked_attribute; ?>>
+                   data-column_keyword="<?php echo esc_attr( $keyword ); ?>" <?php echo esc_attr( $checked_attribute ); ?>>
         </span>
     </li>
     <?php

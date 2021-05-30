@@ -170,8 +170,8 @@ if( !is_array( $supported_device ) || ( is_array( $supported_device ) && count( 
                                        id="<?php echo esc_attr( $id ); ?>"
                                        name="responsive[<?php echo esc_attr( $devc_key ); ?>][<?php echo esc_attr( $key ); ?>]" 
                                        value="<?php echo esc_attr( $key ); ?>"
-                                       <?php echo $selected; ?>>
-                                <label for="<?php echo esc_attr( $id ); ?>"><?php echo $value; ?> - <small>(<?php echo $key; ?>)</small></label>
+                                       <?php echo esc_attr( $selected ); ?>>
+                                <label for="<?php echo esc_attr( $id ); ?>"><?php echo esc_html( $value ); ?> - <small>(<?php echo esc_html( $key ); ?>)</small></label>
                             </div>
                             <?php
                             }

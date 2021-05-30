@@ -35,7 +35,7 @@ if( $in_extra_manager ){
 }
 
 ?>
-<code><?php echo $wrap_info; ?>::<?php echo esc_html( $keyword ); ?></code>
+<code><?php echo esc_html( $wrap_info ); ?>::<?php echo esc_html( $keyword ); ?></code>
 <pre>
 File Not Founded.
 Looking file at <?php echo esc_url( $requested_file ); ?><br>
