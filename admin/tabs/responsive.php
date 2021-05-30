@@ -90,7 +90,7 @@ unset( $columns_array['check'] );
             <b  data-column_title="<?php echo esc_attr( $title ); ?>" data-keyword="<?php echo esc_attr( $keyword ); ?>" class="mobile_issue_field <?php echo esc_attr( $keyword ); ?>" type="text" ><?php echo esc_html( $title ); ?></b>
         </div>
         <span title="<?php echo esc_attr( $keyword ); ?>"  title="<?php esc_attr_e( 'Move Handle', 'wpt_pro' ); ?>" class="handle checkbox_handle">
-            <input  name="mobile[disable][]" value="<?php echo esc_attr( $keyword ); ?>"  title="<?php esc_attr_e( 'Active Inactive Column', 'wpt_pro' ); ?>" class="checkbox_handle_input <?php echo esc_attr( $enabled_class ); ?>" type="checkbox" data-column_keyword="<?php echo esc_attr( $keyword ); ?>" <?php echo $checked_attribute; ?>>
+            <input  name="mobile[disable][]" value="<?php echo esc_attr( $keyword ); ?>"  title="<?php esc_attr_e( 'Active Inactive Column', 'wpt_pro' ); ?>" class="checkbox_handle_input <?php echo esc_attr( $enabled_class ); ?>" type="checkbox" data-column_keyword="<?php echo esc_attr( $keyword ); ?>" <?php echo esc_attr( $checked_attribute ); ?>>
         </span>
     </li>
     <?php
