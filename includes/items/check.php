@@ -25,21 +25,32 @@ $wpt_single_check .= "<input "
     . "<label for='check_id_{$temp_number}_" . $data['id'] . "'></label>";
     
 $allowed_atts = array(
-        'value'      => array(),
-        'type'      => array(),
-        'class'      => array(),
-        'data-product_id'      => array(),
-        'data-temp_number'      => array(),
-        'id'      => array(),
-        'data-product_type'      => array(),
-        'for'      => array(),
+        'value'      => true,
+        'type'      => true,
+        'class'      => true,
+        'data-product_id'      => true,
+        'data-temp_number'      => true,
+        'id'      => true,
+        'data-product_type'      => true,
+        'for'      => true,
 );
 
 $allowed_tags['input']     = $allowed_atts;
-$allowed_tags['label']     = $allowed_atts;
-$allowed_tags['div']     = $allowed_atts;
+//$allowed_tags['label']     = $allowed_atts;
+//$allowed_tags['div']     = $allowed_atts;
 //var_dump($allowed_tags);
-echo $wpt_single_check;//wp_kses( $wpt_single_check, $allowed_tags ); ?>    
+echo $wpt_single_check;//
+//
+//$allowed_html = array(
+//  'a' => array(
+//    'href' => array(),
+//  ),
+//  'br' => array(),
+//);
+//var_dump($wpt_single_check);
+//echo wp_kses( $wpt_single_check, $allowed_tags );
+//echo wp_kses( $wpt_single_check, $allowed_tags );
+//var_dump(wp_kses_allowed_html()); ?>    
     
 
               
