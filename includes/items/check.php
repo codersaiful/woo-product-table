@@ -9,7 +9,7 @@ $check_class_arr = array(
     "wpt_inside_check_{$temp_number}",
 );
 $check_class = implode(" ", $check_class_arr);
-            
+var_dump($checkbox);        
             
 $wpt_single_check = false;
 $wpt_single_check .= "<input "
@@ -39,7 +39,7 @@ $allowed_tags['input']     = $allowed_atts;
 //$allowed_tags['label']     = $allowed_atts;
 //$allowed_tags['div']     = $allowed_atts;
 //var_dump($allowed_tags);
-echo $wpt_single_check;//
+//echo $wpt_single_check;//
 //
 //$allowed_html = array(
 //  'a' => array(
@@ -51,6 +51,19 @@ echo $wpt_single_check;//
 //echo wp_kses( $wpt_single_check, $allowed_tags );
 //echo wp_kses( $wpt_single_check, $allowed_tags );
 //var_dump(wp_kses_allowed_html()); ?>    
+<input 
+    data-product_type='<?php echo esc_attr( $product->get_type() ); ?>' 
+    id='<?php echo esc_attr( "check_id_{$temp_number}_{$data['id']}" ); ?>' 
+    data-temp_number='<?php echo esc_attr( $temp_number ); ?>' 
+    data-product_id='<?php echo esc_attr( $data['id'] ); ?>' 
+    class='<?php echo esc_attr( $check_class ); ?>' 
+    type='checkbox' value='0'
+    <?php 
+    $this_checkbox = ( $checkbox == 'wpt_checked_table' && $enable_disable == 'enabled' ? " checked='checked'" : "" );
+    echo esc_attr( $this_checkbox );
+    ?>
+    >
+    <label for='<?php echo esc_attr( "check_id_{$temp_number}_{$data['id']}" ); ?>'></label>
     
 
               
