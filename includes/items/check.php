@@ -23,5 +23,23 @@ $wpt_single_check .= "<input "
     . ( $checkbox == 'wpt_checked_table' && $enable_disable == 'enabled' ? " checked='checked'" : "" )
     . ">"
     . "<label for='check_id_{$temp_number}_" . $data['id'] . "'></label>";
-echo wp_kses_post( $wpt_single_check );
+    
+$allowed_atts = array(
+        'value'      => array(),
+        'type'      => array(),
+        'class'      => array(),
+        'data-product_id'      => array(),
+        'data-temp_number'      => array(),
+        'id'      => array(),
+        'data-product_type'      => array(),
+        'for'      => array(),
+);
+
+$allowed_tags['input']     = $allowed_atts;
+$allowed_tags['label']     = $allowed_atts;
+$allowed_tags['div']     = $allowed_atts;
+//var_dump($allowed_tags);
+echo $wpt_single_check;//wp_kses( $wpt_single_check, $allowed_tags ); ?>    
+    
+
               
