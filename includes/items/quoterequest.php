@@ -7,4 +7,18 @@ if( $product->get_type() == 'variable' ){
 }
 $Add_to_Quote = $config_value['yith_add_to_quote_text'];//'Add to Quote';
 $data_message = '{"text":"'. $Add_to_Quote .'","adding":"' . $config_value['yith_add_to_quote_adding'] . '","added":"' . $config_value['yith_add_to_quote_added'] . '"}';
-echo "<a data-yith_browse_list='{$config_value['yith_browse_list']}' data-response_msg='' data-msg='{$data_message}' data-wp_nonce='{$wpt_nonce}' data-quote_data='' data-variation='' data-variation_id='' data-product_id='{$data['id']}' class='{$quote_class} yith_request_temp_{$temp_number}_id_{$data['id']} wpt_yith_add_to_quote_request wpt_add-request-quote-button button' href='#' data-quantity='{$default_quantity}' data-selector='yith_request_temp_{$temp_number}_id_{$data['id']}'>{$Add_to_Quote}</a>";
+?>
+<a data-yith_browse_list='<?php echo esc_attr( $config_value['yith_browse_list'] ); ?>' 
+   data-response_msg='' 
+   data-msg='<?php echo esc_attr( $data_message ); ?>' 
+   data-wp_nonce='<?php echo esc_attr( $wpt_nonce ); ?>' 
+   data-quote_data='' 
+   data-variation='' 
+   data-variation_id='' 
+   data-product_id='<?php echo esc_attr( $data['id'] ); ?>' 
+   class='<?php echo esc_attr( "{$quote_class} yith_request_temp_{$temp_number}_id_{$data['id']} wpt_yith_add_to_quote_request wpt_add-request-quote-button button" ); ?>' 
+   href='#' 
+   data-quantity='<?php echo esc_attr( $default_quantity ); ?>' 
+   data-selector='<?php echo esc_attr( "yith_request_temp_{$temp_number}_id_{$data['id']}" ); ?>'>
+   <?php echo esc_html( $Add_to_Quote ); ?>
+</a>
