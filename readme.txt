@@ -157,6 +157,9 @@ You can easily show specific category products. While creating new table click o
 
 == Changelog ==
 
+= 2.9.1 =
+ * escapping issue fixed
+
 = 2.8.9 =
  * Name change to Product Table for WooCommerce
 
