@@ -558,11 +558,10 @@ if( !function_exists( 'wpt_custom_message_validation' ) ){
      * @return boolean
      */
     function wpt_custom_message_validation() { 
-        $req = isset( $_REQUEST ) && ! empty( $_REQUEST ) ? $_REQUEST : array();
 
-        if ( empty( $req['wpt_custom_message'] ) ) {
+        if ( isset( $_REQUEST['wpt_custom_message'] ) && empty( $_REQUEST['wpt_custom_message'] ) ) {
             $short_mesg_warning = __( 'Please enter Short Message', 'wpt_pro' );
-            $short_mesg_warning = apply_filters( 'wpto_short_message_warning', $short_mesg_warning, $req );
+            $short_mesg_warning = apply_filters( 'wpto_short_message_warning', $short_mesg_warning );
             wc_add_notice( $short_mesg_warning, 'error' );
             return false;
         }
@@ -580,9 +579,9 @@ if( ! function_exists( 'wpt_save_custom_message_field' ) ){
      * @return string
      */
     function wpt_save_custom_message_field( $cart_item_data, $product_id ) {
-        $req = isset( $_REQUEST ) && ! empty( $_REQUEST ) ? $_REQUEST : array();
-        if( isset( $req['wpt_custom_message'] ) ) {
-            $generated_message = esc_html( $req['wpt_custom_message'] );
+        
+        if( isset( $_REQUEST['wpt_custom_message'] ) ) {
+            $generated_message = esc_html( $_REQUEST['wpt_custom_message'] );
             $cart_item_data[ 'wpt_custom_message' ] =  $generated_message; //XSS ok
             /* below statement make sure every add to cart action as unique line item */
             $cart_item_data['unique_key'] = $product_id . '_' . $generated_message;//md5( microtime().rand() );
