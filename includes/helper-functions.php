@@ -337,7 +337,7 @@ if( !function_exists( 'wpt_ajax_add_to_cart' ) ){
         $data = array_filter( $data );
         
         $product_id     = ( isset($data['product_id']) && !empty( $data['product_id']) ? absint( $data['product_id'] ) : false );
-        $quantity       = ( isset($data['quantity']) && !empty( $data['quantity']) && is_numeric($data['quantity']) ? $data['quantity'] : 1 );
+        $quantity       = ( isset($data['quantity']) && !empty( $data['quantity']) && is_numeric($data['quantity']) ? sanitize_text_field( $data['quantity'] ) : 1 );
         $variation_id   = ( isset($data['variation_id']) && !empty( $data['variation_id']) ? absint( $data['variation_id'] ) : false );
         $variation      = ( isset($data['variation']) && !empty( $data['variation']) ? sanitize_text_field( $data['variation'] ) : false );
         $custom_message = ( isset($data['custom_message']) && !empty( $data['custom_message']) ? sanitize_text_field( $data['custom_message'] ) : false );
@@ -479,7 +479,7 @@ if( !function_exists( 'wpt_adding_to_cart_multiple_items' ) ){
             $serial = 0;
             foreach ( $products as $product ) {
                 $product_id = ( isset($product['product_id']) && !empty( $product['product_id'] ) ? absint( $product['product_id'] ) : false );
-                $quantity = ( isset($product['quantity']) && !empty( $product['quantity'] ) && is_numeric( $product['quantity'] ) ? $product['quantity'] : 1 );
+                $quantity = ( isset($product['quantity']) && !empty( $product['quantity'] ) && is_numeric( $product['quantity'] ) ? sanitize_text_field( $product['quantity'] ) : 1 );
                 $variation_id = ( isset($product['variation_id']) && !empty( $product['variation_id'] ) ? absint( $product['variation_id'] ) : false );
                 $variation = ( isset($product['variation']) && !empty( $product['variation'] ) ? $product['variation'] : false );
 
