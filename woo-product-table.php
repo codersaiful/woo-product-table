@@ -550,7 +550,7 @@ class WPT_Product_Table{
     //include_once $this->path('BASE_DIR','includes/wpt_product_table_post.php');
     include_once $this->path('BASE_DIR','includes/enqueue.php');
     include_once $this->path('BASE_DIR','includes/functions.php');
-    include_once $this->path('BASE_DIR','includes/ajax_add_to_cart.php'); 
+    include_once $this->path('BASE_DIR','includes/helper-functions.php'); 
     include_once $this->path('BASE_DIR','includes/shortcode.php');
        
    }
