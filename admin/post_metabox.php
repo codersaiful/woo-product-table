@@ -190,7 +190,7 @@ if( !function_exists( 'wpt_shortcode_configuration_metabox_save_meta' ) ){
 
         // verify this came from the our screen and with proper authorization,
         // because save_post can be triggered at other times
-        if( !wp_verify_nonce( $_POST['wpt_shortcode_nonce_value'], plugin_basename(__FILE__) ) ) {
+        if( ! wp_verify_nonce( $_POST['wpt_shortcode_nonce_value'], plugin_basename(__FILE__) ) ) {
             return;
         }
         
@@ -203,7 +203,7 @@ if( !function_exists( 'wpt_shortcode_configuration_metabox_save_meta' ) ){
          */
         
         if( isset( $_POST['wpt-import-data'] ) && ! empty( $_POST['wpt-import-data'] ) ){
-            $wpt_import_data = $_POST['wpt-import-data'];
+            $wpt_import_data = sanitize_text_field( $_POST['wpt-import-data'] );
 
             /**
              * Do something, when something importing on Import Box
@@ -225,7 +225,6 @@ if( !function_exists( 'wpt_shortcode_configuration_metabox_save_meta' ) ){
          * @since 6.1.0.5
          * @Hook_Version: 6.1.0.5
          */
-        //$_POST = add_filters( 'wpto_on_save_global_post', $_POST, $post_id, $post );
 
         $save_tab_array = array(
             'column_array' => 'column_array',
@@ -251,7 +250,7 @@ if( !function_exists( 'wpt_shortcode_configuration_metabox_save_meta' ) ){
 
         $save_tab_array = apply_filters( 'wpto_save_tab_array', $save_tab_array, $post_id, $post );
 
-        if( !is_array( $save_tab_array ) || ( is_array( $save_tab_array ) && count( $save_tab_array ) < 1 )){
+        if( ! is_array( $save_tab_array ) || ( is_array( $save_tab_array ) && count( $save_tab_array ) < 1 )){
             return;
         }
 
@@ -262,9 +261,95 @@ if( !function_exists( 'wpt_shortcode_configuration_metabox_save_meta' ) ){
          * @Hook_Version: 6.1.0.5
          */
         add_action( 'wpto_on_save_post_before_update_meta', $post_id );
-
+        
+        /**
+         * In Filter, Availabe Tabs:
+         * tabs: column_array,column_array_tablet,column_array_mobile,enabled_column_array,
+         * enabled_column_array_tablet,enabled_column_array_mobile,
+         * column_settings,column_settings_tablet,column_settings_mobile,
+         * basics,table_style,conditions,mobile,search_n_filter,pagination,config
+         * 
+         * @since 2.9.1
+         */
+        $filtar_args = array(
+            'column_array' => array(
+                'filter' => FILTER_SANITIZE_STRING,
+                'flags' => FILTER_REQUIRE_ARRAY,
+            ),
+            'column_array_tablet' => array(
+                'filter' => FILTER_SANITIZE_STRING,
+                'flags' => FILTER_REQUIRE_ARRAY,
+            ),
+            'column_array_mobile' => array(
+                'filter' => FILTER_SANITIZE_STRING,
+                'flags' => FILTER_REQUIRE_ARRAY,
+            ),
+            'enabled_column_array' => array(
+                'filter' => FILTER_SANITIZE_STRING,
+                'flags' => FILTER_REQUIRE_ARRAY,
+            ),
+            'enabled_column_array_tablet' => array(
+                'filter' => FILTER_SANITIZE_STRING,
+                'flags' => FILTER_REQUIRE_ARRAY,
+            ),
+            'enabled_column_array_mobile' => array(
+                'filter' => FILTER_SANITIZE_STRING,
+                'flags' => FILTER_REQUIRE_ARRAY,
+            ),
+            'column_settings' => array(
+                'filter' => FILTER_SANITIZE_STRING,
+                'flags' => FILTER_REQUIRE_ARRAY,
+            ),
+            'column_settings_tablet' => array(
+                'filter' => FILTER_SANITIZE_STRING,
+                'flags' => FILTER_REQUIRE_ARRAY,
+            ),
+            'column_settings_mobile' => array(
+                'filter' => FILTER_SANITIZE_STRING,
+                'flags' => FILTER_REQUIRE_ARRAY,
+            ),
+            'basics' => array(
+                'filter' => FILTER_SANITIZE_STRING,
+                'flags' => FILTER_REQUIRE_ARRAY,
+            ),
+            'table_style' => array(
+                'filter' => FILTER_SANITIZE_STRING,
+                'flags' => FILTER_REQUIRE_ARRAY,
+            ),
+            'conditions' => array(
+                'filter' => FILTER_SANITIZE_STRING,
+                'flags' => FILTER_REQUIRE_ARRAY,
+            ),
+            'mobile' => array(
+                'filter' => FILTER_SANITIZE_STRING,
+                'flags' => FILTER_REQUIRE_ARRAY,
+            ),
+            'search_n_filter' => array(
+                'filter' => FILTER_SANITIZE_STRING,
+                'flags' => FILTER_REQUIRE_ARRAY,
+            ),
+            'pagination' => array(
+                'filter' => FILTER_SANITIZE_STRING,
+                'flags' => FILTER_REQUIRE_ARRAY,
+            ),
+            'config' => array(
+                'filter' => FILTER_SANITIZE_STRING,
+                'flags' => FILTER_REQUIRE_ARRAY,
+            ),
+        );
+        
+        $submitte_data = filter_input_array( INPUT_POST, $filtar_args );
+        $submitte_data = array_filter( $submitte_data );
+        
         foreach( $save_tab_array as $tab ){
-            $tab_data = isset( $_POST[$tab] ) ? $_POST[$tab] : false;
+            
+            /**
+             * Already Filtered using filter_input_arry/filter_var_array
+             * 
+             * @since 2.9.1
+             */
+            $tab_data = isset( $submitte_data[$tab] ) ? $submitte_data[$tab] : false; //XSS OK
+            
             /**
              * Hook before save tab data
              * @Hooked: wpt_data_manipulation_on_save at admin/functions.php
@@ -279,7 +364,7 @@ if( !function_exists( 'wpt_shortcode_configuration_metabox_save_meta' ) ){
             $tab_data = apply_filters( 'wpto_tab_data_on_save_' . $tab, $tab_data, $post_id, $save_tab_array );
             update_post_meta( $post_id, $tab, $tab_data );
         }
-        
+
         /**
          * @Hook Action: wpto_on_save_post
          * To change data when Form will save.
