@@ -7,7 +7,7 @@
  * Author URI: https://profiles.wordpress.org/codersaiful/
  * Tags: woocommerce product list,woocommerce product table, wc product table, product grid view, inventory, shop product table
  * 
- * Version: 2.9.1
+ * Version: 2.9.2
  * Requires at least:    4.0.0
  * Tested up to:         5.7.2
  * WC requires at least: 3.0.0
@@ -30,7 +30,7 @@ if( !defined( 'WPT_PLUGIN_BASE_FOLDER' ) ){
 }
 
 if( !defined( 'WPT_DEV_VERSION' ) ){
-    define( 'WPT_DEV_VERSION', '2.9.1.3' );
+    define( 'WPT_DEV_VERSION', '2.9.2.0' );
 }
 
 if( !defined( 'WPT_CAPABILITY' ) ){
