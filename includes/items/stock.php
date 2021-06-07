@@ -1,5 +1,5 @@
 <?php
-echo wc_get_stock_html($product);
+echo wc_get_stock_html( $product );
 /*
 $stock_status_message = $stock_status_message = $config_value['table_out_of_stock'];
 if( $data['stock_status'] == 'instock' ){
