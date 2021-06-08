@@ -120,6 +120,11 @@
                     window.history.pushState('data', null, current_link.replace(/(paged=\d)+/, "paged=" + (pageNumber-1)));
 
 
+                    /**
+                     * Scrolling to Table Top
+                     * 
+                     * @type window.$|$
+                     */
                     var body = $('html, body');
                     var thisTableTop = $('#table_id_' + temp_number).offset();
                     body.animate({scrollTop:thisTableTop.top}, 500, 'swing');
