@@ -119,6 +119,11 @@
                     var current_link = window.location.href;
                     window.history.pushState('data', null, current_link.replace(/(paged=\d)+/, "paged=" + (pageNumber-1)));
 
+
+                    var body = $('html, body');
+                    var thisTableTop = $('#table_id_' + temp_number).offset();
+                    body.animate({scrollTop:thisTableTop.top}, 500, 'swing');
+
                 },
                 success: function(data) {
                     targetTableBody.html(data);
