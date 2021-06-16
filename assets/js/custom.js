@@ -1592,9 +1592,11 @@
                 var Qty_Val = $(this).val();
                 var product_id = $(this).parents('tr').data('product_id');
             
-                //.product_id_' + product_id + ' This a Table Trow Class
-                $('#table_id_' + temp_number + ' tr.product_id_' + product_id + ' input.input-text.qty.text').val(Qty_Val);
-                $('#table_id_' + temp_number + ' tr.product_id_' + product_id).attr('data-quantity',Qty_Val);
+                var thisRow = '#table_id_' + temp_number + ' tr.product_id_' + product_id;
+                
+                $( thisRow + ' input.input-text.qty.text').val(Qty_Val);
+                $( thisRow ).attr('data-quantity', Qty_Val);
+                $( thisRow + ' a.add_to_cart_button').attr('data-quantity', Qty_Val);
                 var targetTotalSelector = $('#table_id_' + temp_number + ' .product_id_' + product_id + ' .wpt_total_item.total_general');
                  
             
@@ -1632,7 +1634,6 @@
                         break;
                 }
 
-                $('#table_id_' + temp_number + ' .product_id_' + product_id + ' .wpt_action a.wpt_woo_add_cart_button').attr('data-quantity', Qty_Val);
                 $('.yith_request_temp_' + temp_number + '_id_' + product_id).attr('data-quantity', Qty_Val);
                 $('#table_id_' + temp_number + ' .product_id_' + product_id + ' .wpt_total_item.total_general strong').html(newPrice);
                 //$(target_row_id + ' a.add_to_cart_button').attr('data-quantity', Qty_Val); //wpt_total_item total_general
