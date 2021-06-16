@@ -1803,6 +1803,7 @@
             add_to_cart_info += '&yith-add-to-cart=' + product_id;
             var yith_ajax_url;// = ywraq_frontend.ajaxurl;
             yith_ajax_url = ywraq_frontend.ajaxurl.toString().replace( '%%endpoint%%', 'yith_ywraq_action' );
+            console.log('customJS', add_to_cart_info);
             $.ajax({
             type   : 'POST',
             url    : yith_ajax_url,
