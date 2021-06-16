@@ -358,7 +358,7 @@ if( !function_exists( 'wpt_configure_label_part' ) ){
                         </td>
                     </tr>
                     <tr> 
-                        <th><label for="wpt_table_search_keyword_text" class="wpt_label"><?php echo sprintf(esc_html__( '%s[Search Keyword]%s - Text', 'wpt_pro' ), '<b>', '</b>' ); ?></label></th>
+                        <th><label for="wpt_table_search_keyword_text" class="wpt_label"><?php echo sprintf(esc_html__( '%s[Search Keyword Title]%s - Text', 'wpt_pro' ), '<b>', '</b>' ); ?></label></th>
                         <td>
                             <input name="<?php echo esc_attr( $field_name ); ?>[search_keyword_text]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['search_keyword_text'] ); ?>" id="wpt_table_search_keyword_text" type="text" placeholder="<?php esc_attr_e( 'Search Keyword', 'wpt_pro' ); ?>">
                         </td>
@@ -426,7 +426,7 @@ if( !function_exists( 'wpt_configure_label_part' ) ){
                         </td>
                     </tr>
                     <tr> 
-                        <th><label for="wpt_table_search_box_searchkeyword" class="wpt_label"><?php esc_html_e( 'Search Keyword text', 'wpt_pro' ); ?></label></th>
+                        <th><label for="wpt_table_search_box_searchkeyword" class="wpt_label"><?php esc_html_e( 'Search Keyword Placeholder', 'wpt_pro' ); ?></label></th>
                         <td>
                             <input name="<?php echo esc_attr( $field_name ); ?>[search_box_searchkeyword]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['search_box_searchkeyword'] ); ?>" id="wpt_table_search_box_searchkeyword" type="text" placeholder="<?php esc_attr_e( 'Search Keyword text', 'wpt_pro' ); ?>">
                         </td>
