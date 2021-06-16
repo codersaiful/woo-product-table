@@ -5,8 +5,13 @@ $quote_class = 'enabled';
 if( $product->get_type() == 'variable' ){
     $quote_class = 'variations_button disabled';
 }
+
+$c_product_id = $data['id'];
 $Add_to_Quote = $config_value['yith_add_to_quote_text'];//'Add to Quote';
 $data_message = '{"text":"'. $Add_to_Quote .'","adding":"' . $config_value['yith_add_to_quote_adding'] . '","added":"' . $config_value['yith_add_to_quote_added'] . '"}';
+
+$q_final_class = "{$quote_class} yith_request_temp_{$temp_number}_id_{$data['id']} wpt_yith_add_to_quote_request wpt_add-request-quote-button";
+
 ?>
 <a data-yith_browse_list='<?php echo esc_attr( $config_value['yith_browse_list'] ); ?>' 
    data-response_msg='' 

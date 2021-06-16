@@ -1783,9 +1783,8 @@
             if( typeof split_params[1] !== 'undefined' && type === 'variation' ){
                 quote_data = '&' + split_params[1];
             }
-            add_to_cart_info = 'action=yith_ywraq_action&ywraq_action=add_item';
+            add_to_cart_info = 'action=yith_ywraq_action&ywraq_action=add_item&quantity=' + quantity + '&product_id='+ product_id +'&_wpnonce='+ywraq_frontend.yith_ywraq_action_nonce;
             add_to_cart_info += quote_data;
-            add_to_cart_info += '&quantity=' + quantity;
             /**
              * When Table will show "Only Variation" as row
              * Then Product ID will get from Parent ID
@@ -1798,15 +1797,13 @@
                product_id = parent_id;
                 add_to_cart_info += '&variation_id=' + variation_id;
             }
-            add_to_cart_info += '&product_id=' + product_id;
-            add_to_cart_info += '&wp_nonce=' + wp_nonce;
-            add_to_cart_info += '&yith-add-to-cart=' + product_id;
+            
             var yith_ajax_url;// = ywraq_frontend.ajaxurl;
             yith_ajax_url = ywraq_frontend.ajaxurl.toString().replace( '%%endpoint%%', 'yith_ywraq_action' );
-            console.log('customJS', add_to_cart_info);
+            
             $.ajax({
             type   : 'POST',
-            url    : yith_ajax_url,
+            url    : ywraq_frontend.ajaxurl,//yith_ajax_url,
             dataType: 'json',
             data   : add_to_cart_info,
             beforeSend: function(){
@@ -1817,11 +1814,10 @@
             success: function (response) {
                 if( response && ( response.result === 'true' || response.result === 'exists' ) ){
                     $('.' + selector).html(msg.added);
-                    if(response.result === 'exists'){
-                        
-                        $('.' + selector).attr('data-response_msg',response.message);
-                        //alert(response.message);
-                    }
+                    //if(response.result === 'exists'){
+                        //$('.' + selector).attr('data-response_msg',response.message);
+                    //}
+                    $('.' + selector).attr('data-response_msg',response.message);
                     var html;
                     //$('.wpt_quoterequest img').remove();
                     //$('.' + selector + '+.yith_ywraq_add_item_browse_message').remove();
