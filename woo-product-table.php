@@ -11,7 +11,7 @@
  * Requires at least:    4.0.0
  * Tested up to:         5.7.2
  * WC requires at least: 3.0.0
- * WC tested up to: 	 5.3.0
+ * WC tested up to: 	 5.4.1
  * 
  * Text Domain: wpt_pro
  * Domain Path: /languages/
@@ -30,7 +30,7 @@ if( !defined( 'WPT_PLUGIN_BASE_FOLDER' ) ){
 }
 
 if( !defined( 'WPT_DEV_VERSION' ) ){
-    define( 'WPT_DEV_VERSION', '2.9.2.0' );
+    define( 'WPT_DEV_VERSION', '2.9.2.2' );
 }
 
 if( !defined( 'WPT_CAPABILITY' ) ){
