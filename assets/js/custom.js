@@ -1596,7 +1596,9 @@
                 
                 $( thisRow + ' input.input-text.qty.text').val(Qty_Val);
                 $( thisRow ).attr('data-quantity', Qty_Val);
-                $( thisRow + ' a.add_to_cart_button').attr('data-quantity', Qty_Val);
+                $( thisRow + ' a.wpt_woo_add_cart_button').attr('data-quantity', Qty_Val);
+                $( thisRow + ' a.add_to_cart_button ').attr('data-quantity', Qty_Val);
+                
                 var targetTotalSelector = $('#table_id_' + temp_number + ' .product_id_' + product_id + ' .wpt_total_item.total_general');
                  
             
