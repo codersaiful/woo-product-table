@@ -461,7 +461,7 @@
          * for Ajax add to cart
          * for Variation product
          */
-        $('body').on('click', 'a.ajax_active.wpt_variation_product.single_add_to_cart_button.button.enabled, a.ajax_active.add_to_cart_button.wpt_woo_add_cart_button', function(e) {
+        $('body').on('click', 'a.ajax_active.wpt_variation_product.single_add_to_cart_button.button.enabled, a.add_to_cart_button.ajax_add_to_cart, a.ajax_active.add_to_cart_button.wpt_woo_add_cart_button', function(e) {
             e.preventDefault();
             var thisButton = $(this);
             //Adding disable and Loading class
