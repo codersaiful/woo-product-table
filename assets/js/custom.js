@@ -151,7 +151,7 @@
                     
                     
                     if($('#table_id_' + temp_number + ' table.wpt_product_table').attr('data-queried') !== 'true'){
-                        generat_url_by_search_query(temp_number);
+                        generate_url_by_search_query(temp_number);
                         $('#table_id_' + temp_number + ' table.wpt_product_table').attr('data-queried','true');
                     }
                     
@@ -1402,7 +1402,7 @@
                     /**
                      * Generate here where query
                      */
-                    generat_url_by_search_query(temp_number, extra_link_tax_cf);
+                    generate_url_by_search_query(temp_number, extra_link_tax_cf);
                     $('#wpt_query_reset_button_' + temp_number).fadeIn('medium');
                     /**
                      * Trigger on this event, when search will be completed
@@ -1470,7 +1470,7 @@
          * @param {type} table_id
          * @returns {undefined}
          */
-        function generat_url_by_search_query( table_id = 0, extra = '' ){
+        function generate_url_by_search_query( table_id = 0, extra = '' ){
             var key,value;
             var link = window.location.origin + window.location.pathname + "?table_ID=" + table_id + "&";
             $('.query_box_direct_value').each(function(){
