@@ -1471,6 +1471,12 @@
          * @returns {undefined}
          */
         function generate_url_by_search_query( table_id = 0, extra = '' ){
+            config_json = getConfig_json( table_id ); //Added vat v2.9.3.0
+            
+            if(config_json.query_by_url !== '1'){
+                return;
+            }
+            
             var key,value;
             var link = window.location.origin + window.location.pathname + "?table_ID=" + table_id + "&";
             $('.query_box_direct_value').each(function(){

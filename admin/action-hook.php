@@ -318,6 +318,15 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
                             </select>
                         </td>
                     </tr>
+                    <tr> 
+                        <th> <label class="wpt_label" for="wpt_table_query_by_url"><?php esc_html_e( 'Query by URL', 'wpt_pro' ); ?></label></th>
+                        <td>
+                            <select name="<?php echo esc_attr( $field_name ); ?>[query_by_url]" id="wpt_table_instant_search_filter" class="wpt_fullwidth ua_input" >
+                                <option value="0" <?php wpt_selected( 'query_by_url', '0', $current_config_value ); ?>><?php esc_html_e( 'Off', 'wpt_pro' ); ?></option>
+                                <option value="1" <?php wpt_selected( 'query_by_url', '1', $current_config_value ); ?>><?php esc_html_e( 'On', 'wpt_pro' ); ?></option>
+                            </select>
+                        </td>
+                    </tr>
                 </tbody>
             </table><?php do_action( 'wpto_admin_configuration_panel_bottom',$settings,$current_config_value ); ?>
         </div>
