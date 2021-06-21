@@ -55,7 +55,7 @@ if( !function_exists( 'wpt_ajax_paginate_links_load' ) ){
             $table_ID = $args['table_ID'];
             $search_from = get_post_meta( $table_ID, 'search_n_filter', true );
 
-            $search_from = isset( $search_from['search_from'] ) && is_array( $search_from['search_from'] ) && count( $search_from['search_from'] ) > 0 ? sanitize_text_field( $search_from['search_from'] ) : false;
+            $search_from = isset( $search_from['search_from'] ) && is_array( $search_from['search_from'] ) && count( $search_from['search_from'] ) > 0 ? $search_from['search_from'] : false;
 
             $search_key = isset( $directkey['s'] ) && !empty( $directkey['s'] ) ? sanitize_text_field( $directkey['s'] ) : "";
 
@@ -208,7 +208,7 @@ if( !function_exists( 'wpt_ajax_table_row_load' ) ){
 
         $table_ID = $args['table_ID'];
         $search_from = get_post_meta( $table_ID, 'search_n_filter', true );
-        $search_from = isset($search_from['search_from']) && is_array( $search_from['search_from'] ) && count( $search_from['search_from'] ) > 0 ? sanitize_text_field( $search_from['search_from'] ) : false;
+        $search_from = isset($search_from['search_from']) && is_array( $search_from['search_from'] ) && count( $search_from['search_from'] ) > 0 ? $search_from['search_from'] : false;
 
         $search_key = isset( $directkey['s'] ) && !empty( $directkey['s'] ) ? sanitize_text_field( $directkey['s'] ) : "";
 

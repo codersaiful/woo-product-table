@@ -1241,6 +1241,10 @@ add_action( 'wpto_table_wrapper_bottom', 'wpt_freeze_column_maintain',9910,4 );
 if( !function_exists( 'wpt_add_div_at_top' ) ){
 
     /**
+     * Top Scrollbar
+     * To hide, top scrollbar, we can use this action hook
+     * 
+     * 
      * Add a new div at the top of the table, To add a Wrapper wrapper at the Top
      * 
      * @param Int $table_ID

@@ -119,6 +119,16 @@
                     var current_link = window.location.href;
                     window.history.pushState('data', null, current_link.replace(/(paged=\d)+/, "paged=" + (pageNumber-1)));
 
+
+                    /**
+                     * Scrolling to Table Top
+                     * 
+                     * @type window.$|$
+                     */
+                    var body = $('html, body');
+                    var thisTableTop = $('#table_id_' + temp_number).offset();
+                    body.animate({scrollTop:thisTableTop.top}, 500, 'swing');
+
                 },
                 success: function(data) {
                     targetTableBody.html(data);
@@ -141,7 +151,7 @@
                     
                     
                     if($('#table_id_' + temp_number + ' table.wpt_product_table').attr('data-queried') !== 'true'){
-                        generat_url_by_search_query(temp_number);
+                        generate_url_by_search_query(temp_number);
                         $('#table_id_' + temp_number + ' table.wpt_product_table').attr('data-queried','true');
                     }
                     
@@ -451,7 +461,7 @@
          * for Ajax add to cart
          * for Variation product
          */
-        $('body').on('click', 'a.ajax_active.wpt_variation_product.single_add_to_cart_button.button.enabled, a.ajax_active.add_to_cart_button.wpt_woo_add_cart_button', function(e) {
+        $('body').on('click', 'a.ajax_active.wpt_variation_product.single_add_to_cart_button.button.enabled, a.add_to_cart_button.ajax_add_to_cart, a.ajax_active.add_to_cart_button.wpt_woo_add_cart_button', function(e) {
             e.preventDefault();
             var thisButton = $(this);
             //Adding disable and Loading class
@@ -1392,7 +1402,7 @@
                     /**
                      * Generate here where query
                      */
-                    generat_url_by_search_query(temp_number, extra_link_tax_cf);
+                    generate_url_by_search_query(temp_number, extra_link_tax_cf);
                     $('#wpt_query_reset_button_' + temp_number).fadeIn('medium');
                     /**
                      * Trigger on this event, when search will be completed
@@ -1460,7 +1470,13 @@
          * @param {type} table_id
          * @returns {undefined}
          */
-        function generat_url_by_search_query( table_id = 0, extra = '' ){
+        function generate_url_by_search_query( table_id = 0, extra = '' ){
+            config_json = getConfig_json( table_id ); //Added vat v2.9.3.0
+            
+            if(config_json.query_by_url !== '1'){
+                return;
+            }
+            
             var key,value;
             var link = window.location.origin + window.location.pathname + "?table_ID=" + table_id + "&";
             $('.query_box_direct_value').each(function(){
@@ -1576,15 +1592,29 @@
             updateCheckBoxCount(temp_number);
         }
         
-        
+        /**
+         * Mainly for shortmessage field
+         */
+        $('body').on('change', '.wpt_row input.message', function() {
+                var temp_number = $(this).parents('tr.wpt_row').data('temp_number');
+                var msg = $(this).val();
+                var product_id = $(this).parents('tr').data('product_id');
+            
+                var thisRow = '#table_id_' + temp_number + ' tr.product_id_' + product_id;
+                $( thisRow + ' input.message').val(msg);
+        });
         $('body').on('change', '.wpt_row input.input-text.qty.text', function() {
                 var temp_number = $(this).parents('tr.wpt_row').data('temp_number');
                 var Qty_Val = $(this).val();
                 var product_id = $(this).parents('tr').data('product_id');
             
-                //.product_id_' + product_id + ' This a Table Trow Class
-                $('#table_id_' + temp_number + ' tr.product_id_' + product_id + ' input.input-text.qty.text').val(Qty_Val);
-                $('#table_id_' + temp_number + ' tr.product_id_' + product_id).attr('data-quantity',Qty_Val);
+                var thisRow = '#table_id_' + temp_number + ' tr.product_id_' + product_id;
+                
+                $( thisRow + ' input.input-text.qty.text').val(Qty_Val);
+                $( thisRow ).attr('data-quantity', Qty_Val);
+                $( thisRow + ' a.wpt_woo_add_cart_button').attr('data-quantity', Qty_Val);
+                $( thisRow + ' a.add_to_cart_button ').attr('data-quantity', Qty_Val);
+                
                 var targetTotalSelector = $('#table_id_' + temp_number + ' .product_id_' + product_id + ' .wpt_total_item.total_general');
                  
             
@@ -1622,7 +1652,6 @@
                         break;
                 }
 
-                $('#table_id_' + temp_number + ' .product_id_' + product_id + ' .wpt_action a.wpt_woo_add_cart_button').attr('data-quantity', Qty_Val);
                 $('.yith_request_temp_' + temp_number + '_id_' + product_id).attr('data-quantity', Qty_Val);
                 $('#table_id_' + temp_number + ' .product_id_' + product_id + ' .wpt_total_item.total_general strong').html(newPrice);
                 //$(target_row_id + ' a.add_to_cart_button').attr('data-quantity', Qty_Val); //wpt_total_item total_general
@@ -1773,9 +1802,8 @@
             if( typeof split_params[1] !== 'undefined' && type === 'variation' ){
                 quote_data = '&' + split_params[1];
             }
-            add_to_cart_info = 'action=yith_ywraq_action&ywraq_action=add_item';
+            add_to_cart_info = 'action=yith_ywraq_action&ywraq_action=add_item&quantity=' + quantity + '&product_id='+ product_id +'&_wpnonce='+ywraq_frontend.yith_ywraq_action_nonce;
             add_to_cart_info += quote_data;
-            add_to_cart_info += '&quantity=' + quantity;
             /**
              * When Table will show "Only Variation" as row
              * Then Product ID will get from Parent ID
@@ -1788,14 +1816,13 @@
                product_id = parent_id;
                 add_to_cart_info += '&variation_id=' + variation_id;
             }
-            add_to_cart_info += '&product_id=' + product_id;
-            add_to_cart_info += '&wp_nonce=' + wp_nonce;
-            add_to_cart_info += '&yith-add-to-cart=' + product_id;
+            
             var yith_ajax_url;// = ywraq_frontend.ajaxurl;
             yith_ajax_url = ywraq_frontend.ajaxurl.toString().replace( '%%endpoint%%', 'yith_ywraq_action' );
+            
             $.ajax({
             type   : 'POST',
-            url    : yith_ajax_url,
+            url    : ywraq_frontend.ajaxurl,//yith_ajax_url,
             dataType: 'json',
             data   : add_to_cart_info,
             beforeSend: function(){
@@ -1806,11 +1833,10 @@
             success: function (response) {
                 if( response && ( response.result === 'true' || response.result === 'exists' ) ){
                     $('.' + selector).html(msg.added);
-                    if(response.result === 'exists'){
-                        
-                        $('.' + selector).attr('data-response_msg',response.message);
-                        //alert(response.message);
-                    }
+                    //if(response.result === 'exists'){
+                        //$('.' + selector).attr('data-response_msg',response.message);
+                    //}
+                    $('.' + selector).attr('data-response_msg',response.message);
                     var html;
                     //$('.wpt_quoterequest img').remove();
                     //$('.' + selector + '+.yith_ywraq_add_item_browse_message').remove();
