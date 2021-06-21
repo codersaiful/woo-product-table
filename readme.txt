@@ -112,7 +112,7 @@ Default Shortcode is [Product_Table id='123' name='Home Table'] as well as also 
 
 = Can I set product limitation to show in one table? =
 
-Yes. You can set the product limit to show in yout able. Eg. You have 100 products in your site then you can easily show 50 of them.
+Yes. You can set the product limit to show in you able. Eg. You have 100 products in your site then you can easily show 50 of them.
 
 = How to use? =
 
