@@ -4,7 +4,7 @@ Donate link: https://codecanyon.net/item/woo-product-table-pro/20676867?ref=Code
 Tags: wc product table,woocommerce product table, product table, wc table, quick order table, wholesale table, restaurants table
 Requires at least: 4.0.0
 Tested up to: 5.7.2
-Stable tag: 2.9.3
+Stable tag: 2.9.4
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -112,7 +112,7 @@ Default Shortcode is [Product_Table id='123' name='Home Table'] as well as also 
 
 = Can I set product limitation to show in one table? =
 
-Yes. You can set the product limit to show in yout able. Eg. You have 100 products in your site then you can easily show 50 of them.
+Yes. You can set the product limit to show in you able. Eg. You have 100 products in your site then you can easily show 50 of them.
 
 = How to use? =
 
