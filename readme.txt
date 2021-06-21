@@ -157,6 +157,16 @@ You can easily show specific category products. While creating new table click o
 
 == Changelog ==
 
+= 2.9.3 =
+ * Fixed: Shop page quantity issue
+ * Fixed: After add to cart quantity issue
+ * Fixed: Quote button issue
+ * Fixed: YITH Quote button issue
+ * Fixed: Short Message not sending issue
+ * Fixed: Advance Search on latest verion
+ * Added: Query by URL - on off from Configuraton page and tab
+ * Bug Fix
+
 = 2.9.1 =
  * escapping issue fixed
 
