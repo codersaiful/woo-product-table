@@ -49,9 +49,22 @@
          * Actually after update to latest, wpt_admin_body class was not working properly.
          * That's why, we have added here
          */
-        $('select#product_id_includes,select#product_id_cludes').select2({
+        $('.product_includes_excludes,select#product_id_includes,select#product_id_cludes').select2({
             //templateSelection //templateResult
             templateSelection: function(option,ccc){
+                
+                /**
+                 * Inside selected item, there was showing as thml tag format
+                 * tai, apatoto name show kore rekheche.
+                 * @since 2.9.4.0
+                 * 
+                 * I will fix it later. but for now, I have to return
+                 * only text
+                 * 
+                 * ::processResults er vitoreo emon kora hoyeche.
+                 */
+                return option.text;
+                
                 if (!option.id) { return option.text; }
                 if(typeof option.title === 'undefined'){
                     return option.text;
@@ -104,7 +117,16 @@
                                         display += '</div>';
                                         display += '</div>';
 
-                                            options.push( { id: text['id'], text: display  } );
+                                            //options.push( { id: text['id'], text: display  } );
+                                            /**
+                                             * Uporer ongsho tuku age chilo
+                                             * admin panel a kaj korchilo na, tai apatoto seta
+                                             * off rekhechi ebong ekhon sudhu nam dekhanor bebostha korechi.
+                                             * 
+                                             * ::templateSelection er vitoreo emon kora hoyeche.
+                                             * @since 2.9.4.0
+                                             */
+                                            options.push( { id: text['id'], text: text['title']  } );
                                     });
 
                             }
