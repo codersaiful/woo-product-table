@@ -427,7 +427,8 @@ if( !function_exists( 'wpt_per_item_fragment' ) ) {
                         $fragments["span.wpt_ccount.wpt_ccount_$pr_id"] = "<span class='wpt_ccount wpt_ccount_$pr_id'>$pr_value</span>";
                     }
                 }
-                $fragments['.wpt-footer-cart-wrapper>a'] = '<a href="' . wc_get_cart_url() . '">' . WC()->cart->get_cart_subtotal() . '</a>';
+                $footer_cart_link = apply_filters( 'wpto_footer_cart_link', wc_get_cart_url() );
+                $fragments['.wpt-footer-cart-wrapper>a'] = '<a href="' . $footer_cart_link . '">' . WC()->cart->get_cart_subtotal() . '</a>';
 		echo wp_json_encode($product_response);
 		
 		$fragments["wpt_per_product"] = ob_get_clean();
