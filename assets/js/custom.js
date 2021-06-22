@@ -1434,7 +1434,7 @@
                         thisButton.html(searchText);
                     }
                     if( actionType === 'load_more' ){
-                        if(data !== "<div class='wpt_loader_text wpt_product_not_found'>" + config_json.product_not_founded + "</div>"){ //'Product Not found' //Products Not founded!
+                        if(!data.match('wpt_product_not_found')){ //'Product Not found' //Products Not founded!
                             targetTableBody.append( data );
                             thisButton.html(loadMoreText);
                             
