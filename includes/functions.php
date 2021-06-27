@@ -1086,6 +1086,7 @@ if( !function_exists( 'wpt_args_manipulation_frontend' ) ){
 
             $sql = $GLOBALS['wp_query']->request;
             $results = $wpdb->get_results( $sql, ARRAY_A );
+            $results = is_array( $results ) ? $results : array();
             $args_product_in = array();
             foreach( $results as $result ){
                 $args_product_in[] = $result['ID'];
