@@ -525,9 +525,7 @@ class WPT_Product_Table{
             add_action( 'admin_notices', [ $this, 'ultraaddons_notice' ] );
         }
 
-        if( ! is_plugin_active( $plugin ) ){
-            include_once $this->path('BASE_DIR','modules/elementor.php'); //Elementor Blog Added
-        }
+        include_once $this->path('BASE_DIR','modules/elementor.php'); //Elementor Widget for Table using Elementor
     }   
         
     if( !class_exists( 'Mobile_Detect' ) ){
