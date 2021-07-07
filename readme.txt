@@ -157,6 +157,9 @@ You can easily show specific category products. While creating new table click o
 
 == Changelog ==
 
+= 2.9.4 =
+ * Fixed: Load Button on archvie page issue has been fixed.
+
 = 2.9.3 =
  * Fixed: Shop page quantity issue
  * Fixed: After add to cart quantity issue
