@@ -522,7 +522,9 @@ button.button.wpt_search_button {
     margin: 16px 0;
     clear: both;
 }
-
+.archive .wpt_load_more_wrapper {
+    display: none;
+}
 /* problem solved */
 .wpt_load_more,
 .add_to_cart_all_selected{
