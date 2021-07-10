@@ -22,5 +22,5 @@ $desc = $data[$description_type];
 $wpt_single_product_title .= $description_on && $description_on == 'yes' && $desc ? "<div class='product_description'>" .  do_shortcode( $desc ) . "</div>" : '';
 
 
-
-echo wp_kses_post( $wpt_single_product_title );
+//XSS ok.
+echo $wpt_single_product_title;
