@@ -160,6 +160,7 @@ You can easily show specific category products. While creating new table click o
 = 2.9.5 =
  * Added: short description column as individual column.
  * Added: logn description column as individual column.
+ * Fixed: Quote Request (premium version) has been fixed.
 
 = 2.9.4 =
  * Fixed: Load Button on archvie page issue has been fixed.
