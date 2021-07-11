@@ -26,8 +26,11 @@ pre.xdebug-var-dump>small {font-size: 88%;letter-spacing: -1px;}
 Universal CSS Style for Woo Product Table
 This file CSS, generally for all template Table
 */
-.wpt_product_table_wrapper table.wpt_product_table>tbody tr.wpt_row td a {
+.wpt_product_table_wrapper table.wpt_product_table>tbody tr.wpt_row td a,
+.wpt_product_table_wrapper table.wpt_product_table>tbody tr.wpt_row td a.single_add_to_cart_button
+{
     text-decoration: none;
+    white-space: nowrap;
 }
 /*******Check Box and Radio Button Style Start Here*******/
 div.wpt_product_table_wrapper input[type=checkbox] {
