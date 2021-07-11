@@ -1,4 +1,9 @@
 <?php
+
+if( defined( 'YITH_YWRAQ_PREMIUM' ) ){
+    echo do_shortcode( '[yith_ywraq_button_quote product="' . $id . '"]' );
+    return;
+}
 $wpt_nonce = wp_create_nonce( 'add-request-quote-' . $data['id'] );
 $default_quantity = apply_filters( 'woocommerce_quantity_input_min', 1, $product );
 $quote_class = 'enabled';
