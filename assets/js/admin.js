@@ -653,6 +653,7 @@
             // a callback to fire when the input is emptied or an invalid color
             clear: function() {
                 //alert('Empty/invalid color');
+                wptUpdateStyleData(this);
             },
             // hide the color picker controls on load
             hide: true,
@@ -694,5 +695,13 @@
             //str_str_value_string
             $("." + targetWrapper + " .str_str_value_string").val(str_str);
         }
+        $('body').on('click', '.wpt-reset-style', function(e){
+            e.preventDefault;
+            var wrapper = $(this).closest('.wpt_column_setting_extra');
+            var targetWrapper = wrapper.data('wpt_column_setting_extra');
+            $("." + targetWrapper + " .style_str_wrapper .str_str_value_string").val("");
+            console.log($(this).closest('.wpt-style-body').append("<p>All style cleared. Now click on <strong>Update</strong> button or press <strong>Ctrl+S</strong> on Windows or <strong>Cmd+S</strong> on Mac to save the changes.</p>"));
+            
+        });
     });
 })(jQuery);
