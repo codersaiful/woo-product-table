@@ -170,6 +170,7 @@ if( !function_exists( 'wpt_column_style_for_all' ) ){
             <div class="wpt-style-body">
                 <table class="ultraaddons-table <?php echo esc_attr( $class_name ); ?>_value_wrapper" style_str_value_wrapper>    
                 <?php
+                
                 foreach( $style_property as $style_key => $label ){
                     $value = isset( $style[ $style_key ] ) ? $style[ $style_key ] : false;
                     ?>

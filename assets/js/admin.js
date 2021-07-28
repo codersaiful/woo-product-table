@@ -5,23 +5,9 @@
             return false;
         }
         
-        $('body').on('focus','.str_str_each_value',function(){
+        $('body').on('keyup','.str_str_each_value',function(){
 
-            //style_str_value_wrapper
-            var wrapper = $(this).closest('.style_str_wrapper');
-            var targetWrapper = wrapper.data('target_value_wrapper');
-            console.log(targetWrapper,"#" + targetWrapper + " .str_str_each_value");
-            var property_name, property_value;
-            var str_str = "";
-            $("." + targetWrapper + " .str_str_each_value").each(function() {
-                property_name = $(this).data('proerty_name');
-                property_value = $(this).val();
-                if( property_value ){
-                    str_str += property_name + ": " + property_value + ";";
-                }
-            });
-            //str_str_value_string
-            $("." + targetWrapper + " .str_str_value_string").val(str_str);
+            wptUpdateStyleData(this);
         });
         
         //For select, used select2 addons of jquery
@@ -432,7 +418,7 @@
             $('body.wpt_admin_body #inside-tablet li.wpt_sortable_peritem.enabled .wpt_shortable_data input.colum_data_input,body.wpt_admin_body #inside-mobile li.wpt_sortable_peritem.enabled .wpt_shortable_data input.colum_data_input').each(function(Index) {
                 detect_responsive[Index] = 1;
             });
-            console.log(detect_responsive.length);
+            // console.log(detect_responsive.length);
             var hid_respn_field = $('#hidden_responsive_data');
             if( detect_responsive.length > 0 ){
                 hid_respn_field.val('no_responsive');
@@ -618,7 +604,6 @@
             
             //Collate all post form data
             var data = $('form#post').serializeArray();
-
             //Set a trigger for our save_post action
             data.push({wpt_ajax_save: true});
 
@@ -635,7 +620,7 @@
                     type: 'POST',
                     url: ajax_url,// + get_data,
                     data: {
-                        action:         'wpt_set_post_meta',
+                        action:     'wpt_set_post_meta',
                         post_id:    post_id,
                     },
                     complete: function(){
@@ -662,7 +647,9 @@
             // or in the data-default-color attribute on the input
             defaultColor: false,
             // a callback to fire whenever the color changes to a valid color
-            change: function(event, ui){},
+            change: function(event, ui){
+                wptUpdateStyleData(this);
+            },
             // a callback to fire when the input is emptied or an invalid color
             clear: function() {
                 //alert('Empty/invalid color');
@@ -671,8 +658,8 @@
             hide: true,
             // show a group of common colors beneath the square
             // or, supply an array of colors to customize further
-            //palettes: true,
-            palettes:['#000000','#ffffff','#aabbcc','#0a7f9c','#B02B2C','#edae44','#eeee22','#83a846','#7bb0e7','#745f7e','#5f8789','#d65799','#4ecac2'],
+            palettes: false,
+            // palettes:['#000000','#ffffff','#aabbcc','#0a7f9c','#B02B2C','#edae44','#eeee22','#83a846','#7bb0e7','#745f7e','#5f8789','#d65799','#4ecac2'],
         };
         $('.wpt-color, .wpt-background-color').wpColorPicker(myOptions);
         
@@ -690,5 +677,22 @@
 //    });
 //  }
 //});
+        function wptUpdateStyleData(element){
+            //style_str_value_wrapper
+            var wrapper = $(element).closest('.style_str_wrapper');
+            var targetWrapper = wrapper.data('target_value_wrapper');
+            // console.log(targetWrapper,"#" + targetWrapper + " .str_str_each_value");
+            var property_name, property_value;
+            var str_str = "";
+            $("." + targetWrapper + " .str_str_each_value").each(function() {
+                property_name = $(this).data('proerty_name');
+                property_value = $(this).val();
+                if( property_value ){
+                    str_str += property_name + ": " + property_value + ";";
+                }
+            });
+            //str_str_value_string
+            $("." + targetWrapper + " .str_str_value_string").val(str_str);
+        }
     });
 })(jQuery);

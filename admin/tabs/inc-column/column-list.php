@@ -1,6 +1,5 @@
 <ul id="wpt_column_sortable" class="wpt_column_sortable">
     <?php
-
     /**
      * Here was $columns_array
      * I have added new $meta_enable_column_array
