@@ -157,6 +157,9 @@ You can easily show specific category products. While creating new table click o
 
 == Changelog ==
 
+= 2.9.7 =
+ * Search issue for Advance Search has been fixed
+
 = 2.9.6 =
  * Fixed: YITH qutoe request premium button quantity issue solved.
 
