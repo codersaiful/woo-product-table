@@ -700,7 +700,9 @@
             var wrapper = $(this).closest('.wpt_column_setting_extra');
             var targetWrapper = wrapper.data('wpt_column_setting_extra');
             $("." + targetWrapper + " .style_str_wrapper .str_str_value_string").val("");
-            console.log($(this).closest('.wpt-style-body').append("<p>All style cleared. Now click on <strong>Update</strong> button or press <strong>Ctrl+S</strong> on Windows or <strong>Cmd+S</strong> on Mac to save the changes.</p>"));
+            $("." + targetWrapper + " .style_str_wrapper .wpt-style-body input").val("");
+            $("." + targetWrapper + " .style_str_wrapper .wp-picker-clear").trigger('click');
+            $(this).closest('.wpt-style-body').append("<p>All style cleared. Now click on <strong>Update</strong> button or press <strong>Ctrl+S</strong> on Windows or <strong>Cmd+S</strong> on Mac to save the changes.</p>")
             
         });
     });
