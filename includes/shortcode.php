@@ -1014,6 +1014,7 @@ if( !function_exists( 'wpt_table_row_generator' ) ){
                     "backorders_" . $data['backorders'],
                     "sku_" . $data['sku'],
                     "status_" . $data['status'],
+                    $product->is_sold_individually() ? "individually-sold" : "",
 
                 );
                 $tr_class_arr = apply_filters( 'wpto_tr_class_arr', $tr_class_arr, $args, $table_ID, $column_settings, $table_column_keywords, $product );

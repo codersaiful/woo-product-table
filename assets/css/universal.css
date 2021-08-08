@@ -1676,3 +1676,6 @@ a.search_box_reset:focus,
 .col_inside_tag.audio * {
     max-width: 65px;
 }
+.individually-sold a.button.add_to_cart_button.added {
+    display: none;
+}
