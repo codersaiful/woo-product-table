@@ -1679,3 +1679,9 @@ a.search_box_reset:focus,
 .individually-sold a.button.add_to_cart_button.added {
     display: none;
 }
+
+.wpt_product_table_wrapper .select2-container--default .select2-selection--multiple .select2-selection__rendered,
+.wpt_product_table_wrapper .select2-container--default.select2-container--focus .select2-selection--multiple{
+    padding-left: 10px !important;
+/*    padding-right: 12px !important;*/
+}
