@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: Product Table for WooCommerce
+ * Plugin Name: Product Table for WooCommerce - (wooproducttable)
  * Plugin URI: https://codecanyon.net/item/woo-product-table-pro/20676867?ref=CodeAstrology&utm_source=WPT_Installed_Plugin
  * Description: WooCommerce all products display as a table in one page by shortcode. Fully responsive and mobile friendly. Easily customizable - color,background,title,text color etc.
  * Author: Saiful Islam
@@ -9,9 +9,9 @@
  * 
  * Version: 2.9.7
  * Requires at least:    4.0.0
- * Tested up to:         5.7.8
+ * Tested up to:         5.8
  * WC requires at least: 3.0.0
- * WC tested up to: 	 5.5.1
+ * WC tested up to: 	 5.5.2
  * 
  * Text Domain: wpt_pro
  * Domain Path: /languages/
