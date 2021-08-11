@@ -51,14 +51,17 @@ if( !function_exists( 'wpt_ajax_paginate_links_load' ) ){
         ###echo '<pre>';
         ###print_r($wpdb['last_query']);
         ###echo '</pre>';
+        
+        $table_ID = $args['table_ID'];
+        $search_from = get_post_meta( $table_ID, 'search_n_filter', true );
+
+        $search_from = isset( $search_from['search_from'] ) && is_array( $search_from['search_from'] ) && count( $search_from['search_from'] ) > 0 ? $search_from['search_from'] : false;
+
+        $search_key = isset( $directkey['s'] ) && !empty( $directkey['s'] ) ? sanitize_text_field( $directkey['s'] ) : "";
+
+        
         if( !$load_type ){
-            $table_ID = $args['table_ID'];
-            $search_from = get_post_meta( $table_ID, 'search_n_filter', true );
-
-            $search_from = isset( $search_from['search_from'] ) && is_array( $search_from['search_from'] ) && count( $search_from['search_from'] ) > 0 ? $search_from['search_from'] : false;
-
-            $search_key = isset( $directkey['s'] ) && !empty( $directkey['s'] ) ? sanitize_text_field( $directkey['s'] ) : "";
-
+            
             $args['wpt_custom_search'] = $search_key; //XSS OK //Already sanitized as text field
             $args['s'] = $search_key; //XSS OK //Already sanitized as text field
 
@@ -134,6 +137,20 @@ if( !function_exists( 'wpt_ajax_paginate_links_load' ) ){
 
         $checkbox                 = $targetTableArgs['checkbox'];
 
+        
+        /**
+         * For Search, we will remove post per page
+         * and will set unlimited 
+         * 
+         * I have checked it based on search key
+         */
+        if( ! empty( $search_key ) && $search_from ){
+            $args['posts_per_page'] = '-1';
+        }else{
+            $conditions = get_post_meta( $table_ID, 'conditions', true );
+            $args['posts_per_page'] = (int) $conditions['posts_per_page'];
+        }
+        
         $table_row_generator_array = array(
             'args'                      => $args,
             'wpt_table_column_keywords' => $table_column_keywords,
@@ -204,14 +221,16 @@ if( !function_exists( 'wpt_ajax_table_row_load' ) ){
         $args = $targetTableArgs['args'];
         $args['wpt_query_type'] = 'search';//Added on 6.0.3 - 12.6.2020
 
-        if( !$load_type ){
-
         $table_ID = $args['table_ID'];
         $search_from = get_post_meta( $table_ID, 'search_n_filter', true );
         $search_from = isset($search_from['search_from']) && is_array( $search_from['search_from'] ) && count( $search_from['search_from'] ) > 0 ? $search_from['search_from'] : false;
 
         $search_key = isset( $directkey['s'] ) && !empty( $directkey['s'] ) ? sanitize_text_field( $directkey['s'] ) : "";
+    
+        
+        if( !$load_type ){
 
+        
         $args['wpt_custom_search'] = $search_key; //XSS ok
         $args['s'] = $search_key; //XSS ok
 
@@ -296,6 +315,20 @@ if( !function_exists( 'wpt_ajax_table_row_load' ) ){
         $table_type           = $targetTableArgs['table_type'];
         $checkbox                 = $targetTableArgs['checkbox'];
 
+        /**
+         * For Search, we will remove post per page
+         * and will set unlimited 
+         * 
+         * I have checked it based on search key
+         */
+
+        if( ! empty( $search_key ) && $search_from ){
+            $args['posts_per_page'] = '-1';
+        }else{
+            $conditions = get_post_meta( $args['table_ID'], 'conditions', true );
+            $args['posts_per_page'] = (int) $conditions['posts_per_page'];
+        }
+   
         $table_row_generator_array = array(
             'args'                      => $args,
             'wpt_table_column_keywords' => $table_column_keywords,

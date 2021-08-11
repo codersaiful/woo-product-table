@@ -1086,6 +1086,7 @@ if( !function_exists( 'wpt_args_manipulation_frontend' ) ){
 
             $sql = $GLOBALS['wp_query']->request;
             $results = $wpdb->get_results( $sql, ARRAY_A );
+            $results = is_array( $results ) ? $results : array();
             $args_product_in = array();
             foreach( $results as $result ){
                 $args_product_in[] = $result['ID'];
@@ -1501,3 +1502,23 @@ function wpt_product_table_preview_template( $template_file ){
     return $template_file;
 }
 add_filter( 'template_include', 'wpt_product_table_preview_template' );
+
+function wpt_matched_cart_items( $search_products ) {
+    $count = 0; // Initializing
+
+    if ( ! WC()->cart->is_empty() ) {
+        // Loop though cart items
+        foreach(WC()->cart->get_cart() as $cart_item ) {
+            // Handling also variable products and their products variations
+            $cart_item_ids = array($cart_item['product_id'], $cart_item['variation_id']);
+
+            // Handle a simple product Id (int or string) or an array of product Ids 
+            if( ( is_array( $search_products ) && array_intersect( $search_products, $cart_item_ids ) ) 
+            || ( !is_array( $search_products ) && in_array( $search_products, $cart_item_ids ) ) ) {
+
+                $count++; // incrementing items count
+            }
+        }
+    }
+    return $count; // returning matched items count 
+}

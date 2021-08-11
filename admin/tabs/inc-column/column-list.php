@@ -1,6 +1,5 @@
 <ul id="wpt_column_sortable" class="wpt_column_sortable">
     <?php
-
     /**
      * Here was $columns_array
      * I have added new $meta_enable_column_array
@@ -73,7 +72,7 @@
                 do_action( 'wpto_column_setting_form_' . $keyword, $_device_name, $column_settings, $columns_array, $updated_columns_array, $post, $additional_data ); ?>
             </div>
             <span data-key="<?php echo esc_attr( $keyword ); ?>" class="extra_all_on_off on_now"><i class="on_off_icon"></i>Expand</span>
-            <div class="wpt_column_setting_extra for_all extra_all_<?php echo esc_attr( $keyword ); ?>">
+            <div class="wpt_column_setting_extra for_all extra_all_<?php echo esc_attr( $keyword ); ?>" data-wpt_column_setting_extra="extra_all_<?php echo esc_attr( $keyword ); ?>">
                 <?php do_action( 'wpto_column_setting_form_inside_' . $keyword, $_device_name, $column_settings, $columns_array, $updated_columns_array, $post, $additional_data ); ?>
                 <?php 
                 /**

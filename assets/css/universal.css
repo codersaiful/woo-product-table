@@ -26,8 +26,11 @@ pre.xdebug-var-dump>small {font-size: 88%;letter-spacing: -1px;}
 Universal CSS Style for Woo Product Table
 This file CSS, generally for all template Table
 */
-.wpt_product_table_wrapper table.wpt_product_table>tbody tr.wpt_row td a {
+.wpt_product_table_wrapper table.wpt_product_table>tbody tr.wpt_row td .wpt_action a,
+.wpt_product_table_wrapper table.wpt_product_table>tbody tr.wpt_row td a.single_add_to_cart_button
+{
     text-decoration: none;
+    white-space: nowrap;
 }
 /*******Check Box and Radio Button Style Start Here*******/
 div.wpt_product_table_wrapper input[type=checkbox] {
@@ -522,7 +525,9 @@ button.button.wpt_search_button {
     margin: 16px 0;
     clear: both;
 }
-
+.archive .wpt_load_more_wrapper {
+    display: none;
+}
 /* problem solved */
 .wpt_load_more,
 .add_to_cart_all_selected{
@@ -1670,4 +1675,13 @@ a.search_box_reset:focus,
 .mediPlayer{cursor: pointer;}
 .col_inside_tag.audio * {
     max-width: 65px;
+}
+.individually-sold a.button.add_to_cart_button.added {
+    display: none;
+}
+
+.wpt_product_table_wrapper .select2-container--default .select2-selection--multiple .select2-selection__rendered,
+.wpt_product_table_wrapper .select2-container--default.select2-container--focus .select2-selection--multiple{
+    padding-left: 10px !important;
+/*    padding-right: 12px !important;*/
 }

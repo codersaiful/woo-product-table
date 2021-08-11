@@ -316,6 +316,7 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
                                 <option value="1" <?php wpt_selected( 'instant_search_filter', '1', $current_config_value ); ?>><?php esc_html_e( 'Show', 'wpt_pro' ); ?></option>
                                 <option value="0" <?php wpt_selected( 'instant_search_filter', '0', $current_config_value ); ?>><?php esc_html_e( 'Hide', 'wpt_pro' ); ?></option>
                             </select>
+                            <p><?php echo esc_html__( 'Only for Visible products of current table.', 'wpt_pro' ) ?></p>
                         </td>
                     </tr>
                     <tr> 
@@ -357,6 +358,7 @@ if( !function_exists( 'wpt_configure_label_part' ) ){
                         <th> <label for="wpt_table_load_more_text" class="wpt_label"><?php echo sprintf(esc_html__( '%s[Load More]%s - Button Text', 'wpt_pro' ), '<b>', '</b>' ); ?></label></th>
                         <td>
                             <input name="<?php echo esc_attr( $field_name ); ?>[load_more_text]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['load_more_text'] ); ?>" id="wpt_table_load_more_text" type="text" placeholder="<?php esc_attr_e( 'Load More text write here', 'wpt_pro' ); ?>">
+                            <p>Not for Archive page.</p>
                         </td>
                     </tr>
 

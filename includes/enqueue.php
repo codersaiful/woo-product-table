@@ -63,6 +63,7 @@ if( !function_exists( 'wpt_enqueue' ) ){
            'resize_loader' => apply_filters( 'wpto_resize_reloader', false ),
            'return_zero'   => apply_filters( 'wpto_qty_return_zero', false ),
            'return_quanity'   => apply_filters( 'wpto_qty_return_quanity', true ),
+           'search_select_placeholder' => esc_html( 'Select inner Item.', 'wpt_pro' ),
            );
        $WPT_DATA = apply_filters( 'wpto_localize_data', $WPT_DATA );
        wp_localize_script( 'wpt-custom-js', 'WPT_DATA', $WPT_DATA );

@@ -7,9 +7,13 @@
 (function($) {
     'use strict';
     $(document).ready(function() {
+        
+       
+        
         //Select2
         if(typeof $('.wpt_product_table_wrapper .search_select').select2 === 'function' && $('.wpt_product_table_wrapper .search_select').length > 0){
             $('.wpt_product_table_wrapper .search_select,select.filter_select').select2({
+                placeholder: WPT_DATA.search_select_placeholder,
                 tags: true,
             });//, .wpt_varition_section select
         }
@@ -2460,6 +2464,12 @@
          * @date 28.10.2020
          */
         $('.wpt_product_table input.input-text.qty.text').trigger('change');
+        
+        
+         $('.yith-ywraq-add-to-quote').each(function(){
+             let qty = $(this).closest('tr').data('quantity');
+            $(this).append('<input type="hidden" class="input-text qty text" value="' + qty + '">');
+        });
         
     });
 })(jQuery);

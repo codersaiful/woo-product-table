@@ -1,10 +1,10 @@
-=== Product Table for WooCommerce ===
+=== Product Table for WooCommerce (wooproducttable) ===
 Contributors: codersaiful,codeastrology
 Donate link: https://codecanyon.net/item/woo-product-table-pro/20676867?ref=CodeAstrology&utm_source=WPT_Installed_DonateLink
-Tags: wc product table,woocommerce product table, product table, wc table, quick order table, wholesale table, restaurants table
+Tags: wc product table, wooproducttable,woocommerce product table, product table, wc table, quick order table, wholesale table, restaurants table
 Requires at least: 4.0.0
-Tested up to: 5.7.2
-Stable tag: 2.9.4
+Tested up to: 5.8
+Stable tag: 2.9.7
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -12,7 +12,7 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Easily display your products as table by tiny shortcode. Such: [Product_Table id='1']. Support default editor, any Page Builder & Gutenberg.
 
 == Description ==
-Auto Responsive Mobile & Tab, Nice Design, Fast Speed *Product Table for WooCommerce*. Tiny Shortcode, Easy customizable, Ajax Add to cart, Ajax Search, Pagination & Load More.
+Product Table for WooCommerce is a wooproducttable. Auto Responsive Mobile & Tab, Nice Design, Fast Speed *Product Table for WooCommerce*. Tiny Shortcode, Easy customizable, Ajax Add to cart, Ajax Search, Pagination & Load More.
 *Product Table for WooCommerce* offers to show all products display as a table in page by light shortcode. Fully responsive and mobile friendly. Easily customizable - color, background, title, padding, margin etc.
 
 **[For Discount check our official site](https://wooproducttable.com/#discount)**
@@ -156,6 +156,20 @@ You can easily show specific category products. While creating new table click o
 25. Manually responsive for mobile devices
 
 == Changelog ==
+
+= 2.9.7 =
+ * Search issue for Advance Search has been fixed
+
+= 2.9.6 =
+ * Fixed: YITH qutoe request premium button quantity issue solved.
+
+= 2.9.5 =
+ * Added: short description column as individual column.
+ * Added: logn description column as individual column.
+ * Fixed: Quote Request (premium version) has been fixed.
+
+= 2.9.4 =
+ * Fixed: Load Button on archvie page issue has been fixed.
 
 = 2.9.3 =
  * Fixed: Shop page quantity issue

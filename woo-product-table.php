@@ -1,17 +1,17 @@
 <?php
 /**
- * Plugin Name: Product Table for WooCommerce
+ * Plugin Name: Product Table for WooCommerce - (wooproducttable)
  * Plugin URI: https://codecanyon.net/item/woo-product-table-pro/20676867?ref=CodeAstrology&utm_source=WPT_Installed_Plugin
  * Description: WooCommerce all products display as a table in one page by shortcode. Fully responsive and mobile friendly. Easily customizable - color,background,title,text color etc.
  * Author: Saiful Islam
  * Author URI: https://profiles.wordpress.org/codersaiful/
  * Tags: woocommerce product list,woocommerce product table, wc product table, product grid view, inventory, shop product table
  * 
- * Version: 2.9.4
+ * Version: 2.9.7
  * Requires at least:    4.0.0
- * Tested up to:         5.7.2
+ * Tested up to:         5.8
  * WC requires at least: 3.0.0
- * WC tested up to: 	 5.4.1
+ * WC tested up to: 	 5.5.2
  * 
  * Text Domain: wpt_pro
  * Domain Path: /languages/
@@ -30,7 +30,7 @@ if( !defined( 'WPT_PLUGIN_BASE_FOLDER' ) ){
 }
 
 if( !defined( 'WPT_DEV_VERSION' ) ){
-    define( 'WPT_DEV_VERSION', '2.9.4.0' );
+    define( 'WPT_DEV_VERSION', '2.9.7.0' );
 }
 
 if( !defined( 'WPT_CAPABILITY' ) ){
@@ -105,7 +105,8 @@ $column_array = array(
     'attribute'     =>  __( 'Attributes', 'wpt_pro' ),
     'variations'    =>  __( 'Variations', 'wpt_pro' ),
     'quoterequest'  => __( 'Quote Request', 'wpt_pro' ),
-    'description'   =>  __( 'Description', 'wpt_pro' ), //has been removed at V5.2 //Again start at 6.0.25
+    'description'   =>  __( 'Description', 'wpt_pro' ), //has been removed at V5.2 //Again start at 6.0.25 //Again added
+    'short_description'   =>  __( 'Short Description', 'wpt_pro' ), //Added at v2.9.4
     'blank'         => __( 'Blank', 'wpt_pro' ),
     'product_id'    => __( 'ID', 'wpt_pro' ),
     'serial_number' => __( 'SL', 'wpt_pro' ),
@@ -525,9 +526,7 @@ class WPT_Product_Table{
             add_action( 'admin_notices', [ $this, 'ultraaddons_notice' ] );
         }
 
-        if( ! is_plugin_active( $plugin ) ){
-            include_once $this->path('BASE_DIR','modules/elementor.php'); //Elementor Blog Added
-        }
+        include_once $this->path('BASE_DIR','modules/elementor.php'); //Elementor Widget for Table using Elementor
     }   
         
     if( !class_exists( 'Mobile_Detect' ) ){
