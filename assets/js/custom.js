@@ -13,6 +13,7 @@
         //Select2
         if(typeof $('.wpt_product_table_wrapper .search_select').select2 === 'function' && $('.wpt_product_table_wrapper .search_select').length > 0){
             $('.wpt_product_table_wrapper .search_select,select.filter_select').select2({
+                placeholder: WPT_DATA.search_select_placeholder,
                 tags: true,
             });//, .wpt_varition_section select
         }
