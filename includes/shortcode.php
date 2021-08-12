@@ -289,50 +289,26 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
          */
 	
 	if ($min_price) {
-		if ($is_b2b === 'yes'){
-			//b2bking b2b group price handling
-			$user_group = get_user_meta($user_id, 'b2bking_customergroup', true);
-			$args['meta_query'][] = array(
-			    'key' => 'b2bking_regular_product_price_group_'.$user_group,
-			    'value' => $min_price,
-			    'compare' => '>=',
-			    'type' => 'NUMERIC'
-			);
-		} else {
-			//default price handling
-			$args['meta_query'][] = array(
-			    'key' => '_price',
-			    'value' => $min_price,
-			    'compare' => '>=',
-			    'type' => 'NUMERIC'
-		   	);
-		}
+		$args['meta_query'][] = array(
+		//default price handling or B2Bking group prices
+		    'key' => ($is_b2b === 'yes')?'b2bking_regular_product_price_group_'.$user_group:'_price',
+		    'value' => $min_price,
+		    'compare' => '>=',
+		    'type' => 'NUMERIC'
+	   	);
 	}
-	    
-
 
         /**
          * Set Maximum Price for
          */
         if ($max_price) {
-		if ($is_b2b === 'yes'){
-			//b2bking b2b group price handling
-			$user_group = get_user_meta($user_id, 'b2bking_customergroup', true);
-			$args['meta_query'][] = array(
-			    'key' => 'b2bking_regular_product_price_group_'.$user_group,
-			    'value' => $max_price,
-			    'compare' => '<=',
-			    'type' => 'NUMERIC'
-			);
-		} else {
-			//default price handling
-			$args['meta_query'][] = array(
-			    'key' => '_price',
-			    'value' => $max_price,
-			    'compare' => '<=',
-			    'type' => 'NUMERIC'
-			);
-		}
+		//default price handling
+		$args['meta_query'][] = array(
+		    'key' => 'key' => ($is_b2b === 'yes')?'b2bking_regular_product_price_group_'.$user_group:'_price',
+		    'value' => $max_price,
+		    'compare' => '<=',
+		    'type' => 'NUMERIC'
+		);
         }
 
         /**
@@ -1428,3 +1404,4 @@ if( !function_exists( 'wpt_filter_box' ) ){
         return $html;
     }
 }
+?>
