@@ -1715,21 +1715,21 @@
             $(document.body).trigger('wpt_count_updated',argStats);
         }
         
-        $(document).on('wpt_count_updated',function(aaa,args){
-            console.log(args);
-            var btn = args['button_object'];
-            var itemAmount = args['itemAmount'];
-            var button_text = args['button_text'];
-            var custom_text = 'Pay now';
-             itemAmount = parseInt( itemAmount );
-            if( itemAmount > 0 ){
-                btn.html( custom_text);
-                //btn.html( custom_text + ' [ ' + itemAmount + ' ' + args['itemText'] + ' ]');;
-            }else{
-                btn.html( button_text + ' [ ' + itemAmount + ' ' + args['itemText'] + ' ]');
-            }
-            
-        });
+//        $(document).on('wpt_count_updated',function(aaa,args){
+//            //console.log(args);
+//            var btn = args['button_object'];
+//            var itemAmount = args['itemAmount'];
+//            var button_text = args['button_text'];
+//            var custom_text = 'Pay now';
+//             itemAmount = parseInt( itemAmount );
+//            if( itemAmount > 0 ){
+//                btn.html( custom_text);
+//                //btn.html( custom_text + ' [ ' + itemAmount + ' ' + args['itemText'] + ' ]');;
+//            }else{
+//                btn.html( button_text + ' [ ' + itemAmount + ' ' + args['itemText'] + ' ]');
+//            }
+//            
+//        });
         
         $('body').on('click', 'input.wpt_check_universal,input.enabled.wpt_tabel_checkbox.wpt_td_checkbox', function() { //wpt_td_checkbox
             var temp_number = $(this).data('temp_number');
