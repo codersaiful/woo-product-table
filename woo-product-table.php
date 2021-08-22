@@ -763,39 +763,34 @@ class WPT_Product_Table{
     * @updated since 3.6_29.10.2018 d/m/y
     */
    public static function install() {
-       ob_start();
-       //check current value
-       $current_value = get_option('wpt_configure_options');
-       $current_value = $current_value ? $current_value : get_option('wptf_configure_options');
-       $default_value = self::$default;
-       $default_value['plugin_name'] = self::getName();
-       $default_value['plugin_version'] =  self::getVersion();
-       $changed_value = false;
-       //Set default value in Options
-       if($current_value){
-           foreach( $default_value as $key=>$value ){
-              if( isset($current_value[$key]) && $key != 'plugin_version' ){
-                 $changed_value[$key] = $current_value[$key];
-              }else{
-                  $changed_value[$key] = $value;
-              }
-           }
-           update_option( 'wpt_configure_options', $changed_value );
-       }else{
-           update_option( 'wpt_configure_options', $default_value );
-       }
-       
-    $role = get_role( 'administrator' );
+        ob_start();
+        //check current value
 
-    $role->add_cap( 'edit_wpt_product_table' );
-    $role->add_cap( 'edit_wpt_product_tables' );
-    $role->add_cap( 'edit_others_wpt_product_tables' );
-    $role->add_cap( 'publish_wpt_product_tables' );
-    $role->add_cap( 'read_wpt_product_table' );
-    $role->add_cap( 'read_private_wpt_product_tables' );
-    $role->add_cap( 'delete_wpt_product_table' );
-    $role->add_cap( 'manage_wpt_product_table' );
-       
+        $role = get_role( 'administrator' );
+
+        $role->add_cap( 'edit_wpt_product_table' );
+        $role->add_cap( 'edit_wpt_product_tables' );
+        $role->add_cap( 'edit_others_wpt_product_tables' );
+        $role->add_cap( 'publish_wpt_product_tables' );
+        $role->add_cap( 'read_wpt_product_table' );
+        $role->add_cap( 'read_private_wpt_product_tables' );
+        $role->add_cap( 'delete_wpt_product_table' );
+        $role->add_cap( 'manage_wpt_product_table' );
+
+
+        //Configuration Data Update
+        $current_value = get_option('wpt_configure_options');
+        $default_value = self::$default;
+        if( empty( $current_value ) ){
+            update_option( 'wpt_configure_options', $default_value );
+            return;
+        }
+        
+        if( is_array( $current_value ) && is_array( $default_value ) ){
+            $updated = array_merge( $default_value, $current_value );
+            update_option( 'wpt_configure_options', $updated );
+            return;
+        }
    }
    
     /**
