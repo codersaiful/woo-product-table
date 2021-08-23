@@ -705,5 +705,37 @@
             $(this).closest('.wpt-style-body').append("<p>All style cleared. Now click on <strong>Update</strong> button or press <strong>Ctrl+S</strong> on Windows or <strong>Cmd+S</strong> on Mac to save the changes.</p>")
             
         });
+
+        /**
+         * onChange table type 
+         * fire this function
+         */
+        $(document).on('change', '#wpt_table_product_type', function(){
+            only_variation_table($(this));
+        });
+        
+        /**
+         * onLoad website get the value of table type
+         * and act as per value.
+         */
+         $(document).ready( function(){
+            only_variation_table();
+        });
+
+        function only_variation_table(element){
+            var element = element;
+            if( element == undefined ){
+                element = $('#wpt_table_product_type');
+            }
+            var product_type = $(element).val();
+
+            if( product_type == 'product_variation' ){
+                $('#wpt_product_cat_excludes').attr('disabled', 'disabled');
+                $('#product_id_cludes').attr('disabled', 'disabled');
+            }else{
+                $('#wpt_product_cat_excludes').removeAttr('disabled');
+                $('#product_id_cludes').removeAttr('disabled');
+            }
+        }
     });
 })(jQuery);
