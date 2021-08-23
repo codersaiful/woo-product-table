@@ -706,36 +706,41 @@
             
         });
 
-        /**
-         * onChange table type 
-         * fire this function
-         */
-        $(document).on('change', '#wpt_table_product_type', function(){
-            only_variation_table($(this));
-        });
         
-        /**
-         * onLoad website get the value of table type
-         * and act as per value.
-         */
-         $(document).ready( function(){
-            only_variation_table();
-        });
-
-        function only_variation_table(element){
-            var element = element;
-            if( element == undefined ){
-                element = $('#wpt_table_product_type');
-            }
-            var product_type = $(element).val();
-
-            if( product_type == 'product_variation' ){
-                $('#wpt_product_cat_excludes').attr('disabled', 'disabled');
-                $('#product_id_cludes').attr('disabled', 'disabled');
-            }else{
-                $('#wpt_product_cat_excludes').removeAttr('disabled');
-                $('#product_id_cludes').removeAttr('disabled');
-            }
-        }
     });
+
+    /**
+     * onChange table type 
+     * fire this function
+     */
+     $(document).on('change', '#wpt_table_product_type', function(){
+        only_variation_table($(this));
+    });
+    
+    /**
+     * onLoad website get the value of table type
+     * and act as per value.
+     */
+     $(document).ready( function(){
+        only_variation_table();
+    });
+
+    function only_variation_table(element){
+        var element = element;
+        if( element == undefined ){
+            element = $('#wpt_table_product_type');
+        }
+        var product_type = $(element).val();
+
+        if( product_type == 'product_variation' ){
+            $('.notice-for-variations').show();
+            $('#wpt_product_cat_excludes').attr('disabled', 'disabled');
+            $('#product_id_cludes').attr('disabled', 'disabled');
+        }else{
+            $('.notice-for-variations').hide();
+            $('#wpt_product_cat_excludes').removeAttr('disabled');
+            $('#product_id_cludes').removeAttr('disabled');
+        }
+    }
+
 })(jQuery);
