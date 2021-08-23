@@ -1503,10 +1503,20 @@ function wpt_product_table_preview_template( $template_file ){
 }
 add_filter( 'template_include', 'wpt_product_table_preview_template' );
 
+/**
+ * for action.php inside items 
+ * 
+ * comment by saiful
+ * kajti koreche mukul 
+ * 
+ * @param type $search_products
+ * @return int
+ */
 function wpt_matched_cart_items( $search_products ) {
     $count = 0; // Initializing
-
-    if ( ! WC()->cart->is_empty() ) {
+    $cart = WC()->cart;
+    
+    if ( ! is_null( $cart ) && ! $cart->is_empty() ) {
         // Loop though cart items
         foreach(WC()->cart->get_cart() as $cart_item ) {
             // Handling also variable products and their products variations
