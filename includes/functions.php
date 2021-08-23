@@ -1559,3 +1559,43 @@ if( ! function_exists( 'wpt_get_variation_parent_ids_from_term' ) ){
     }
     
 }
+
+if( ! function_exists( 'wpt_get_agrs_for_variable' ) ){
+    /**
+     * Getting args with generated when customer will choose product
+     * from category, taxonomy or any other Attribute 
+     * 
+     * we have set $args['post_parent__in']
+     * 
+     * @param type $args
+     * @param type $post_include
+     * @return Array 
+     */
+    function wpt_get_agrs_for_variable( $args, $post_include = false ){
+        $args['post_parent__in'] = array();
+        $args['post_type'] = 'product_variation';
+        if( isset( $args['tax_query'] ) && is_array( $args['tax_query'] ) && count( $args['tax_query'] ) > 0 ){
+            $args['post_parent__in'] = wpt_get_variation_parent_ids_from_term( $args['tax_query']);
+
+        } 
+
+
+        if( ! empty( $post_include ) ){
+            $post_parent__in = $args['post_parent__in'];
+            $post_parent__in = array_merge( $post_parent__in, $post_include );
+            $args['post_parent__in'] = array_unique( $post_parent__in );
+        }
+
+        if( ! empty( $args['post_parent__in'] ) ){
+            unset($args['post__in']);
+            unset($args['tax_query']['product_cat_IN']);
+            unset($args['tax_query']['product_cat_AND']);
+            unset($args['tax_query']['product_tag_IN']);
+            unset($args['tax_query']['product_tag_AND']);
+
+        }
+
+        return $args;
+    }
+    
+}
