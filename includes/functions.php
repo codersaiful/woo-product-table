@@ -1522,3 +1522,40 @@ function wpt_matched_cart_items( $search_products ) {
     }
     return $count; // returning matched items count 
 }
+
+if( ! function_exists( 'wpt_get_variation_parent_ids_from_term' ) ){
+    function wpt_get_variation_parent_ids_from_term( $args_tax_query ){
+        global $wpdb;
+        $type = 'term_id';
+        $prepare = array();
+        $results = $terms = [];
+        foreach( $args_tax_query as $tax_details){
+            if( !is_array($tax_details) ) continue;
+
+            $terms = is_array( $tax_details['terms'] ) ? $tax_details['terms'] : array();
+            $taxonomy = $tax_details['taxonomy'];
+            foreach($terms as $term){
+                $s_result = $wpdb->get_col( "
+                SELECT DISTINCT p.ID
+                FROM {$wpdb->prefix}posts as p
+                INNER JOIN {$wpdb->prefix}posts as p2 ON p2.post_parent = p.ID
+                INNER JOIN {$wpdb->prefix}term_relationships as tr ON p.ID = tr.object_id
+                INNER JOIN {$wpdb->prefix}term_taxonomy as tt ON tr.term_taxonomy_id = tt.term_taxonomy_id
+                INNER JOIN {$wpdb->prefix}terms as t ON tt.term_id = t.term_id
+                WHERE p.post_type = 'product'
+                AND p.post_status = 'publish'
+                AND p2.post_status = 'publish'
+                AND tt.taxonomy = '$taxonomy'
+                AND t.$type = '$term'
+                " );
+                if( !is_array($s_result) ) continue;
+                $results = array_merge($results, $s_result );
+            }
+            
+        }
+
+
+        return $results;
+    }
+    
+}

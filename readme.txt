@@ -157,6 +157,9 @@ You can easily show specific category products. While creating new table click o
 
 == Changelog ==
 
+= 2.9.8 =
+ * Advance Search for Variable Product
+
 = 2.9.7 =
  * Search issue for Advance Search has been fixed
 

@@ -384,53 +384,7 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
 
         /******************************************************************************/
 
-
-        if( $product_type ){
-            $product_loop = new WP_Query($args);
-            $product_includes = array();
-            if ($product_loop->have_posts()) : while ($product_loop->have_posts()): $product_loop->the_post();
-                //$_ID = $product_loop->get_the_ID();
-
-                global $product;
-
-                $data = $product->get_data();
-                (Int) $_ID = $data['id']; 
-
-                if( wc_get_product($_ID)->get_type() == 'variable'){
-                    $this_post_variable = new WC_Product_Variable( $_ID );
-                    $available_post_includes = $this_post_variable->get_children();
-
-                     if( isset( $available_post_includes ) && is_array($available_post_includes) && count( $available_post_includes ) > 0 ){
-                        foreach ($available_post_includes as $pperItem){
-                            $product_includes[$pperItem] = $pperItem;
-                        }
-                    }
-
-
-                }
-            endwhile;
-                //Moved reset query from here to end of table at version 4.3
-            else:
-                $product_includes = array();
-            endif;
-
-            wp_reset_query(); 
-            //Unset some default here 
-            unset($args['tax_query']);
-            unset($args['tax_query']);
-            unset($wpt_permitted_td['attribute']);
-            unset($wpt_permitted_td['category']);
-            unset($wpt_permitted_td['tags']);
-
-
-            $args['post_type'] = array('product_variation'); //'product'
-            $args['post__in'] = $product_includes;
-            $args['orderby'] = 'post__in';
-
-            //Set few default value for product variation
-            $search_box = false;
-
-        }
+        
         /****************************************************************************/
         ob_start();
         /**
@@ -584,6 +538,34 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
         $html .= $html_check; //Added at @Version 1.0.4
         $html .= '<br class="wpt_clear">'; //Added @Version 2.0
         $html .= apply_filters('wpt_before_table', ''); //Apply Filter Jese Before Table Tag
+        
+
+        if( $product_type ){
+
+            $args['post_parent__in'] = array();
+            $args['post_type'] = 'product_variation';
+            if( isset( $args['tax_query'] ) && is_array( $args['tax_query'] ) && count( $args['tax_query'] ) > 0 ){
+                $args['post_parent__in'] = wpt_get_variation_parent_ids_from_term( $args['tax_query']);
+
+            } 
+
+
+            if( ! empty( $post_include ) ){
+                $post_parent__in = $args['post_parent__in'];
+                $post_parent__in = array_merge( $post_parent__in, $post_include );
+                $args['post_parent__in'] = array_unique( $post_parent__in );
+            }
+            
+            if( ! empty( $args['post_parent__in'] ) ){
+                unset($args['post__in']);
+                unset($args['tax_query']['product_cat_IN']);
+                unset($args['tax_query']['product_cat_AND']);
+                unset($args['tax_query']['product_tag_IN']);
+                unset($args['tax_query']['product_tag_AND']);
+
+            }
+
+        }
 
         /**
          * Why this array here, Actually we will send this data as dataAttribute of table 's tag.
@@ -930,7 +912,7 @@ if( !function_exists( 'wpt_table_row_generator' ) ){
             shuffle($product_loop->posts);
         }
         $wpt_table_row_serial = (( $args['paged'] - 1) * $args['posts_per_page']) + 1; //For giving class id for each Row as well
-        if ( ( $product_loop->query['post_type'][0] == 'product_variation' && !empty( $product_loop->query['post__in']) && $product_loop->have_posts()) || ( $product_loop->query['post_type'][0] == 'product' && $product_loop->have_posts()) ) : while ($product_loop->have_posts()): $product_loop->the_post();
+        if (  $product_loop->have_posts() ) : while ($product_loop->have_posts()): $product_loop->the_post();
                 global $product;
 
                 $data = $product->get_data();
