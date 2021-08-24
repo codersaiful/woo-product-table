@@ -1275,3 +1275,8 @@ a.button {}
         width: 100%;
     }
 }
+body.wpt_admin_body .ultraaddons-panel td .notice-for-variations{
+    display: none;
+    color: #34bcd2;
+    font-weight: 700;
+}
