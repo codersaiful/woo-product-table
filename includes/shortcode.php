@@ -384,53 +384,7 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
 
         /******************************************************************************/
 
-
-        if( $product_type ){
-            $product_loop = new WP_Query($args);
-            $product_includes = array();
-            if ($product_loop->have_posts()) : while ($product_loop->have_posts()): $product_loop->the_post();
-                //$_ID = $product_loop->get_the_ID();
-
-                global $product;
-
-                $data = $product->get_data();
-                (Int) $_ID = $data['id']; 
-
-                if( wc_get_product($_ID)->get_type() == 'variable'){
-                    $this_post_variable = new WC_Product_Variable( $_ID );
-                    $available_post_includes = $this_post_variable->get_children();
-
-                     if( isset( $available_post_includes ) && is_array($available_post_includes) && count( $available_post_includes ) > 0 ){
-                        foreach ($available_post_includes as $pperItem){
-                            $product_includes[$pperItem] = $pperItem;
-                        }
-                    }
-
-
-                }
-            endwhile;
-                //Moved reset query from here to end of table at version 4.3
-            else:
-                $product_includes = array();
-            endif;
-
-            wp_reset_query(); 
-            //Unset some default here 
-            unset($args['tax_query']);
-            unset($args['tax_query']);
-            unset($wpt_permitted_td['attribute']);
-            unset($wpt_permitted_td['category']);
-            unset($wpt_permitted_td['tags']);
-
-
-            $args['post_type'] = array('product_variation'); //'product'
-            $args['post__in'] = $product_includes;
-            $args['orderby'] = 'post__in';
-
-            //Set few default value for product variation
-            $search_box = false;
-
-        }
+        
         /****************************************************************************/
         ob_start();
         /**
@@ -464,6 +418,12 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
         
         $args = array_merge( $args, $basics_args );
         $args['tax_query']['relation'] = 'AND';//$query_relation;
+        
+        if( $product_type ){
+            $args = wpt_get_agrs_for_variable( $args, $post_include );
+        }
+        
+        
         /**
          * @Hook wpto_table_query_args to customize Query Args from any plugin.
          * Available Data/VAriable are: $args, $atts, $table_ID
@@ -584,6 +544,7 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
         $html .= $html_check; //Added at @Version 1.0.4
         $html .= '<br class="wpt_clear">'; //Added @Version 2.0
         $html .= apply_filters('wpt_before_table', ''); //Apply Filter Jese Before Table Tag
+        
 
         /**
          * Why this array here, Actually we will send this data as dataAttribute of table 's tag.
@@ -884,7 +845,7 @@ if( !function_exists( 'wpt_table_row_generator' ) ){
         $table_ID = $table_row_generator_array['args']['table_ID'];
         $config_value = wpt_get_config_value( $table_ID );
         $_device = wpt_col_settingwise_device( $table_ID );
-        
+        $basics = get_post_meta( $table_ID, 'basics', true );
 
         $args                   = $table_row_generator_array['args'];
         $table_column_keywords = $table_row_generator_array['wpt_table_column_keywords'];
@@ -914,12 +875,18 @@ if( !function_exists( 'wpt_table_row_generator' ) ){
          * Here $table_column_keywords and $enabled_column_array are same Array Actually
          */
         $column_settings = apply_filters( 'wpto_column_settings', $column_settings, $table_ID, $table_column_keywords ); //Added at 6.0.25 
-
+        
+        $product_type = isset( $basics['product_type'] ) && $basics['product_type'] == 'product_variation' ? true : false;
+        if( $product_type ){
+            $args = wpt_get_agrs_for_variable( $args );
+        }
+        
         /**
          * Adding Filter for Args inside Row Generator
          */
         $args = apply_filters( 'wpto_table_query_args_in_row', $args, $table_ID, false, $column_settings, false, false );
 
+        
         $product_loop = new WP_Query($args);
         $product_loop = apply_filters( 'wpto_product_loop', $product_loop, $table_ID, $args );
         /**
@@ -930,7 +897,7 @@ if( !function_exists( 'wpt_table_row_generator' ) ){
             shuffle($product_loop->posts);
         }
         $wpt_table_row_serial = (( $args['paged'] - 1) * $args['posts_per_page']) + 1; //For giving class id for each Row as well
-        if ( ( $product_loop->query['post_type'][0] == 'product_variation' && !empty( $product_loop->query['post__in']) && $product_loop->have_posts()) || ( $product_loop->query['post_type'][0] == 'product' && $product_loop->have_posts()) ) : while ($product_loop->have_posts()): $product_loop->the_post();
+        if (  $product_loop->have_posts() ) : while ($product_loop->have_posts()): $product_loop->the_post();
                 global $product;
 
                 $data = $product->get_data();

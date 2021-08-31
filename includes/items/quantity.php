@@ -1,4 +1,15 @@
 <?php
+/**
+ * Checking if is_sold_individually
+ * then wc will not show qty box
+ * that's why, I return default template
+ * 
+ * rest will handle from WooCommerce
+ * 
+ * @since 1.0.8
+ */
+if( $product->is_sold_individually() ) return false;
+
 
 woocommerce_quantity_input( array( 
     'input_value'   => apply_filters( 'woocommerce_quantity_input_min', 1, $product ),

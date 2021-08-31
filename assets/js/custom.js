@@ -616,16 +616,16 @@
             return false;
 
         });
-        
+   
         
         /**
          * On change Product Variation
          * Vairation Change
          */
-        $('body').on('change','.wpt_varition_section',function() {
+        $('body').on('change','.wpt_varition_section.variations select,.wpt_action .variations select',function() {
             
-            var product_id = $(this).data('product_id');
-            var temp_number = $(this).data('temp_number');
+            var product_id = $(this).closest('tr.wpt_row').data('product_id');
+            var temp_number = $(this).closest('tr.wpt_row').data('temp_number');
             config_json = getConfig_json( temp_number ); //Added vat V5.0
             var target_class = '#product_id_' + product_id;
             
@@ -722,7 +722,7 @@
             
 
             var quote_data = '';
-            $(this).find('select').each(function() {
+            $(this).each(function() { //.find('select')
                 var attribute_name = $(this).data('attribute_name');
                 var attribute_value = $(this).val();
                 current[attribute_name] = attribute_value;
@@ -1704,7 +1704,45 @@
                 currentAllSelectedButtonSelector.addClass('already_counted');
                 currentAllSelectedButtonSelector.html( add_cart_text + ' [ ' + itemAmount + ' ' + itemText + ' ]');
             }
+            
+            var argStats = {};
+            argStats['temp_number'] = temp_number;
+            argStats['table_id'] = temp_number;
+            argStats['itemAmount'] = itemAmount;
+            argStats['itemText'] = itemText;
+            argStats['button_text'] = add_cart_text;
+            argStats['button_object'] = currentAllSelectedButtonSelector;
+            $(document.body).trigger('wpt_count_updated',argStats);
         }
+        
+//        $(document).on('wpt_count_updated',function(aaa,args){
+//            //console.log(args);
+//            var btn = args['button_object'];
+//            var itemAmount = args['itemAmount'];
+//            var button_text = args['button_text'];
+//            var custom_text = 'Pay now';
+//             itemAmount = parseInt( itemAmount );
+//            if( itemAmount > 0 ){
+//                btn.html( custom_text);
+//                //btn.html( custom_text + ' [ ' + itemAmount + ' ' + args['itemText'] + ' ]');;
+//            }else{
+//                btn.html( button_text + ' [ ' + itemAmount + ' ' + args['itemText'] + ' ]');
+//            }
+//            
+//        });
+        
+        $('body').on('click', 'input.wpt_check_universal,input.enabled.wpt_tabel_checkbox.wpt_td_checkbox', function() { //wpt_td_checkbox
+            var temp_number = $(this).data('temp_number');
+            var checkbox_type = $(this).data('type'); //universal_checkbox
+            if (checkbox_type === 'universal_checkbox') {
+                $('#table_id_' + temp_number + ' input.enabled.wpt_tabel_checkbox.wpt_td_checkbox:visible').prop('checked', this.checked); //.wpt_td_checkbox
+                $('input#wpt_check_uncheck_column_' + temp_number).prop('checked', this.checked);
+                $('input#wpt_check_uncheck_button_' + temp_number).prop('checked', this.checked);
+            }
+            var temp_number = $(this).data('temp_number');
+            updateCheckBoxCount(temp_number);
+        });
+        
         function uncheckAllCheck(temp_number){
             $('div.wpt_no_checked_table #table_id_' + temp_number + ' input.wpt_check_universal:checkbox,div.wpt_no_checked_table #table_id_' + temp_number + ' table input:checkbox').attr('checked',false);
         }

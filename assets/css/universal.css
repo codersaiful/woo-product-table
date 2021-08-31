@@ -1682,6 +1682,25 @@ a.search_box_reset:focus,
 
 .wpt_product_table_wrapper .select2-container--default .select2-selection--multiple .select2-selection__rendered,
 .wpt_product_table_wrapper .select2-container--default.select2-container--focus .select2-selection--multiple{
-    padding-left: 10px !important;
+    /* padding-left: 10px !important; */
 /*    padding-right: 12px !important;*/
+}
+.wpt_table_body .select2-container--open .select2-dropdown {
+    top: 32px;
+}
+.wpt_table_body .select2-container--default .select2-selection--multiple .select2-selection__rendered li {
+    margin-bottom: 0;
+}
+.select2-container .select2-selection--multiple .select2-selection__rendered{
+    padding: 0 !important;
+}
+.select2-container .select2-selection--multiple .select2-selection__rendered .select2-search--inline {
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+}
+.select2-container .select2-selection--multiple .select2-selection__rendered .select2-search--inline .select2-search__field {
+    padding: 0 5px !important;
+}
+.select2-container--default .select2-selection--multiple .select2-selection__rendered li.select2-selection__choice {
+    margin-left: 5px !important;
 }

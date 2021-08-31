@@ -4,7 +4,7 @@ Donate link: https://codecanyon.net/item/woo-product-table-pro/20676867?ref=Code
 Tags: wc product table, wooproducttable,woocommerce product table, product table, wc table, quick order table, wholesale table, restaurants table
 Requires at least: 4.0.0
 Tested up to: 5.8
-Stable tag: 2.9.7
+Stable tag: 2.9.8
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -156,6 +156,10 @@ You can easily show specific category products. While creating new table click o
 25. Manually responsive for mobile devices
 
 == Changelog ==
+
+= 2.9.8 =
+ * Advance Search for Variable Product
+ * Integrate with sold indivisual 
 
 = 2.9.7 =
  * Search issue for Advance Search has been fixed

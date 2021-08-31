@@ -1503,10 +1503,20 @@ function wpt_product_table_preview_template( $template_file ){
 }
 add_filter( 'template_include', 'wpt_product_table_preview_template' );
 
+/**
+ * for action.php inside items 
+ * 
+ * comment by saiful
+ * kajti koreche mukul 
+ * 
+ * @param type $search_products
+ * @return int
+ */
 function wpt_matched_cart_items( $search_products ) {
     $count = 0; // Initializing
-
-    if ( ! WC()->cart->is_empty() ) {
+    $cart = WC()->cart;
+    
+    if ( ! is_null( $cart ) && ! $cart->is_empty() ) {
         // Loop though cart items
         foreach(WC()->cart->get_cart() as $cart_item ) {
             // Handling also variable products and their products variations
@@ -1521,4 +1531,81 @@ function wpt_matched_cart_items( $search_products ) {
         }
     }
     return $count; // returning matched items count 
+}
+
+if( ! function_exists( 'wpt_get_variation_parent_ids_from_term' ) ){
+    function wpt_get_variation_parent_ids_from_term( $args_tax_query ){
+        global $wpdb;
+        $type = 'term_id';
+        $prepare = array();
+        $results = $terms = [];
+        foreach( $args_tax_query as $tax_details){
+            if( !is_array($tax_details) ) continue;
+
+            $terms = is_array( $tax_details['terms'] ) ? $tax_details['terms'] : array();
+            $taxonomy = $tax_details['taxonomy'];
+            foreach($terms as $term){
+                $s_result = $wpdb->get_col( "
+                SELECT DISTINCT p.ID
+                FROM {$wpdb->prefix}posts as p
+                INNER JOIN {$wpdb->prefix}posts as p2 ON p2.post_parent = p.ID
+                INNER JOIN {$wpdb->prefix}term_relationships as tr ON p.ID = tr.object_id
+                INNER JOIN {$wpdb->prefix}term_taxonomy as tt ON tr.term_taxonomy_id = tt.term_taxonomy_id
+                INNER JOIN {$wpdb->prefix}terms as t ON tt.term_id = t.term_id
+                WHERE p.post_type = 'product'
+                AND p.post_status = 'publish'
+                AND p2.post_status = 'publish'
+                AND tt.taxonomy = '$taxonomy'
+                AND t.$type = '$term'
+                " );
+                if( !is_array($s_result) ) continue;
+                $results = array_merge($results, $s_result );
+            }
+            
+        }
+
+
+        return $results;
+    }
+    
+}
+
+if( ! function_exists( 'wpt_get_agrs_for_variable' ) ){
+    /**
+     * Getting args with generated when customer will choose product
+     * from category, taxonomy or any other Attribute 
+     * 
+     * we have set $args['post_parent__in']
+     * 
+     * @param type $args
+     * @param type $post_include
+     * @return Array 
+     */
+    function wpt_get_agrs_for_variable( $args, $post_include = false ){
+        $args['post_parent__in'] = array();
+        $args['post_type'] = 'product_variation';
+        if( isset( $args['tax_query'] ) && is_array( $args['tax_query'] ) && count( $args['tax_query'] ) > 0 ){
+            $args['post_parent__in'] = wpt_get_variation_parent_ids_from_term( $args['tax_query']);
+
+        } 
+
+
+        if( ! empty( $post_include ) ){
+            $post_parent__in = $args['post_parent__in'];
+            $post_parent__in = array_merge( $post_parent__in, $post_include );
+            $args['post_parent__in'] = array_unique( $post_parent__in );
+        }
+
+        if( ! empty( $args['post_parent__in'] ) ){
+            unset($args['post__in']);
+            unset($args['tax_query']['product_cat_IN']);
+            unset($args['tax_query']['product_cat_AND']);
+            unset($args['tax_query']['product_tag_IN']);
+            unset($args['tax_query']['product_tag_AND']);
+
+        }
+
+        return $args;
+    }
+    
 }
