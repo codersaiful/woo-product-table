@@ -2,7 +2,7 @@
 $default_enable_array = WPT_Product_Table::$default_enable_columns_array;
 
 $columns_array = WPT_Product_Table::$columns_array;
-asort($columns_array);
+//asort($columns_array);
 //var_dump(WPT_Product_Table::$columns_array);
 $for_add =  $meta_column_array = $updated_columns_array = get_post_meta( $post->ID, 'column_array', true );
 
