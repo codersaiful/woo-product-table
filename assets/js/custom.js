@@ -12,10 +12,11 @@
         
         //Select2
         if(typeof $('.wpt_product_table_wrapper .search_select').select2 === 'function' && $('.wpt_product_table_wrapper .search_select').length > 0){
-            $('.wpt_product_table_wrapper .search_select').select2({
+            $('.wpt_product_table_wrapper .search_select').select2({//.query
                 placeholder: WPT_DATA.search_select_placeholder,
                 tags: true,
             });
+//            $('.wpt_product_table_wrapper .search_select.cf_query').select2();
             $('select.filter_select').select2({
                 tags: true,
             });
