@@ -874,8 +874,9 @@ if( !function_exists( 'wpt_table_row_generator' ) ){
         /**
          * @Hook Filter: 
          * Here $table_column_keywords and $enabled_column_array are same Array Actually
+         * in shortcode_generator function $atts - here null
          */
-        $column_array = apply_filters( 'wpto_column_arr', $column_array, $table_ID, $column_settings, $table_column_keywords ); //Added at 2.9.8
+        $column_array = apply_filters( 'wpto_column_arr', $column_array, $table_ID, null, $column_settings, $table_column_keywords ); //Added at 2.9.8
         $column_settings = apply_filters( 'wpto_column_settings', $column_settings, $table_ID, $table_column_keywords ); //Added at 6.0.25 
         
         $product_type = isset( $basics['product_type'] ) && $basics['product_type'] == 'product_variation' ? true : false;

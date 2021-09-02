@@ -138,11 +138,14 @@ foreach( $table_column_keywords as $keyword => $keyword_title ){
             do_action( 'wpto_column_top', $keyword, $table_ID, $settings, $column_settings, $product );
 
             //*****************************FILE INCLUDING HERE
+            $data_title = $column_array[$keyword_title];
             $tag = isset( $column_settings[$keyword]['tag'] ) && !empty( $column_settings[$keyword]['tag'] ) ? $column_settings[$keyword]['tag'] : 'div';
             $tag_class = isset( $column_settings[$keyword]['tag_class'] ) && !empty( $column_settings[$keyword]['tag_class'] ) ? $column_settings[$keyword]['tag_class'] : '';
             echo $tag ? "<" . esc_html( $tag ) . " "
             . "class='col_inside_tag " . esc_attr( $keyword ) . " " . esc_attr( $tag_class ) . "' "
-            . "data-keyword='" . esc_attr( $keyword ) . "' data-title='". esc_attr( $column_array[$keyword_title] ) ."' "
+            . "data-keyword='" . esc_attr( $keyword ) . "' "
+                    
+            . "data-title='". esc_attr( $data_title ) ."' "
             . "data-sku='" . esc_attr( $product->get_sku() ) . "' "
             . ">" : '';
 
