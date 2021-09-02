@@ -1,5 +1,5 @@
 <?php
-
+// var_dump($column_array, $column_settings);
 echo "<tr role='row' "
 . "data-title='" . esc_attr( $data['name'] ) . "' "
         . "data-product_id='" . esc_attr( $data['id'] ) . "' "
@@ -142,7 +142,7 @@ foreach( $table_column_keywords as $keyword => $keyword_title ){
             $tag_class = isset( $column_settings[$keyword]['tag_class'] ) && !empty( $column_settings[$keyword]['tag_class'] ) ? $column_settings[$keyword]['tag_class'] : '';
             echo $tag ? "<" . esc_html( $tag ) . " "
             . "class='col_inside_tag " . esc_attr( $keyword ) . " " . esc_attr( $tag_class ) . "' "
-            . "data-keyword='" . esc_attr( $keyword ) . "' data-title='". esc_attr( $keyword_title ) ."' "
+            . "data-keyword='" . esc_attr( $keyword ) . "' data-title='". esc_attr( $column_array[$keyword_title] ) ."' "
             . "data-sku='" . esc_attr( $product->get_sku() ) . "' "
             . ">" : '';
 

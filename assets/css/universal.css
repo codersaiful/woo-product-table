@@ -1713,7 +1713,7 @@ a.search_box_reset:focus,
         display: block;
     }
     .wpt_product_table .col_inside_tag:before {
-        content: attr(data-keyword);
+        content: attr(data-title);
         display: block;
         position: absolute;
         top: 4px;

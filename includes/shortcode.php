@@ -85,7 +85,6 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
             $column_array = apply_filters( 'wpto_column_arr', $column_array, $table_ID, $atts, $column_settings, $enabled_column_array ); //Added at 6.0.25
             $enabled_column_array = apply_filters( 'wpto_enabled_column_array', $enabled_column_array, $table_ID, $atts, $column_settings, $column_array ); //Added at 6.0.25
             $column_settings = apply_filters( 'wpto_column_settings', $column_settings, $table_ID, $enabled_column_array ); //Added at 6.0.25
-            var_dump($column_array);
             /**
              * Product Type featue added for provide Variation Product table 
              * 
@@ -869,11 +868,14 @@ if( !function_exists( 'wpt_table_row_generator' ) ){
         }
 
         //WILL BE USE FOR EVERY WHERE INSIDE ITEM
+        $column_array = get_post_meta( $table_ID, 'column_array' . $_device, true );
         $column_settings = get_post_meta( $table_ID, 'column_settings' . $_device, true);
+        
         /**
          * @Hook Filter: 
          * Here $table_column_keywords and $enabled_column_array are same Array Actually
          */
+        $column_array = apply_filters( 'wpto_column_arr', $column_array, $table_ID, $column_settings, $table_column_keywords ); //Added at 2.9.8
         $column_settings = apply_filters( 'wpto_column_settings', $column_settings, $table_ID, $table_column_keywords ); //Added at 6.0.25 
         
         $product_type = isset( $basics['product_type'] ) && $basics['product_type'] == 'product_variation' ? true : false;
