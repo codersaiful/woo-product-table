@@ -47,7 +47,7 @@ h1.with-background.dark-background {}
 }
 .ultraaddons .with-background.slim-title, .ultraaddons-panel .with-background.slim-title {
     font-size: 13px;
-    padding-top: 14px;
+    /*padding-top: 14px;*/
     padding-bottom: 15px;
 }
 

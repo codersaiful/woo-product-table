@@ -2,19 +2,19 @@
 <!-- Add new Custom Collumn -->
 <div class="add_new_col_wrapper">
     <div class="section ultraaddons-panel add_new_column">
-        <h3 class="with-background dark-background slim-title">ADD NEW COLUMN <small style="color: orange; font-size: 12px;"></small></h3>
+        <h3 class="with-background dark-background slim-title">Add New Column <small style="color: orange; font-size: 12px;"></small></h3>
 
         <table class="ultraaddons-table">
             <tbody>
                 <tr>
-                    <th><label class="">COLUMN KEYWORD</label></th>
+                    <th><label class="">Column Keyword</label></th>
                         <td>
                            <input class="and_new_column_key wpt_data_filed_atts ua_input" type="text" placeholder="Column Keyword">
                         </td>
 
                 </tr>
                 <tr>
-                    <th><label>COLUMN LABEL</label></th>
+                    <th><label>Column Label</label></th>
                         <td>
                             <input class="and_new_column_label wpt_data_filed_atts ua_input" type="text" placeholder="Column Label">
                         </td>

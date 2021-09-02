@@ -1285,3 +1285,7 @@ body.wpt_admin_body .ultraaddons-panel td .notice-for-variations{
     color: #34bcd2;
     font-weight: 700;
 }
+body.wpt_admin_body div div .wpt-tips {
+    color: #19acef;
+    font-size: 120%;
+}
