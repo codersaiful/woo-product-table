@@ -845,6 +845,7 @@ if( !function_exists( 'wpt_table_row_generator' ) ){
         $config_value = wpt_get_config_value( $table_ID );
         $_device = wpt_col_settingwise_device( $table_ID );
         $basics = get_post_meta( $table_ID, 'basics', true );
+        $design = get_post_meta( $table_ID, 'table_style', true );
 
         $args                   = $table_row_generator_array['args'];
         $table_column_keywords = $table_row_generator_array['wpt_table_column_keywords'];

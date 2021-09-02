@@ -1704,23 +1704,3 @@ a.search_box_reset:focus,
 .select2-container--default .select2-selection--multiple .select2-selection__rendered li.select2-selection__choice {
     margin-left: 5px !important;
 }
-@media screen and ( max-width: 992px) {
-    .wpt_product_table .col_inside_tag {
-        padding-left: 35%;
-        position: relative;
-    }
-    .wpt_mobile_desc_part .td_or_cell {
-        display: block;
-    }
-    .wpt_product_table .col_inside_tag:before {
-        content: attr(data-title);
-        display: block;
-        position: absolute;
-        top: 4px;
-        left: 0;
-        width: 50%;
-        font-weight: 600;
-        text-align: left;
-        color: #383838;
-    }
-}
