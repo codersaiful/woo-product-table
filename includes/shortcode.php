@@ -85,7 +85,7 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
             $column_array = apply_filters( 'wpto_column_arr', $column_array, $table_ID, $atts, $column_settings, $enabled_column_array ); //Added at 6.0.25
             $enabled_column_array = apply_filters( 'wpto_enabled_column_array', $enabled_column_array, $table_ID, $atts, $column_settings, $column_array ); //Added at 6.0.25
             $column_settings = apply_filters( 'wpto_column_settings', $column_settings, $table_ID, $enabled_column_array ); //Added at 6.0.25
-
+            var_dump($column_array);
             /**
              * Product Type featue added for provide Variation Product table 
              * 

@@ -19,6 +19,7 @@ $items_permanent_dir = WPT_DIR_BASE . 'includes/items/';
 $items_permanent_dir = apply_filters('wpto_item_permanent_dir', $items_permanent_dir, $table_ID, $product );
 $items_directory = apply_filters('wpto_item_dir', $items_permanent_dir, $table_ID, $product );
 foreach( $table_column_keywords as $keyword => $keyword_title ){
+    // var_dump($column_array);
     if( is_string( $keyword ) ){
         $in_extra_manager = false;
 
@@ -141,7 +142,7 @@ foreach( $table_column_keywords as $keyword => $keyword_title ){
             $tag_class = isset( $column_settings[$keyword]['tag_class'] ) && !empty( $column_settings[$keyword]['tag_class'] ) ? $column_settings[$keyword]['tag_class'] : '';
             echo $tag ? "<" . esc_html( $tag ) . " "
             . "class='col_inside_tag " . esc_attr( $keyword ) . " " . esc_attr( $tag_class ) . "' "
-            . "data-keyword='" . esc_attr( $keyword ) . "' "
+            . "data-keyword='" . esc_attr( $keyword ) . "' data-title='". esc_attr( $keyword_title ) ."' "
             . "data-sku='" . esc_attr( $product->get_sku() ) . "' "
             . ">" : '';
 
