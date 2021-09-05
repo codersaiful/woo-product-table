@@ -160,6 +160,7 @@ You can easily show specific category products. While creating new table click o
 = 2.9.8 =
  * Advance Search for Variable Product
  * Integrate with sold indivisual 
+ * UI Design Update for Admin panel
 
 = 2.9.7 =
  * Search issue for Advance Search has been fixed
