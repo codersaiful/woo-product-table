@@ -1355,11 +1355,18 @@
                 if(Object.keys(custom_field[key]).length > 0){ //custom_field[key] !== null && 
                     var compare = multiple_attr[key];
                     console.log("COM", multiple_attr[key],compare, typeof compare);
-                    final_custom_field[key] = {
-                        key: key,  
-                        value:  custom_field[key],
-                    };
-                    final_custom_field[key]['compare'] = 'LIKE';
+                    if(! compare){
+                            final_custom_field[key] = {
+                                    key: key,  
+                                    value:  custom_field[key],
+                                    compare: 'LIKE'
+                            };   
+                    }else{
+                            final_custom_field[key] = {
+                                    key: key,  
+                                    value:  custom_field[key]
+                            }; 
+                    }
                 }else{
                     targetTableArgs.args.meta_query[key] =targetTableArgsBackup.args.meta_query[key];
                 } 
