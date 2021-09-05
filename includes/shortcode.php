@@ -1324,10 +1324,18 @@ if( !function_exists( 'wpt_search_box' ) ){
                $html .= wpt_texonomy_search_generator( $texonomy_name,$temp_number, $search_n_filter ); 
             }
         }
+
         $html .=  apply_filters('end_part_advance_search_box','',$table_ID);
-        $cutnt_link = get_page_link();
-        $style = isset( $_GET['table_ID'] ) ? "display:inline;": '';
-        $html .= '<a href="' . $cutnt_link . '" data-type="close-button" data-table_ID="' . $temp_number . '" id="wpt_query_reset_button_' . $temp_number . '" class="search_box_reset search_box_reset_' . $temp_number . '" style="' . $style . '">x</a>';
+        
+        /**
+         * Query by URL
+         */
+        if( isset( $config_value['query_by_url'] ) && $config_value['query_by_url'] ){
+            
+            $cutnt_link = get_page_link();
+            $style = isset( $_GET['table_ID'] ) ? "display:inline;": '';
+            $html .= '<a href="' . $cutnt_link . '" data-type="close-button" data-table_ID="' . $temp_number . '" id="wpt_query_reset_button_' . $temp_number . '" class="search_box_reset search_box_reset_' . $temp_number . '" style="' . $style . '">x</a>';
+        }
         
         $html .= '</div>'; //End of .search_box_singles
 
