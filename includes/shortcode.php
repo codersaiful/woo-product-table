@@ -528,6 +528,13 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
             $html .= '<button data-type="query" data-temp_number="' . $temp_number . '" id="wpt_query_search_button_' . $temp_number . '" class="button wpt_search_button query_button wpt_query_search_button wpt_query_search_button_' . $temp_number . '" style="visibility: hidden;height:1px;"></button>';
         }
         $html .= apply_filters('end_part_advance_search_box_abc','',$table_ID,$temp_number);
+        ob_start();
+        /**
+         * To Insert Content at Top of the Table, Just inside of Wrapper tag of Table
+         * Available Args $table_ID, $args, $config_value, $atts;
+         */
+        do_action( 'wpto_after_advance_search_box', $table_ID, $args, $column_settings, $enabled_column_array, $config_value, $atts );
+        $html .= ob_get_clean();
         /**
          * Instant Sarch Box
          */
