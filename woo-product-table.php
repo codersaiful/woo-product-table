@@ -332,8 +332,10 @@ class WPT_Product_Table{
      * @Since 2.8.5.4
      * @by Saiful
      * @date 28.4.2021
+     * 
+     * @last_modified_date: September 5, 2021
      */
-    const MINIMUM_WPT_PRO_VERSION = '7.0.6';
+    const MINIMUM_WPT_PRO_VERSION = '7.0.9';
     
     
     /**
