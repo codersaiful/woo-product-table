@@ -2,12 +2,7 @@
 $meta_search_n_filter =  get_post_meta( $post->ID, 'search_n_filter', true );
 ?>
 <div class="section ultraaddons-panel">
-    <div class="wpt_column" >
-        <p class="wpt-tips">
-            <b><?php echo esc_html__( 'Tips:', 'wpt_pro' ); ?></b>
-            <span><?php echo esc_html__( 'Advance Search box is not for WooCommerce Archive page. Such: shop page, product category page.','wpt_pro' ); ?></span>
-        </p>
-    </div>
+    
     <div class="wpt_column">
         <table class="ultraaddons-table">
             <tr>
@@ -19,6 +14,10 @@ $meta_search_n_filter =  get_post_meta( $post->ID, 'search_n_filter', true );
                         <option value="no" <?php echo isset( $meta_search_n_filter['search_box'] ) && $meta_search_n_filter['search_box'] == 'no' ? 'selected' : ''; ?>><?php esc_html_e( 'Hide Search Box', 'wpt_pro' ); ?></option>
                         <option value="yes" <?php echo isset( $meta_search_n_filter['search_box'] ) && $meta_search_n_filter['search_box'] == 'yes' ? 'selected' : ''; ?>><?php esc_html_e( 'Show Search Box', 'wpt_pro' ); ?></option>
                     </select>
+                    <p class="wpt-tips">
+                        <b><?php echo esc_html__( 'Tips:', 'wpt_pro' ); ?></b>
+                        <span><?php echo esc_html__( 'Not for WooCommerce Archive page. Such: shop page, product category page.','wpt_pro' ); ?></span>
+                    </p>
                 </td>
             </tr>
         </table>
