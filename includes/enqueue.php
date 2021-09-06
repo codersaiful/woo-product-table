@@ -60,6 +60,7 @@ if( !function_exists( 'wpt_enqueue' ) ){
            'cart_url' => wc_get_cart_url(),
            'priceFormat' => wpt_price_formatter(),
            'version' => $version,
+           'select2' => 'enable',
            'resize_loader' => apply_filters( 'wpto_resize_reloader', false ),
            'return_zero'   => apply_filters( 'wpto_qty_return_zero', false ),
            'return_quanity'   => apply_filters( 'wpto_qty_return_quanity', true ),
