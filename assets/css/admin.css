@@ -1136,7 +1136,7 @@ ul#wpt_column_sortable>li.wpt_sortable_peritem.enabled{display: flex;}
 }
 
 .add_switch_col_wrapper .enable-available-cols ul li {
-    width: 150px;
+    width: 160px;
 }
 .add_switch_col_wrapper .enable-available-cols ul li.switch-enable-item {
     /* height: 55px; */
@@ -1144,7 +1144,7 @@ ul#wpt_column_sortable>li.wpt_sortable_peritem.enabled{display: flex;}
     margin-bottom: 8px;
     padding: 5px;
     cursor: pointer;
-    background: #e4e4e459;
+    background: #ffffff;
     color: black;
     border-radius: 5px;
     padding: 5px 8px;
@@ -1154,6 +1154,11 @@ ul#wpt_column_sortable>li.wpt_sortable_peritem.enabled{display: flex;}
     background: #07a7d0;
     color: white;
     border: 1px solid #007694;
+}
+li.switch-enable-item i {
+    font-size: 10px;
+    color: #d4d4d4;
+    display: inline-block;
 }
 .add_switch_col_wrapper .enable-available-cols ul li.switch-enable-item.item-disabled {
     background: #e4e4e459;
@@ -1279,4 +1284,8 @@ body.wpt_admin_body .ultraaddons-panel td .notice-for-variations{
     display: none;
     color: #34bcd2;
     font-weight: 700;
+}
+body.wpt_admin_body div div .wpt-tips {
+    color: #19acef;
+    font-size: 120%;
 }

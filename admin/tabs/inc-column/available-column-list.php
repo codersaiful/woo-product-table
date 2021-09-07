@@ -22,7 +22,9 @@
             <h2><?php echo esc_html__( 'Click from Following list to add as Column.', 'wpt_pro' ); ?></h2>
             <ul id="wpt-switch-list">
                 <?php 
-                foreach( $columns_array as $keyword => $title ){ 
+                $available_column_array = $columns_array;
+                asort($available_column_array);
+                foreach( $available_column_array as $keyword => $title ){ 
                     $updated_title = isset( $updated_columns_array[$keyword] ) ? $updated_columns_array[$keyword] : $title;
                     if( $meta_enable_column_array && !empty( $meta_enable_column_array ) && is_array( $meta_enable_column_array ) ){
                         $enabled_class = 'item-disabled';
@@ -40,8 +42,9 @@
                     
                 ?>
                 <li class="switch-enable-item switch-enable-item-<?php echo esc_attr( $keyword ); ?> <?php echo esc_attr( $enabled_class ); ?>" 
+                    title="<?php echo esc_html( "key: $keyword & title: $updated_title" ); ?>"
                     data-column_keyword="<?php echo esc_attr( $keyword ); ?>">
-                        <?php echo esc_html( $updated_title ); ?>
+                        <?php echo esc_html( $updated_title ); ?><i>[<?php echo esc_html( $keyword ); ?>]</i>
                 </li>
                 <?php } ?>
             </ul>

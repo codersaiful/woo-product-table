@@ -1,5 +1,5 @@
 <?php
-
+// var_dump($design, $column_array, $column_settings);
 echo "<tr role='row' "
 . "data-title='" . esc_attr( $data['name'] ) . "' "
         . "data-product_id='" . esc_attr( $data['id'] ) . "' "
@@ -19,6 +19,7 @@ $items_permanent_dir = WPT_DIR_BASE . 'includes/items/';
 $items_permanent_dir = apply_filters('wpto_item_permanent_dir', $items_permanent_dir, $table_ID, $product );
 $items_directory = apply_filters('wpto_item_dir', $items_permanent_dir, $table_ID, $product );
 foreach( $table_column_keywords as $keyword => $keyword_title ){
+    // var_dump($column_array);
     if( is_string( $keyword ) ){
         $in_extra_manager = false;
 
@@ -136,12 +137,26 @@ foreach( $table_column_keywords as $keyword => $keyword_title ){
              */
             do_action( 'wpto_column_top', $keyword, $table_ID, $settings, $column_settings, $product );
 
-            //*****************************FILE INCLUDING HERE
             $tag = isset( $column_settings[$keyword]['tag'] ) && !empty( $column_settings[$keyword]['tag'] ) ? $column_settings[$keyword]['tag'] : 'div';
             $tag_class = isset( $column_settings[$keyword]['tag_class'] ) && !empty( $column_settings[$keyword]['tag_class'] ) ? $column_settings[$keyword]['tag_class'] : '';
+
+            //*****************************FILE INCLUDING HERE
+            $enable_label_in_small_devise = isset( $design['tr.wpt_table_head th']['auto-responsive-column-label'] ) && !empty( $design['tr.wpt_table_head th']['auto-responsive-column-label'] ) ? $design['tr.wpt_table_head th']['auto-responsive-column-label'] : false;
+
+            $data_title = '';
+            if( $enable_label_in_small_devise ){
+                if( $enable_label_in_small_devise == 'show' && isset( $column_settings[$keyword_title]['auto_responsive_column_label_show'] ) && $column_settings[$keyword_title]['auto_responsive_column_label_show'] == 'on' && $keyword != 'check' ){
+                    $data_title = $column_array[$keyword_title];
+                    $tag_class .= ' autoresponsive-label-show';
+                }
+            }
+            // var_dump(isset( $column_settings['auto_responsive_column_label_show'] ));
+            // var_dump($column_array[$keyword_title], $keyword_title, $column_array);
             echo $tag ? "<" . esc_html( $tag ) . " "
             . "class='col_inside_tag " . esc_attr( $keyword ) . " " . esc_attr( $tag_class ) . "' "
             . "data-keyword='" . esc_attr( $keyword ) . "' "
+                    
+            . "data-title='". esc_attr( $data_title ) ."' "
             . "data-sku='" . esc_attr( $product->get_sku() ) . "' "
             . ">" : '';
 

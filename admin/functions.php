@@ -36,6 +36,29 @@ if( !function_exists( 'wpt_selected' ) ){
         echo ( isset( $current_config_value[$keyword] ) && $current_config_value[$keyword] == $gotten_value ? 'selected' : false  );
     }
 }
+if( !function_exists( 'wpt_default_option' ) ){
+    
+    /**
+     * Getting default option tag
+     * for Configuration tab on Product edit
+     * 
+     * Actually we need a blank default option tag for select tab
+     * when inside configuration tab
+     * 
+     * @param String $page
+     */
+    function wpt_default_option( $page ){
+        $html = "";
+        if( $page == 'wpt_configuration_tab' ){
+            $default = esc_html__( "Default", 'wpt_pro' );
+            $html .= "<option value=''>$default</option>";
+        }
+        echo $html;
+    }
+}
+
+
+
 
 if( ! function_exists( 'wpt_get_base64_post_meta' ) ){
     

@@ -150,7 +150,7 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
     
     function wpt_configure_basic_part( $settings,$current_config_value,$field_name ){
         $page = isset( $settings['page'] ) ? $settings['page'] : 'not_set_page'; //configuration_page
-        //$current_config_value = get_option( 'wpt_configure_options' );
+        
         ?>
         <div class="section ultraaddons-panel basic <?php echo esc_attr( $page ); ?>">
             <h3 class="with-background dark-background"><?php esc_html_e( 'Basic Settings', 'wpt_pro' );?></h3>
@@ -176,6 +176,7 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
                         <th><label class="wpt_label" for="wpt_table_custom_add_to_cart"><?php esc_html_e( 'Add to Cart Icon', 'wpt_pro' ); ?></label></th>
                         <td>
                             <select name="<?php echo esc_attr( $field_name ); ?>[custom_add_to_cart]" id="wpt_table_custom_add_to_cart" class="wpt_fullwidth ua_input" >
+                                <?php wpt_default_option( $page ) ?>
                                 <option value="add_cart_no_icon" <?php wpt_selected( 'custom_add_to_cart', 'add_cart_no_icon', $current_config_value ); ?>><?php esc_html_e( 'No Icon', 'wpt_pro' ); ?></option>
                                 <option value="add_cart_only_icon" <?php wpt_selected( 'custom_add_to_cart', 'add_cart_only_icon', $current_config_value ); ?>><?php esc_html_e( 'Only Icon', 'wpt_pro' ); ?></option>
                                 <option value="add_cart_left_icon" <?php wpt_selected( 'custom_add_to_cart', 'add_cart_left_icon', $current_config_value ); ?>><?php esc_html_e( 'Left Icon and Text', 'wpt_pro' ); ?></option>
@@ -188,6 +189,7 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
                         <th><label class="wpt_label" for="wpt_table_footer_cart"><?php esc_html_e( 'Footer Cart Option', 'wpt_pro' ); ?></label></th>
                         <td>
                             <select name="<?php echo esc_attr( $field_name ); ?>[footer_cart]" id="wpt_table_footer_cart" class="wpt_fullwidth ua_input" >
+                                <?php wpt_default_option( $page ) ?>
                                 <option value="hide_for_zerro" <?php wpt_selected( 'footer_cart', 'hide_for_zerro', $current_config_value ); ?>><?php esc_html_e( 'Hide for Zero', 'wpt_pro' ); ?></option>
                                 <option value="always_show" <?php wpt_selected( 'footer_cart', 'always_show', $current_config_value ); ?>><?php esc_html_e( 'Always Show', 'wpt_pro' ); ?></option>
                                 <option value="always_hide" <?php wpt_selected( 'footer_cart', 'always_hide', $current_config_value ); ?>><?php esc_html_e( 'Always Hide', 'wpt_pro' ); ?></option>
@@ -205,6 +207,7 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
                         <th><label class="wpt_label" for="wpt_table_footer_possition"><?php esc_html_e( 'Footer Cart Position', 'wpt_pro' ); ?></label></th>
                         <td>
                             <select name="<?php echo esc_attr( $field_name ); ?>[footer_possition]" id="wpt_table_footer_possition" class="wpt_fullwidth ua_input" >
+                                <?php wpt_default_option( $page ) ?>
                                 <option value="bottom_right" <?php wpt_selected( 'footer_possition', 'bottom_right', $current_config_value ); ?>><?php esc_html_e( 'Bottom Right', 'wpt_pro' ); ?></option>
                                 <option value="bottom_left" <?php wpt_selected( 'footer_possition', 'bottom_left', $current_config_value ); ?>><?php esc_html_e( 'Bottom Left', 'wpt_pro' ); ?></option>
                                 <option value="top_right" <?php wpt_selected( 'footer_possition', 'top_right', $current_config_value ); ?>><?php esc_html_e( 'Top Right', 'wpt_pro' ); ?></option>
@@ -225,6 +228,7 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
                         <th><label class="wpt_label" for="wpt_table_sort_mini_filter"><?php esc_html_e( 'Mini Filter Sorting', 'wpt_pro' ); ?></label></th>
                         <td>
                             <select name="<?php echo esc_attr( $field_name ); ?>[sort_mini_filter]" id="wpt_table_sort_mini_filter" class="wpt_fullwidth ua_input" >
+                                <?php wpt_default_option( $page ) ?>
                                 <option value="0" <?php wpt_selected( 'sort_mini_filter', '0', $current_config_value ); ?>><?php esc_html_e( 'None', 'wpt_pro' ); ?></option>
                                 <option value="ASC" <?php wpt_selected( 'sort_mini_filter', 'ASC', $current_config_value ); ?>><?php esc_html_e( 'Ascending', 'wpt_pro' ); ?></option>
                                 <option value="DESC" <?php wpt_selected( 'sort_mini_filter', 'DESC', $current_config_value ); ?>><?php esc_html_e( 'Descending', 'wpt_pro' ); ?></option>
@@ -237,6 +241,7 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
                         <th><label class="wpt_label" for="wpt_table_sort_searchbox_filter"><?php esc_html_e( 'Search Box Taxonomy Sorting', 'wpt_pro' ); ?></label></th>
                         <td>
                             <select name="<?php echo esc_attr( $field_name ); ?>[sort_searchbox_filter]" id="wpt_table_sort_searchbox_filter" class="wpt_fullwidth ua_input" >
+                                <?php wpt_default_option( $page ) ?>
                                 <option value="0" <?php wpt_selected( 'sort_searchbox_filter', '0', $current_config_value ); ?>><?php esc_html_e( 'None', 'wpt_pro' ); ?></option>
                                 <option value="ASC" <?php wpt_selected( 'sort_searchbox_filter', 'ASC', $current_config_value ); ?>><?php esc_html_e( 'Ascending', 'wpt_pro' ); ?></option>
                                 <option value="DESC" <?php wpt_selected( 'sort_searchbox_filter', 'DESC', $current_config_value ); ?>><?php esc_html_e( 'Descending', 'wpt_pro' ); ?></option>
@@ -254,6 +259,7 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
                         <th><label class="wpt_label" for="wpt_table_popup_notice"><?php esc_html_e( 'Popup Notice', 'wpt_pro' ); ?></label></th>
                         <td>
                             <select name="<?php echo esc_attr( $field_name ); ?>[popup_notice]" id="wpt_table_popup_notice" class="wpt_fullwidth ua_input" >
+                                <?php wpt_default_option( $page ) ?>
                                 <option value="1" <?php wpt_selected( 'popup_notice', '1', $current_config_value ); ?>><?php esc_html_e( 'Show', 'wpt_pro' ); ?></option>
                                 <option value="0" <?php wpt_selected( 'popup_notice', '0', $current_config_value ); ?>><?php esc_html_e( 'Hide', 'wpt_pro' ); ?></option>
                             </select>
@@ -263,6 +269,7 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
                         <th>  <label class="wpt_label" for="wpt_table_product_link_target"><?php esc_html_e( 'Product Link Open Type', 'wpt_pro' ); ?></label>
                         <td>
                             <select name="<?php echo esc_attr( $field_name ); ?>[product_link_target]" id="wpt_table_product_link_target" class="wpt_fullwidth ua_input" >
+                                <?php wpt_default_option( $page ) ?>
                                 <option value="_blank" <?php wpt_selected( 'product_link_target', '_blank', $current_config_value ); ?>><?php esc_html_e( 'New Tab', 'wpt_pro' ); ?></option>
                                 <option value="_self" <?php wpt_selected( 'product_link_target', '_self', $current_config_value ); ?>><?php esc_html_e( 'Self Tab', 'wpt_pro' ); ?></option>
                             </select>
@@ -273,6 +280,7 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
                         <th> <label class="wpt_label" for="wpt_table_product_direct_checkout"><?php esc_html_e( 'Quick Buy', 'wpt_pro' ); ?></label></th>
                         <td>
                             <select name="<?php echo esc_attr( $field_name ); ?>[product_direct_checkout]" id="wpt_table_product_direct_checkout" class="wpt_fullwidth ua_input" >
+                                <?php wpt_default_option( $page ) ?>
                                 <option value="no" <?php wpt_selected( 'product_direct_checkout', 'no', $current_config_value ); ?>><?php esc_html_e( 'Disable', 'wpt_pro' ); ?></option>
                                 <option value="yes" <?php wpt_selected( 'product_direct_checkout', 'yes', $current_config_value ); ?>><?php esc_html_e( 'Enable', 'wpt_pro' ); ?></option>
                             </select>
@@ -283,6 +291,7 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
                         <th><label class="wpt_label" for="wpt_table_all_selected_direct_checkout"><?php esc_html_e( 'Bundle Quick Buy ', 'wpt_pro' ); ?></label></th>
                         <td>
                             <select name="<?php echo esc_attr( $field_name ); ?>[all_selected_direct_checkout]" id="wpt_table_all_selected_direct_checkout" class="wpt_fullwidth ua_input" >
+                                <?php wpt_default_option( $page ) ?>
                                 <option value="no" <?php wpt_selected( 'all_selected_direct_checkout', 'no', $current_config_value ); ?>><?php esc_html_e( 'Disable', 'wpt_pro' ); ?></option>
                                 <option value="yes" <?php wpt_selected( 'all_selected_direct_checkout', 'yes', $current_config_value ); ?>><?php esc_html_e( 'Enable', 'wpt_pro' ); ?></option>
                             </select>
@@ -294,6 +303,7 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
                         <th><label class="wpt_label" for="wpt_table_disable_cat_tag_link"><?php echo sprintf(esc_html__( '%sCategories, Tags%s Link', 'wpt_pro' ), '<strong>', '</strong>' ); ?></label> </th>
                         <td>
                             <select name="<?php echo esc_attr( $field_name ); ?>[disable_cat_tag_link]" id="wpt_table_disable_cat_tag_link" class="wpt_fullwidth ua_input" >
+                                <?php wpt_default_option( $page ) ?>
                                 <option value="1" <?php wpt_selected( 'disable_cat_tag_link', '1', $current_config_value ); ?>><?php esc_html_e( 'Disable', 'wpt_pro' ); ?></option>
                                 <option value="0" <?php wpt_selected( 'disable_cat_tag_link', '0', $current_config_value ); ?>><?php esc_html_e( 'Enable', 'wpt_pro' ); ?></option>
                             </select>
@@ -303,6 +313,7 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
                         <th> <label class="wpt_label" for="wpt_table_disable_loading_more"><?php echo sprintf(esc_html__( '%sLoad More%s Button', 'wpt_pro' ), '<b>', '</b>' ); ?></label></th>
                         <td>
                             <select name="<?php echo esc_attr( $field_name ); ?>[disable_loading_more]" id="wpt_table_disable_loading_more" class="wpt_fullwidth ua_input" >
+                                <?php wpt_default_option( $page ) ?>
                                 <option value="load_more_hidden" <?php wpt_selected( 'disable_loading_more', 'load_more_hidden', $current_config_value ); ?>><?php esc_html_e( 'Hide', 'wpt_pro' ); ?></option>
                                 <option value="normal" <?php wpt_selected( 'disable_loading_more', 'normal', $current_config_value ); ?>><?php esc_html_e( 'Show', 'wpt_pro' ); ?></option>
                             </select>
@@ -313,6 +324,7 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
                         <th> <label class="wpt_label" for="wpt_table_instant_search_filter"><?php esc_html_e( 'Instant Search Filter', 'wpt_pro' ); ?></label></th>
                         <td>
                             <select name="<?php echo esc_attr( $field_name ); ?>[instant_search_filter]" id="wpt_table_instant_search_filter" class="wpt_fullwidth ua_input" >
+                                <?php wpt_default_option( $page ) ?>
                                 <option value="1" <?php wpt_selected( 'instant_search_filter', '1', $current_config_value ); ?>><?php esc_html_e( 'Show', 'wpt_pro' ); ?></option>
                                 <option value="0" <?php wpt_selected( 'instant_search_filter', '0', $current_config_value ); ?>><?php esc_html_e( 'Hide', 'wpt_pro' ); ?></option>
                             </select>
@@ -323,6 +335,7 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
                         <th> <label class="wpt_label" for="wpt_table_query_by_url"><?php esc_html_e( 'Query by URL', 'wpt_pro' ); ?></label></th>
                         <td>
                             <select name="<?php echo esc_attr( $field_name ); ?>[query_by_url]" id="wpt_table_instant_search_filter" class="wpt_fullwidth ua_input" >
+                                <?php wpt_default_option( $page ) ?>
                                 <option value="0" <?php wpt_selected( 'query_by_url', '0', $current_config_value ); ?>><?php esc_html_e( 'Off', 'wpt_pro' ); ?></option>
                                 <option value="1" <?php wpt_selected( 'query_by_url', '1', $current_config_value ); ?>><?php esc_html_e( 'On', 'wpt_pro' ); ?></option>
                             </select>
@@ -416,6 +429,7 @@ if( !function_exists( 'wpt_configure_label_part' ) ){
                         <th><label class="wpt_label" for="wpt_table_product_count"><?php esc_html_e( 'Item/Products Count system [New]', 'wpt_pro' ); ?></label></th>
                         <td>
                             <select name="<?php echo esc_attr( $field_name ); ?>[item_count]" id="wpt_table_product_count" class="wpt_fullwidth ua_input" >
+                                <?php wpt_default_option( $page ) ?>
                                 <option value="" <?php wpt_selected( 'item_count', '' ); ?>><?php esc_html_e( 'Products Wise', 'wpt_pro' ); ?></option>
                                 <option value="all" <?php wpt_selected( 'item_count', 'all' ); ?>><?php esc_html_e( 'All Items', 'wpt_pro' ); ?></option>
                             </select>

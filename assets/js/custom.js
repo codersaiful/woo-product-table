@@ -11,11 +11,12 @@
        
         
         //Select2
-        if(typeof $('.wpt_product_table_wrapper .search_select').select2 === 'function' && $('.wpt_product_table_wrapper .search_select').length > 0){
-            $('.wpt_product_table_wrapper .search_select').select2({
+        if(typeof $('.wpt_product_table_wrapper .search_select').select2 === 'function' && $('.wpt_product_table_wrapper .search_select').length > 0 && WPT_DATA.select2 !== 'disable' ){
+            $('.wpt_product_table_wrapper .search_select.query').select2({//.query
                 placeholder: WPT_DATA.search_select_placeholder,
                 tags: true,
             });
+
             $('select.filter_select').select2({
                 tags: true,
             });
@@ -1311,14 +1312,17 @@
                 }
             });
             var custom_field = {};
+            var multiple_attr = {};
             value = false;
 
             $('#search_box_' + temp_number + ' .search_select.cf_query').each(function(){
+                var attr = $(this).attr('multiple');
                 
                 key = $(this).data('key');
                 var value = $(this).val();//[];var tempSerial = 0;
                 if(value != ""){
                     custom_field[key] = value;
+                    multiple_attr[key] = attr;
                 }
             });
             
@@ -1347,11 +1351,22 @@
             //Generating Custom Field/Meqa Query for Query Args inside wp_query
             var final_custom_field = {};
             Object.keys(custom_field).forEach(function(key,bbb){
+                console.log(key,bbb);
                 if(Object.keys(custom_field[key]).length > 0){ //custom_field[key] !== null && 
-                    final_custom_field[key] = {
-                        key: key,  
-                        value:  custom_field[key],
-                    };
+                    var compare = multiple_attr[key];
+                    console.log("COM", multiple_attr[key],compare, typeof compare);
+                    if(! compare){
+                            final_custom_field[key] = {
+                                    key: key,  
+                                    value:  custom_field[key],
+                                    compare: 'LIKE'
+                            };   
+                    }else{
+                            final_custom_field[key] = {
+                                    key: key,  
+                                    value:  custom_field[key]
+                            }; 
+                    }
                 }else{
                     targetTableArgs.args.meta_query[key] =targetTableArgsBackup.args.meta_query[key];
                 } 
@@ -1365,7 +1380,6 @@
             }else{
                 targetTableArgs.args.meta_query = targetTableArgsBackup.args.meta_query;
             }
-
 
             //Display Loading on before load
             targetTableBody.prepend("<div class='wpt_loader_text'>" + config_json.loading_more_text + "</div>"); //Laoding..

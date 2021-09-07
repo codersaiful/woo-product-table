@@ -85,7 +85,6 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
             $column_array = apply_filters( 'wpto_column_arr', $column_array, $table_ID, $atts, $column_settings, $enabled_column_array ); //Added at 6.0.25
             $enabled_column_array = apply_filters( 'wpto_enabled_column_array', $enabled_column_array, $table_ID, $atts, $column_settings, $column_array ); //Added at 6.0.25
             $column_settings = apply_filters( 'wpto_column_settings', $column_settings, $table_ID, $enabled_column_array ); //Added at 6.0.25
-
             /**
              * Product Type featue added for provide Variation Product table 
              * 
@@ -529,6 +528,13 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
             $html .= '<button data-type="query" data-temp_number="' . $temp_number . '" id="wpt_query_search_button_' . $temp_number . '" class="button wpt_search_button query_button wpt_query_search_button wpt_query_search_button_' . $temp_number . '" style="visibility: hidden;height:1px;"></button>';
         }
         $html .= apply_filters('end_part_advance_search_box_abc','',$table_ID,$temp_number);
+        ob_start();
+        /**
+         * To Insert Content at Top of the Table, Just inside of Wrapper tag of Table
+         * Available Args $table_ID, $args, $config_value, $atts;
+         */
+        do_action( 'wpto_after_advance_search_box', $table_ID, $args, $column_settings, $enabled_column_array, $config_value, $atts );
+        $html .= ob_get_clean();
         /**
          * Instant Sarch Box
          */
@@ -846,6 +852,7 @@ if( !function_exists( 'wpt_table_row_generator' ) ){
         $config_value = wpt_get_config_value( $table_ID );
         $_device = wpt_col_settingwise_device( $table_ID );
         $basics = get_post_meta( $table_ID, 'basics', true );
+        $design = get_post_meta( $table_ID, 'table_style', true );
 
         $args                   = $table_row_generator_array['args'];
         $table_column_keywords = $table_row_generator_array['wpt_table_column_keywords'];
@@ -869,11 +876,15 @@ if( !function_exists( 'wpt_table_row_generator' ) ){
         }
 
         //WILL BE USE FOR EVERY WHERE INSIDE ITEM
+        $column_array = get_post_meta( $table_ID, 'column_array' . $_device, true );
         $column_settings = get_post_meta( $table_ID, 'column_settings' . $_device, true);
+        
         /**
          * @Hook Filter: 
          * Here $table_column_keywords and $enabled_column_array are same Array Actually
+         * in shortcode_generator function $atts - here null
          */
+        $column_array = apply_filters( 'wpto_column_arr', $column_array, $table_ID, null, $column_settings, $table_column_keywords ); //Added at 2.9.8
         $column_settings = apply_filters( 'wpto_column_settings', $column_settings, $table_ID, $table_column_keywords ); //Added at 6.0.25 
         
         $product_type = isset( $basics['product_type'] ) && $basics['product_type'] == 'product_variation' ? true : false;
@@ -1320,10 +1331,18 @@ if( !function_exists( 'wpt_search_box' ) ){
                $html .= wpt_texonomy_search_generator( $texonomy_name,$temp_number, $search_n_filter ); 
             }
         }
+
         $html .=  apply_filters('end_part_advance_search_box','',$table_ID);
-        $cutnt_link = get_page_link();
-        $style = isset( $_GET['table_ID'] ) ? "display:inline;": '';
-        $html .= '<a href="' . $cutnt_link . '" data-type="close-button" data-table_ID="' . $temp_number . '" id="wpt_query_reset_button_' . $temp_number . '" class="search_box_reset search_box_reset_' . $temp_number . '" style="' . $style . '">x</a>';
+        
+        /**
+         * Query by URL
+         */
+        if( isset( $config_value['query_by_url'] ) && $config_value['query_by_url'] ){
+            
+            $cutnt_link = get_page_link();
+            $style = isset( $_GET['table_ID'] ) ? "display:inline;": '';
+            $html .= '<a href="' . $cutnt_link . '" data-type="close-button" data-table_ID="' . $temp_number . '" id="wpt_query_reset_button_' . $temp_number . '" class="search_box_reset search_box_reset_' . $temp_number . '" style="' . $style . '">x</a>';
+        }
         
         $html .= '</div>'; //End of .search_box_singles
 

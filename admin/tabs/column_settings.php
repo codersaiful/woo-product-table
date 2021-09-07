@@ -2,7 +2,7 @@
 $default_enable_array = WPT_Product_Table::$default_enable_columns_array;
 
 $columns_array = WPT_Product_Table::$columns_array;
-asort($columns_array);
+//asort($columns_array);
 //var_dump(WPT_Product_Table::$columns_array);
 $for_add =  $meta_column_array = $updated_columns_array = get_post_meta( $post->ID, 'column_array', true );
 
@@ -95,12 +95,12 @@ $_device_name = '_tablet';
 
 $tablet_header_file = __DIR__ . '/inc-column/tablet-header.php';
 include $tablet_header_file;
-
-$availe_column_list_file = __DIR__ . '/inc-column/available-column-list.php';
-include $availe_column_list_file;
 ?>
 <p class="device_wise_col_message"><?php echo esc_html__( 'Set columns for tablet, otherwise desktop columns will be shown on tablet.', 'wpt_pro' ); ?></p>
 <?php
+$availe_column_list_file = __DIR__ . '/inc-column/available-column-list.php';
+include $availe_column_list_file;
+
 $column_list_file = __DIR__ . '/inc-column/column-list.php';
 include $column_list_file;
 
@@ -118,12 +118,12 @@ $_device_name = '_mobile';
 
 $tablet_header_file = __DIR__ . '/inc-column/mobile-header.php';
 include $tablet_header_file;
-
-$availe_column_list_file = __DIR__ . '/inc-column/available-column-list.php';
-include $availe_column_list_file;
 ?>
 <p class="device_wise_col_message"><?php echo esc_html__( 'Set columns for mobile, otherwise tablet columns will be shown on mobile.', 'wpt_pro' ); ?></p>
 <?php
+$availe_column_list_file = __DIR__ . '/inc-column/available-column-list.php';
+include $availe_column_list_file;
+
 $column_list_file = __DIR__ . '/inc-column/column-list.php';
 include $column_list_file;
 
