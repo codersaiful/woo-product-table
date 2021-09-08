@@ -158,7 +158,7 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
                 <tbody>
                     <tr class="table_disable_plugin_noti">
                         <th>
-                            <label class="wpt_label wpt_disable_plugin_noti" for="wpt_disable_plugin_noti"><?php esc_html_e( 'Plugin Recomendation', 'wpt_pro' );?></label>
+                            <label class="wpt_label wpt_disable_plugin_noti" for="wpt_disable_plugin_noti"><?php esc_html_e( 'Plugin Recommendation', 'wpt_pro' );?></label>
                         </th>
                         <td>
                             <label class="switch">
