@@ -449,10 +449,10 @@ class WPT_Product_Table{
             self::$own['perpose']   = 'activation';
             self::$own['plugin']    = 'wc-quantity-plus-minus-button/init.php';
             self::$own['btn_text']  = 'Activate Now';
-            $configuration_page = '<a target="_blank" href="' . esc_url( admin_url( 'edit.php?post_type=wpt_product_table&page=woo-product-table-config' ) ) . '">' . esc_html__( 'Configuration Page', 'wpt_pro' ) . '</a>';
+            $configuration_page = '<a target="_blank" href="' . esc_url( admin_url( 'edit.php?post_type=wpt_product_table&page=woo-product-table-config' ) ) . '">' . esc_html__( 'Configure Page', 'wpt_pro' ) . '</a>';
             $message = sprintf(
                    /* translators: 1: Plugin name 2: WooPrdouct Table */
-                   esc_html__( '"%1$s" recomends "%2$s" to be activated. To [hide this warning], Go to %3$s and Disable Plugin Recomendation.', 'wpt_pro' ),
+                   esc_html__( '"%1$s" recommends "%2$s" to be activated. To hide this notification, Go to %3$s (Plugin Recommendation).', 'wpt_pro' ),
                    '<strong>' . esc_html__( 'Woo Product Table', 'wpt_pro' ) . '</strong>',
                     $link_text,
                     $configuration_page
@@ -564,13 +564,19 @@ class WPT_Product_Table{
                 return;
         }
        
-       $plugin_url = 'https://wordpress.org/plugins/ultraaddons-elementor-lite/';
-       $plugin_file = 'ultraaddons-elementor-lite/init.php';
-       $plugin_slug = 'ultraaddons-elementor-lite';
-       $perpose = isset( self::$ultraaddons_args['perpose'] ) ? self::$ultraaddons_args['perpose'] : 'install';
-       $url = wp_nonce_url( self_admin_url( 'update.php?action=' . $perpose . '-plugin&plugin=' . $plugin_slug ), $perpose . '-plugin_' . $plugin_slug );
-       $msg_title = __( "Essential for Woo Product Table", 'wpt_pro' );
-       $msg = __( "You are using Elementor, So <b>Woo Product Table</b> require <a href='{$plugin_url}' target='_blank'>UltraAddons</a>. You have to install and activate to get full features of Woo Product Table. " );
+        $plugin_url = 'https://wordpress.org/plugins/ultraaddons-elementor-lite/';
+        $plugin_file = 'ultraaddons-elementor-lite/init.php';
+        $plugin_slug = 'ultraaddons-elementor-lite';
+        $perpose = isset( self::$ultraaddons_args['perpose'] ) ? self::$ultraaddons_args['perpose'] : 'install';
+        $url = wp_nonce_url( self_admin_url( 'update.php?action=' . $perpose . '-plugin&plugin=' . $plugin_slug ), $perpose . '-plugin_' . $plugin_slug );
+        $msg_title = __( "Essential for Woo Product Table", 'wpt_pro' );
+        $msg = __( "You are using Elementor, So <b>Woo Product Table</b> require <a href='{$plugin_url}' target='_blank'>UltraAddons</a>. You have to install and activate to get full features of Woo Product Table." );
+        $configuration_page = '<a target="_blank" href="' . esc_url( admin_url( 'edit.php?post_type=wpt_product_table&page=woo-product-table-config' ) ) . '">' . esc_html__( 'Configure Page', 'wpt_pro' ) . '</a>';
+        $help_text = sprintf(
+                /* translators: 1: Plugin name 2: WooPrdouct Table */
+                esc_html__( 'To hide this notification, go to %1$s (Plugin Recommendation).', 'wpt_pro' ),
+                $configuration_page
+            );
        $btn_text = __( 'Install Now', 'wpt_pro' );
        
        if( 'activate' == $perpose ){
@@ -587,6 +593,7 @@ class WPT_Product_Table{
                 <div class="wpt-ua-message-area">
                     <h2><?php echo esc_html( $msg_title ); ?></h2>
                     <p><?php echo wp_kses_post( $msg ); ?></p>
+                    <p><?php echo wp_kses_post( $help_text ); ?></p>
                     <a class="button" href="<?php echo esc_url( $url ); ?>"><?php echo esc_html( $btn_text ); ?></a>
                 </div>
             </div>
@@ -674,9 +681,9 @@ class WPT_Product_Table{
     public function admin_notice_pro_version_need_update() {
 
            $message = sprintf(
-                   esc_html__( '"%1$s" recommend "%2$s" to be update to minimum version:("%3$s"). Please update your [Woo Product Table Pro] version', 'wpt_pro' ),
+                   esc_html__( '"%1$s" recommends "%2$s" to be updated to the minimum version "%3$s". Please update "%2$s" now.', 'wpt_pro' ),
                    '<strong>' . esc_html__( 'Woo Product Table', 'wpt_pro' ) . '</strong>',
-                   '<strong>' . esc_html__( 'Pro Version of Woo Product Table Pro', 'wpt_pro' ) . '</strong>',
+                   '<strong>' . esc_html__( 'Woo Product Table Pro', 'wpt_pro' ) . '</strong>',
                    '<strong>' . self::MINIMUM_WPT_PRO_VERSION . '</strong>'
            );
 
