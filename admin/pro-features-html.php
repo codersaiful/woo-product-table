@@ -127,8 +127,8 @@
                     <p>Many more awesome feature is waiting...</p>
                     <p><a href="https://wooproducttable.com/" target="_blank">wooproducttable.com</a></p>
                     <p><a href="https://demo.wooproducttable.com/" target="_blank">Table Demo</a></p>
-                    <p><a href="https://wooproducttable.com/docs/" target="_blank">Basic Helps</a></p>
-                    <p><a href="http://docs.codeastrology.com/woo-product-table-pro/#intro" target="_blank">Documentation</a></p>
+                    <p><a href="https://wooproducttable.com/documentation/" target="_blank">Documentation</a></p>
+                    
                 </div>
             </div>
         </div>
