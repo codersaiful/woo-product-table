@@ -9,7 +9,7 @@
  * 
  * Version: 2.9.9
  * Requires at least:    4.0.0
- * Tested up to:         5.8
+ * Tested up to:         5.8.1
  * WC requires at least: 3.0.0
  * WC tested up to: 	 5.6.0
  * 
@@ -335,7 +335,7 @@ class WPT_Product_Table{
      * 
      * @last_modified_date: September 5, 2021
      */
-    const MINIMUM_WPT_PRO_VERSION = '7.0.9';
+    const MINIMUM_WPT_PRO_VERSION = '7.0.7';
     
     
     /**
