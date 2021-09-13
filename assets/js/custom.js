@@ -617,16 +617,23 @@
             return false;
 
         });
-   
         
         /**
          * On change Product Variation
          * Vairation Change
          */
-        $('body').on('change','.wpt_varition_section.variations select,.wpt_action .variations select',function() {
+        
+        $('body').on('change','.wpt_varition_section',function(e) {
             
-            var product_id = $(this).closest('tr.wpt_row').data('product_id');
-            var temp_number = $(this).closest('tr.wpt_row').data('temp_number');
+            var product_id = $(this).data('product_id');
+            var temp_number = $(this).data('temp_number');
+        
+//        $('body').on('change','.wpt_varition_section.variations select,.wpt_action .variations select',function() {
+//            
+//            var product_id = $(this).closest('tr.wpt_row').data('product_id');
+//            var temp_number = $(this).closest('tr.wpt_row').data('temp_number');
+            
+            
             config_json = getConfig_json( temp_number ); //Added vat V5.0
             var target_class = '#product_id_' + product_id;
             
@@ -723,7 +730,7 @@
             
 
             var quote_data = '';
-            $(this).each(function() { //.find('select')
+            $(this).find('select').each(function() { //.find('select')
                 var attribute_name = $(this).data('attribute_name');
                 var attribute_value = $(this).val();
                 current[attribute_name] = attribute_value;

@@ -158,6 +158,9 @@ You can easily show specific category products. While creating new table click o
 == Changelog ==
 
 = 2.9.9 =
+ * Variation's Change issue has solved
+
+= 2.9.9 =
  * Bug fix (Undefined Array issue) in array_filter
  * recommended message updated
 
