@@ -11,7 +11,7 @@
  * Requires at least:    4.0.0
  * Tested up to:         5.8.1
  * WC requires at least: 3.0.0
- * WC tested up to: 	 5.6.0
+ * WC tested up to: 	 5.6.2
  * 
  * Text Domain: wpt_pro
  * Domain Path: /languages/

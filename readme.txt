@@ -157,6 +157,11 @@ You can easily show specific category products. While creating new table click o
 
 == Changelog ==
 
+= 3.0.0 =
+ * array filter issue has solved
+ * Elementor Minicart CSS issue has fixed
+ * Variation's Change issue has solved
+
 = 2.9.9 =
  * Bug fix (Undefined Array issue) in array_filter
  * recommended message updated
