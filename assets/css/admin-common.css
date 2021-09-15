@@ -399,6 +399,36 @@ h1.with-background.dark-background {}
     font-size: 120%;
 }
 
+.wpt-export-import-wrapper {
+    padding: 0 18px 20px;
+}
+
+.wpt-export-import-wrapper label {
+    margin: 10px 0;
+    font-weight: 500;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.wpt-export-button-wrapper button.wpt-import-button {
+    background-color: #007694;
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-top: 10px;
+    float: right;
+}
+.wpt-export-button-wrapper button.wpt-import-button:hover {
+    background-color: #375f6b;
+}
+
+.wpt-export-button-wrapper:before,
+.wpt-export-button-wrapper:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
 /* Responsive Design Starts */
 @media screen and (max-width: 782px){
     .ultraaddons .fieldwrap,
