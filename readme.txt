@@ -157,6 +157,9 @@ You can easily show specific category products. While creating new table click o
 
 == Changelog ==
 
+= 3.0.1 =
+ * product_cat_ids confliction error solved for new user
+
 = 3.0.0 =
  * array filter issue has solved
  * Elementor Minicart CSS issue has fixed
