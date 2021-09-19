@@ -1023,6 +1023,8 @@
             var checkoutURL = $('#table_id_' + temp_number).data('checkout_url');
             //Add Looading and Disable class 
             var currentAllSelectedButtonSelector = $('#table_id_' + temp_number + ' a.button.add_to_cart_all_selected');
+            var tableWrapperTag = $('#table_id_' + temp_number + ' .wpt_table_tag_wrapper');
+            
             currentAllSelectedButtonSelector.addClass('disabled');
             currentAllSelectedButtonSelector.addClass('loading');
 
