@@ -52,7 +52,7 @@ $data = isset( $meta_basics['data'] ) ? $meta_basics['data'] : false;
                     $selecteds = isset( $data['terms'][$term_key] ) ? $data['terms'][$term_key] : false;
                     if( is_array( $term_obj ) && count( $term_obj ) > 0 ){
                         $selected_term_ids = isset( $data['terms'][$term_key] ) ? $data['terms'][$term_key] : false;
-                        //ONly for old user, where cat data was stored as selected_cat_ids
+                        //ONly for old user, where cat data was stored as product_cat_ids
                         if( empty( $selected_term_ids ) && 'product_cat' ==  $term_key){
                             $selected_term_ids = isset( $meta_basics['product_cat_ids'] ) ? $meta_basics['product_cat_ids'] : array();
                         }
