@@ -1027,6 +1027,7 @@
             
             currentAllSelectedButtonSelector.addClass('disabled');
             currentAllSelectedButtonSelector.addClass('loading');
+            tableWrapperTag.addClass('loading-table');
 
             var add_cart_text = $('#table_id_' + temp_number).data('add_to_cart');
 
@@ -1085,6 +1086,7 @@
             if (itemAmount < 1) {
                 currentAllSelectedButtonSelector.removeClass('disabled');
                 currentAllSelectedButtonSelector.removeClass('loading');
+                tableWrapperTag.removeClass('loading-table');
                 alert('Please Choose items.');
                 return false;
             }
@@ -1114,6 +1116,7 @@
                     }else{
                         currentAllSelectedButtonSelector.removeClass('disabled');
                         currentAllSelectedButtonSelector.removeClass('loading');
+                        tableWrapperTag.removeClass('loading-table');
                     }
                      
                     //Added at v4.0.11
