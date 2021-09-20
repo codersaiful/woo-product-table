@@ -1756,4 +1756,46 @@ a.search_box_reset:focus,
     content: "";
     background-size: 50px 50px;
     cursor: not-allowed;
+    overflow:hidden;
+    top: 0;
+    left: 0;
 }
+
+button.loading::after, 
+a.loading::after, 
+a.wpt_woo_add_cart_button.loading::after,
+input[type="button"].loading::after, 
+input[type="reset"].loading::after, 
+input[type="submit"].loading::after, 
+.button.loading::after, 
+.wc-block-grid__products .wc-block-grid__product .wp-block-button__link.loading::after, 
+.added_to_cart.loading::after {
+    -webkit-font-smoothing: antialiased;
+    font-style: normal;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    vertical-align: baseline;
+    content: "";
+    height: 20px;
+    width: 20px;
+    line-height: 20px;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -10px;
+    margin-top: -10px;
+    display: block;
+    font-variant: normal;
+    animation: 0.75s linear 0s infinite normal none running fa-spin;
+}
+
+button.loading, 
+a.loading, 
+a.wpt_woo_add_cart_button.loading, 
+input[type="button"].loading, 
+input[type="reset"].loading, 
+input[type="submit"].loading, 
+.button.loading, 
+.wc-block-grid__products .wc-block-grid__product .wp-block-button__link.loading, 
+.added_to_cart.loading {position: relative;}
