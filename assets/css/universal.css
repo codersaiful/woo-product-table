@@ -1387,11 +1387,16 @@ table .wpt_loader_text {
     text-align: center;
     z-index: 3;
 }
+table#wpt_table {
+    min-height: 115px;
+}
 .wpt_product_not_found{
-    background: #00000024;
+    /* background: #00000024; */
     color: #ef3900;
-    font-size: 27px;
-    z-index: 2;
+    font-size: 20px;
+    /* z-index: 2; */
+    text-align: center;
+    margin-bottom: 60px;
 }
 table.wpt_product_table.wpt_overflow_hiddent{overflow: hidden;min-height: 90px;}
 

@@ -1462,6 +1462,14 @@
                     if( actionType === 'query' ){
                         $('#wpt_load_more_wrapper_' + temp_number).remove();
                         targetTableBody.html( data );
+                        //console.log(data,data.match('wpt_product_not_found'));
+                        
+                        $('#table_id_' + temp_number + ' .wpt_table_tag_wrapper .wpt_product_not_found').remove();
+                        if(data.match('wpt_product_not_found')){
+                            targetTableBody.html("");
+                            $('#table_id_' + temp_number + ' .wpt_table_tag_wrapper').append(data);
+                        }
+                        
                         var $data = {
                                 action:         'wpt_ajax_paginate_links_load',
                                 temp_number:    temp_number,
