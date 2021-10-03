@@ -2239,8 +2239,10 @@
         $('div.advance_table_wrapper a.button.add_to_cart_all_selected').click(function() {
             WPT_BlankNotice();
             var temp_number = $(this).data('temp_number');
-            var checkoutURL = $('#table_id_' + temp_number).data('checkout_url');
-            var cartURL = $('#table_id_' + temp_number).data('cart_url');
+            
+            var checkoutURL = WPT_DATA.checkout_url;//$('#table_id_' + temp_number).data('checkout_url');
+            var cartURL = WPT_DATA.cart_url;//$('#table_id_' + temp_number).data('cart_url');
+            
             //Add Looading and Disable class 
             var currentAllSelectedButtonSelector = $('#table_id_' + temp_number + ' a.button.add_to_cart_all_selected');
             currentAllSelectedButtonSelector.addClass('disabled');
@@ -2317,6 +2319,12 @@
             $( document ).trigger( 'wc_fragments_refreshed' );
             if(config_json.all_selected_direct_checkout === 'yes'){
                 window.location.href = checkoutURL;
+                return;
+            }
+            //Quick Cart Button Active here and it will go Directly to Cart Page
+            if(config_json.product_direct_checkout === 'cart'){
+                window.location.href = cartURL;
+                return;
             }
             currentAllSelectedButtonSelector.html(add_cart_text + ' [ ' + itemAmount + ' ' + config_json.add2cart_all_added_text + ' ]');
             uncheckAllCheck(temp_number);
