@@ -494,7 +494,10 @@
                 min_quantity = 1;
             }
             //For Direct Checkout page and Quick Button Features
-            var checkoutURL = $('#table_id_' + temp_number).data('checkout_url');
+            var checkoutURL = WPT_DATA.checkout_url;//$('#table_id_' + temp_number).data('checkout_url');
+
+            //For Direct cart page and Quick Button Features
+            var cartURL = WPT_DATA.cart_url;//$('#table_id_' + temp_number).data('cart_url');
 
             //Changed at2.9
             var quantity = $(this).attr('data-quantity');
@@ -578,6 +581,10 @@
                     if(config_json.product_direct_checkout === 'yes'){
                         window.location.href = checkoutURL;
                     }
+                    //Quick cart Button Active here and it will go Directly to cart Page
+                    if(config_json.product_direct_checkout === 'cart'){
+                        window.location.href = cartURL;
+                    }
                     
                     /**
                      * After Completely added to cart and after change of front-end change
@@ -617,16 +624,23 @@
             return false;
 
         });
-   
         
         /**
          * On change Product Variation
          * Vairation Change
          */
-        $('body').on('change','.wpt_varition_section.variations select,.wpt_action .variations select',function() {
+        
+        $('body').on('change','.wpt_varition_section',function(e) {
             
-            var product_id = $(this).closest('tr.wpt_row').data('product_id');
-            var temp_number = $(this).closest('tr.wpt_row').data('temp_number');
+            var product_id = $(this).data('product_id');
+            var temp_number = $(this).data('temp_number');
+        
+//        $('body').on('change','.wpt_varition_section.variations select,.wpt_action .variations select',function() {
+//            
+//            var product_id = $(this).closest('tr.wpt_row').data('product_id');
+//            var temp_number = $(this).closest('tr.wpt_row').data('temp_number');
+            
+            
             config_json = getConfig_json( temp_number ); //Added vat V5.0
             var target_class = '#product_id_' + product_id;
             
@@ -723,7 +737,7 @@
             
 
             var quote_data = '';
-            $(this).each(function() { //.find('select')
+            $(this).find('select').each(function() { //.find('select')
                 var attribute_name = $(this).data('attribute_name');
                 var attribute_value = $(this).val();
                 current[attribute_name] = attribute_value;
@@ -1013,11 +1027,15 @@
         $('div.normal_table_wrapper a.button.add_to_cart_all_selected').click(function() {
             var temp_number = $(this).data('temp_number');
             config_json = getConfig_json( temp_number ); //Added vat V5.0
-            var checkoutURL = $('#table_id_' + temp_number).data('checkout_url');
+            var checkoutURL = WPT_DATA.checkout_url;//$('#table_id_' + temp_number).data('checkout_url');
+            var cartURL = WPT_DATA.cart_url;//$('#table_id_' + temp_number).data('cart_url');
             //Add Looading and Disable class 
             var currentAllSelectedButtonSelector = $('#table_id_' + temp_number + ' a.button.add_to_cart_all_selected');
+            var tableWrapperTag = $('#table_id_' + temp_number + ' .wpt_table_tag_wrapper');
+            
             currentAllSelectedButtonSelector.addClass('disabled');
             currentAllSelectedButtonSelector.addClass('loading');
+            tableWrapperTag.addClass('loading-table');
 
             var add_cart_text = $('#table_id_' + temp_number).data('add_to_cart');
 
@@ -1076,6 +1094,7 @@
             if (itemAmount < 1) {
                 currentAllSelectedButtonSelector.removeClass('disabled');
                 currentAllSelectedButtonSelector.removeClass('loading');
+                tableWrapperTag.removeClass('loading-table');
                 alert('Please Choose items.');
                 return false;
             }
@@ -1102,9 +1121,13 @@
                     if(config_json.all_selected_direct_checkout === 'yes'){
                         window.location.href = checkoutURL;
                         return;
+                    }else if(config_json.all_selected_direct_checkout === 'cart'){
+                        window.location.href = cartURL;
+                        return;                       
                     }else{
                         currentAllSelectedButtonSelector.removeClass('disabled');
                         currentAllSelectedButtonSelector.removeClass('loading');
+                        tableWrapperTag.removeClass('loading-table');
                     }
                      
                     //Added at v4.0.11
@@ -1439,6 +1462,14 @@
                     if( actionType === 'query' ){
                         $('#wpt_load_more_wrapper_' + temp_number).remove();
                         targetTableBody.html( data );
+                        //console.log(data,data.match('wpt_product_not_found'));
+                        
+                        $('#table_id_' + temp_number + ' .wpt_table_tag_wrapper .wpt_product_not_found').remove();
+                        if(data.match('wpt_product_not_found')){
+                            targetTableBody.html("");
+                            $('#table_id_' + temp_number + ' .wpt_table_tag_wrapper').append(data);
+                        }
+                        
                         var $data = {
                                 action:         'wpt_ajax_paginate_links_load',
                                 temp_number:    temp_number,
@@ -2160,7 +2191,10 @@
             }else{
                 return;
             }
-            var checkoutURL = $('#' + table_id ).data('checkout_url');
+            
+            var checkoutURL = WPT_DATA.checkout_url;
+            var cartURL = WPT_DATA.cart_url;
+            
             $.post(url, form.serialize() + '&add-to-cart=' + product_id + '&_wp_http_referer=' + url, function(data,status,xh){ //form.serialize() + '&_wp_http_referer=' + url
                 thisTable.removeClass('loading');
                 var notice = $('.woocommerce-message,.woocommerce-error', data); //.woocommerce-error
@@ -2184,6 +2218,11 @@
                     window.location.href = checkoutURL;
                     return;
                 }
+                //Quick Cart Button Active here and it will go Directly to Cart Page
+                if(config_json.product_direct_checkout === 'cart'){
+                    window.location.href = cartURL;
+                    return;
+                }
                 //$( '.wpt_row_product_id_' + product_id + ' .wpt_action button.single_add_to_cart_button' ).addClass( 'added' );
                 //$( '.wpt_row_product_id_' + product_id + ' .wpt_action button.single_add_to_cart_button' ).removeClass( 'disabled loading' );
                 
@@ -2202,7 +2241,10 @@
         $('div.advance_table_wrapper a.button.add_to_cart_all_selected').click(function() {
             WPT_BlankNotice();
             var temp_number = $(this).data('temp_number');
-            var checkoutURL = $('#table_id_' + temp_number).data('checkout_url');
+            
+            var checkoutURL = WPT_DATA.checkout_url;//$('#table_id_' + temp_number).data('checkout_url');
+            var cartURL = WPT_DATA.cart_url;//$('#table_id_' + temp_number).data('cart_url');
+            
             //Add Looading and Disable class 
             var currentAllSelectedButtonSelector = $('#table_id_' + temp_number + ' a.button.add_to_cart_all_selected');
             currentAllSelectedButtonSelector.addClass('disabled');
@@ -2279,6 +2321,12 @@
             $( document ).trigger( 'wc_fragments_refreshed' );
             if(config_json.all_selected_direct_checkout === 'yes'){
                 window.location.href = checkoutURL;
+                return;
+            }
+            //Quick Cart Button Active here and it will go Directly to Cart Page
+            if(config_json.product_direct_checkout === 'cart'){
+                window.location.href = cartURL;
+                return;
             }
             currentAllSelectedButtonSelector.html(add_cart_text + ' [ ' + itemAmount + ' ' + config_json.add2cart_all_added_text + ' ]');
             uncheckAllCheck(temp_number);

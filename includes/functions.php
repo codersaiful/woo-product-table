@@ -385,8 +385,8 @@ if( !function_exists( 'wpt_get_config_value' ) ){
      */
     function wpt_get_config_value( $table_ID ){
         $config_value = $temp_config_value = get_option( 'wpt_configure_options' );
-        $config = get_post_meta( $table_ID, 'config', true );
-        $config = array_filter( $config );
+        $config = get_post_meta( $table_ID, 'config', true );        
+        $config = is_array( $config ) ? array_filter( $config ) : array();
         if( !empty( $config ) && is_array( $config ) && is_array( $config_value ) ){
             $config_value = array_merge( $config_value, $config );
         }

@@ -3,8 +3,8 @@ Contributors: codersaiful,codeastrology
 Donate link: https://codecanyon.net/item/woo-product-table-pro/20676867?ref=CodeAstrology&utm_source=WPT_Installed_DonateLink
 Tags: wc product table, wooproducttable,woocommerce product table, product table, wc table, quick order table, wholesale table, restaurants table
 Requires at least: 4.0.0
-Tested up to: 5.8
-Stable tag: 2.9.8
+Tested up to: 5.8.1
+Stable tag: 3.0.1
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -156,6 +156,21 @@ You can easily show specific category products. While creating new table click o
 25. Manually responsive for mobile devices
 
 == Changelog ==
+
+= 3.0.1 =
+ * product_cat_ids confliction error solved for new user
+
+= 3.0.0 =
+ * array filter issue has solved
+ * Elementor Minicart CSS issue has fixed
+ * Variation's Change issue has solved
+
+= 2.9.9 =
+ * Variation's Change issue has solved
+
+= 2.9.9 =
+ * Bug fix (Undefined Array issue) in array_filter
+ * recommended message updated
 
 = 2.9.8 =
  * Advance Search for Variable Product

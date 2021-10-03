@@ -287,3 +287,56 @@ if( !function_exists( 'wpt_data_manipulation_on_save' ) ){
     }
 }
 add_filter( 'wpto_tab_data_on_save', 'wpt_data_manipulation_on_save', 10, 4 );
+
+if( ! function_exists( 'wpt_add_tabs' ) ){
+    /**
+     * Help Screens Message added
+     * Mainly this feature added by Mukul, but this comment added by Saiful
+     * 
+     * @since 3.0.0.0
+     *
+     * @return void
+     */
+    function wpt_add_tabs(){
+        $screen = get_current_screen();
+        $is_wpt_page = strpos($screen->id, 'wpt_product_table');
+        
+		if ( ! $screen || !( false !== $is_wpt_page ) ) {
+            return;
+		}
+        // var_dump($is_wpt_page,false !== $is_wpt_page,$screen);
+
+        $screen->add_help_tab(
+			array(
+				'id'      => 'wpt_support_tab',
+				'title'   => __( 'Help &amp; Support', 'wpt_pro' ),
+				'content' =>
+					'<h2>' . __( 'Help &amp; Support', 'wpt_pro' ) . '</h2>' .
+					'<p>' . sprintf(
+						/* translators: %s: Documentation URL */
+						__( 'Should you need help understanding, using, or extending Product Table for WooCommerce, <a href="%s">please read our documentation</a>. You will find all kinds of resources including snippets, tutorials and much more.', 'wpt_pro' ),
+						'https://wooproducttable.com/documentation/?utm_source=helptab&utm_content=docs&utm_campaign=wptplugin'
+					) . '</p>' .
+					'<p>' . sprintf(
+						/* translators: %s: Forum URL */
+						__( 'For further assistance with Product Table for WooCommerce, use the <a href="%1$s">community forum</a>. For help with premium support, <a href="%2$s">open a support request at CodeAstrology.com</a>.', 'wpt_pro' ),
+						'https://wordpress.org/support/plugin/woo-product-table/',
+						'https://codeastrology.com/support/submit-ticket/?utm_source=helptab&utm_content=tickets&utm_campaign=wptplugin'
+					) . '</p>' .
+					'<p><a href="https://wordpress.org/support/plugin/woo-product-table/" class="button">' . __( 'Community forum', 'wpt_pro' ) . '</a> <a href="https://codeastrology.com/support/submit-ticket/?utm_source=helptab&utm_content=tickets&utm_campaign=wptplugin" class="button">' . __( 'CodeAstrology.com support', 'wpt_pro' ) . '</a></p>',
+			)
+		);
+
+        $screen->set_help_sidebar(
+			'<p><strong>' . __( 'For more information:', 'wpt_pro' ) . '</strong></p>' .
+			'<p><a href="https://wooproducttable.com/?utm_source=helptab&utm_content=about&utm_campaign=wptplugin" target="_blank">' . __( 'About Product Table', 'wpt_pro' ) . '</a></p>' .
+			'<p><a href="https://wordpress.org/support/plugin/woo-product-table/" target="_blank">' . __( 'WordPress.org', 'wpt_pro' ) . '</a></p>' .
+			'<p><a href="https://codecanyon.net/item/woo-product-table-pro/20676867" target="_blank">' . __( 'Premium Plugin ', 'wpt_pro' ) . '</a></p>' .
+			'<p><a href="https://github.com/codersaiful/woo-product-table/" target="_blank">' . __( 'Github project', 'wpt_pro' ) . '</a></p>' .
+			'<p><a href="https://wordpress.org/themes/astha/" target="_blank">' . __( 'Official theme', 'wpt_pro' ) . '</a></p>' .
+			'<p><a href="https://codecanyon.net/user/codeastrology/?utm_source=helptab&utm_content=wptotherplugins&utm_campaign=wptplugin" target="_blank">' . __( 'Other Premium Plugins', 'wpt_pro' ) . '</a></p>'
+		);
+
+    }
+}
+add_action( 'current_screen', 'wpt_add_tabs', 50 );
