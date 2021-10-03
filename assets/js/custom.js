@@ -2191,8 +2191,10 @@
             }else{
                 return;
             }
-            var checkoutURL = $('#' + table_id ).data('checkout_url');
-            var cartURL = $('#table_id_' + temp_number).data('cart_url');
+            
+            var checkoutURL = WPT_DATA.checkout_url;
+            var cartURL = WPT_DATA.cart_url;
+            
             $.post(url, form.serialize() + '&add-to-cart=' + product_id + '&_wp_http_referer=' + url, function(data,status,xh){ //form.serialize() + '&_wp_http_referer=' + url
                 thisTable.removeClass('loading');
                 var notice = $('.woocommerce-message,.woocommerce-error', data); //.woocommerce-error
