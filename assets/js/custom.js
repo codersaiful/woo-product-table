@@ -291,9 +291,9 @@
          */
         function WPT_MiniCart(){
             var minicart_type = $('div.tables_cart_message_box').attr('data-type');
-//            if(typeof minicart_type === 'undefined'){
-//                return;
-//            }            
+            if(typeof minicart_type === 'undefined'){
+                return;
+            }            
             $.ajax({
                 type: 'POST',
                 url: ajax_url,
@@ -494,7 +494,10 @@
                 min_quantity = 1;
             }
             //For Direct Checkout page and Quick Button Features
-            var checkoutURL = $('#table_id_' + temp_number).data('checkout_url');
+            var checkoutURL = WPT_DATA.checkout_url;//$('#table_id_' + temp_number).data('checkout_url');
+
+            //For Direct cart page and Quick Button Features
+            var cartURL = WPT_DATA.cart_url;//$('#table_id_' + temp_number).data('cart_url');
 
             //Changed at2.9
             var quantity = $(this).attr('data-quantity');
@@ -577,6 +580,10 @@
                     //Quick Button Active here and it will go Directly to checkout Page
                     if(config_json.product_direct_checkout === 'yes'){
                         window.location.href = checkoutURL;
+                    }
+                    //Quick cart Button Active here and it will go Directly to cart Page
+                    if(config_json.product_direct_checkout === 'cart'){
+                        window.location.href = cartURL;
                     }
                     
                     /**
@@ -1020,7 +1027,8 @@
         $('div.normal_table_wrapper a.button.add_to_cart_all_selected').click(function() {
             var temp_number = $(this).data('temp_number');
             config_json = getConfig_json( temp_number ); //Added vat V5.0
-            var checkoutURL = $('#table_id_' + temp_number).data('checkout_url');
+            var checkoutURL = WPT_DATA.checkout_url;//$('#table_id_' + temp_number).data('checkout_url');
+            var cartURL = WPT_DATA.cart_url;//$('#table_id_' + temp_number).data('cart_url');
             //Add Looading and Disable class 
             var currentAllSelectedButtonSelector = $('#table_id_' + temp_number + ' a.button.add_to_cart_all_selected');
             var tableWrapperTag = $('#table_id_' + temp_number + ' .wpt_table_tag_wrapper');
@@ -1113,6 +1121,9 @@
                     if(config_json.all_selected_direct_checkout === 'yes'){
                         window.location.href = checkoutURL;
                         return;
+                    }else if(config_json.all_selected_direct_checkout === 'cart'){
+                        window.location.href = cartURL;
+                        return;                       
                     }else{
                         currentAllSelectedButtonSelector.removeClass('disabled');
                         currentAllSelectedButtonSelector.removeClass('loading');
@@ -2173,6 +2184,7 @@
                 return;
             }
             var checkoutURL = $('#' + table_id ).data('checkout_url');
+            var cartURL = $('#table_id_' + temp_number).data('cart_url');
             $.post(url, form.serialize() + '&add-to-cart=' + product_id + '&_wp_http_referer=' + url, function(data,status,xh){ //form.serialize() + '&_wp_http_referer=' + url
                 thisTable.removeClass('loading');
                 var notice = $('.woocommerce-message,.woocommerce-error', data); //.woocommerce-error
@@ -2196,6 +2208,11 @@
                     window.location.href = checkoutURL;
                     return;
                 }
+                //Quick Cart Button Active here and it will go Directly to Cart Page
+                if(config_json.product_direct_checkout === 'cart'){
+                    window.location.href = cartURL;
+                    return;
+                }
                 //$( '.wpt_row_product_id_' + product_id + ' .wpt_action button.single_add_to_cart_button' ).addClass( 'added' );
                 //$( '.wpt_row_product_id_' + product_id + ' .wpt_action button.single_add_to_cart_button' ).removeClass( 'disabled loading' );
                 
@@ -2215,6 +2232,7 @@
             WPT_BlankNotice();
             var temp_number = $(this).data('temp_number');
             var checkoutURL = $('#table_id_' + temp_number).data('checkout_url');
+            var cartURL = $('#table_id_' + temp_number).data('cart_url');
             //Add Looading and Disable class 
             var currentAllSelectedButtonSelector = $('#table_id_' + temp_number + ' a.button.add_to_cart_all_selected');
             currentAllSelectedButtonSelector.addClass('disabled');
