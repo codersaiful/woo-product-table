@@ -283,7 +283,7 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
                                 <?php wpt_default_option( $page ) ?>
                                 <option value="no" <?php wpt_selected( 'product_direct_checkout', 'no', $current_config_value ); ?>><?php esc_html_e( 'Disable', 'wpt_pro' ); ?></option>
                                 <option value="cart" <?php wpt_selected( 'product_direct_checkout', 'cart', $current_config_value ); ?>><?php esc_html_e( 'Cart Page', 'wpt_pro' ); ?></option>
-                                <option value="yes" <?php wpt_selected( 'product_direct_checkout', 'yes', $current_config_value ); ?>><?php esc_html_e( 'CHeckout Page', 'wpt_pro' ); ?></option>
+                                <option value="yes" <?php wpt_selected( 'product_direct_checkout', 'yes', $current_config_value ); ?>><?php esc_html_e( 'Checkout Page', 'wpt_pro' ); ?></option>
                             </select>
                             <p><?php esc_html_e( 'Enable Quick Buy Button [Direct Checkout Page for each product]. Direct going to Checkout Page just after Added to cart for each product', 'wpt_pro' ); ?></p>
                         </td>
