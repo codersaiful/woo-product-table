@@ -1752,6 +1752,7 @@ a.search_box_reset:focus,
     justify-content: end;
 }
 
+.wpt_product_table_wrapper div.tables_cart_message_box.message-box-loading:before,
 .wpt_table_tag_wrapper.loading-table table.wpt_product_table:before {
     position: absolute;
     z-index: 9999;

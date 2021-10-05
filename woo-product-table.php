@@ -205,6 +205,8 @@ $default = array(
     'search_keyword_text'   =>  __( 'Search Keyword', 'wpt_pro' ),
     'disable_loading_more'  =>  'load_more_hidden',//'normal',//Load More
     'instant_search_filter' =>  '0',
+    //Message Config
+    'empty_cart_text'       => __( 'Empty Cart', 'wpt_pro' ), //Added at 3.0.1.0
     'filter_text'           =>  __( 'Filter:', 'wpt_pro' ),
     'filter_reset_button'   =>  __( 'Reset', 'wpt_pro' ),
     'instant_search_text'   =>  __( 'Instant Search..', 'wpt_pro' ),

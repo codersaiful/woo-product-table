@@ -322,6 +322,13 @@
 
                         }
                         
+                        if( fragments.wpt_quckcart && config_json.empty_cart_text ){
+                            var emty_cart_btn = '<span class="wpt_empty_cart_btn">' + config_json.empty_cart_text + '</span>';
+                            $('.wpt_product_table_wrapper div.tables_cart_message_box a.cart-contents').append(emty_cart_btn);
+                        }else{
+                            $('.wpt_empty_cart_btn').remove();
+                        }
+                        
                         var argStats = {};
                         argStats['status'] = true;
                         $(document.body).trigger('wpt_minicart_load',argStats, fragments);
@@ -333,6 +340,34 @@
                 }
             });
         }
+        
+        
+        //.wpt_product_table_wrapper div.tables_cart_message_box.message-box-loading
+        $(document.body).on('click','.wpt_empty_cart_btn',function(e){
+            e.preventDefault();
+            var cart_message_box = $( '.wpt_product_table_wrapper div.tables_cart_message_box' );
+            cart_message_box.addClass('message-box-loading');
+                $.ajax({
+                type: 'POST',
+                url: ajax_url,
+                data: {
+                    action: 'wpt_fragment_empty_cart'
+                },
+                complete:function(){
+                    cart_message_box.removeClass('message-box-loading');
+                },
+                success: function( response ){
+                    $( document.body ).trigger( 'wc_fragments_refresh' );
+                    
+                },
+                error: function(){
+                    $( document.body ).trigger( 'removed_from_cart' );
+                    console.log("Unable to empty your cart.");
+                    return false;
+                }
+            });
+        });
+        
         //wc_fragments_refreshed,wc_fragments_refresh,wc_fragment_refresh,removed_from_cart
         $( document.body ).trigger( 'updated_cart_totals' );
         $( document.body ).trigger( 'wc_fragments_refreshed' );
