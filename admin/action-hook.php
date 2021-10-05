@@ -402,12 +402,21 @@ if( !function_exists( 'wpt_configure_label_part' ) ){
                             <input name="<?php echo esc_attr( $field_name ); ?>[instant_search_text]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['instant_search_text'] ); ?>" id="wpt_table_instant_search_text" type="text" placeholder="<?php esc_attr_e( 'attr', 'wpt_pro' ); ?>"> 
                         </td>
                     </tr>
+                    
+                    <tr> 
+                        <th> <label for="wpt_table_empty_cart_text" class="wpt_label"><?php echo sprintf(esc_html__( '%s[Empty Cart]%s - Text of Empty Cart', 'wpt_pro' ), '<b>', '</b>' ); ?></label></th>
+                        <td>
+                            <input name="<?php echo esc_attr( $field_name ); ?>[empty_cart_text]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['empty_cart_text'] ); ?>" id="wpt_table_filter_text" type="text" placeholder="<?php esc_attr_e( 'eg: Empty Cart', 'wpt_pro' ); ?>">
+                        </td>
+                    </tr>
+                    
                     <tr> 
                         <th> <label for="wpt_table_filter_text" class="wpt_label"><?php echo sprintf(esc_html__( '%s[Filter]%s - Text of Filter', 'wpt_pro' ), '<b>', '</b>' ); ?></label></th>
                         <td>
                             <input name="<?php echo esc_attr( $field_name ); ?>[filter_text]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['filter_text'] ); ?>" id="wpt_table_filter_text" type="text" placeholder="<?php esc_attr_e( 'eg: Filter', 'wpt_pro' ); ?>">
                         </td>
                     </tr>
+                    
                     <tr> 
                         <th><label for="wpt_table_filter_reset_button" class="wpt_label"><?php echo sprintf(esc_html__( '%s[Reset]%s - Button Text of Filter', 'wpt_pro' ), '<b>', '</b>' ); ?></label></th>
                         <td>
