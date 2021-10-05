@@ -357,7 +357,11 @@
                     cart_message_box.removeClass('message-box-loading');
                 },
                 success: function( response ){
+                    $( document.body ).trigger( 'updated_cart_totals' );
+                    $( document.body ).trigger( 'wc_fragments_refreshed' );
                     $( document.body ).trigger( 'wc_fragments_refresh' );
+                    $( document.body ).trigger( 'wc_fragment_refresh' );
+                    $( document.body ).trigger( 'removed_from_cart' );
                     
                 },
                 error: function(){
