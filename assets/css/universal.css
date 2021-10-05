@@ -1767,6 +1767,13 @@ a.search_box_reset:focus,
     left: 0;
 }
 
+span.wpt_empty_cart_btn {
+    opacity: 0.6;
+}
+span.wpt_empty_cart_btn:hover {
+    opacity: 1;
+}
+
 button.loading::after, 
 a.loading::after, 
 a.wpt_woo_add_cart_button.loading::after,
