@@ -50,21 +50,21 @@ if( !function_exists( 'wpt_enqueue' ) ){
        $ajax_url = admin_url( 'admin-ajax.php' );
        $version = class_exists( 'WOO_Product_Table' ) && WOO_Product_Table::getVersion() ? __( 'WTP Pro: ', 'wpt_pro' ) . WOO_Product_Table::getVersion() : WPT_Product_Table::getVersion();
        $WPT_DATA = array( 
-           'ajaxurl' => $ajax_url,
-           'ajax_url' => $ajax_url,
-           'site_url' => site_url(),
-           'plugin_url' => plugins_url(),
-           'content_url' => content_url(),
-           'include_url' => includes_url(),
-           'checkout_url' => wc_get_checkout_url(),
-           'cart_url' => wc_get_cart_url(),
-           'priceFormat' => wpt_price_formatter(),
-           'version' => $version,
-           'select2' => 'enable',
-           'resize_loader' => apply_filters( 'wpto_resize_reloader', false ),
-           'return_zero'   => apply_filters( 'wpto_qty_return_zero', false ),
-           'return_quanity'   => apply_filters( 'wpto_qty_return_quanity', true ),
-           'search_select_placeholder' => esc_html( 'Select inner Item.', 'wpt_pro' ),
+           'ajaxurl'        => $ajax_url,
+           'ajax_url'       => $ajax_url,
+           'site_url'       => site_url(),
+           'plugin_url'     => plugins_url(),
+           'content_url'    => content_url(),
+           'include_url'    => includes_url(),
+           'checkout_url'   => wc_get_checkout_url(),
+           'cart_url'       => wc_get_cart_url(),
+           'priceFormat'    => wpt_price_formatter(),
+           'version'        => $version,
+           'select2'        => 'enable',
+           'resize_loader'  => apply_filters( 'wpto_resize_reloader', false ),
+           'return_zero'    => apply_filters( 'wpto_qty_return_zero', false ),
+           'return_quanity' => apply_filters( 'wpto_qty_return_quanity', true ),
+           'search_select_placeholder' => esc_html__( 'Select inner Item.', 'wpt_pro' ),
            );
        $WPT_DATA = apply_filters( 'wpto_localize_data', $WPT_DATA );
        wp_localize_script( 'wpt-custom-js', 'WPT_DATA', $WPT_DATA );
