@@ -1044,15 +1044,42 @@ span.wpt_colunm_type>i {
 .details.wpt_item.wpt_item_right>p {
     color: #E91E63;
 }
-body.wpt_admin_body span.select2-selection__choice__remove {
+.select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
     background: #2c3438;
-    padding: 0 5px;
+    padding: 0;
     color: white !important;
-    border-radius: 10px;
-    height: 20px;
+    border-radius: 50%;
+    height: 18px;
+    width: 20px;
+    font-size: 15px;
+    line-height: 1;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    padding-bottom: 2px;
 }
-body.wpt_admin_body span.select2-selection__choice__remove:hover {
+.select2-container--default .select2-selection--multiple .select2-selection__choice__remove:hover,
+.select2-container--default .select2-selection--multiple .select2-selection__choice__remove:focus {
     background: red;
+}
+.select2-container--default .select2-selection--multiple .select2-selection__clear {
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 5px;
+    margin-right: 0;
+    position: absolute;
+    right: -20px;
+    width: 20px;
+    height: 24px;
+    background: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 17px;
+    line-height: 18px;
+    padding-bottom: 2px;
 }
 body.wpt_admin_body .select2-container--default .select2-results__option--highlighted[aria-selected] {
     background-color: #607D8B;
@@ -1064,14 +1091,15 @@ body.wpt_admin_body .select2-container--default .select2-selection--multiple .se
     background-color: rgb(255, 255, 255);
     border: 1px solid white;
     border-radius: 4px;
-    margin: 5px 5px 3px 2px;
-    padding: 1px 5px 4px 22px;
+    margin: 5px;
+    padding: 5px 10px;
     color: black;
     box-shadow: 1px 1px 3px 0px #0000003b;
+    float: left;
 }
 
 body.wpt_admin_body .select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
-    margin-top: 3px;
+    /* margin-top: 0px; */
 }
 
 
