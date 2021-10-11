@@ -540,7 +540,7 @@
 
             //Changed at2.9
             var quantity = $(this).attr('data-quantity');
-            var custom_message = $('#table_id_' + temp_number + ' table#wpt_table .wpt_row_product_id_' + product_id + ' .wpt_message input.message').val();
+            var custom_message = $('#table_id_' + temp_number + ' table#wpt_table .wpt_row_product_id_' + product_id + ' .wpt_message .message').val();
             var variation_id = $(this).attr('data-variation_id');
             var variation = $(this).attr('data-variation');
             if(variation){
@@ -1089,7 +1089,7 @@
                 }
                 
                 var currentAddToCartSelector = $('#table_id_' + temp_number + ' #product_id_' + product_id + ' .wpt_action a.wpt_woo_add_cart_button');
-                var currentCustomMessage = $('#table_id_' + temp_number + ' #product_id_' + product_id + ' .wpt_message input.message').val();
+                var currentCustomMessage = $('#table_id_' + temp_number + ' #product_id_' + product_id + ' .wpt_message .message').val();
                 var currentVariaionId = currentAddToCartSelector.attr('data-variation_id');//currentAddToCartSelector.data('variation_id');
                 //var currentVariaion = currentAddToCartSelector.data('variation');
                 var currentVariaion;
@@ -1678,13 +1678,13 @@
         /**
          * Mainly for shortmessage field
          */
-        $('body').on('change', '.wpt_row input.message', function() {
+        $('body').on('change', '.wpt_row .message', function() {
                 var temp_number = $(this).parents('tr.wpt_row').data('temp_number');
                 var msg = $(this).val();
                 var product_id = $(this).parents('tr').data('product_id');
             
                 var thisRow = '#table_id_' + temp_number + ' tr.product_id_' + product_id;
-                $( thisRow + ' input.message').val(msg);
+                $( thisRow + ' .message').val(msg);
         });
         $('body').on('change', '.wpt_row input.input-text.qty.text', function() {
                 var temp_number = $(this).parents('tr.wpt_row').data('temp_number');
