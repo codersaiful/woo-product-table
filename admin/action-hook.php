@@ -185,7 +185,7 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
 
                         </td>
                     </tr>
-                    <tr>
+                    <tr class="<?php echo esc_attr( $user_can_edit ); ?> ">
                         <th><label class="wpt_label" for="wpt_table_footer_cart"><?php esc_html_e( 'Floating Cart Option', 'wpt_pro' ); ?></label></th>
                         <td>
                             <select name="<?php echo esc_attr( $field_name ); ?>[footer_cart]" id="wpt_table_footer_cart" class="wpt_fullwidth ua_input" >
@@ -197,7 +197,7 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
 
                         </td>
                     </tr>
-                    <tr> 
+                    <tr class="<?php echo esc_attr( $user_can_edit ); ?>" > 
                         <th> <label for="wpt_table_footer_bg_color" class="wpt_label"><?php esc_html_e( 'Floating Cart BG Color', 'wpt_pro' ); ?></label></th>
                         <td>
                             <input name="<?php echo esc_attr( $field_name ); ?>[footer_bg_color]" class="wpt_data_filed_atts wpt_color_picker" value="<?php echo esc_attr( $current_config_value['footer_bg_color'] ); ?>" id="wpt_table_footer_bg_colort" type="text" placeholder="<?php esc_attr_e( 'BG Color', 'wpt_pro' ); ?>">
