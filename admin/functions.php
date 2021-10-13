@@ -125,6 +125,19 @@ function wpt_datewise_validation(){
 function wpt_user_can_edit(){
     return wpt_datewise_validation();
 }
+/**
+ * check pro available or not
+ * 
+ * @since 3.0.1
+ * @by Saiful
+ * 
+ * @return boolean true|false
+ */
+function wpt_is_pro(){
+    if( defined( 'WPT_PRO_DEV_VERSION' ) ) return true;
+    
+    return false;
+}
 if( ! function_exists( 'wpt_ajax_get_post_meta_base64' ) ){
     
     /**
