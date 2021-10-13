@@ -1320,11 +1320,29 @@ body.wpt_admin_body div div .wpt-tips {
 tr.user_can_edit:after {
     content: "pro";
     position: absolute;
-    top: -4px;
-    left: -1px;
+    top: 0;
+    left: 0;
     background: #ff5722;
     color: white;
     padding: 1px 10px;
     border-radius: 4px;
     opacity: .8;
+    z-index: 150;
+}
+tr.user_can_edit{
+    position: relative;
+    display: table-row;
+}
+tr.user_can_edit input[disabled='disabled'] {
+    opacity: 0.5;
+}
+tr.user_can_edit:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #78787824;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
 }

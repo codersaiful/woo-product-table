@@ -743,4 +743,9 @@
         }
     }
 
+
+    $(document.body).on('click,change','tr.user_can_edit input,tr.user_can_edit select',function(e){
+        e.preventDefault();
+        alert("Sorry");
+    });
 })(jQuery);
