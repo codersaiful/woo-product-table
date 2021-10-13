@@ -1317,3 +1317,14 @@ body.wpt_admin_body div div .wpt-tips {
     color: #19acef;
     font-size: 120%;
 }
+tr.user_can_edit:after {
+    content: "pro";
+    position: absolute;
+    top: -4px;
+    left: -1px;
+    background: #ff5722;
+    color: white;
+    padding: 1px 10px;
+    border-radius: 4px;
+    opacity: .8;
+}
