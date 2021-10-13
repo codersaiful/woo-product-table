@@ -288,7 +288,7 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
                             <p><?php esc_html_e( 'Enable Quick Buy Button [Direct Checkout Page for each product]. Direct going to Checkout Page just after Added to cart for each product', 'wpt_pro' ); ?></p>
                         </td>
                     </tr>
-                    <tr> 
+                    <tr class="<?php echo esc_attr( $user_can_edit ); ?> "> 
                         <th><label class="wpt_label" for="wpt_table_all_selected_direct_checkout"><?php esc_html_e( 'Bundle Quick Buy ', 'wpt_pro' ); ?></label></th>
                         <td>
                             <select name="<?php echo esc_attr( $field_name ); ?>[all_selected_direct_checkout]" id="wpt_table_all_selected_direct_checkout" class="wpt_fullwidth ua_input" >
@@ -333,7 +333,7 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
                             <p><?php echo esc_html__( 'Only for Visible products of current table.', 'wpt_pro' ) ?></p>
                         </td>
                     </tr>
-                    <tr> 
+                    <tr class="<?php echo esc_attr( $user_can_edit ); ?>" > 
                         <th> <label class="wpt_label" for="wpt_table_query_by_url"><?php esc_html_e( 'Query by URL', 'wpt_pro' ); ?></label></th>
                         <td>
                             <select name="<?php echo esc_attr( $field_name ); ?>[query_by_url]" id="wpt_table_instant_search_filter" class="wpt_fullwidth ua_input" >
@@ -356,6 +356,7 @@ if( !function_exists( 'wpt_configure_label_part' ) ){
     
     function wpt_configure_label_part($settings, $current_config_value,$field_name){
         $page = isset( $settings['page'] ) ? $settings['page'] : 'not_set_page';
+        $user_can_edit = wpt_user_can_edit() ? 'user_can_edit' : 'user_can_not_edit';
         //$current_config_value = get_option( 'wpt_configure_options' );
         ?>
         <div class="section ultraaddons-panel label <?php echo esc_attr( $page ); ?>">
@@ -403,7 +404,7 @@ if( !function_exists( 'wpt_configure_label_part' ) ){
                         </td>
                     </tr>
                     
-                    <tr> 
+                    <tr class="<?php echo esc_attr( $user_can_edit ); ?>"> 
                         <th> <label for="wpt_table_empty_cart_text" class="wpt_label"><?php echo sprintf(esc_html__( '%s[Empty Cart]%s - Text of Empty Cart', 'wpt_pro' ), '<b>', '</b>' ); ?></label></th>
                         <td>
                             <input name="<?php echo esc_attr( $field_name ); ?>[empty_cart_text]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['empty_cart_text'] ); ?>" id="wpt_table_filter_text" type="text" placeholder="<?php esc_attr_e( 'eg: Empty Cart', 'wpt_pro' ); ?>">
