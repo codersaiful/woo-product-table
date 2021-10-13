@@ -138,6 +138,7 @@ function wpt_is_pro(){
     
     return false;
 }
+
 if( ! function_exists( 'wpt_ajax_get_post_meta_base64' ) ){
     
     /**
