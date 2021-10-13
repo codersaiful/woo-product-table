@@ -1317,7 +1317,7 @@ body.wpt_admin_body div div .wpt-tips {
     color: #19acef;
     font-size: 120%;
 }
-tr.user_can_edit:after {
+tr.user_can_not_edit:after {
     content: "pro";
     position: absolute;
     top: 0;
@@ -1325,18 +1325,18 @@ tr.user_can_edit:after {
     background: #ff5722;
     color: white;
     padding: 1px 10px;
-    border-radius: 4px;
+    /*border-radius: 4px;*/
     opacity: .8;
     z-index: 150;
 }
-tr.user_can_edit{
+tr.user_can_not_edit{
     position: relative;
     display: table-row;
 }
-tr.user_can_edit input[disabled='disabled'] {
+tr.user_can_not_edit input[disabled='disabled'] {
     opacity: 0.5;
 }
-tr.user_can_edit:before {
+tr.user_can_not_edit:before {
     content: "";
     position: absolute;
     top: 0;
