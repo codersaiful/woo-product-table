@@ -16,7 +16,7 @@
                 <tr>
                     <th><label>Column Label</label></th>
                         <td>
-                            <input class="and_new_column_label wpt_data_filed_atts ua_input" type="text" placeholder="Column Label">
+                            <input disabled="disabled" class="and_new_column_label wpt_data_filed_atts ua_input" type="text" placeholder="Column Label">
                         </td>
 
                 </tr>
@@ -32,11 +32,23 @@
                 'custom_field' => 'Custom Field',
                 'taxonomy' => 'Taxonomy',
             );
+            
+            if( ! wpt_is_pro() ){
+                $add_new_col_type[] = __( 'Blank', 'wpt_pro' );
+                $add_new_col_type[] = __( 'Advance Custom Field', 'wpt_pro' );
+                $add_new_col_type[] = __( 'Action Hooks', 'wpt_pro' );
+                $add_new_col_type[] = __( 'Array type Custom Field', 'wpt_pro' );
+                $add_new_col_type[] = __( 'Audio File Type', 'wpt_pro' );
+                $add_new_col_type[] = __( 'All Type Content', 'wpt_pro' );
+            }
+            
             $add_new_col_type = apply_filters( 'wpto_addnew_col_arr', $add_new_col_type, $columns_array, $column_settings, $post );
             if( is_array( $add_new_col_type ) && count( $add_new_col_type ) > 1 ){
             echo '<select class="add_new_column_type_select ua_select">';
             foreach($add_new_col_type as $an_key => $an_val){
-                echo "<option value='{$an_key}'>$an_val</option>";
+                $disable = is_numeric($an_key) ? 'disabled' : '';
+                $pro = is_numeric($an_key) ? __( '(Pro)' ) : '';
+                echo "<option value='{$an_key}' {$disable}>$an_val $pro</option>";
             }
             echo '</select>';
             }
