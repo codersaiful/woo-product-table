@@ -90,7 +90,41 @@ if( ! function_exists( 'wpt_get_base64_post_meta' ) ){
     }
 }
 
+/**
+ * User wise limit function,
+ * we will detect new user
+ * based on date 12 Oct, 2021
+ * 
+ * if have post on product table before that date,
+ * we will consider as old user
+ * 
+ * @since 3.0.1.0
+ */
+function wpt_datewise_validation(){
+    //If pro available, directly return true
+    if( defined( 'WPT_PRO_DEV_VERSION' ) ) return true;
+    
+    $args = array(
+        'post_type' => 'wpt_product_table',
+    );
+    
+    $query = new WP_Query( $args );
+    $total = $query->found_posts;
+    
+    //If old post found, it will return true
+    return $total > 0;
+}
 
+/**
+ * Alias function of wpt_datewise_validation()
+ * to validation check for old and new user
+ * 
+ * @since 3.0.1.0 
+ * @return bool true|false
+ */
+function wpt_user_can_edit(){
+    return wpt_datewise_validation();
+}
 if( ! function_exists( 'wpt_ajax_get_post_meta_base64' ) ){
     
     /**
