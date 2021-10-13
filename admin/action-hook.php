@@ -150,7 +150,7 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
     
     function wpt_configure_basic_part( $settings,$current_config_value,$field_name ){
         $page = isset( $settings['page'] ) ? $settings['page'] : 'not_set_page'; //configuration_page
-        
+        $user_can_edit = wpt_user_can_edit() ? 'user_can_edit' : 'user_can_not_edit';
         ?>
         <div class="section ultraaddons-panel basic <?php echo esc_attr( $page ); ?>">
             <h3 class="with-background dark-background"><?php esc_html_e( 'Basic Settings', 'wpt_pro' );?></h3>
