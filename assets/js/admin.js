@@ -744,7 +744,7 @@
     }
 
 
-    $(document.body).on('click,change','tr.user_can_edit input,tr.user_can_edit select',function(e){
+    $(document.body).on('click,change','tr.user_can_not_edit input,tr.user_can_not_edit select',function(e){
         e.preventDefault();
         alert("Sorry");
     });
