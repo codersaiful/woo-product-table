@@ -104,15 +104,26 @@ function wpt_datewise_validation(){
     //If pro available, directly return true
     if( defined( 'WPT_PRO_DEV_VERSION' ) ) return true;
     
+    $prev_args = array(
+        'post_type' => 'wpt_product_tables',
+        'date_query' => array(
+            'before' => '2021-10-1' 
+          ),
+    );
+    
+    $prev_query = new WP_Query( $prev_args );
+    $prev_total = $prev_query->found_posts;
+    if($prev_total>0) return true;
+    
     $args = array(
         'post_type' => 'wpt_product_table',
+        'post_status' => 'publish',
     );
     
     $query = new WP_Query( $args );
     $total = $query->found_posts;
-    
-    //If old post found, it will return true
-    return $total > 0;
+
+    return $total < 1;
 }
 
 /**
