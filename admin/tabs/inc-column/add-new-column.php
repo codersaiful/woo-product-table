@@ -16,7 +16,7 @@
                 <tr>
                     <th><label>Column Label</label></th>
                         <td>
-                            <input disabled="disabled" class="and_new_column_label wpt_data_filed_atts ua_input" type="text" placeholder="Column Label">
+                            <input class="and_new_column_label wpt_data_filed_atts ua_input" type="text" placeholder="Column Label">
                         </td>
 
                 </tr>
