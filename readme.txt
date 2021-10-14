@@ -127,6 +127,10 @@ You can easily show specific category products. While creating new table click o
 = Is it suitable for any theme ? =
  Yes. *Product Table for WooCommerce* will adapt with your theme design.
 
+= Configuration data is not saving for old table. How can I fix it. =
+ Please follow the link https://stackoverflow.com/questions/10303714/php-max-input-vars#answer-14166562
+
+
 == Screenshots ==
 
 1. Enabled table columns by checking the boxes
