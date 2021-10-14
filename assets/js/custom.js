@@ -577,6 +577,10 @@
                     $('.wpt_row_product_id_' + product_id + ' .input-text').trigger('change');
                 },
                 success: function(response) {
+                    
+                    thisButton.removeClass('disabled');
+                    thisButton.removeClass('loading');
+                    thisButton.addClass('added');
 
                     /**
                      * Adding Trigger for WPT
@@ -600,9 +604,8 @@
                     //$('body').append(response);
                     //WPT_MiniCart();
                     $( document.body ).trigger( 'added_to_cart', [ response.fragments, response.cart_hash, thisButton ] ); //Trigger and sent added_to_cart event
-                    thisButton.removeClass('disabled');
-                    thisButton.removeClass('loading');
-                    thisButton.addClass('added');
+                    //$( document.body ).trigger( 'added_to_cart' ); //This will solved for fast added to cart but it will no show view cart link.
+
                     
                     /**
                      * If anyone want that Quantity will not return to min qty,
