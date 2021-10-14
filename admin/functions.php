@@ -105,7 +105,7 @@ function wpt_datewise_validation(){
     if( defined( 'WPT_PRO_DEV_VERSION' ) ) return true;
     
     $prev_args = array(
-        'post_type' => 'wpt_product_tables',
+        'post_type' => 'wpt_product_table',
         'date_query' => array(
             'before' => '2021-10-1' 
           ),
