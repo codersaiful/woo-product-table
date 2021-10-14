@@ -322,7 +322,7 @@
 
                         }
                         
-                        if( fragments.wpt_quckcart && config_json.empty_cart_text ){
+                        if( config_json.empty_cart_text ){
                             var emty_cart_btn = '<span class="wpt_empty_cart_btn">' + config_json.empty_cart_text + '</span>';
                             $('.wpt_product_table_wrapper div.tables_cart_message_box a.cart-contents').append(emty_cart_btn);
                         }else{
