@@ -150,7 +150,7 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
     
     function wpt_configure_basic_part( $settings,$current_config_value,$field_name ){
         $page = isset( $settings['page'] ) ? $settings['page'] : 'not_set_page'; //configuration_page
-        
+        $user_can_edit = wpt_user_can_edit() ? 'user_can_edit' : 'user_can_not_edit';
         ?>
         <div class="section ultraaddons-panel basic <?php echo esc_attr( $page ); ?>">
             <h3 class="with-background dark-background"><?php esc_html_e( 'Basic Settings', 'wpt_pro' );?></h3>
@@ -185,8 +185,8 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
 
                         </td>
                     </tr>
-                    <tr>
-                        <th><label class="wpt_label" for="wpt_table_footer_cart"><?php esc_html_e( 'Footer Cart Option', 'wpt_pro' ); ?></label></th>
+                    <tr class="<?php echo esc_attr( $user_can_edit ); ?> ">
+                        <th><label class="wpt_label" for="wpt_table_footer_cart"><?php esc_html_e( 'Floating Cart Option', 'wpt_pro' ); ?></label></th>
                         <td>
                             <select name="<?php echo esc_attr( $field_name ); ?>[footer_cart]" id="wpt_table_footer_cart" class="wpt_fullwidth ua_input" >
                                 <?php wpt_default_option( $page ) ?>
@@ -197,14 +197,14 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
 
                         </td>
                     </tr>
-                    <tr> 
-                        <th> <label for="wpt_table_footer_bg_color" class="wpt_label"><?php esc_html_e( 'Footer Cart BG Color', 'wpt_pro' ); ?></label></th>
+                    <tr class="<?php echo esc_attr( $user_can_edit ); ?>" > 
+                        <th> <label for="wpt_table_footer_bg_color" class="wpt_label"><?php esc_html_e( 'Floating Cart BG Color', 'wpt_pro' ); ?></label></th>
                         <td>
                             <input name="<?php echo esc_attr( $field_name ); ?>[footer_bg_color]" class="wpt_data_filed_atts wpt_color_picker" value="<?php echo esc_attr( $current_config_value['footer_bg_color'] ); ?>" id="wpt_table_footer_bg_colort" type="text" placeholder="<?php esc_attr_e( 'BG Color', 'wpt_pro' ); ?>">
                         </td>
                     </tr>
                     <tr>
-                        <th><label class="wpt_label" for="wpt_table_footer_possition"><?php esc_html_e( 'Footer Cart Position', 'wpt_pro' ); ?></label></th>
+                        <th><label class="wpt_label" for="wpt_table_footer_possition"><?php esc_html_e( 'Floating Cart Position', 'wpt_pro' ); ?></label></th>
                         <td>
                             <select name="<?php echo esc_attr( $field_name ); ?>[footer_possition]" id="wpt_table_footer_possition" class="wpt_fullwidth ua_input" >
                                 <?php wpt_default_option( $page ) ?>
@@ -219,7 +219,7 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
 
 
                     <tr>
-                        <th><label class="wpt_label" for="wpt_table_footer_cart_size"><?php echo sprintf(esc_html__( 'Footer Cart Size %s[Only Int]%s', 'wpt_pro' ), '<small>', '</small>' ); ?></label></th>
+                        <th><label class="wpt_label" for="wpt_table_footer_cart_size"><?php echo sprintf(esc_html__( 'Floating Cart Size %s[Only Int]%s', 'wpt_pro' ), '<small>', '</small>' ); ?></label></th>
                         <td>
                             <input name="<?php echo esc_attr( $field_name ); ?>[footer_cart_size]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['footer_cart_size'] ); ?>" id="wpt_table_footer_cart_size" type="number" placeholder="<?php esc_attr_e( 'Default Size. eg: 70', 'wpt_pro' ); ?>" min="50" max="" pattern="[0-9]*" inputmode="numeric">
                         </td>
@@ -282,13 +282,18 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
                             <select name="<?php echo esc_attr( $field_name ); ?>[product_direct_checkout]" id="wpt_table_product_direct_checkout" class="wpt_fullwidth ua_input" >
                                 <?php wpt_default_option( $page ) ?>
                                 <option value="no" <?php wpt_selected( 'product_direct_checkout', 'no', $current_config_value ); ?>><?php esc_html_e( 'Disable', 'wpt_pro' ); ?></option>
-                                <option value="cart" <?php wpt_selected( 'product_direct_checkout', 'cart', $current_config_value ); ?>><?php esc_html_e( 'Cart Page', 'wpt_pro' ); ?></option>
+                                <option 
+                                    <?php 
+                                    echo wpt_user_can_edit() ? '' : 'disabled'; 
+                                    $wpt_cart_page_redirect = wpt_user_can_edit() ? '' : esc_html__( ' (Pro)' );
+                                    ?>
+                                    value="cart" <?php wpt_selected( 'product_direct_checkout', 'cart', $current_config_value ); ?>><?php echo esc_html__( 'Cart Page', 'wpt_pro' ) . $wpt_cart_page_redirect; ?></option>
                                 <option value="yes" <?php wpt_selected( 'product_direct_checkout', 'yes', $current_config_value ); ?>><?php esc_html_e( 'Checkout Page', 'wpt_pro' ); ?></option>
                             </select>
                             <p><?php esc_html_e( 'Enable Quick Buy Button [Direct Checkout Page for each product]. Direct going to Checkout Page just after Added to cart for each product', 'wpt_pro' ); ?></p>
                         </td>
                     </tr>
-                    <tr> 
+                    <tr class="<?php echo esc_attr( $user_can_edit ); ?> "> 
                         <th><label class="wpt_label" for="wpt_table_all_selected_direct_checkout"><?php esc_html_e( 'Bundle Quick Buy ', 'wpt_pro' ); ?></label></th>
                         <td>
                             <select name="<?php echo esc_attr( $field_name ); ?>[all_selected_direct_checkout]" id="wpt_table_all_selected_direct_checkout" class="wpt_fullwidth ua_input" >
@@ -333,7 +338,7 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
                             <p><?php echo esc_html__( 'Only for Visible products of current table.', 'wpt_pro' ) ?></p>
                         </td>
                     </tr>
-                    <tr> 
+                    <tr class="<?php echo esc_attr( $user_can_edit ); ?>" > 
                         <th> <label class="wpt_label" for="wpt_table_query_by_url"><?php esc_html_e( 'Query by URL', 'wpt_pro' ); ?></label></th>
                         <td>
                             <select name="<?php echo esc_attr( $field_name ); ?>[query_by_url]" id="wpt_table_instant_search_filter" class="wpt_fullwidth ua_input" >
@@ -356,6 +361,7 @@ if( !function_exists( 'wpt_configure_label_part' ) ){
     
     function wpt_configure_label_part($settings, $current_config_value,$field_name){
         $page = isset( $settings['page'] ) ? $settings['page'] : 'not_set_page';
+        $user_can_edit = wpt_user_can_edit() ? 'user_can_edit' : 'user_can_not_edit';
         //$current_config_value = get_option( 'wpt_configure_options' );
         ?>
         <div class="section ultraaddons-panel label <?php echo esc_attr( $page ); ?>">
@@ -402,12 +408,21 @@ if( !function_exists( 'wpt_configure_label_part' ) ){
                             <input name="<?php echo esc_attr( $field_name ); ?>[instant_search_text]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['instant_search_text'] ); ?>" id="wpt_table_instant_search_text" type="text" placeholder="<?php esc_attr_e( 'attr', 'wpt_pro' ); ?>"> 
                         </td>
                     </tr>
+                    
+                    <tr class="<?php echo esc_attr( $user_can_edit ); ?>"> 
+                        <th> <label for="wpt_table_empty_cart_text" class="wpt_label"><?php echo sprintf(esc_html__( '%s[Empty Cart]%s - Text of Empty Cart', 'wpt_pro' ), '<b>', '</b>' ); ?></label></th>
+                        <td>
+                            <input name="<?php echo esc_attr( $field_name ); ?>[empty_cart_text]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['empty_cart_text'] ); ?>" id="wpt_table_filter_text" type="text" placeholder="<?php esc_attr_e( 'eg: Empty Cart', 'wpt_pro' ); ?>">
+                        </td>
+                    </tr>
+                    
                     <tr> 
                         <th> <label for="wpt_table_filter_text" class="wpt_label"><?php echo sprintf(esc_html__( '%s[Filter]%s - Text of Filter', 'wpt_pro' ), '<b>', '</b>' ); ?></label></th>
                         <td>
                             <input name="<?php echo esc_attr( $field_name ); ?>[filter_text]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['filter_text'] ); ?>" id="wpt_table_filter_text" type="text" placeholder="<?php esc_attr_e( 'eg: Filter', 'wpt_pro' ); ?>">
                         </td>
                     </tr>
+                    
                     <tr> 
                         <th><label for="wpt_table_filter_reset_button" class="wpt_label"><?php echo sprintf(esc_html__( '%s[Reset]%s - Button Text of Filter', 'wpt_pro' ), '<b>', '</b>' ); ?></label></th>
                         <td>
@@ -580,6 +595,7 @@ if( !function_exists( 'wpt_configure_all_message_part' ) ){
     
     function wpt_configure_all_message_part( $settings,$current_config_value,$field_name ){
         $page = isset( $settings['page'] ) ? $settings['page'] : 'not_set_page';
+        $user_can_edit = wpt_user_can_edit() ? 'user_can_edit' : 'user_can_not_edit';
         //$current_config_value = get_option( 'wpt_configure_options' );
         // label <?php echo esc_attr( $page ); "
         ?>
@@ -587,61 +603,61 @@ if( !function_exists( 'wpt_configure_all_message_part' ) ){
             <h3 class="with-background dark-background"><?php esc_html_e( 'All Messages', 'wpt_pro' );?></h3>
             <table class="ultraaddons-table wpt_all_messages">
                 <tbody>
-                    <tr>
+                    <tr class="<?php echo esc_attr( $user_can_edit ); ?>">
                         <th><label for="wpt_table_right_combination_message" class="wpt_label"><?php esc_html_e( 'Variations [Not available] Message', 'wpt_pro' );?></label></th>
                         <td> 
                             <input name="<?php echo esc_attr( $field_name ); ?>[right_combination_message]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['right_combination_message'] ); ?>" id="wpt_table_right_combination_message" type="text" placeholder="<?php esc_attr_e( 'Not Available', 'wpt_pro' );?>">
                         </td>
                     </tr>
-                    <tr>
+                    <tr class="<?php echo esc_attr( $user_can_edit ); ?>">
                         <th><label for="wpt_table_right_combination_message_alt" class="wpt_label"><?php esc_html_e( '[Product variations is not set Properly. May be: price is not inputted. may be: Out of Stock.] Message', 'wpt_pro' );?></label></th>
                         <td>    
                             <input name="<?php echo esc_attr( $field_name ); ?>[right_combination_message_alt]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['right_combination_message_alt'] ); ?>" id="wpt_table_right_combination_message_alt" type="text" placeholder="<?php esc_attr_e( 'Product variations is not set Properly. May be: price is not inputted. may be: Out of Stock.', 'wpt_pro' );?>">
                         </td>
                     </tr>
-                    <tr>
+                    <tr class="<?php echo esc_attr( $user_can_edit ); ?>">
                         <th><label for="wpt_table_select_all_items_message" class="wpt_label"><?php esc_html_e( '[Please select all items.] Message', 'wpt_pro' );?></label></th>
                         <td>    
                             <input name="<?php echo esc_attr( $field_name ); ?>[select_all_items_message]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['select_all_items_message'] ); ?>" id="wpt_table_select_all_items_message" type="text" placeholder="<?php esc_attr_e( 'Please select all items.', 'wpt_pro' );?>">
                         </td>
                     </tr>
-                    <tr>
+                    <tr class="<?php echo esc_attr( $user_can_edit ); ?>">
                         <th><label for="wpt_table_out_of_stock_message" class="wpt_label"><?php esc_html_e( '[Out of Stock] Message', 'wpt_pro' );?></label></th>
                         <td>    
                             <input name="<?php echo esc_attr( $field_name ); ?>[out_of_stock_message]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['out_of_stock_message'] ); ?>" id="wpt_table_out_of_stock_message" type="text" placeholder="<?php esc_attr_e( 'Out of Stock', 'wpt_pro' );?>">
                         </td>
                     </tr>
-                    <tr>
+                    <tr class="<?php echo esc_attr( $user_can_edit ); ?>">
                         <th><label for="wpt_table_no_more_query_message" class="wpt_label"><?php esc_html_e( '[There is no more products based on current Query.] Message', 'wpt_pro' );?></label></th>
                         <td>    
                             <input name="<?php echo esc_attr( $field_name ); ?>[no_more_query_message]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['no_more_query_message'] ); ?>" id="wpt_table_no_more_query_message" type="text" placeholder="<?php esc_attr_e( 'There is no more products based on current Query.', 'wpt_pro' );?>">
                         </td>
                     </tr>
-                    <tr>
+                    <tr class="<?php echo esc_attr( $user_can_edit ); ?>">
                         <th><label for="wpt_table_out_adding_progress" class="wpt_label"><?php esc_html_e( '[ Adding in Progress ] Message', 'wpt_pro' );?></label></th>
                         <td>    
                             <input name="<?php echo esc_attr( $field_name ); ?>[adding_in_progress]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['adding_in_progress'] ); ?>" id="wpt_table_out_adding_progress" type="text" placeholder="<?php esc_attr_e( 'Adding in Progress', 'wpt_pro' );?>">
                         </td>
                     </tr>
-                    <tr>
+                    <tr class="<?php echo esc_attr( $user_can_edit ); ?>">
                         <th><label for="wpt_table_no_right_comb" class="wpt_label"><?php esc_html_e( '[ No Right Combination ] Message', 'wpt_pro' );?></label></th>
                         <td>    
                             <input name="<?php echo esc_attr( $field_name ); ?>[no_right_combination]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['no_right_combination'] ); ?>" id="wpt_table_no_right_comb" type="text" placeholder="<?php esc_attr_e( 'No Right Combination', 'wpt_pro' );?>">
                         </td>
                     </tr>
-                    <tr>
+                    <tr class="<?php echo esc_attr( $user_can_edit ); ?>">
                         <th><label for="wpt_table_sorry_plz_right_combination" class="wpt_label"><?php esc_html_e( '[ Sorry, Please choose right combination. ] Message', 'wpt_pro' );?></label></th>
                         <td>    
                             <input name="<?php echo esc_attr( $field_name ); ?>[sorry_plz_right_combination]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['sorry_plz_right_combination'] ); ?>" id="wpt_table_sorry_plz_right_combination" type="text" placeholder="<?php esc_attr_e( 'Sorry, Please choose right combination.', 'wpt_pro' );?>">
                         </td>
                     </tr>
-                    <tr>
+                    <tr class="<?php echo esc_attr( $user_can_edit ); ?>">
                         <th><label for="wpt_table_sorry_out_stock" class="wpt_label"><?php esc_html_e( '[ Sorry! Out of Stock! ] Message', 'wpt_pro' );?></label></th>
                         <td>    
                             <input name="<?php echo esc_attr( $field_name ); ?>[sorry_out_of_stock]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['sorry_out_of_stock'] ); ?>" id="wpt_table_sorry_out_stock" type="text" placeholder="<?php esc_attr_e( 'Sorry! Out of Stock!', 'wpt_pro' );?>">
                         </td>
                     </tr>
-                    <tr>
+                    <tr class="<?php echo esc_attr( $user_can_edit ); ?>">
                         <th><label for="wpt_table_type_your_message" class="wpt_label"><?php esc_html_e( '[Type your Message.] Message', 'wpt_pro' );?></label></th>
                         <td>    
                             <input name="<?php echo esc_attr( $field_name ); ?>[type_your_message]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['type_your_message'] ); ?>" id="wpt_table_type_your_message" type="text" placeholder="<?php esc_attr_e( 'Type your Message.', 'wpt_pro' );?>">

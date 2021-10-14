@@ -322,6 +322,13 @@
 
                         }
                         
+                        if( fragments.wpt_quckcart && config_json.empty_cart_text ){
+                            var emty_cart_btn = '<span class="wpt_empty_cart_btn">' + config_json.empty_cart_text + '</span>';
+                            $('.wpt_product_table_wrapper div.tables_cart_message_box a.cart-contents').append(emty_cart_btn);
+                        }else{
+                            $('.wpt_empty_cart_btn').remove();
+                        }
+                        
                         var argStats = {};
                         argStats['status'] = true;
                         $(document.body).trigger('wpt_minicart_load',argStats, fragments);
@@ -333,6 +340,38 @@
                 }
             });
         }
+        
+        
+        //.wpt_product_table_wrapper div.tables_cart_message_box.message-box-loading
+        $(document.body).on('click','.wpt_empty_cart_btn',function(e){
+            e.preventDefault();
+            var cart_message_box = $( '.wpt_product_table_wrapper div.tables_cart_message_box' );
+            cart_message_box.addClass('message-box-loading');
+                $.ajax({
+                type: 'POST',
+                url: ajax_url,
+                data: {
+                    action: 'wpt_fragment_empty_cart'
+                },
+                complete:function(){
+                    cart_message_box.removeClass('message-box-loading');
+                },
+                success: function( response ){
+                    $( document.body ).trigger( 'updated_cart_totals' );
+                    $( document.body ).trigger( 'wc_fragments_refreshed' );
+                    $( document.body ).trigger( 'wc_fragments_refresh' );
+                    $( document.body ).trigger( 'wc_fragment_refresh' );
+                    $( document.body ).trigger( 'removed_from_cart' );
+                    
+                },
+                error: function(){
+                    $( document.body ).trigger( 'removed_from_cart' );
+                    console.log("Unable to empty your cart.");
+                    return false;
+                }
+            });
+        });
+        
         //wc_fragments_refreshed,wc_fragments_refresh,wc_fragment_refresh,removed_from_cart
         $( document.body ).trigger( 'updated_cart_totals' );
         $( document.body ).trigger( 'wc_fragments_refreshed' );
@@ -501,7 +540,7 @@
 
             //Changed at2.9
             var quantity = $(this).attr('data-quantity');
-            var custom_message = $('#table_id_' + temp_number + ' table#wpt_table .wpt_row_product_id_' + product_id + ' .wpt_message input.message').val();
+            var custom_message = $('#table_id_' + temp_number + ' table#wpt_table .wpt_row_product_id_' + product_id + ' .wpt_message .message').val();
             var variation_id = $(this).attr('data-variation_id');
             var variation = $(this).attr('data-variation');
             if(variation){
@@ -629,18 +668,10 @@
          * On change Product Variation
          * Vairation Change
          */
-        
-        $('body').on('change','.wpt_varition_section',function(e) {
+        $('body').on('change','.wpt_varition_section',function() {
             
             var product_id = $(this).data('product_id');
             var temp_number = $(this).data('temp_number');
-        
-//        $('body').on('change','.wpt_varition_section.variations select,.wpt_action .variations select',function() {
-//            
-//            var product_id = $(this).closest('tr.wpt_row').data('product_id');
-//            var temp_number = $(this).closest('tr.wpt_row').data('temp_number');
-            
-            
             config_json = getConfig_json( temp_number ); //Added vat V5.0
             var target_class = '#product_id_' + product_id;
             
@@ -737,7 +768,7 @@
             
 
             var quote_data = '';
-            $(this).find('select').each(function() { //.find('select')
+            $(this).find('select').each(function() {
                 var attribute_name = $(this).data('attribute_name');
                 var attribute_value = $(this).val();
                 current[attribute_name] = attribute_value;
@@ -1058,7 +1089,7 @@
                 }
                 
                 var currentAddToCartSelector = $('#table_id_' + temp_number + ' #product_id_' + product_id + ' .wpt_action a.wpt_woo_add_cart_button');
-                var currentCustomMessage = $('#table_id_' + temp_number + ' #product_id_' + product_id + ' .wpt_message input.message').val();
+                var currentCustomMessage = $('#table_id_' + temp_number + ' #product_id_' + product_id + ' .wpt_message .message').val();
                 var currentVariaionId = currentAddToCartSelector.attr('data-variation_id');//currentAddToCartSelector.data('variation_id');
                 //var currentVariaion = currentAddToCartSelector.data('variation');
                 var currentVariaion;
@@ -1647,13 +1678,13 @@
         /**
          * Mainly for shortmessage field
          */
-        $('body').on('change', '.wpt_row input.message', function() {
+        $('body').on('change', '.wpt_row .message', function() {
                 var temp_number = $(this).parents('tr.wpt_row').data('temp_number');
                 var msg = $(this).val();
                 var product_id = $(this).parents('tr').data('product_id');
             
                 var thisRow = '#table_id_' + temp_number + ' tr.product_id_' + product_id;
-                $( thisRow + ' input.message').val(msg);
+                $( thisRow + ' .message').val(msg);
         });
         $('body').on('change', '.wpt_row input.input-text.qty.text', function() {
                 var temp_number = $(this).parents('tr.wpt_row').data('temp_number');
@@ -1759,6 +1790,11 @@
             argStats['button_object'] = currentAllSelectedButtonSelector;
             $(document.body).trigger('wpt_count_updated',argStats);
         }
+        
+        $(document.body).on('updateCheckBoxCount',function(temp_number){
+            
+            updateCheckBoxCount(temp_number);
+        });
         
 //        $(document).on('wpt_count_updated',function(aaa,args){
 //            //console.log(args);

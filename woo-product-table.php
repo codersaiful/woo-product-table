@@ -9,9 +9,9 @@
  * 
  * Version: 3.0.1
  * Requires at least:    4.0.0
- * Tested up to:         5.8.1
+ * Tested up to:         5.8.2
  * WC requires at least: 3.0.0
- * WC tested up to: 	 5.6.2
+ * WC tested up to: 	 5.6.3
  * 
  * Text Domain: wpt_pro
  * Domain Path: /languages/
@@ -30,7 +30,7 @@ if( !defined( 'WPT_PLUGIN_BASE_FOLDER' ) ){
 }
 
 if( !defined( 'WPT_DEV_VERSION' ) ){
-    define( 'WPT_DEV_VERSION', '3.0.1.0' );
+    define( 'WPT_DEV_VERSION', '3.0.1.1' );
 }
 
 if( !defined( 'WPT_CAPABILITY' ) ){
@@ -205,6 +205,8 @@ $default = array(
     'search_keyword_text'   =>  __( 'Search Keyword', 'wpt_pro' ),
     'disable_loading_more'  =>  'load_more_hidden',//'normal',//Load More
     'instant_search_filter' =>  '0',
+    //Message Config
+    'empty_cart_text'       => __( 'Empty Cart', 'wpt_pro' ), //Added at 3.0.1.0
     'filter_text'           =>  __( 'Filter:', 'wpt_pro' ),
     'filter_reset_button'   =>  __( 'Reset', 'wpt_pro' ),
     'instant_search_text'   =>  __( 'Instant Search..', 'wpt_pro' ),

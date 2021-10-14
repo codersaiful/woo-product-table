@@ -1752,6 +1752,7 @@ a.search_box_reset:focus,
     justify-content: end;
 }
 
+.wpt_product_table_wrapper div.tables_cart_message_box.message-box-loading:before,
 .wpt_table_tag_wrapper.loading-table table.wpt_product_table:before {
     position: absolute;
     z-index: 9999;
@@ -1764,6 +1765,13 @@ a.search_box_reset:focus,
     overflow:hidden;
     top: 0;
     left: 0;
+}
+
+span.wpt_empty_cart_btn {
+    opacity: 0.6;
+}
+span.wpt_empty_cart_btn:hover {
+    opacity: 1;
 }
 
 button.loading::after, 

@@ -7,21 +7,22 @@ if( !function_exists( 'wpt_admin_enqueue' ) ){
      * @update 1.0.3
      */
     function wpt_admin_enqueue(){
-
-        wp_enqueue_style( 'wpt-admin', WPT_Product_Table::getPath( 'BASE_URL' ) . 'assets/css/admin.css', array(), WPT_DEV_VERSION, 'all' );
-
-        /**
-         * Including UltraAddons CSS form Style
-         */
-        wp_enqueue_style( 'ultraaddons-css', WPT_Product_Table::getPath( 'BASE_URL' ) . 'assets/css/admin-common.css', array(), WPT_DEV_VERSION, 'all' );
-        wp_enqueue_style('ultraaddons-css');
-
         /**
          * Select2 CSS file including. 
          * 
          * @since 1.0.3
          */    
         wp_enqueue_style( 'select2', WPT_Product_Table::getPath( 'BASE_URL' ) . 'assets/css/select2.min.css', array(), '1.8.2', 'all' );
+
+        /**
+         * Including UltraAddons CSS form Style
+         */
+        wp_enqueue_style( 'ultraaddons-css', WPT_Product_Table::getPath( 'BASE_URL' ) . 'assets/css/admin-common.css', array(), WPT_DEV_VERSION, 'all' );
+        wp_enqueue_style('ultraaddons-css');
+        
+        wp_enqueue_style( 'wpt-admin', WPT_Product_Table::getPath( 'BASE_URL' ) . 'assets/css/admin.css', array('select2'), WPT_DEV_VERSION, 'all' );
+
+
 
         //jQuery file including. jQuery is a already registerd to WordPress
         wp_enqueue_script( 'jquery' );

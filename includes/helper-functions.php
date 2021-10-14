@@ -413,6 +413,25 @@ if( !function_exists( 'wpt_fragment_refresh' ) ){
 add_action( 'wp_ajax_wpt_fragment_refresh', 'wpt_fragment_refresh' );
 add_action( 'wp_ajax_nopriv_wpt_fragment_refresh', 'wpt_fragment_refresh' );
 
+
+if( ! function_exists( 'wpt_fragment_empty_cart' ) ){
+    /**
+     * Getting refresh for fragments
+     * 
+     * @Since 3.7
+     */
+    function wpt_fragment_empty_cart(){
+        global $woocommerce;
+        $woocommerce->cart->empty_cart();
+        WC_AJAX::get_refreshed_fragments();
+        die();
+    }
+}
+add_action( 'wp_ajax_wpt_fragment_empty_cart', 'wpt_fragment_empty_cart' );
+add_action( 'wp_ajax_nopriv_wpt_fragment_empty_cart', 'wpt_fragment_empty_cart' );
+
+
+
 if( !function_exists( 'wpt_variation_image_load' ) ){
     /**
      * Getting Image URL and with info for variation images
