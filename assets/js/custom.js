@@ -598,14 +598,12 @@
                     argStats['temp_number'] = temp_number;
                     argStats['table_id'] = temp_number;
                     $(document.body).trigger('wpt_adding_to_cart',argStats);
-                    
-                    
-                    
-                    //$('body').append(response);
-                    //WPT_MiniCart();
-                    $( document.body ).trigger( 'added_to_cart', [ response.fragments, response.cart_hash, thisButton ] ); //Trigger and sent added_to_cart event
-                    //$( document.body ).trigger( 'added_to_cart' ); //This will solved for fast added to cart but it will no show view cart link.
 
+                    if(WPT_DATA.add_to_cart_view){
+                        $( document.body ).trigger( 'added_to_cart', [ response.fragments, response.cart_hash, thisButton ] ); //Trigger and sent added_to_cart event
+                    }else{
+                        $( document.body ).trigger( 'added_to_cart' ); //This will solved for fast added to cart but it will no show view cart link.
+                    }
                     
                     /**
                      * If anyone want that Quantity will not return to min qty,
