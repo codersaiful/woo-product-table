@@ -123,7 +123,7 @@ function wpt_datewise_validation(){
     $query = new WP_Query( $args );
     $total = $query->found_posts;
 
-    return $total < 1;
+     return $total <= 4; //Limitation upto 4
 }
 
 /**
