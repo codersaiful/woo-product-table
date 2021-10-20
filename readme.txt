@@ -4,7 +4,7 @@ Donate link: https://codecanyon.net/item/woo-product-table-pro/20676867?ref=Code
 Tags: wc product table, wooproducttable,woocommerce product table, product table, wc table, quick order table, wholesale table, restaurants table
 Requires at least: 4.0.0
 Tested up to: 5.8.1
-Stable tag: 3.0.1
+Stable tag: 3.0.2
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -28,35 +28,34 @@ Create a table for restaurant order systems, Online music sell, Mobile Wholesale
 
 * [A table on Single Variable Product Page](https://demo.wooproducttable.com/product/samsung-galaxy/) <br>If you select a table and enable 'Variation Table' then it will replace the default variation dropdown select options and will display that table on every variable product page.
 
-* [Title](link) <br>desc
+* [A table on an archive page.](https://demo.wooproducttable.com/shop/) <br>You can override the default archive page and display our table. 
 
-* [Title](link) <br>desc
+* [Product Variant In Separate Row](https://demo.wooproducttable.com/product-variant-in-separate-row/) <br>If you have variable products and you want to show every variation as a single product, this table is like that. 
 
-* [Title](link) <br>desc
 
-* [Title](link) <br>desc
+* [Filter By Custom Field](https://demo.wooproducttable.com/filter-by-custom-field/) <br>Here you can filter products by custom filed. This will give you the freedom to filter products by any keyword.
 
-* [Title](link) <br>desc
+* [Quick Order Table](https://demo.wooproducttable.com/quick-cart-update-quick-order-table/) <br>This is a special table. If you want to add a product to the cart just increase the quantity. The product will automatically add to the cart.
 
-* [Title](link) <br>desc
+* [User Conditional Table](https://demo.wooproducttable.com/demo-list/user-conditional-table/) <br>Hide any column for Guest users. Users only can see some columns if they are logged in. 
 
-* [Title](link) <br>desc
+* [Attributes in Different Column](https://demo.wooproducttable.com/demo-list/product-attributes-in-different-column-and-search-box/) <br>You can show product Attributes in a different column as well as in the Search Box.
 
-* [Title](link) <br>desc
+* [Redirect to checkout/cart page](Redirect to checkout/cart page) <br>On this table, if a customer adds a product to the cart then will atomically redirect to the cart/check out page.
 
-* [Title](link) <br>desc
+* [Restaurant Table](https://demo.wooproducttable.com/restaurant-table-two/) <br>This table is made for a restaurant. Users will easily order products from the table.
 
-* [Title](link) <br>desc
+* [Mobile Wholesale](https://demo.wooproducttable.com/mobile-wholesale/) <br>Create a table to sell mobile. Show products specifications using our description column.
 
-* [Title](link) <br>desc
+* [Audio Player Table](https://demo.wooproducttable.com/demo-list/audio-player-table/) <br>This is an audio table. User paly audio from the table.
 
-* [Title](link) <br>desc
+* [Online Music Sale](https://demo.wooproducttable.com/demo-list/online-music-sale/) <br>Create a table to sell your music. Users also can listen to demo audio.  
 
-* [Title](link) <br>desc
+* [Books Table](https://demo.wooproducttable.com/books-table-with-custom-link/) <br>Sell your books with the help of a table and increase user engagement.
 
-* [Title](link) <br>desc
+* [Course Booking Table](https://demo.wooproducttable.com/course/) <br>Create a table for selling online courses. Users can book any course to learn about their interests. 
 
-* [Title](link) <br>desc
+* [Quotation Table](https://demo.wooproducttable.com/demo-list/send-your-quotation/) <br>Users can send quotations using our plugin. Here is the demo table for that.
 
 
 
@@ -67,35 +66,28 @@ Please Visit our demo site to see all our demo tables. [All Demo](https://demo.w
 **Drag and Drop**<br>
 We have a rich column list. Such as product Title, Attributes, thumbnails, quantity, short message, variation, and many more. Users can show or hide multiple columns with one click. Also easily can Change position by drag and drop. 
 
-**Title**<br>
-this_is_description_line
+**Design Customizable**<br>
+We have some pre-built design templates. You can switch between design templates to change table design. On the other hand, you can design pretty much table’s every section as you want. For example table header, footer, body. You can design each column individually also. 
 
-**Title**<br>
-this_is_description_line
+**Advance Filter (Taxonomy/cf/title)**<br>
+Our most valuable feature is search & filter. Customers can filter products by any taxonomy or attribute like products categories, tags, color, or size. Also can filter by any custom field data. Have an option to search from specific areas. ( Only from SKU or price ).  Also, you can use a mini-filter that filters only current page products.
 
-**Title**<br>
-this_is_description_line
+**Override Archive page**<br>
+This is an awesome feature of our plugin. you can display your table on your archive pages.
+You can display a table on every archive page or you can choose some specific archive pages to display specific tables. All you have to do is, select and turn on the table for archive pages. 
 
-**Title**<br>
-this_is_description_line
+**Quick Cart Update**<br>
+Add a product to the cart, you don’t have to click any button anymore. You just need to update the quantity and that product will automatically add to the cart. The cart will auto-update by Increasing or decreasing quantity.
 
-**Title**<br>
-this_is_description_line
+**Dozens of Integration**<br>
+We have integrated our plugin with the necessary plugins. By default, it supports most of the plugins. On the other hand, you can turn on our third-party plugin support feature to make them work with our plugin.  
 
-**Title**<br>
-this_is_description_line
+**Export & Import**<br>
+This is an important feature of our table. You can easily create a table as it is shown on our demo site by importing that table’s encoded code. Also can export your table data as well. 
 
-**Title**<br>
-this_is_description_line
+**Developer Friendly**<br>
+We provide our plugin’s complete control to the developers. You can pass query arguments by shortcode attributes. We have tons of action and filter hooks, so you have the power to customize any of our plugin functionality.
 
-**Title**<br>
-this_is_description_line
-
-**Title**<br>
-this_is_description_line
-
-**Title**<br>
-this_is_description_line
 
 *Get help from our [documentation](https://wooproducttable.com/documentation/).*
 
@@ -215,6 +207,10 @@ You can easily show specific category products. While creating new table click o
 25. Manually responsive for mobile devices
 
 == Changelog ==
+
+= 3.0.1 =
+  * Bug fix
+  * Spelling fix
 
 = 3.0.1 =
  * product_cat_ids confliction error solved for new user
