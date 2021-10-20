@@ -412,7 +412,7 @@ if( !function_exists( 'wpt_configure_label_part' ) ){
                     <tr class="<?php echo esc_attr( $user_can_edit ); ?>"> 
                         <th> <label for="wpt_table_empty_cart_text" class="wpt_label"><?php echo sprintf(esc_html__( '%s[Empty Cart]%s - Text of Empty Cart', 'wpt_pro' ), '<b>', '</b>' ); ?></label></th>
                         <td>
-                            <input name="<?php echo esc_attr( $field_name ); ?>[empty_cart_text]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['empty_cart_text'] ); ?>" id="wpt_table_filter_text" type="text" placeholder="<?php esc_attr_e( 'eg: Empty Cart', 'wpt_pro' ); ?>">
+                            <input name="<?php echo esc_attr( $field_name ); ?>[empty_cart_text]" class="wpt_data_filed_atts ua_input" value="<?php echo isset( $current_config_value['empty_cart_text'] ) ? esc_attr( $current_config_value['empty_cart_text'] ) : ''; ?>" id="wpt_table_filter_text" type="text" placeholder="<?php esc_attr_e( 'eg: Empty Cart', 'wpt_pro' ); ?>">
                         </td>
                     </tr>
                     

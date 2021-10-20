@@ -4,7 +4,7 @@ Donate link: https://codecanyon.net/item/woo-product-table-pro/20676867?ref=Code
 Tags: wc product table, wooproducttable,woocommerce product table, product table, wc table, quick order table, wholesale table, restaurants table
 Requires at least: 4.0.0
 Tested up to: 5.8.1
-Stable tag: 3.0.1
+Stable tag: 3.0.2
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -12,54 +12,125 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Easily display your products as table by tiny shortcode. Such: [Product_Table id='1']. Support default editor, any Page Builder & Gutenberg.
 
 == Description ==
-Product Table for WooCommerce is a wooproducttable. Auto Responsive Mobile & Tab, Nice Design, Fast Speed *Product Table for WooCommerce*. Tiny Shortcode, Easy customizable, Ajax Add to cart, Ajax Search, Pagination & Load More.
-*Product Table for WooCommerce* offers to show all products display as a table in page by light shortcode. Fully responsive and mobile friendly. Easily customizable - color, background, title, padding, margin etc.
+Product Table plugin helps you to display your WooCommerce products in a searchable table layout with filters.  Add a table on any page or post via a shortcode. You can create tables as many as you want.
+Create a table for restaurant order systems, Online music sell, Mobile Wholesale, Course Booking, or Selling books any many more.
 
-**[For Discount check our official site](https://wooproducttable.com/#discount)**
-
-**Demo List**
-
-* [Custom Design Table](https://demo.wooproducttable.com/demo-list/all/) Here is table with custom design. You can customize your table with your design like color,background-color,font-size,padding,spacing etc from the option panel.
-
-* [Online Music Sell](https://demo.wooproducttable.com/online-music-sell/) This table is made for a Music site. Music preview available.
-
-* [Restaurant Table](https://demo.wooproducttable.com/restaurant/) This table is made for a restaurant. User will easily order products from table.
-
-* [Jewellery Product Table](https://demo.wooproducttable.com/demo-list/jewelry-products-table/) With this table you can show your jewellery products.
- 
-* [Books Table](https://demo.wooproducttable.com/books-table/) Sell your books with the help of table and increase user engagement.
-
-* [Jewellary Table with Mini Filter](https://demo.wooproducttable.com/using-attributes-as-taxonomy-keyword-for-filter-in-advanced-search-box/) It's a demo of mini filter table where you can filter products instantly using products attributes.
-
-* [Fashion Table](https://demo.wooproducttable.com/fashion/) Simple Example of Fashion Table.
-
-* [Table With Custom Fields](https://demo.wooproducttable.com/mobile-wholesale/) This table showing many custom fields for products.You can re-arrange the custom field column from the option panel.
-
-* More demo coming soon....
-
-**Product Table for WooCommerce** plugin offers to display your shop products in one page by shortcode as table. 
-
-* Shop page as Table
-* Available add to cart in Table
-* Ajax add to cart
-* Advanced SearchBox to search from all products
-* Well adaptable with your theme design
-* Easy customization from Dashboard
-* YITH WishList Support in table
-* Has Option to Hide Table Header 
-* All text of your table are editable now.
-
-Add the shortcode to any existing post or page:
+**Shortcode Example**
 
 `[Product_Table ID='123' name='Table Name']`
-*ID* - will be post's ID(required).It will generate automatically when you create your table. 
 
+*ID* - will be post's ID(required).It will generate automatically when you create your table. 
 *name* - only for identifying your table's shortcode.(Optional)
 
+**[Visit Official Site](https://wooproducttable.com/#discount)**
 
-**[See Demo](https://demo.wooproducttable.com/) || [See Features](https://wooproducttable.com/) ||  [Pro Features](https://codeastrology.com/wordpress-plugins/woo-product-table/)  || [See Pro](https://codecanyon.net/item/woo-product-table-pro/20676867)**
-This plugin will help you to show All product in 1 page as Table. Also able to change/customize. Go to: Dashboard->PRODUCT TABLE . If you found any issue, Please inform me to codersaiful@gmail.com.
+**Demo table list**
 
+* [Advanced Search Table](https://demo.wooproducttable.com/demo-list/clean-blue-table-with-advanced-search/) <br>Our most valuable feature is search & filter. Customers can filter products by any taxonomy or attribute like products categories, tags, color, or size. Also can filter by any custom field data. Have an option to search from specific areas.
+
+* [A table on Single Variable Product Page](https://demo.wooproducttable.com/product/samsung-galaxy/) <br>If you select a table and enable 'Variation Table' then it will replace the default variation dropdown select options and will display that table on every variable product page.
+
+* [A table on an archive page.](https://demo.wooproducttable.com/shop/) <br>You can override the default archive page and display our table. 
+
+* [Product Variant In Separate Row](https://demo.wooproducttable.com/product-variant-in-separate-row/) <br>If you have variable products and you want to show every variation as a single product, this table is like that. 
+
+
+* [Filter By Custom Field](https://demo.wooproducttable.com/filter-by-custom-field/) <br>Here you can filter products by custom filed. This will give you the freedom to filter products by any keyword.
+
+* [Quick Order Table](https://demo.wooproducttable.com/quick-cart-update-quick-order-table/) <br>This is a special table. If you want to add a product to the cart just increase the quantity. The product will automatically add to the cart.
+
+* [User Conditional Table](https://demo.wooproducttable.com/demo-list/user-conditional-table/) <br>Hide any column for Guest users. Users only can see some columns if they are logged in. 
+
+* [Attributes in Different Column](https://demo.wooproducttable.com/demo-list/product-attributes-in-different-column-and-search-box/) <br>You can show product Attributes in a different column as well as in the Search Box.
+
+* [Redirect to checkout/cart page](Redirect to checkout/cart page) <br>On this table, if a customer adds a product to the cart then will atomically redirect to the cart/check out page.
+
+* [Restaurant Table](https://demo.wooproducttable.com/restaurant-table-two/) <br>This table is made for a restaurant. Users will easily order products from the table.
+
+* [Mobile Wholesale](https://demo.wooproducttable.com/mobile-wholesale/) <br>Create a table to sell mobile. Show products specifications using our description column.
+
+* [Audio Player Table](https://demo.wooproducttable.com/demo-list/audio-player-table/) <br>This is an audio table. User paly audio from the table.
+
+* [Online Music Sale](https://demo.wooproducttable.com/demo-list/online-music-sale/) <br>Create a table to sell your music. Users also can listen to demo audio.  
+
+* [Books Table](https://demo.wooproducttable.com/books-table-with-custom-link/) <br>Sell your books with the help of a table and increase user engagement.
+
+* [Course Booking Table](https://demo.wooproducttable.com/course/) <br>Create a table for selling online courses. Users can book any course to learn about their interests. 
+
+* [Quotation Table](https://demo.wooproducttable.com/demo-list/send-your-quotation/) <br>Users can send quotations using our plugin. Here is the demo table for that.
+
+
+
+Please Visit our demo site to see all our demo tables. [All Demo](https://demo.wooproducttable.com/) 
+
+<h2>Our main features ( Pro and Free )</h2>
+
+**Drag and Drop**<br>
+We have a rich column list. Such as product Title, Attributes, thumbnails, quantity, short message, variation, and many more. Users can show or hide multiple columns with one click. Also easily can Change position by drag and drop. 
+
+**Design Customizable**<br>
+We have some pre-built design templates. You can switch between design templates to change table design. On the other hand, you can design pretty much table’s every section as you want. For example table header, footer, body. You can design each column individually also. 
+
+**Advance Filter (Taxonomy/cf/title)**<br>
+Our most valuable feature is search & filter. Customers can filter products by any taxonomy or attribute like products categories, tags, color, or size. Also can filter by any custom field data. Have an option to search from specific areas. ( Only from SKU or price ).  Also, you can use a mini-filter that filters only current page products.
+
+**Override Archive page**<br>
+This is an awesome feature of our plugin. you can display your table on your archive pages.
+You can display a table on every archive page or you can choose some specific archive pages to display specific tables. All you have to do is, select and turn on the table for archive pages. 
+
+**Quick Cart Update**<br>
+Add a product to the cart, you don’t have to click any button anymore. You just need to update the quantity and that product will automatically add to the cart. The cart will auto-update by Increasing or decreasing quantity.
+
+**Dozens of Integration**<br>
+We have integrated our plugin with the necessary plugins. By default, it supports most of the plugins. On the other hand, you can turn on our third-party plugin support feature to make them work with our plugin.  
+
+**Export & Import**<br>
+This is an important feature of our table. You can easily create a table as it is shown on our demo site by importing that table’s encoded code. Also can export your table data as well. 
+
+**Developer Friendly**<br>
+We provide our plugin’s complete control to the developers. You can pass query arguments by shortcode attributes. We have tons of action and filter hooks, so you have the power to customize any of our plugin functionality.
+
+
+*Get help from our [documentation](https://wooproducttable.com/documentation/).*
+
+Our [YouTube Playlist](https://www.youtube.com/channel/UCnrFzReNAohkHglbF91ZEYA/playlists).
+
+**Important feature ( Pro and Free )**
+
+* Add custom column
+* Design columns individually 
+* Columns only for login user
+* Show multiple inner items
+* Create A Variation Product Table
+* Table On Variation Product Page 
+* Show Variation Label
+* Include/Exclude  Products
+* Include/Exclude Categories
+* Show or Hide Mini Cart
+* Customizable floating cart
+* Instant Search Filter
+* Display Limited Products
+* Load More Button
+* Enable /Disable Pagination 
+* Customizable Add To Cart Button
+* Pre-Select Product Option
+* Product Sorting by values 
+* Showing Popup Notices
+* Redirect to Checkout Page
+
+**list of Integration plugin**
+
+* Addons - UltraAddons Elementor Lite
+* Quantity Plus Minus Button for WooCommerce
+* WooCommerce Min Max Quantity & Step Control
+* WooCommerce Product Filter by WooBeWoo
+* Elementor
+* Advanced Custom Fields 
+* YITH WOOCOMMERCE REQUEST A QUOTE
+* Loco Translate
+* YITH WooCommerce Quick View
+* WOOF – Products Filter for WooCommerce
+* YITH WooCommerce Wishlist
 
 **Columns/Item Load from Theme/ChildTheme**
 To get Item's Template From Active Theme, Use following Directory.
@@ -68,29 +139,8 @@ Suppose: Item name is price, than location/directory from theme will be:
 * `[YourTheme]/woo-product-table/items/price.php`
 
 **Have a looks in short**
-https://www.youtube.com/watch?v=ZloiY3NRmW8
-**Pro Version's Features**
-* Search using custom field
-* Filter using any terms or taxonomies
-* Create audio player using your audio products
-* Change color, font-size, background of each column and many more
-* Override shop layout
-* There are lots of column controls
-* All custom field and taxonomy plugin supported
-* More Light Weight
-* Table configuration saved as Table ID
-* Use Table  by Table ID
-* Add Custom Taxonomy By a Click easily, no need to add in shortcode
-* Add Custom Field By  a Click easily, no need to add in shortcode
-* YITH quick view
-* WooCommerce Product Addon supported
-* No need shortcode editing
-* Able to change and customize of table's style,column,content from custom_post type
-* Variation wise LightBox image Display
-* And So many many feature Update
 
-**IN DETAILS**
-https://www.youtube.com/watch?v=D67b_0tQ-z8
+https://www.youtube.com/watch?v=ZloiY3NRmW8
 
 == Installation ==
 
@@ -127,6 +177,10 @@ You can easily show specific category products. While creating new table click o
 = Is it suitable for any theme ? =
  Yes. *Product Table for WooCommerce* will adapt with your theme design.
 
+= Configuration data is not saving for old table. How can I fix it. =
+ Please follow the link https://stackoverflow.com/questions/10303714/php-max-input-vars#answer-14166562
+
+
 == Screenshots ==
 
 1. Enabled table columns by checking the boxes
@@ -156,6 +210,10 @@ You can easily show specific category products. While creating new table click o
 25. Manually responsive for mobile devices
 
 == Changelog ==
+
+= 3.0.1 =
+  * Bug fix
+  * Spelling fix
 
 = 3.0.1 =
  * product_cat_ids confliction error solved for new user

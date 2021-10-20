@@ -62,6 +62,7 @@ if( !function_exists( 'wpt_enqueue' ) ){
            'version'        => $version,
            'select2'        => 'enable',
            'resize_loader'  => apply_filters( 'wpto_resize_reloader', false ),
+           'add_to_cart_view'=> apply_filters( 'wpto_add_to_cart_view', true ),
            'return_zero'    => apply_filters( 'wpto_qty_return_zero', false ),
            'return_quanity' => apply_filters( 'wpto_qty_return_quanity', true ),
            'search_select_placeholder' => esc_html__( 'Select inner Item.', 'wpt_pro' ),
