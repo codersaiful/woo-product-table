@@ -399,3 +399,15 @@ if( ! function_exists( 'wpt_add_tabs' ) ){
     }
 }
 add_action( 'current_screen', 'wpt_add_tabs', 50 );
+
+/**
+ * All type Notice will handle from notice-loader.php file.
+ * 
+ * Primary Notice Planned:
+ * * User rating notice
+ * * Pro plugin notice: pro plugin notice will available afer each 10 days and there will be a feature dismiss
+ * 
+ * @since 3.0.2.0
+ * @date 21.11.2021
+ */
+include_once __DIR__ . '/notice/notice-loader.php';
