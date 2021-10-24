@@ -805,7 +805,8 @@
 
             },
             success: function(data) {
-                $("#poststuff #titlewrap").before(data);
+                console.log(data, 'Success');
+                //$("#poststuff #titlewrap").before(data);
             },
             error: function() {
                 alert(34343);
