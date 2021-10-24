@@ -4,7 +4,7 @@ add_action( 'admin_notices', 'wpt_admin_notice_user_rating_rq' );
 function wpt_admin_notice_user_rating_rq(){
 
     if( ! wpt_admin_notice_display() ){
-        //return;
+        return;
     }
 ?>
 <div class="notice notice-success is-dismissible wpt-notice wpt-user-rating-notice">
