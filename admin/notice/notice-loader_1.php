@@ -1,19 +1,22 @@
 <?php
-
+//var_dump(get_option( 'wpt_user_rating_notice' ));
+////update_option( 'wpt_user_rating_notice', strtotime("3 October 2020") ); //strtotime("3 October 2020") //time()
 add_action( 'admin_notices', 'wpt_admin_notice_user_rating_rq' );
 function wpt_admin_notice_user_rating_rq(){
-
+    var_dump(wpt_admin_notice_display());
     if( ! wpt_admin_notice_display() ){
-        return;
+        //return;
     }
+    //return false;
 ?>
 <div class="notice notice-success is-dismissible wpt-notice wpt-user-rating-notice">
     <p>
         <?php
-//        var_dump(date('s:h d M, Y', get_option( 'wpt_user_rating_notice' )));
-//        var_dump(date('s:h d M, Y', time()));
+//        var_dump(strtotime("3 October 2020"));
+//        //var_dump(get_option( 'wpt_user_rating_notice' ));
+//        var_dump(time());
         ?>
-        Hey, we noticed you've been using <strong>Product Table for WooCommerce(wooproducttable)</strong> for  a long time - that's awesome.<br>
+        Hey, we noticed you've been using <strong>Product Table for WooCommerce(wooproducttable)</strong> for many days - that's awesome.<br>
         Could you please do us a <strong>BIG Favor</strong> and give it a rating on WordPress.org to help us spread the word and boost our motivation?
     </p>
     <p>
@@ -44,9 +47,6 @@ function wpt_admin_notice_display( $day = 20){
     
     $today = time();
     $last_close_day = get_option( 'wpt_user_rating_notice' );
-    if( empty( $last_close_day )  ){
-        return true;
-    }
     $diff = $today - $last_close_day;
 //    var_dump($limit_time_sec,$diff);
     if( $diff < $limit_time_sec){

@@ -1361,3 +1361,4 @@ tr.user_can_not_edit:before {
     top: 0;
     z-index: 1;
 }
+.wpt-user-rating-notice p.do-rating-area a{cursor: pointer;}

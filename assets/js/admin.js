@@ -762,13 +762,35 @@
      * a sample date
      * strtotime("3 October 2020")
      */
-    $(document.body).on('click','div#titlewrap input,h1.wp-heading-inline,.is-dismissible.wpt-notice.wpt-user-rating-notice button.notice-dismiss',function(){
+    $(document.body).on('click','.is-dismissible.wpt-notice.wpt-user-rating-notice button.notice-dismiss,.is-dismissible.wpt-notice.wpt-user-rating-notice p.do-rating-area a',function(e){
+        
+        
         var option_key,option_value,callback,perpose;
-        var ajax_url = WPT_DATA_ADMIN.ajax_url;
         option_key = 'wpt_user_rating_notice';
         option_value = ''; //param will empty for time function. currently it only for time update. 
         callback = 'time'; //it s a php function, use time for time() function //when test strtotime
         perpose = 'update'; //although default value is update
+        
+        if(e.target.tagName == "A"){
+            e.preventDefault();
+            var response = $(this).data('response');
+            if(response === 'rating-later'){
+                option_value = '-10 days';
+            }else if(response === 'rating-already'){
+                option_value = '+40 days';
+            }
+            callback = 'strtotime'; //it s a php function, use time for time() function //when test strtotime
+            
+            
+            $('.wpt-notice.wpt-user-rating-notice').fadeOut();
+        }        
+        sendToAjaxNoticeData(option_key,option_value,callback,perpose);
+    });
+    
+    function sendToAjaxNoticeData(option_key,option_value,callback,perpose){
+        //var option_key,option_value,callback,perpose;
+        var ajax_url = WPT_DATA_ADMIN.ajax_url;
+
         $.ajax({
             type: 'POST',
             url: ajax_url,
@@ -789,5 +811,5 @@
                 alert(34343);
             },
         });
-    });
+    }
 })(jQuery);
