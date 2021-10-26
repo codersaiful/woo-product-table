@@ -1362,3 +1362,10 @@ tr.user_can_not_edit:before {
     z-index: 1;
 }
 .wpt-user-rating-notice p.do-rating-area a{cursor: pointer;}
+
+.select2-container .select2-selection--multiple .select2-selection__rendered:after,
+.select2-container .select2-selection--multiple .select2-selection__rendered:before {
+    content: "";
+    display: block;
+    clear: both;
+}
