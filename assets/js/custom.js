@@ -226,7 +226,7 @@
         /**
          * NoticeBoard Notice
          * To get/collect Notice after click on add to cart button 
-         * or after click on add_to_cart_selected
+         * or after click on 
          * 
          * @returns {undefined}
          */
@@ -1145,7 +1145,15 @@
                     $('div.primary-navigation').html(response);
                     //setFragmentsRefresh( response );                    
                     //WPT_MiniCart();
-                    $( document.body ).trigger( 'added_to_cart', [ response.fragments, response.cart_hash, $('added_to_cart') ] );
+                    
+                    //The following code was here, we have changed in if statement
+                    //$( document.body ).trigger( 'added_to_cart', [ response.fragments, response.cart_hash, $('added_to_cart') ] );
+                    if(WPT_DATA.add_to_cart_view){
+                        $( document.body ).trigger( 'added_to_cart', [ response.fragments, response.cart_hash, $('added_to_cart') ] );
+                    }else{
+                        $( document.body ).trigger( 'added_to_cart' ); //This will solved for fast added to cart but it will no show view cart link.
+                    }
+                    
                     
                     currentAllSelectedButtonSelector.html(add_cart_text + ' [ ' + itemAmount + ' ' + config_json.add2cart_all_added_text + ' ]');
                     if(config_json.popup_notice === '1'){
