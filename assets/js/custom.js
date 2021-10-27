@@ -1630,17 +1630,6 @@
             //filterTableRow(temp_number);
         });
         
-         $('body').on('click', 'input.wpt_check_universal,input.enabled.wpt_tabel_checkbox.wpt_td_checkbox', function() { //wpt_td_checkbox
-            var temp_number = $(this).data('temp_number');
-            var checkbox_type = $(this).data('type'); //universal_checkbox
-            if (checkbox_type === 'universal_checkbox') {
-                $('#table_id_' + temp_number + ' input.enabled.wpt_tabel_checkbox.wpt_td_checkbox:visible').prop('checked', this.checked); //.wpt_td_checkbox
-                $('input#wpt_check_uncheck_column_' + temp_number).prop('checked', this.checked);
-                $('input#wpt_check_uncheck_button_' + temp_number).prop('checked', this.checked);
-            }
-            var temp_number = $(this).data('temp_number');
-            updateCheckBoxCount(temp_number);
-        });
         
         function filterTableRow(temp_number){
             emptyInstanceSearchBox(temp_number);
@@ -1835,7 +1824,13 @@
         });
         
         function uncheckAllCheck(temp_number){
-            $('div.wpt_no_checked_table #table_id_' + temp_number + ' input.wpt_check_universal:checkbox,div.wpt_no_checked_table #table_id_' + temp_number + ' table input:checkbox').attr('checked',false);
+            var selectedCheckBox = $('#table_id_' + temp_number + ' input[type=checkbox]');
+            selectedCheckBox.each(function(){
+                if($(this).is(':checked')){
+                    $(this).trigger('click');
+                }
+            });
+            updateCheckBoxCount(temp_number);
         }
         
         /**
