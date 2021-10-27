@@ -317,7 +317,7 @@ do_action( 'wpto_admin_basic_tab',$meta_basics, $tab, $post, $tab_array );
             <table class="ultraaddons-table">
                 <tr>
                     <th>
-                        <label class="wpt_label" for="wpt_table_pagination_enable"><?php esc_html_e( 'Pagination on/off', 'wpt_pro' ); ?></label>
+                        <label class="wpt_label" for="wpt_table_pagination_enable"><?php esc_html_e( 'Pagination', 'wpt_pro' ); ?></label>
                     </th>
                     <td>
                         <select name="pagination[start]" data-name='sort' id="wpt_table_pagination_enable" class="wpt_fullwidth wpt_data_filed_atts ua_input" >
@@ -326,6 +326,8 @@ do_action( 'wpto_admin_basic_tab',$meta_basics, $tab, $post, $tab_array );
                             <option value="0" <?php echo isset( $pagination['start'] ) && $pagination['start'] == '0' ? 'selected' : ''; ?>><?php esc_html_e( 'Disable', 'wpt_pro' ); ?></option>
                         </select>
                         <p><?php esc_html_e( 'To change style, go to Design tab', 'wpt_pro' ); ?></p>
+                        <p class="warning"><?php echo sprintf(esc_html__( '%1$sPagination will not work%2$s on WooCommerce shop, archive page or created shop archive page by any page builder. %1$sThis feature will only work on table page where table shortcode pasted.%2$s', 'wpt_pro' ), '<b>', '</b>'); ?></p>
+                        <p class="wpt-tips"><?php echo sprintf(esc_html__( '%1$sThis pagination will replaced on Woocommerce shop archive page%2$s by your theme\'s default pagination.', 'wpt_pro' ), '<b>', '</b>'); ?></p>
                     </td>
                 </tr>
             </table>
