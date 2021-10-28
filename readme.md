@@ -62,6 +62,27 @@ if( !function_exists( 'temp_file_for_new_shortcode' ) ){
 add_filter( 'wpto_template_loc_item_new_shortcode', 'temp_file_for_new_shortcode', 10 );
 ```
 
+## Example File code(my_shortcode.php)
+```php
+/**
+ * //Some Available Variation over there:
+ * $keyword, 
+ * $table_ID, 
+ * $settings, 
+ * $column_settings, 
+ * $product
+ * $id (here id is product id)
+ */  
+
+//Such: an example
+$product_id = $id;
+
+echo get_post_meta( $product_id, 'discount_custom_field', true );
+
+//Do here, what u want
+
+```
+
 Now we need to add a input field for get the custom shortcode from user. here we have used ```wpto_column_setting_form_ . $keyword``` action to add the input field inside column area in column tab.
 ```php
 <?php
