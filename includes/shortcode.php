@@ -281,14 +281,29 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
             $args['orderby'] = $sort_order_by;//'post_title';
             $args['order'] = $sort;
         }
+	
+	/**
+         * Check if B2BKing plugin installed
+         * and use B2BKing's group-pricing support if applicable  
+	 */ 
+        $user_id = get_current_user_id();
+        $b2bking_plugin_enabled = (get_user_meta($user_id, 'b2bking_b2buser', true) === 'yes');
 
-
+        // set key to use for Minimum and Maximum price query 
+        if ($b2bking_plugin_enabled){ //B2BKing
+            $b2bking_user_group = get_user_meta($user_id, 'b2bking_customergroup', true);
+            $query_price_key = 'b2bking_regular_product_price_group_'.$b2bking_user_group; 
+        } else {
+            $query_price_key = '_price'; //default
+        }
+        
         /**
          * Set Minimum Price for
          */
-        if ($min_price) {
+     	if ($min_price) {
             $args['meta_query'][] = array(
-                'key' => '_price',
+            //default price handling or B2Bking group prices
+                'key' => $query_price_key,
                 'value' => $min_price,
                 'compare' => '>=',
                 'type' => 'NUMERIC'
@@ -299,8 +314,9 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
          * Set Maximum Price for
          */
         if ($max_price) {
+          //default price handling
             $args['meta_query'][] = array(
-                'key' => '_price',
+                'key' => $query_price_key,
                 'value' => $max_price,
                 'compare' => '<=',
                 'type' => 'NUMERIC'
@@ -371,6 +387,16 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
             $args['post__in'] = $sale_products;//var_dump(wc_get_product_ids_on_sale());
         }
 
+	/**
+         * B2BKing: include only visible posts 
+         * (set in B2BKing user settings on either group or user level)
+         */
+        if($b2bking_plugin_enabled){
+            $b2bking_visible_ids = get_transient('b2bking_user_'.get_current_user_id().'_ajax_visibility');
+            $b2bking_visible_ids = $args['post__in'] && is_array( $args['post__in'] ) ? array_intersect($args['post__in'], $b2bking_visible_ids): $b2bking_visible_ids;
+            $args['post__in'] = $b2bking_visible_ids;
+        }
+	    
         /**
          * Post Exlucde
          * 
