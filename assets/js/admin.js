@@ -748,4 +748,69 @@
         e.preventDefault();
         alert("Sorry");
     });
+    
+    
+    /**
+     * Notice update part
+     * selector: .is-dismissible.wpt-notice.wpt-user-rating-notice button.notice-dismiss
+     *  * ######## action data ########
+     * option_key: (string)
+     * option_value: any type date can get using option value
+     * callback: (string) here, final return output will pass as params
+     * perpose: (string) get|option - update or getting data from wp optiion table
+     * 
+     * a sample date
+     * strtotime("3 October 2020")
+     */
+    $(document.body).on('click','.is-dismissible.wpt-notice.wpt-user-rating-notice button.notice-dismiss,.is-dismissible.wpt-notice.wpt-user-rating-notice p.do-rating-area a',function(e){
+        
+        
+        var option_key,option_value,callback,perpose;
+        option_key = 'wpt_user_rating_notice';
+        option_value = ''; //param will empty for time function. currently it only for time update. 
+        callback = 'time'; //it s a php function, use time for time() function //when test strtotime
+        perpose = 'update'; //although default value is update
+        
+        if(e.target.tagName == "A"){
+            e.preventDefault();
+            var response = $(this).data('response');
+            if(response === 'rating-later'){
+                option_value = '-10 days';
+            }else if(response === 'rating-already'){
+                option_value = '+40 days';
+            }
+            callback = 'strtotime'; //it s a php function, use time for time() function //when test strtotime
+            
+            
+            $('.wpt-notice.wpt-user-rating-notice').fadeOut();
+        }        
+        sendToAjaxNoticeData(option_key,option_value,callback,perpose);
+    });
+    
+    function sendToAjaxNoticeData(option_key,option_value,callback,perpose){
+        //var option_key,option_value,callback,perpose;
+        var ajax_url = WPT_DATA_ADMIN.ajax_url;
+
+        $.ajax({
+            type: 'POST',
+            url: ajax_url,
+            data: {
+                action:     'wpt_admin_update_notice_option', //function wpt_admin_update_notice_option() in admin/notice/notice-loader.php
+                option_key:    option_key,
+                option_value:    option_value,
+                callback:    callback,
+                perpose:    perpose,
+            },
+            complete: function(){
+
+            },
+            success: function(data) {
+                console.log(data, 'Success');
+                //$("#poststuff #titlewrap").before(data);
+            },
+            error: function() {
+                alert(34343);
+            },
+        });
+    }
 })(jQuery);

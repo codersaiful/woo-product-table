@@ -1346,3 +1346,26 @@ tr.user_can_not_edit:before {
     height: 100%;
     z-index: 100;
 }
+.wpt-notice.wpt-user-rating-notice {
+    background: white url(../images/logo.png) no-repeat 5px 10px;
+    background-size: 45px;
+    padding-left: 65px;
+}
+.wpt-notice.wpt-user-rating-notice:before {
+    content: "";
+    position: absolute;
+    background: #4caf501f;
+    width: 57px;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 1;
+}
+.wpt-user-rating-notice p.do-rating-area a{cursor: pointer;}
+
+.select2-container .select2-selection--multiple .select2-selection__rendered:after,
+.select2-container .select2-selection--multiple .select2-selection__rendered:before {
+    content: "";
+    display: block;
+    clear: both;
+}

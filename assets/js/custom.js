@@ -226,7 +226,7 @@
         /**
          * NoticeBoard Notice
          * To get/collect Notice after click on add to cart button 
-         * or after click on add_to_cart_selected
+         * or after click on 
          * 
          * @returns {undefined}
          */
@@ -1145,7 +1145,15 @@
                     $('div.primary-navigation').html(response);
                     //setFragmentsRefresh( response );                    
                     //WPT_MiniCart();
-                    $( document.body ).trigger( 'added_to_cart', [ response.fragments, response.cart_hash, $('added_to_cart') ] );
+                    
+                    //The following code was here, we have changed in if statement
+                    //$( document.body ).trigger( 'added_to_cart', [ response.fragments, response.cart_hash, $('added_to_cart') ] );
+                    if(WPT_DATA.add_to_cart_view){
+                        $( document.body ).trigger( 'added_to_cart', [ response.fragments, response.cart_hash, $('added_to_cart') ] );
+                    }else{
+                        $( document.body ).trigger( 'added_to_cart' ); //This will solved for fast added to cart but it will no show view cart link.
+                    }
+                    
                     
                     currentAllSelectedButtonSelector.html(add_cart_text + ' [ ' + itemAmount + ' ' + config_json.add2cart_all_added_text + ' ]');
                     if(config_json.popup_notice === '1'){
@@ -1622,17 +1630,6 @@
             //filterTableRow(temp_number);
         });
         
-         $('body').on('click', 'input.wpt_check_universal,input.enabled.wpt_tabel_checkbox.wpt_td_checkbox', function() { //wpt_td_checkbox
-            var temp_number = $(this).data('temp_number');
-            var checkbox_type = $(this).data('type'); //universal_checkbox
-            if (checkbox_type === 'universal_checkbox') {
-                $('#table_id_' + temp_number + ' input.enabled.wpt_tabel_checkbox.wpt_td_checkbox:visible').prop('checked', this.checked); //.wpt_td_checkbox
-                $('input#wpt_check_uncheck_column_' + temp_number).prop('checked', this.checked);
-                $('input#wpt_check_uncheck_button_' + temp_number).prop('checked', this.checked);
-            }
-            var temp_number = $(this).data('temp_number');
-            updateCheckBoxCount(temp_number);
-        });
         
         function filterTableRow(temp_number){
             emptyInstanceSearchBox(temp_number);
@@ -1827,7 +1824,13 @@
         });
         
         function uncheckAllCheck(temp_number){
-            $('div.wpt_no_checked_table #table_id_' + temp_number + ' input.wpt_check_universal:checkbox,div.wpt_no_checked_table #table_id_' + temp_number + ' table input:checkbox').attr('checked',false);
+            var selectedCheckBox = $('#table_id_' + temp_number + ' input[type=checkbox]');
+            selectedCheckBox.each(function(){
+                if($(this).is(':checked')){
+                    $(this).trigger('click');
+                }
+            });
+            updateCheckBoxCount(temp_number);
         }
         
         /**
