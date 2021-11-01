@@ -127,7 +127,7 @@
 
       });
       
-        $('select#wpt_product_ids,select#product_tag_ids,select.wpt_select2,select.internal_select').on('select2:select', function(e){
+        $('select#wpt_product_ids,select#product_tag_ids,select.wpt_select2,select.internal_select,select.ua_select product_includes_excludes').on('select2:select', function(e){
           wptSelectItem(e.target, e.params.data.id);
         });
 
