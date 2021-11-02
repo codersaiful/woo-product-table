@@ -429,6 +429,9 @@ h1.with-background.dark-background {}
     display: block;
     clear: both;
 }
+body.wpt_admin_body .ultraaddons .warning {
+    color: #dd5500;
+}
 
 /* Responsive Design Starts */
 @media screen and (max-width: 782px){
