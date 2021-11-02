@@ -19,7 +19,8 @@
     font-weight: 500;
 }
 .ultraaddons .with-background, .ultraaddons-panel .with-background {
-    background: #f4f4f4;
+    background: #007694;
+    color: white;
     padding: 33px;
     margin-top: -35px;
     margin-left: -20px;

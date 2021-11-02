@@ -211,6 +211,10 @@ You can easily show specific category products. While creating new table click o
 
 == Changelog ==
 
+= 3.0.2 =
+  * Variation Product include issue fix
+  * Variable product query fix. based on terms. such: Product Category, Tag, Color, Size
+
 = 3.0.1 =
   * Bug fix
   * Spelling fix

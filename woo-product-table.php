@@ -30,7 +30,7 @@ if( !defined( 'WPT_PLUGIN_BASE_FOLDER' ) ){
 }
 
 if( !defined( 'WPT_DEV_VERSION' ) ){
-    define( 'WPT_DEV_VERSION', '3.0.2.0' );
+    define( 'WPT_DEV_VERSION', '3.0.2.1' );
 }
 
 if( !defined( 'WPT_CAPABILITY' ) ){
@@ -426,42 +426,42 @@ class WPT_Product_Table{
 //            return;//as its remommneded. Thats why we have disabled it.
         }
         
-        //Qty Plus/Minus Button Plugin Compulsory for Our Product Table Plugin
-        $plugin = 'wc-quantity-plus-minus-button/init.php';
-        $link_text = '<strong><a href="' . esc_url( 'https://wordpress.org/plugins/wc-quantity-plus-minus-button/' ) . '" target="_blank">' . esc_html__( 'Quantity Plus/Minus Button for WooCommerce', 'wpt_pro' ) . '</a></strong>';
-        //Check Installation of Quantity Plus Minus Button Plugin
-        if( !isset( $installed_plugins[$plugin] ) ) {
-            self::$own['plugin']        = $plugin;
-            self::$own['plugin_slug']   = 'wc-quantity-plus-minus-button';
-            self::$own['type']          = 'warning';
-            self::$own['btn_text']      = 'Install Now';
-            $message = sprintf(
-                   esc_html__( '"%1$s" requires "%2$s" to be Installed and Activated.', 'wpt_pro' ),
-                   '<strong>' . esc_html__( 'Woo Product Table', 'wpt_pro' ) . '</strong>',
-                    $link_text                   
-        );
-        self::$own['message']           = $message;//'You to activate your Plugin';
-        add_action( 'admin_notices', [ $this, 'admin_notice' ] );
-        }
+//        //Qty Plus/Minus Button Plugin Compulsory for Our Product Table Plugin
+//        $plugin = 'wc-quantity-plus-minus-button/init.php';
+//        $link_text = '<strong><a href="' . esc_url( 'https://wordpress.org/plugins/wc-quantity-plus-minus-button/' ) . '" target="_blank">' . esc_html__( 'Quantity Plus/Minus Button for WooCommerce', 'wpt_pro' ) . '</a></strong>';
+//        //Check Installation of Quantity Plus Minus Button Plugin
+//        if( !isset( $installed_plugins[$plugin] ) ) {
+//            self::$own['plugin']        = $plugin;
+//            self::$own['plugin_slug']   = 'wc-quantity-plus-minus-button';
+//            self::$own['type']          = 'warning';
+//            self::$own['btn_text']      = 'Install Now';
+//            $message = sprintf(
+//                   esc_html__( '"%1$s" requires "%2$s" to be Installed and Activated.', 'wpt_pro' ),
+//                   '<strong>' . esc_html__( 'Woo Product Table', 'wpt_pro' ) . '</strong>',
+//                    $link_text                   
+//        );
+//        self::$own['message']           = $message;//'You to activate your Plugin';
+//        add_action( 'admin_notices', [ $this, 'admin_notice' ] );
+//        }
        
             
-        //Check Activation Of that Plugin
-        if( isset( $installed_plugins[$plugin] ) && !is_plugin_active( $plugin ) ) {
-            self::$own['type']      = 'warning';
-            self::$own['perpose']   = 'activation';
-            self::$own['plugin']    = 'wc-quantity-plus-minus-button/init.php';
-            self::$own['btn_text']  = 'Activate Now';
-            $configuration_page = '<a target="_blank" href="' . esc_url( admin_url( 'edit.php?post_type=wpt_product_table&page=woo-product-table-config' ) ) . '">' . esc_html__( 'Configure Page', 'wpt_pro' ) . '</a>';
-            $message = sprintf(
-                   /* translators: 1: Plugin name 2: WooPrdouct Table */
-                   esc_html__( '"%1$s" recommends "%2$s" to be activated. To hide this notification, Go to %3$s (Plugin Recommendation).', 'wpt_pro' ),
-                   '<strong>' . esc_html__( 'Woo Product Table', 'wpt_pro' ) . '</strong>',
-                    $link_text,
-                    $configuration_page
-                );
-            self::$own['message']   = $message;//'You to activate your Plugin';
-            add_action( 'admin_notices', [ $this, 'admin_notice' ] );
-        }
+//        //Check Activation Of that Plugin
+//        if( isset( $installed_plugins[$plugin] ) && !is_plugin_active( $plugin ) ) {
+//            self::$own['type']      = 'warning';
+//            self::$own['perpose']   = 'activation';
+//            self::$own['plugin']    = 'wc-quantity-plus-minus-button/init.php';
+//            self::$own['btn_text']  = 'Activate Now';
+//            $configuration_page = '<a target="_blank" href="' . esc_url( admin_url( 'edit.php?post_type=wpt_product_table&page=woo-product-table-config' ) ) . '">' . esc_html__( 'Configure Page', 'wpt_pro' ) . '</a>';
+//            $message = sprintf(
+//                   /* translators: 1: Plugin name 2: WooPrdouct Table */
+//                   esc_html__( '"%1$s" recommends "%2$s" to be activated. To hide this notification, Go to %3$s (Plugin Recommendation).', 'wpt_pro' ),
+//                   '<strong>' . esc_html__( 'Woo Product Table', 'wpt_pro' ) . '</strong>',
+//                    $link_text,
+//                    $configuration_page
+//                );
+//            self::$own['message']   = $message;//'You to activate your Plugin';
+//            add_action( 'admin_notices', [ $this, 'admin_notice' ] );
+//        }
         
         
         // Check for required PHP version
@@ -513,22 +513,22 @@ class WPT_Product_Table{
        }
     //Coll elementor Module, If installed Elementor
     if ( did_action( 'elementor/loaded' ) ) {
-        $wpt_ultraaddons_notice = false;
-        //UltraAddons Plugin Recommendation
-        $plugin = 'ultraaddons-elementor-lite/init.php';
-        $link_text = '<strong><a href="' . esc_url( 'https://wordpress.org/plugins/ultraaddons-elementor-lite/' ) . '" target="_blank">' . esc_html__( 'Quantity Plus/Minus Button for WooCommerce', 'wpt_pro' ) . '</a></strong>';
-        
-        if( ! isset( $installed_plugins[$plugin] ) ) {
-            $wpt_ultraaddons_notice = true;
-            
-        }else if( isset( $installed_plugins[$plugin] ) && ! is_plugin_active( $plugin ) ){
-            self::$ultraaddons_args['perpose'] = 'activate';
-            $wpt_ultraaddons_notice = true;
-        }
-        
-        if( $wpt_ultraaddons_notice ){
-            add_action( 'admin_notices', [ $this, 'ultraaddons_notice' ] );
-        }
+//        $wpt_ultraaddons_notice = false;
+//        //UltraAddons Plugin Recommendation
+//        $plugin = 'ultraaddons-elementor-lite/init.php';
+//        $link_text = '<strong><a href="' . esc_url( 'https://wordpress.org/plugins/ultraaddons-elementor-lite/' ) . '" target="_blank">' . esc_html__( 'Quantity Plus/Minus Button for WooCommerce', 'wpt_pro' ) . '</a></strong>';
+//        
+//        if( ! isset( $installed_plugins[$plugin] ) ) {
+//            $wpt_ultraaddons_notice = true;
+//            
+//        }else if( isset( $installed_plugins[$plugin] ) && ! is_plugin_active( $plugin ) ){
+//            self::$ultraaddons_args['perpose'] = 'activate';
+//            $wpt_ultraaddons_notice = true;
+//        }
+//        
+//        if( $wpt_ultraaddons_notice ){
+//            add_action( 'admin_notices', [ $this, 'ultraaddons_notice' ] );
+//        }
 
         include_once $this->path('BASE_DIR','modules/elementor.php'); //Elementor Widget for Table using Elementor
     }   
