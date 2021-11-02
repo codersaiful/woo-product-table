@@ -156,7 +156,7 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
             <h3 class="with-background dark-background"><?php esc_html_e( 'Basic Settings', 'wpt_pro' );?></h3>
             <table class="ultraaddons-table">
                 <tbody>
-                    <tr class="table_disable_plugin_noti">
+                    <tr class="table_disable_plugin_noti" style="display:none;">
                         <th>
                             <label class="wpt_label wpt_disable_plugin_noti" for="wpt_disable_plugin_noti"><?php esc_html_e( 'Plugin Recommendation', 'wpt_pro' );?></label>
                         </th>
