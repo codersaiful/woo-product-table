@@ -246,7 +246,7 @@
                         eachNoticeInnter.fadeIn();  
                         setTimeout(function(){
                             eachNoticeInnter.fadeOut();
-                            eachNoticeInnter.remove();
+                            eachNoticeInnter.remove(); 
                         },3000)
                     }
                 },
