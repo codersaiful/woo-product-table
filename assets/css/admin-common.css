@@ -19,7 +19,8 @@
     font-weight: 500;
 }
 .ultraaddons .with-background, .ultraaddons-panel .with-background {
-    background: #f4f4f4;
+    background: #007694;
+    color: white;
     padding: 33px;
     margin-top: -35px;
     margin-left: -20px;
@@ -427,9 +428,6 @@ h1.with-background.dark-background {}
     content: "";
     display: block;
     clear: both;
-}
-body.wpt_admin_body .ultraaddons .warning {
-    color: #dd5500;
 }
 
 /* Responsive Design Starts */

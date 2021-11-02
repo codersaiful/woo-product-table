@@ -425,7 +425,6 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
             $args = wpt_get_agrs_for_variable( $args, $post_include );
         }
         
-        
         /**
          * @Hook wpto_table_query_args to customize Query Args from any plugin.
          * Available Data/VAriable are: $args, $atts, $table_ID
@@ -890,10 +889,6 @@ if( !function_exists( 'wpt_table_row_generator' ) ){
         $column_array = apply_filters( 'wpto_column_arr', $column_array, $table_ID, null, $column_settings, $table_column_keywords ); //Added at 2.9.8
         $column_settings = apply_filters( 'wpto_column_settings', $column_settings, $table_ID, $table_column_keywords ); //Added at 6.0.25 
         
-        $product_type = isset( $basics['product_type'] ) && $basics['product_type'] == 'product_variation' ? true : false;
-        if( $product_type ){
-            $args = wpt_get_agrs_for_variable( $args );
-        }
         
         /**
          * Adding Filter for Args inside Row Generator
