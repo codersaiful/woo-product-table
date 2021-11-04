@@ -239,24 +239,16 @@
                     action: 'wpt_print_notice'
                 },
                 success: function(response){
+                    var eachNoticeInnter = $(response);
+                    eachNoticeInnter.css('display','none');
                     if(response !== ''){
-                        noticeBoard.html(response);
-                        var boardHeight = noticeBoard.height();
-                        var boardWidth = noticeBoard.width();
-                        var windowHeight = $(window).height();
-                        var windowWidth = $(window).width();
-                        var topCal = (windowHeight - (boardHeight + 20))/2;
-                        var leftCal = (windowWidth - (boardWidth + 20))/2;
-                        noticeBoard.css({
-                            top: topCal + 'px',
-                            left: leftCal + 'px',
-                        });                        
-                        noticeBoard.fadeIn('slow');
+                        noticeBoard.prepend(eachNoticeInnter);
+                        eachNoticeInnter.fadeIn();  
+                        setTimeout(function(){
+                            eachNoticeInnter.fadeOut();
+                            eachNoticeInnter.remove(); 
+                        },3000)
                     }
-                    var myTimeOut = setTimeout(function(){
-                        noticeBoard.fadeOut('medium');
-                        clearTimeout(myTimeOut);
-                    },2000);
                 },
                 error: function(){
                     console.log("Unable to load Notice");
@@ -266,7 +258,7 @@
             
         }
         
-        $('body').on('click','div.wpt_notice_board',function(){
+        $('body').on('click','div.wpt_notice_board>div',function(){
             $(this).fadeOut('fast');
         });
         

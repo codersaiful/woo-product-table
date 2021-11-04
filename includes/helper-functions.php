@@ -46,12 +46,7 @@ if( !function_exists( 'wpt_ajax_paginate_links_load' ) ){
 
         $args = $targetTableArgs['args'];
         $args['wpt_query_type'] = 'search';//Added on 6.0.3 - 12.6.2020
-        ###global $wpdb;
-        ###var_dump($wpdb['last_query']);
-        ###echo '<pre>';
-        ###print_r($wpdb['last_query']);
-        ###echo '</pre>';
-        
+ 
         $table_ID = $args['table_ID'];
         $search_from = get_post_meta( $table_ID, 'search_n_filter', true );
 
@@ -65,50 +60,14 @@ if( !function_exists( 'wpt_ajax_paginate_links_load' ) ){
             $args['wpt_custom_search'] = $search_key; //XSS OK //Already sanitized as text field
             $args['s'] = $search_key; //XSS OK //Already sanitized as text field
 
-        if( !empty($search_key) && $search_from){
-            $args['wpt_custom_search'] = $search_key;//XSS OK
-            $args['s'] = false;
-        }elseif(!empty($search_key) && !$search_from){
-            $args['wpt_custom_search'] = false;
-            $args['s'] = $search_key; //XSS OK
-        }
-            //$args['orderby'] = ( isset( $directkey['orderby'] ) ? $directkey['orderby'] : false );
-            //$args['order'] = ( isset( $directkey['order'] ) ? $directkey['order'] : false );
-            /**
-             * Texonomy Handle
-             */
-            /*
-            //unset($args['tax_query']);
-            if( is_array( $texonomies ) && count( $texonomies ) > 0 ){
-                foreach( $texonomies as $texonomie_key => $texonomie ){
-                    if(is_array( $texonomie ) && count( $texonomie ) > 0 ){
-                        $args['tax_query'][] = array(
-                            'taxonomy' => $texonomie_key,
-                            'field' => 'id',
-                            'terms' => $texonomie,
-                            'operator' => 'IN'
-                        );
-                    }
-                }
+            if( !empty($search_key) && $search_from){
+                $args['wpt_custom_search'] = $search_key;//XSS OK
+                $args['s'] = false;
+            }elseif(!empty($search_key) && !$search_from){
+                $args['wpt_custom_search'] = false;
+                $args['s'] = $search_key; //XSS OK
             }
-            $args['tax_query']['relation'] = 'AND';
-
-            */
-
-            /*
-              //unset($args['meta_query']);
-            if( is_array( $custom_field ) && count( $custom_field ) > 0 ){
-                foreach( $custom_field as $custom_field_key => $custom_field_value ){
-                    if(is_array( $texonomie ) && count( $texonomie ) > 0 ){
-                        $args['meta_query'][] = array(
-                            'key' => $custom_field_key,
-                            'value' => $custom_field_value,
-                        );
-                    }
-                }
-                $args['meta_query']['relation'] ='AND';
-            }
-            */
+            
         }
 
         /**
@@ -138,18 +97,16 @@ if( !function_exists( 'wpt_ajax_paginate_links_load' ) ){
         $checkbox                 = $targetTableArgs['checkbox'];
 
         
+        
         /**
-         * For Search, we will remove post per page
-         * and will set unlimited 
+         * Args fixer
          * 
-         * I have checked it based on search key
+         * @since 3.0.2.1
          */
-        if( ! empty( $search_key ) && $search_from ){
-            $args['posts_per_page'] = '-1';
-        }else{
-            $conditions = get_post_meta( $table_ID, 'conditions', true );
-            $args['posts_per_page'] = (int) $conditions['posts_per_page'];
+        if(isset( $args['s'] ) && $args['s'] == 'false'){
+            $args['s'] = false;
         }
+        $args['posts_per_page'] = is_numeric( $args['posts_per_page'] ) ? (int) $args['posts_per_page'] : $args['posts_per_page'];
         
         $table_row_generator_array = array(
             'args'                      => $args,
@@ -231,61 +188,16 @@ if( !function_exists( 'wpt_ajax_table_row_load' ) ){
         if( !$load_type ){
 
         
-        $args['wpt_custom_search'] = $search_key; //XSS ok
-        $args['s'] = $search_key; //XSS ok
-
-        if( !empty($search_key) && $search_from){
             $args['wpt_custom_search'] = $search_key; //XSS ok
-            $args['s'] = false;
-        }elseif(!empty($search_key) && !$search_from){
-            $args['wpt_custom_search'] = false;
             $args['s'] = $search_key; //XSS ok
-        }
 
-
-        //var_dump($search_from);
-        //var_dump($args);
-
-
-            //$args['orderby'] = ( isset( $directkey['orderby'] ) ? $directkey['orderby'] : false );
-            //$args['order'] = ( isset( $directkey['order'] ) ? $directkey['order'] : false );
-            //$args['custom_field'] = ( isset( $directkey['custom_field'] ) ? $directkey['custom_field'] : false );
-            /**
-             * Texonomy Handle
-             */
-            //unset($args['tax_query']);
-            /*
-            if( is_array( $texonomies ) && count( $texonomies ) > 0 ){
-                foreach( $texonomies as $texonomie_key => $texonomie ){
-                    if(is_array( $texonomie ) && count( $texonomie ) > 0 ){
-                        $args['tax_query'][] = array(
-                            'taxonomy' => $texonomie_key,
-                            'field' => 'id',
-                            'terms' => $texonomie,
-                            'operator' => 'IN'
-                        );
-                    }
-                }
+            if( !empty($search_key) && $search_from){
+                $args['wpt_custom_search'] = $search_key; //XSS ok
+                $args['s'] = false;
+            }elseif(!empty($search_key) && !$search_from){
+                $args['wpt_custom_search'] = false;
+                $args['s'] = $search_key; //XSS ok
             }
-            */
-            //$args['tax_query']['relation'] = 'AND';
-
-
-            /*
-              //unset($args['meta_query']);
-            if( is_array( $custom_field ) && count( $custom_field ) > 0 ){
-                foreach( $custom_field as $custom_field_key => $custom_field_value ){
-                    if(is_array( $custom_field ) && count( $custom_field ) > 0 ){
-                        $args['meta_query'][] = array(
-                            'key' => $custom_field_key,
-                            'value' => $custom_field_value,
-                        );
-                    }
-                }
-                $args['meta_query']['relation'] ='AND';
-            }
-            */
-
 
         }
         
@@ -315,18 +227,8 @@ if( !function_exists( 'wpt_ajax_table_row_load' ) ){
         $table_type           = $targetTableArgs['table_type'];
         $checkbox                 = $targetTableArgs['checkbox'];
 
-        /**
-         * For Search, we will remove post per page
-         * and will set unlimited 
-         * 
-         * I have checked it based on search key
-         */
-
-        if( ! empty( $search_key ) && $search_from ){
-            $args['posts_per_page'] = '-1';
-        }else{
-            $conditions = get_post_meta( $args['table_ID'], 'conditions', true );
-            $args['posts_per_page'] = (int) $conditions['posts_per_page'];
+        if(isset( $args['s'] ) && $args['s'] == 'false'){
+            $args['s'] = false;
         }
    
         $table_row_generator_array = array(

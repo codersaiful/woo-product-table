@@ -894,7 +894,17 @@ if( !function_exists( 'wpt_table_row_generator' ) ){
          * Adding Filter for Args inside Row Generator
          */
         $args = apply_filters( 'wpto_table_query_args_in_row', $args, $table_ID, false, $column_settings, false, false );
-
+       
+        /**
+         * Args fixer
+         * 
+         * @since 3.0.2.1
+         */
+        if(isset( $args['s'] ) && $args['s'] == 'false'){
+            $args['s'] = false;
+        }
+        
+        $args['posts_per_page'] = is_numeric( $args['posts_per_page'] ) ? (int) $args['posts_per_page'] : $args['posts_per_page'];
         
         $product_loop = new WP_Query($args);
         $product_loop = apply_filters( 'wpto_product_loop', $product_loop, $table_ID, $args );

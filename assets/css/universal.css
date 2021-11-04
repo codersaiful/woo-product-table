@@ -851,25 +851,47 @@ div.wpt_product_table_wrapper.woocommerce {
     box-sizing: border-box;
     display: block;
 }
-div.wpt_notice_board{    
-    background: #ffffff;
-    width: 95%;
-    min-height: 30px;
+div.wpt_notice_board {
+    
+    width: 400px;
+    min-height: 1px;
     z-index: 999999;
     position: fixed;
-    top: 33%;
-    left: 33%;
-    box-shadow: -4px 4px 9px 0px #00000085;
+    
     border-radius: 3px;
     text-align: center;
     padding: 4px;
-    max-width: 800px;
-    cursor: none;
-    display: none;
+    cursor: pointer;
+    top: unset;
+    left: 10px;
+    bottom: 10px;
+    max-width: 100%;
+    display: block;
 }
+
 div.wpt_notice_board>div {
+    /* box-shadow: -4px 4px 9px 0px #00000085; */
     margin-bottom: 10px !important;
+    border: 0 none;
 }
+div.wpt_notice_board>div,
+div.wpt_notice_board>div.woocommerce-message {
+    text-align: left;
+    box-shadow: 0px 3px 5px -1px rgb(0 0 0 / 20%), 0px 6px 10px 0px rgb(0 0 0 / 14%), 0px 1px 18px 0px rgb(0 0 0 / 12%);
+    background: #4caf50;
+    color: white;
+}
+div.wpt_notice_board>div.woocommerce-error{
+    background: #e41b57;
+}
+div.wpt_notice_board>div.woocommerce-error{
+    background: #4caf50;
+}
+div.wpt_notice_board>div.woocommerce-error{
+    background: #065008;
+}
+
+
 div.wpt_notice_board .woocommerce-error, 
 div.wpt_notice_board .woocommerce-info, 
 div.wpt_notice_board .woocommerce-message, 
@@ -878,6 +900,25 @@ div.wpt_notice_board p.no-comments {
     padding: .5em .618em;
     margin-bottom: 2px;
 }
+div.wpt_notice_board>div:before{content: "";display: none;}
+
+div.wpt_notice_board>div:after {
+    content: "x";
+    position: absolute;
+    right: 7px;
+    top: 7px;
+    background: #00000040;
+    width: 25px;
+    height: 20px;
+    overflow: hidden;
+    font-size: 8px;
+    text-align: center;
+    padding-top: 5px;
+}
+div.wpt_notice_board>div:hover:after {
+    background: #0000005e;
+}
+
 /***Nes CSS 3.8 End****/
 
 /*CSS Style for Attribute Start*/
@@ -1685,11 +1726,6 @@ a.search_box_reset:focus,
     display: none;
 }
 
-.wpt_product_table_wrapper .select2-container--default .select2-selection--multiple .select2-selection__rendered,
-.wpt_product_table_wrapper .select2-container--default.select2-container--focus .select2-selection--multiple{
-    /* padding-left: 10px !important; */
-/*    padding-right: 12px !important;*/
-}
 .wpt_table_body .select2-container--open .select2-dropdown {
     top: 32px;
 }
