@@ -1664,5 +1664,6 @@ if( defined('B2BKINGCORE_DIR') && !function_exists( 'wpt_b2bking_plugin_integrat
 
         return $args;
     }
+
+    add_filter( 'wpto_table_query_args', 'wpt_b2bking_plugin_integration' );
 }
-add_filter( 'wpto_table_query_args', 'wpt_b2bking_plugin_integration' );
