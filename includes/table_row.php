@@ -139,19 +139,18 @@ foreach( $table_column_keywords as $keyword => $keyword_title ){
 
             $tag = isset( $column_settings[$keyword]['tag'] ) && !empty( $column_settings[$keyword]['tag'] ) ? $column_settings[$keyword]['tag'] : 'div';
             $tag_class = isset( $column_settings[$keyword]['tag_class'] ) && !empty( $column_settings[$keyword]['tag_class'] ) ? $column_settings[$keyword]['tag_class'] : '';
-
+            
             //*****************************FILE INCLUDING HERE
             $enable_label_in_small_devise = isset( $design['tr.wpt_table_head th']['auto-responsive-column-label'] ) && !empty( $design['tr.wpt_table_head th']['auto-responsive-column-label'] ) ? $design['tr.wpt_table_head th']['auto-responsive-column-label'] : false;
 
             $data_title = '';
             if( $enable_label_in_small_devise ){
-                if( $enable_label_in_small_devise == 'show' && isset( $column_settings[$keyword_title]['auto_responsive_column_label_show'] ) && $column_settings[$keyword_title]['auto_responsive_column_label_show'] == 'on' && $keyword != 'check' ){
+                if( $enable_label_in_small_devise == 'show' && ! isset( $column_settings[$keyword_title]['auto_responsive_column_label_show'] ) && $keyword != 'check' ){
                     $data_title = $column_array[$keyword_title];
                     $tag_class .= ' autoresponsive-label-show';
                 }
             }
-            // var_dump(isset( $column_settings['auto_responsive_column_label_show'] ));
-            // var_dump($column_array[$keyword_title], $keyword_title, $column_array);
+            
             echo $tag ? "<" . esc_html( $tag ) . " "
             . "class='col_inside_tag " . esc_attr( $keyword ) . " " . esc_attr( $tag_class ) . "' "
             . "data-keyword='" . esc_attr( $keyword ) . "' "
