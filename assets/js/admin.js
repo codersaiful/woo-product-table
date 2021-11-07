@@ -806,10 +806,10 @@
             },
             success: function(data) {
                 console.log(data, 'Success');
-                //$("#poststuff #titlewrap").before(data);
+                
             },
             error: function() {
-                alert(34343);
+                console.log("Failed to send request to server.");
             },
         });
     }

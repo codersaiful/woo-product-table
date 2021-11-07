@@ -1610,3 +1610,60 @@ if( ! function_exists( 'wpt_get_agrs_for_variable' ) ){
     }
     
 }
+
+
+
+if( defined('B2BKINGCORE_DIR') && !function_exists( 'wpt_b2bking_plugin_integration' ) ){
+    
+    /**
+     * Integration with B2BKing — Ultimate WooCommerce Wholesale and B2B Solution
+     * plugin link: https://wordpress.org/plugins/b2bking-wholesale-for-woocommerce/
+     * 
+     * @since 3.0.2.0
+     * @author Saiful Islam<codersaiful@gmail.com>
+     * @author mlstolk https://github.com/mlstolk
+     * @link https://github.com/codersaiful/woo-product-table/pull/136
+     */
+    function wpt_b2bking_plugin_integration( $args ){
+
+        $user_id = get_current_user_id();
+        $b2bking_plugin_enabled = (get_user_meta($user_id, 'b2bking_b2buser', true) === 'yes');
+        
+        $meta_query = $args['meta_query'];
+
+        foreach( $meta_query as $w_key => $w_meta ){
+            
+
+            $find_key = array_search('_price', $w_meta);
+            if( $find_key ){
+                
+                // set key to use for Minimum and Maximum price query 
+                if ($b2bking_plugin_enabled){ //B2BKing
+                    $b2bking_user_group = get_user_meta($user_id, 'b2bking_customergroup', true);
+                    $query_price_key = 'b2bking_regular_product_price_group_'.$b2bking_user_group; 
+                } else {
+                    $query_price_key = '_price'; //default
+                }
+
+                $args['meta_query'][$w_key]['key'] = $query_price_key;
+
+            }
+
+        }
+
+
+        /**
+         * B2BKing: include only visible posts 
+         * (set in B2BKing user settings on either group or user level)
+         */
+        if( $b2bking_plugin_enabled ){
+            $b2bking_visible_ids = get_transient('b2bking_user_'.get_current_user_id().'_ajax_visibility');
+            $b2bking_visible_ids = $args['post__in'] && is_array( $args['post__in'] ) ? array_intersect($args['post__in'], $b2bking_visible_ids): $b2bking_visible_ids;
+            $args['post__in'] = $b2bking_visible_ids;
+        }
+
+        return $args;
+    }
+
+    add_filter( 'wpto_table_query_args', 'wpt_b2bking_plugin_integration' );
+}

@@ -596,7 +596,11 @@
                     }else{
                         $( document.body ).trigger( 'added_to_cart' ); //This will solved for fast added to cart but it will no show view cart link.
                     }
-                    
+                    $( document.body ).trigger( 'added_to_cart' ); //Trigger and sent added_to_cart event
+                    $( document.body ).trigger( 'updated_cart_totals' );
+                    $( document.body ).trigger( 'wc_fragments_refreshed' );
+                    $( document.body ).trigger( 'wc_fragments_refresh' );
+                    $( document.body ).trigger( 'wc_fragment_refresh' );
                     /**
                      * If anyone want that Quantity will not return to min qty,
                      * Then use following filter
@@ -1146,6 +1150,11 @@
                         $( document.body ).trigger( 'added_to_cart' ); //This will solved for fast added to cart but it will no show view cart link.
                     }
                     
+                    $( document.body ).trigger( 'added_to_cart' ); //Trigger and sent added_to_cart event
+                    $( document.body ).trigger( 'updated_cart_totals' );
+                    $( document.body ).trigger( 'wc_fragments_refreshed' );
+                    $( document.body ).trigger( 'wc_fragments_refresh' );
+                    $( document.body ).trigger( 'wc_fragment_refresh' );
                     
                     currentAllSelectedButtonSelector.html(add_cart_text + ' [ ' + itemAmount + ' ' + config_json.add2cart_all_added_text + ' ]');
                     if(config_json.popup_notice === '1'){
