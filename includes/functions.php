@@ -1613,7 +1613,7 @@ if( ! function_exists( 'wpt_get_agrs_for_variable' ) ){
 
 
 
-if( defined('B2BKINGCORE_DIR') && !function_exists( 'wpt_b2bking_plugin_integration' ) ){
+if( defined('B2BKING_DIR') && !function_exists( 'wpt_b2bking_plugin_integration' ) ){
     
     /**
      * Integration with B2BKing — Ultimate WooCommerce Wholesale and B2B Solution
