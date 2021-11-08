@@ -1627,39 +1627,16 @@ if( defined('B2BKINGCORE_DIR') && !function_exists( 'wpt_b2bking_plugin_integrat
     function wpt_b2bking_plugin_integration( $args ){
 
         $user_id = get_current_user_id();
-        $b2bking_plugin_enabled = (get_user_meta($user_id, 'b2bking_b2buser', true) === 'yes');
-        
-        $meta_query = $args['meta_query'];
 
-        foreach( $meta_query as $w_key => $w_meta ){
-            
+        // if b2bking visibility is enabled
+        if (intval(get_option( 'b2bking_all_products_visible_all_users_setting', 1 )) !== 1){
+            if (intval(get_option('b2bking_disable_visibility_setting', 0)) === 0){
 
-            $find_key = array_search('_price', $w_meta);
-            if( $find_key ){
-                
-                // set key to use for Minimum and Maximum price query 
-                if ($b2bking_plugin_enabled){ //B2BKing
-                    $b2bking_user_group = get_user_meta($user_id, 'b2bking_customergroup', true);
-                    $query_price_key = 'b2bking_regular_product_price_group_'.$b2bking_user_group; 
-                } else {
-                    $query_price_key = '_price'; //default
-                }
-
-                $args['meta_query'][$w_key]['key'] = $query_price_key;
-
+                // set products to visible b2bking products (at group or user level)
+                $b2bking_visible_ids = get_transient('b2bking_user_'.$user_id.'_ajax_visibility');
+                $b2bking_visible_ids = $args['post__in'] && is_array( $args['post__in'] ) ? array_intersect($args['post__in'], $b2bking_visible_ids): $b2bking_visible_ids;
+                $args['post__in'] = $b2bking_visible_ids;
             }
-
-        }
-
-
-        /**
-         * B2BKing: include only visible posts 
-         * (set in B2BKing user settings on either group or user level)
-         */
-        if( $b2bking_plugin_enabled ){
-            $b2bking_visible_ids = get_transient('b2bking_user_'.get_current_user_id().'_ajax_visibility');
-            $b2bking_visible_ids = $args['post__in'] && is_array( $args['post__in'] ) ? array_intersect($args['post__in'], $b2bking_visible_ids): $b2bking_visible_ids;
-            $args['post__in'] = $b2bking_visible_ids;
         }
 
         return $args;
