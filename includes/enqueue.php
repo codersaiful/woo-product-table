@@ -66,6 +66,7 @@ if( !function_exists( 'wpt_enqueue' ) ){
            'return_zero'    => apply_filters( 'wpto_qty_return_zero', false ),
            'return_quanity' => apply_filters( 'wpto_qty_return_quanity', true ),
            'search_select_placeholder' => esc_html__( 'Select inner Item.', 'wpt_pro' ),
+           'notice_timeout' => 3000,
            );
        $WPT_DATA = apply_filters( 'wpto_localize_data', $WPT_DATA );
        wp_localize_script( 'wpt-custom-js', 'WPT_DATA', $WPT_DATA );

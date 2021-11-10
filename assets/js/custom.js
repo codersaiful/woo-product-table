@@ -7,8 +7,10 @@
 (function($) {
     'use strict';
     $(document).ready(function() {
-        
-       
+        var notice_timeout = 3000; //In mili second
+        if(WPT_DATA.notice_timeout){
+            notice_timeout = WPT_DATA.notice_timeout;
+        }
         
         //Select2
         if(typeof $('.wpt_product_table_wrapper .search_select').select2 === 'function' && $('.wpt_product_table_wrapper .search_select').length > 0 && WPT_DATA.select2 !== 'disable' ){
@@ -247,7 +249,7 @@
                         setTimeout(function(){
                             eachNoticeInnter.fadeOut();
                             eachNoticeInnter.remove(); 
-                        },3000)
+                        },notice_timeout); //Detault 3000
                     }
                 },
                 error: function(){
@@ -2016,7 +2018,6 @@
                         tax = tax.split(',');
                         tax.forEach(function(item){
                             item = item.trimStart(" ");
-                            console.log(item);
                             var taxDetails = item.split(':');
                             var taxID = taxDetails[0];
                             var taxValue = taxDetails[1];
@@ -2184,26 +2185,19 @@
      * Start code for Advance Version
      * Version: 5.3
      */
-    function Advance_NoticeBoard(notice){
+    function Advance_NoticeBoard(response){
+
         var noticeBoard = $('div.wpt_notice_board');
-         if(notice !== ''){
-            noticeBoard.append(notice);
-            var boardHeight = noticeBoard.height();
-            var boardWidth = noticeBoard.width();
-            var windowHeight = $(window).height();
-            var windowWidth = $(window).width();
-            var topCal = (windowHeight - (boardHeight + 20))/2;
-            var leftCal = (windowWidth - (boardWidth + 20))/2;
-            noticeBoard.css({
-                top: topCal + 'px',
-                left: leftCal + 'px',
-            });                        
-            noticeBoard.fadeIn('slow');
+        var eachNoticeInnter = $(response);
+        eachNoticeInnter.css('display','none');
+        if(response !== ''){
+            noticeBoard.prepend(eachNoticeInnter);
+            eachNoticeInnter.fadeIn();  
+            setTimeout(function(){
+                eachNoticeInnter.fadeOut();
+                eachNoticeInnter.remove(); 
+            },notice_timeout);//Default 3000
         }
-        var myTimeOut = setTimeout(function(){
-            noticeBoard.fadeOut('medium');
-            clearTimeout(myTimeOut);
-        },2000);
     }
     function WPT_BlankNotice(){
         var noticeBoard = $('div.wpt_notice_board');
