@@ -2002,6 +2002,7 @@
                 var temp_number = $(this).data('temp_number');
                 var config_json = getConfig_json( temp_number );
                 var key =  $(this).data('key');
+                //console.log(key);
                 var label =  $(this).data('label');
                 var taxArray = new Array();
                 var taxValArray = new Array();
@@ -2013,8 +2014,9 @@
                         tax = tax.replace(/\s/g, ' ');
 
                         tax = tax.split(',');
-
                         tax.forEach(function(item){
+                            item = item.trimStart(" ");
+                            console.log(item);
                             var taxDetails = item.split(':');
                             var taxID = taxDetails[0];
                             var taxValue = taxDetails[1];
