@@ -39,7 +39,7 @@ function wpt_admin_notice_user_rating_rq(){
  * @since 3.0.2.0
  * @by Saiful Islam
  */
-function wpt_admin_notice_display( $day = 20){
+function wpt_admin_notice_display( $day = 40){
     $limit_time_sec = $day * 24 * 60 * 60;
     
     $today = time();
