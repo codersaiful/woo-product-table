@@ -1308,10 +1308,10 @@ if( !function_exists( 'wpt_add_td_class' ) ){
     function wpt_add_td_class( $class_arr, $keyword, $table_ID, $args, $column_settings ){
         if( isset( $column_settings[$keyword] ) && is_array( $column_settings[$keyword] ) ){
             foreach( $column_settings[$keyword] as $key=>$eachClass ){
-                $class_arr[] = is_string( $eachClass ) && $key !== 'tag_class' && $key !== 'style_str' ? str_replace(' ','-', $key . '_' . $eachClass) : false;
+                $class_arr[] = is_string( $eachClass ) && $key !== 'content' && $key !== 'tag_class' && $key !== 'style_str' ? str_replace(' ','-', $key . '_' . $eachClass) : false;
             }
         }
-        $class_arr = array_filter( $class_arr );
+        $class_arr = array_filter( (array) $class_arr );
         return $class_arr;
     }
 }
