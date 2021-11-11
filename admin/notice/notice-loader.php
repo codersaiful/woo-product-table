@@ -39,7 +39,7 @@ function wpt_admin_notice_user_rating_rq(){
  * @since 3.0.2.0
  * @by Saiful Islam
  */
-function wpt_admin_notice_display( $day = 20){
+function wpt_admin_notice_display( $day = 40){
     $limit_time_sec = $day * 24 * 60 * 60;
     
     $today = time();
@@ -85,13 +85,23 @@ function wpt_admin_update_notice_option(){
         /**
          * Value will executive using callback function or diirect value
          */
-        $final_value = $callback && function_exists( $callback ) ? $callback( $option_value ) : $option_value;
+        if( !empty( $option_value ) ){
+            $final_value = $callback && function_exists( $callback ) ? $callback( $option_value ) : $option_value;
+        }else{
+            $final_value = $callback && function_exists( $callback ) ? $callback() : $option_value;
+        }
 
         update_option( $option_key, $final_value );
         echo 'updated';
     }elseif( $perpose == 'get' ){
         $output = get_option( $option_key );
-        $final_output = $callback && function_exists( $callback ) ? $callback( $output ) : $output;
+
+        if( ! empty( $output ) ){
+            $final_output = $callback && function_exists( $callback ) ? $callback( $output ) : $output;
+        }else{
+            $final_output = $callback && function_exists( $callback ) ? $callback() : $output;
+        }
+        
         echo $final_output;
     }
     die();

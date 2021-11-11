@@ -775,9 +775,9 @@
             e.preventDefault();
             var response = $(this).data('response');
             if(response === 'rating-later'){
-                option_value = '-10 days';
+                option_value = '10 days';
             }else if(response === 'rating-already'){
-                option_value = '+40 days';
+                option_value = '+50 days';
             }
             callback = 'strtotime'; //it s a php function, use time for time() function //when test strtotime
             
