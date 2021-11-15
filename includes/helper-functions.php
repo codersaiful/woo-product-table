@@ -269,6 +269,7 @@ if( !function_exists( 'wpt_ajax_add_to_cart' ) ){
     function wpt_ajax_add_to_cart() {
 
         $data = filter_input_array( INPUT_POST );
+        
         $data = array_filter( $data );
         
         $product_id     = ( isset($data['product_id']) && !empty( $data['product_id']) ? absint( $data['product_id'] ) : false );
@@ -276,6 +277,7 @@ if( !function_exists( 'wpt_ajax_add_to_cart' ) ){
         $variation_id   = ( isset($data['variation_id']) && !empty( $data['variation_id']) ? absint( $data['variation_id'] ) : false );
         $variation      = ( isset($data['variation']) && !empty( $data['variation']) ? sanitize_text_field( $data['variation'] ) : false );
         $custom_message = ( isset($data['custom_message']) && !empty( $data['custom_message']) ? sanitize_text_field( $data['custom_message'] ) : false );
+        $additinal_json = ( isset($data['additional_json']) && !empty( $data['additional_json']) ? $data['additional_json'] : false );
 
         //$string_for_var = '_var' . implode('_', $variation) . '_';
 
@@ -292,6 +294,8 @@ if( !function_exists( 'wpt_ajax_add_to_cart' ) ){
                 // below statement make sure every add to cart action as unique line item
             $cart_item_data['unique_key'] = md5( $product_id . $variation_id . '_' .$custom_message );
         }
+
+        $cart_item_data = apply_filters('wpto_cart_meta_by_additional_json', $cart_item_data, $additinal_json, $product_id, $quantity, $variation_id);
 
         wpt_adding_to_cart( $product_id, $quantity, $variation_id, $variation, $cart_item_data );
         wpt_fragment_refresh();
@@ -392,6 +396,8 @@ if( !function_exists( 'wpt_adding_to_cart' ) ){
      * @return Void
      */
     function wpt_adding_to_cart( $product_id = 0, $quantity = 1, $variation_id = 0, $variation = array(), $cart_item_data = array() ){
+
+        $cart_item_data = apply_filters('wpto_adding_time_cart_meta', $cart_item_data, $product_id, $quantity, $variation_id);
 
         $validation = apply_filters( 'woocommerce_add_to_cart_validation', true, $product_id, $quantity, $variation_id, $variation, $cart_item_data );     
         if( $validation && WC()->cart->add_to_cart( $product_id, $quantity, $variation_id, $variation, $cart_item_data ) ){

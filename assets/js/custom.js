@@ -552,6 +552,9 @@
             
             var get_data = $(this).attr('href') + '&quantity=' + quantity;
             
+            var additional_json = $('#table_id_' + temp_number + ' table#wpt_table tr.wpt_row_product_id_' + product_id).attr('additional_json');
+
+
             $.ajax({
                 type: 'POST',
                 url: ajax_url,// + get_data,
@@ -562,6 +565,7 @@
                     product_id: product_id,
                     quantity:   quantity,
                     custom_message: custom_message,
+                    additional_json: additional_json,
                 },
                 complete: function(){
                     $( document ).trigger( 'wc_fragment_refresh' );
@@ -571,7 +575,8 @@
                     $('.wpt_row_product_id_' + product_id + ' .input-text').trigger('change');
                 },
                 success: function(response) {
-                    
+
+
                     thisButton.removeClass('disabled');
                     thisButton.removeClass('loading');
                     thisButton.addClass('added');
