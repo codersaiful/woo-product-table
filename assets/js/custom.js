@@ -576,7 +576,6 @@
                 },
                 success: function(response) {
 
-
                     thisButton.removeClass('disabled');
                     thisButton.removeClass('loading');
                     thisButton.addClass('added');

@@ -295,7 +295,7 @@ if( !function_exists( 'wpt_ajax_add_to_cart' ) ){
             $cart_item_data['unique_key'] = md5( $product_id . $variation_id . '_' .$custom_message );
         }
 
-        $cart_item_data = apply_filters('wpto_cart_meta_by_additional_json', $cart_item_data, $additinal_json, $product_id, $quantity, $variation_id);
+        $cart_item_data = apply_filters('wpto_cart_meta_by_additional_json', $cart_item_data, $additinal_json, $product_id, $data);
 
         wpt_adding_to_cart( $product_id, $quantity, $variation_id, $variation, $cart_item_data );
         wpt_fragment_refresh();
@@ -445,6 +445,8 @@ if( !function_exists( 'wpt_adding_to_cart_multiple_items' ) ){
 
                 //Added at @Since 1.9
                 $custom_message = ( isset($product['custom_message']) && !empty( $product['custom_message'] ) ? $product['custom_message'] : false );
+                $additinal_json = ( isset($product['additional_json']) && !empty( $product['additional_json']) ? $product['additional_json'] : false );
+
 
 
 
@@ -466,6 +468,9 @@ if( !function_exists( 'wpt_adding_to_cart_multiple_items' ) ){
                         // below statement make sure every add to cart action as unique line item
                     $cart_item_data['unique_key'] = md5( $product_id . $string_for_var . '_' .$custom_message );
                 }
+
+                $cart_item_data = apply_filters('wpto_cart_meta_by_additional_json', $cart_item_data, $additinal_json, $product_id, $product);
+
                 wpt_adding_to_cart( $product_id, $quantity, $variation_id, $variation, $cart_item_data );
                 $serial++;
             }
