@@ -907,7 +907,7 @@ if( !function_exists( 'wpt_table_row_generator' ) ){
         $args['posts_per_page'] = is_numeric( $args['posts_per_page'] ) ? (int) $args['posts_per_page'] : $args['posts_per_page'];
         
         $product_loop = new WP_Query($args);
-        $product_loop = apply_filters( 'wpto_product_loop', $product_loop, $table_ID, $args );
+
         /**
          * If not set any Shorting (ASC/DESC) than Post loop will Random by Shuffle()
          * @since 1.0.0 -9
@@ -915,6 +915,9 @@ if( !function_exists( 'wpt_table_row_generator' ) ){
         if ($sort == 'random') {
             shuffle($product_loop->posts);
         }
+        
+        $product_loop = apply_filters( 'wpto_product_loop', $product_loop, $table_ID, $args );
+        
         $wpt_table_row_serial = (( $args['paged'] - 1) * $args['posts_per_page']) + 1; //For giving class id for each Row as well
         if (  $product_loop->have_posts() ) : while ($product_loop->have_posts()): $product_loop->the_post();
                 global $product;
