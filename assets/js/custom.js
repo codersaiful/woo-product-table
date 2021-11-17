@@ -1550,7 +1550,7 @@
                     targetTable.attr('data-page_number',pageNumber);
                 },
                 error: function() {
-                    $(document.body).trigger('wpt_query_faild',targetTableArgs);
+                    $(document.body).trigger('wpt_query_failed',targetTableArgs);
                     console.log("Error On Ajax Query Load. Please check console. - wpt_query_search_button");
                 },
             });
