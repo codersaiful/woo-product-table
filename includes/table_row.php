@@ -1,5 +1,5 @@
 <?php
-$data_tax = apply_filters( 'wpto_table_row_attr', $data_tax, $product, $column_settings, $table_ID );
+$data_tax = apply_filters( 'wpto_table_row_attr', $data_tax, $product, $table_row_generator_array, $column_settings, $table_ID );
 
 echo "<tr role='row' "
 . "data-title='" . esc_attr( $data['name'] ) . "' "
