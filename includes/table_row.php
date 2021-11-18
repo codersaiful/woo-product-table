@@ -1,5 +1,6 @@
 <?php
-// var_dump($design, $column_array, $column_settings);
+$data_tax = apply_filters( 'wpto_table_row_attr', $data_tax, $product, $column_settings, $table_ID );
+
 echo "<tr role='row' "
 . "data-title='" . esc_attr( $data['name'] ) . "' "
         . "data-product_id='" . esc_attr( $data['id'] ) . "' "
