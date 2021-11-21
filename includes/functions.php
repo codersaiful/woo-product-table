@@ -811,7 +811,7 @@ if( !function_exists( 'wpt_customfileds_column_generator' ) ){
      * Custom Fields column generator
      * clue is: cf_
      * 
-     * @param type $item_key
+     * @param String $item_key
      * @return String
      */
     function wpt_customfileds_column_generator( $item_key ){
