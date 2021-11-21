@@ -303,7 +303,7 @@ if( !function_exists( 'wpt_column_add_extra_items' ) ){
         $items = isset( $column_settings[$keyword]['items'] ) ? $column_settings[$keyword]['items'] : array();
         $items = is_array( $items ) ? $items : array();
         $items = array_filter( $items );
-        
+        var_dump($items);
         /**
          * @Hook Filter: wpto_inside_thecked_item_arr
          * Available Args: $items, $keyword, $column_settings, $columns_array, $post
@@ -793,7 +793,7 @@ if( !function_exists( 'wpt_taxonomy_column_generator' ) ){
      * Taxonomy column generator
      * clue is: tax_
      * 
-     * @param type $item_key
+     * @param String $item_key
      * @return String
      */
     function wpt_taxonomy_column_generator( $item_key ){
