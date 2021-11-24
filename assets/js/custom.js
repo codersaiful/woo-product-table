@@ -16,12 +16,9 @@
         if(typeof $('.wpt_product_table_wrapper .search_select').select2 === 'function' && $('.wpt_product_table_wrapper .search_select').length > 0 && WPT_DATA.select2 !== 'disable' ){
             $('.wpt_product_table_wrapper .search_select.query').select2({//.query
                 placeholder: WPT_DATA.search_select_placeholder,
-                tags: true,
             });
 
-            $('select.filter_select').select2({
-                tags: true,
-            });
+            $('select.filter_select').select2();
         }
         var windowWidth = $(window).width();
 
@@ -552,6 +549,9 @@
             
             var get_data = $(this).attr('href') + '&quantity=' + quantity;
             
+            var additional_json = $('#table_id_' + temp_number + ' table#wpt_table tr.wpt_row_product_id_' + product_id).attr('additional_json');
+
+
             $.ajax({
                 type: 'POST',
                 url: ajax_url,// + get_data,
@@ -562,6 +562,7 @@
                     product_id: product_id,
                     quantity:   quantity,
                     custom_message: custom_message,
+                    additional_json: additional_json,
                 },
                 complete: function(){
                     $( document ).trigger( 'wc_fragment_refresh' );
@@ -571,7 +572,7 @@
                     $('.wpt_row_product_id_' + product_id + ' .input-text').trigger('change');
                 },
                 success: function(response) {
-                    
+
                     thisButton.removeClass('disabled');
                     thisButton.removeClass('loading');
                     thisButton.addClass('added');
@@ -1549,7 +1550,7 @@
                     targetTable.attr('data-page_number',pageNumber);
                 },
                 error: function() {
-                    $(document.body).trigger('wpt_query_faild',targetTableArgs);
+                    $(document.body).trigger('wpt_query_failed',targetTableArgs);
                     console.log("Error On Ajax Query Load. Please check console. - wpt_query_search_button");
                 },
             });

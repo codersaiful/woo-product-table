@@ -176,6 +176,44 @@ if( !function_exists( 'wpt_shortcode_configuration_metabox_render' ) ){
     }
 }
 
+/**
+ * To remove unnecessary array index,
+ * Actually when we are saving data in Database, It's saving a huge empty value
+ * 
+ * So I would like to remvoe empty array 
+ * 
+ * ************************
+ * CURRENT STATUS
+ * ************************
+ * Curently it's inactivated, I would like enable later. because, if i
+ * enable it, I have to check all situation after enable.
+ * please check in this file.
+ * 
+ * 
+ * @since 3.0.4.1
+ * 
+ *
+ * @param Array $array  Full array of submission
+ * @return Array
+ */
+function wpt_array_filter_recursive($array) {
+    foreach ($array as $key => &$value) {
+       if (empty($value)) {
+          unset($array[$key]);
+       }
+       else {
+          if (is_array($value)) {
+             $value = wpt_array_filter_recursive($value);
+             if (empty($value)) {
+                unset($array[$key]);
+             }
+          }
+       }
+    }
+ 
+    return $array;
+ }
+
 if( !function_exists( 'wpt_shortcode_configuration_metabox_save_meta' ) ){
     function wpt_shortcode_configuration_metabox_save_meta( $post_id, $post ) { // save the data
         
@@ -342,6 +380,14 @@ if( !function_exists( 'wpt_shortcode_configuration_metabox_save_meta' ) ){
         
         $submitte_data = filter_input_array( INPUT_POST, $filtar_args );
         $submitte_data = array_filter( $submitte_data );
+
+        /**
+         * To removed empty/false value from full array
+         * currently it's inactivated
+         * 
+         * @since 1.0.4.1
+         */
+        //$submitte_data = wpt_array_filter_recursive( $submitte_data );
         
         foreach( $save_tab_array as $tab ){
             

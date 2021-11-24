@@ -70,6 +70,20 @@ if( !function_exists( 'wpt_enqueue' ) ){
            );
        $WPT_DATA = apply_filters( 'wpto_localize_data', $WPT_DATA );
        wp_localize_script( 'wpt-custom-js', 'WPT_DATA', $WPT_DATA );
+
+       /**
+        * Compatible with other plugin
+        * Start here
+        * I will add functionality one by one
+        */
+
+
+        //Specially for woocommerce product addons @link https://woocommerce.com/products/product-add-ons/
+        if( defined( 'WC_PRODUCT_ADDONS_VERSION' ) ){
+            $wc_product_addons = WP_PLUGIN_URL . '/woocommerce-product-addons';
+            wp_enqueue_style( 'woocommerce-addons-css', $wc_product_addons . '/assets/css/frontend.css', array( 'dashicons' ), WC_PRODUCT_ADDONS_VERSION );
+            wp_enqueue_script( 'jquery-tiptip', WC()->plugin_url() . '/assets/js/jquery-tiptip/jquery.tipTip.min.js', array( 'jquery' ), WC_VERSION, true );
+        }
    }
 }
 add_action( 'wp_enqueue_scripts', 'wpt_enqueue', 99 );

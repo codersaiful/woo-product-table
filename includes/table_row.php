@@ -1,5 +1,6 @@
 <?php
-// var_dump($design, $column_array, $column_settings);
+$data_tax = apply_filters( 'wpto_table_row_attr', $data_tax, $product, $table_row_generator_array, $column_settings, $table_ID );
+
 echo "<tr role='row' "
 . "data-title='" . esc_attr( $data['name'] ) . "' "
         . "data-product_id='" . esc_attr( $data['id'] ) . "' "
@@ -11,6 +12,7 @@ echo "<tr role='row' "
         . "id='product_id_" . esc_attr( $data['id'] ) . "' "
         . "class='" . esc_attr( $tr_class ) . "' "
         . "data-product_variations='" . $data_product_variations . "' "
+        . "additional_json='' " //Added v3.0.4.0 When we worked for another message box
         . "{$data_tax}>"; //Data Tax has come from Taxonomy or Mini Filter
 
 
