@@ -80,7 +80,7 @@ if( !function_exists( 'wpt_enqueue' ) ){
 
         //Specially for woocommerce product addons @link https://woocommerce.com/products/product-add-ons/
         if( defined( 'WC_PRODUCT_ADDONS_VERSION' ) ){
-            $wc_product_addons = WP_PLUGIN_DIR . '/woocommerce-product-addons';
+            $wc_product_addons = WP_PLUGIN_URL . '/woocommerce-product-addons';
             wp_enqueue_style( 'woocommerce-addons-css', $wc_product_addons . '/assets/css/frontend.css', array( 'dashicons' ), WC_PRODUCT_ADDONS_VERSION );
             wp_enqueue_script( 'jquery-tiptip', WC()->plugin_url() . '/assets/js/jquery-tiptip/jquery.tipTip.min.js', array( 'jquery' ), WC_VERSION, true );
         }
