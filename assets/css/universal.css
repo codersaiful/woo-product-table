@@ -851,6 +851,8 @@ div.wpt_product_table_wrapper.woocommerce {
     box-sizing: border-box;
     display: table;
 }
+div.wpt_product_table_wrapper.woocommerce:before,div.wpt_product_table_wrapper.woocommerce:after{content: "";height:1px;width:100%;clear:both;}
+
 div.wpt_notice_board {
     
     width: 400px;
