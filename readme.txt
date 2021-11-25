@@ -211,6 +211,9 @@ You can easily show specific category products. While creating new table click o
 
 == Changelog ==
 
+= 3.0.4 =
+ * custom field display issue for variable product
+
 = 3.0.3 =
  * Fixed: Mini Filter issue (not showing all tag/taxonomy) has been fixed.
 
