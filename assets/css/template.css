@@ -433,7 +433,6 @@ table#wpt_table.wpt_product_table.business_table thead>tr>th.this_column_sorted 
     font-size: 13px;
     border-radius: 5px;
     font-weight: bold;
-    margin: 2px auto;
 }
 .wpt_action form.cart .quantity {
     display: inline-block;
