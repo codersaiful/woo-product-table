@@ -211,7 +211,7 @@ You can easily show specific category products. While creating new table click o
 
 == Changelog ==
 
-= 3.0.3 =
+= 3.0.4 =
  * custom field display issue for variable product
 
 = 3.0.3 =
