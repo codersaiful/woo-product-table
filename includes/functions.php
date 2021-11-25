@@ -303,7 +303,7 @@ if( !function_exists( 'wpt_column_add_extra_items' ) ){
         $items = isset( $column_settings[$keyword]['items'] ) ? $column_settings[$keyword]['items'] : array();
         $items = is_array( $items ) ? $items : array();
         $items = array_filter( $items );
-        var_dump($items);
+        
         /**
          * @Hook Filter: wpto_inside_thecked_item_arr
          * Available Args: $items, $keyword, $column_settings, $columns_array, $post
