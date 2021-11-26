@@ -11,7 +11,7 @@ jobs:
     - name: 🚚 Get latest code
       uses: actions/checkout@v2
     
-    - name: 📂 Sync files
+    - name: 📂 Sync files for demo.wooproducttable.com
       uses: SamKirkland/FTP-Deploy-Action@4.2.0
       with:
         server: ${{ secrets.ftp_server }}
@@ -20,7 +20,7 @@ jobs:
         server-dir: ${{ secrets.ftp_file_dir }}
 
     
-    - name: 📂 Sync files
+    - name: 📂 Sync files for try.wooproducttable.com
       uses: SamKirkland/FTP-Deploy-Action@4.2.0
       with:
         server: ${{ secrets.ftp_server }}
