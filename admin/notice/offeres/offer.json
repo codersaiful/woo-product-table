@@ -8,6 +8,10 @@
         "wrapper_css":{
             "color":"green",
             "background-color":"red"
+        },
+        "image_css":{
+            "height":"100px",
+            "width":"auto"
         }
     }
 }
