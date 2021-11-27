@@ -11,8 +11,9 @@
         function loadOfferContent(){
             let offer_json = getCookie('wpt_offer_latest');
             if( offer_json !== '' ){
-                console.log(offer_json);
+                
                 offer_json = JSON.parse(offer_json);
+                console.log(offer_json);
                 jsonToHtmlMarkup(offer_json);
 
             }else if(navigator.onLine){
