@@ -47,17 +47,21 @@
                     <img class="offer_image" src="` + image_url + `">
                 </a>`;
             }
-
+            
             if(!target_html){
                 target_html=""
             }
 
             let html = `<div class="wpt-special-offer">` + image_link_html + target_html + `</div>`;
-            if(image_css){
-                $(wrapper_class).find("img.offer_image").css(image_css);
-            }
+            
+            
             $(location_selector).prepend(html);
             $(wrapper_class).css(wrapper_css);
+
+            if(image_css){
+                console.log($(wrapper_class),image_css);
+                $(wrapper_class).find("img.offer_image").css(image_css);
+            }
         }
 
     });    
