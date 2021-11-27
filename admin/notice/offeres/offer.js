@@ -8,6 +8,7 @@
         $(document.body).on('click','h1.wp-heading-inline',function(){
             loadOfferContent();
         });
+        loadOfferContent();
 
         function loadOfferContent(){
             let url = "https://raw.githubusercontent.com/codersaiful/woo-product-table/3.0.4.2/admin/notice/offeres/offer.json";

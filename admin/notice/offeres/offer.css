@@ -4,3 +4,7 @@
     background: white;
     padding: 0;
 }
+.wpt-special-offer img.offer_image {
+    max-height: 200px;
+    width: auto;
+}

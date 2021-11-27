@@ -7,7 +7,7 @@
         "target_html": false,
         "wrapper_css":{
             "color":"green",
-            "background-color":"red"
+            "background-color":"#240202"
         },
         "image_css":{
             "height":"100px",
