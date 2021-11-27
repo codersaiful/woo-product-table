@@ -1,10 +1,13 @@
 .wpt-special-offer {
     margin-top: 15px;
-    display: block;
+    
     background: white;
     padding: 0;
 }
 .wpt-special-offer img.offer_image {
     max-height: 200px;
     width: auto;
+}
+a.offer_image_link {
+    display: block;
 }
