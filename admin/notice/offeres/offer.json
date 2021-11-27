@@ -1,6 +1,9 @@
 {
     "offer": {
-        "link": "https://codecanyon.net/item/woo-product-table-pro/20676867",
-        "image_url": ""
+        "target_link": "https://codecanyon.net/item/woo-product-table-pro/20676867",
+        "image_url": "https://raw.githubusercontent.com/codersaiful/woo-product-table/3.0.4.2/admin/notice/offeres/images/Black-Friday.png",
+        "display_to": "#wpbody-content",
+        "display_wrapper": ".wpt_admin_body",
+        "target_html": false
     }
 }
