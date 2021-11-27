@@ -13,7 +13,6 @@
             if( offer_json !== '' ){
                 
                 offer_json = JSON.parse(offer_json);
-                console.log(offer_json);
                 jsonToHtmlMarkup(offer_json);
 
             }else if(navigator.onLine){
