@@ -23,7 +23,7 @@
         }
 
         function loadContentByAjax(){
-            let url = "https://raw.githubusercontent.com/codersaiful/woo-product-table/3.0.4.2/admin/notice/offeres/offer.json";
+            let url = "https://raw.githubusercontent.com/codersaiful/woo-product-table/master/admin/notice/offeres/offer.json";
             $.ajax({
                 url: url,
                 method: "GET",
