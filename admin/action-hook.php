@@ -172,6 +172,31 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
                         </td>
                     </tr>
 
+                    
+
+                    <tr>
+                        <th>
+                            <label class="wpt_label wpt_user_rating_notice" for="wpt_table_head_enable"><?php esc_html_e( 'Disable Rating Notice', 'wpt_pro' );?></label>
+                        </th>
+                        <td>
+                            <label class="switch">
+                                <input  name="data[disable_rating_notice]" type="checkbox" id="wpt_user_rating_notice" <?php echo isset( $current_config_value['disable_rating_notice'] ) ? 'checked="checked"' : ''; ?>>
+                                <div class="slider round"><!--ADDED HTML -->
+                                    <span class="on">On</span><span class="off">Off</span><!--END-->
+                                </div>
+                            </label>   
+                            <?php if( isset( $current_config_value['disable_rating_notice'] ) ){ 
+                                
+                                wpt_admin_notice_html_markup( 'wpt-notice wpt-user-rating-notice', false );
+                            }else{ ?>        
+                            <p><?php echo esc_html( 'To disable permanently user notice for all page.', 'wpt_pro' ); ?></p> 
+                            <?php } ?>
+                        </td>
+                    </tr>
+
+
+
+
                     <tr>
                         <th><label class="wpt_label" for="wpt_table_custom_add_to_cart"><?php esc_html_e( 'Add to Cart Icon', 'wpt_pro' ); ?></label></th>
                         <td>

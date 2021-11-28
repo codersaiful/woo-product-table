@@ -7,13 +7,16 @@
 
         let wrapper_class = '.wpt-special-offer';
         loadOfferContent();
+
+        $(document.body).on('click','h1.wp-heading-inline',function(){
+            loadContentByAjax();
+        });
         
         function loadOfferContent(){
             let offer_json = getCookie('wpt_offer_latest');
             if( offer_json !== '' ){
                 
                 offer_json = JSON.parse(offer_json);
-                console.log(offer_json);
                 jsonToHtmlMarkup(offer_json);
 
             }else if(navigator.onLine){
@@ -46,6 +49,7 @@
                 return;
             }
             let offer = result.offer,
+            target_function = offer.target_function,
             image_url = offer.image_url,
             target_link = offer.target_link,
             target_html = offer.target_html,
@@ -70,8 +74,20 @@
 
             let html = `<div class="wpt-special-offer">` + image_link_html + target_html + `</div>`;
             
+            if( !target_function ){
+                target_function = 'prepend'
+            }
+
+            if( target_function === 'prepend' ){
+                $(location_selector).prepend(html);
+            }else if(target_function === 'append'){
+                $(location_selector).append(html);
+            }else if(target_function === 'html'){
+                $(location_selector).html(html);
+            }else{
+                $(location_selector).prepend(html);
+            }
             
-            $(location_selector).prepend(html);
             $(wrapper_class).css(wrapper_css);
 
             if(image_css){
