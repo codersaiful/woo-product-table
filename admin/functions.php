@@ -1,6 +1,32 @@
 <?php
 
-
+function wpt_admin_notice_html_markup( $wrapper_class = "notice notice-success is-dismissible wpt-notice wpt-user-rating-notice", $other_links = true ){
+?>
+    <div class="<?php echo esc_attr( $wrapper_class ); ?>">
+        <p>
+            <?php
+    //        var_dump(date('s:h d M, Y', get_option( 'wpt_user_rating_notice' )));
+    //        var_dump(date('s:h d M, Y', time()));
+            ?>
+            Hey, we noticed you've been using <strong>Product Table for WooCommerce(wooproducttable)</strong> for  a long time - that's awesome.<br>
+            Could you please do us a <strong>BIG Favor</strong> and give it a rating on WordPress.org to help us spread the word and boost our motivation?
+        </p>
+        <p>
+            <strong>Saiful Islam</strong><br>
+            Author of Woo Product Table<br>
+            <strong>CEO</strong> of CodeAstrology
+        </p>
+        <p class="do-rating-area">
+            <a class="" data-response='rating' href="https://wordpress.org/support/plugin/woo-product-table/reviews/#new-post" target="_blank"><strong>Yes, you deserve it</strong></a>
+            <?php if($other_links){ ?>
+            <br>
+            <a data-response='rating-later'>No, May be later</a><br>
+            <a data-response='rating-already'>I already did</a>
+            <?php } ?>
+        </p>
+    </div>    
+<?php
+}
 
 if( !function_exists( 'wpt_admin_body_class' ) ){
     /**

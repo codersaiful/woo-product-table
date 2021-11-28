@@ -211,6 +211,9 @@ You can easily show specific category products. While creating new table click o
 
 == Changelog ==
 
+= 3.0.5 =
+ * New filter added for user rating option  `add_filter('wpto_user_rating_notice','__return_false');`
+
 = 3.0.4 =
  * custom field display issue for variable product
 

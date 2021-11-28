@@ -1,34 +1,17 @@
 <?php
-
+//update_option('wpt_user_rating_notice',0);//get_option( 'wpt_user_rating_notice' )
 add_action( 'admin_notices', 'wpt_admin_notice_user_rating_rq' );
 function wpt_admin_notice_user_rating_rq(){
 
     if( ! wpt_admin_notice_display() ){
         return;
     }
-?>
-<div class="notice notice-success is-dismissible wpt-notice wpt-user-rating-notice">
-    <p>
-        <?php
-//        var_dump(date('s:h d M, Y', get_option( 'wpt_user_rating_notice' )));
-//        var_dump(date('s:h d M, Y', time()));
-        ?>
-        Hey, we noticed you've been using <strong>Product Table for WooCommerce(wooproducttable)</strong> for  a long time - that's awesome.<br>
-        Could you please do us a <strong>BIG Favor</strong> and give it a rating on WordPress.org to help us spread the word and boost our motivation?
-    </p>
-    <p>
-        <strong>Saiful Islam</strong><br>
-        Author of Woo Product Table<br>
-        <strong>CEO</strong> of CodeAstrology
-    </p>
-    <p class="do-rating-area">
-        <a class="" data-response='rating' href="https://wordpress.org/support/plugin/woo-product-table/reviews/#new-post" target="_blank"><strong>Yes, you deserve it</strong></a><br>
-        <a data-response='rating-later'>No, May be later</a><br>
-        <a data-response='rating-already'>I already did</a>
-        
-    </p>
-</div>    
-<?php
+    $config = get_option( 'wpt_configure_options' );//disable_rating_notice
+    if( isset( $config['disable_rating_notice'] ) && $config['disable_rating_notice'] == 'on' ){
+        return;
+    }
+    
+    echo wpt_admin_notice_html_markup();
 }
 
 /**
@@ -40,19 +23,24 @@ function wpt_admin_notice_user_rating_rq(){
  * @by Saiful Islam
  */
 function wpt_admin_notice_display( $day = 40){
+    $bool = true;
     $limit_time_sec = $day * 24 * 60 * 60;
     
     $today = time();
     $last_close_day = get_option( 'wpt_user_rating_notice' );
     if( empty( $last_close_day )  ){
-        return true;
+        $bool = true;
     }
+    if( ! is_numeric( $last_close_day ) ){
+        $last_close_day = 2*24*60*60;
+    }
+
     $diff = $today - $last_close_day;
 //    var_dump($limit_time_sec,$diff);
     if( $diff < $limit_time_sec){
-         return false;
+        $bool = false;
     }
-    return true;
+    return apply_filters( 'wpto_user_rating_notice', $bool, $last_close_day );
 }
 
 /**
