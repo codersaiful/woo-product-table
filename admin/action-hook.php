@@ -188,7 +188,9 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
                             <?php if( isset( $current_config_value['disable_rating_notice'] ) ){ 
                                 
                                 wpt_admin_notice_html_markup( 'wpt-notice wpt-user-rating-notice', false );
-                             } ?>           
+                            }else{ ?>        
+                            <p><?php echo esc_html( 'To disable permanently user notice for all page.', 'wpt_pro' ); ?></p> 
+                            <?php } ?>
                         </td>
                     </tr>
 
