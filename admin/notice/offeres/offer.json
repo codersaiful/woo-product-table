@@ -1,6 +1,7 @@
 {
     "offer": {
         "status": true,
+        "target_function": "prepend",
         "target_link": "https://codecanyon.net/item/woo-product-table-pro/20676867",
         "image_url": "https://raw.githubusercontent.com/codersaiful/woo-product-table/3.0.4.2/admin/notice/offeres/images/Black-Friday.png",
         "display_to": "#wpbody-content",
@@ -8,7 +9,7 @@
         "target_html": false,
         "wrapper_css":{
             "color":"green",
-            "background-color":"#240202"
+            "background-color":"#ff1b1b"
         },
         "image_css":{
             "height":"210px",
