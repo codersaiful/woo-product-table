@@ -849,7 +849,7 @@ body.wpt_pro_table #yith-quick-view-content div.summary {
 div.wpt_product_table_wrapper.woocommerce {
     position: relative;
     box-sizing: border-box;
-    display: table;
+    display: block;
 }
 div.wpt_product_table_wrapper.woocommerce:before,div.wpt_product_table_wrapper.woocommerce:after{content: "";height:1px;width:100%;clear:both;}
 

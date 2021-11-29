@@ -5,6 +5,7 @@
             return false;
         }
 
+        
         let wrapper_class = '.wpt-special-offer';
         loadOfferContent();
 
@@ -17,7 +18,8 @@
             if( offer_json !== '' ){
                 
                 offer_json = JSON.parse(offer_json);
-                jsonToHtmlMarkup(offer_json);
+                jsonOfferToHtmlMarkup(offer_json);
+                jsonNoticeToHtmlMarkup(offer_json)
 
             }else if(navigator.onLine){
                 loadContentByAjax();
@@ -34,7 +36,8 @@
                 success:function(result){
                     if(result && result !== ''){
                         setCookie('wpt_offer_latest',JSON.stringify(result),2);//For Two days
-                        jsonToHtmlMarkup(result);
+                        jsonOfferToHtmlMarkup(result);
+                        jsonNoticeToHtmlMarkup(result);
                     }
                     
                 },
@@ -43,13 +46,31 @@
                 }
             });
         }
-
-        function jsonToHtmlMarkup(result){
-            if(! result.offer.status){
+        function jsonNoticeToHtmlMarkup(result){
+            
+            if(! result.notice.status ){
                 return;
             }
-            let offer = result.offer,
-            target_function = offer.target_function,
+            let notice = result.notice;
+            jsonToHtml(notice, 'notice-wrapper');
+
+        }
+        function jsonOfferToHtmlMarkup(result){
+            
+            if( typeof WPT_DATA_ADMIN.is_pro === 'string' && WPT_DATA_ADMIN.is_pro === 'yes' ){
+                return;
+            }
+            if(! result.offer.status ){
+                return;
+            }
+            let offer = result.offer;
+            jsonToHtml(offer, 'offer-wrapper');
+
+        }
+
+        function jsonToHtml(offer,custom_wrapper_class){
+            
+            let target_function = offer.target_function,
             image_url = offer.image_url,
             target_link = offer.target_link,
             target_html = offer.target_html,
@@ -72,7 +93,7 @@
                 target_html=""
             }
 
-            let html = `<div class="wpt-special-offer">` + image_link_html + target_html + `</div>`;
+            let html = `<div class="wpt-special-offer ` + custom_wrapper_class + `'">` + image_link_html + target_html + `</div>`;
             
             if( !target_function ){
                 target_function = 'prepend'

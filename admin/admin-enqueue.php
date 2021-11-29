@@ -54,10 +54,10 @@ if( !function_exists( 'wpt_admin_enqueue' ) ){
          * see latest offer only when pro version 
          * is not installed.
          */
-        if( ! defined( 'WPT_PRO_DEV_VERSION' ) ){
+        //if( ! defined( 'WPT_PRO_DEV_VERSION' ) ){
             wp_enqueue_style( 'wpt-offer-css', WPT_Product_Table::getPath( 'BASE_URL' ) . 'admin/notice/offeres/offer.css', array(), WPT_DEV_VERSION, 'all' );
             wp_enqueue_script( 'wpt-offer-js', WPT_Product_Table::getPath( 'BASE_URL' ) . 'admin/notice/offeres/offer.js', array( 'jquery' ), WPT_DEV_VERSION, true );
-        }
+        //}
     }
 }
 add_action( 'admin_enqueue_scripts', 'wpt_admin_enqueue', 99 );
@@ -72,6 +72,7 @@ if( !function_exists( 'wpt_admin_js_fast_load' ) ){
         
         $ajax_url = admin_url( 'admin-ajax.php' );
         $version = class_exists( 'WOO_Product_Table' ) && WOO_Product_Table::getVersion() ? __( 'WTP Pro: ', 'wpt_pro' ) . WOO_Product_Table::getVersion() : WPT_Product_Table::getVersion();
+        $is_pro = class_exists( 'WOO_Product_Table' ) ? 'yes' : 'no';
         $WPT_DATA = array( 
            'ajaxurl' => $ajax_url,
            'ajax_url' => $ajax_url,
@@ -80,6 +81,8 @@ if( !function_exists( 'wpt_admin_js_fast_load' ) ){
            'cart_url' => wc_get_cart_url(),
            'priceFormat' => wpt_price_formatter(),
            'version' => $version,
+            'is_pro' => $is_pro,
+
            );
         $WPT_DATA = apply_filters( 'wpto_localize_data', $WPT_DATA );
        wp_localize_script( 'wpt-admin', 'WPT_DATA_ADMIN', $WPT_DATA );
