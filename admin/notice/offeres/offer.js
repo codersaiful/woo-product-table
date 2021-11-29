@@ -6,10 +6,11 @@
         }
 
         
-        let wrapper_class = '.wpt-special-offer';
+        
         loadOfferContent();
 
         $(document.body).on('click','h1.wp-heading-inline',function(){
+            console.log("Trigger for new json");
             loadContentByAjax();
         });
         
@@ -37,6 +38,7 @@
                     if(result && result !== ''){
                         setCookie('wpt_offer_latest',JSON.stringify(result),2);//For Two days
                         jsonOfferToHtmlMarkup(result);
+                        
                         jsonNoticeToHtmlMarkup(result);
                     }
                     
@@ -47,16 +49,25 @@
             });
         }
         function jsonNoticeToHtmlMarkup(result){
-            
+
+            if( ! result.hasOwnProperty('notice') ){
+                return;
+            }
+
             if(! result.notice.status ){
                 return;
             }
             let notice = result.notice;
+            
             jsonToHtml(notice, 'notice-wrapper');
 
         }
         function jsonOfferToHtmlMarkup(result){
             
+            if( ! result.hasOwnProperty('offer') ){
+                return;
+            }
+
             if( typeof WPT_DATA_ADMIN.is_pro === 'string' && WPT_DATA_ADMIN.is_pro === 'yes' ){
                 return;
             }
@@ -76,10 +87,12 @@
             target_html = offer.target_html,
             wrapper_css = offer.wrapper_css,
             image_css = offer.image_css;
+
+            let wrapper_class = '.wpt-unique-' + custom_wrapper_class;
             
 
             let location_selector = offer.display_wrapper + " " + offer.display_to;
-
+            
             $(wrapper_class).remove();
 
             let image_link_html = "";
@@ -93,12 +106,13 @@
                 target_html=""
             }
 
-            let html = `<div class="wpt-special-offer ` + custom_wrapper_class + `'">` + image_link_html + target_html + `</div>`;
+            let html = `<div class="wpt-special-offer wpt-unique-` + custom_wrapper_class + `">` + image_link_html + target_html + `</div>`;
             
             if( !target_function ){
                 target_function = 'prepend'
             }
 
+            
             if( target_function === 'prepend' ){
                 $(location_selector).prepend(html);
             }else if(target_function === 'append'){
