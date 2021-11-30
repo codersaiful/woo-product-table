@@ -1,6 +1,6 @@
 <?php
 
-function wpt_admin_notice_html_markup( $wrapper_class = "notice notice-success is-dismissible wpt-notice wpt-user-rating-notice", $other_links = true ){
+function wpt_admin_notice_html_markup( $wrapper_class = "notice notice-success wpt-notice wpt-user-rating-notice", $other_links = true ){
 ?>
     <div class="<?php echo esc_attr( $wrapper_class ); ?>">
         <p>
