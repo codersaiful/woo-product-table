@@ -7,6 +7,17 @@ function wpt_admin_notice_html_markup( $wrapper_class = "notice notice-success i
             <?php
     //        var_dump(date('s:h d M, Y', get_option( 'wpt_user_rating_notice' )));
     //        var_dump(date('s:h d M, Y', time()));
+
+    $protocol = ((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";  
+    $CurPageURL = $protocol . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];  
+    
+    $urlExTxt = "?";
+    if(strpos($CurPageURL,'?')){
+        $urlExTxt = "&";
+    }
+    $url = $CurPageURL . $urlExTxt . 'wpt_user_rating_option=';
+    //var_dump($url);
+
             ?>
             Hey, we noticed you've been using <strong>Product Table for WooCommerce(wooproducttable)</strong> for  a long time - that's awesome.<br>
             Could you please do us a <strong>BIG Favor</strong> and give it a rating on WordPress.org to help us spread the word and boost our motivation?
@@ -17,11 +28,11 @@ function wpt_admin_notice_html_markup( $wrapper_class = "notice notice-success i
             <strong>CEO</strong> of CodeAstrology
         </p>
         <p class="do-rating-area">
-            <a class="" data-response='rating' href="https://wordpress.org/support/plugin/woo-product-table/reviews/#new-post" target="_blank"><strong>Yes, you deserve it</strong></a>
+            <a class="ajax_enabled_link" data-response='rating' href="https://wordpress.org/support/plugin/woo-product-table/reviews/#new-post" target="_blank"><strong>Yes, you deserve it</strong></a>
             <?php if($other_links){ ?>
             <br>
-            <a data-response='rating-later'>No, May be later</a><br>
-            <a data-response='rating-already'>I already did</a>
+            <a href="<?php echo esc_attr( $url ); ?>rating-later" data-response='rating-later'>No, May be later</a><br>
+            <a  href="<?php echo esc_attr( $url ); ?>rating-already" data-response='rating-already'>I already did</a>
             <?php } ?>
         </p>
     </div>    

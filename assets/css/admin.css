@@ -1350,6 +1350,7 @@ tr.user_can_not_edit:before {
     background: white url(../images/logo.png) no-repeat 5px 10px;
     background-size: 45px;
     padding-left: 65px;
+    position: relative;
 }
 .wpt-notice.wpt-user-rating-notice:before {
     content: "";

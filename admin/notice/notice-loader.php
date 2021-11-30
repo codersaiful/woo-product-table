@@ -1,5 +1,5 @@
 <?php
-//update_option('wpt_user_rating_notice',0);//get_option( 'wpt_user_rating_notice' )
+// update_option('wpt_user_rating_notice',0);//get_option( 'wpt_user_rating_notice' );
 add_action( 'admin_notices', 'wpt_admin_notice_user_rating_rq' );
 function wpt_admin_notice_user_rating_rq(){
 
@@ -13,6 +13,31 @@ function wpt_admin_notice_user_rating_rq(){
     
     echo wpt_admin_notice_html_markup();
 }
+
+
+/**
+ * WPT User rating notice update using PHP Get supper global variable
+ * 
+ * @since 3.0.7.0
+ * @author Saiful Islam <codersaiful@gmail.com>
+ *
+ * @return void
+ */
+function wpt_admin_notice_control_update(){
+    if( ! isset( $_GET['wpt_user_rating_option'] ) ) return;
+    $u_r_o = $_GET['wpt_user_rating_option'];
+    if( empty( $u_r_o ) ) return;
+    
+
+    $time_limit = "20 days";
+    if( $u_r_o  === 'rating-already' ){
+        $time_limit = "60 days";
+    }
+    $option_key = 'wpt_user_rating_notice';
+    $final_value = strtotime($time_limit);
+    update_option( $option_key, $final_value );
+}
+add_action( 'admin_head', 'wpt_admin_notice_control_update' );
 
 /**
  * we will return false, it fail time limite 

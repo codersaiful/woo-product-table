@@ -762,14 +762,13 @@
      * a sample date
      * strtotime("3 October 2020")
      */
-    $(document.body).on('click','.is-dismissible.wpt-notice.wpt-user-rating-notice button.notice-dismiss,.is-dismissible.wpt-notice.wpt-user-rating-notice p.do-rating-area a',function(e){
-        
-        
+    $(document.body).on('click','.is-dismissible.wpt-notice.wpt-user-rating-notice button.notice-dismiss,.is-dismissible.wpt-notice.wpt-user-rating-notice p.do-rating-area a.ajax_enabled_link',function(e){
+
         var option_key,option_value,callback,perpose;
         option_key = 'wpt_user_rating_notice';
-        option_value = ''; //param will empty for time function. currently it only for time update. 
+        option_value = '10 days'; //param will empty for time function. currently it only for time update. 
         callback = 'time'; //it s a php function, use time for time() function //when test strtotime
-        perpose = 'update'; //although default value is update
+        perpose = 'strtotime'; //although default value is update
         
         if(e.target.tagName == "A"){
             e.preventDefault();
@@ -784,6 +783,7 @@
             
             $('.wpt-notice.wpt-user-rating-notice').fadeOut();
         }        
+
         sendToAjaxNoticeData(option_key,option_value,callback,perpose);
     });
     
