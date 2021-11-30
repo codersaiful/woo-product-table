@@ -8,8 +8,8 @@
         "display_wrapper": ".wpt_admin_body",
         "target_html": false,
         "wrapper_css":{
-            "color":"green",
-            "background-color":"#ff1b1b"
+            "color":"black",
+            "background-color":"transparent"
         },
         "image_css":{
             "height":"90px",
@@ -29,7 +29,6 @@
             "background-color":"black"
         },
         "image_css":{
-            "height":"90px",
             "width":"auto"
         }
     }
