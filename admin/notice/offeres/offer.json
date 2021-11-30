@@ -9,7 +9,7 @@
         "target_html": false,
         "wrapper_css":{
             "color":"green",
-            "background-color":"#ff1b1b"
+            "background-color":"transparent"
         },
         "image_css":{
             "height":"90px",
