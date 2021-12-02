@@ -1,6 +1,6 @@
 {
     "offer": {
-        "status": true,
+        "status": false,
         "target_function": "prepend",
         "target_link": "https://codecanyon.net/item/woo-product-table-pro/20676867",
         "image_url": "https://raw.githubusercontent.com/codersaiful/woo-product-table/master/admin/notice/offeres/images/Black-Friday.png",

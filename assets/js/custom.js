@@ -1867,8 +1867,10 @@
                 
                 if(serial > 0 || value_size === 0){
                     $(this).fadeIn();
+                    $(this).addClass('instance_search_applied');
                 }else{
                     $(this).fadeOut();
+                    $(this).removeClass('instance_search_applied');
                 }
                 
             });
