@@ -13,8 +13,8 @@ if( ! function_exists( 'wpt_importing_data' ) ){
      * and I have added a filter wpto_import_data to do something 
      * for import data
      * 
-     * @param type $wpt_imported_data
-     * @param type $post_id
+     * @param String $wpt_imported_data
+     * @param Int $post_id
      */
     function wpt_importing_data( $wpt_imported_data, $post_id ){
         $serialized_data = base64_decode( $wpt_imported_data );
