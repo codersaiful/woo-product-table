@@ -1442,3 +1442,14 @@ body.wpt_admin_body .ultraaddons .warning {
     /* border: 1px solid #3f9b43; */
     z-index: 99999;
 }
+
+body.post-type-wpt_product_table .stick_on_scroll#stick_on_scroll-on, 
+body.post-type-wpt_product_table .stick_on_scroll-on, 
+body.post-type-wpt_product_table #stick_on_scroll-on {
+    bottom: 10px;
+    right: 10px;
+    padding: 6px 24px;
+    font-size: 17px;
+    font-weight: normal;
+    border-radius: 3px 8px 24px 7px;
+}
