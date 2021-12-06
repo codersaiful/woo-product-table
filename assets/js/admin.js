@@ -813,4 +813,46 @@
             },
         });
     }
+
+    var myHtml = '<div class="wrapper_wpt_ajax_update ultraaddons-button-wrapper">';
+        myHtml += '<button type="submit" name="wpt_post_submit" data-title="hello" class="stick_on_scroll button-primary button-primary primary button wpt_ajax_update">Save Change</button>';
+        myHtml += '</div>';
+    var colSetsLen = $('#column_settings').length;
+    if( colSetsLen > 0){
+        $('#wpt_configuration_form').append(myHtml);
+    }
+    $(window).on('scroll',function(){
+        
+        let targetElement = $('.stick_on_scroll');
+        
+        
+        let bodyHeight = $('#wpbody').height();
+        let scrollTop = $(this).scrollTop();
+        let screenHeight = $(this).height();
+
+        let configFormElement = $('#wpt_configuration_form');
+        if(configFormElement.length < 1) return;
+
+        let conPass = bodyHeight - screenHeight - 300 - targetElement.height();
+        let leftWill = configFormElement.width() - targetElement.width() - 20;
+        
+
+        targetElement.css({
+            left: leftWill,
+            right: 'unset'
+        });
+        if(scrollTop < conPass){
+            targetElement.attr('id','stick_on_scroll-on');
+        }else{
+            targetElement.removeAttr('id');
+        }
+        
+        if(scrollTop > 100 && colSetsLen > 0){
+            targetElement.attr('id','stick_on_scroll-on');
+        }else if(colSetsLen > 0){
+            targetElement.removeAttr('id');
+        }
+        
+
+    });
 })(jQuery);
