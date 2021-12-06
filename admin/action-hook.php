@@ -161,7 +161,7 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
                             <label class="wpt_label wpt_disable_plugin_noti" for="wpt_disable_plugin_noti"><?php esc_html_e( 'Plugin Recommendation', 'wpt_pro' );?></label>
                         </th>
                         <td>
-                            <label class="switch switch-reverse">
+                            <label class="switch">
                                 <input  name="<?php echo esc_attr( $field_name ); ?>[disable_plugin_noti]" type="checkbox" id="wpt_disable_plugin_noti" <?php echo isset( $current_config_value['disable_plugin_noti'] ) ? 'checked="checked"' : ''; ?>>
                                 <div class="slider round"><!--ADDED HTML -->
                                     <span class="on">Enable</span><span class="off">Disable</span><!--END-->
@@ -179,7 +179,7 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
                             <label class="wpt_label wpt_user_rating_notice" for="wpt_table_head_enable"><?php esc_html_e( 'Rating Notice', 'wpt_pro' );?></label>
                         </th>
                         <td>
-                            <label class="switch">
+                            <label class="switch switch-reverse">
                                 <input  name="data[disable_rating_notice]" type="checkbox" id="wpt_user_rating_notice" <?php echo isset( $current_config_value['disable_rating_notice'] ) ? 'checked="checked"' : ''; ?>>
                                 <div class="slider round"><!--ADDED HTML -->
                                     <span class="on">Disable</span><span class="off">Enable</span><!--END-->
