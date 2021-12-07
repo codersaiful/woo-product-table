@@ -1370,3 +1370,86 @@ tr.user_can_not_edit:before {
     display: block;
     clear: both;
 }
+
+/* For import export button*/
+
+.wpt-export-import-wrapper {
+    padding: 0 18px 20px;
+}
+
+.wpt-export-import-wrapper label {
+    margin: 10px 0;
+    font-weight: 500;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.wpt-export-button-wrapper button.wpt-import-button {
+    background-color: #007694;
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-top: 10px;
+    float: right;
+}
+.wpt-export-button-wrapper button.wpt-import-button:hover {
+    background-color: #375f6b;
+}
+
+.wpt-export-button-wrapper:before,
+.wpt-export-button-wrapper:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+body.wpt_admin_body .ultraaddons .warning {
+    color: #dd5500;
+}
+
+
+
+.ultraaddons .switch.switch-reverse .slider {
+    background: #2ab934a6;
+    border: 1px solid #2ab934 !important;
+}
+.ultraaddons .switch.switch-reverse .slider span.off {
+    color: white;
+    font-weight: normal;
+}
+.ultraaddons .switch.switch-reverse input:checked + .slider {
+    background-color: #c5c5c5a6!important;
+    border: 1px solid #a8b9a9!important;
+}
+.ultraaddons .switch.switch-reverse input:checked+ .slider .on {
+    display: block;
+    color: black;
+    font-weight: bold;
+}
+.ultraaddons .switch.switch-reverse .on, .ultraaddons .switch.switch-reverse .off {
+    transform: translate(-71%,-50%);
+}
+
+.stick_on_scroll#stick_on_scroll-on,.stick_on_scroll-on,#stick_on_scroll-on{
+    position: fixed;
+    bottom: 33px;
+    right: 50px;
+    box-shadow: 0px 10px 30px 0 #00000061;
+    padding: 18px 55px;
+    font-size: 22px;
+    font-weight: normal;
+    border-radius: 3px 12px 72px 12px;
+    /* background: #4caf50; */
+    /* border: 1px solid #3f9b43; */
+    z-index: 99999;
+}
+
+body.post-type-wpt_product_table .stick_on_scroll#stick_on_scroll-on, 
+body.post-type-wpt_product_table .stick_on_scroll-on, 
+body.post-type-wpt_product_table #stick_on_scroll-on {
+    bottom: 10px;
+    right: 10px;
+    padding: 6px 24px;
+    font-size: 17px;
+    font-weight: normal;
+    border-radius: 3px 8px 24px 7px;
+}

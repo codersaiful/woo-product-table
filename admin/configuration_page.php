@@ -64,7 +64,7 @@ if( !function_exists( 'wpt_configuration_page' ) ){
                     ?>
                         
                         <div class="section ultraaddons-button-wrapper ultraaddons-panel no-background">
-                            <button type="submit" name="configure_submit" class="button-primary button-primary primary button"><?php esc_html_e( 'Save Change', 'wpt_pro' );?></button>
+                            <button type="submit" name="configure_submit" class="button-primary button-primary primary button stick_on_scroll"><?php esc_html_e( 'Save Change', 'wpt_pro' );?></button>
                             <button type="submit" name="reset_button" 
                                     class="button button-default" 
                                     onclick="return confirm( 'If you continue with this action, you will reset all options in this page.\nAre you sure?' );"

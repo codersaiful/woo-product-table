@@ -13,8 +13,8 @@ if( ! function_exists( 'wpt_importing_data' ) ){
      * and I have added a filter wpto_import_data to do something 
      * for import data
      * 
-     * @param type $wpt_imported_data
-     * @param type $post_id
+     * @param String $wpt_imported_data
+     * @param Int $post_id
      */
     function wpt_importing_data( $wpt_imported_data, $post_id ){
         $serialized_data = base64_decode( $wpt_imported_data );
@@ -176,13 +176,13 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
 
                     <tr>
                         <th>
-                            <label class="wpt_label wpt_user_rating_notice" for="wpt_table_head_enable"><?php esc_html_e( 'Disable Rating Notice', 'wpt_pro' );?></label>
+                            <label class="wpt_label wpt_user_rating_notice" for="wpt_table_head_enable"><?php esc_html_e( 'Rating Notice', 'wpt_pro' );?></label>
                         </th>
                         <td>
-                            <label class="switch">
+                            <label class="switch switch-reverse">
                                 <input  name="data[disable_rating_notice]" type="checkbox" id="wpt_user_rating_notice" <?php echo isset( $current_config_value['disable_rating_notice'] ) ? 'checked="checked"' : ''; ?>>
                                 <div class="slider round"><!--ADDED HTML -->
-                                    <span class="on">On</span><span class="off">Off</span><!--END-->
+                                    <span class="on">Disable</span><span class="off">Enable</span><!--END-->
                                 </div>
                             </label>   
                             <?php if( isset( $current_config_value['disable_rating_notice'] ) ){ 

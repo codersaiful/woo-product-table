@@ -1,7 +1,48 @@
 <?php
 
-if( defined( 'YITH_YWRAQ_PREMIUM' ) ){
-    echo do_shortcode( '[yith_ywraq_button_quote product="' . $id . '"]' );
+if( defined( 'YITH_YWRAQ_PREMIUM' ) && function_exists( 'yith_ywraq_render_button' ) ){
+
+    if ( ! wp_script_is( 'enqueued', 'yith_ywraq_frontend' ) ) {
+        wp_enqueue_style( 'yith_ywraq_frontend' );
+    }
+    $atts = array( 'product' => $id );
+    $args = shortcode_atts(
+        array(
+            'product' => false,
+            'label'   => get_option( 'ywraq_show_btn_link_text', __( 'Add to quote', 'yith-woocommerce-request-a-quote' ) ),
+            'style'   => ( get_option( 'ywraq_show_btn_link' ) === 'button' ) ? 'button' : 'ywraq-link',
+            'colors'  => get_option(
+                'ywraq_add_to_quote_button_color',
+                array(
+                    'bg_color'       => '#0066b4',
+                    'bg_color_hover' => '#044a80',
+                    'color'          => '#ffffff',
+                    'color_hover'    => '#ffffff',
+                )
+            ),
+            'icon'    => 0,
+
+        ),
+        $atts
+    );
+
+    if ( 'button' === $args['style'] ) {
+        if ( isset( $atts['bg_color'] ) ) {
+            $args['colors']['bg_color'] = $atts['bg_color'];
+        }
+        if ( isset( $atts['bg_color_hover'] ) ) {
+            $args['colors']['bg_color_hover'] = $atts['bg_color_hover'];
+        }
+        if ( isset( $atts['color'] ) ) {
+            $args['colors']['color'] = $atts['color'];
+        }
+
+        if ( isset( $atts['color_hover'] ) ) {
+            $args['colors']['color_hover'] = $atts['color_hover'];
+        }
+    }    
+    yith_ywraq_render_button( $args['product'], $args );
+
     return;
 }
 $wpt_nonce = wp_create_nonce( 'add-request-quote-' . $data['id'] );
