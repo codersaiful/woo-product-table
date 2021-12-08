@@ -1,7 +1,7 @@
 <?php
 
 class WPT_Elementor{
-    
+    public static $_instance;
     /**
      * Instance of WPT_Elementor
      * 

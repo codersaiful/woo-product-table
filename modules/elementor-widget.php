@@ -66,6 +66,8 @@ class WPT_Elementor_Widget extends \Elementor\Widget_Base{
 	 * @return array Widget categories.
 	 */
 	public function get_categories() {
+        if( defined('ULTRA_ADDONS_VERSION') ) return ['general'];
+
 		return [ 'basic' ];
 	}
 
