@@ -211,6 +211,12 @@ You can easily show specific category products. While creating new table click o
 
 == Changelog ==
 
+= 3.0.7 =
+ * Fixed: Auto Responsive - column label show hide issue solved.
+ * Fixed: Rating Notice issue solved.
+ * CSS issue solved
+ * Bug Fix
+
 = 3.0.6 =
  * Fixed: Fullwidth table issue has been fixed.
 
