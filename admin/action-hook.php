@@ -173,7 +173,7 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
                     </tr>
 
                     
-
+                    <?php if( 'configuration_page' == $page ){ ?>
                     <tr>
                         <th>
                             <label class="wpt_label wpt_user_rating_notice" for="wpt_table_head_enable"><?php esc_html_e( 'Rating Notice', 'wpt_pro' );?></label>
@@ -193,7 +193,7 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
                             <?php } ?>
                         </td>
                     </tr>
-
+                    <?php } ?>
 
 
 
