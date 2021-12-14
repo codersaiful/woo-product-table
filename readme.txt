@@ -212,6 +212,7 @@ You can easily show specific category products. While creating new table click o
 == Changelog ==
 
 = 3.0.7 =
+ * Fixed: YITH Quote Request Premium button issue has been solved.
  * Fixed: Auto Responsive - column label show hide issue solved.
  * Fixed: Rating Notice issue solved.
  * CSS issue solved
