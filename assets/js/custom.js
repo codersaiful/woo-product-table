@@ -14,11 +14,18 @@
         
         //Select2
         if(typeof $('.wpt_product_table_wrapper .search_select').select2 === 'function' && $('.wpt_product_table_wrapper .search_select').length > 0 && WPT_DATA.select2 !== 'disable' ){
-            $('.wpt_product_table_wrapper .search_select.query').select2({//.query
-                placeholder: WPT_DATA.search_select_placeholder,
-            });
+            var select2Object = {};
+            if( WPT_DATA.search_select_placeholder !== '' ){
+                select2Object = {
+                    placeholder: WPT_DATA.search_select_placeholder
+                };
+                
+            }
+            
+            $('.wpt_product_table_wrapper .search_select.query').select2(select2Object);
 
             $('select.filter_select').select2();
+
         }
         var windowWidth = $(window).width();
 
