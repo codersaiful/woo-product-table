@@ -1,3 +1,2 @@
 <?php
-
-the_content();
+echo $product->get_description();

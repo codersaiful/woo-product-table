@@ -1274,7 +1274,7 @@ table.wpt_product_table tr.wpt_selected_tr .wpt_quantity{
         font-style: italic;
     }
     .wpt_mobile_desc_part .wpt_for_product_desc {
-        display: inline-block;
+        /* display: inline-block; */
         padding-right: 5px;
     }
     .wpt_for_product_desc.wpt_check {

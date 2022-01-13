@@ -4,7 +4,7 @@ Donate link: https://codecanyon.net/item/woo-product-table-pro/20676867?ref=Code
 Tags: wc product table, wooproducttable,woocommerce product table, product table, wc table, quick order table, wholesale table, restaurants table
 Requires at least: 4.0.0
 Tested up to: 5.8.2
-Stable tag: 3.0.7
+Stable tag: 3.0.8
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -210,6 +210,13 @@ You can easily show specific category products. While creating new table click o
 25. Manually responsive for mobile devices
 
 == Changelog ==
+
+= 3.0.7 =
+ * Fixed: YITH Quote Request Premium button issue has been solved.
+ * Fixed: Auto Responsive - column label show hide issue solved.
+ * Fixed: Rating Notice issue solved.
+ * CSS issue solved
+ * Bug Fix
 
 = 3.0.6 =
  * Fixed: Fullwidth table issue has been fixed.
