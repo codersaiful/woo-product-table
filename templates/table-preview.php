@@ -35,18 +35,30 @@
     if ( have_posts() ) : while ( have_posts() ) : the_post();
     $id = get_the_ID();
     $title = get_the_title();
+
+
     ?>
     <div class="wpt-preview-title">
         <h2 class="wpt-preview-heading"><?php the_title(); ?></h2>
-        <b>Shortcode</b><br>
-        <input 
+
+        <?php if( is_user_logged_in() ){ ?>
+            <b><?php echo esc_html__( 'Shortcode', 'wpt_pro' ); ?></b><br>
+            <input 
             class="wpt-preview-shortcode-input" 
             type="text" 
             value="<?php echo esc_attr( "[Product_Table id='{$id}'  name='{$title}']" ); ?>"
             readonly="readonly"
-            >
+            >    
+            
+            
+        <?php } ?>
+        
+
+
     </div>    
     <?php
+
+
     echo do_shortcode("[Product_Table id='{$id}']");
     endwhile;
     endif;
