@@ -1861,3 +1861,11 @@ tr.visible_row.wpt_row .col_inside_tag.action a {
     margin-bottom: 5px;
 }
 tr.visible_row.wpt_row .col_inside_tag.action a:last-child{margin-bottom: inherit;}
+
+/* for cascade filtering */
+select.search_select.cascade-filtering {
+    background: url(../images/loading.gif) #7b7b7b59 no-repeat center center !important;
+    opacity: 0.4;
+    cursor: not-allowed;
+    background-size: 30px !important;
+}
