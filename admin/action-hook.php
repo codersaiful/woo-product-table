@@ -65,7 +65,7 @@ if( !function_exists( 'wpt_admin_form_top' ) ){
         if( $validation ){
         ?>
         <ul class="wpt_admin_form_links" style="margin: 0">
-            <li><a class="wpt_get_pro_form_top_link" target="_blank" title="Awesome Pro features is Waiting for you!" href="https://1.envato.market/EaGWne">Get Pro</a></li>  
+            <li><a class="wpt_get_pro_form_top_link" target="_blank" title="Awesome Pro features is Waiting for you!" href="https://1.envato.market/e4Jjvz">Get Pro</a></li>  
             <li>
                 <a class="Header-link " href="https://github.com/codersaiful/woo-product-table" target="_blank">
   <svg class="octicon octicon-mark-github v-align-middle" height="16" 
