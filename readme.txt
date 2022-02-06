@@ -211,6 +211,14 @@ You can easily show specific category products. While creating new table click o
 
 == Changelog ==
 
+= 3.0.9 =
+ * Variation table position controller
+ * Bug Fix
+
+= 3.0.8 =
+ * CSS issue solved
+ * Bug Fix
+
 = 3.0.7 =
  * Fixed: YITH Quote Request Premium button issue has been solved.
  * Fixed: Auto Responsive - column label show hide issue solved.
