@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Product Table for WooCommerce - (wooproducttable)
- * Plugin URI: https://codecanyon.net/item/woo-product-table-pro/20676867?ref=CodeAstrology&utm_source=WPT_Installed_Plugin
+ * Plugin URI: https://1.envato.market/EaGWne
  * Description: WooCommerce all products display as a table in one page by shortcode. Fully responsive and mobile friendly. Easily customizable - color,background,title,text color etc.
  * Author: CodeAstrology
  * Author URI: https://profiles.wordpress.org/codersaiful/
