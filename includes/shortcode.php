@@ -112,7 +112,7 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
             if($table_type != 'normal_table'){
                 //unset( $enabled_column_array['price'] );
                 unset( $enabled_column_array['variations'] );
-                unset( $enabled_column_array['total'] );
+                //unset( $enabled_column_array['total'] );
                 unset( $enabled_column_array['quantity'] );
             }
             
