@@ -1134,7 +1134,7 @@
                 currentAllSelectedButtonSelector.removeClass('disabled');
                 currentAllSelectedButtonSelector.removeClass('loading');
                 tableWrapperTag.removeClass('loading-table');
-                alert('Please Choose items.');
+                alert(config_json.please_choose_items);
                 return false;
             }
             $.ajax({
@@ -2361,7 +2361,7 @@
             if (itemAmount < 1) {
                 currentAllSelectedButtonSelector.removeClass('disabled');
                 currentAllSelectedButtonSelector.removeClass('loading');
-                alert('Please Choose items.');
+                alert(config_json.please_choose_items);
                 return false;
             }
             currentAllSelectedButtonSelector.removeClass('disabled');

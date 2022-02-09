@@ -648,6 +648,12 @@ if( !function_exists( 'wpt_configure_all_message_part' ) ){
                         </td>
                     </tr>
                     <tr class="<?php echo esc_attr( $user_can_edit ); ?>">
+                        <th><label for="wpt_table_please_choose_items" class="wpt_label"><?php esc_html_e( '[Please Choose items] Alert!', 'wpt_pro' );?></label></th>
+                        <td>
+                            <input name="<?php echo esc_attr( $field_name ); ?>[please_choose_items]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['please_choose_items'] ); ?>" id="wpt_table_please_choose_items" type="text" placeholder="<?php esc_attr_e( 'Please select all items.', 'wpt_pro' );?>">
+                        </td>
+                    </tr>
+                    <tr class="<?php echo esc_attr( $user_can_edit ); ?>">
                         <th><label for="wpt_table_out_of_stock_message" class="wpt_label"><?php esc_html_e( '[Out of Stock] Message', 'wpt_pro' );?></label></th>
                         <td>    
                             <input name="<?php echo esc_attr( $field_name ); ?>[out_of_stock_message]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['out_of_stock_message'] ); ?>" id="wpt_table_out_of_stock_message" type="text" placeholder="<?php esc_attr_e( 'Out of Stock', 'wpt_pro' );?>">
