@@ -251,7 +251,7 @@
                         noticeBoard.prepend(eachNoticeInnter);
                         eachNoticeInnter.fadeIn();  
                         setTimeout(function(){
-                            eachNoticeInnter.fadeOut();
+                            eachNoticeInnter.fadeOut('slow');
                             eachNoticeInnter.remove(); 
                         },notice_timeout); //Detault 3000
                     }
@@ -265,7 +265,7 @@
         }
         
         $('body').on('click','div.wpt_notice_board>div',function(){
-            $(this).fadeOut('fast');
+            $(this).fadeOut('slow');
         });
         
         /**
@@ -1707,7 +1707,8 @@
                 $( thisRow ).attr('data-quantity', Qty_Val);
                 $( thisRow + ' a.wpt_woo_add_cart_button').attr('data-quantity', Qty_Val);
                 $( thisRow + ' a.add_to_cart_button ').attr('data-quantity', Qty_Val);
-                
+                var Item_URL = '?add-to-cart=' + product_id + '&quantity=' + Qty_Val;
+                $( thisRow + ' a.add_to_cart_button ').attr('href', Item_URL);
                 var targetTotalSelector = $('#table_id_' + temp_number + ' .product_id_' + product_id + ' .wpt_total_item.total_general');
                  
             
