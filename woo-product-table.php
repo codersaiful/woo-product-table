@@ -112,6 +112,7 @@ $column_array = array(
     'serial_number' => __( 'SL', 'wpt_pro' ),
     'action'        => __( 'Action', 'wpt_pro' ),
     'freeze' => __( 'Freeze Colum', 'wpt_pro' ),
+    'advanced_action' => __( 'Advanced Action', 'wpt_pro' ),
 );
 $column_array = apply_filters( 'wpto_default_column_arr', $column_array );
 WPT_Product_Table::$columns_array =  $column_array;
