@@ -5,7 +5,13 @@ $custom_var = new Pektsekye_ProductOptions_Block_Product_Options();
 ?>
 <script type="text/javascript" id="wpt">
 
-  var config = {
+  
+  
+  ;(function ($, w) {
+    'use strict';
+    var $window = $(w);
+
+    var config = {
     productId : <?php echo (int) $custom_var->getProductId(); ?>,
     productPrice : <?php echo (float) $custom_var->getProductPrice(); ?>,
       numberOfDecimals : <?php echo (int) $custom_var->getNumberOfDecimals(); ?>,
@@ -16,9 +22,31 @@ $custom_var = new Pektsekye_ProductOptions_Block_Product_Options();
   };
 
   var optionData = <?php echo $custom_var->getOptionDataJson(); ?>;
+  var valuePrice = optionData.valuePrices;
 
-  jQuery.extend(config, optionData);
+  $('table tr.wpt_row').attr('data-extra-price','0');
+  $(document.body).on('change','#product_id_' + config.productId + ' div#pofw_product_options',function(){
+    let totalExtra = 0;
+    let thisRow = $('#product_id_' + config.productId);
+    thisRow.find('.pofw-option').each(function(){
+      let val = $(this).val();
+      let price = valuePrice[val];
+      if(typeof price !== 'undefined'){
+        totalExtra += price;
+      }
+      
+    });
+    thisRow.attr('data-extra-price', totalExtra);
+    console.log(totalExtra);
 
-  jQuery('#pofw_product_options').pofwProductOptions(config);
+  });
+
+
+  } (jQuery, window));
+
+
+  //jQuery.extend(config, optionData);
+
+  //jQuery('#pofw_product_options').pofwProductOptions(config);
 
 </script>
