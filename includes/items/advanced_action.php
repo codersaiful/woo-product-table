@@ -26,6 +26,7 @@ $custom_var = new Pektsekye_ProductOptions_Block_Product_Options();
 
   $('table tr.wpt_row').attr('data-extra-price','0');
   $(document.body).on('change','#product_id_' + config.productId + ' div#pofw_product_options',function(){
+    let prPrice = config.productPrice;
     let totalExtra = 0;
     let thisRow = $('#product_id_' + config.productId);
     thisRow.find('.pofw-option').each(function(){
@@ -37,10 +38,14 @@ $custom_var = new Pektsekye_ProductOptions_Block_Product_Options();
       
     });
     thisRow.attr('data-extra-price', totalExtra);
-    console.log(totalExtra);
+    totalExtra += prPrice;
+    thisRow.find('.wpt_total_item').attr('data-price',totalExtra);
+    thisRow.find('input.input-text.qty.text').trigger('change');
 
   });
 
+
+  $()
 
   } (jQuery, window));
 
