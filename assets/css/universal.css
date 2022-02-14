@@ -974,6 +974,10 @@ div.wpt_notice_board>div:hover:after {
 }
 /*Pagination Style End*/
 /*------new for per product--------*/
+button.single_add_to_cart_button{
+    position: relative;
+}
+button.single_add_to_cart_button >span.wpt_ccount,
 a.button.wpt_woo_add_cart_button>span.wpt_ccount {
     position: absolute;
     background: white !important;
