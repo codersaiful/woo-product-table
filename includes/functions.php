@@ -438,6 +438,41 @@ if( !function_exists( 'wpt_per_item_fragment' ) ) {
 	}
 }
 
+//add_filter( 'woocommerce_add_to_cart_fragments', 'wpt_per_variation_item_fragment', 999 , 1 );
+
+if( !function_exists( 'wpt_per_variation_item_fragment' ) ) {
+    function wpt_per_variation_item_fragment($fragments)
+    {
+        ob_start();
+        $Cart = WC()->cart->cart_contents;
+        $product_response = false;
+        if( is_array( $Cart ) && count( $Cart ) > 0 ){
+            foreach($Cart as $perItem){
+                //var_dump($perItem);
+                $pr_id = (String) $perItem['variation_id'];
+                $pr_id = apply_filters( 'wpto_id_of_item', $pr_id, $perItem );
+                $pr_value = (String) $perItem['quantity'];
+                $product_response[$pr_id] = (String)  (isset( $product_response[$pr_id] ) ? $product_response[$pr_id] + $pr_value : $pr_value);
+            }
+        }
+
+        if( is_array( $product_response ) && count( $product_response ) > 0 ){
+            foreach( $product_response as $key=>$value ){
+                $pr_id = (String) $key;
+                $pr_value = (String) $value;
+                $fragments["span.wpt_ccount.wpt_ccount_$pr_id"] = "<span class='wpt_ccount wpt_ccount_$pr_id'>$pr_value</span>";
+            }
+        }
+        $footer_cart_link = apply_filters( 'wpto_footer_cart_link', wc_get_cart_url() );
+        $fragments['.wpt-footer-cart-wrapper>a'] = '<a href="' . $footer_cart_link . '">' . WC()->cart->get_cart_subtotal() . '</a>';
+        echo wp_json_encode($product_response);
+
+        $fragments["wpt_per_product"] = ob_get_clean();
+        //WC_AJAX::get_refreshed_fragments();
+        return $fragments;
+    }
+}
+
 /**
  * Displays or retrieves the HTML dropdown list of categories.
  *

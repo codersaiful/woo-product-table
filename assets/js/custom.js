@@ -61,9 +61,9 @@
         var ajax_url = WPT_DATA.ajax_url;
         var site_url = WPT_DATA.site_url;
         
-        console.log(WPT_DATA);//Only for Developer
+        //console.log(WPT_DATA);//Only for Developer
         if( ajax_url === 'undefined'  ){
-            console.log( 'WOO PRODUCT TABLE is not Available to this page \nOR:::SORRY!!!!: woocommerce_params is Undefine also ajax_url also undefined. So ajax will not work not. Contact with codersaiful@gmail.com' );
+            //console.log( 'WOO PRODUCT TABLE is not Available to this page \nOR:::SORRY!!!!: woocommerce_params is Undefine also ajax_url also undefined. So ajax will not work not. Contact with codersaiful@gmail.com' );
             return false;
         }
 
@@ -220,7 +220,7 @@
             }
             return temp_cjson;
         }
-        console.log(config_json);
+        //console.log(config_json);
         var footer_cart = config_json.footer_cart;
         var footer_cart_size = config_json.footer_cart_size;
         var footer_possition = config_json.footer_possition;
@@ -1249,7 +1249,6 @@
                         });
                     }
                     //******************/
-                    
                     if(typeof fragments.wpt_per_product !== 'string' && typeof fragments.wpt_per_product === 'undefined'){
                         return false;
                     }
