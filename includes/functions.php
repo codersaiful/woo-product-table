@@ -1634,7 +1634,7 @@ if( defined('B2BKING_DIR') && !function_exists( 'wpt_b2bking_plugin_integration'
 
                 // set products to visible b2bking products (at group or user level)
                 $b2bking_visible_ids = get_transient('b2bking_user_'.$user_id.'_ajax_visibility');
-                $b2bking_visible_ids = $args['post__in'] && is_array( $args['post__in'] ) ? array_intersect($args['post__in'], $b2bking_visible_ids): $b2bking_visible_ids;
+                $b2bking_visible_ids = isset( $args['post__in'] ) && is_array( $args['post__in'] ) ? array_intersect($args['post__in'], $b2bking_visible_ids): $b2bking_visible_ids;
                 $args['post__in'] = $b2bking_visible_ids;
             }
         }
