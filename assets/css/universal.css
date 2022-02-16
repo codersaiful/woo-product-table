@@ -459,6 +459,7 @@ a.button.wpt_woo_add_cart_button.add_to_cart_button.disabled.loading {
 .wpt_search_box{overflow: hidden;}
 .wpt_search_box .search_box_wrapper {
     display: flex;
+    align-items: end;
 }
 .wpt_device_mobile .wpt_search_box .search_box_wrapper {
     display: flex;
@@ -973,6 +974,10 @@ div.wpt_notice_board>div:hover:after {
 }
 /*Pagination Style End*/
 /*------new for per product--------*/
+button.single_add_to_cart_button{
+    position: relative;
+}
+button.single_add_to_cart_button >span.wpt_ccount,
 a.button.wpt_woo_add_cart_button>span.wpt_ccount {
     position: absolute;
     background: white !important;
@@ -1861,3 +1866,11 @@ tr.visible_row.wpt_row .col_inside_tag.action a {
     margin-bottom: 5px;
 }
 tr.visible_row.wpt_row .col_inside_tag.action a:last-child{margin-bottom: inherit;}
+
+/* for cascade filtering */
+select.search_select.cascade-filtering {
+    background: url(../images/loading.gif) #7b7b7b59 no-repeat center center !important;
+    opacity: 0.4;
+    cursor: not-allowed;
+    background-size: 30px !important;
+}

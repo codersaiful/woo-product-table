@@ -65,7 +65,7 @@ if( !function_exists( 'wpt_admin_form_top' ) ){
         if( $validation ){
         ?>
         <ul class="wpt_admin_form_links" style="margin: 0">
-            <li><a class="wpt_get_pro_form_top_link" target="_blank" title="Awesome Pro features is Waiting for you!" href="https://codecanyon.net/item/woo-product-table-pro/20676867?ref=CodeAstrology&utm_source=WPT_Installed_Plugin">Get Pro</a></li>  
+            <li><a class="wpt_get_pro_form_top_link" target="_blank" title="Awesome Pro features is Waiting for you!" href="https://1.envato.market/e4Jjvz">Get Pro</a></li>  
             <li>
                 <a class="Header-link " href="https://github.com/codersaiful/woo-product-table" target="_blank">
   <svg class="octicon octicon-mark-github v-align-middle" height="16" 
@@ -645,6 +645,12 @@ if( !function_exists( 'wpt_configure_all_message_part' ) ){
                         <th><label for="wpt_table_select_all_items_message" class="wpt_label"><?php esc_html_e( '[Please select all items.] Message', 'wpt_pro' );?></label></th>
                         <td>    
                             <input name="<?php echo esc_attr( $field_name ); ?>[select_all_items_message]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['select_all_items_message'] ); ?>" id="wpt_table_select_all_items_message" type="text" placeholder="<?php esc_attr_e( 'Please select all items.', 'wpt_pro' );?>">
+                        </td>
+                    </tr>
+                    <tr class="<?php echo esc_attr( $user_can_edit ); ?>">
+                        <th><label for="wpt_table_please_choose_items" class="wpt_label"><?php esc_html_e( '[Please Choose items] Alert!', 'wpt_pro' );?></label></th>
+                        <td>
+                            <input name="<?php echo esc_attr( $field_name ); ?>[please_choose_items]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['please_choose_items'] ); ?>" id="wpt_table_please_choose_items" type="text" placeholder="<?php esc_attr_e( 'Please select all items.', 'wpt_pro' );?>">
                         </td>
                     </tr>
                     <tr class="<?php echo esc_attr( $user_can_edit ); ?>">

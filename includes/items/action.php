@@ -1,9 +1,11 @@
 <?php
 $wpt_single_action = false;
 if( $table_type == 'advance_table'){
-
-    woocommerce_template_single_add_to_cart();
-
+    if ($product_type != 'variation') {
+        woocommerce_template_single_add_to_cart();
+    }else{
+        woocommerce_template_loop_add_to_cart();
+    }
 }else{
     $variation_in_action = false;
     if( 'variable' == $product_type && is_array( $table_column_keywords ) && count( $table_column_keywords ) > 1 ){

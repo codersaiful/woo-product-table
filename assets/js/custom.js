@@ -61,9 +61,9 @@
         var ajax_url = WPT_DATA.ajax_url;
         var site_url = WPT_DATA.site_url;
         
-        console.log(WPT_DATA);//Only for Developer
+        //console.log(WPT_DATA);//Only for Developer
         if( ajax_url === 'undefined'  ){
-            console.log( 'WOO PRODUCT TABLE is not Available to this page \nOR:::SORRY!!!!: woocommerce_params is Undefine also ajax_url also undefined. So ajax will not work not. Contact with codersaiful@gmail.com' );
+            //console.log( 'WOO PRODUCT TABLE is not Available to this page \nOR:::SORRY!!!!: woocommerce_params is Undefine also ajax_url also undefined. So ajax will not work not. Contact with codersaiful@gmail.com' );
             return false;
         }
 
@@ -220,7 +220,7 @@
             }
             return temp_cjson;
         }
-        console.log(config_json);
+        //console.log(config_json);
         var footer_cart = config_json.footer_cart;
         var footer_cart_size = config_json.footer_cart_size;
         var footer_possition = config_json.footer_possition;
@@ -251,7 +251,7 @@
                         noticeBoard.prepend(eachNoticeInnter);
                         eachNoticeInnter.fadeIn();  
                         setTimeout(function(){
-                            eachNoticeInnter.fadeOut();
+                            eachNoticeInnter.fadeOut('slow');
                             eachNoticeInnter.remove(); 
                         },notice_timeout); //Detault 3000
                     }
@@ -265,7 +265,7 @@
         }
         
         $('body').on('click','div.wpt_notice_board>div',function(){
-            $(this).fadeOut('fast');
+            $(this).fadeOut('slow');
         });
         
         /**
@@ -1134,7 +1134,7 @@
                 currentAllSelectedButtonSelector.removeClass('disabled');
                 currentAllSelectedButtonSelector.removeClass('loading');
                 tableWrapperTag.removeClass('loading-table');
-                alert('Please Choose items.');
+                alert(config_json.please_choose_items);
                 return false;
             }
             $.ajax({
@@ -1249,7 +1249,6 @@
                         });
                     }
                     //******************/
-                    
                     if(typeof fragments.wpt_per_product !== 'string' && typeof fragments.wpt_per_product === 'undefined'){
                         return false;
                     }
@@ -1273,6 +1272,7 @@
                             $( '.wpt_row_product_id_' + key + ' .wpt_action .wpt_woo_add_cart_button' ).addClass( 'added' );
                             if(!$('.wpt_ccount.wpt_ccount_' + key ).length){
                                 $( '.wpt_row_product_id_' + key + ' .wpt_action .wpt_woo_add_cart_button' ).append( '<span class="wpt_ccount wpt_ccount_' + key + '">' + value + '</span>' );
+                                $( '.wpt_row_product_id_' + key + ' .single_add_to_cart_button' ).append( '<span class="wpt_ccount wpt_ccount_' + key + '">' + value + '</span>' );
                             }
                         });
                     }else{
@@ -1707,7 +1707,8 @@
                 $( thisRow ).attr('data-quantity', Qty_Val);
                 $( thisRow + ' a.wpt_woo_add_cart_button').attr('data-quantity', Qty_Val);
                 $( thisRow + ' a.add_to_cart_button ').attr('data-quantity', Qty_Val);
-                
+                var Item_URL = '?add-to-cart=' + product_id + '&quantity=' + Qty_Val;
+                $( thisRow + ' a.add_to_cart_button ').attr('href', Item_URL);
                 var targetTotalSelector = $('#table_id_' + temp_number + ' .product_id_' + product_id + ' .wpt_total_item.total_general');
                  
             
@@ -2361,7 +2362,7 @@
             if (itemAmount < 1) {
                 currentAllSelectedButtonSelector.removeClass('disabled');
                 currentAllSelectedButtonSelector.removeClass('loading');
-                alert('Please Choose items.');
+                alert(config_json.please_choose_items);
                 return false;
             }
             currentAllSelectedButtonSelector.removeClass('disabled');

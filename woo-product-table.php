@@ -1,17 +1,17 @@
 <?php
 /**
  * Plugin Name: Product Table for WooCommerce - (wooproducttable)
- * Plugin URI: https://codecanyon.net/item/woo-product-table-pro/20676867?ref=CodeAstrology&utm_source=WPT_Installed_Plugin
+ * Plugin URI: https://wooproducttable.com/
  * Description: WooCommerce all products display as a table in one page by shortcode. Fully responsive and mobile friendly. Easily customizable - color,background,title,text color etc.
  * Author: CodeAstrology
  * Author URI: https://profiles.wordpress.org/codersaiful/
  * Tags: woocommerce product list,woocommerce product table, wc product table, product grid view, inventory, shop product table
  * 
- * Version: 3.0.8
+ * Version: 3.1.0
  * Requires at least:    4.0.0
- * Tested up to:         5.8.2
+ * Tested up to:         5.9
  * WC requires at least: 3.0.0
- * WC tested up to: 	 5.9.0
+ * WC tested up to: 	 6.1.1
  * 
  * Text Domain: wpt_pro
  * Domain Path: /languages/
@@ -30,7 +30,7 @@ if( !defined( 'WPT_PLUGIN_BASE_FOLDER' ) ){
 }
 
 if( !defined( 'WPT_DEV_VERSION' ) ){
-    define( 'WPT_DEV_VERSION', '3.0.8.1' );
+    define( 'WPT_DEV_VERSION', '3.1.0.0' );
 }
 
 if( !defined( 'WPT_CAPABILITY' ) ){
@@ -112,6 +112,7 @@ $column_array = array(
     'serial_number' => __( 'SL', 'wpt_pro' ),
     'action'        => __( 'Action', 'wpt_pro' ),
     'freeze' => __( 'Freeze Colum', 'wpt_pro' ),
+    'advanced_action' => __( 'Advanced Action', 'wpt_pro' ),
 );
 $column_array = apply_filters( 'wpto_default_column_arr', $column_array );
 WPT_Product_Table::$columns_array =  $column_array;
