@@ -448,6 +448,10 @@ if( !function_exists( 'wpt_shortcode_configuration_metabox_save_meta' ) ){
 
 
         /**
+         * @Hook wpto_table_data_on_submit
+         * Save or change data before updated to database.
+         * 
+         * 
          * Submitted Tata is optimized for column setting actually
          * We only saving data for column setting for desktop,tablet,mobile
          * 
