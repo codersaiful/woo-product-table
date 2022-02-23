@@ -597,6 +597,7 @@ if( ! function_exists( 'wpt_order_meta_handler' ) ){
      * @return Void This Function will add Customer Custom Message to Order
      */
     function wpt_order_meta_handler( $item_id, $item, $order_id ) {
+        if( ! property_exists( $item, 'legacy_values' ) ) return;
         $values = $item->legacy_values;
         $wpt_custom_message = isset( $values['wpt_custom_message'] ) && !empty( $values['wpt_custom_message'] ) ? $values['wpt_custom_message'] : false;
         if( $wpt_custom_message ) {
