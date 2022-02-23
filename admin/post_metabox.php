@@ -454,7 +454,7 @@ if( !function_exists( 'wpt_shortcode_configuration_metabox_save_meta' ) ){
          * @author Saiful Islam <codersaiful@gmail.com>
          * @since 3.1.0.1
          */
-        $submitte_data = apply_filters( 'wpto_table_data_on_submit', $post_id, $save_tab_array );
+        $submitte_data = apply_filters( 'wpto_table_data_on_submit', $submitte_data, $post_id, $save_tab_array );
 
         /**
          * To removed empty/false value from full array
