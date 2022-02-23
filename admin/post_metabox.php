@@ -381,14 +381,87 @@ if( !function_exists( 'wpt_shortcode_configuration_metabox_save_meta' ) ){
         $submitte_data = filter_input_array( INPUT_POST, $filtar_args );
         $submitte_data = array_filter( $submitte_data );
 
+        /********* Column Setting Optimizing Start here ***********/
+
+        //Fixing for tablet setting
+        if( isset( $submitte_data['column_settings_tablet'] ) && ! isset( $submitte_data['enabled_column_array_tablet'] ) ){
+            unset($submitte_data['column_settings_tablet']);
+        }
+
+        
+        //Fixing for mobile setting
+        if( isset( $submitte_data['column_settings_mobile'] ) && ! isset( $submitte_data['enabled_column_array_mobile'] ) ){
+            unset($submitte_data['column_settings_mobile']);
+        }
+
+
+        if( isset( $submitte_data['column_settings'] ) && is_array( $submitte_data['column_settings'] ) ){
+            $total_enable_coll_arr = $submitte_data['enabled_column_array'];
+            foreach( $submitte_data['column_settings'] as $each_settings ){
+                $each_settings = isset( $each_settings['items'] ) && is_array( $each_settings['items'] ) ? array_flip( $each_settings['items'] ) : array();
+                $total_enable_coll_arr += $each_settings;
+            }
+            $total_enable_coll_arr = array_keys($total_enable_coll_arr);
+
+            foreach( $submitte_data['column_settings'] as $u_key => $Ueach_settings ){
+                if( isset( $submitte_data['column_settings'][$u_key] ) && ! in_array($u_key,$total_enable_coll_arr)){
+                    unset( $submitte_data['column_settings'][$u_key] );
+                }
+            }
+        }
+
+        
+        //Optimize setting for Tablet
+        if( isset( $submitte_data['enabled_column_array_tablet'] ) && isset( $submitte_data['column_settings_tablet'] ) && is_array( $submitte_data['column_settings'] ) ){
+            $total_enable_coll_arr = $submitte_data['enabled_column_array_tablet'];
+            foreach( $submitte_data['column_settings_tablet'] as $each_settings ){
+                $each_settings = isset( $each_settings['items'] ) && is_array( $each_settings['items'] ) ? array_flip( $each_settings['items'] ) : array();
+                $total_enable_coll_arr += $each_settings;
+            }
+            $total_enable_coll_arr = array_keys($total_enable_coll_arr);
+
+            foreach( $submitte_data['column_settings_tablet'] as $u_key => $Ueach_settings ){
+                if( isset( $submitte_data['column_settings_tablet'][$u_key] ) && ! in_array($u_key,$total_enable_coll_arr)){
+                    unset( $submitte_data['column_settings_tablet'][$u_key] );
+                }
+            }
+        }
+        //Optimize setting for Mobile
+        if( isset( $submitte_data['enabled_column_array_mobile'] ) && isset( $submitte_data['column_settings_mobile'] ) && is_array( $submitte_data['column_settings'] ) ){
+            $total_enable_coll_arr = $submitte_data['enabled_column_array_mobile'];
+            foreach( $submitte_data['column_settings_mobile'] as $each_settings ){
+                $each_settings = isset( $each_settings['items'] ) && is_array( $each_settings['items'] ) ? array_flip( $each_settings['items'] ) : array();
+                $total_enable_coll_arr += $each_settings;
+            }
+            $total_enable_coll_arr = array_keys($total_enable_coll_arr);
+
+            foreach( $submitte_data['column_settings_mobile'] as $u_key => $Ueach_settings ){
+                if( isset( $submitte_data['column_settings_mobile'][$u_key] ) && ! in_array($u_key,$total_enable_coll_arr)){
+                    unset( $submitte_data['column_settings_mobile'][$u_key] );
+                }
+            }
+        }
+        /********* Column Setting Optimizing End here ***********/
+
+
+
+
+
+        /**
+         * Submitted Tata is optimized for column setting actually
+         * We only saving data for column setting for desktop,tablet,mobile
+         * 
+         * @author Saiful Islam <codersaiful@gmail.com>
+         * @since 3.1.0.1
+         */
+        $submitte_data = apply_filters( 'wpto_table_data_on_submit', $post_id, $save_tab_array );
+
         /**
          * To removed empty/false value from full array
          * currently it's inactivated
          * 
          * @since 1.0.4.1
          */
-        //$submitte_data = wpt_array_filter_recursive( $submitte_data );
-        
         foreach( $save_tab_array as $tab ){
             
             /**

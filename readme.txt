@@ -211,6 +211,9 @@ You can easily show specific category products. While creating new table click o
 
 == Changelog ==
 
+= 3.1.0 =
+ * Fixed: Data not saving issue fixed.
+
 = 3.0.9 =
  * Variation table position controller
  * Bug Fix
