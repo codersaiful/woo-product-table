@@ -405,6 +405,7 @@ if( !function_exists( 'wpt_shortcode_configuration_metabox_save_meta' ) ){
             $total_enable_coll_arr = array_keys($total_enable_coll_arr);
             $total_enable_coll_arr['thumb_variation'] = 'thumb_variation';
             $total_enable_coll_arr['title_variation'] = 'title_variation';
+            $total_enable_coll_arr['description_off'] = 'description_off';
 
             foreach( $submitte_data['column_settings'] as $u_key => $Ueach_settings ){
                 if( isset( $submitte_data['column_settings'][$u_key] ) && ! in_array($u_key,$total_enable_coll_arr)){
@@ -424,6 +425,7 @@ if( !function_exists( 'wpt_shortcode_configuration_metabox_save_meta' ) ){
             $total_enable_coll_arr = array_keys($total_enable_coll_arr);
             $total_enable_coll_arr['thumb_variation'] = 'thumb_variation';
             $total_enable_coll_arr['title_variation'] = 'title_variation';
+            $total_enable_coll_arr['description_off'] = 'description_off';
 
             foreach( $submitte_data['column_settings_tablet'] as $u_key => $Ueach_settings ){
                 if( isset( $submitte_data['column_settings_tablet'][$u_key] ) && ! in_array($u_key,$total_enable_coll_arr)){
@@ -441,6 +443,7 @@ if( !function_exists( 'wpt_shortcode_configuration_metabox_save_meta' ) ){
             $total_enable_coll_arr = array_keys($total_enable_coll_arr);
             $total_enable_coll_arr['thumb_variation'] = 'thumb_variation';
             $total_enable_coll_arr['title_variation'] = 'title_variation';
+            $total_enable_coll_arr['description_off'] = 'description_off';
 
             foreach( $submitte_data['column_settings_mobile'] as $u_key => $Ueach_settings ){
                 if( isset( $submitte_data['column_settings_mobile'][$u_key] ) && ! in_array($u_key,$total_enable_coll_arr)){
