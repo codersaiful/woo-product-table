@@ -394,14 +394,17 @@ if( !function_exists( 'wpt_shortcode_configuration_metabox_save_meta' ) ){
             unset($submitte_data['column_settings_mobile']);
         }
 
-
+        //Optimize for Desktop
         if( isset( $submitte_data['column_settings'] ) && is_array( $submitte_data['column_settings'] ) ){
             $total_enable_coll_arr = $submitte_data['enabled_column_array'];
+            
             foreach( $submitte_data['column_settings'] as $each_settings ){
                 $each_settings = isset( $each_settings['items'] ) && is_array( $each_settings['items'] ) ? array_flip( $each_settings['items'] ) : array();
                 $total_enable_coll_arr += $each_settings;
             }
             $total_enable_coll_arr = array_keys($total_enable_coll_arr);
+            $total_enable_coll_arr['thumb_variation'] = 'thumb_variation';
+            $total_enable_coll_arr['title_variation'] = 'title_variation';
 
             foreach( $submitte_data['column_settings'] as $u_key => $Ueach_settings ){
                 if( isset( $submitte_data['column_settings'][$u_key] ) && ! in_array($u_key,$total_enable_coll_arr)){
@@ -419,6 +422,8 @@ if( !function_exists( 'wpt_shortcode_configuration_metabox_save_meta' ) ){
                 $total_enable_coll_arr += $each_settings;
             }
             $total_enable_coll_arr = array_keys($total_enable_coll_arr);
+            $total_enable_coll_arr['thumb_variation'] = 'thumb_variation';
+            $total_enable_coll_arr['title_variation'] = 'title_variation';
 
             foreach( $submitte_data['column_settings_tablet'] as $u_key => $Ueach_settings ){
                 if( isset( $submitte_data['column_settings_tablet'][$u_key] ) && ! in_array($u_key,$total_enable_coll_arr)){
@@ -434,6 +439,8 @@ if( !function_exists( 'wpt_shortcode_configuration_metabox_save_meta' ) ){
                 $total_enable_coll_arr += $each_settings;
             }
             $total_enable_coll_arr = array_keys($total_enable_coll_arr);
+            $total_enable_coll_arr['thumb_variation'] = 'thumb_variation';
+            $total_enable_coll_arr['title_variation'] = 'title_variation';
 
             foreach( $submitte_data['column_settings_mobile'] as $u_key => $Ueach_settings ){
                 if( isset( $submitte_data['column_settings_mobile'][$u_key] ) && ! in_array($u_key,$total_enable_coll_arr)){
