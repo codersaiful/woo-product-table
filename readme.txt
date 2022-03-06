@@ -213,6 +213,8 @@ You can easily show specific category products. While creating new table click o
 
 = 3.1.1 =
   * Fixed: thub variation and title variation not saving issue fixed
+  * Fixed: Not showing product count on add to cart button for variation
+
 = 3.1.0 =
  * Fixed: Data not saving issue fixed.
  * Fixed: PHP Notice - Undefined property: WC_Order_Item_Product::$legacy_values
