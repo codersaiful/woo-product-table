@@ -211,6 +211,18 @@ You can easily show specific category products. While creating new table click o
 
 == Changelog ==
 
+= 3.1.1 =
+  * Fixed: thub variation and title variation not saving issue fixed
+  * Fixed: Not showing product count on add to cart button for variation
+
+= 3.1.0 =
+ * Fixed: Data not saving issue fixed.
+ * Fixed: PHP Notice - Undefined property: WC_Order_Item_Product::$legacy_values
+ * New Feature: Advanced Action column Added
+ * New Feature: Quantity Show on third party plugin support
+ * New Feature: Total column works on third party plugin support
+ * and many other small issue fixed based on customer feedback and suggestions.
+
 = 3.0.9 =
  * Variation table position controller
  * Bug Fix

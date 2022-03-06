@@ -4,14 +4,14 @@
  * Plugin URI: https://wooproducttable.com/
  * Description: WooCommerce all products display as a table in one page by shortcode. Fully responsive and mobile friendly. Easily customizable - color,background,title,text color etc.
  * Author: CodeAstrology
- * Author URI: https://profiles.wordpress.org/codersaiful/
+ * Author URI: https://codeastrology.com/
  * Tags: woocommerce product list,woocommerce product table, wc product table, product grid view, inventory, shop product table
  * 
  * Version: 3.1.0
  * Requires at least:    4.0.0
- * Tested up to:         5.9
+ * Tested up to:         5.9.1
  * WC requires at least: 3.0.0
- * WC tested up to: 	 6.1.1
+ * WC tested up to: 	 6.2.1
  * 
  * Text Domain: wpt_pro
  * Domain Path: /languages/
@@ -30,7 +30,7 @@ if( !defined( 'WPT_PLUGIN_BASE_FOLDER' ) ){
 }
 
 if( !defined( 'WPT_DEV_VERSION' ) ){
-    define( 'WPT_DEV_VERSION', '3.1.0.0' );
+    define( 'WPT_DEV_VERSION', '3.1.0.1' );
 }
 
 if( !defined( 'WPT_CAPABILITY' ) ){
