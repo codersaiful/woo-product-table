@@ -1,6 +1,9 @@
 <?php
 $wpt_single_thumbnails = false;
 $thumb_variation = isset( $column_settings['thumb_variation'] ) ? $column_settings['thumb_variation'] : 'popup';
+$thumb_gallery = isset( $column_settings['thumbnails']['thumb_gallery'] ) ? 'no' : 'yes';
+
+var_dump($thumb_gallery);
 
 $img_src = wp_get_attachment_image_src( get_post_thumbnail_id( $id ), 'full', false );   
 $img_attr = $img_src ? " data-url='{$img_src[0]}' data-width='{$img_src[1]}' data-height='{$img_src[2]}' " : '';
