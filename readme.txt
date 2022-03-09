@@ -15,6 +15,10 @@ Easily display your products as table by tiny shortcode. Such: [Product_Table id
 Product Table plugin helps you to display your WooCommerce products in a searchable table layout with filters.  Add a table on any page or post via a shortcode. You can create tables as many as you want.
 Create a table for restaurant order systems, Online music sell, Mobile Wholesale, Course Booking, or Selling books any many more.
 
+**Have a looks in short**
+
+https://www.youtube.com/watch?v=jZ9bx4VqB08
+
 **Shortcode Example**
 
 `[Product_Table ID='123' name='Table Name']`
@@ -138,9 +142,6 @@ To get Item's Template From Active Theme, Use following Directory.
 Suppose: Item name is price, than location/directory from theme will be:
 * `[YourTheme]/woo-product-table/items/price.php`
 
-**Have a looks in short**
-
-https://www.youtube.com/watch?v=ZloiY3NRmW8
 
 == Installation ==
 
