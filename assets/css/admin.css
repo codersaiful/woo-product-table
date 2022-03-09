@@ -1491,3 +1491,19 @@ body.post-type-wpt_product_table #stick_on_scroll-on {
     font-weight: normal;
     border-radius: 3px 8px 24px 7px;
 }
+
+.wpt-pro-only-featues.enable_gallery {
+    position: relative;
+    display: inline-block;
+}
+.wpt-pro-only-featues.enable_gallery:before {
+    content: 'Pro';
+    position: absolute;
+    right: -20px;
+    top: -13px;
+    background: #f44336;
+    border: 0 none;
+    font-size: 8px;
+    padding: 0 6px;
+    color: #fff;
+}

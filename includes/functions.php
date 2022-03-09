@@ -237,7 +237,9 @@ if( !function_exists( 'wpt_thumbnails_column_add' ) ){
     
     function wpt_thumbnails_column_add( $_device_name, $column_settings ){
         $thumb_variation = isset( $column_settings['thumb_variation']) ? $column_settings['thumb_variation'] : false;
+        $img_url = WPT_BASE_URL . 'assets/images/pro-features/';
        ?>
+        <?php do_action('wpo_pro_feature_message', 'enable_gallery');?>
         <div class="thumb_variation">
             <label for="popup<?php echo esc_attr( $_device_name ); ?>"><input type="radio" id="popup<?php echo esc_attr( $_device_name ); ?>" name="column_settings<?php echo esc_attr( $_device_name ); ?>[thumb_variation]" value="popup" <?php echo !$thumb_variation || $thumb_variation == 'popup' ? 'checked' : ''; ?>> Default Popup</label>
             <label for="no_action<?php echo esc_attr( $_device_name ); ?>"><input type="radio" id="no_action<?php echo esc_attr( $_device_name ); ?>" name="column_settings<?php echo esc_attr( $_device_name ); ?>[thumb_variation]" value="no_action" <?php echo $thumb_variation == 'no_action' ? 'checked' : ''; ?>> No Action</label>
