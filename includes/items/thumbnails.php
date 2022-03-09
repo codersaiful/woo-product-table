@@ -27,4 +27,4 @@ if (!$has_gallery || !$thumb_gallery) {
     echo wp_kses_post($wpt_single_thumbnails);
 }
 
-do_action('wpt_thumbnail_col_bottom', $table_ID, $settings, $column_settings, $product);
+do_action('wpt_thumbnail_col_bottom', $table_ID, $settings, $column_settings, $product); // Gallery hook new added 3.1.0.1
