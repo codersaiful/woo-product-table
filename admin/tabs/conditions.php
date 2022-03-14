@@ -53,6 +53,10 @@ $access = wpt_user_can_edit();
                         
                         <?php }else{ ?>
                             <option disabled>Custom Meta Number(Pro)</option>
+                            <option disabled>Author(Pro)</option>
+                            <option disabled>Type(Pro)</option>
+                            <option disabled>Modified(Pro)</option>
+                            <option disabled>Rand(Pro)</option>
                         <?php } ?>
                         <option value="parent" <?php echo isset( $meta_conditions['sort_order_by'] ) && $meta_conditions['sort_order_by'] == 'parent' ? 'selected' : ''; ?>><?php esc_html_e( 'Parent', 'wpt_pro' ); ?></option>
                         <option value="comment_count" <?php echo isset( $meta_conditions['sort_order_by'] ) && $meta_conditions['sort_order_by'] == 'comment_count' ? 'selected' : ''; ?>><?php esc_html_e( 'Reviews/Comment Count', 'wpt_pro' ); ?></option>
