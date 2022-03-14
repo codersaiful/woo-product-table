@@ -22,5 +22,3 @@ $wpt_single_thumbnails .= $tag_start.$thumbs_img.$tag_end;
 //$wpt_single_thumbnails .= "</td>";
 
 echo wp_kses_post( $wpt_single_thumbnails );
-
-do_action( 'wpt_thumbnail_col_bottom', $table_ID, $settings, $column_settings, $product );
