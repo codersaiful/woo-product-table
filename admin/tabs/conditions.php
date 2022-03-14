@@ -1,5 +1,7 @@
 <?php
 $meta_conditions =  get_post_meta( $post->ID, 'conditions', true );
+$access = wpt_user_can_edit();
+
 ?>
 <div class="section ultraaddons-panel">
     <div class="wpt_column">
@@ -30,22 +32,32 @@ $meta_conditions =  get_post_meta( $post->ID, 'conditions', true );
                     <select name="conditions[sort_order_by]" data-name='sort_order_by' id="wpt_table_sort_order_by" class="wpt_fullwidth wpt_data_filed_atts ua_input" >
                         <option value="name" <?php echo isset( $meta_conditions['sort_order_by'] ) && $meta_conditions['sort_order_by'] == 'name' ? 'selected' : ''; ?>><?php esc_html_e( 'Name (Default)', 'wpt_pro' ); ?></option>
                         <option value="menu_order" <?php echo isset( $meta_conditions['sort_order_by'] ) && $meta_conditions['sort_order_by'] == 'menu_order' ? 'selected' : ''; ?>><?php esc_html_e( 'Menu Order', 'wpt_pro' ); ?></option> <!-- default menu_order -->
-
-                        <option value="meta_value" <?php echo isset( $meta_conditions['sort_order_by'] ) && $meta_conditions['sort_order_by'] == 'meta_value' ? 'selected' : ''; ?>><?php esc_html_e( 'Custom Meta Value', 'wpt_pro' ); ?></option>
-                        <option value="meta_value_num" <?php echo isset( $meta_conditions['sort_order_by'] ) && $meta_conditions['sort_order_by'] == 'meta_value_num' ? 'selected' : ''; ?>><?php esc_html_e( 'Custom Meta Number (if numeric data)', 'wpt_pro' ); ?></option>
-                        <option value="date" <?php echo isset( $meta_conditions['sort_order_by'] ) && $meta_conditions['sort_order_by'] == 'date' ? 'selected' : ''; ?>><?php esc_html_e( 'Date', 'wpt_pro' ); ?></option>
-
-                        <option value="ID" <?php echo isset( $meta_conditions['sort_order_by'] ) && $meta_conditions['sort_order_by'] == 'ID' ? 'selected' : ''; ?>><?php esc_html_e( 'ID', 'wpt_pro' ); ?></option>
-                        <option value="author" <?php echo isset( $meta_conditions['sort_order_by'] ) && $meta_conditions['sort_order_by'] == 'author' ? 'selected' : ''; ?>><?php esc_html_e( 'Author', 'wpt_pro' ); ?></option>
                         <option value="title" <?php echo isset( $meta_conditions['sort_order_by'] ) && $meta_conditions['sort_order_by'] == 'title' ? 'selected' : ''; ?>><?php esc_html_e( 'Product Title', 'wpt_pro' ); ?></option>
 
+                        <option value="date" <?php echo isset( $meta_conditions['sort_order_by'] ) && $meta_conditions['sort_order_by'] == 'date' ? 'selected' : ''; ?>><?php esc_html_e( 'Date', 'wpt_pro' ); ?></option>
+                        <option value="meta_value" <?php echo isset( $meta_conditions['sort_order_by'] ) && $meta_conditions['sort_order_by'] == 'meta_value' ? 'selected' : ''; ?>><?php esc_html_e( 'Custom Meta Value', 'wpt_pro' ); ?></option>
+                        
+                        
+                        <?php  
+                        if( $access ){
+                        ?>
+                        <option value="meta_value_num" <?php echo isset( $meta_conditions['sort_order_by'] ) && $meta_conditions['sort_order_by'] == 'meta_value_num' ? 'selected' : ''; ?>><?php esc_html_e( 'Custom Meta Number (if numeric data)', 'wpt_pro' ); ?></option>
+                        
+                        <option value="author" <?php echo isset( $meta_conditions['sort_order_by'] ) && $meta_conditions['sort_order_by'] == 'author' ? 'selected' : ''; ?>><?php esc_html_e( 'Author', 'wpt_pro' ); ?></option>
+                        
                         <option value="type" <?php echo isset( $meta_conditions['sort_order_by'] ) && $meta_conditions['sort_order_by'] == 'type' ? 'selected' : ''; ?>><?php esc_html_e( 'Type', 'wpt_pro' ); ?></option>
 
                         <option value="modified" <?php echo isset( $meta_conditions['sort_order_by'] ) && $meta_conditions['sort_order_by'] == 'modified' ? 'selected' : ''; ?>><?php esc_html_e( 'Modified', 'wpt_pro' ); ?></option>
-                        <option value="parent" <?php echo isset( $meta_conditions['sort_order_by'] ) && $meta_conditions['sort_order_by'] == 'parent' ? 'selected' : ''; ?>><?php esc_html_e( 'Parent', 'wpt_pro' ); ?></option>
+                        
                         <option value="rand" <?php echo isset( $meta_conditions['sort_order_by'] ) && $meta_conditions['sort_order_by'] == 'rand' ? 'selected' : ''; ?>><?php esc_html_e( 'Rand', 'wpt_pro' ); ?></option>
+                        
+                        <?php }else{ ?>
+                            <option disabled>Custom Meta Number(Pro)</option>
+                        <?php } ?>
+                        <option value="parent" <?php echo isset( $meta_conditions['sort_order_by'] ) && $meta_conditions['sort_order_by'] == 'parent' ? 'selected' : ''; ?>><?php esc_html_e( 'Parent', 'wpt_pro' ); ?></option>
                         <option value="comment_count" <?php echo isset( $meta_conditions['sort_order_by'] ) && $meta_conditions['sort_order_by'] == 'comment_count' ? 'selected' : ''; ?>><?php esc_html_e( 'Reviews/Comment Count', 'wpt_pro' ); ?></option>
                         <option value="relevance" <?php echo isset( $meta_conditions['sort_order_by'] ) && $meta_conditions['sort_order_by'] == 'relevance' ? 'selected' : ''; ?>><?php esc_html_e( 'Relevance', 'wpt_pro' ); ?></option> 
+                        <option value="ID" <?php echo isset( $meta_conditions['sort_order_by'] ) && $meta_conditions['sort_order_by'] == 'ID' ? 'selected' : ''; ?>><?php esc_html_e( 'ID', 'wpt_pro' ); ?></option>
                         <option value="none" <?php echo isset( $meta_conditions['sort_order_by'] ) && $meta_conditions['sort_order_by'] == 'none' ? 'selected' : ''; ?>><?php esc_html_e( 'None', 'wpt_pro' ); ?></option>
                     </select>
                     <p>Chose 'Custom_meta or custom_meta_value' - if you want to sort by price, model, sku, color itc. <b>For price or any number, Please chose <span>Custom Meta value(if number)</span></b></p>
