@@ -4,7 +4,7 @@
  */
 
 
-(function($) {
+jQuery(function($) {
     'use strict';
     $(document).ready(function() {
         var notice_timeout = 3000; //In mili second
@@ -2627,4 +2627,4 @@
         });
         
     });
-})(jQuery);
+});
