@@ -1,10 +1,10 @@
-=== Product Table for WooCommerce (wooproducttable) ===
+=== Product Table for WooCommerce ===
 Contributors: codersaiful,codeastrology
-Donate link: https://codecanyon.net/item/woo-product-table-pro/20676867?ref=CodeAstrology&utm_source=WPT_Installed_DonateLink
+Donate link: https://wooproducttable.com/pricing/?ref=CodeAstrology&utm_source=WPT_Installed_DonateLink
 Tags: wc product table, wooproducttable,woocommerce product table, product table, wc table, quick order table, wholesale table, restaurants table
 Requires at least: 4.0.0
-Tested up to: 5.9
-Stable tag: 3.1.0
+Tested up to: 5.9.2
+Stable tag: 3.1.2
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
