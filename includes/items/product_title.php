@@ -24,3 +24,5 @@ $wpt_single_product_title .= $description_on && $description_on == 'yes' && $des
 
 //XSS ok.
 echo $wpt_single_product_title;
+
+do_action('wpt_title_col_bottom', $table_ID, $settings, $column_settings, $config_value, $product); // Gallery hook new added 3.1.0.1
