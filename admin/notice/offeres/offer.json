@@ -1,9 +1,9 @@
 {
     "offer": {
-        "status": false,
+        "status": true,
         "target_function": "prepend",
         "target_link": "https://1.envato.market/e4Jjvz",
-        "image_url": "https://raw.githubusercontent.com/codersaiful/woo-product-table/master/admin/notice/offeres/images/Black-Friday.png",
+        "image_url": "https://raw.githubusercontent.com/codersaiful/woo-product-table/master/admin/notice/offeres/images/Offer-Banner-Discount.png",
         "display_to": "#wpbody-content",
         "display_wrapper": ".wpt_admin_body",
         "target_html": false,
@@ -12,7 +12,7 @@
             "background-color":"transparent"
         },
         "image_css":{
-            "height":"90px",
+            "height":"225px",
             "width":"auto"
         }
     },
