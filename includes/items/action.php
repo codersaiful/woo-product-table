@@ -8,7 +8,8 @@ if( $table_type == 'advance_table'){
     }
 }else{
     $variation_in_action = false;
-    if( 'variable' == $product_type && is_array( $table_column_keywords ) && count( $table_column_keywords ) > 1 ){
+    $table_column_keywords = is_array( $table_column_keywords ) ? $table_column_keywords : array();
+    if( 'variable' == $product_type && count( $table_column_keywords ) > 1 ){
         foreach( $table_column_keywords as $wpt_key => $wpt_val ){
             $variation_in_action = isset( $column_settings[$wpt_key]['items'] ) && in_array( 'variations', $column_settings[$wpt_key]['items'] ) ? true : false;
             if($variation_in_action){
@@ -17,9 +18,8 @@ if( $table_type == 'advance_table'){
             
         }
     }
-    //var_dump($variation_in_action);
-    //var_dump($keyword,$table_column_keywords);
-    if( 'variable' == $product_type && !$variation_in_action && !in_array( 'variations', $table_column_keywords) ){
+    
+    if( 'variable' == $product_type && !$variation_in_action && ! in_array( 'variations', $table_column_keywords) ){
         
         /**
          * Variation HTML is handled by new file
@@ -34,21 +34,6 @@ if( $table_type == 'advance_table'){
         
         
         
-        // Enqueue variation scripts.
-		// wp_enqueue_script( 'wc-add-to-cart-variation' );
-
-		// Get Available variations?
-		// $get_variations = count( $product->get_children() ) <= apply_filters( 'woocommerce_ajax_variation_threshold', 30, $product );
-
-        //		// Load the template.
-        //		wc_get_template(
-        //			'single-product/add-to-cart/variable.php',
-        //			array(
-        //				'available_variations' => $get_variations ? $product->get_available_variations() : false,
-        //				'attributes'           => $product->get_variation_attributes(),
-        //				'selected_attributes'  => $product->get_default_attributes(),
-        //			)
-        //		);
     }
 
     $ajax_action_final = ( $product_type == 'grouped' || $product_type == 'external' ? 'no_ajax_action ' : $ajax_action . ' ' );//$ajax_action;
