@@ -808,76 +808,9 @@ initSelect(displayed_items); // call init
     
     
     /**
-     * Notice update part
-     * selector: .is-dismissible.wpt-notice.wpt-user-rating-notice button.notice-dismiss
-     *  * ######## action data ########
-     * option_key: (string)
-     * option_value: any type date can get using option value
-     * callback: (string) here, final return output will pass as params
-     * perpose: (string) get|option - update or getting data from wp optiion table
-     * 
-     * a sample date
-     * strtotime("3 October 2020")
+     * Notice permanently removed
      */
-    $(document.body).on('click','.is-dismissible.wpt-notice.wpt-user-rating-notice button.notice-dismiss,.is-dismissible.wpt-notice.wpt-user-rating-notice p.do-rating-area a.ajax_enabled_link',function(e){
-
-        var option_key,option_value,callback,perpose;
-        option_key = 'wpt_user_rating_notice';
-        option_value = '10 days'; //param will empty for time function. currently it only for time update. 
-        callback = 'time'; //it s a php function, use time for time() function //when test strtotime
-        perpose = 'strtotime'; //although default value is update
-        
-        if(e.target.tagName == "A"){
-            e.preventDefault();
-            var response = $(this).data('response');
-            if(response === 'rating-later'){
-                option_value = '10 days';
-            }else if(response === 'rating-already'){
-                option_value = '+50 days';
-            }
-            callback = 'strtotime'; //it s a php function, use time for time() function //when test strtotime
-            
-            
-            $('.wpt-notice.wpt-user-rating-notice').fadeOut();
-        }        
-
-        sendToAjaxNoticeData(option_key,option_value,callback,perpose);
-    });
     
-    function sendToAjaxNoticeData(option_key,option_value,callback,perpose){
-        //var option_key,option_value,callback,perpose;
-        var ajax_url = WPT_DATA_ADMIN.ajax_url;
-
-        $.ajax({
-            type: 'POST',
-            url: ajax_url,
-            data: {
-                action:     'wpt_admin_update_notice_option', //function wpt_admin_update_notice_option() in admin/notice/notice-loader.php
-                option_key:    option_key,
-                option_value:    option_value,
-                callback:    callback,
-                perpose:    perpose,
-            },
-            complete: function(){
-
-            },
-            success: function(data) {
-                console.log(data, 'Success');
-                
-            },
-            error: function() {
-                console.log("Failed to send request to server.");
-            },
-        });
-    }
-
-    var myHtml = '<div class="wrapper_wpt_ajax_update ultraaddons-button-wrapper">';
-        myHtml += '<button type="submit" name="wpt_post_submit" data-title="hello" class="stick_on_scroll button-primary button-primary primary button wpt_ajax_update">Save Change</button>';
-        myHtml += '</div>';
-    var colSetsLen = $('#column_settings').length;
-    if( colSetsLen > 0){
-        $('#wpt_configuration_form').append(myHtml);
-    }
     $(window).on('scroll',function(){
         
         let targetElement = $('.stick_on_scroll');
