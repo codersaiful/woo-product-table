@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: Product Table for WooCommerce - (wooproducttable)
+ * Plugin Name: Product Table for WooCommerce
  * Plugin URI: https://wooproducttable.com/
  * Description: WooCommerce all products display as a table in one page by shortcode. Fully responsive and mobile friendly. Easily customizable - color,background,title,text color etc.
  * Author: CodeAstrology
