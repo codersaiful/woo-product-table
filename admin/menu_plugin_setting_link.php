@@ -10,6 +10,7 @@ if( !function_exists( 'wpt_add_action_links' ) ){
      * @return type
      */
     function wpt_add_action_links($links) {
+
         if( ! class_exists( 'WOO_Product_Table' ) ){
             $wpt_links[] = '<a href="https://1.envato.market/e4Jjvz" title="' . esc_attr__( 'Many awesome features is waiting for you', 'wpt_pro' ) . '" target="_blank">'.esc_html__( 'GET PRO VERSION','wpt_pro' ).'</a>';
         }
@@ -17,6 +18,7 @@ if( !function_exists( 'wpt_add_action_links' ) ){
         $wpt_links[] = '<a href="' . admin_url( 'edit.php?post_type=wpt_product_table&page=woo-product-table-config' ) . '" title="' . esc_attr__( 'Configure for Universal', 'wpt_pro' ) . '">' . esc_html__( 'Configure', 'wpt_pro' ) . '</a>';
         $wpt_links[] = '<a href="https://codeastrology.com/support/" title="' . esc_attr__( 'CodeAstrology Support', 'wpt_pro' ) . '" target="_blank">'.esc_html__( 'Support','wpt_pro' ).'</a>';
         $wpt_links[] = '<a href="https://github.com/codersaiful/woo-product-table" title="' . esc_attr__( 'Github Repo Link', 'wpt_pro' ) . '" target="_blank">'.esc_html__( 'Github Repository','wpt_pro' ).'</a>';
+
         return array_merge( $wpt_links, $links );
     }                                       
 }
@@ -51,9 +53,11 @@ if( !function_exists( 'wpt_pro_features_content' ) ){
      * in HTML file
      */
     function wpt_pro_features_content(){
+
         if( !current_user_can( WPT_CAPABILITY ) ){
             WPT_Product_Table::install();
-        }  
+        }
+
         include __DIR__ . '/pro-features-html.php';
     }
 }

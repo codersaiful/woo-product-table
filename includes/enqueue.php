@@ -17,13 +17,11 @@ if( !function_exists( 'wpt_enqueue' ) ){
        wp_enqueue_style( 'wpt-universal', WPT_Product_Table::getPath('BASE_URL') . 'assets/css/universal.css', array(), WPT_Product_Table::getVersion(), 'all' );
        wp_enqueue_style( 'wpt-template-table', WPT_Product_Table::getPath('BASE_URL') . 'assets/css/template.css', array(), WPT_Product_Table::getVersion(), 'all' );
 
-
        //jQuery file including. jQuery is a already registerd to WordPress
        wp_enqueue_script( 'jquery' );
 
        ///custom JavaScript for Woo Product Table pro plugin
        wp_enqueue_script( 'wpt-custom-js', WPT_Product_Table::getPath('BASE_URL') . 'assets/js/custom.js', array( 'jquery' ), WPT_Product_Table::getVersion(), true );
-
 
        /**
         * Select2 CSS file including. 
@@ -76,7 +74,6 @@ if( !function_exists( 'wpt_enqueue' ) ){
         * Start here
         * I will add functionality one by one
         */
-
 
         //Specially for woocommerce product addons @link https://woocommerce.com/products/product-add-ons/
         if( defined( 'WC_PRODUCT_ADDONS_VERSION' ) ){
