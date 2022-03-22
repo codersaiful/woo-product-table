@@ -1,5 +1,5 @@
 <?php
-if( !function_exists( 'wpt_ajax_paginate_links_load' ) ){
+if( ! function_exists( 'wpt_ajax_paginate_links_load' ) ){
     /**
      * Loading paginate lins for product table
      * for ajax
@@ -131,7 +131,8 @@ if( !function_exists( 'wpt_ajax_paginate_links_load' ) ){
 add_action( 'wp_ajax_wpt_ajax_paginate_links_load', 'wpt_ajax_paginate_links_load' );
 add_action( 'wp_ajax_nopriv_wpt_ajax_paginate_links_load', 'wpt_ajax_paginate_links_load' );
 
-if( !function_exists( 'wpt_ajax_table_row_load' ) ){
+if( ! function_exists( 'wpt_ajax_table_row_load' ) ){
+
     /**
      * Table Load by ajax Query before on Tables Top
      * 
@@ -257,7 +258,8 @@ if( !function_exists( 'wpt_ajax_table_row_load' ) ){
 add_action( 'wp_ajax_wpt_query_table_load_by_args', 'wpt_ajax_table_row_load' );
 add_action( 'wp_ajax_nopriv_wpt_query_table_load_by_args', 'wpt_ajax_table_row_load' );
 
-if( !function_exists( 'wpt_ajax_add_to_cart' ) ){
+if( ! function_exists( 'wpt_ajax_add_to_cart' ) ){
+
     /**
      * Adding Item by Ajax. This Function is not for using to any others whee.
      * But we will use this function for Ajax
@@ -279,12 +281,11 @@ if( !function_exists( 'wpt_ajax_add_to_cart' ) ){
         $custom_message = ( isset($data['custom_message']) && !empty( $data['custom_message']) ? sanitize_text_field( $data['custom_message'] ) : false );
         $additinal_json = ( isset($data['additional_json']) && !empty( $data['additional_json']) ? $data['additional_json'] : false );
 
-        //$string_for_var = '_var' . implode('_', $variation) . '_';
-
         $cart_item_data = array(); //Set default value array
 
         if( $custom_message && !empty( $custom_message ) ){
             $custom_message = esc_html( $custom_message );
+
             /**
              * Custom Message for Product Adding
              * 
@@ -305,7 +306,8 @@ if( !function_exists( 'wpt_ajax_add_to_cart' ) ){
 add_action( 'wp_ajax_wpt_ajax_add_to_cart', 'wpt_ajax_add_to_cart' );
 add_action( 'wp_ajax_nopriv_wpt_ajax_add_to_cart', 'wpt_ajax_add_to_cart' );
 
-if( !function_exists( 'wpt_fragment_refresh' ) ){
+if( ! function_exists( 'wpt_fragment_refresh' ) ){
+
     /**
      * Getting refresh for fragments
      * 
@@ -321,6 +323,7 @@ add_action( 'wp_ajax_nopriv_wpt_fragment_refresh', 'wpt_fragment_refresh' );
 
 
 if( ! function_exists( 'wpt_fragment_empty_cart' ) ){
+
     /**
      * Getting refresh for fragments
      * 
@@ -338,7 +341,8 @@ add_action( 'wp_ajax_nopriv_wpt_fragment_empty_cart', 'wpt_fragment_empty_cart' 
 
 
 
-if( !function_exists( 'wpt_variation_image_load' ) ){
+if( ! function_exists( 'wpt_variation_image_load' ) ){
+
     /**
      * Getting Image URL and with info for variation images
      * 
@@ -357,7 +361,8 @@ if( !function_exists( 'wpt_variation_image_load' ) ){
 add_action( 'wp_ajax_wpt_variation_image_load', 'wpt_variation_image_load' );
 add_action( 'wp_ajax_nopriv_wpt_variation_image_load', 'wpt_variation_image_load' );
 
-if( !function_exists( 'wpt_ajax_multiple_add_to_cart' ) ){
+if( ! function_exists( 'wpt_ajax_multiple_add_to_cart' ) ){
+
     /**
      * To use in Action Hook for Ajax
      * for Multiple product adding to cart by One click
@@ -383,7 +388,8 @@ if( !function_exists( 'wpt_ajax_multiple_add_to_cart' ) ){
 add_action( 'wp_ajax_wpt_ajax_mulitple_add_to_cart', 'wpt_ajax_multiple_add_to_cart' );
 add_action( 'wp_ajax_nopriv_wpt_ajax_mulitple_add_to_cart', 'wpt_ajax_multiple_add_to_cart' );
 
-if( !function_exists( 'wpt_adding_to_cart' ) ){
+if( ! function_exists( 'wpt_adding_to_cart' ) ){
+
     /**
      * Adding Item to cart by Using WooCommerce WC() Static Object
      * WC()->cart->add_to_cart(); Need few Perameters
@@ -411,7 +417,8 @@ if( !function_exists( 'wpt_adding_to_cart' ) ){
     }
 }
 
-if( !function_exists( 'wpt_print_notice' ) ){
+if( ! function_exists( 'wpt_print_notice' ) ){
+    
     /**
      * Getting notice by ajax, Control this function from custom.js file
      * 
@@ -426,7 +433,8 @@ if( !function_exists( 'wpt_print_notice' ) ){
 add_action('wp_ajax_wpt_print_notice', 'wpt_print_notice');
 add_action('wp_ajax_nopriv_wpt_print_notice', 'wpt_print_notice');
 
-if( !function_exists( 'wpt_adding_to_cart_multiple_items' ) ){
+if( ! function_exists( 'wpt_adding_to_cart_multiple_items' ) ){
+
     /**
      * Adding Multiple product to Cart by One click. So we used an Array
      * Array's each Item has indivisual Array with product_id,variation_id,quantity,variations's array
@@ -482,7 +490,8 @@ if( !function_exists( 'wpt_adding_to_cart_multiple_items' ) ){
     }
 }
 
-if( !function_exists( 'wpt_add_custom_message_field' ) ){
+if( ! function_exists( 'wpt_add_custom_message_field' ) ){
+
     /**
      * Adding Custom Mesage Field in Single Product Page
      * By Default: Disable, if you need, you can active it by enable action under this function
@@ -491,6 +500,7 @@ if( !function_exists( 'wpt_add_custom_message_field' ) ){
      * @date 7.6.2018 d.m.y
      */
     function wpt_add_custom_message_field() {
+
         echo '<table class="variations" cellspacing="0">
               <tbody>
                   <tr>
@@ -515,6 +525,7 @@ if( !function_exists( 'wpt_add_custom_message_field' ) ){
 
 
 if( !function_exists( 'wpt_custom_message_validation' ) ){
+
     /**
      * To set Validation, I mean: Required.
      * By Default: Disable, if you need, you can active it by enable action under this function
@@ -536,6 +547,7 @@ if( !function_exists( 'wpt_custom_message_validation' ) ){
 
 
 if( ! function_exists( 'wpt_save_custom_message_field' ) ){
+
     /**
      * Saving Custom Message Data here
      * 
@@ -557,7 +569,7 @@ if( ! function_exists( 'wpt_save_custom_message_field' ) ){
 add_action( 'woocommerce_add_cart_item_data', 'wpt_save_custom_message_field', 10, 2 );
 
 
-if( !function_exists( 'wpt_render_meta_on_cart_and_checkout' ) ){
+if( ! function_exists( 'wpt_render_meta_on_cart_and_checkout' ) ){
     /**
      * For Displaying custom Message in WooCommerce Cart
      * Need Woo 2.4.2 or updates
@@ -567,6 +579,7 @@ if( !function_exists( 'wpt_render_meta_on_cart_and_checkout' ) ){
      * @return Array
      */
     function wpt_render_meta_on_cart_and_checkout( $cart_data, $cart_item = null ) {
+
         $custom_items = array();
         /* Woo 2.4.2 updates */
         if( !empty( $cart_data ) ) {
@@ -585,6 +598,7 @@ if( !function_exists( 'wpt_render_meta_on_cart_and_checkout' ) ){
 add_filter( 'woocommerce_get_item_data', 'wpt_render_meta_on_cart_and_checkout', 10, 2 );
 
 if( ! function_exists( 'wpt_order_meta_handler' ) ){
+
     /**
      * Adding Customer Message to Order
      * 
