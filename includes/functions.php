@@ -357,7 +357,7 @@ if( !function_exists( 'wpt_column_add_extra_items' ) ){
             id="<?php echo esc_attr( "column_settings{$_device_name}_{$keyword}" ); ?>"
             name="<?php echo esc_attr( "column_settings{$_device_name}[{$keyword}][items][]" ); ?>"
             >
-            <?php echo $select; //WPCS: XSS ok(checked). ?>
+            <?php echo wp_kses_data( $select ); ?>
         </select> 
         
         </div>
@@ -1182,71 +1182,70 @@ add_filter( 'wpto_table_query_args', 'wpt_args_manage_by_get_args', 10, 2 );
 
 
 
-if( !function_exists( 'wpt_freeze_column_maintain' ) ){
 
-    /**
-     * Freeze Column Maintain using following Action Hook
-     * do_action( 'wpto_table_wrapper_bottom', $table_ID, $args, $column_settings, $enabled_column_array, $config_value, $atts );
-     * 
-     * @param type $table_ID
-     * @param type $args
-     * @param type $column_settings
-     * @param type $enabled_column_array
-     */
-    function wpt_freeze_column_maintain( $table_ID, $args, $column_settings, $enabled_column_array ){
 
-        $style = false;
-        if( isset( $enabled_column_array['freeze'] ) && $column_settings['freeze'] ){
-            $style = isset( $column_settings['freeze']['style_str'] ) ? $column_settings['freeze']['style_str'] : false;
-        }
 
-        if( $style ){
-            $width = apply_filters( 'wpto_default_width_freeze_col', '140px', $table_ID );
-            $selector = esc_attr( '#table_id_' . $table_ID . ' .wpt_table_tag_wrapper' );
-   
-            
-ob_start();
-?>
-<style>
- <?php
- //$selector WPCS checked and OK
- echo $selector; ?> th.wpt_freeze,<?php echo $selector; ?> td.wpt_freeze {
-    position: absolute;
-    left: 0;
-    top: auto;
-    width: <?php echo $width; ?>;
-}
-<?php echo $selector; ?> th.wpt_freeze{}
-<?php echo $selector; ?> td.td_or_cell.wpt_freeze .item_inside_cell{display: inline-block;}
-<?php echo $selector; ?>, <?php echo $selector; ?> table, <?php echo $selector; ?> tr{position: static;}
-<?php echo $selector; ?>{margin-left: <?php echo $width; ?>;}  
-</style>
-<script>
-    (function($) {
-    'use strict';
-        $(document).ready(function($){
-            var height = $('<?php echo $selector; ?> table tr').not('.wpt_freeze').height();
 
-            $('th.wpt_freeze').css('height', height);
-        });
-    })(jQuery);
-    
-</script>                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-<?php
-$css_code = ob_get_clean();            
-            echo $css_code;
-        }
-    }
-}
-add_action( 'wpto_table_wrapper_bottom', 'wpt_freeze_column_maintain',9910,4 );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 if( !function_exists( 'wpt_add_div_at_top' ) ){
 

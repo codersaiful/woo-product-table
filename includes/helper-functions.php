@@ -57,15 +57,15 @@ if( !function_exists( 'wpt_ajax_paginate_links_load' ) ){
         
         if( !$load_type ){
             
-            $args['wpt_custom_search'] = $search_key; //XSS OK //Already sanitized as text field
-            $args['s'] = $search_key; //XSS OK //Already sanitized as text field
+            $args['wpt_custom_search'] = $search_key; //Already sanitized as text field
+            $args['s'] = $search_key; //Already sanitized as text field
 
             if( !empty($search_key) && $search_from){
-                $args['wpt_custom_search'] = $search_key;//XSS OK
+                $args['wpt_custom_search'] = $search_key;
                 $args['s'] = false;
             }elseif(!empty($search_key) && !$search_from){
                 $args['wpt_custom_search'] = false;
-                $args['s'] = $search_key; //XSS OK
+                $args['s'] = $search_key;
             }
             
         }
@@ -188,15 +188,15 @@ if( !function_exists( 'wpt_ajax_table_row_load' ) ){
         if( !$load_type ){
 
         
-            $args['wpt_custom_search'] = $search_key; //XSS ok
-            $args['s'] = $search_key; //XSS ok
+            $args['wpt_custom_search'] = $search_key;
+            $args['s'] = $search_key;
 
             if( !empty($search_key) && $search_from){
-                $args['wpt_custom_search'] = $search_key; //XSS ok
+                $args['wpt_custom_search'] = $search_key;
                 $args['s'] = false;
             }elseif(!empty($search_key) && !$search_from){
                 $args['wpt_custom_search'] = false;
-                $args['s'] = $search_key; //XSS ok
+                $args['s'] = $search_key;
             }
 
         }
@@ -290,7 +290,7 @@ if( !function_exists( 'wpt_ajax_add_to_cart' ) ){
              * 
              * @since 1.9
              */
-            $cart_item_data[ 'wpt_custom_message' ] = $custom_message; //XSS ok
+            $cart_item_data[ 'wpt_custom_message' ] = $custom_message;
                 // below statement make sure every add to cart action as unique line item
             $cart_item_data['unique_key'] = md5( $product_id . $variation_id . '_' .$custom_message );
         }
@@ -546,8 +546,8 @@ if( ! function_exists( 'wpt_save_custom_message_field' ) ){
     function wpt_save_custom_message_field( $cart_item_data, $product_id ) {
         
         if( isset( $_REQUEST['wpt_custom_message'] ) ) {
-            $generated_message = esc_html( $_REQUEST['wpt_custom_message'] );
-            $cart_item_data[ 'wpt_custom_message' ] =  $generated_message; //XSS ok
+            $generated_message = isset( $_REQUEST['wpt_custom_message'] ) ? sanitize_text_field( $_REQUEST['wpt_custom_message'] ) : '';
+            $cart_item_data[ 'wpt_custom_message' ] =  $generated_message;
             /* below statement make sure every add to cart action as unique line item */
             $cart_item_data['unique_key'] = $product_id . '_' . $generated_message;//md5( microtime().rand() );
         }

@@ -483,7 +483,7 @@ if( !function_exists( 'wpt_shortcode_configuration_metabox_save_meta' ) ){
              * 
              * @since 2.9.1
              */
-            $tab_data = isset( $submitte_data[$tab] ) ? $submitte_data[$tab] : false; //XSS OK
+            $tab_data = isset( $submitte_data[$tab] ) ? $submitte_data[$tab] : false;
             
             /**
              * Hook before save tab data
