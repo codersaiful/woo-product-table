@@ -1399,14 +1399,13 @@ if( !function_exists( 'wpt_ajax_on_first_load' ) ){
      */
     function wpt_ajax_on_first_load(){
 
-$output = <<<EOT
-<script id='by-woo-product-table'>
-jQuery(document).ready(function($){
-    $("button.wpt_search_button").trigger("click");
-});
-</script>
-EOT;
-        echo $output;
+    ?>
+    <script id='by-woo-product-table'>
+    jQuery(document).ready(function($){
+        $("button.wpt_search_button").trigger("click");
+    });
+    </script>
+    <?php
     }
 }
 //add_action( 'wp_footer', 'wpt_ajax_on_first_load', 100 );
