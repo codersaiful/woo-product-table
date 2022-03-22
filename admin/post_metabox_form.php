@@ -27,7 +27,6 @@
     );
     $supported_css_property = apply_filters( 'wpto_supported_css_property', $supported_css_property, $tab_array, $post );
 
-    
     $supported_terms    = array(
         'product_cat'       =>  __( 'Product Categories', 'wpt' ),
         'product_tag'       =>  __( 'Product Tags', 'wpt' ),
@@ -47,9 +46,6 @@
         $active_nav = false;
     }
     echo '</nav>';
-
-    
-    
 
     //Now start for Tab Content
     $active_tab_content = 'tab-content-active';
@@ -113,8 +109,7 @@
     do_action( 'wpto_form_bottom', $post ); 
     
     ?>
-    
-    
+
     <?php
     
     $ajax_submit_btn = isset( $post->post_status ) && $post->post_status == 'publish' ? 'wpt_ajax_update' : false;
@@ -149,5 +144,4 @@ ul#wpt_column_sortable li>span.handle{
 ul#wpt_column_sortable li.wpt_sortable_peritem.enabled>span.handle{
     background-image: url('<?php echo WPT_BASE_URL . 'assets/images/move_color_3.png'; ?>');
 }
-
 </style>
