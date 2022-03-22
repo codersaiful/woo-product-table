@@ -26,7 +26,7 @@ if( !function_exists( 'wpt_column_setting_for_tax_cf' ) ){
                 }
                 if( substr($enbl_col, 0,4) == 'tax_' ){
                     $column_settings[$enbl_col]['type'] = 'taxonomy';
-                    $column_settings[$enbl_col]['type_name'] = 'Taxonomy';
+                    $column_settings[$enbl_col]['type_name'] = __('Taxonomy', 'wpt_pro');
                     $column_settings[$enbl_col]['older'] = true;
                 }
                 
@@ -201,8 +201,8 @@ if( !function_exists( 'wpt_product_title_column_add' ) ){
         </div>
         <div class="title_variation">
             <label for="link<?php echo esc_attr( $_device_name ); ?>"><input type="radio" id="link<?php echo esc_attr( $_device_name ); ?>" name="column_settings<?php echo esc_attr( $_device_name ); ?>[title_variation]" value="link" <?php echo !$title_variation || $title_variation == 'link' ? 'checked' : ''; ?>> <?php echo esc_html__( 'Link Enable', 'wpt_pro' ); ?></label>
-            <label for="nolink<?php echo esc_attr( $_device_name ); ?>"><input type="radio" id="nolink<?php echo esc_attr( $_device_name ); ?>" name="column_settings<?php echo esc_attr( $_device_name ); ?>[title_variation]" value="nolink" <?php echo $title_variation == 'nolink' ? 'checked' : ''; ?>> Link Disable</label>
-            <label for="yith<?php echo esc_attr( $_device_name ); ?>" class="tooltip"><input type="radio" id="yith<?php echo esc_attr( $_device_name ); ?>" name="column_settings<?php echo esc_attr( $_device_name ); ?>[title_variation]" value="yith" <?php echo $title_variation == 'yith' ? 'checked' : ''; ?>> Link Disable + Quick View<span class="tooltip-hover down-arrow">You have to install <a href="https://wordpress.org/plugins/yith-woocommerce-quick-view/" target="_blank">YITH WooCommerce Quick View</a></span></label>
+            <label for="nolink<?php echo esc_attr( $_device_name ); ?>"><input type="radio" id="nolink<?php echo esc_attr( $_device_name ); ?>" name="column_settings<?php echo esc_attr( $_device_name ); ?>[title_variation]" value="nolink" <?php echo $title_variation == 'nolink' ? 'checked' : ''; ?>> <?php echo esc_html__( 'Link Disable', 'wpt_pro' ); ?></label>
+            <label for="yith<?php echo esc_attr( $_device_name ); ?>" class="tooltip"><input type="radio" id="yith<?php echo esc_attr( $_device_name ); ?>" name="column_settings<?php echo esc_attr( $_device_name ); ?>[title_variation]" value="yith" <?php echo $title_variation == 'yith' ? 'checked' : ''; ?>> <?php echo esc_html__( 'Link Disable + Quick View', 'wpt_pro' ); ?><span class="tooltip-hover down-arrow"><?php echo esc_html__( 'You have to install', 'wpt_pro' ); ?> <a href="https://wordpress.org/plugins/yith-woocommerce-quick-view/" target="_blank"><?php echo esc_html__( 'YITH WooCommerce Quick View', 'wpt_pro' ); ?></a></span></label>
         </div>        
         
         
@@ -220,10 +220,10 @@ if( !function_exists( 'wpt_thumbnails_column_add' ) ){
        ?>
         <?php do_action('wpo_pro_feature_message', 'enable_gallery');?>
         <div class="thumb_variation">
-            <label for="popup<?php echo esc_attr( $_device_name ); ?>"><input type="radio" id="popup<?php echo esc_attr( $_device_name ); ?>" name="column_settings<?php echo esc_attr( $_device_name ); ?>[thumb_variation]" value="popup" <?php echo !$thumb_variation || $thumb_variation == 'popup' ? 'checked' : ''; ?>> Default Popup</label>
-            <label for="no_action<?php echo esc_attr( $_device_name ); ?>"><input type="radio" id="no_action<?php echo esc_attr( $_device_name ); ?>" name="column_settings<?php echo esc_attr( $_device_name ); ?>[thumb_variation]" value="no_action" <?php echo $thumb_variation == 'no_action' ? 'checked' : ''; ?>> No Action</label>
-            <label for="url<?php echo esc_attr( $_device_name ); ?>"><input type="radio" id="url<?php echo esc_attr( $_device_name ); ?>" name="column_settings<?php echo esc_attr( $_device_name ); ?>[thumb_variation]" value="url" <?php echo $thumb_variation == 'url' ? 'checked' : ''; ?>> Product Link</label>
-            <label for="quick_view<?php echo esc_attr( $_device_name ); ?>" class="tooltip"><input type="radio" id="quick_view<?php echo esc_attr( $_device_name ); ?>" name="column_settings<?php echo esc_attr( $_device_name ); ?>[thumb_variation]" value="quick_view" <?php echo $thumb_variation == 'quick_view' ? 'checked' : ''; ?>> Quick View<span class="tooltip-hover down-arrow">You have to install <a href="https://wordpress.org/plugins/yith-woocommerce-quick-view/" target="_blank">YITH WooCommerce Quick View</a></span></label>
+            <label for="popup<?php echo esc_attr( $_device_name ); ?>"><input type="radio" id="popup<?php echo esc_attr( $_device_name ); ?>" name="column_settings<?php echo esc_attr( $_device_name ); ?>[thumb_variation]" value="popup" <?php echo !$thumb_variation || $thumb_variation == 'popup' ? 'checked' : ''; ?>> <?php echo esc_html__( 'Default Popup', 'wpt_pro' ); ?></label>
+            <label for="no_action<?php echo esc_attr( $_device_name ); ?>"><input type="radio" id="no_action<?php echo esc_attr( $_device_name ); ?>" name="column_settings<?php echo esc_attr( $_device_name ); ?>[thumb_variation]" value="no_action" <?php echo $thumb_variation == 'no_action' ? 'checked' : ''; ?>> <?php echo esc_html__( 'No Action', 'wpt_pro' ); ?></label>
+            <label for="url<?php echo esc_attr( $_device_name ); ?>"><input type="radio" id="url<?php echo esc_attr( $_device_name ); ?>" name="column_settings<?php echo esc_attr( $_device_name ); ?>[thumb_variation]" value="url" <?php echo $thumb_variation == 'url' ? 'checked' : ''; ?>> <?php echo esc_html__( 'Product Link', 'wpt_pro' ); ?></label>
+            <label for="quick_view<?php echo esc_attr( $_device_name ); ?>" class="tooltip"><input type="radio" id="quick_view<?php echo esc_attr( $_device_name ); ?>" name="column_settings<?php echo esc_attr( $_device_name ); ?>[thumb_variation]" value="quick_view" <?php echo $thumb_variation == 'quick_view' ? 'checked' : ''; ?>> <?php echo esc_html__( 'Quick View', 'wpt_pro' ); ?><span class="tooltip-hover down-arrow"><?php echo esc_html__( 'You have to install', 'wpt_pro' ); ?> <a href="https://wordpress.org/plugins/yith-woocommerce-quick-view/" target="_blank"><?php echo esc_html__( 'YITH WooCommerce Quick View', 'wpt_pro' ); ?></a></span></label>
         </div>
         
        <?php
@@ -238,19 +238,19 @@ if( !function_exists( 'wpt_column_tag_for_all' ) ){
         $input_one = isset( $column_settings[$keyword]['input_one'] ) ? $column_settings[$keyword]['input_one'] : false;
         $tag_value = isset( $column_settings[$keyword]['tag'] ) ? $column_settings[$keyword]['tag'] : false;
         $tags = array(
-            '' => 'No Tag',
-            'section' => 'Section',
-            'h1' => 'Heading 1',
-            'h2' => 'Heading 2',
-            'h3' => 'Heading 3',
-            'h4' => 'Heading 4',
-            'h5' => 'Heading 5',
-            'h6' => 'Heading 6',
-            'p' => 'Paragraph',
-            'b' => 'Bold',
-            'strong' => 'Strong',
-            'span' => 'Span',
-            'div' => 'Div',
+            '' => __('No Tag', 'wpt_pro'),
+            'section' => __('Section', 'wpt_pro'),
+            'h1' => __('Heading 1', 'wpt_pro'),
+            'h2' => __('Heading 2', 'wpt_pro'),
+            'h3' => __('Heading 3', 'wpt_pro'),
+            'h4' => __('Heading 4', 'wpt_pro'),
+            'h5' => __('Heading 5', 'wpt_pro'),
+            'h6' => __('Heading 6', 'wpt_pro'),
+            'p' => __('Paragraph', 'wpt_pro'),
+            'b' => __('Bold', 'wpt_pro'),
+            'strong' => __('Strong', 'wpt_pro'),
+            'span' => __('Span', 'wpt_pro'),
+            'div' => __('Div', 'wpt_pro'),
         );
         ?>
         <div class="column_tag_for_all">
@@ -307,7 +307,7 @@ if( !function_exists( 'wpt_column_add_extra_items' ) ){
         }
         ?>
         <div class="column_add_extra_items">
-        <label for="<?php echo esc_attr( "column_settings{$_device_name}_{$keyword}" ); ?>">Select multiple inner items:</label>    
+        <label for="<?php echo esc_attr( "column_settings{$_device_name}_{$keyword}" ); ?>"><?php echo esc_html__( 'Select multiple inner items:', 'wpt_pro' ); ?></label>
 
 
  
@@ -499,7 +499,7 @@ function wpt_wp_dropdown_categories( $args = '', $get_taxonomy = false ) {
 		'option_none_value' => -1,
 		'value_field'       => 'term_id',
 		'multiple'          => false,
-                'data-key'          => false,
+        'data-key'          => false,
 	);
         
 	$defaults['selected'] = ( is_category() ) ? get_query_var( 'cat' ) : 0;
@@ -1163,73 +1163,6 @@ if( ! function_exists( 'wpt_args_manage_by_get_args' ) ){
     }
 }
 add_filter( 'wpto_table_query_args', 'wpt_args_manage_by_get_args', 10, 2 );
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 if( !function_exists( 'wpt_add_div_at_top' ) ){
 
