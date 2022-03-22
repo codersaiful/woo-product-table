@@ -28,9 +28,9 @@
 
         <?php
             $add_new_col_type = array(
-                'default' => "Default/No Type",
-                'custom_field' => 'Custom Field',
-                'taxonomy' => 'Taxonomy',
+                'default' => __( 'Default/No Type', 'wpt_pro' ),
+                'custom_field' => __( 'Custom Field', 'wpt_pro' ),
+                'taxonomy' => __( 'Taxonomy', 'wpt_pro' ),
             );
             
             if( ! wpt_is_pro() ){

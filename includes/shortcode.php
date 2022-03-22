@@ -16,7 +16,7 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
         //Getting WooProductTable Pro
         $table_show = apply_filters('wpt_table_show_top', true, $atts );
         if( !$table_show ){
-            return;
+            return false;
         }
         $config_value = get_option( 'wpt_configure_options' );
         $_device_name = wpt_detect_current_device();
@@ -43,8 +43,6 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
 
             //Used meta_key column_array, enabled_column_array, basics, conditions, mobile, search_n_filter, 
             $enabled_column_array = get_post_meta( $ID, 'enabled_column_array' . $_device, true );
-            
-            
             
             if( empty( $enabled_column_array ) ){
                 return sprintf( '<p>' . esc_html( 'Table{ID: %s} column setting is not founded properly!', 'wpt_pro' ) . '</p>', $ID );
@@ -105,6 +103,7 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
              * Only for Message
              */
             if( isset( $enabled_column_array['message'] ) && $table_type != 'normal_table' ){
+
                 /**
                  * For ThirdParty Plugin Support, We have
                  * Disable shortMesage from Column
@@ -134,9 +133,6 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
             $temp_number = $ID;//Temp Number Has REmoved Totally $basics['temp_number'];// + $ID; //$ID has removed from temp_number
             $add_to_cart_text = $basics['add_to_cart_text'];
             $responsive = isset( $basics['responsive'] ) ? $basics['responsive'] : 'no_responsive';
-
-
-
             $add_to_cart_selected_text = isset( $basics['add_to_cart_selected_text'] ) ? $basics['add_to_cart_selected_text'] : __( 'Add to cart selected', 'wpt_pro' );
             $check_uncheck_text = isset( $basics['check_uncheck_text'] ) ? $basics['check_uncheck_text'] : __( 'Check/Uncheck', 'wpt_pro' );//$basics['check_uncheck_text'];
             $author = !empty( $basics['author'] ) ? $basics['author'] : false;
@@ -146,7 +142,6 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
             $checkbox = isset( $basics['checkbox'] ) && !empty( $basics['checkbox'] ) ? $basics['checkbox'] : 'wpt_no_checked_table';
             //Design Tab part and generat CSS in html as <style> tag
             $template = isset( $table_style['template'] ) ? $table_style['template'] : 'custom'; //Default value for old version is 'default'
-
             $custom_css_code = false;
             $custom_table = 'no_custom_style';
             if( is_array($table_style) && $template != 'none' ){
@@ -180,8 +175,6 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
             $only_sale = isset( $conditions['only_sale'] ) && $conditions['only_sale'] == 'yes' ? true : false;
             $posts_per_page = (int) $conditions['posts_per_page'];
 
-
-
             //Mobile tab part
 
             $table_mobileHide_keywords = isset( $mobile['disable'] ) ? $mobile['disable'] : false;
@@ -212,7 +205,6 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
          */
         $wpt_permitted_td = wpt_define_permitted_td_array( $table_column_keywords );
 
-
         /**
          * Args for wp_query()
          */
@@ -233,7 +225,7 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
             unset( $args['s'] );
         }
         //Final Sku Start
-        if($meta_value_sort && ( $sort_order_by == 'meta_value' || $sort_order_by == 'meta_value_num' ) ){
+        if( $meta_value_sort && ( $sort_order_by == 'meta_value' || $sort_order_by == 'meta_value_num' ) ){
             $args['meta_query'][] = array(
                     'key'     => $meta_value_sort, //Default value is _sku : '_sku'
                     'compare' => 'EXISTS',
@@ -262,16 +254,15 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
          * 
          * @since 1.0.0 -9
          */
-        if ($sort) {
+        if ( $sort ) {
             $args['orderby'] = $sort_order_by;//'post_title';
             $args['order'] = $sort;
         }
 
-
         /**
          * Set Minimum Price for
          */
-        if ($min_price) {
+        if ( $min_price ) {
             $args['meta_query'][] = array(
                 'key' => '_price',
                 'value' => $min_price,
@@ -283,7 +274,7 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
         /**
          * Set Maximum Price for
          */
-        if ($max_price) {
+        if ( $max_price ) {
             $args['meta_query'][] = array(
                 'key' => '_price',
                 'value' => $max_price,
@@ -297,7 +288,7 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
          * 
          * @since 1.0
          */
-        if ($product_cat_ids) {
+        if ( $product_cat_ids ) {
             $args['tax_query']['product_cat_IN'] = array(  //product_cat_IN Added at 5.7 for javascript help work
                     'taxonomy' => 'product_cat',
                     'field' => 'id',
@@ -312,7 +303,7 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
          * 
          * @since 1.9
          */
-        if ($product_tag_ids) {
+        if ( $product_tag_ids ) {
             $args['tax_query']['product_tag_IN'] = array( //product_tag_IN Added at 5.7 for javascript help work
                     'taxonomy' => 'product_tag',
                     'field' => 'id',
@@ -329,7 +320,7 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
          * @since 1.0.4
          * @date 27/04/2018
          */
-        if($cat_explude){
+        if( $cat_explude ){
             $args['tax_query'][] = array(
                     'taxonomy' => 'product_cat',
                     'field' => 'id',
@@ -344,13 +335,13 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
          * @since 4.9
          * @date 22/06/2019
          */
-        if($post_include){
+        if( $post_include ){
             $args['post__in'] = $post_include;//
             $args['orderby'] = 'post__in';
         }
 
         //For Only Stock Product and Added at Version 6.0.6 at 15.6.2020
-        if($only_sale){
+        if( $only_sale ){
             $sale_products = wc_get_product_ids_on_sale();
             $sale_products = $sale_products && is_array( $sale_products ) && $post_include && is_array( $post_include ) ? array_intersect( $post_include, $sale_products ) : $sale_products;
             $args['post__in'] = $sale_products;//var_dump(wc_get_product_ids_on_sale());
@@ -362,7 +353,7 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
          * @since 1.0.4
          * @date 28/04/2018
          */
-        if($post_exclude){
+        if( $post_exclude ){
             $args['post__not_in'] = $post_exclude;
         }
 
@@ -370,8 +361,6 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
         $args['table_ID'] = $table_ID; //Added at V5.0
 
         /******************************************************************************/
-
-        
         /****************************************************************************/
         ob_start();
         /**
