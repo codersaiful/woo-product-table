@@ -26,44 +26,44 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Defining constant
  */
-if( !defined( 'WPT_PLUGIN_BASE_FOLDER' ) ){
+if( ! defined( 'WPT_PLUGIN_BASE_FOLDER' ) ){
     define( 'WPT_PLUGIN_BASE_FOLDER', plugin_basename( dirname( __FILE__ ) ) );
 }
 
-if( !defined( 'WPT_DEV_VERSION' ) ){
+if( ! defined( 'WPT_DEV_VERSION' ) ){
     define( 'WPT_DEV_VERSION', '3.1.2.3' );
 }
 
-if( !defined( 'WPT_CAPABILITY' ) ){
+if( ! defined( 'WPT_CAPABILITY' ) ){
     $wpt_capability = apply_filters( 'wpt_menu_capability', 'manage_wpt_product_table' );
     define( 'WPT_CAPABILITY', $wpt_capability );
 }
 
-if( !defined( 'WPT_PLUGIN' ) ){
+if( ! defined( 'WPT_PLUGIN' ) ){
     define( 'WPT_PLUGIN', plugin_basename( __FILE__ ) ); //'woo-product-table/woo-product-table.php'
 }
 
 
-if( !defined( 'WPT_PLUGIN_BASE_FILE' ) ){
+if( ! defined( 'WPT_PLUGIN_BASE_FILE' ) ){
     define( 'WPT_PLUGIN_BASE_FILE', plugin_basename( __FILE__ ) ); //'woo-product-table/woo-product-table.php' )
 }
 
-if( !defined( 'WPT_BASE_URL' ) ){
+if( ! defined( 'WPT_BASE_URL' ) ){
     define( "WPT_BASE_URL", plugins_url() . '/'. plugin_basename( dirname( __FILE__ ) ) . '/' );
 }
 
-if( !defined( 'WPT_DIR_BASE' ) ){
+if( ! defined( 'WPT_DIR_BASE' ) ){
     define( "WPT_DIR_BASE", dirname( __FILE__ ) . '/' );
 }
-if( !defined( 'WPT_BASE_DIR' ) ){
+if( ! defined( 'WPT_BASE_DIR' ) ){
     define( "WPT_BASE_DIR", str_replace( '\\', '/', WPT_DIR_BASE ) );
 }
 
-if( !defined( 'WPT_PLUGIN_FOLDER_NAME' ) ){
+if( ! defined( 'WPT_PLUGIN_FOLDER_NAME' ) ){
     define( "WPT_PLUGIN_FOLDER_NAME",plugin_basename( dirname( __FILE__ ) ) ); //aDDED TO NEW VERSION
 }
 
-if( !defined( 'WPT_PLUGIN_FILE_NAME' ) ){
+if( ! defined( 'WPT_PLUGIN_FILE_NAME' ) ){
     define( "WPT_PLUGIN_FILE_NAME", __FILE__ ); //aDDED TO NEW VERSION
 }
 
@@ -114,18 +114,18 @@ $column_array = array(
     'action'        => __( 'Action', 'wpt_pro' ),
     'advanced_action' => __( 'Advanced Action', 'wpt_pro' ),
 );
+
 $column_array = apply_filters( 'wpto_default_column_arr', $column_array );
 WPT_Product_Table::$columns_array =  $column_array;
 $default_enabled_col_array = array(
     'check'         => 'check',  
     'thumbnails'    => 'thumbnails',  
     'product_title' => 'product_title',  
-//    'category'      => 'category',  
-//    'sku'           => 'sku',  
     'quantity'      => 'quantity',  
     'price'         => 'price',  
     'action'        => 'action',  
 );
+
 /**
  * Filter for Default Enabled Column
  * Available Args $default_enabled_col_array, $column_array
@@ -188,14 +188,13 @@ $default = array(
     'footer_cart_size'      =>  '74',
     'footer_bg_color'       =>  '#0a7f9c',
     'footer_possition'      =>  'footer_possition',
-    'item_count'            =>  'all',//products,all,''
+    'item_count'            =>  'all',
     'sort_mini_filter'      =>  'ASC',
     'sort_searchbox_filter' =>  'ASC',
     'custom_add_to_cart'    =>  'add_cart_left_icon',
     'thumbs_image_size'     =>  60,
     'thumbs_lightbox'       => '1',
     'popup_notice'          => '1',
-    //'disable_product_link'  =>  '0',
     'disable_cat_tag_link'  =>  '0',
     'product_link_target'   =>  '_blank',
     'product_not_founded'   =>  __( 'Products Not founded!', 'wpt_pro' ),
@@ -237,13 +236,6 @@ $default = array(
     'search_box_searchkeyword' => __( 'Search Keyword', 'wpt_pro' ),
     'search_box_orderby'    => __( 'Order By', 'wpt_pro' ),
     'search_box_order'      => __( 'Order', 'wpt_pro' ),
-    //For Default Table's Content
-    /**
-    'table_in_stock'        =>  __( 'In Stock', 'wpt_pro' ),//'In Stock',
-    'table_out_of_stock'    =>  __( 'Out of Stock', 'wpt_pro' ),//'Out of Stock',
-    'table_on_back_order'   =>  __( 'On Back Order', 'wpt_pro' ),//'On Back Order',
-    
-     */
 );
 $default = apply_filters( 'wpto_default_configure', $default );
 WPT_Product_Table::$default = $default;
@@ -864,5 +856,5 @@ class WPT_Product_Table{
 /**
 * Plugin Install and Uninstall
 */
-register_activation_hook(__FILE__, array( 'WPT_Product_Table','install' ) );
+register_activation_hook( __FILE__, array( 'WPT_Product_Table','install' ) );
 register_deactivation_hook( __FILE__, array( 'WPT_Product_Table','uninstall' ) );
