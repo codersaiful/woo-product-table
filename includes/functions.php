@@ -357,7 +357,38 @@ if( !function_exists( 'wpt_column_add_extra_items' ) ){
             id="<?php echo esc_attr( "column_settings{$_device_name}_{$keyword}" ); ?>"
             name="<?php echo esc_attr( "column_settings{$_device_name}[{$keyword}][items][]" ); ?>"
             >
-            <?php echo wp_kses_data( $select ); ?>
+            <?php 
+            $allowed_atts = array(
+                'align'      => array(),
+                'class'      => array(),
+                'type'       => array(),
+                'id'         => array(),
+                'dir'        => array(),
+                'lang'       => array(),
+                'style'      => array(),
+                'xml:lang'   => array(),
+                'src'        => array(),
+                'alt'        => array(),
+                'href'       => array(),
+                'rel'        => array(),
+                'rev'        => array(),
+                'target'     => array(),
+                'novalidate' => array(),
+                'type'       => array(),
+                'value'      => array(),
+                'name'       => array(),
+                'tabindex'   => array(),
+                'action'     => array(),
+                'method'     => array(),
+                'for'        => array(),
+                'width'      => array(),
+                'height'     => array(),
+                'data'       => array(),
+                'title'      => array(),
+            );
+            echo wp_kses_post( $select, array(
+                'option' => $allowed_atts
+            ) ); ?>
         </select> 
         
         </div>
@@ -635,7 +666,7 @@ function wpt_wp_dropdown_categories( $args = '', $get_taxonomy = false ) {
 	$output = apply_filters( 'wp_dropdown_cats', $output, $parsed_args );
 
 	if ( $parsed_args['echo'] ) {
-		echo $output; //Total function copy from WordPress and renamed just
+		echo wp_kses_post( $output );
 	}
 
 	return $output;
