@@ -7,13 +7,15 @@
  * @author Saiful Islam<codersaiful@gmail.com>
  */
 
-if( !function_exists( 'wpt_shortcode_metabox' ) ){
+if( ! function_exists( 'wpt_shortcode_metabox' ) ){
+
     /**
      * Our total metabox or register_meta_box_cb will controll from here. 
      * 
      * @since 4.1.1
      */
     function wpt_shortcode_metabox(){
+
         add_meta_box( 'wpt_shortcode_metabox_id', 'Shortcode', 'wpt_shortcode_metabox_render', 'wpt_product_table', 'normal' );
         add_meta_box( 'wpt_shortcode_configuration_metabox_id', 'Table Configuration', 'wpt_shortcode_configuration_metabox_render', 'wpt_product_table', 'normal' ); //Added at 4.1.4
         //add_meta_box( 'wpt_column_panel_metabox_id', __( 'Available Columns', 'wpt' ), 'wpt_column_panel_metabox_render', 'wpt_product_table', 'side', 'low' ); //Added at 4.1.4
@@ -27,14 +29,17 @@ if( !function_exists( 'wpt_shortcode_metabox' ) ){
     }
 }
 
-if( !function_exists( 'wpt_column_panel_metabox_render' ) ){
+if( ! function_exists( 'wpt_column_panel_metabox_render' ) ){
+
     /**
      * This function showing column panel 
      * 
      * @since 2.7.8.1
      */
     function wpt_column_panel_metabox_render(){
+
         global $post;
+
         /**
          * Filter Hook was not working from theme's function file, so need this filter inside function
          */
@@ -44,7 +49,7 @@ if( !function_exists( 'wpt_column_panel_metabox_render' ) ){
         $default_enable_array = WPT_Product_Table::$default_enable_columns_array;
         $columns_array = WPT_Product_Table::$columns_array;
         $for_add =  $meta_column_array = $updated_columns_array = get_post_meta( $post->ID, 'column_array', true );
-        if( !$meta_column_array && empty( $meta_column_array ) ){
+        if( ! $meta_column_array && empty( $meta_column_array ) ){
             $for_add = $updated_columns_array = WPT_Product_Table::$columns_array;
         }
         if( $updated_columns_array && !empty( $updated_columns_array ) && !empty( $columns_array ) ){
@@ -76,7 +81,8 @@ if( !function_exists( 'wpt_column_panel_metabox_render' ) ){
     
 }
 
-if( !function_exists( 'wpt_shortcode_metabox_render' ) ){
+if( ! function_exists( 'wpt_shortcode_metabox_render' ) ){
+
     function wpt_shortcode_metabox_render(){
         global $post;
         $curent_post_id = $post->ID;
@@ -107,6 +113,7 @@ if( !function_exists( 'wpt_shortcode_metabox_render' ) ){
 if( ! function_exists( 'wpt_export_import_metabox_render' ) ){
     
     function wpt_export_import_metabox_render(){
+
         global $post;
         $post_id = $post->ID;
 //        The following code has Transferred to admin/functions.php
@@ -158,7 +165,8 @@ if( ! function_exists( 'wpt_export_import_metabox_render' ) ){
 }
 
 
-if( !function_exists( 'wpt_shortcode_configuration_metabox_render' ) ){
+if( ! function_exists( 'wpt_shortcode_configuration_metabox_render' ) ){
+
     //Now start metabox for shortcode Generator
     function wpt_shortcode_configuration_metabox_render(){
         global $post;
@@ -197,15 +205,16 @@ if( !function_exists( 'wpt_shortcode_configuration_metabox_render' ) ){
  * @return Array
  */
 function wpt_array_filter_recursive($array) {
-    foreach ($array as $key => &$value) {
-       if (empty($value)) {
-          unset($array[$key]);
+
+    foreach( $array as $key => &$value ) {
+       if( empty( $value ) ) {
+          unset( $array[$key] );
        }
-       else {
-          if (is_array($value)) {
-             $value = wpt_array_filter_recursive($value);
-             if (empty($value)) {
-                unset($array[$key]);
+       else{
+          if( is_array( $value ) ) {
+             $value = wpt_array_filter_recursive( $value );
+             if ( empty( $value ) ) {
+                unset( $array[$key] );
              }
           }
        }
@@ -214,7 +223,8 @@ function wpt_array_filter_recursive($array) {
     return $array;
  }
 
-if( !function_exists( 'wpt_shortcode_configuration_metabox_save_meta' ) ){
+if( ! function_exists( 'wpt_shortcode_configuration_metabox_save_meta' ) ){
+
     function wpt_shortcode_configuration_metabox_save_meta( $post_id, $post ) { // save the data
         
         /*
@@ -385,13 +395,13 @@ if( !function_exists( 'wpt_shortcode_configuration_metabox_save_meta' ) ){
 
         //Fixing for tablet setting
         if( isset( $submitte_data['column_settings_tablet'] ) && ! isset( $submitte_data['enabled_column_array_tablet'] ) ){
-            unset($submitte_data['column_settings_tablet']);
+            unset( $submitte_data['column_settings_tablet'] );
         }
 
         
         //Fixing for mobile setting
         if( isset( $submitte_data['column_settings_mobile'] ) && ! isset( $submitte_data['enabled_column_array_mobile'] ) ){
-            unset($submitte_data['column_settings_mobile']);
+            unset( $submitte_data['column_settings_mobile'] );
         }
 
         //Optimize for Desktop
