@@ -406,7 +406,7 @@ class WPT_Product_Table{
         * @since 6.1.0.15
         */
        $installed_plugins = get_plugins();
-//       var_dump($installed_plugins);
+
        //Condition and check php verion and WooCommerce activation
        if ( !is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
             add_action( 'admin_notices', [ $this, 'admin_notice_missing_main_plugin' ] );

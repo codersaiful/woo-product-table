@@ -1032,8 +1032,8 @@ if( !function_exists( 'wpt_sorting_array' ) ){
     /**
      * Sorting Associative array based on ASC,DESC or None.
      * 
-     * @param type $array Associative Array
-     * @param type $sorting_type Available type ASC,DESC,None
+     * @param array $array Associative Array
+     * @param string $sorting_type Available type ASC,DESC,None
      * @return Array
      */
     function wpt_sorting_array( $array, $sorting_type ){
