@@ -682,28 +682,7 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
         //$html .= apply_filters('wpt_after_table_wrapper', ''); //Apply Filter Just After Table Wrapper div tag
         $html .= isset( $custom_css_code ) ? $custom_css_code : '';
 
-        /**
-         * Extra content for Mobile Hide content Issue
-         */
-        $mobile_hide_css_code = false;
-        if( $table_mobileHide_keywords && count( $table_mobileHide_keywords ) > 0 ){
-            foreach( $table_mobileHide_keywords as $selector ){
-                $mobile_hide_css_code .= "table#wpt_table.wpt_temporary_table_{$temp_number}.wpt_product_table th.wpt_" . $selector . ',';
-                $mobile_hide_css_code .= "table#wpt_table.wpt_temporary_table_{$temp_number}.wpt_product_table .wpt_" . $selector . ',';
-            }
-        }
-        $mobile_hide_css_code .= '.hide_column_for_mobile_only_for_selected{ display: none!important;}';
-
-        $padding_left = 8;
-        $text_align = 'left';
-        $table_css_n_js_array = array(
-            'mobile_hide_css_code'      =>  $mobile_hide_css_code,
-            'responsive_table'          =>  $responsive_table,
-            'temp_number'               =>  $temp_number,
-            'padding_left'              =>  $padding_left,
-            'text_align'                =>  $text_align,
-        );
-        $html .= wpt_table_css_n_js_generator( $table_css_n_js_array );
+        
 
         return $html;
     }
@@ -736,88 +715,6 @@ if( !function_exists( 'wpt_price_formatter' ) ){
     }
 }
 
-if( !function_exists( 'wpt_table_css_n_js_generator' ) ){
-    /**
-     * CSS and JS code generator, Its under Table
-     * 
-     * @param type $table_css_n_js_array
-     * @return string CSS and CSS code for bellow of Table
-     */
-    function wpt_table_css_n_js_generator( $table_css_n_js_array  ){
-
-        $mobile_hide_css_code = $table_css_n_js_array['mobile_hide_css_code'];
-        $responsive_table = $table_css_n_js_array['responsive_table'];
-        $temp_number = $table_css_n_js_array['temp_number'];
-        $padding_left = $table_css_n_js_array['padding_left'];
-        $text_align = $table_css_n_js_array['text_align'];
-        $html = <<<EOF
-    <style>
-    @media 
-    only screen and (max-width: 767px) {
-        $mobile_hide_css_code        
-
-
-        $responsive_table tr { border: 1px solid #ddd; margin-bottom: 5px;}
-
-        $responsive_table td { 
-            border-bottom: 1px solid;
-            position: relative;
-            text-align: $text_align;
-            padding-left: {$padding_left}px !important;
-            height: 100%;
-            border: none;
-            border-bottom: 1px solid #ddd;    
-        }
-        /*
-        $responsive_table td,$responsive_table td.wpt_check,$responsive_table td.wpt_quantity{
-         width: 100%;       
-        }
-        */
-        $responsive_table td.wpt_quantity { 
-           min-height: 57px;
-        }
-
-        $responsive_table td.wpt_thumbnails { 
-           height: 100%;
-           padding: 7px;
-        }
-
-        $responsive_table td.wpt_description { 
-           min-height: 55px;
-           height: 100%;
-           padding: 7px;
-        }
-
-        $responsive_table td.wpt_action{ 
-           min-height: 62px;
-           height: auto;
-        }        
-        $responsive_table td.data_product_variations.woocommerce-variation-add-to-cart.variations_button.woocommerce-variation-add-to-cart-disabled.wpt_action{ 
-                height: 100%;
-                padding: 7px 0;
-        }
-
-        $responsive_table td:before { 
-            width: 88px;
-            white-space: normal;
-            background: #b7b7b736;
-            position: absolute;
-            left: 0;
-            top: 0;
-            height: 100%;
-            text-align: right;
-            padding-right: 10px;
-        }
-        /*VARresponsiveTableLabelData*/
-    } 
-    table tr.wpt_row td.wpt_quoterequest.addedd{
-        display: block !important;
-    }
-    </style>
-EOF;
-                    return $html;
-    }
-}
 
 if( !function_exists( 'wpt_table_row_generator' ) ){
     /**
