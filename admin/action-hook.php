@@ -42,7 +42,7 @@ if( ! function_exists( 'wpt_post_message_for_import' ) ){
     
     function wpt_post_message_for_import( $message ){
         
-        $message['wpt_custom_message'][] = "Hello World";
+        $message['wpt_custom_message'][] = __("Hello World", 'wpt_pro');
         return $message;
     }
 }
@@ -65,7 +65,7 @@ if( !function_exists( 'wpt_admin_form_top' ) ){
         if( $validation ){
         ?>
         <ul class="wpt_admin_form_links" style="margin: 0">
-            <li><a class="wpt_get_pro_form_top_link" target="_blank" title="Awesome Pro features is Waiting for you!" href="https://1.envato.market/e4Jjvz">Get Pro</a></li>  
+            <li><a class="wpt_get_pro_form_top_link" target="_blank" title="Awesome Pro features is Waiting for you!" href="https://1.envato.market/e4Jjvz"><?php echo esc_html__( 'Get Pro', 'wpt_pro' ); ?></a></li>
             <li>
                 <a class="Header-link " href="https://github.com/codersaiful/woo-product-table" target="_blank">
   <svg class="octicon octicon-mark-github v-align-middle" height="16" 
@@ -73,11 +73,11 @@ if( !function_exists( 'wpt_admin_form_top' ) ){
   <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
   </svg>
 
-            GitHub Repo</a></li>
-            <li><a target="_blank" href="https://demo.wooproducttable.com/">Demo</a></li>
-            <li><a target="_blank" href="https://github.com/codersaiful/woo-product-table/discussions">Forum on Repo</a></li>
-            <li><a target="_blank" href="https://wooproducttable.com/documentation/">Documentation</a></li>
-            <li><a target="_blank" href="https://codeastrology.com/supports/">Get Support</a></li> 
+            <?php echo esc_html__( 'GitHub Repo', 'wpt_pro' ); ?></a></li>
+            <li><a target="_blank" href="https://demo.wooproducttable.com/"><?php echo esc_html__( 'Demo', 'wpt_pro' ); ?></a></li>
+            <li><a target="_blank" href="https://github.com/codersaiful/woo-product-table/discussions"><?php echo esc_html__( 'Forum on Repo', 'wpt_pro' ); ?></a></li>
+            <li><a target="_blank" href="https://wooproducttable.com/documentation/"><?php echo esc_html__( 'Documentation', 'wpt_pro' ); ?></a></li>
+            <li><a target="_blank" href="https://codeastrology.com/supports/"><?php echo esc_html__( 'Get Support', 'wpt_pro' ); ?></a></li>
             
 
         </ul>    
@@ -163,7 +163,7 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
                             <label class="switch">
                                 <input  name="<?php echo esc_attr( $field_name ); ?>[disable_plugin_noti]" type="checkbox" id="wpt_disable_plugin_noti" <?php echo isset( $current_config_value['disable_plugin_noti'] ) ? 'checked="checked"' : ''; ?>>
                                 <div class="slider round"><!--ADDED HTML -->
-                                    <span class="on">Enable</span><span class="off">Disable</span><!--END-->
+                                    <span class="on"><?php echo esc_html__( 'Enable', 'wpt_pro' ); ?></span><span class="off"><?php echo esc_html__( 'Disable', 'wpt_pro' ); ?></span><!--END-->
                                 </div>
                             </label>
                             <p><?php echo esc_html( 'To enable or disable our plugin Notification for our Product Table', 'wpt_pro' ); ?></p>
@@ -380,7 +380,7 @@ if( !function_exists( 'wpt_configure_label_part' ) ){
                         <th> <label for="wpt_table_load_more_text" class="wpt_label"><?php echo sprintf(esc_html__( '%s[Load More]%s - Button Text', 'wpt_pro' ), '<b>', '</b>' ); ?></label></th>
                         <td>
                             <input name="<?php echo esc_attr( $field_name ); ?>[load_more_text]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['load_more_text'] ); ?>" id="wpt_table_load_more_text" type="text" placeholder="<?php esc_attr_e( 'Load More text write here', 'wpt_pro' ); ?>">
-                            <p>Not for Archive page.</p>
+                            <p><?php echo esc_html__( 'Not for Archive page.', 'wpt_pro' ); ?></p>
                         </td>
                     </tr>
 
@@ -687,7 +687,7 @@ if( !function_exists( 'wpt_configure_all_part_save_btn' ) ){
         if( $page == 'configuration_page' ){
         ?>
         <div class="ultraaddons-button-wrapper">
-            <button name="configure_submit" class="button-primary primary button">Save All</button>
+            <button name="configure_submit" class="button-primary primary button"><?php echo esc_html__( 'Save All', 'wpt_pro' ); ?></button>
         </div>
          <?php
         }

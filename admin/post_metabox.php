@@ -127,7 +127,7 @@ if( ! function_exists( 'wpt_export_import_metabox_render' ) ){
 <form class="wpt-export-import" action="" method="post">
     <div class="wpt-export-import-wrapper">
         <div class="wpt-export-area"> 
-            <label for="wpt-export-textarea">Export Box</label>
+            <label for="wpt-export-textarea"><?php echo esc_html__( 'Export Box', 'wpt_pro' ); ?></label>
             <textarea 
                 id="wpt-export-textarea" 
                 class="wpt-export-textarea ua-input" 
@@ -137,7 +137,7 @@ if( ! function_exists( 'wpt_export_import_metabox_render' ) ){
         </div>
         <div class="wpt-import-area"> 
             
-            <label for="wpt-import-textarea">Import Box</label>
+            <label for="wpt-import-textarea"><?php echo esc_html__( 'Import Box', 'wpt_pro' ); ?></label>
             <textarea 
                 name="wpt-import-data"
                 id="wpt-import-textarea" 

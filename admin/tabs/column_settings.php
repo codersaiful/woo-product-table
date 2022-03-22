@@ -61,9 +61,9 @@ $_device_name = '';
         <br>
     </div>
     <nav class="inside-nav-tab-wrapper">
-        <a data-target="inside-desktop" data-device="desktop" class="wpt_inside_nav_tab nav-tab nav-tab-active">Desktop</a>
-        <a data-target="inside-tablet" data-device="tablet" class="wpt_inside_nav_tab nav-tab">Tablet</a>
-        <a data-target="inside-mobile" data-device="mobile" class="wpt_inside_nav_tab nav-tab">Mobile</a>
+        <a data-target="inside-desktop" data-device="desktop" class="wpt_inside_nav_tab nav-tab nav-tab-active"><?php echo esc_html__( 'Desktop','wpt_pro' ); ?></a>
+        <a data-target="inside-tablet" data-device="tablet" class="wpt_inside_nav_tab nav-tab"><?php echo esc_html__( 'Tablet','wpt_pro' ); ?></a>
+        <a data-target="inside-mobile" data-device="mobile" class="wpt_inside_nav_tab nav-tab"><?php echo esc_html__( 'Mobile','wpt_pro' ); ?></a>
     </nav>
     
     
