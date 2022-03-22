@@ -21,7 +21,7 @@ if( !function_exists( 'wpt_column_setting_for_tax_cf' ) ){
             foreach($enabled_column_array as $enbl_col=>$val){
                 if( substr($enbl_col, 0,3) == 'cf_' ){
                     $column_settings[$enbl_col]['type'] = 'custom_field';
-                    $column_settings[$enbl_col]['type_name'] = 'Custom Field';
+                    $column_settings[$enbl_col]['type_name'] = __( 'Custom Field', 'wpt_pro' );
                     $column_settings[$enbl_col]['older'] = true;
                 }
                 if( substr($enbl_col, 0,4) == 'tax_' ){
@@ -200,7 +200,7 @@ if( !function_exists( 'wpt_product_title_column_add' ) ){
             <label for="description_off<?php echo esc_attr( $_device_name ); ?>"><input id="description_off<?php echo esc_attr( $_device_name ); ?>" title="Disable Deactivate Description from Title Column" name="column_settings<?php echo esc_attr( $_device_name ); ?>[description_off]" id="description_off" class="description_off" type="checkbox" value="off" <?php echo esc_attr( $description_off ); ?>> <?php echo esc_html__( 'Disable Description', 'wpt_pro' ); ?></label>
         </div>
         <div class="title_variation">
-            <label for="link<?php echo esc_attr( $_device_name ); ?>"><input type="radio" id="link<?php echo esc_attr( $_device_name ); ?>" name="column_settings<?php echo esc_attr( $_device_name ); ?>[title_variation]" value="link" <?php echo !$title_variation || $title_variation == 'link' ? 'checked' : ''; ?>> Link Enable</label>
+            <label for="link<?php echo esc_attr( $_device_name ); ?>"><input type="radio" id="link<?php echo esc_attr( $_device_name ); ?>" name="column_settings<?php echo esc_attr( $_device_name ); ?>[title_variation]" value="link" <?php echo !$title_variation || $title_variation == 'link' ? 'checked' : ''; ?>> <?php echo esc_html__( 'Link Enable', 'wpt_pro' ); ?></label>
             <label for="nolink<?php echo esc_attr( $_device_name ); ?>"><input type="radio" id="nolink<?php echo esc_attr( $_device_name ); ?>" name="column_settings<?php echo esc_attr( $_device_name ); ?>[title_variation]" value="nolink" <?php echo $title_variation == 'nolink' ? 'checked' : ''; ?>> Link Disable</label>
             <label for="yith<?php echo esc_attr( $_device_name ); ?>" class="tooltip"><input type="radio" id="yith<?php echo esc_attr( $_device_name ); ?>" name="column_settings<?php echo esc_attr( $_device_name ); ?>[title_variation]" value="yith" <?php echo $title_variation == 'yith' ? 'checked' : ''; ?>> Link Disable + Quick View<span class="tooltip-hover down-arrow">You have to install <a href="https://wordpress.org/plugins/yith-woocommerce-quick-view/" target="_blank">YITH WooCommerce Quick View</a></span></label>
         </div>        
