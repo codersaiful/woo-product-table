@@ -3,7 +3,8 @@
 global $shortCodeText;
 add_shortcode( $shortCodeText, 'wpt_shortcode_generator' );
 
-if( !function_exists( 'wpt_shortcode_generator' ) ){
+if( ! function_exists( 'wpt_shortcode_generator' ) ){
+
     /**
      * Shortcode Generator for WPT Plugin
      * 
@@ -13,6 +14,7 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
      * @since 1.0
      */
     function wpt_shortcode_generator( $atts = false ) {
+
         //Getting WooProductTable Pro
         $table_show = apply_filters('wpt_table_show_top', true, $atts );
         if( !$table_show ){
@@ -415,9 +417,6 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
         $checkbox_validation = apply_filters( 'wpto_checkbox_validation', false, $enabled_column_array,$column_settings, $table_ID, $atts );
         if( $checkbox_validation ){
             $filter_identy_class = 'fulter_half';
-            //
-            $add_to_cart_selected_text = $add_to_cart_selected_text;//'Add to Cart [Selected]';
-
             $html_check .= "<div class='all_check_header_footer all_check_header check_header_{$temp_number}'>";
             $html_check_footer .= "<div class='all_check_header_footer all_check_footer check_footer_{$temp_number}'>";
 
@@ -505,12 +504,14 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
         }
         $html .= apply_filters('end_part_advance_search_box_abc','',$table_ID,$temp_number);
         ob_start();
+
         /**
          * To Insert Content at Top of the Table, Just inside of Wrapper tag of Table
          * Available Args $table_ID, $args, $config_value, $atts;
          */
         do_action( 'wpto_after_advance_search_box', $table_ID, $args, $column_settings, $enabled_column_array, $config_value, $atts );
         $html .= ob_get_clean();
+
         /**
          * Instant Sarch Box
          */
@@ -526,7 +527,6 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
         $html .= $html_check; //Added at @Version 1.0.4
         $html .= '<br class="wpt_clear">'; //Added @Version 2.0
         $html .= apply_filters('wpt_before_table', ''); //Apply Filter Jese Before Table Tag
-        
 
         /**
          * Why this array here, Actually we will send this data as dataAttribute of table 's tag.
@@ -550,6 +550,7 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
         );
 
         ob_start();
+
         /**
          * Action for before Table
          * @since 2.7.5.2
@@ -575,7 +576,6 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
         $table_class_arr = apply_filters( 'wpto_table_tag_class_arr', $table_class_arr, $table_ID, $args, $column_settings, $enabled_column_array, $column_array);
         $table_class_arr = implode( " ", $table_class_arr );
 
-        
         $html .= "<table "
                 . "data-page_number='" . esc_attr( $page_number_1plugs ) . "' "
                 . "data-temp_number='" . esc_attr( $temp_number ) . "' "
@@ -677,13 +677,14 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
     }
 }
 
-if( !function_exists( 'wpt_price_formatter' ) ){
+if( ! function_exists( 'wpt_price_formatter' ) ){
     /**
      * Price Formater, Getting data from Woocommerce Default Formatter
      * 
      * @return string
      */
     function wpt_price_formatter(){
+
         $price_format = get_woocommerce_price_format();
         $curr_pos = '';
         switch($price_format){
@@ -705,7 +706,8 @@ if( !function_exists( 'wpt_price_formatter' ) ){
 }
 
 
-if( !function_exists( 'wpt_table_row_generator' ) ){
+if( ! function_exists( 'wpt_table_row_generator' ) ){
+
     /**
      * Generate Table 's Root html based on Query args
      * 
@@ -717,6 +719,7 @@ if( !function_exists( 'wpt_table_row_generator' ) ){
      * @return String 
      */
     function wpt_table_row_generator( $table_row_generator_array ){
+
         ob_start();
         $html = false;
         //Getting WooProductTable Pro
@@ -758,8 +761,7 @@ if( !function_exists( 'wpt_table_row_generator' ) ){
          * in shortcode_generator function $atts - here null
          */
         $column_array = apply_filters( 'wpto_column_arr', $column_array, $table_ID, null, $column_settings, $table_column_keywords ); //Added at 2.9.8
-        $column_settings = apply_filters( 'wpto_column_settings', $column_settings, $table_ID, $table_column_keywords ); //Added at 6.0.25 
-        
+        $column_settings = apply_filters( 'wpto_column_settings', $column_settings, $table_ID, $table_column_keywords ); //Added at 6.0.25
         
         /**
          * Adding Filter for Args inside Row Generator
@@ -820,13 +822,7 @@ if( !function_exists( 'wpt_table_row_generator' ) ){
                    $taxonomy_class = 'no_filter'; 
                 }
 
-
-
-
-
                 $default_quantity = apply_filters( 'woocommerce_quantity_input_min', 1, $product );
-
-
 
                 $row_class = $data_product_variations = $variation_html = $wpt_varitions_col = $variable_for_total = false;
                 $quote_class = 'enabled';
@@ -849,16 +845,9 @@ if( !function_exists( 'wpt_table_row_generator' ) ){
                     $variation_html = wpt_variations_attribute_to_select( $attributes, $data['id'], $default_attributes, $temp_number );                 
                 }
 
-
                 //Out_of_stock class Variable
                 $stock_status = $data['stock_status'];
                 $stock_status_class = ( $stock_status == 'onbackorder' || $stock_status == 'instock' ? 'add_to_cart_button' : $stock_status . '_add_to_cart_button disabled' );
-
-
-
-
-
-
 
                 $tr_class_arr = array(
                     "visible_row",
@@ -912,7 +901,8 @@ if( !function_exists( 'wpt_table_row_generator' ) ){
     }
 }
 
-if( !function_exists( 'wpt_texonomy_search_generator' ) ){
+if( ! function_exists( 'wpt_texonomy_search_generator' ) ){
+
     /**
      * Texonomy select box for Texonomy.
      * 
@@ -1004,20 +994,17 @@ if( !function_exists( 'wpt_texonomy_search_generator' ) ){
         }else{
             $customized_texonomy_boj = false;
         }
-        
-        
-        $html .= wpt_wp_dropdown_categories( $defaults, $customized_texonomy_boj );
-        
 
+        $html .= wpt_wp_dropdown_categories( $defaults, $customized_texonomy_boj );
 
         $html .= "</div>"; //End of .search_single
-
 
         return $html;
     }
 }
 
-if( !function_exists( 'wpt_sorting_array' ) ){
+if( ! function_exists( 'wpt_sorting_array' ) ){
+
     /**
      * Sorting Associative array based on ASC,DESC or None.
      * 
@@ -1026,6 +1013,7 @@ if( !function_exists( 'wpt_sorting_array' ) ){
      * @return Array
      */
     function wpt_sorting_array( $array, $sorting_type ){
+
         if( $sorting_type == 'ASC' ){
             ksort( $array );
         }else if( $sorting_type == 'DESC' ){
@@ -1036,7 +1024,8 @@ if( !function_exists( 'wpt_sorting_array' ) ){
     }
 }
 
-if( !function_exists( 'wpt_texonomy_filter_generator' ) ){
+if( ! function_exists( 'wpt_texonomy_filter_generator' ) ){
+
     /**
      * Texonomy select for Filter -- Texonomy.
      * 
@@ -1135,7 +1124,6 @@ if( !function_exists( 'wpt_search_box' ) ){
             $html .= "</div>";// End of .search_single_column
             endif;
 
-
         $html .= "</div>"; //end of .search_single
 
         /**
@@ -1173,7 +1161,8 @@ if( !function_exists( 'wpt_search_box' ) ){
     }
 }
 
-if( !function_exists( 'wpt_filter_box' ) ){
+if( ! function_exists( 'wpt_filter_box' ) ){
+
     /**
      * Total Search box Generator
      * 
@@ -1182,6 +1171,7 @@ if( !function_exists( 'wpt_filter_box' ) ){
      * @return string
      */
     function wpt_filter_box($temp_number, $filter_keywords = false ){
+
         $html = $html_select = false;
         
         $config_value = wpt_get_config_value( $temp_number ); //V5.0 temp number is post_ID , $table_ID
