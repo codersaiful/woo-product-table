@@ -40,22 +40,10 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
             $ID = $table_ID = (int) $atts['id']; //Table ID added at V5.0. And as this part is already encapsule with if and return is false, so no need previous declearation
             $GLOBALS['wpt_product_table'] = $ID;
             $_device = wpt_col_settingwise_device( $ID );
+
             //Used meta_key column_array, enabled_column_array, basics, conditions, mobile, search_n_filter, 
-            
             $enabled_column_array = get_post_meta( $ID, 'enabled_column_array' . $_device, true );
             
-//            if( empty( $enabled_column_array ) && $_device == '_mobile' ){
-//                $_device = '_tablet'; //Set Device Tablet here and we will use it for getting $column_Setting
-//                $enabled_column_array = get_post_meta( $ID, 'enabled_column_array' . $_device, true );
-//            }
-//            
-//            if( empty( $enabled_column_array ) ){
-//                $_device = ''; //Set Device Desktop, I mean, empty here and we will use it for getting $column_Setting
-//                $enabled_column_array = get_post_meta( $ID, 'enabled_column_array' . $_device, true );
-//            }
-//            
-            
-            //$enabled_column_array = wpt_enabled_column_array( $ID );
             
             
             if( empty( $enabled_column_array ) ){
@@ -65,7 +53,7 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
             $column_settings = get_post_meta( $ID, 'column_settings' . $_device, true);
 
             $basics = get_post_meta( $ID, 'basics', true );
-//            $query_relation = ! isset( $basics['query_relation'] ) ? 'OR' : $basics['query_relation'];
+
             $basics_args = isset( $basics['args'] ) && is_array( $basics['args'] ) ? $basics['args'] : array();
 
             $table_style = get_post_meta( $ID, 'table_style', true );
@@ -110,10 +98,7 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
             //For Advance and normal Version
             $table_type = isset( $conditions['table_type'] ) ? $conditions['table_type'] : 'normal_table';//"advance_table"; //table_type
             if($table_type != 'normal_table'){
-                //unset( $enabled_column_array['price'] );
                 unset( $enabled_column_array['variations'] );
-                //unset( $enabled_column_array['total'] );
-                //unset( $enabled_column_array['quantity'] );
             }
             
             /**
@@ -133,7 +118,7 @@ if( !function_exists( 'wpt_shortcode_generator' ) ){
             $table_head = !isset( $basics['table_head'] ) ? true : false; //Table head availabe or not
 
             $table_column_keywords = $enabled_column_array;//array_keys( $enabled_column_array );
-            //$table_column_keywords = array_keys( $enabled_column_array );
+            
 
             //Basics Part
             $product_cat_id_single = ( isset($atts['product_cat_ids']) && !empty( $atts['product_cat_ids'] ) ? $atts['product_cat_ids'] : false );
@@ -1137,53 +1122,6 @@ if( !function_exists( 'wpt_texonomy_search_generator' ) ){
         
         $html .= wpt_wp_dropdown_categories( $defaults, $customized_texonomy_boj );
         
-        
-//        #### $html .= "<select data-key='{$texonomy_keyword}' class='search_select query search_select_{$texonomy_keyword}' id='{$texonomy_keyword}_{$temp_number}' $multiple_selectable>";
-//        //$html .= "<option value=''>{$label_all_items}</option>";
-//        $texonomy_boj = get_terms( $texonomy_keyword, $texonomy_sarch_args );
-//        
-//        if( count( $texonomy_boj ) > 0 ){
-//            //Search box's Filter Sorting Added at Version 3.1
-//            $customized_texonomy_boj = false;
-//
-//            if( $selected_taxs && is_array( $selected_taxs ) && count( $selected_taxs ) > 0 ){
-//                foreach( $selected_taxs as $termID ){
-//                    $singleTerm = get_term( $termID );
-//                    $name = $singleTerm->name;
-//                    $customized_texonomy_boj[$name] = $singleTerm;
-//                    
-//                    foreach( $customized_texonomy_boj as $item ){
-//                        #### $html .= "<option value='{$item->term_id}'>{$item->name}</option>"; // ({$item->count})
-//                    }
-//                    #### $html .= "</select>";
-//                }
-//                
-//                $html .= wpt_wp_dropdown_categories( $defaults );
-//            }else{
-//                foreach( $texonomy_boj as $item ){
-//                    $name = $item->name;
-//                    $customized_texonomy_boj[$name] = $item;
-//
-//                }
-//                $customized_texonomy_boj = wpt_sorting_array( $customized_texonomy_boj, $config_value['sort_searchbox_filter'] );
-//                foreach( $customized_texonomy_boj as $item ){
-//                    #### $html .= "<option value='{$item->term_id}'>{$item->name}</option>"; // ({$item->count})
-//                }
-//                #### $html .= "</select>";
-//       
-//                //multiple $multiple_selectable
-//        
-//                $html .= wpt_wp_dropdown_categories( $defaults );
-//            }
-//
-//
-//            
-//        }
-//        
-
-
-
-
 
 
         $html .= "</div>"; //End of .search_single
@@ -1222,8 +1160,7 @@ if( !function_exists( 'wpt_texonomy_filter_generator' ) ){
      * @return string|boolean
      */
     function wpt_texonomy_filter_generator( $texonomy_keyword, $temp_number ){
-        //Getting data from options
-        //$config_value = get_option('wpt_configure_options');
+
         $config_value = wpt_get_config_value( $temp_number ); //V5.0 temp number is post_ID , $table_ID
         $html = false;
         if( !$texonomy_keyword || is_array( $texonomy_keyword )){
@@ -1244,22 +1181,7 @@ if( !function_exists( 'wpt_texonomy_filter_generator' ) ){
             $html .= "<select data-temp_number='{$temp_number}' data-key='{$texonomy_keyword}' data-label='{$label}' class='filter_select select2 filter filter_select_{$texonomy_keyword}' id='{$texonomy_keyword}_{$temp_number}'>";
 
                 $texonomy_boj = get_terms( $texonomy_keyword, $texonomy_sarch_args );
-                /*
-                if( count( $texonomy_boj ) > 0 ){
-
-                    $customized_texonomy_boj = false;
-                    foreach( $texonomy_boj as $item ){
-                        $name = $item->name;
-                        $customized_texonomy_boj[$name] = $item;
-
-                    }
-                    $customized_texonomy_boj = wpt_sorting_array( $customized_texonomy_boj, $config_value['sort_mini_filter'] );
-                    foreach( $customized_texonomy_boj as $item ){  
-                        $html .= "<option value='{$texonomy_keyword}_{$temp_number}_{$item->term_id}'>{$item->name}</option>";
-                        //$html .= "<option value='{$item->term_id}' " . ( is_array($current_select_texonomies) && in_array($item->term_id, $current_select_texonomies) ? 'selected' : false ) . ">{$item->name} ({$item->count}) </option>";
-                    }
-                }
-                */
+                
             $html .= "</select>";
         return $html;
     }
@@ -1275,7 +1197,7 @@ if( !function_exists( 'wpt_search_box' ) ){
      * @return string
      */
     function wpt_search_box($temp_number, $search_box_texonomiy_keyword = array( 'product_cat', 'product_tag' ), $order_by = false, $order = false, $search_n_filter = false,$table_ID = false ){
-        //$config_value = get_option('wpt_configure_options');
+        
         $config_value = wpt_get_config_value( $temp_number ); //V5.0 temp number is post_ID , $table_ID
         $html = false;
         $html .= "<div id='search_box_{$temp_number}' class='wpt_search_box search_box_{$temp_number}'>";
@@ -1375,7 +1297,7 @@ if( !function_exists( 'wpt_filter_box' ) ){
      */
     function wpt_filter_box($temp_number, $filter_keywords = false ){
         $html = $html_select = false;
-        //$config_value = get_option('wpt_configure_options');
+        
         $config_value = wpt_get_config_value( $temp_number ); //V5.0 temp number is post_ID , $table_ID
         /**
          * Texonomies Handle based on $search_box_texonomiy_keyword
