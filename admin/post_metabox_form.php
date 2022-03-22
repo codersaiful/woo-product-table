@@ -7,7 +7,7 @@
      * this $tab_arry will define, how much tab and tab content
      */
     $tab_array = array(
-        'column_settings'   => __( "Column", 'wpt_pro' ),
+        'column_settings'   => __( 'Column', 'wpt_pro' ),
         'basics'            => __( 'Basics', 'wpt_pro' ),
         'table_style'       => sprintf(__( 'Design %sPro%s', 'wpt_pro' ), '<i class="wpt_pro_badge">', '</i>' ),
         'conditions'        => __( 'Conditions', 'wpt_pro' ),
@@ -19,11 +19,11 @@
     $tab_array = apply_filters( 'wpto_admin_tab_array', $tab_array, $post );
     
     $supported_css_property = array(
-        'color'        =>  'Text Color',
-        'background-color'=>'Background Color',
-        'border'=>'Border',
-        'text-align'=>'Text Align',
-        'vertical-align'=>'Vertical Align',
+        'color'        =>  __( 'Text Color', 'wpt_pro' ),
+        'background-color'=>__('Background Color' , 'wpt_pro' ),
+        'border'=>__('Border' , 'wpt_pro' ),
+        'text-align'=>__('Text Align' , 'wpt_pro' ),
+        'vertical-align'=>__('Vertical Align' , 'wpt_pro' ),
     );
     $supported_css_property = apply_filters( 'wpto_supported_css_property', $supported_css_property, $tab_array, $post );
 
