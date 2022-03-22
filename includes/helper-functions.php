@@ -53,7 +53,6 @@ if( ! function_exists( 'wpt_ajax_paginate_links_load' ) ){
         $search_from = isset( $search_from['search_from'] ) && is_array( $search_from['search_from'] ) && count( $search_from['search_from'] ) > 0 ? $search_from['search_from'] : false;
 
         $search_key = isset( $directkey['s'] ) && !empty( $directkey['s'] ) ? sanitize_text_field( $directkey['s'] ) : "";
-
         
         if( !$load_type ){
             
@@ -84,7 +83,6 @@ if( ! function_exists( 'wpt_ajax_paginate_links_load' ) ){
         $sort                       = $args['order'];
         $wpt_permitted_td           = $targetTableArgs['wpt_permitted_td'];
         $add_to_cart_text           = $targetTableArgs['wpt_add_to_cart_text'];
-
         $texonomy_key               = isset( $targetTableArgs['texonomy_key'] ) ? $targetTableArgs['texonomy_key'] : false;
         $customfield_key            = isset( $targetTableArgs['customfield_key'] ) && is_array( $targetTableArgs['customfield_key'] ) ? $targetTableArgs['customfield_key'] : false;
         $filter_keywords            = $targetTableArgs['filter_key'];
@@ -92,12 +90,8 @@ if( ! function_exists( 'wpt_ajax_paginate_links_load' ) ){
         $description_type           = $targetTableArgs['description_type'];
         $ajax_action                = $targetTableArgs['ajax_action'];
         $table_type           = $targetTableArgs['table_type'];
-
-
         $checkbox                 = $targetTableArgs['checkbox'];
 
-        
-        
         /**
          * Args fixer
          * 
@@ -106,6 +100,7 @@ if( ! function_exists( 'wpt_ajax_paginate_links_load' ) ){
         if(isset( $args['s'] ) && $args['s'] == 'false'){
             $args['s'] = false;
         }
+
         $args['posts_per_page'] = is_numeric( $args['posts_per_page'] ) ? (int) $args['posts_per_page'] : $args['posts_per_page'];
         
         $table_row_generator_array = array(
@@ -167,7 +162,6 @@ if( ! function_exists( 'wpt_ajax_table_row_load' ) ){
         
         $data = filter_input_array(INPUT_POST,$filter_args);
         $data = array_filter( $data );
-        
         $targetTableArgs = ( isset( $data['targetTableArgs'] ) && is_array( $data['targetTableArgs'] ) ? $data['targetTableArgs'] : false );
         $temp_number = ( isset( $data['temp_number'] ) ? absint( $data['temp_number'] ) : false );
         $directkey = ( isset( $data['directkey'] ) && is_array( $data['directkey'] ) ? $data['directkey'] : false );
@@ -175,14 +169,11 @@ if( ! function_exists( 'wpt_ajax_table_row_load' ) ){
         $custom_field = ( isset( $data['custom_field'] ) && is_array( $data['custom_field'] ) ? $data['custom_field'] : false );
         $pageNumber = ( isset( $data['pageNumber'] ) && $data['pageNumber'] > 0 ? absint( $data['pageNumber'] ) : 1 );
         $load_type = ( isset( $data['load_type'] ) && $data['load_type'] == 'current_page' ? true : false );
-
         $args = $targetTableArgs['args'];
         $args['wpt_query_type'] = 'search';//Added on 6.0.3 - 12.6.2020
-
         $table_ID = $args['table_ID'];
         $search_from = get_post_meta( $table_ID, 'search_n_filter', true );
         $search_from = isset($search_from['search_from']) && is_array( $search_from['search_from'] ) && count( $search_from['search_from'] ) > 0 ? $search_from['search_from'] : false;
-
         $search_key = isset( $directkey['s'] ) && !empty( $directkey['s'] ) ? sanitize_text_field( $directkey['s'] ) : "";
     
         
@@ -192,10 +183,10 @@ if( ! function_exists( 'wpt_ajax_table_row_load' ) ){
             $args['wpt_custom_search'] = $search_key;
             $args['s'] = $search_key;
 
-            if( !empty($search_key) && $search_from){
+            if( ! empty($search_key) && $search_from){
                 $args['wpt_custom_search'] = $search_key;
                 $args['s'] = false;
-            }elseif(!empty($search_key) && !$search_from){
+            } elseif( ! empty($search_key ) && !$search_from){
                 $args['wpt_custom_search'] = false;
                 $args['s'] = $search_key;
             }
@@ -314,6 +305,7 @@ if( ! function_exists( 'wpt_fragment_refresh' ) ){
      * @Since 3.7
      */
     function wpt_fragment_refresh(){
+
         WC_AJAX::get_refreshed_fragments();
         die();
     }
@@ -330,6 +322,7 @@ if( ! function_exists( 'wpt_fragment_empty_cart' ) ){
      * @Since 3.7
      */
     function wpt_fragment_empty_cart(){
+
         global $woocommerce;
         $woocommerce->cart->empty_cart();
         WC_AJAX::get_refreshed_fragments();
@@ -373,6 +366,7 @@ if( ! function_exists( 'wpt_ajax_multiple_add_to_cart' ) ){
      * return Void
      */
     function wpt_ajax_multiple_add_to_cart() {
+
         $data = filter_input_array(INPUT_POST);
         $data = array_filter( $data );
         
@@ -404,15 +398,16 @@ if( ! function_exists( 'wpt_adding_to_cart' ) ){
     function wpt_adding_to_cart( $product_id = 0, $quantity = 1, $variation_id = 0, $variation = array(), $cart_item_data = array() ){
 
         $cart_item_data = apply_filters('wpto_adding_time_cart_meta', $cart_item_data, $product_id, $quantity, $variation_id);
-
         $validation = apply_filters( 'woocommerce_add_to_cart_validation', true, $product_id, $quantity, $variation_id, $variation, $cart_item_data );     
         if( $validation && WC()->cart->add_to_cart( $product_id, $quantity, $variation_id, $variation, $cart_item_data ) ){
             $config_value = get_option( 'wpt_configure_options' );
             if( $config_value['popup_notice'] == '1' ){
                 wc_add_notice( '"' . get_the_title( $product_id ) . '" ' . $config_value['add2cart_all_added_text']);
             }
+
             return true;
         }
+
         return;
     }
 }
@@ -426,6 +421,7 @@ if( ! function_exists( 'wpt_print_notice' ) ){
      * @return type data
      */
     function wpt_print_notice(){
+
         wc_print_notices();
         die();
     }
@@ -443,6 +439,7 @@ if( ! function_exists( 'wpt_adding_to_cart_multiple_items' ) ){
      * @return Void
      */
     function wpt_adding_to_cart_multiple_items( $products = false ){
+
         if ( $products && is_array( $products ) ){
             $serial = 0;
             foreach ( $products as $product ) {
@@ -454,9 +451,6 @@ if( ! function_exists( 'wpt_adding_to_cart_multiple_items' ) ){
                 //Added at @Since 1.9
                 $custom_message = ( isset($product['custom_message']) && !empty( $product['custom_message'] ) ? $product['custom_message'] : false );
                 $additinal_json = ( isset($product['additional_json']) && !empty( $product['additional_json']) ? $product['additional_json'] : false );
-
-
-
 
                 //Added at @Since 1.9
                 $cart_item_data = false; //Set default value false, if found Custom message, than it will generate true
@@ -484,7 +478,9 @@ if( ! function_exists( 'wpt_adding_to_cart_multiple_items' ) ){
             }
             wpt_fragment_refresh(); 
             if( $serial > 0 ){
-                return false;
+
+                return null;
+
             }
         }
     }
@@ -524,7 +520,7 @@ if( ! function_exists( 'wpt_add_custom_message_field' ) ){
  */
 
 
-if( !function_exists( 'wpt_custom_message_validation' ) ){
+if( ! function_exists( 'wpt_custom_message_validation' ) ){
 
     /**
      * To set Validation, I mean: Required.
@@ -611,6 +607,7 @@ if( ! function_exists( 'wpt_order_meta_handler' ) ){
      * @return Void This Function will add Customer Custom Message to Order
      */
     function wpt_order_meta_handler( $item_id, $item, $order_id ) {
+
         if( ! property_exists( $item, 'legacy_values' ) ) return;
         $values = $item->legacy_values;
         $wpt_custom_message = isset( $values['wpt_custom_message'] ) && !empty( $values['wpt_custom_message'] ) ? $values['wpt_custom_message'] : false;
