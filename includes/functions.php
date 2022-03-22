@@ -75,7 +75,6 @@ if( !function_exists( 'wpt_col_settingwise_device' ) ){
 
         if( empty( $enabled_column_array ) ){
             $_device = ''; //Set Device Desktop, I mean, empty here and we will use it for getting $column_Setting
-            //$enabled_column_array = get_post_meta( $ID, 'enabled_column_array' . $_device, true );
         }
             
         
@@ -96,27 +95,7 @@ if( !function_exists( 'wpt_enabled_column_array' ) ){
     function wpt_enabled_column_array( $table_ID ){
         $_device = wpt_col_settingwise_device( $table_ID );
         $enabled_column_array = get_post_meta( $table_ID, 'enabled_column_array' . $_device, true );
-        return $enabled_column_array;
-        /***********************************
-         * 
-         *
-        $_device_name = wpt_detect_current_device();
-        $_device = $_device_name == 'desktop' ? '' : '_'.$_device_name;
-        
-        $enabled_column_array = get_post_meta( $ID, 'enabled_column_array' . $_device, true );
-            
-        if( empty( $enabled_column_array ) && $_device == '_mobile' ){
-            $_device = '_tablet'; //Set Device Tablet here and we will use it for getting $column_Setting
-            $enabled_column_array = get_post_meta( $ID, 'enabled_column_array' . $_device, true );
-        }
-
-        if( empty( $enabled_column_array ) ){
-            $_device = ''; //Set Device Desktop, I mean, empty here and we will use it for getting $column_Setting
-            $enabled_column_array = get_post_meta( $ID, 'enabled_column_array' . $_device, true );
-        }
-        
-        return $enabled_column_array;
-        //*************************/
+        return is_array( $enabled_column_array ) ? $enabled_column_array : array();
     }
 }
 
@@ -218,7 +197,7 @@ if( !function_exists( 'wpt_product_title_column_add' ) ){
         $description_off = $description_off == 'off' ? 'checked="checked"' : '';
        ?>
         <div class="description_off_wrapper">
-            <label for="description_off<?php echo esc_attr( $_device_name ); ?>"><input id="description_off<?php echo esc_attr( $_device_name ); ?>" title="Disable Deactivate Description from Title Column" name="column_settings<?php echo esc_attr( $_device_name ); ?>[description_off]" id="description_off" class="description_off" type="checkbox" value="off" <?php echo esc_attr( $description_off ); ?>> Disable Description</label>
+            <label for="description_off<?php echo esc_attr( $_device_name ); ?>"><input id="description_off<?php echo esc_attr( $_device_name ); ?>" title="Disable Deactivate Description from Title Column" name="column_settings<?php echo esc_attr( $_device_name ); ?>[description_off]" id="description_off" class="description_off" type="checkbox" value="off" <?php echo esc_attr( $description_off ); ?>> <?php echo esc_html__( 'Disable Description', 'wpt_pro' ); ?></label>
         </div>
         <div class="title_variation">
             <label for="link<?php echo esc_attr( $_device_name ); ?>"><input type="radio" id="link<?php echo esc_attr( $_device_name ); ?>" name="column_settings<?php echo esc_attr( $_device_name ); ?>[title_variation]" value="link" <?php echo !$title_variation || $title_variation == 'link' ? 'checked' : ''; ?>> Link Enable</label>
@@ -275,12 +254,20 @@ if( !function_exists( 'wpt_column_tag_for_all' ) ){
         );
         ?>
         <div class="column_tag_for_all">
-            <label>Select wrapper tag</label>
+            <label><?php echo esc_html__( 'Select wrapper tag', 'wpt_pro' ); ?></label>
             <select class="ua_select" name="column_settings<?php echo esc_attr( $_device_name ); ?>[<?php echo esc_attr( $keyword ); ?>][tag]">    
             <?php
             foreach($tags as $tag => $tag_name){
                 $seleced = $tag_value == $tag ? 'selected' : false;
-                echo "<option value='{$tag}' $seleced>$tag_name</option>";
+                $output = "<option value='{$tag}' $seleced>$tag_name</option>";
+
+                $allowed_atts = array(
+                    'value'      => array(),
+                );
+    
+                echo wp_kses( $output, array(
+                    'option' => $allowed_atts
+                ) );
             }
             ?>
             </select>
@@ -296,7 +283,7 @@ if( !function_exists( 'wpt_column_add_extra_items' ) ){
     function wpt_column_add_extra_items( $keyword, $_device_name, $column_settings, $columns_array, $updated_columns_array, $post, $additional_data ){
         
         unset( $columns_array[$keyword] ); //Unset this column. if in action, here $keyword - action
-        //unset( $columns_array['check'] );
+        
         unset( $columns_array['blank'] );
         unset( $columns_array['freeze'] );
         /**
@@ -315,13 +302,13 @@ if( !function_exists( 'wpt_column_add_extra_items' ) ){
         $items = apply_filters( 'wpto_inside_checked_item_arr', $items, $keyword, $column_settings, $columns_array );
         if( is_array( $items ) && count( $items ) > 0 ){
             
-            //array_merge(array_flip($items),$columns_array)
+
             $columns_array = array_merge(array_flip($items),$columns_array);
         }
         ?>
         <div class="column_add_extra_items">
         <label for="<?php echo esc_attr( "column_settings{$_device_name}_{$keyword}" ); ?>">Select multiple inner items:</label>    
-<!--        <div class="checkbox_parent parent_<?php echo esc_attr( $keyword ); ?>">-->
+
 
  
         <?php
@@ -332,9 +319,9 @@ if( !function_exists( 'wpt_column_add_extra_items' ) ){
         foreach($items_columns as $key => $key_val){
             $seleced = in_array( $key,$items ) ? 'checked' : false;
             $seleced_option = in_array( $key,$items ) ? 'selected' : false;
-            //var_dump($key, $keyword);
+
             $unique_id = $keyword . '_' . $key . '_' . $_device_name;
-//                echo '<div class="each_checkbox each_checkbox_' . $key . '">';
+
             ?>
 
 
@@ -342,15 +329,11 @@ if( !function_exists( 'wpt_column_add_extra_items' ) ){
 
             <?php
             $select .= "<option value='" . esc_attr( $key ) . "' " . esc_attr( $seleced_option ) . "> " . esc_html( $key_val . " - " . $key ) . "</option>";
-//                echo "<input "
-//                . "id='{$unique_id}' "
-//                . "type='checkbox' "
-//                . "name='column_settings{$_device_name}[{$keyword}][items][]' "
-//                . "value='{$key}' $seleced/><label for='{$unique_id}'>$key_val <small>($key)</small></label>";
-//                echo '</div>';
+
         }
+
         ?>
-<!--            </div>-->
+
         <select 
             class="internal_select" 
             multiple="multiple" 
@@ -359,34 +342,13 @@ if( !function_exists( 'wpt_column_add_extra_items' ) ){
             >
             <?php 
             $allowed_atts = array(
-                'align'      => array(),
                 'class'      => array(),
-                'type'       => array(),
                 'id'         => array(),
-                'dir'        => array(),
-                'lang'       => array(),
-                'style'      => array(),
                 'xml:lang'   => array(),
-                'src'        => array(),
-                'alt'        => array(),
-                'href'       => array(),
-                'rel'        => array(),
-                'rev'        => array(),
-                'target'     => array(),
-                'novalidate' => array(),
-                'type'       => array(),
                 'value'      => array(),
-                'name'       => array(),
-                'tabindex'   => array(),
-                'action'     => array(),
-                'method'     => array(),
-                'for'        => array(),
-                'width'      => array(),
-                'height'     => array(),
-                'data'       => array(),
-                'title'      => array(),
             );
-            echo wp_kses_post( $select, array(
+
+            echo wp_kses( $select, array(
                 'option' => $allowed_atts
             ) ); ?>
         </select> 
@@ -400,9 +362,7 @@ add_action( 'wpto_column_setting_form', 'wpt_column_add_extra_items', 10, 7 );
 
 if( !function_exists( 'wpt_add_extra_inside_items' ) ){
     function wpt_add_extra_inside_items( $columns_array ){
-        //wpto_inside_item_arr
-        $columns_array['menu_order'] = "Menu Order";
-        //$columns_array['menu_order'] = "Menu Order";
+        $columns_array['menu_order'] = esc_html__( "Menu Order", 'wpt_pro' );
         return $columns_array;
     }
 }
@@ -424,15 +384,8 @@ if( !function_exists( 'wpt_get_config_value' ) ){
             $config_value = array_merge( $config_value, $config );
         }
         $config_value = apply_filters( 'wpto_get_config_value', $config_value, $table_ID );
-        /*
-        $config_value['footer_cart'] = $temp_config_value['footer_cart'];
-        $config_value['footer_cart_size'] = $temp_config_value['footer_cart_size'];
-        $config_value['footer_possition'] = $temp_config_value['footer_possition'];
-        $config_value['footer_bg_color'] = $temp_config_value['footer_bg_color'];
-        //$config_value['thumbs_lightbox'] = $temp_config_value['thumbs_lightbox'];
-        $config_value['disable_cat_tag_link'] = $temp_config_value['disable_cat_tag_link'];
-        */
-        return $config_value;
+
+        return is_array( $config_value ) ? $config_value : array();
     }
 }
 // Hook into Woocommerce when adding a product to the cart
@@ -446,7 +399,7 @@ if( !function_exists( 'wpt_per_item_fragment' ) ) {
                 $product_response = false;
                 if( is_array( $Cart ) && count( $Cart ) > 0 ){
                     foreach($Cart as $perItem){
-                        //var_dump($perItem);
+                        
                         $pr_id = (String) $perItem['product_id'];
                         $vr_id = (String) $perItem['variation_id'];
                         $pr_id = apply_filters( 'wpto_id_of_item', $pr_id, $perItem );
@@ -469,7 +422,7 @@ if( !function_exists( 'wpt_per_item_fragment' ) ) {
 		echo wp_json_encode($product_response);
 		
 		$fragments["wpt_per_product"] = ob_get_clean();
-                //WC_AJAX::get_refreshed_fragments();
+
 		return $fragments;
 	}
 }
