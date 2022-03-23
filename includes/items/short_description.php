@@ -1,6 +1,6 @@
 <?php
 
-$desc = $data['short_description'];
-
-//XSS pass inside woocommerce get_data method
-echo do_shortcode( $desc );
+$desc = isset( $data['short_description'] ) ? sanitize_post( $data['short_description'] ) : '';
+if( ! empty( $desc ) ){
+    echo do_shortcode( $desc );
+}

@@ -52,11 +52,11 @@ $access = wpt_user_can_edit();
                         <option value="rand" <?php echo isset( $meta_conditions['sort_order_by'] ) && $meta_conditions['sort_order_by'] == 'rand' ? 'selected' : ''; ?>><?php esc_html_e( 'Rand', 'wpt_pro' ); ?></option>
                         
                         <?php }else{ ?>
-                            <option disabled>Custom Meta Number(Pro)</option>
-                            <option disabled>Author(Pro)</option>
-                            <option disabled>Type(Pro)</option>
-                            <option disabled>Modified(Pro)</option>
-                            <option disabled>Rand(Pro)</option>
+                            <option disabled><?php echo esc_html__( 'Custom Meta Number(Pro)', 'wpt_pro' ); ?></option>
+                            <option disabled><?php echo esc_html__( 'Author(Pro)', 'wpt_pro' ); ?></option>
+                            <option disabled><?php echo esc_html__( 'Type(Pro)', 'wpt_pro' ); ?></option>
+                            <option disabled><?php echo esc_html__( 'Modified(Pro)', 'wpt_pro' ); ?></option>
+                            <option disabled><?php echo esc_html__( 'Rand(Pro)', 'wpt_pro' ); ?></option>
                         <?php } ?>
                         <option value="parent" <?php echo isset( $meta_conditions['sort_order_by'] ) && $meta_conditions['sort_order_by'] == 'parent' ? 'selected' : ''; ?>><?php esc_html_e( 'Parent', 'wpt_pro' ); ?></option>
                         <option value="comment_count" <?php echo isset( $meta_conditions['sort_order_by'] ) && $meta_conditions['sort_order_by'] == 'comment_count' ? 'selected' : ''; ?>><?php esc_html_e( 'Reviews/Comment Count', 'wpt_pro' ); ?></option>
@@ -64,7 +64,7 @@ $access = wpt_user_can_edit();
                         <option value="ID" <?php echo isset( $meta_conditions['sort_order_by'] ) && $meta_conditions['sort_order_by'] == 'ID' ? 'selected' : ''; ?>><?php esc_html_e( 'ID', 'wpt_pro' ); ?></option>
                         <option value="none" <?php echo isset( $meta_conditions['sort_order_by'] ) && $meta_conditions['sort_order_by'] == 'none' ? 'selected' : ''; ?>><?php esc_html_e( 'None', 'wpt_pro' ); ?></option>
                     </select>
-                    <p>Chose 'Custom_meta or custom_meta_value' - if you want to sort by price, model, sku, color itc. <b>For price or any number, Please chose <span>Custom Meta value(if number)</span></b></p>
+                    <p><?php echo esc_html__( 'Chose [custom_meta or custom_meta_value] - if you want to sort by price, model, sku, color itc. For price or any number, Please chose Custom Meta value(if number)', 'wpt_pro' ); ?></p>
                 </td>
             </tr>
         </table>

@@ -2,19 +2,19 @@
 <!-- Add new Custom Collumn -->
 <div class="add_new_col_wrapper">
     <div class="section ultraaddons-panel add_new_column">
-        <h3 class="with-background dark-background slim-title">Add New Column <small style="color: orange; font-size: 12px;"></small></h3>
+        <h3 class="with-background dark-background slim-title"><?php echo esc_html__( 'Add New Column','wpt_pro' ); ?> <small style="color: orange; font-size: 12px;"></small></h3>
 
         <table class="ultraaddons-table">
             <tbody>
                 <tr>
-                    <th><label class="">Column Keyword</label></th>
+                    <th><label class=""><?php echo esc_html__( 'Column Keyword','wpt_pro' ); ?></label></th>
                         <td>
                            <input class="and_new_column_key wpt_data_filed_atts ua_input" type="text" placeholder="Column Keyword">
                         </td>
 
                 </tr>
                 <tr>
-                    <th><label>Column Label</label></th>
+                    <th><label><?php echo esc_html__( 'Column Label','wpt_pro' ); ?></label></th>
                         <td>
                             <input class="and_new_column_label wpt_data_filed_atts ua_input" type="text" placeholder="Column Label">
                         </td>
@@ -22,15 +22,15 @@
                 </tr>
 
                 <tr>
-                    <th><label>Column Type</label></th>
+                    <th><label><?php echo esc_html__( 'Column Type','wpt_pro' ); ?></label></th>
                         <td>
 
 
         <?php
             $add_new_col_type = array(
-                'default' => "Default/No Type",
-                'custom_field' => 'Custom Field',
-                'taxonomy' => 'Taxonomy',
+                'default' => __( 'Default/No Type', 'wpt_pro' ),
+                'custom_field' => __( 'Custom Field', 'wpt_pro' ),
+                'taxonomy' => __( 'Taxonomy', 'wpt_pro' ),
             );
             
             if( ! wpt_is_pro() ){
@@ -54,7 +54,7 @@
             }
         ?>
                             
-                            <p>Such as Taxonomy, Custom Field, ACF Custom Field etc.</p>
+                            <p><?php echo esc_html__( 'Such as Taxonomy, Custom Field, ACF Custom Field etc.','wpt_pro' ); ?></p>
                         </td>
 
                 </tr>

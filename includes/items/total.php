@@ -46,4 +46,4 @@ echo "<div data-number_of_decimal='" . esc_attr( $number_of_decimal ) . "' "
         . "data-currency='" . esc_attr( get_woocommerce_currency_symbol() ) . "' "
         . "data-price_format='". esc_attr( $priceFormat ) ."' "
         . "class='wpt_total_item wpt_total " . ( $variable_for_total || !$total_price ? 'total_variaion' : 'total_general' ) . "'>"
-        . "<strong>" . ( !$variable_for_total ? wp_kses_post( $newPrice ) : '' ) . "</strong></div>"; //$newPrice - Even Already XSS ok, we have used woocommece function
+        . "<strong>" . ( !$variable_for_total ? wp_kses_post( $newPrice ) : '' ) . "</strong></div>";

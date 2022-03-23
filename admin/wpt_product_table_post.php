@@ -9,6 +9,7 @@ if ( ! function_exists('wpt_product_table_post') ) {
  * @link https://codex.wordpress.org/Post_Types See details at WordPress.org about Custom Post Type
  */
 function wpt_product_table_post() {
+
         $icon = WPT_Product_Table::getPath( 'BASE_URL' ) . 'assets/images/table_icon.png';
 	$labels = array(
 		'name'                  => _x( 'Product Table', 'Product Table', 'wpt_pro' ),
@@ -43,7 +44,7 @@ function wpt_product_table_post() {
 		'label'                 => __( 'PRODUCT TABLE', 'wpt_pro' ),
 		'description'           => __( 'Generate your shortcode for Product Table.', 'wpt_pro' ),
 		'labels'                => $labels,
-		'supports'              => array('title'),
+		'supports'              => array( 'title' ),
 		'hierarchical'          => false,
 		'public'                => true,
 		'show_ui'               => true,
@@ -77,9 +78,11 @@ add_action( 'init', 'wpt_product_table_post', 0 );
 
 }
 
-if( !function_exists( 'wpt_shortcode_column_head' ) ){
+if( ! function_exists( 'wpt_shortcode_column_head' ) ){
+
     //Showing shortcode in All Shortcode page
     function wpt_shortcode_column_head($default){
+
         if ( 'wpt_product_table' == get_post_type() ){
         $default['wpt_shortcode'] = "Shortcode";
         }
@@ -88,8 +91,10 @@ if( !function_exists( 'wpt_shortcode_column_head' ) ){
 }
 add_filter('manage_posts_columns', 'wpt_shortcode_column_head');
 
-if( !function_exists( 'wpt_shortcode_column_content' ) ){
+if( ! function_exists( 'wpt_shortcode_column_content' ) ){
+
     function wpt_shortcode_column_content($column_name, $post_id){
+
         if ($column_name == 'wpt_shortcode') {
             $post_title = get_the_title( $post_id );
             $post_title = preg_replace( '/[#$%^&*()+=\-\[\]\';,.\/{}|":<>?~\\\\]/',"$1", $post_title );
@@ -104,8 +109,10 @@ add_action('manage_posts_custom_column', 'wpt_shortcode_column_content', 2, 2);
 
 //Permalink Hiding Option
 //add_filter( 'get_sample_permalink_html', 'wpt_permalink_hiding' );
-if( !function_exists( 'wpt_permalink_hiding' ) ){
+if( ! function_exists( 'wpt_permalink_hiding' ) ){
+
     function wpt_permalink_hiding( $return ) {
+
         if ( 'wpt_product_table' == get_post_type() ){
             $return = '';
         }
@@ -116,7 +123,8 @@ if( !function_exists( 'wpt_permalink_hiding' ) ){
 
 //Hiding Preview Button from all shortcode page
 //add_filter( 'page_row_actions', 'wpt_preview_button_hiding', 10, 2 );
-if( !function_exists( 'wpt_preview_button_hiding' ) ){
+if( ! function_exists( 'wpt_preview_button_hiding' ) ){
+	
     function wpt_preview_button_hiding( $actions, $post ) {
 
         if ( 'wpt_product_table' == get_post_type() ){

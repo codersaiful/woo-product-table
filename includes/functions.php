@@ -17,16 +17,17 @@ if( !function_exists( 'wpt_column_setting_for_tax_cf' ) ){
      * @return Array $column_settings Array, which is most important for Each Column and Items.
      */
     function wpt_column_setting_for_tax_cf( $column_settings, $table_ID, $enabled_column_array ){
-        if(is_array( $enabled_column_array ) && count( $enabled_column_array ) > 0 ){
-            foreach($enabled_column_array as $enbl_col=>$val){
+
+        if( is_array( $enabled_column_array ) && count( $enabled_column_array ) > 0 ){
+            foreach( $enabled_column_array as $enbl_col => $val ){
                 if( substr($enbl_col, 0,3) == 'cf_' ){
                     $column_settings[$enbl_col]['type'] = 'custom_field';
-                    $column_settings[$enbl_col]['type_name'] = 'Custom Field';
+                    $column_settings[$enbl_col]['type_name'] = __( 'Custom Field', 'wpt_pro' );
                     $column_settings[$enbl_col]['older'] = true;
                 }
                 if( substr($enbl_col, 0,4) == 'tax_' ){
                     $column_settings[$enbl_col]['type'] = 'taxonomy';
-                    $column_settings[$enbl_col]['type_name'] = 'Taxonomy';
+                    $column_settings[$enbl_col]['type_name'] = __('Taxonomy', 'wpt_pro');
                     $column_settings[$enbl_col]['older'] = true;
                 }
                 
@@ -37,8 +38,10 @@ if( !function_exists( 'wpt_column_setting_for_tax_cf' ) ){
 }
 add_filter( 'wpto_column_settings', 'wpt_column_setting_for_tax_cf', 10, 3 );
 
-if( !function_exists( 'wpt_detect_current_device' ) ){
+if( ! function_exists( 'wpt_detect_current_device' ) ){
+
     function wpt_detect_current_device(){
+
         $device = 'desktop';
         $mobile_detect = new Mobile_Detect();
         $is_tablet = $mobile_detect->isTablet();
@@ -50,11 +53,12 @@ if( !function_exists( 'wpt_detect_current_device' ) ){
         }elseif( $is_tablet && !$is_mobile ){
             $device = 'mobile';
         }
+
         return $device;
     }
 }
 
-if( !function_exists( 'wpt_col_settingwise_device' ) ){
+if( ! function_exists( 'wpt_col_settingwise_device' ) ){
     
     /**
      * This will return column setting wise and founded device wise
@@ -63,6 +67,7 @@ if( !function_exists( 'wpt_col_settingwise_device' ) ){
      * @param int $ID It's table ID. here should be table IT. not post id
      */
     function wpt_col_settingwise_device( $ID ){
+
         $_device_name = wpt_detect_current_device();
         $_device = $_device_name == 'desktop' ? '' : '_'.$_device_name;
         
@@ -75,15 +80,13 @@ if( !function_exists( 'wpt_col_settingwise_device' ) ){
 
         if( empty( $enabled_column_array ) ){
             $_device = ''; //Set Device Desktop, I mean, empty here and we will use it for getting $column_Setting
-            //$enabled_column_array = get_post_meta( $ID, 'enabled_column_array' . $_device, true );
         }
-            
-        
+
         return $_device;
     }
 }
 
-if( !function_exists( 'wpt_enabled_column_array' ) ){
+if( ! function_exists( 'wpt_enabled_column_array' ) ){
     
     /**
      * Actually based on detected device, foudedd column setting and 
@@ -94,29 +97,11 @@ if( !function_exists( 'wpt_enabled_column_array' ) ){
      * @return array
      */
     function wpt_enabled_column_array( $table_ID ){
+
         $_device = wpt_col_settingwise_device( $table_ID );
         $enabled_column_array = get_post_meta( $table_ID, 'enabled_column_array' . $_device, true );
-        return $enabled_column_array;
-        /***********************************
-         * 
-         *
-        $_device_name = wpt_detect_current_device();
-        $_device = $_device_name == 'desktop' ? '' : '_'.$_device_name;
-        
-        $enabled_column_array = get_post_meta( $ID, 'enabled_column_array' . $_device, true );
-            
-        if( empty( $enabled_column_array ) && $_device == '_mobile' ){
-            $_device = '_tablet'; //Set Device Tablet here and we will use it for getting $column_Setting
-            $enabled_column_array = get_post_meta( $ID, 'enabled_column_array' . $_device, true );
-        }
 
-        if( empty( $enabled_column_array ) ){
-            $_device = ''; //Set Device Desktop, I mean, empty here and we will use it for getting $column_Setting
-            $enabled_column_array = get_post_meta( $ID, 'enabled_column_array' . $_device, true );
-        }
-        
-        return $enabled_column_array;
-        //*************************/
+        return is_array( $enabled_column_array ) ? $enabled_column_array : array();
     }
 }
 
@@ -124,7 +109,8 @@ if( !function_exists( 'wpt_enabled_column_array' ) ){
 
 
 
-if( !function_exists( 'wpt_device_wise_class' ) ){
+if( ! function_exists( 'wpt_device_wise_class' ) ){
+
     /**
      * Add Device Wise Class
      * using Following Filter:
@@ -135,6 +121,7 @@ if( !function_exists( 'wpt_device_wise_class' ) ){
      * @return Array
      */
     function wpt_device_wise_class( $wrapper_class_arr ){
+
        $device = wpt_detect_current_device();
        $wrapper_class_arr[] = 'wpt_device_' . $device;
        
@@ -149,8 +136,8 @@ if( !function_exists( 'wpt_device_wise_class' ) ){
 add_filter( 'wpto_wrapper_tag_class_arr', 'wpt_device_wise_class');
 add_filter( 'body_class', 'wpt_device_wise_class' );
 
+if( ! function_exists( 'wpt_table_td_class' ) ){
 
-if( !function_exists( 'wpt_table_td_class' ) ){
     /**
      * Add TD Class
      * using Following Filter:
@@ -161,11 +148,13 @@ if( !function_exists( 'wpt_table_td_class' ) ){
      * @return Array
      */
     function wpt_table_td_class( $td_class_arr, $keyword, $table_ID ){
+
         $not_acpt = array(
             'action',
             'product_title',
             'check'
         );
+
         if( in_array( $keyword, $not_acpt ) ){
             return $td_class_arr;
         }
@@ -181,8 +170,8 @@ if( !function_exists( 'wpt_table_td_class' ) ){
 }
 add_filter( 'wpto_td_class_arr', 'wpt_table_td_class',10,3 );
 
+if( ! function_exists( 'wpt_checkbox_validation' ) ){
 
-if( !function_exists( 'wpt_checkbox_validation' ) ){
     /**
      * Checkbox Enable Disable
      * using Following Filter:
@@ -193,6 +182,7 @@ if( !function_exists( 'wpt_checkbox_validation' ) ){
      * @return Array
      */
     function wpt_checkbox_validation( $bool, $enabled_column_array,$column_settings ){
+
         $arrrrr = array();
         if( !is_array( $enabled_column_array ) || !is_array( $column_settings ) ) return false;
         
@@ -210,41 +200,42 @@ if( !function_exists( 'wpt_checkbox_validation' ) ){
 }
 add_filter( 'wpto_checkbox_validation', 'wpt_checkbox_validation', 10, 3);
 
-if( !function_exists( 'wpt_product_title_column_add' ) ){
+if( ! function_exists( 'wpt_product_title_column_add' ) ){
     
     function wpt_product_title_column_add( $_device_name, $column_settings ){
+
         $title_variation = isset( $column_settings['title_variation']) ? $column_settings['title_variation'] : false;
         $description_off =  isset( $column_settings['description_off'] ) ? $column_settings['description_off'] : 'on';
         $description_off = $description_off == 'off' ? 'checked="checked"' : '';
        ?>
         <div class="description_off_wrapper">
-            <label for="description_off<?php echo esc_attr( $_device_name ); ?>"><input id="description_off<?php echo esc_attr( $_device_name ); ?>" title="Disable Deactivate Description from Title Column" name="column_settings<?php echo esc_attr( $_device_name ); ?>[description_off]" id="description_off" class="description_off" type="checkbox" value="off" <?php echo esc_attr( $description_off ); ?>> Disable Description</label>
+            <label for="description_off<?php echo esc_attr( $_device_name ); ?>"><input id="description_off<?php echo esc_attr( $_device_name ); ?>" title="Disable Deactivate Description from Title Column" name="column_settings<?php echo esc_attr( $_device_name ); ?>[description_off]" id="description_off" class="description_off" type="checkbox" value="off" <?php echo esc_attr( $description_off ); ?>> <?php echo esc_html__( 'Disable Description', 'wpt_pro' ); ?></label>
         </div>
         <div class="title_variation">
-            <label for="link<?php echo esc_attr( $_device_name ); ?>"><input type="radio" id="link<?php echo esc_attr( $_device_name ); ?>" name="column_settings<?php echo esc_attr( $_device_name ); ?>[title_variation]" value="link" <?php echo !$title_variation || $title_variation == 'link' ? 'checked' : ''; ?>> Link Enable</label>
-            <label for="nolink<?php echo esc_attr( $_device_name ); ?>"><input type="radio" id="nolink<?php echo esc_attr( $_device_name ); ?>" name="column_settings<?php echo esc_attr( $_device_name ); ?>[title_variation]" value="nolink" <?php echo $title_variation == 'nolink' ? 'checked' : ''; ?>> Link Disable</label>
-            <label for="yith<?php echo esc_attr( $_device_name ); ?>" class="tooltip"><input type="radio" id="yith<?php echo esc_attr( $_device_name ); ?>" name="column_settings<?php echo esc_attr( $_device_name ); ?>[title_variation]" value="yith" <?php echo $title_variation == 'yith' ? 'checked' : ''; ?>> Link Disable + Quick View<span class="tooltip-hover down-arrow">You have to install <a href="https://wordpress.org/plugins/yith-woocommerce-quick-view/" target="_blank">YITH WooCommerce Quick View</a></span></label>
+            <label for="link<?php echo esc_attr( $_device_name ); ?>"><input type="radio" id="link<?php echo esc_attr( $_device_name ); ?>" name="column_settings<?php echo esc_attr( $_device_name ); ?>[title_variation]" value="link" <?php echo !$title_variation || $title_variation == 'link' ? 'checked' : ''; ?>> <?php echo esc_html__( 'Link Enable', 'wpt_pro' ); ?></label>
+            <label for="nolink<?php echo esc_attr( $_device_name ); ?>"><input type="radio" id="nolink<?php echo esc_attr( $_device_name ); ?>" name="column_settings<?php echo esc_attr( $_device_name ); ?>[title_variation]" value="nolink" <?php echo $title_variation == 'nolink' ? 'checked' : ''; ?>> <?php echo esc_html__( 'Link Disable', 'wpt_pro' ); ?></label>
+            <label for="yith<?php echo esc_attr( $_device_name ); ?>" class="tooltip"><input type="radio" id="yith<?php echo esc_attr( $_device_name ); ?>" name="column_settings<?php echo esc_attr( $_device_name ); ?>[title_variation]" value="yith" <?php echo $title_variation == 'yith' ? 'checked' : ''; ?>> <?php echo esc_html__( 'Link Disable + Quick View', 'wpt_pro' ); ?><span class="tooltip-hover down-arrow"><?php echo esc_html__( 'You have to install', 'wpt_pro' ); ?> <a href="https://wordpress.org/plugins/yith-woocommerce-quick-view/" target="_blank"><?php echo esc_html__( 'YITH WooCommerce Quick View', 'wpt_pro' ); ?></a></span></label>
         </div>        
-        
-        
+
        <?php
    }
 }
 //$keyword, $_device_name, $column_settings, $columns_array, $updated_columns_array, $post, $additional_data
 add_action( 'wpto_column_setting_form_product_title', 'wpt_product_title_column_add', 10, 2 );
 
-if( !function_exists( 'wpt_thumbnails_column_add' ) ){
+if( ! function_exists( 'wpt_thumbnails_column_add' ) ){
     
     function wpt_thumbnails_column_add( $_device_name, $column_settings ){
+
         $thumb_variation = isset( $column_settings['thumb_variation']) ? $column_settings['thumb_variation'] : false;
         $img_url = WPT_BASE_URL . 'assets/images/pro-features/';
        ?>
         <?php do_action('wpo_pro_feature_message', 'enable_gallery');?>
         <div class="thumb_variation">
-            <label for="popup<?php echo esc_attr( $_device_name ); ?>"><input type="radio" id="popup<?php echo esc_attr( $_device_name ); ?>" name="column_settings<?php echo esc_attr( $_device_name ); ?>[thumb_variation]" value="popup" <?php echo !$thumb_variation || $thumb_variation == 'popup' ? 'checked' : ''; ?>> Default Popup</label>
-            <label for="no_action<?php echo esc_attr( $_device_name ); ?>"><input type="radio" id="no_action<?php echo esc_attr( $_device_name ); ?>" name="column_settings<?php echo esc_attr( $_device_name ); ?>[thumb_variation]" value="no_action" <?php echo $thumb_variation == 'no_action' ? 'checked' : ''; ?>> No Action</label>
-            <label for="url<?php echo esc_attr( $_device_name ); ?>"><input type="radio" id="url<?php echo esc_attr( $_device_name ); ?>" name="column_settings<?php echo esc_attr( $_device_name ); ?>[thumb_variation]" value="url" <?php echo $thumb_variation == 'url' ? 'checked' : ''; ?>> Product Link</label>
-            <label for="quick_view<?php echo esc_attr( $_device_name ); ?>" class="tooltip"><input type="radio" id="quick_view<?php echo esc_attr( $_device_name ); ?>" name="column_settings<?php echo esc_attr( $_device_name ); ?>[thumb_variation]" value="quick_view" <?php echo $thumb_variation == 'quick_view' ? 'checked' : ''; ?>> Quick View<span class="tooltip-hover down-arrow">You have to install <a href="https://wordpress.org/plugins/yith-woocommerce-quick-view/" target="_blank">YITH WooCommerce Quick View</a></span></label>
+            <label for="popup<?php echo esc_attr( $_device_name ); ?>"><input type="radio" id="popup<?php echo esc_attr( $_device_name ); ?>" name="column_settings<?php echo esc_attr( $_device_name ); ?>[thumb_variation]" value="popup" <?php echo !$thumb_variation || $thumb_variation == 'popup' ? 'checked' : ''; ?>> <?php echo esc_html__( 'Default Popup', 'wpt_pro' ); ?></label>
+            <label for="no_action<?php echo esc_attr( $_device_name ); ?>"><input type="radio" id="no_action<?php echo esc_attr( $_device_name ); ?>" name="column_settings<?php echo esc_attr( $_device_name ); ?>[thumb_variation]" value="no_action" <?php echo $thumb_variation == 'no_action' ? 'checked' : ''; ?>> <?php echo esc_html__( 'No Action', 'wpt_pro' ); ?></label>
+            <label for="url<?php echo esc_attr( $_device_name ); ?>"><input type="radio" id="url<?php echo esc_attr( $_device_name ); ?>" name="column_settings<?php echo esc_attr( $_device_name ); ?>[thumb_variation]" value="url" <?php echo $thumb_variation == 'url' ? 'checked' : ''; ?>> <?php echo esc_html__( 'Product Link', 'wpt_pro' ); ?></label>
+            <label for="quick_view<?php echo esc_attr( $_device_name ); ?>" class="tooltip"><input type="radio" id="quick_view<?php echo esc_attr( $_device_name ); ?>" name="column_settings<?php echo esc_attr( $_device_name ); ?>[thumb_variation]" value="quick_view" <?php echo $thumb_variation == 'quick_view' ? 'checked' : ''; ?>> <?php echo esc_html__( 'Quick View', 'wpt_pro' ); ?><span class="tooltip-hover down-arrow"><?php echo esc_html__( 'You have to install', 'wpt_pro' ); ?> <a href="https://wordpress.org/plugins/yith-woocommerce-quick-view/" target="_blank"><?php echo esc_html__( 'YITH WooCommerce Quick View', 'wpt_pro' ); ?></a></span></label>
         </div>
         
        <?php
@@ -254,49 +245,61 @@ add_action( 'wpto_column_setting_form_thumbnails', 'wpt_thumbnails_column_add', 
 
 
 
-if( !function_exists( 'wpt_column_tag_for_all' ) ){
+if( ! function_exists( 'wpt_column_tag_for_all' ) ){
+
     function wpt_column_tag_for_all( $keyword, $_device_name, $column_settings ){
+
         $input_one = isset( $column_settings[$keyword]['input_one'] ) ? $column_settings[$keyword]['input_one'] : false;
         $tag_value = isset( $column_settings[$keyword]['tag'] ) ? $column_settings[$keyword]['tag'] : false;
+
         $tags = array(
-            '' => 'No Tag',
-            'section' => 'Section',
-            'h1' => 'Heading 1',
-            'h2' => 'Heading 2',
-            'h3' => 'Heading 3',
-            'h4' => 'Heading 4',
-            'h5' => 'Heading 5',
-            'h6' => 'Heading 6',
-            'p' => 'Paragraph',
-            'b' => 'Bold',
-            'strong' => 'Strong',
-            'span' => 'Span',
-            'div' => 'Div',
+            '' => __('No Tag', 'wpt_pro'),
+            'section' => __('Section', 'wpt_pro'),
+            'h1' => __('Heading 1', 'wpt_pro'),
+            'h2' => __('Heading 2', 'wpt_pro'),
+            'h3' => __('Heading 3', 'wpt_pro'),
+            'h4' => __('Heading 4', 'wpt_pro'),
+            'h5' => __('Heading 5', 'wpt_pro'),
+            'h6' => __('Heading 6', 'wpt_pro'),
+            'p' => __('Paragraph', 'wpt_pro'),
+            'b' => __('Bold', 'wpt_pro'),
+            'strong' => __('Strong', 'wpt_pro'),
+            'span' => __('Span', 'wpt_pro'),
+            'div' => __('Div', 'wpt_pro'),
         );
+
         ?>
         <div class="column_tag_for_all">
-            <label>Select wrapper tag</label>
+            <label><?php echo esc_html__( 'Select wrapper tag', 'wpt_pro' ); ?></label>
             <select class="ua_select" name="column_settings<?php echo esc_attr( $_device_name ); ?>[<?php echo esc_attr( $keyword ); ?>][tag]">    
             <?php
             foreach($tags as $tag => $tag_name){
                 $seleced = $tag_value == $tag ? 'selected' : false;
-                echo "<option value='{$tag}' $seleced>$tag_name</option>";
+                $output = "<option value='{$tag}' $seleced>$tag_name</option>";
+
+                $allowed_atts = array(
+                    'value'      => array(),
+                );
+    
+                echo wp_kses( $output, array(
+                    'option' => $allowed_atts
+                ) );
             }
             ?>
             </select>
         </div>
-        
         <?php
     }
 }
 
 add_action( 'wpto_column_setting_form', 'wpt_column_tag_for_all', 10, 3 );
 
-if( !function_exists( 'wpt_column_add_extra_items' ) ){
+if( ! function_exists( 'wpt_column_add_extra_items' ) ){
+
     function wpt_column_add_extra_items( $keyword, $_device_name, $column_settings, $columns_array, $updated_columns_array, $post, $additional_data ){
         
         unset( $columns_array[$keyword] ); //Unset this column. if in action, here $keyword - action
-        //unset( $columns_array['check'] );
+        
         unset( $columns_array['blank'] );
         unset( $columns_array['freeze'] );
         /**
@@ -315,15 +318,13 @@ if( !function_exists( 'wpt_column_add_extra_items' ) ){
         $items = apply_filters( 'wpto_inside_checked_item_arr', $items, $keyword, $column_settings, $columns_array );
         if( is_array( $items ) && count( $items ) > 0 ){
             
-            //array_merge(array_flip($items),$columns_array)
+
             $columns_array = array_merge(array_flip($items),$columns_array);
         }
         ?>
         <div class="column_add_extra_items">
-        <label for="<?php echo esc_attr( "column_settings{$_device_name}_{$keyword}" ); ?>">Select multiple inner items:</label>    
-<!--        <div class="checkbox_parent parent_<?php echo esc_attr( $keyword ); ?>">-->
+        <label for="<?php echo esc_attr( "column_settings{$_device_name}_{$keyword}" ); ?>"><?php echo esc_html__( 'Select multiple inner items:', 'wpt_pro' ); ?></label>
 
- 
         <?php
         $select = "";
         $items_columns = $columns_array;
@@ -332,34 +333,30 @@ if( !function_exists( 'wpt_column_add_extra_items' ) ){
         foreach($items_columns as $key => $key_val){
             $seleced = in_array( $key,$items ) ? 'checked' : false;
             $seleced_option = in_array( $key,$items ) ? 'selected' : false;
-            //var_dump($key, $keyword);
             $unique_id = $keyword . '_' . $key . '_' . $_device_name;
-//                echo '<div class="each_checkbox each_checkbox_' . $key . '">';
-            ?>
-
-
-
-
-            <?php
             $select .= "<option value='" . esc_attr( $key ) . "' " . esc_attr( $seleced_option ) . "> " . esc_html( $key_val . " - " . $key ) . "</option>";
-//                echo "<input "
-//                . "id='{$unique_id}' "
-//                . "type='checkbox' "
-//                . "name='column_settings{$_device_name}[{$keyword}][items][]' "
-//                . "value='{$key}' $seleced/><label for='{$unique_id}'>$key_val <small>($key)</small></label>";
-//                echo '</div>';
+
         }
         ?>
-<!--            </div>-->
+
         <select 
             class="internal_select" 
             multiple="multiple" 
             id="<?php echo esc_attr( "column_settings{$_device_name}_{$keyword}" ); ?>"
             name="<?php echo esc_attr( "column_settings{$_device_name}[{$keyword}][items][]" ); ?>"
             >
-            <?php echo $select; //WPCS: XSS ok(checked). ?>
-        </select> 
-        
+            <?php 
+            $allowed_atts = array(
+                'class'      => array(),
+                'id'         => array(),
+                'xml:lang'   => array(),
+                'value'      => array(),
+            );
+
+            echo wp_kses( $select, array(
+                'option' => $allowed_atts
+            ) ); ?>
+        </select>
         </div>
         <?php
     }
@@ -367,18 +364,19 @@ if( !function_exists( 'wpt_column_add_extra_items' ) ){
 
 add_action( 'wpto_column_setting_form', 'wpt_column_add_extra_items', 10, 7 );
 
-if( !function_exists( 'wpt_add_extra_inside_items' ) ){
+if( ! function_exists( 'wpt_add_extra_inside_items' ) ){
+
     function wpt_add_extra_inside_items( $columns_array ){
-        //wpto_inside_item_arr
-        $columns_array['menu_order'] = "Menu Order";
-        //$columns_array['menu_order'] = "Menu Order";
+
+        $columns_array['menu_order'] = esc_html__( "Menu Order", 'wpt_pro' );
+
         return $columns_array;
     }
 }
 
 add_filter( 'wpto_inside_item_arr', 'wpt_add_extra_inside_items' ); //$items,$keyword, $column_settings, $columns_array, $post
 
-if( !function_exists( 'wpt_get_config_value' ) ){
+if( ! function_exists( 'wpt_get_config_value' ) ){
     /**
      * getting Config value. If get config value from post, then it will receive from post, Otherwise, will take data from Configuration value.
      * 
@@ -386,6 +384,7 @@ if( !function_exists( 'wpt_get_config_value' ) ){
      * @return type Array
      */
     function wpt_get_config_value( $table_ID ){
+
         $config_value = $temp_config_value = get_option( 'wpt_configure_options' );
         $config = get_post_meta( $table_ID, 'config', true );        
         $config = is_array( $config ) ? array_filter( $config ) : array();
@@ -393,29 +392,22 @@ if( !function_exists( 'wpt_get_config_value' ) ){
             $config_value = array_merge( $config_value, $config );
         }
         $config_value = apply_filters( 'wpto_get_config_value', $config_value, $table_ID );
-        /*
-        $config_value['footer_cart'] = $temp_config_value['footer_cart'];
-        $config_value['footer_cart_size'] = $temp_config_value['footer_cart_size'];
-        $config_value['footer_possition'] = $temp_config_value['footer_possition'];
-        $config_value['footer_bg_color'] = $temp_config_value['footer_bg_color'];
-        //$config_value['thumbs_lightbox'] = $temp_config_value['thumbs_lightbox'];
-        $config_value['disable_cat_tag_link'] = $temp_config_value['disable_cat_tag_link'];
-        */
-        return $config_value;
+
+        return is_array( $config_value ) ? $config_value : array();
     }
 }
 // Hook into Woocommerce when adding a product to the cart
 add_filter( 'woocommerce_add_to_cart_fragments', 'wpt_per_item_fragment', 999 , 1 );
 
-if( !function_exists( 'wpt_per_item_fragment' ) ) {
-	function wpt_per_item_fragment($fragments)
-	{
+if( ! function_exists( 'wpt_per_item_fragment' ) ) {
+	function wpt_per_item_fragment($fragments) {
+
 		ob_start();
                 $Cart = WC()->cart->cart_contents;
                 $product_response = false;
                 if( is_array( $Cart ) && count( $Cart ) > 0 ){
                     foreach($Cart as $perItem){
-                        //var_dump($perItem);
+                        
                         $pr_id = (String) $perItem['product_id'];
                         $vr_id = (String) $perItem['variation_id'];
                         $pr_id = apply_filters( 'wpto_id_of_item', $pr_id, $perItem );
@@ -438,7 +430,7 @@ if( !function_exists( 'wpt_per_item_fragment' ) ) {
 		echo wp_json_encode($product_response);
 		
 		$fragments["wpt_per_product"] = ob_get_clean();
-                //WC_AJAX::get_refreshed_fragments();
+
 		return $fragments;
 	}
 }
@@ -493,6 +485,7 @@ if( !function_exists( 'wpt_per_item_fragment' ) ) {
  * @return string HTML dropdown list of categories.
  */
 function wpt_wp_dropdown_categories( $args = '', $get_taxonomy = false ) {
+
 	$defaults = array(
 		'show_option_all'   => '',
 		'show_option_none'  => '',
@@ -515,7 +508,7 @@ function wpt_wp_dropdown_categories( $args = '', $get_taxonomy = false ) {
 		'option_none_value' => -1,
 		'value_field'       => 'term_id',
 		'multiple'          => false,
-                'data-key'          => false,
+        'data-key'          => false,
 	);
         
 	$defaults['selected'] = ( is_category() ) ? get_query_var( 'cat' ) : 0;
@@ -635,15 +628,13 @@ function wpt_wp_dropdown_categories( $args = '', $get_taxonomy = false ) {
 	$output = apply_filters( 'wp_dropdown_cats', $output, $parsed_args );
 
 	if ( $parsed_args['echo'] ) {
-		echo $output; //Total function copy from WordPress and renamed just
+		echo wp_kses_post( $output );
 	}
 
 	return $output;
 }
 
-
-
-if( !function_exists( 'wpt_paginate_links' ) ){
+if( ! function_exists( 'wpt_paginate_links' ) ){
     /**
      * Generate paginated links based on Args.
      * 
@@ -651,6 +642,7 @@ if( !function_exists( 'wpt_paginate_links' ) ){
      * @return type String
      */
     function wpt_paginate_links( $args = false ){
+
         $html = false;
         if( $args ){
             $product_loop = new WP_Query($args);
@@ -669,7 +661,7 @@ if( !function_exists( 'wpt_paginate_links' ) ){
     }
 }
 
-if( !function_exists( 'wpt_pagination_by_args' ) ){
+if( ! function_exists( 'wpt_pagination_by_args' ) ){
     /**
      * Generate full pagination based on Args.
      * 
@@ -677,6 +669,7 @@ if( !function_exists( 'wpt_pagination_by_args' ) ){
      * @return type String
      */
     function wpt_pagination_by_args( $args = false, $temp_number = false ){
+
         $html = false;
         if( $args ){
             $html .= "<div class='wpt_table_pagination' data-temp_number='{$temp_number}'>";
@@ -688,7 +681,8 @@ if( !function_exists( 'wpt_pagination_by_args' ) ){
     }
 }
 
-if( !function_exists( 'wpt_additions_data_attribute' ) ){
+if( ! function_exists( 'wpt_additions_data_attribute' ) ){
+
     /**
      * Generate Product's Attribute
      * 
@@ -697,6 +691,7 @@ if( !function_exists( 'wpt_additions_data_attribute' ) ){
      * @return string 
      */
     function wpt_additions_data_attribute( $attributes = false ){
+
         global $product;
         $html = false;
         if( $attributes && is_array( $attributes ) && count( $attributes ) > 0 ){
@@ -736,7 +731,8 @@ if( !function_exists( 'wpt_additions_data_attribute' ) ){
     }
 }
 
-if( !function_exists( 'wpt_check_sortOrder' ) ){
+if( ! function_exists( 'wpt_check_sortOrder' ) ){
+
     /**
      * Checking Value for Select option tag
      * Used in shortcode.php file actually
@@ -750,13 +746,15 @@ if( !function_exists( 'wpt_check_sortOrder' ) ){
     }
 }
 
-if( !function_exists( 'wpt_default_columns_array' ) ){
+if( ! function_exists( 'wpt_default_columns_array' ) ){
+
     /**
      * To get Final Columns List as Array, where will unavailable default disable_column
      * 
      * @return Array 
      */
     function wpt_default_columns_array(){
+
         $column_array = WPT_Product_Table::$columns_array;
         /**
          * To this disable array, Only available keywords of Column Keyword Array
@@ -770,7 +768,8 @@ if( !function_exists( 'wpt_default_columns_array' ) ){
     }
 }
 
-if( !function_exists( 'wpt_default_columns_keys_array' ) ){
+if( ! function_exists( 'wpt_default_columns_keys_array' ) ){
+
     /**
      * We used this function to get default keywords array from default columns array
      * 
@@ -782,7 +781,8 @@ if( !function_exists( 'wpt_default_columns_keys_array' ) ){
     }
 }
 
-if( !function_exists( 'wpt_default_columns_values_array' ) ){
+if( ! function_exists( 'wpt_default_columns_values_array' ) ){
+
     /**
      * We used this function to get default values array from default columns array
      * 
@@ -790,12 +790,15 @@ if( !function_exists( 'wpt_default_columns_values_array' ) ){
      * @since 3.6
      */
     function wpt_default_columns_values_array(){
+
         return array_values( wpt_default_columns_array() );
+
     }
 }
 
 
-if( !function_exists( 'wpt_taxonomy_column_generator' ) ){
+if( ! function_exists( 'wpt_taxonomy_column_generator' ) ){
+
     /**
      * Taxonomy column generator
      * clue is: tax_
@@ -804,6 +807,7 @@ if( !function_exists( 'wpt_taxonomy_column_generator' ) ){
      * @return String
      */
     function wpt_taxonomy_column_generator( $item_key ){
+
         $key = 'tax_';
         $len = strlen( $key );
         $check_key = substr( $item_key, 0, $len );
@@ -813,7 +817,8 @@ if( !function_exists( 'wpt_taxonomy_column_generator' ) ){
     }
 }
 
-if( !function_exists( 'wpt_customfileds_column_generator' ) ){
+if( ! function_exists( 'wpt_customfileds_column_generator' ) ){
+
     /**
      * Custom Fields column generator
      * clue is: cf_
@@ -822,6 +827,7 @@ if( !function_exists( 'wpt_customfileds_column_generator' ) ){
      * @return String
      */
     function wpt_customfileds_column_generator( $item_key ){
+
         $key = 'cf_';
         $len = strlen( $key );
         $check_key = substr( $item_key, 0, $len );
@@ -831,7 +837,8 @@ if( !function_exists( 'wpt_customfileds_column_generator' ) ){
     }
 }
 
-if( !function_exists( 'wpt_limit_words' ) ){
+if( ! function_exists( 'wpt_limit_words' ) ){
+
     /**
      * Making new String/description based on word Limit.
      * 
@@ -850,7 +857,8 @@ if( !function_exists( 'wpt_limit_words' ) ){
     }
 }
 
-if( !function_exists( 'wpt_explode_string_to_array' ) ){
+if( ! function_exists( 'wpt_explode_string_to_array' ) ){
+
     /**
      * Go generate as Array from 
      * 
@@ -859,6 +867,7 @@ if( !function_exists( 'wpt_explode_string_to_array' ) ){
      * @return Array This function will generate comman string to Array
      */
     function wpt_explode_string_to_array( $string,$default_array = false ) {
+
         $final_array = false;
         if ( $string && is_string( $string ) ) {
             $string = rtrim( $string, ', ' );
@@ -872,7 +881,8 @@ if( !function_exists( 'wpt_explode_string_to_array' ) ){
     }
 }
 
-if( !function_exists( 'wpt_generate_each_row_data' ) ){
+if( ! function_exists( 'wpt_generate_each_row_data' ) ){
+
     /**
      * Generate each row data for product table. This function will only use for once place.
      * I mean: in shortcode.php file normally.
@@ -885,6 +895,7 @@ if( !function_exists( 'wpt_generate_each_row_data' ) ){
      * @return String_Variable
      */
     function wpt_generate_each_row_data($table_column_keywords = false, $wpt_each_row = false) {
+
         $final_row_data = false;
         if ( is_array( $table_column_keywords ) && count( $table_column_keywords ) > 0) {
             foreach ( $table_column_keywords as $each_keyword ) {
@@ -895,7 +906,8 @@ if( !function_exists( 'wpt_generate_each_row_data' ) ){
     }
 }
 
-if( !function_exists( 'wpt_define_permitted_td_array' ) ){
+if( ! function_exists( 'wpt_define_permitted_td_array' ) ){
+
     /**Generaed a Array for $wpt_permitted_td 
      * We will use this array to confirm display Table body's TD inside of Table
      * 
@@ -916,7 +928,8 @@ if( !function_exists( 'wpt_define_permitted_td_array' ) ){
     }
 }
 
-if( !function_exists( 'wpt_array_to_option_atrribute' ) ){
+if( ! function_exists( 'wpt_array_to_option_atrribute' ) ){
+
     /**
      * Generating <options>VAriation Atribute</option> for Product Variation
      * CAn be removed later.
@@ -925,6 +938,7 @@ if( !function_exists( 'wpt_array_to_option_atrribute' ) ){
      * @return string
      */
     function wpt_array_to_option_atrribute( $current_single_attribute = false ){
+
         $html = '<option value>'.esc_html__( 'None', 'wpt_pro' ).'</option>';
         if( is_array( $current_single_attribute ) && count( $current_single_attribute ) ){
             foreach( $current_single_attribute as $wpt_pr_attributes ){
@@ -935,7 +949,8 @@ if( !function_exists( 'wpt_array_to_option_atrribute' ) ){
     }
 }
 
-if( !function_exists( 'wpt_variations_attribute_to_select' ) ){
+if( ! function_exists( 'wpt_variations_attribute_to_select' ) ){
+
     /**
      * This is deprecated now. We have used new file for this part
      * new file is: includes/variation_html.php 
@@ -950,6 +965,7 @@ if( !function_exists( 'wpt_variations_attribute_to_select' ) ){
      * @return  string  HTML Select tag will generate from Attribute
      */
     function wpt_variations_attribute_to_select( $attributes , $product_id = false, $default_attributes = false, $temp_number = false ){
+
         $html = false;
         $html .= "<div class='wpt_varition_section' data-product_id='{$product_id}'  data-temp_number='{$temp_number}'>";
         foreach( $attributes as $attribute_key_name=>$options ){
@@ -983,7 +999,8 @@ if( !function_exists( 'wpt_variations_attribute_to_select' ) ){
 }
 
 
-if( !function_exists( 'wpt_get_value_with_woocommerce_unit' ) ){
+if( ! function_exists( 'wpt_get_value_with_woocommerce_unit' ) ){
+
     /**
      * Getting unit amount with unint sign. Suppose: Kg, inc, cm etc
      * woocommerce has default wp_options for weight,height etc's unit.
@@ -994,12 +1011,15 @@ if( !function_exists( 'wpt_get_value_with_woocommerce_unit' ) ){
      * @return string If get unit and value is gater than o, than it will generate string, otheriwse false
      */
     function wpt_get_value_with_woocommerce_unit( $target_unit, $value ){
+
         $get_unit = get_option( 'woocommerce_' . $target_unit . '_unit' );
+
         return ( is_numeric( $value ) && $value > 0 ? $value . ' ' . $get_unit : false );
     }
 }
 
-if( !function_exists( 'wpt_adding_body_class' ) ){
+if( ! function_exists( 'wpt_adding_body_class' ) ){
+
     /**
      * Adding wpt_'s class at body tag, when Table will show.
      * Only for frontEnd
@@ -1010,6 +1030,7 @@ if( !function_exists( 'wpt_adding_body_class' ) ){
      * @return string
      */
     function wpt_adding_body_class( $class ) {
+
         global $post,$shortCodeText;
 
         if( isset($post->post_content) && has_shortcode( $post->post_content, $shortCodeText ) ) {
@@ -1022,7 +1043,7 @@ if( !function_exists( 'wpt_adding_body_class' ) ){
 add_filter( 'body_class', 'wpt_adding_body_class' );
 
 
-if( !function_exists( 'wpt_table_edit_link' ) ){
+if( ! function_exists( 'wpt_table_edit_link' ) ){
     
     /**
      * Adding Edit Table link at the bottom of Table
@@ -1035,6 +1056,7 @@ if( !function_exists( 'wpt_table_edit_link' ) ){
      * @return string
      */
     function wpt_table_edit_link( $table_ID ) {
+
         if( !current_user_can( WPT_CAPABILITY ) ) return null;
         $table_ID = (int) $table_ID;
         ?>
@@ -1046,14 +1068,15 @@ if( !function_exists( 'wpt_table_edit_link' ) ){
             <?php echo esc_html__( 'Edit Table - ', 'wpt_pro' ); ?>
             <?php echo esc_html( get_the_title( $table_ID ) ); ?>
             </a>   
-        </div> 
+        </div>
+
         <?php
     }
 }
 add_action( 'wpto_table_wrapper_bottom', 'wpt_table_edit_link', 99 );
 
+if( ! function_exists( 'wpt_args_manipulation_frontend' ) ){
 
-if( !function_exists( 'wpt_args_manipulation_frontend' ) ){
     /**
      * IN FREE
      * Args Manipulation for FrontEnd
@@ -1160,8 +1183,7 @@ if( ! function_exists( 'wpt_args_manage_by_get_args' ) ){
             $MY_GETS['tax_query'] = $tax;
             unset( $args['tax_query'] );
         }
-        
-       
+
         /**
          * Handle Meta Query
          */
@@ -1180,75 +1202,7 @@ if( ! function_exists( 'wpt_args_manage_by_get_args' ) ){
 }
 add_filter( 'wpto_table_query_args', 'wpt_args_manage_by_get_args', 10, 2 );
 
-
-
-if( !function_exists( 'wpt_freeze_column_maintain' ) ){
-
-    /**
-     * Freeze Column Maintain using following Action Hook
-     * do_action( 'wpto_table_wrapper_bottom', $table_ID, $args, $column_settings, $enabled_column_array, $config_value, $atts );
-     * 
-     * @param type $table_ID
-     * @param type $args
-     * @param type $column_settings
-     * @param type $enabled_column_array
-     */
-    function wpt_freeze_column_maintain( $table_ID, $args, $column_settings, $enabled_column_array ){
-
-        $style = false;
-        if( isset( $enabled_column_array['freeze'] ) && $column_settings['freeze'] ){
-            $style = isset( $column_settings['freeze']['style_str'] ) ? $column_settings['freeze']['style_str'] : false;
-        }
-
-        if( $style ){
-            $width = apply_filters( 'wpto_default_width_freeze_col', '140px', $table_ID );
-            $selector = esc_attr( '#table_id_' . $table_ID . ' .wpt_table_tag_wrapper' );
-   
-            
-ob_start();
-?>
-<style>
- <?php
- //$selector WPCS checked and OK
- echo $selector; ?> th.wpt_freeze,<?php echo $selector; ?> td.wpt_freeze {
-    position: absolute;
-    left: 0;
-    top: auto;
-    width: <?php echo $width; ?>;
-}
-<?php echo $selector; ?> th.wpt_freeze{}
-<?php echo $selector; ?> td.td_or_cell.wpt_freeze .item_inside_cell{display: inline-block;}
-<?php echo $selector; ?>, <?php echo $selector; ?> table, <?php echo $selector; ?> tr{position: static;}
-<?php echo $selector; ?>{margin-left: <?php echo $width; ?>;}  
-</style>
-<script>
-    (function($) {
-    'use strict';
-        $(document).ready(function($){
-            var height = $('<?php echo $selector; ?> table tr').not('.wpt_freeze').height();
-
-            $('th.wpt_freeze').css('height', height);
-        });
-    })(jQuery);
-    
-</script>                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-<?php
-$css_code = ob_get_clean();            
-            echo $css_code;
-        }
-    }
-}
-add_action( 'wpto_table_wrapper_bottom', 'wpt_freeze_column_maintain',9910,4 );
-
-if( !function_exists( 'wpt_add_div_at_top' ) ){
+if( ! function_exists( 'wpt_add_div_at_top' ) ){
 
     /**
      * Top Scrollbar
@@ -1272,7 +1226,7 @@ if( !function_exists( 'wpt_add_div_at_top' ) ){
 }
 add_action( 'wpto_action_before_table', 'wpt_add_div_at_top' );
 
-if( !function_exists( 'wpt_item_manage_from_theme' ) ){
+if( ! function_exists( 'wpt_item_manage_from_theme' ) ){
 
     /**
      * Managing Final File Location 
@@ -1295,6 +1249,7 @@ if( !function_exists( 'wpt_item_manage_from_theme' ) ){
      * @return type $file This Function will return $file Location of Items
      */
     function wpt_item_manage_from_theme( $file, $file_name ){
+
         $file_frm_theme = get_stylesheet_directory() . '/woo-product-table/items/' . $file_name . '.php';
         if( file_exists( $file_frm_theme ) ){
             return $file_frm_theme;
@@ -1304,7 +1259,7 @@ if( !function_exists( 'wpt_item_manage_from_theme' ) ){
 }
 add_filter( 'wpto_item_final_loc', 'wpt_item_manage_from_theme', 1, 2 );
 
-if( !function_exists( 'wpt_add_td_class' ) ){
+if( ! function_exists( 'wpt_add_td_class' ) ){
     
     /**
      * Add Class on Td for Table
@@ -1323,8 +1278,6 @@ if( !function_exists( 'wpt_add_td_class' ) ){
     }
 }
 add_filter('wpto_td_class_arr', 'wpt_add_td_class', 10, 5);
-
-
 
 if( ! function_exists( 'wpt_search_box_validation_on_off' ) ){
     
@@ -1347,8 +1300,8 @@ if( ! function_exists( 'wpt_search_box_validation_on_off' ) ){
 }
 add_filter( 'wpto_searchbox_show', 'wpt_search_box_validation_on_off' );
 
-
 if( ! function_exists( 'wpt_table_preview_template_manager' ) ){
+
     /**
      * Not Activated Yet. Will Enable Asap
      * 
@@ -1387,8 +1340,8 @@ if( ! function_exists( 'wpt_user_roles_by_id' ) ){
      * @param  int $id
      * @return array
      */
-    function wpt_user_roles_by_id( $id )
-    {
+    function wpt_user_roles_by_id( $id ) {
+
         $user = new WP_User( $id );
 
         if ( empty ( $user->roles ) or ! is_array( $user->roles ) )
@@ -1398,7 +1351,7 @@ if( ! function_exists( 'wpt_user_roles_by_id' ) ){
     }
 }
 
-if( !function_exists( 'wpt_shop_archive_sorting_args' ) ){
+if( ! function_exists( 'wpt_shop_archive_sorting_args' ) ){
     
     /**
      * This function has fixed shop archive default sorting issue.
@@ -1407,6 +1360,7 @@ if( !function_exists( 'wpt_shop_archive_sorting_args' ) ){
      * @return array $args
      */
     function wpt_shop_archive_sorting_args( $args ){
+
         if( is_shop() || is_product_taxonomy() ){
             $_orderby = isset( $_GET['orderby'] ) && !empty( $_GET['orderby'] ) ? sanitize_text_field( $_GET['orderby'] ) : '';
             $args['paged'] = 1;
@@ -1460,7 +1414,8 @@ add_filter( 'wpto_table_query_args_in_row', 'wpt_shop_archive_sorting_args', 10 
 add_filter( 'astra_add_to_cart_quantity_btn_enabled', '__return_false', PHP_INT_MAX );
 
 
-if( !function_exists( 'wpt_ajax_on_first_load' ) ){
+if( ! function_exists( 'wpt_ajax_on_first_load' ) ){
+
     /**
      * Compability Code for WavePlayer
      * 
@@ -1483,14 +1438,13 @@ if( !function_exists( 'wpt_ajax_on_first_load' ) ){
      */
     function wpt_ajax_on_first_load(){
 
-$output = <<<EOT
-<script id='by-woo-product-table'>
-jQuery(document).ready(function($){
-    $("button.wpt_search_button").trigger("click");
-});
-</script>
-EOT;
-        echo $output;
+    ?>
+    <script id='by-woo-product-table'>
+    jQuery(document).ready(function($){
+        $("button.wpt_search_button").trigger("click");
+    });
+    </script>
+    <?php
     }
 }
 //add_action( 'wp_footer', 'wpt_ajax_on_first_load', 100 );
@@ -1542,7 +1496,9 @@ function wpt_matched_cart_items( $search_products ) {
 }
 
 if( ! function_exists( 'wpt_get_variation_parent_ids_from_term' ) ){
+
     function wpt_get_variation_parent_ids_from_term( $args_tax_query ){
+
         global $wpdb;
         $type = 'term_id';
         $prepare = array();
@@ -1572,7 +1528,6 @@ if( ! function_exists( 'wpt_get_variation_parent_ids_from_term' ) ){
             
         }
 
-
         return $results;
     }
     
@@ -1595,8 +1550,7 @@ if( ! function_exists( 'wpt_get_agrs_for_variable' ) ){
         if( isset( $args['tax_query'] ) && is_array( $args['tax_query'] ) && count( $args['tax_query'] ) > 0 ){
             $args['post_parent__in'] = wpt_get_variation_parent_ids_from_term( $args['tax_query']);
 
-        } 
-
+        }
 
         if( ! empty( $post_include ) ){
             $post_parent__in = $args['post_parent__in'];
@@ -1618,9 +1572,7 @@ if( ! function_exists( 'wpt_get_agrs_for_variable' ) ){
     
 }
 
-
-
-if( defined('B2BKING_DIR') && !function_exists( 'wpt_b2bking_plugin_integration' ) ){
+if( defined('B2BKING_DIR') && ! function_exists( 'wpt_b2bking_plugin_integration' ) ){
     
     /**
      * Integration with B2BKing — Ultimate WooCommerce Wholesale and B2B Solution

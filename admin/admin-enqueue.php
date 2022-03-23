@@ -49,15 +49,6 @@ if( !function_exists( 'wpt_admin_enqueue' ) ){
         //WordPress Default Media Added only for addmin
         wp_enqueue_media();
 
-        /**
-         * WPT Offer handle, User will able to 
-         * see latest offer only when pro version 
-         * is not installed.
-         */
-        //if( ! defined( 'WPT_PRO_DEV_VERSION' ) ){
-            wp_enqueue_style( 'wpt-offer-css', WPT_Product_Table::getPath( 'BASE_URL' ) . 'admin/notice/offeres/offer.css', array(), WPT_DEV_VERSION, 'all' );
-            wp_enqueue_script( 'wpt-offer-js', WPT_Product_Table::getPath( 'BASE_URL' ) . 'admin/notice/offeres/offer.js', array( 'jquery' ), WPT_DEV_VERSION, true );
-        //}
     }
 }
 add_action( 'admin_enqueue_scripts', 'wpt_admin_enqueue', 99 );

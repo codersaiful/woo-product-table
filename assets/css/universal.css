@@ -1874,3 +1874,67 @@ select.search_select.cascade-filtering {
     cursor: not-allowed;
     background-size: 30px !important;
 }
+
+
+
+/* CODE FROM INTERNEL CSS */
+@media only screen and (max-width: 767px) {
+        .hide_column_for_mobile_only_for_selected{ display: none!important;}        
+
+
+        table#wpt_table.mobile_responsive.wpt_product_table tr { border: 1px solid #ddd; margin-bottom: 5px;}
+
+        table#wpt_table.mobile_responsive.wpt_product_table td { 
+            border-bottom: 1px solid;
+            position: relative;
+            text-align: left;
+            padding-left: 8px !important;
+            height: 100%;
+            border: none;
+            border-bottom: 1px solid #ddd;    
+        }
+        /*
+        table#wpt_table.mobile_responsive.wpt_product_table td,table#wpt_table.mobile_responsive.wpt_product_table td.wpt_check,table#wpt_table.mobile_responsive.wpt_product_table td.wpt_quantity{
+         width: 100%;       
+        }
+        */
+        table#wpt_table.mobile_responsive.wpt_product_table td.wpt_quantity { 
+           min-height: 57px;
+        }
+
+        table#wpt_table.mobile_responsive.wpt_product_table td.wpt_thumbnails { 
+           height: 100%;
+           padding: 7px;
+        }
+
+        table#wpt_table.mobile_responsive.wpt_product_table td.wpt_description { 
+           min-height: 55px;
+           height: 100%;
+           padding: 7px;
+        }
+
+        table#wpt_table.mobile_responsive.wpt_product_table td.wpt_action{ 
+           min-height: 62px;
+           height: auto;
+        }        
+        table#wpt_table.mobile_responsive.wpt_product_table td.data_product_variations.woocommerce-variation-add-to-cart.variations_button.woocommerce-variation-add-to-cart-disabled.wpt_action{ 
+                height: 100%;
+                padding: 7px 0;
+        }
+
+        table#wpt_table.mobile_responsive.wpt_product_table td:before { 
+            width: 88px;
+            white-space: normal;
+            background: #b7b7b736;
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            text-align: right;
+            padding-right: 10px;
+        }
+
+    } 
+    table tr.wpt_row td.wpt_quoterequest.addedd{
+        display: block !important;
+    }

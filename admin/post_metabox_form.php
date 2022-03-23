@@ -7,7 +7,7 @@
      * this $tab_arry will define, how much tab and tab content
      */
     $tab_array = array(
-        'column_settings'   => __( "Column", 'wpt_pro' ),
+        'column_settings'   => __( 'Column', 'wpt_pro' ),
         'basics'            => __( 'Basics', 'wpt_pro' ),
         'table_style'       => sprintf(__( 'Design %sPro%s', 'wpt_pro' ), '<i class="wpt_pro_badge">', '</i>' ),
         'conditions'        => __( 'Conditions', 'wpt_pro' ),
@@ -19,15 +19,14 @@
     $tab_array = apply_filters( 'wpto_admin_tab_array', $tab_array, $post );
     
     $supported_css_property = array(
-        'color'        =>  'Text Color',
-        'background-color'=>'Background Color',
-        'border'=>'Border',
-        'text-align'=>'Text Align',
-        'vertical-align'=>'Vertical Align',
+        'color'        =>  __( 'Text Color', 'wpt_pro' ),
+        'background-color'=>__('Background Color' , 'wpt_pro' ),
+        'border'=>__('Border' , 'wpt_pro' ),
+        'text-align'=>__('Text Align' , 'wpt_pro' ),
+        'vertical-align'=>__('Vertical Align' , 'wpt_pro' ),
     );
     $supported_css_property = apply_filters( 'wpto_supported_css_property', $supported_css_property, $tab_array, $post );
 
-    
     $supported_terms    = array(
         'product_cat'       =>  __( 'Product Categories', 'wpt' ),
         'product_tag'       =>  __( 'Product Tags', 'wpt' ),
@@ -47,9 +46,6 @@
         $active_nav = false;
     }
     echo '</nav>';
-
-    
-    
 
     //Now start for Tab Content
     $active_tab_content = 'tab-content-active';
@@ -113,8 +109,7 @@
     do_action( 'wpto_form_bottom', $post ); 
     
     ?>
-    
-    
+
     <?php
     
     $ajax_submit_btn = isset( $post->post_status ) && $post->post_status == 'publish' ? 'wpt_ajax_update' : false;
@@ -149,5 +144,4 @@ ul#wpt_column_sortable li>span.handle{
 ul#wpt_column_sortable li.wpt_sortable_peritem.enabled>span.handle{
     background-image: url('<?php echo WPT_BASE_URL . 'assets/images/move_color_3.png'; ?>');
 }
-
 </style>
