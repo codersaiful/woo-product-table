@@ -308,7 +308,7 @@ if( ! function_exists( 'wpt_shortcode_configuration_metabox_save_meta' ) ){
          * @since 6.1.0.5
          * @Hook_Version: 6.1.0.5
          */
-        add_action( 'wpto_on_save_post_before_update_meta', $post_id );
+        do_action( 'wpto_on_save_post_before_update_meta', $post_id );
         
         /**
          * In Filter, Availabe Tabs:
@@ -516,7 +516,7 @@ if( ! function_exists( 'wpt_shortcode_configuration_metabox_save_meta' ) ){
          * @since 6.1.0.5
          * @Hook_Version: 6.1.0.5
          */
-        add_action( 'wpto_on_save_post', $post_id );
+        do_action( 'wpto_on_save_post', $post_id );
 
     }
 }
