@@ -212,6 +212,11 @@ You can easily show specific category products. While creating new table click o
 
 == Changelog ==
 
+
+= 3.1.2 =
+  * Fixed: Save Change button issue fixed
+  * Bug Fix
+
 = 3.1.1 =
   * Fixed: thub variation and title variation not saving issue fixed
   * Fixed: Not showing product count on add to cart button for variation
