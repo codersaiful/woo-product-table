@@ -9,39 +9,6 @@
 
             wptUpdateStyleData(this);
         });
-
-        /**
-    displayed_items = $('select#product_id_includes').val().split(',');
-    
-function selectItem(target, id) { // refactored this a bit, don't pay attention to this being a function
-  var option = $(target).children('[value='+id+']');
-  option.detach();
-  $(target).append(option).change();
-} 
-
-function customPreSelect() {
-  let items = $('select#product_id_includes').val().split(',');
-  $("select").val('').change();
-  initSelect(items);
-}
-
-function initSelect(items) { // pre-select items
-  items.forEach(item => { // iterate through array of items that need to be pre-selected
-    let value = $('select option[value='+item+']').text(); // get items inner text
-    $('select option[value='+item+']').remove(); // remove current item from DOM
-    $('select').append(new Option(value, item, true, true)); // append it, making it selected by default
-  });
-}
-
-$('select').select2();
-$('select').on('select2:select', function(e){
-  selectItem(e.target, e.params.data.id);
-});
-
-initSelect(displayed_items); // call init
-         * @param {*} target 
-         * @param {*} id 
-         */
         
         //For select, used select2 addons of jquery
         //$('.wpt_wrap select,.wpt_shortcode_gen_panel select, select#wpt_product_ids,select#product_tag_ids').select2();
@@ -60,15 +27,6 @@ initSelect(displayed_items); // call init
             placeholder: "Select mulitple inner Items.",
             allowClear: true
         });
-
-
-        $('select#product_id_includes,select#wpt_product_ids,select#product_tag_ids,select.wpt_select2,select.internal_select,select.ua_select product_includes_excludes').on('select2:select', function(e){
-            wptSelectItem(e.target, e.params.data.id);
-        });
-
-        
-        //A help: https://stackoverflow.com/questions/47353962/order-of-select2-selection-based-on-array-of-items/47354559
-
         /**
          * Product Exclude Include Feature Added Here,
          * Which is normally in Pro Actually
@@ -81,8 +39,6 @@ initSelect(displayed_items); // call init
             //templateSelection //templateResult
             templateSelection: function(option,ccc){
                 
-                console.log("HHHCCCCCCDDDDDDDDDDDD");
-                console.log(option,ccc);
                 /**
                  * Inside selected item, there was showing as thml tag format
                  * tai, apatoto name show kore rekheche.
@@ -92,12 +48,8 @@ initSelect(displayed_items); // call init
                  * only text
                  * 
                  * ::processResults er vitoreo emon kora hoyeche.
-                 * 
-                 * * ##########NEW COMMENT###########
-                 * abar ager code chalu kore diyechi ar nicer ta comment kore diyechi.
-                 * ##########NEW COMMENT###########
                  */
-                //return option.text; //Removed at new code
+                return option.text;
                 
                 if (!option.id) { return option.text; }
                 if(typeof option.title === 'undefined'){
@@ -112,10 +64,9 @@ initSelect(displayed_items); // call init
                     display += '</div>';
                 }
                 display += '<div class="details wpt_item wpt_item_right">';
-                display += '<h4>' + option.text + ' (' + option.id + ')</h4>';
+                display += '<h4>' + option.text + '</h4>';
                 display += '<p>' + content[1] + '</p>';
                 display += '<b>' + content[2] + '</b>';
-                display += '<span class="wpt-select-handle">Handle</span>';
                 display += '</div>';
                 display += '</div>';
                 return display;
@@ -146,14 +97,13 @@ initSelect(displayed_items); // call init
                                         display += text['image'];
                                         display += '</div>';
                                         display += '<div class="details wpt_item wpt_item_right">';
-                                        display += '<h4>' + text['title'] + ' (' + text['id'] + ')</h4>';
+                                        display += '<h4>' + text['title'] + '</h4>';
                                         display += '<p>' + text['price'] + '</p>';
                                         display += '<b>' + text['stock_status'] + '</b>';
-                                        display += '<span class="wpt-select-handle">Handle</span>';
                                         display += '</div>';
                                         display += '</div>';
 
-                                            options.push( { id: text['id'], text: display  } );
+                                            //options.push( { id: text['id'], text: display  } );
                                             /**
                                              * Uporer ongsho tuku age chilo
                                              * admin panel a kaj korchilo na, tai apatoto seta
@@ -161,13 +111,8 @@ initSelect(displayed_items); // call init
                                              * 
                                              * ::templateSelection er vitoreo emon kora hoyeche.
                                              * @since 2.9.4.0
-                                             * 
-                                             * 
-                                             * ##########NEW COMMENT###########
-                                             * abar ager code chalu kore diyechi ar nicer ta comment kore diyechi.
-                                             * ##########NEW COMMENT###########
                                              */
-                                            //options.push( { id: text['id'], text: text['title']  } );  //Removed at new code
+                                            options.push( { id: text['id'], text: text['title']  } );
                                     });
 
                             }
@@ -182,11 +127,10 @@ initSelect(displayed_items); // call init
 
       });
       
-    //   $( "#wpt_row_product_id_includes .select2-container--default .select2-selection--multiple ul.select2-selection__rendered" ).sortable({
-    //       handle:'span.wpt-select-handle',
-    //       stop: removeAjax,
-    //     });
-        
+        $('select#wpt_product_ids,select#product_tag_ids,select.wpt_select2,select.internal_select,select.ua_select product_includes_excludes').on('select2:select', function(e){
+          wptSelectItem(e.target, e.params.data.id);
+        });
+
         var removeAjax = function(aaa,bb){
                 $('.button,button').removeClass('wpt_ajax_update');
             };
@@ -200,7 +144,6 @@ initSelect(displayed_items); // call init
             stop: removeAjax,
         });
         $( ".wpt_responsive_each_wraper" ).sortable({handle:this});
-        
         
         
         $(document).on('click','.colum_data_input',function(){
@@ -807,10 +750,14 @@ initSelect(displayed_items); // call init
     });
     
     
-    /**
-     * Notice permanently removed
-     */
-    
+    var myHtml = '<div class="wrapper_wpt_ajax_update ultraaddons-button-wrapper">';
+        myHtml += '<button type="submit" name="wpt_post_submit" data-title="hello" class="stick_on_scroll button-primary button-primary primary button wpt_ajax_update">Save Change</button>';
+        myHtml += '</div>';
+    var status = $('#original_post_status').val();
+    var colSetsLen = $('#column_settings').length;
+    if( colSetsLen > 0 && status === 'publish'){
+        $('#wpt_configuration_form').append(myHtml);
+    }
     $(window).on('scroll',function(){
         
         let targetElement = $('.stick_on_scroll');
