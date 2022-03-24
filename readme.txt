@@ -214,7 +214,7 @@ You can easily show specific category products. While creating new table click o
 
 
 = 3.1.2 =
-  * Fixed: Save Change button issue fixed
+  * Fix: Save Change button issue fixed
   * Bug Fix
 
 = 3.1.1 =
