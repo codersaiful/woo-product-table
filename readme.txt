@@ -1,4 +1,4 @@
-=== Product Table for WooCommerce ===
+=== Product Table for WooCommerce (wooproducttable.com) ===
 Contributors: codersaiful,codeastrology
 Donate link: https://wooproducttable.com/pricing/?ref=CodeAstrology&utm_source=WPT_Installed_DonateLink
 Tags: wc product table, wooproducttable,woocommerce product table, product table, wc table, quick order table, wholesale table, restaurants table
