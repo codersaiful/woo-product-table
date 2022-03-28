@@ -80,7 +80,7 @@
             <a href="https://codecanyon.net/downloads" target="_blank"><img class="rate_us_image" src="<?php echo WPT_Product_Table::getPath( 'BASE_URL' ); ?>assets/images/rate_us.png"></a>
             <h1><?php echo esc_html__( 'It can take only 2 Minutes.', 'wpt_pro' ); ?></h1>
             <a href="https://wordpress.org/support/plugin/woo-product-table/reviews/?filter=5#new-post" target="_blank"><?php echo esc_html__( 'Rate Us on WordPress.org','wpt_pro' ); ?></a>
-            <a href="https://1.envato.market/e4Jjvz" target="_blank"><?php echo esc_html__( 'Rate Us on CodeCanyon','wpt_pro' ); ?></a>
+            <a href="https://wooproducttable.com/pricing/" target="_blank"><?php echo esc_html__( 'Rate Us on CodeCanyon','wpt_pro' ); ?></a>
         </div>
     </div>
 
