@@ -40,12 +40,12 @@ if( ! defined( 'WPT_CAPABILITY' ) ){
 }
 
 if( ! defined( 'WPT_PLUGIN' ) ){
-    define( 'WPT_PLUGIN', plugin_basename( __FILE__ ) ); //'woo-product-table/woo-product-table.php'
+    define( 'WPT_PLUGIN', plugin_basename( __FILE__ ) ); 
 }
 
 
 if( ! defined( 'WPT_PLUGIN_BASE_FILE' ) ){
-    define( 'WPT_PLUGIN_BASE_FILE', plugin_basename( __FILE__ ) ); //'woo-product-table/woo-product-table.php' )
+    define( 'WPT_PLUGIN_BASE_FILE', plugin_basename( __FILE__ ) );
 }
 
 if( ! defined( 'WPT_BASE_URL' ) ){
