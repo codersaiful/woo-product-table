@@ -351,6 +351,7 @@ if( ! function_exists( 'wpt_column_add_extra_items' ) ){
                 'id'         => array(),
                 'xml:lang'   => array(),
                 'value'      => array(),
+                'selected'   => array(),
             );
 
             echo wp_kses( $select, array(
