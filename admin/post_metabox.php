@@ -19,13 +19,7 @@ if( ! function_exists( 'wpt_shortcode_metabox' ) ){
         add_meta_box( 'wpt_shortcode_metabox_id', 'Shortcode', 'wpt_shortcode_metabox_render', 'wpt_product_table', 'normal' );
         add_meta_box( 'wpt_shortcode_configuration_metabox_id', 'Table Configuration', 'wpt_shortcode_configuration_metabox_render', 'wpt_product_table', 'normal' ); //Added at 4.1.4
         //add_meta_box( 'wpt_column_panel_metabox_id', __( 'Available Columns', 'wpt' ), 'wpt_column_panel_metabox_render', 'wpt_product_table', 'side', 'low' ); //Added at 4.1.4
-        /**
-         * Added new feature for Product Table
-         * 
-         * @since 2.8.5.1
-         * @by Saiful 
-         */
-        add_meta_box( 'wpt_export_import_metabox_id', __( 'Export/Import', 'wpt_pro' ), 'wpt_export_import_metabox_render', 'wpt_product_table', 'normal' );
+        
     }
 }
 
@@ -106,60 +100,6 @@ if( ! function_exists( 'wpt_shortcode_metabox_render' ) ){
         </span>
     </p>
 </div>
-        <?php
-    }
-}
-
-if( ! function_exists( 'wpt_export_import_metabox_render' ) ){
-    
-    function wpt_export_import_metabox_render(){
-
-        global $post;
-        $post_id = $post->ID;
-//        The following code has Transferred to admin/functions.php
-//        $meta = get_post_meta($post_id);
-//        unset($meta['_edit_lock']);
-//        unset($meta['_edit_last']);
-//
-//        $meta = array_map('array_filter', $meta);
-//        $meta = array_filter($meta);
-//
-//        $serialize_meta = serialize($meta);
-//        $base64_meta = base64_encode($serialize_meta);
-        
-        $base64_meta = wpt_get_base64_post_meta( $post_id );
-
-        $post_title = preg_replace( '/[#$%^&*()+=\-\[\]\';,.\/{}|":<>?~\\\\]/',"$1", $post->post_title );
-        ?>
-<form class="wpt-export-import" action="" method="post">
-    <div class="wpt-export-import-wrapper">
-        <div class="wpt-export-area"> 
-            <label for="wpt-export-textarea"><?php echo esc_html__( 'Export Box', 'wpt_pro' ); ?></label>
-            <textarea 
-                id="wpt-export-textarea" 
-                class="wpt-export-textarea ua-input" 
-                onclick="this.focus();this.select()" 
-                readonly="readonly"
-                ><?php echo esc_html( $base64_meta ); ?></textarea>
-        </div>
-        <div class="wpt-import-area"> 
-            
-            <label for="wpt-import-textarea"><?php echo esc_html__( 'Import Box', 'wpt_pro' ); ?></label>
-            <textarea 
-                name="wpt-import-data"
-                id="wpt-import-textarea" 
-                class="wpt-import-textarea ua-input" 
-                ></textarea>
-            <div class="wpt-export-button-wrapper">
-                <button type="submit" name="wpt_import_button" class="button-primary button-primary primary button wpt-import-button">Import Table Data</button>
-            </div>
-        </div>
-    </div>
-    
-    
-    
-    
-</form>
         <?php
     }
 }
