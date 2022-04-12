@@ -801,9 +801,11 @@ if( ! function_exists( 'wpt_table_row_generator' ) ){
                 
                 (Int) $id = $data['id'];
                 // This code should be in latest branch
-                if(wp_doing_ajax()) {
+
+                if(!is_product() && wp_doing_ajax()) {
                     wp('p=' . $id . '&post_type=product'); //Its in under Process, need more checking on this features.
                 }
+
                 $taxonomy_class = 'filter_row ';
                 $data_tax = false;
                 if( $filter_box && is_array( $filter_key ) && count( $filter_key ) > 0 ){
