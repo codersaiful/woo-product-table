@@ -279,6 +279,7 @@ if( ! function_exists( 'wpt_column_tag_for_all' ) ){
 
                 $allowed_atts = array(
                     'value'      => array(),
+                    'selected'      => array(),
                 );
     
                 echo wp_kses( $output, array(
