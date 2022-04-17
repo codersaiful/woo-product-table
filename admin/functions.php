@@ -104,6 +104,23 @@ function wpt_datewise_validation(){
 function wpt_user_can_edit(){
     return wpt_datewise_validation();
 }
+
+function wpt_get_pro_discount_message(){
+    
+    if( ! defined( 'WPT_PRO_DEV_VERSION' ) ){
+        $img = WPT_BASE_URL . 'assets/images/offr/60percent.jpg';
+        
+    ?>
+    <a title="Special Discount for Limited Time." class="special_60_offer" href="https://wooproducttable.com/pricing" target="_blank">
+        <img style="border-radius: 0;width: 800px;max-width: 100%;" src="<?php echo esc_attr( $img ); ?>">
+    </a>    
+    <?php 
+        
+    }
+
+}
+
+
 /**
  * check pro available or not
  * 
@@ -150,6 +167,7 @@ if( !function_exists( 'wpt_admin_responsive_tab_file' ) ){
 }
 
 //add_filter( 'wpto_admin_tab_file_loc_responsive', 'wpt_admin_responsive_tab_file' );
+
 
 
 if( !function_exists( 'wpt_column_style_for_all' ) ){
