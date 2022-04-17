@@ -1507,3 +1507,166 @@ body.post-type-wpt_product_table #stick_on_scroll-on {
     padding: 0 6px;
     color: #fff;
 }
+
+/*   Notice Destin */
+
+.aep-notice{
+    display:flex;
+    padding: .5em 1.5em;
+    border: none;
+    max-width: 100%;
+    justify-content: space-between;
+    border-left: 4px solid #1086e9; 
+    position: relative;
+    margin: 0;
+  }
+  .aep-notice a, .ca-btn{
+    font-size: 16px;
+    text-decoration: none;
+    letter-spacing: 1.3px;
+    padding: 10px 15px;
+    border-radius: 3px;
+    background: #1086e9;
+    color: #fff;
+    margin-right: 7px;
+    border: 1px solid;
+  }
+  .aep-notice a:hover{
+    background: #f24c00;
+  }
+  .aep-notice h3 {
+    color: rgb(79, 80, 92);
+    letter-spacing: 2.1px;
+    text-transform: uppercase;
+    margin: 10px 0;
+    font-size: 32px;
+  }
+  .aep-notice-logo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 1em;
+    padding: .5em 1em;
+    flex-grow: 1;
+  
+    width: 25%;
+  }
+  .aep-notice-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: .5em;
+    margin-left: 1em;
+    color: #8d8d8d;
+    flex-grow: 1;
+    width: 75%;
+  }
+  .aep-notice-content strong{
+    color: rgb(16 134 233);
+    letter-spacing: 1.3px;
+  }
+  p.aep-links{
+    margin: 25px 0px;
+  }
+  .aep-notice i.icon-donation {
+    font-size: 22px;
+  }
+  .aep-notice-logo img{
+    width:220px
+  }
+  
+  .notice.aep-notice::after {
+    content: "";
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    right: 10px;
+    background: #ff400012;
+    border-radius: 100%;
+  }
+  .notice.aep-notice::before {
+    content: "";
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    left: 10px;
+    background: #1086e914;
+    border-radius: 100%;
+    bottom: 10px;
+  }
+  
+  @media screen and (max-width: 760px) {
+    .aep-notice-logo {display: none;}
+    .aep-notice{padding:.5em;text-align: center}
+  .aep-notice-content {
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding:0;
+    margin:0
+  }
+  }
+  @media(max-width:450px) {
+    .aep-notice a {
+      display: block;
+      margin-bottom: 10px;
+    }
+  }
+  
+  .row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  
+  }
+  
+  .column-1 {
+    width: 25%;
+    margin-right: 10px;
+  }
+  .column-2 {
+    width: 70%;
+  }
+  
+  .ca-wrap{
+    padding: 15px;
+  }
+  .ca-inner{
+    background-color: #fff;
+    padding: 30px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 0px 1px;
+    color: #777;
+  }
+  .ca-header {
+    border-bottom: 1px solid #dfdfdf;
+  }
+  .ca-infobox-tilte{
+    color: rgb(29, 35, 39);
+  }
+  .btn.ca-btn {
+    margin-top: 15px;
+    display: inline-block;
+    padding: 15px 25px;
+    line-height: unset;
+  }
+  .btn.ca-btn:hover {
+    background-color: #f24c00;
+    border: 1px solid;
+    color: #fff;
+  }
+  .cawqv-logo img{
+    width: 250px;
+    float: left;
+    margin-right: 20px;
+  }
+  .ca-inner strong{
+    color:#1d2327;
+  }
+  .ca-wrap p{
+    font-size: 16px;
+  }
+  .ca-wrap small{
+    display: inline-block;
+    margin-bottom: 15px;
+    font-size: 14px;
+  }

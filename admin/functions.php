@@ -331,7 +331,7 @@ if( ! function_exists( 'wpt_add_tabs' ) ){
 			'<p><strong>' . __( 'For more information:', 'wpt_pro' ) . '</strong></p>' .
 			'<p><a href="https://wooproducttable.com/?utm_source=helptab&utm_content=about&utm_campaign=wptplugin" target="_blank">' . __( 'About Product Table', 'wpt_pro' ) . '</a></p>' .
 			'<p><a href="https://wordpress.org/support/plugin/woo-product-table/" target="_blank">' . __( 'WordPress.org', 'wpt_pro' ) . '</a></p>' .
-			'<p><a href="https://codecanyon.net/item/woo-product-table-pro/20676867" target="_blank">' . __( 'Premium Plugin ', 'wpt_pro' ) . '</a></p>' .
+			'<p><a href="https://wooproducttable.com/pricing" target="_blank">' . __( 'Premium Plugin ', 'wpt_pro' ) . '</a></p>' .
 			'<p><a href="https://github.com/codersaiful/woo-product-table/" target="_blank">' . __( 'Github project', 'wpt_pro' ) . '</a></p>' .
 			'<p><a href="https://wordpress.org/themes/astha/" target="_blank">' . __( 'Official theme', 'wpt_pro' ) . '</a></p>' .
 			'<p><a href="https://codecanyon.net/user/codeastrology/?utm_source=helptab&utm_content=wptotherplugins&utm_campaign=wptplugin" target="_blank">' . __( 'Other Premium Plugins', 'wpt_pro' ) . '</a></p>'
