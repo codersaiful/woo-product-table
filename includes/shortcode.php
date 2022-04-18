@@ -801,10 +801,9 @@ if( ! function_exists( 'wpt_table_row_generator' ) ){
                 
                 (Int) $id = $data['id'];
                 // This code should be in latest branch
-
-                if(!is_product() && wp_doing_ajax()) {
-                    wp('p=' . $id . '&post_type=product'); //Its in under Process, need more checking on this features.
-                }
+//                if($table_type != 'advance_table' && wp_doing_ajax()) {
+//                    wp('p=' . $id . '&post_type=product'); //Its in under Process, need more checking on this features.
+//                }
 
                 $taxonomy_class = 'filter_row ';
                 $data_tax = false;
