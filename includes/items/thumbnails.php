@@ -18,7 +18,7 @@ if ($thumb_variation == 'quick_view') {
 
 }elseif($thumb_variation == 'ca_quick_view') {
     
-    $tag_start = "<div data-id='{$id}' class='open-modal'>";
+    $tag_start = "<div data-id='{$id}' class='caqv-open-modal'>";
     $tag_end = "</div>";
 
 }elseif ($thumb_variation == 'url') {
