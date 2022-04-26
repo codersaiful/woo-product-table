@@ -16,7 +16,12 @@ if ($thumb_variation == 'quick_view') {
     $tag_start = "<div data-product_id='{$id}' class=' {$thumb_variation} '>";
     $tag_end = "</div>";
 
-} elseif ($thumb_variation == 'url') {
+}elseif($thumb_variation == 'ca_quick_view') {
+    
+    $tag_start = "<div data-id='{$id}' class='open-modal'>";
+    $tag_end = "</div>";
+
+}elseif ($thumb_variation == 'url') {
     $thumbs_img = "<a href='" . esc_url(get_the_permalink()) . "' target='{$config_value['product_link_target']}'>" . $thumbs_img . '</a>';
 }
 
