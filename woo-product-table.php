@@ -18,6 +18,8 @@
  * Domain Path: /languages/
  */
 
+use CA_Framework\WPT_Required_Plugin_Control;
+
 // don't load directly
 if ( ! defined( 'ABSPATH' ) ) {
 	die( '-1' );
@@ -401,72 +403,13 @@ class WPT_Product_Table{
          * @author Saiful <codersaiful@gmail.com>
          */
         require_once WPT_DIR_BASE . '/framework/handle.php';
-        // var_dump(WPT_PLUGIN_BASE_FOLDER,WPT_PLUGIN_BASE_FILE,WPT_DIR_BASE);
+        $ddd = new CA_Framework\WPT_Required_Plugin_Control();
+        var_dump($ddd->pass());
+        // return;
+        var_dump(WPT_PLUGIN_BASE_FOLDER,WPT_PLUGIN_BASE_FILE,WPT_DIR_BASE);
+return;
 
-
-       /**
-        * Getting All Install plugin Details Here
-        * To check required plugin Availability, Version etc.
-        * @since 6.1.0.15
-        */
-       $installed_plugins = get_plugins();
-
-       //Condition and check php verion and WooCommerce activation
-       if ( !is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
-            add_action( 'admin_notices', [ $this, 'admin_notice_missing_main_plugin' ] );
-            return;
-        }
-        
-        /**
-         * Checking Pro Version Compatibility If
-         * Installed
-         */
-        $pro_v_loc = 'woo-product-table-pro/woo-product-table-pro.php';
-        $pro_installed = isset( $installed_plugins[$pro_v_loc] );
-        $pro_activated = is_plugin_active( $pro_v_loc );
-        $pro_version = isset( $installed_plugins[$pro_v_loc]['Version'] ) ? $installed_plugins[$pro_v_loc]['Version'] : false;
-        if( $pro_installed && $pro_activated && version_compare( $pro_version, self::MINIMUM_WPT_PRO_VERSION, '<' )  ){
-            add_action( 'admin_notices', [ $this, 'admin_notice_pro_version_need_update' ] );
-//            return;//as its remommneded. Thats why we have disabled it.
-        }
-        
-//        //Qty Plus/Minus Button Plugin Compulsory for Our Product Table Plugin
-//        $plugin = 'wc-quantity-plus-minus-button/init.php';
-//        $link_text = '<strong><a href="' . esc_url( 'https://wordpress.org/plugins/wc-quantity-plus-minus-button/' ) . '" target="_blank">' . esc_html__( 'Quantity Plus/Minus Button for WooCommerce', 'wpt_pro' ) . '</a></strong>';
-//        //Check Installation of Quantity Plus Minus Button Plugin
-//        if( !isset( $installed_plugins[$plugin] ) ) {
-//            self::$own['plugin']        = $plugin;
-//            self::$own['plugin_slug']   = 'wc-quantity-plus-minus-button';
-//            self::$own['type']          = 'warning';
-//            self::$own['btn_text']      = 'Install Now';
-//            $message = sprintf(
-//                   esc_html__( '"%1$s" requires "%2$s" to be Installed and Activated.', 'wpt_pro' ),
-//                   '<strong>' . esc_html__( 'Woo Product Table', 'wpt_pro' ) . '</strong>',
-//                    $link_text                   
-//        );
-//        self::$own['message']           = $message;//'You to activate your Plugin';
-//        add_action( 'admin_notices', [ $this, 'admin_notice' ] );
-//        }
        
-            
-//        //Check Activation Of that Plugin
-//        if( isset( $installed_plugins[$plugin] ) && !is_plugin_active( $plugin ) ) {
-//            self::$own['type']      = 'warning';
-//            self::$own['perpose']   = 'activation';
-//            self::$own['plugin']    = 'wc-quantity-plus-minus-button/init.php';
-//            self::$own['btn_text']  = 'Activate Now';
-//            $configuration_page = '<a target="_blank" href="' . esc_url( admin_url( 'edit.php?post_type=wpt_product_table&page=woo-product-table-config' ) ) . '">' . esc_html__( 'Configure Page', 'wpt_pro' ) . '</a>';
-//            $message = sprintf(
-//                   /* translators: 1: Plugin name 2: WooPrdouct Table */
-//                   esc_html__( '"%1$s" recommends "%2$s" to be activated. To hide this notification, Go to %3$s (Plugin Recommendation).', 'wpt_pro' ),
-//                   '<strong>' . esc_html__( 'Woo Product Table', 'wpt_pro' ) . '</strong>',
-//                    $link_text,
-//                    $configuration_page
-//                );
-//            self::$own['message']   = $message;//'You to activate your Plugin';
-//            add_action( 'admin_notices', [ $this, 'admin_notice' ] );
-//        }
-        
         
         // Check for required PHP version
         if ( version_compare( PHP_VERSION, self::MINIMUM_PHP_VERSION, '<' ) ) {

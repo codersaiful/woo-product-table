@@ -37,6 +37,9 @@ if( ! class_exists( 'CA_Framework\Require_Control' ) ){
             'Name' =>   'Requrie Plugin',
             'PluginURI' => 'https://profiles.wordpress.org/codersaiful/#content-plugins',
         );
+
+        private $stop_next = 0;
+
         /**
          * Controller of Manage required/recommended plugin.
          * This controller will work only for wp repo. it will not work for github repo.
@@ -52,7 +55,7 @@ if( ! class_exists( 'CA_Framework\Require_Control' ) ){
 
             $this->plugin_slug = $req_plugin_slug;
 
-            //Pase Perperty generating, If already our required plugin is installed.
+            // Check required plugin active or not at the beginign Pase Perperty generating, If already our required plugin is installed.
             if( is_plugin_active( $this->plugin_slug ) ) return;
 
             $this->plugin_slug_pure = strtok( $this->plugin_slug, '/' );
@@ -74,6 +77,10 @@ if( ! class_exists( 'CA_Framework\Require_Control' ) ){
 
         }
         
+        public function stop_next()
+        {
+            return $this->stop_next;
+        }
 
         public function run()
         {
@@ -91,6 +98,9 @@ if( ! class_exists( 'CA_Framework\Require_Control' ) ){
 
             //Final Display Notice 
             add_action( 'admin_notices', [ $this, 'display_notice' ] );
+
+            if( $this->required ) $this->stop_next = 1;
+            return $this->stop_next;
         }
 
         /**
@@ -294,6 +304,9 @@ if( ! class_exists( 'CA_Framework\Require_Control' ) ){
          * @return void
          */
         public function display_notice(){
+
+            //Check required plugin active or not at the beginign
+            if( is_plugin_active( $this->plugin_slug ) ) return;
 
             //Check User Permission 
             if ( ! current_user_can( 'activate_plugins' ) ) return;
