@@ -403,13 +403,11 @@ class WPT_Product_Table{
          * @author Saiful <codersaiful@gmail.com>
          */
         require_once WPT_DIR_BASE . '/framework/handle.php';
-        $ddd = new CA_Framework\WPT_Required_Plugin_Control();
-        var_dump($ddd->pass());
-        // return;
-        var_dump(WPT_PLUGIN_BASE_FOLDER,WPT_PLUGIN_BASE_FILE,WPT_DIR_BASE);
-return;
 
-       
+        if( WPT_Required::fail() ){
+            return;
+        }
+     
         
         // Check for required PHP version
         if ( version_compare( PHP_VERSION, self::MINIMUM_PHP_VERSION, '<' ) ) {
@@ -460,27 +458,11 @@ return;
        }
     //Coll elementor Module, If installed Elementor
     if ( did_action( 'elementor/loaded' ) ) {
-//        $wpt_ultraaddons_notice = false;
-//        //UltraAddons Plugin Recommendation
-//        $plugin = 'ultraaddons-elementor-lite/init.php';
-//        $link_text = '<strong><a href="' . esc_url( 'https://wordpress.org/plugins/ultraaddons-elementor-lite/' ) . '" target="_blank">' . esc_html__( 'Quantity Plus/Minus Button for WooCommerce', 'wpt_pro' ) . '</a></strong>';
-//        
-//        if( ! isset( $installed_plugins[$plugin] ) ) {
-//            $wpt_ultraaddons_notice = true;
-//            
-//        }else if( isset( $installed_plugins[$plugin] ) && ! is_plugin_active( $plugin ) ){
-//            self::$ultraaddons_args['perpose'] = 'activate';
-//            $wpt_ultraaddons_notice = true;
-//        }
-//        
-//        if( $wpt_ultraaddons_notice ){
-//            add_action( 'admin_notices', [ $this, 'ultraaddons_notice' ] );
-//        }
 
         include_once $this->path('BASE_DIR','modules/elementor.php'); //Elementor Widget for Table using Elementor
     }   
         
-    if( !class_exists( 'Mobile_Detect' ) ){
+    if( ! class_exists( 'Mobile_Detect' ) ){
         include_once $this->path('BASE_DIR','modules/Mobile_Detect.php'); //MObile or Table Defice Detector
     }
     
@@ -505,143 +487,8 @@ return;
        
    }
    
-   public function ultraaddons_notice() {
-        $config = get_option( 'wpt_configure_options' );
-        $disable_plugin_noti = !isset( $config['disable_plugin_noti'] ) ? true : false;
-        $disable_plugin_noti = apply_filters( 'wpto_disable_recommend_noti', $disable_plugin_noti );
-        if ( $disable_plugin_noti || ! current_user_can( 'activate_plugins' ) ) {
-                return;
-        }
-       
-        $plugin_url = 'https://wordpress.org/plugins/ultraaddons-elementor-lite/';
-        $plugin_file = 'ultraaddons-elementor-lite/init.php';
-        $plugin_slug = 'ultraaddons-elementor-lite';
-        $perpose = isset( self::$ultraaddons_args['perpose'] ) ? self::$ultraaddons_args['perpose'] : 'install';
-        $url = wp_nonce_url( self_admin_url( 'update.php?action=' . $perpose . '-plugin&plugin=' . $plugin_slug ), $perpose . '-plugin_' . $plugin_slug );
-        $msg_title = __( "Essential for Woo Product Table", 'wpt_pro' );
-        $msg = __( "You are using Elementor, So <b>Woo Product Table</b> require <a href='{$plugin_url}' target='_blank'>UltraAddons</a>. You have to install and activate to get full features of Woo Product Table." );
-        $configuration_page = '<a target="_blank" href="' . esc_url( admin_url( 'edit.php?post_type=wpt_product_table&page=woo-product-table-config' ) ) . '">' . esc_html__( 'Configure Page', 'wpt_pro' ) . '</a>';
-        $help_text = sprintf(
-                /* translators: 1: Plugin name 2: WooPrdouct Table */
-                esc_html__( 'To hide this notification, go to %1$s (Plugin Recommendation).', 'wpt_pro' ),
-                $configuration_page
-            );
-       $btn_text = __( 'Install Now', 'wpt_pro' );
-       
-       if( 'activate' == $perpose ){
-           $btn_text = __( 'Activate', 'wpt_pro' );
-           $url = wp_nonce_url( 'plugins.php?action=activate&amp;plugin=' . $plugin_file . '&amp;plugin_status=all&amp;paged=1&amp;s', 'activate-plugin_' . $plugin_file );
-       }
-
-       ?>
-        <div class="wpt-ultraaddons-notice notice wpt-notice-warning is-dismissible wpt-ua-<?php echo esc_attr( $perpose ); ?>">
-            <div class="wpt-ua-notice-wrapper">
-                <div class="wpt-ua-logo-area">
-                    <img src="<?php echo esc_url( WPT_BASE_URL ); ?>assets/images/svg/ultraaddons-logo.svg">
-                </div>
-                <div class="wpt-ua-message-area">
-                    <h2><?php echo esc_html( $msg_title ); ?></h2>
-                    <p><?php echo wp_kses_post( $msg ); ?></p>
-                    <p><?php echo wp_kses_post( $help_text ); ?></p>
-                    <a class="button" href="<?php echo esc_url( $url ); ?>"><?php echo esc_html( $btn_text ); ?></a>
-                </div>
-            </div>
-        </div>
-        <?php
-   }
-   
-    /**
-     * Admin notice
-     *
-     * Warning when the site doesn't have Elementor installed or activated.
-     *
-     * @since 1.0.0
-     *
-     * @access public
-     */
-    public function admin_notice() {
-        $config = get_option( 'wpt_configure_options' );
-        $disable_plugin_noti = !isset( $config['disable_plugin_noti'] ) ? true : false;
-        $disable_plugin_noti = apply_filters( 'wpto_disable_recommend_noti', $disable_plugin_noti );
-        if ( $disable_plugin_noti || ! current_user_can( 'activate_plugins' ) ) {
-                return;
-        }
-
-        $plugin         = isset( self::$own['plugin'] ) ? self::$own['plugin'] : '';
-        $type           = isset( self::$own['type'] ) ? self::$own['type'] : false;
-        $plugin_slug    = isset( self::$own['plugin_slug'] ) ? self::$own['plugin_slug'] : '';
-        $message        = isset( self::$own['message'] ) ? self::$own['message'] : '';
-        $btn_text       = isset( self::$own['btn_text'] ) ? self::$own['btn_text'] : '';
-        $name           = isset( self::$own['name'] ) ? self::$own['name'] : false; //Mainly providing OUr pLugin Name
-        $perpose        = isset( self::$own['perpose'] ) ? self::$own['perpose'] : 'install';
-        if( $perpose == 'activation' ){
-            $url = $activation_url = wp_nonce_url( 'plugins.php?action=activate&amp;plugin=' . $plugin . '&amp;plugin_status=all&amp;paged=1&amp;s', 'activate-plugin_' . $plugin );
-        }elseif( $perpose == 'upgrade' ){
-            $url = wp_nonce_url( self_admin_url( 'update.php?action=upgrade-plugin&plugin=' ) . $plugin, 'upgrade-plugin_' . $plugin );
-        }elseif( $perpose == 'install' ){
-            //IF PERPOSE install or Upgrade Actually || $perpose == install only supported Here
-            $url = wp_nonce_url( self_admin_url( 'update.php?action=' . $perpose . '-plugin&plugin=' . $plugin_slug ), $perpose . '-plugin_' . $plugin_slug ); //$install_url = 
-        }else{
-            $url = false;
-        }
         
         
-        if ( isset( $_GET['activate'] ) ) unset( $_GET['activate'] );
-
-        $message = '<p>' . $message . '</p>';
-        if( $url ){
-            $style = isset( $type ) && $type == 'error' ? 'style="background: #ff584c;border-color: #E91E63;"' : 'style="background: #ffb900;border-color: #c37400;"';
-            $message .= '<p>' . sprintf( '<a href="%s" class="button-primary" %s>%s</a>', $url,$style, $btn_text ) . '</p>';
-        }
-        printf( '<div class="notice notice-' . $type . ' is-dismissible"><p>%1$s</p></div>', $message );
-
-    }
-    
-    /**
-     * Admin notice
-     *
-     * Warning when the site doesn't have WooCommerce installed or activated.
-     *
-     * @since 1.0.0
-     *
-     * @access public
-     */
-    public function admin_notice_missing_main_plugin() {
-
-           if ( isset( $_GET['activate'] ) ) unset( $_GET['activate'] );
-
-           $message = sprintf(
-                   esc_html__( '"%1$s" requires "%2$s" to be installed and activated.', 'wpt_pro' ),
-                   '<strong>' . esc_html__( 'Woo Product Table', 'wpt_pro' ) . '</strong>',
-                   '<strong><a href="' . esc_url( 'https://wordpress.org/plugins/woocommerce/' ) . '" target="_blank">' . esc_html__( 'WooCommerce', 'wpt_pro' ) . '</a></strong>'
-           );
-
-           printf( '<div class="notice notice-error is-dismissible"><p>%1$s</p></div>', $message );
-
-    }
-    
-    /**
-     * Pro version need to be update to latest version
-     * 
-     * @since 2.8.5.4
-     * @by Saiful
-     * @Date 28.4.2021
-     */
-    public function admin_notice_pro_version_need_update() {
-
-           $message = sprintf(
-                   esc_html__( '"%1$s" recommends "%2$s" to be updated to the minimum version "%3$s". Please update "%2$s" now.', 'wpt_pro' ),
-                   '<strong>' . esc_html__( 'Woo Product Table', 'wpt_pro' ) . '</strong>',
-                   '<strong>' . esc_html__( 'Woo Product Table Pro', 'wpt_pro' ) . '</strong>',
-                   '<strong>' . self::MINIMUM_WPT_PRO_VERSION . '</strong>'
-           );
-
-           printf( '<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', $message );
-
-    }
-
-
-
     /**
      * Admin notice
      *
