@@ -393,6 +393,17 @@ class WPT_Product_Table{
    
    
    public function __construct() {
+
+        /**
+         * Including CA_Framework
+         * 
+         * @since 3.1.3.1
+         * @author Saiful <codersaiful@gmail.com>
+         */
+        require_once WPT_DIR_BASE . '/framework/handle.php';
+        // var_dump(WPT_PLUGIN_BASE_FOLDER,WPT_PLUGIN_BASE_FILE,WPT_DIR_BASE);
+
+
        /**
         * Getting All Install plugin Details Here
         * To check required plugin Availability, Version etc.
