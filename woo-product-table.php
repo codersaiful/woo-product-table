@@ -7,7 +7,7 @@
  * Author URI: https://wooproducttable.com/
  * Tags: woocommerce product list,woocommerce product table, wc product table, product grid view, inventory, shop product table
  * 
- * Version: 3.1.4
+ * Version: 3.1.5
  * Requires at least:    4.0.0
  * Tested up to:         5.9.3
  * WC requires at least: 3.0.0
