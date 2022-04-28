@@ -69,7 +69,7 @@ if( ! class_exists( 'WPT_Required' ) ){
                  * 
                  * 
                  */
-                $my_message = '<b>EID Mubarak!!!</b> Upto 60% discount for - <b>Product Table for WooCommerce Plugin</b>.';
+                $my_message = '<b>EID Mubarak!!!</b> Upto 60% discount for - <b>Product Table for WooCommerce (Woo Product Table)</b> Plugin. This offer will stay valid upto EID day.';
                 $offerNc = new Notice('offerapr22');
                 $offerNc->set_title( 'Eid Offer: 60% off' )
                 ->set_diff_limit(3)
