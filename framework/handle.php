@@ -34,9 +34,71 @@ if( ! class_exists( 'WPT_Required' ) ){
             ->run();
             $req_wc_next = $req_wc->stop_next();
             self::$stop_next += $req_wc_next;
+            
+            if( ! $req_wc_next ){
+                self::display_notice();
+                self::display_common_notice();
+            }
 
-            if ( did_action( 'elementor/loaded' ) && ! $req_wc_next ) {
+            return self::$stop_next;
+        }
+
+        /**
+         * Normal Notice for Only Free version
+         *
+         * @return void
+         */
+        public static function display_notice()
+        {
+                if( defined( 'WPT_PRO_DEV_VERSION' ) ) return;
+                /**
+                 * small notice for pro plugin,
+                 * charect:
+                 * 10 din por por
+                 * 
+                 */
+
+                $small_notc = new Notice('small1');
+                $small_notc->set_message(sprintf( __( '<b>Product Table for Woocommerce (Woo Product Table)</b>: lots of special feature waiting for you. %s.', 'wpt_pro' ), "<a href='https://wooproducttable.com/pricing/'>Get Premium</a>" ));
+                $small_notc->set_diff_limit(7);
+                $small_notc->show();
+
+
+                /**
+                 * Eid Offer Discount
+                 * 
+                 * 
+                 */
+                $my_message = '<b>EID Mubarak!!!</b> Upto 60% discount for - <b>Product Table for WooCommerce Plugin</b>.';
+                $offerNc = new Notice('offerapr22');
+                $offerNc->set_title( 'Eid Offer: 60% off' )
+                ->set_diff_limit(3)
+                ->set_type('primary')
+                ->set_message( $my_message )
+                ->add_button([
+                    'text' => 'Get Product Table Premium',
+                    'type' => 'danager',
+                    'link' => 'https://wooproducttable.com/pricing/'
+                ])
+                ->show();
                 
+                
+
+        }
+
+        /**
+         * Common Notice for Product table, where no need Pro version.
+         *
+         * @return void
+         */
+        private static function display_common_notice()
+        {
+
+            /**
+             * Notice for UltraAddons
+             */
+            if ( did_action( 'elementor/loaded' ) ) {
+            
                 $notc_ua = new Notice('ultraaddons');
                 $notc_ua->set_message( sprintf( __( 'There is a special Widget for Product Table at %s. You can try it.', 'wpt_pro' ), "<a href='https://wordpress.org/plugins/ultraaddons-elementor-lite/'>UltraAddons</a>" ) )
                 // ->add_button([
@@ -47,8 +109,6 @@ if( ! class_exists( 'WPT_Required' ) ){
                 ->show();    
 
             }
-
-            return self::$stop_next;
         }
     }
 }
