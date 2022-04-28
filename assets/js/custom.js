@@ -1137,6 +1137,7 @@ jQuery(function($) {
                 alert(config_json.please_choose_items);
                 return false;
             }
+
             $.ajax({
                 type: 'POST',
                 url: ajax_url,
@@ -2305,7 +2306,9 @@ jQuery(function($) {
             var add_cart_text = $('#table_id_' + temp_number).data('add_to_cart');
             
             var itemAmount = 0;
-            
+
+            var products_data = {};
+
             $('#table_id_' + temp_number + ' input.enabled.wpt_tabel_checkbox.wpt_td_checkbox:checked').each(function() {
                 WPT_BlankNotice();
                 var product_id = $(this).data('product_id');
@@ -2320,6 +2323,17 @@ jQuery(function($) {
                 var form = $(fullSelcetor);
                 var title = $(this).parents('tr').data('title');
                 var url = form.attr('action');//ajax_url;//
+
+                let eachProductData = 'product_id=' + product_id + '&' + form.serialize();
+
+                var obj = {};
+                eachProductData.replace(/([^=&]+)=([^&]*)/g, function(m, key, value) {
+                    obj[decodeURIComponent(key)] = decodeURIComponent(value);
+                });
+
+
+
+
 
                 var method = form.attr('method');
 
