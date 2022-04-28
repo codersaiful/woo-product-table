@@ -2323,23 +2323,27 @@ jQuery(function($) {
 
                 var method = form.attr('method');
 
-                if( 'post' === method){
-                    $.post(url, form.serialize() + '&add-to-cart=' + product_id + '&_wp_http_referer=' + url, function(data,status,xh){
 
-                        var notice = $('.woocommerce-message,.woocommerce-error', data); //.woocommerce-error
-                        if(config_json.popup_notice === '1'){
-                            Advance_NoticeBoard(notice);//Gettince Notice
-                        }
-                        $( document.body ).trigger( 'added_to_cart' ); //Trigger and sent added_to_cart event
+                products_data[product_id] = obj;
+
+                if( 'post' === method){
+
+                //     $.post(url, form.serialize() + '&add-to-cart=' + product_id + '&_wp_http_referer=' + url, function(data,status,xh){
+
+                //         var notice = $('.woocommerce-message,.woocommerce-error', data); //.woocommerce-error
+                //         if(config_json.popup_notice === '1'){
+                //             Advance_NoticeBoard(notice);//Gettince Notice
+                //         }
+                //         $( document.body ).trigger( 'added_to_cart' ); //Trigger and sent added_to_cart event
                         
-                        thisButton.removeClass('disabled');
-                        thisButton.removeClass('loading');
-                        thisButton.addClass('added');
-                    }).done(function(){
-                        console.log("Success Product: - " + title);
-                    }).fail(function(){
-                        console.log("ERROR to Add CArt. Fail Product: - " + title);
-                    });
+                //         thisButton.removeClass('disabled');
+                //         thisButton.removeClass('loading');
+                //         thisButton.addClass('added');
+                //     }).done(function(){
+                //         console.log("Success Product: - " + title);
+                //     }).fail(function(){
+                //         console.log("ERROR to Add CArt. Fail Product: - " + title);
+                //     });
                 }
                 
                 var items = $('#table_id_' + temp_number + ' tr#product_id_' + product_id).attr('data-quantity');
@@ -2358,6 +2362,67 @@ jQuery(function($) {
                     itemAmount++;//To get Item Amount
                 } 
             });
+
+
+            $.ajax({
+                type: 'POST',
+                url: ajax_url,
+                data: {
+                    action: 'wpt_ajax_mulitple_add_to_cart',
+                    products: products_data,
+                },
+                complete: function(){
+                    //alert('complete');
+                    $( document ).trigger( 'wc_fragments_refreshed' );
+                },
+                success: function( response ) {
+                    setFragmentsRefresh( response );
+                    WPT_MiniCart();
+
+                    // //The following code was here, we have changed in if statement
+                    // //$( document.body ).trigger( 'added_to_cart', [ response.fragments, response.cart_hash, $('added_to_cart') ] );
+                    // if(WPT_DATA.add_to_cart_view){
+                    //     $( document.body ).trigger( 'added_to_cart', [ response.fragments, response.cart_hash, $('added_to_cart') ] );
+                    // }else{
+                    //     $( document.body ).trigger( 'added_to_cart' ); //This will solved for fast added to cart but it will no show view cart link.
+                    // }
+
+                    $( document.body ).trigger( 'added_to_cart' ); //Trigger and sent added_to_cart event
+                    $( document.body ).trigger( 'updated_cart_totals' );
+                    $( document.body ).trigger( 'wc_fragments_refreshed' );
+                    $( document.body ).trigger( 'wc_fragments_refresh' );
+                    $( document.body ).trigger( 'wc_fragment_refresh' );
+
+                    currentAllSelectedButtonSelector.html(add_cart_text + ' [ ' + itemAmount + ' ' + config_json.add2cart_all_added_text + ' ]');
+                    if(config_json.popup_notice === '1'){
+                        WPT_NoticeBoard();//Loading Notice Board
+                    }
+                    if(config_json.all_selected_direct_checkout === 'yes'){
+                        window.location.href = checkoutURL;
+                        return;
+                    }else if(config_json.all_selected_direct_checkout === 'cart'){
+                        window.location.href = cartURL;
+                        return;
+                    }else{
+                        currentAllSelectedButtonSelector.removeClass('disabled');
+                        currentAllSelectedButtonSelector.removeClass('loading');
+                        //tableWrapperTag.removeClass('loading-table');
+                    }
+
+                    // //Added at v4.0.11
+                    $('tr.wpt_row').each(function() {
+                        var product_id = $(this).data('product_id');
+                        var thisButton = $(this).find('.wpt_action button.button');
+                        thisButton.removeClass('disabled');
+                        thisButton.removeClass('loading');
+                        thisButton.addClass('added');
+                    });
+                },
+                error: function() {
+                    alert('Failed');
+                },
+            });
+
 
             //Return false for if no data
             if (itemAmount < 1) {
