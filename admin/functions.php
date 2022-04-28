@@ -108,14 +108,7 @@ function wpt_user_can_edit(){
 function wpt_get_pro_discount_message(){
     
     if( ! defined( 'WPT_PRO_DEV_VERSION' ) ){
-        $img = WPT_BASE_URL . 'assets/images/offr/60percent.jpg';
-        
-    ?>
-    <a title="Special Discount for Limited Time." class="special_60_offer" href="https://wooproducttable.com/pricing" target="_blank">
-        <img style="border-radius: 0;width: 800px;max-width: 100%;" src="<?php echo esc_attr( $img ); ?>">
-    </a>    
-    <?php 
-        
+            
     }
 
 }
