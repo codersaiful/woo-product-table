@@ -4,51 +4,6 @@
  * WPT Module and In Admin
  */
 
-if( ! function_exists( 'wpt_importing_data' ) ){
-    
-    /**
-     * Importing Table setting from any other place 
-     * Actually there is a action hook at post_metabox.php file
-     * for saving table's setting/ table post
-     * and I have added a filter wpto_import_data to do something 
-     * for import data
-     * 
-     * @param String $wpt_imported_data
-     * @param Int $post_id
-     */
-    function wpt_importing_data( $wpt_imported_data, $post_id ){
-        $serialized_data = base64_decode( $wpt_imported_data );
-        $is_serialized = is_serialized( $serialized_data );
-        $meta_update_array = array();
-        if( $is_serialized ){
-
-            $meta_update_array = unserialize( $serialized_data );
-        }
-        foreach( $meta_update_array as $meta_key => $meta_value ){
-            $final_meta_value = isset( $meta_value[0] ) && is_serialized($meta_value[0]) ? unserialize( $meta_value[0] ) : false;
-            if( $final_meta_value ){
-                update_post_meta( $post_id, $meta_key, $final_meta_value );
-            }
-            
-        }
-        //add_filter( 'post_updated_messages', 'wpt_post_message_for_import' );
-
-    }
-}
-add_action( 'wpto_import_data', 'wpt_importing_data', 10, 2);
-
-
-if( ! function_exists( 'wpt_post_message_for_import' ) ){
-    
-    function wpt_post_message_for_import( $message ){
-        
-        $message['wpt_custom_message'][] = __("Hello World", 'wpt_pro');
-        return $message;
-    }
-}
-
-
-
 
 if( !function_exists( 'wpt_admin_form_top' ) ){
     /**

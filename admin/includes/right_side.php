@@ -5,7 +5,7 @@
             <p><?php echo esc_html__( 'Your one share can be best GIFT for me.', 'wpt_pro' ); ?></p>
             <div class="social_links">
                 <?php
-                    $url_for_share = urlencode('https://codecanyon.net/item/woo-product-table-pro/20676867' );
+                    $url_for_share = urlencode('https://wooproducttable.com/pricing' );
                 ?>  
                 <a href="http://www.facebook.com/sharer.php?u=<?php echo esc_attr( $url_for_share ); ?>" title="Your Share, My best Gift" target="_blank">
                     <img src="<?php echo WPT_Product_Table::getPath( 'BASE_URL' ); ?>assets/images/social/facebook.png">
@@ -77,10 +77,9 @@
     </div>
     <div class="wpt_right_side_in_wrapper" style="padding: 10px;">
         <div class="rate_us_wrapper">
-            <a href="https://codecanyon.net/downloads" target="_blank"><img class="rate_us_image" src="<?php echo WPT_Product_Table::getPath( 'BASE_URL' ); ?>assets/images/rate_us.png"></a>
+            <a href="https://wordpress.org/support/plugin/woo-product-table/reviews/?filter=5#new-post" target="_blank"><img class="rate_us_image" src="<?php echo WPT_Product_Table::getPath( 'BASE_URL' ); ?>assets/images/rate_us.png"></a>
             <h1><?php echo esc_html__( 'It can take only 2 Minutes.', 'wpt_pro' ); ?></h1>
             <a href="https://wordpress.org/support/plugin/woo-product-table/reviews/?filter=5#new-post" target="_blank"><?php echo esc_html__( 'Rate Us on WordPress.org','wpt_pro' ); ?></a>
-            <a href="https://wooproducttable.com/pricing/" target="_blank"><?php echo esc_html__( 'Rate Us on CodeCanyon','wpt_pro' ); ?></a>
         </div>
     </div>
 

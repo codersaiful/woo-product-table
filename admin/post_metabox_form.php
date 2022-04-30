@@ -127,6 +127,7 @@
     
     $post_title = isset( $post->post_title ) ? $post->post_title : '';
     ?>
+    
     <div class="form_bottom form_bottom_submit_button wrapper_<?php echo esc_attr( $ajax_submit_btn ); ?> ultraaddons-button-wrapper ultraaddons-panel no-background">
         <button type="submit" 
                 name="wpt_post_submit" 
@@ -134,6 +135,8 @@
                 class="button-primary button-primary primary button <?php echo esc_attr( $ajax_submit_btn ); ?>"
                 ><?php esc_html_e( 'Save Change', 'wpt_pro' );?></button>
     </div>
+
+    <?php wpt_get_pro_discount_message(); ?>
 </div>
 
 <style>

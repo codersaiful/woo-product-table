@@ -1938,3 +1938,7 @@ select.search_select.cascade-filtering {
     table tr.wpt_row td.wpt_quoterequest.addedd{
         display: block !important;
     }
+
+    button.single_add_to_cart_button >span.wpt_ccount:empty {
+        display: none;
+    }

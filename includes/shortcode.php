@@ -799,7 +799,11 @@ if( ! function_exists( 'wpt_table_row_generator' ) ){
                 $product_type = $product->get_type();
                 $parent_id = $product->get_parent_id(); // Version 2.7.7
                 
-                (Int) $id = $data['id'];     
+                (Int) $id = $data['id'];
+                // This code should be in latest branch
+//                if($table_type != 'advance_table' && wp_doing_ajax()) {
+//                    wp('p=' . $id . '&post_type=product'); //Its in under Process, need more checking on this features.
+//                }
 
                 $taxonomy_class = 'filter_row ';
                 $data_tax = false;

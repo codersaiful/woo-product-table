@@ -40,6 +40,7 @@ if( !function_exists( 'wpt_configuration_page' ) ){
         <div class="wrap wpt_wrap wpt_configure_page ultraaddons <?php echo esc_attr( $wrapper_class ); ?>">
             <h1 class="wp-heading-inline plugin_name"></h1>
             <div class="clear"></div>
+            <?php wpt_get_pro_discount_message(); ?>
             <div id="wpt_configuration_form" class="wpt_leftside ">
                 <?php do_action( 'wpto_admin_configuration_head' ); ?>
                 <div class="fieldwrap">

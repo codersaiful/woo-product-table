@@ -26,8 +26,8 @@ switch($priceFormat){
 }
 
 $user_role = wpt_user_roles_by_id( get_current_user_id() );
-$wholesale_meta_key = $user_role[0] . '_wholesale_price'; //It's only for Wholesale plugin
-$total_price = !empty( get_post_meta($product->get_id(), $wholesale_meta_key, true) )? get_post_meta($product->get_id(), $wholesale_meta_key, true) : $product->get_price();
+$wholesale_meta_key = ! empty( $user_role[0] ) ?  $user_role[0] . '_wholesale_price' : '_wholesale_price'; //It's only for Wholesale plugin
+$total_price = !empty( get_post_meta($product->get_id(), $wholesale_meta_key, true) ) ? get_post_meta($product->get_id(), $wholesale_meta_key, true) : $product->get_price();
 
 /**
  * Filter for Getting original Flat price to calculate Total

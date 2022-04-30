@@ -5,7 +5,10 @@
         <div class="fieldwrap ultraaddons-head">
             <div class="section ultraaddons-feature-panel feature-head">
                 <h1 class=""><?php echo esc_html__( 'Quick View of Pro features', 'wpt_pro' ); ?></h1>
+                <?php wpt_get_pro_discount_message(); ?>
+            
             </div>
+            
         </div>
         <div class="main-contents">
             <div class="section ultraaddons-feature-panel even">

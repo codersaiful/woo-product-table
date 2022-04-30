@@ -58,37 +58,6 @@ if( !function_exists( 'wpt_default_option' ) ){
 
 
 
-
-if( ! function_exists( 'wpt_get_base64_post_meta' ) ){
-    
-    /**
-     * Getting Post Meta Value in base64 encoded formate
-     * Typically I have used it in post_metabox.php file
-     * for export box.
-     * 
-     * In future, we can use it any another place.
-     * 
-     * @since 2.8.7.1
-     * @by Saiful
-     * @date 11.5.2021
-     */
-    function wpt_get_base64_post_meta( $post_id ){
-        if( ! $post_id || ! is_numeric( $post_id ) ) return false;
-        
-        $meta = get_post_meta($post_id);
-        unset($meta['_edit_lock']);
-        unset($meta['_edit_last']);
-
-        $meta = array_map('array_filter', $meta);
-        $meta = array_filter($meta);
-
-        $serialize_meta = serialize($meta);
-        $base64_meta = base64_encode($serialize_meta);
-        
-        return $base64_meta;
-    }
-}
-
 /**
  * User wise limit function,
  * we will detect new user
@@ -135,6 +104,16 @@ function wpt_datewise_validation(){
 function wpt_user_can_edit(){
     return wpt_datewise_validation();
 }
+
+function wpt_get_pro_discount_message(){
+    
+    if( ! defined( 'WPT_PRO_DEV_VERSION' ) ){
+            
+    }
+
+}
+
+
 /**
  * check pro available or not
  * 
@@ -148,33 +127,6 @@ function wpt_is_pro(){
     
     return false;
 }
-
-if( ! function_exists( 'wpt_ajax_get_post_meta_base64' ) ){
-    
-    /**
-     * Getting base64 Post meta for Export box
-     * It will generate and handle from admin.js using
-     * ajax request
-     * and we will use POST Request
-     * 
-     * @since 2.8.7.1
-     * @by Saiful
-     * @date 11.5.2021
-     */
-    function wpt_ajax_get_post_meta_base64(){
-        if( isset( $_POST['post_id'] ) && ! empty( $_POST['post_id'] ) && isset( $_POST['action'] ) == 'wpt_set_post_meta' ){
-            $post_id = sanitize_text_field( $_POST['post_id'] );
-            if( ! $post_id || ! is_numeric( $post_id ) ) echo '';
-
-            echo wpt_get_base64_post_meta( $post_id );
-        }else{
-            echo '';
-        }
-        die();
-    }
-}
-add_action( 'wp_ajax_wpt_set_post_meta', 'wpt_ajax_get_post_meta_base64' );
-add_action( 'wp_ajax_nopriv_wpt_set_post_meta', 'wpt_ajax_get_post_meta_base64' );
 
 
 /**
@@ -208,6 +160,7 @@ if( !function_exists( 'wpt_admin_responsive_tab_file' ) ){
 }
 
 //add_filter( 'wpto_admin_tab_file_loc_responsive', 'wpt_admin_responsive_tab_file' );
+
 
 
 if( !function_exists( 'wpt_column_style_for_all' ) ){
@@ -389,7 +342,7 @@ if( ! function_exists( 'wpt_add_tabs' ) ){
 			'<p><strong>' . __( 'For more information:', 'wpt_pro' ) . '</strong></p>' .
 			'<p><a href="https://wooproducttable.com/?utm_source=helptab&utm_content=about&utm_campaign=wptplugin" target="_blank">' . __( 'About Product Table', 'wpt_pro' ) . '</a></p>' .
 			'<p><a href="https://wordpress.org/support/plugin/woo-product-table/" target="_blank">' . __( 'WordPress.org', 'wpt_pro' ) . '</a></p>' .
-			'<p><a href="https://codecanyon.net/item/woo-product-table-pro/20676867" target="_blank">' . __( 'Premium Plugin ', 'wpt_pro' ) . '</a></p>' .
+			'<p><a href="https://wooproducttable.com/pricing" target="_blank">' . __( 'Premium Plugin ', 'wpt_pro' ) . '</a></p>' .
 			'<p><a href="https://github.com/codersaiful/woo-product-table/" target="_blank">' . __( 'Github project', 'wpt_pro' ) . '</a></p>' .
 			'<p><a href="https://wordpress.org/themes/astha/" target="_blank">' . __( 'Official theme', 'wpt_pro' ) . '</a></p>' .
 			'<p><a href="https://codecanyon.net/user/codeastrology/?utm_source=helptab&utm_content=wptotherplugins&utm_campaign=wptplugin" target="_blank">' . __( 'Other Premium Plugins', 'wpt_pro' ) . '</a></p>'

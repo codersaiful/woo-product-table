@@ -11,6 +11,8 @@ if($title_variation == 'link'){
     $wpt_single_product_title .= "<span class='wpt_product_title_in_td'>" . get_the_title() . "</span>";
 } elseif($title_variation == 'yith'){
     $wpt_single_product_title .= "<a class='wpt_product_title_in_td yith-wcqv-button' data-product_id=" . $data['id'] . " href='#'>" . get_the_title() . "</a>";
+}elseif($title_variation == 'ca_quick_view'){ //Quick View by Code Astrology //https://wordpress.org/plugins/ca-quick-view/
+    $wpt_single_product_title .= "<a class='wpt_product_title_in_td caqv-open-modal' data-id=" . $data['id'] . " >" . get_the_title() . "</a>";
 }else{
     $wpt_single_product_title .= "<span class='wpt_product_title_in_td'>" . get_the_title() . "</span>";
 }

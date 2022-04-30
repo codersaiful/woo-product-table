@@ -809,7 +809,7 @@ msgstr ""
 
 #. URI of the plugin
 msgid ""
-"https://codecanyon.net/item/woo-product-table-pro/20676867?"
+"https://wooproducttable.com/pricing?"
 "ref=CodeAstrology&utm_source=WPT_Installed_Plugin"
 msgstr ""
 

@@ -3,8 +3,8 @@ Contributors: codersaiful,codeastrology
 Donate link: https://wooproducttable.com/pricing/?ref=CodeAstrology&utm_source=WPT_Installed_DonateLink
 Tags: wc product table, wooproducttable,woocommerce product table, product table, wc table, quick order table, wholesale table, restaurants table
 Requires at least: 4.0.0
-Tested up to: 5.9.2
-Stable tag: 3.1.2
+Tested up to: 5.9.3
+Stable tag: 3.1.5
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -212,6 +212,13 @@ You can easily show specific category products. While creating new table click o
 
 == Changelog ==
 
+
+= 3.1.4 =
+  * Spelling fixed on some place.
+  * Bug Fix
+
+= 3.1.3 =
+  * Bug Fix
 
 = 3.1.2 =
   * Fix: Save Change button issue fixed
