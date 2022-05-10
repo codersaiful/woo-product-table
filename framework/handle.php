@@ -36,8 +36,8 @@ if( ! class_exists( 'WPT_Required' ) ){
             self::$stop_next += $req_wc_next;
             
             if( ! $req_wc_next ){
-                self::display_notice();
-                self::display_common_notice();
+                //self::display_notice();
+                //self::display_common_notice();
             }
 
             return self::$stop_next;
