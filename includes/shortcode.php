@@ -36,10 +36,11 @@ if( ! function_exists( 'wpt_shortcode_generator' ) ){
         extract( shortcode_atts( $pairs, $atts ) );
         
         $atts_id = isset( $atts['id'] ) && !empty( $atts['id'] ) ? (int) $atts['id'] : 0; 
+        $atts_id = apply_filters( 'wpml_object_id', $atts_id, 'wpt_product_table', TRUE  );
         $table_status = get_post_status( $atts_id );
 
         if( $atts_id && get_post_type( $atts_id ) == 'wpt_product_table' && $table_status == 'publish' ){
-            $ID = $table_ID = (int) $atts['id']; //Table ID added at V5.0. And as this part is already encapsule with if and return is false, so no need previous declearation
+            $ID = $table_ID = $atts_id;//(int) $atts['id']; //Table ID added at V5.0. And as this part is already encapsule with if and return is false, so no need previous declearation
             $GLOBALS['wpt_product_table'] = $ID;
             $_device = wpt_col_settingwise_device( $ID );
 
@@ -776,10 +777,13 @@ if( ! function_exists( 'wpt_table_row_generator' ) ){
         if(isset( $args['s'] ) && $args['s'] == 'false'){
             $args['s'] = false;
         }
+
+        $args['suppress_filters'] = 1;
         
         $args['posts_per_page'] = is_numeric( $args['posts_per_page'] ) ? (int) $args['posts_per_page'] : $args['posts_per_page'];
-        
+        // var_dump($args);
         $product_loop = new WP_Query($args);
+        // var_dump($product_loop);
 
         /**
          * If not set any Shorting (ASC/DESC) than Post loop will Random by Shuffle()
@@ -790,7 +794,12 @@ if( ! function_exists( 'wpt_table_row_generator' ) ){
         }
         
         $product_loop = apply_filters( 'wpto_product_loop', $product_loop, $table_ID, $args );
-        
+        // var_dump($table_ID,000000000);
+        // $ddddddd = apply_filters( 'wpml_object_id', $table_ID, 'wpt_product_table', TRUE  );
+        // var_dump($ddddddd);
+        // $newId = wpml_object_id_filter( $table_ID, 'wpt_product_table' );
+        // var_dump($newId);
+
         $wpt_table_row_serial = (( $args['paged'] - 1) * $args['posts_per_page']) + 1; //For giving class id for each Row as well
         if (  $product_loop->have_posts() ) : while ($product_loop->have_posts()): $product_loop->the_post();
                 global $product;
