@@ -1679,4 +1679,11 @@ p.lang-area-title {margin: 0;}
 .wpml-lang-input-area {display: flex;gap: 10px;}
 .wpml-config-page-notce-switch {font-size: 20px;}
 .wpml-config-page-notce-switch>div {background: #fff8b866;color: #9c27b0;}
+.wpml-lang-input-area.basic-tab-wpml-area>div {min-width: 400px;}
+
+.wpt-each-injjput {min-width: 400px;}
+
+.wpml-lang-input-area.basic-tab-wpml-area>div.wpt-each-input label {display: block;}
+
+.wpml-lang-input-area.basic-tab-wpml-area>div.wpt-each-input input {width: 100%;}
   /* wpml area end **/

@@ -15,6 +15,11 @@ if( ! function_exists( 'wpt_shortcode_generator' ) ){
      */
     function wpt_shortcode_generator( $atts = false ) {
 
+        $lang = apply_filters( 'wpml_current_language', NULL );
+        $default_lang = apply_filters('wpml_default_language', NULL );
+        $lang_ex = $lang == $default_lang ? '': '_' . $lang;
+
+        $default_lang_bool = $lang == $default_lang ? true : false;
         //Getting WooProductTable Pro
         $table_show = apply_filters('wpt_table_show_top', true, $atts );
         if( !$table_show ){
@@ -138,6 +143,14 @@ if( ! function_exists( 'wpt_shortcode_generator' ) ){
             $responsive = isset( $basics['responsive'] ) ? $basics['responsive'] : 'no_responsive';
             $add_to_cart_selected_text = isset( $basics['add_to_cart_selected_text'] ) ? $basics['add_to_cart_selected_text'] : __( 'Add to cart selected', 'wpt_pro' );
             $check_uncheck_text = isset( $basics['check_uncheck_text'] ) ? $basics['check_uncheck_text'] : __( 'Check/Uncheck', 'wpt_pro' );//$basics['check_uncheck_text'];
+            
+            if( ! $default_lang_bool ){
+                $lang = '_'.$lang;
+                $check_uncheck_text = $basics['check_uncheck_text' . $lang] ?? $check_uncheck_text;
+                $add_to_cart_selected_text = $basics['add_to_cart_selected_text' . $lang] ?? $add_to_cart_selected_text;
+                $add_to_cart_text = $basics['add_to_cart_text' . $lang] ?? $add_to_cart_text;
+            }
+
             $author = !empty( $basics['author'] ) ? $basics['author'] : false;
             $author_name = !empty( $basics['author_name'] ) ? $basics['author_name'] : false;
 
