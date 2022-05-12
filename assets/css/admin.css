@@ -1677,4 +1677,6 @@ p.wpt-each-input {margin: 0;}
 .language-area {margin-bottom: 8px;}
 p.lang-area-title {margin: 0;}
 .wpml-lang-input-area {display: flex;gap: 10px;}
+.wpml-config-page-notce-switch {font-size: 20px;}
+.wpml-config-page-notce-switch>div {background: #fff8b866;color: #9c27b0;}
   /* wpml area end **/

@@ -1,27 +1,4 @@
 <?php 
-function change_enable_col_by_wpml($column_array, $table_ID, $atts, $column_settings){
-    // var_dump($enabled_column_array, $table_ID);
-    $lang = apply_filters( 'wpml_current_language', NULL );
-    $default_lang = apply_filters('wpml_default_language', NULL );
-
-    if( $lang == $default_lang ) return $column_array;
-
-    // var_dump($column_array);
-    // var_dump($lang,$column_settings,$column_array);
-    
-    foreach( $column_array as $key_col => $col ){
-        $n_val = $column_settings[$key_col][$lang] ?? '';
-        if( ! empty( $n_val ) ){
-            $column_array[$key_col] = $n_val;
-        }
-        // $temp_col_arr[$key_col] = $column_settings[$key_col][$lang] ?? $col;
-    }
-    var_dump($column_array);
-
-    return $column_array;
-}
-add_filter('wpto_column_arr','change_enable_col_by_wpml', 10, 4);
-// add_filter('wpto_enabled_column_array','change_enable_col_by_wpml', 10, 2);
 
 
 if( ! function_exists( 'wpt_wpml_column_title' ) ){
@@ -40,8 +17,10 @@ if( ! function_exists( 'wpt_wpml_column_title' ) ){
 
         // $lang = apply_filters( 'wpml_current_language', NULL );
         $lang = apply_filters('wpml_default_language', NULL );
-        // var_dump($lang);
-        $active_langs = $sitepress->get_active_languages();
+        $active_langs = apply_filters( 'wpml_active_languages', array(), 'orderby=id&order=desc' );
+
+        // $active_langs = $sitepress->get_active_languages();
+
         if(isset( $active_langs[$lang] )){
             unset($active_langs[$lang]);
         }
@@ -57,13 +36,14 @@ if( ! function_exists( 'wpt_wpml_column_title' ) ){
                 <?php foreach( $active_langs as $active_lang ){
                     
                     $code = $active_lang['code'];
-                    $english_name = $active_lang['english_name'];
+                    $english_name = $active_lang['translated_name'];
                     $native_name = $active_lang['native_name'];
                     $lang_name = $english_name . "({$native_name})";
                     $value = $current_colum_settings[$code] ?? "";
+                    $flag = $active_lang['country_flag_url'];
                 ?>
                 <p class="wpt-each-input">
-                    <lable><?php echo esc_html( $lang_name ); ?></lable>
+                    <lable><img src="<?php echo esc_url( $flag ); ?>" class="wpt-wpml-admin-flag"> <?php echo esc_html( $lang_name ); ?></lable>
                     <input 
                     class="wpml-col-title"
                     name="column_settings<?php echo esc_attr( $_device_name ); ?>[<?php echo esc_attr( $keyword ); ?>][<?php echo esc_attr( $code ); ?>]" 
@@ -81,3 +61,22 @@ if( ! function_exists( 'wpt_wpml_column_title' ) ){
    }
 }
 add_action( 'wpto_column_basic_form', 'wpt_wpml_column_title', 10, 4 );
+
+if( ! function_exists( 'wpt_wpml_config_switch_notc' ) ){
+
+    /**
+     * <input type="radio" id="link<?php echo esc_attr( $_device_name ); ?>" name="column_settings<?php echo esc_attr( $_device_name ); ?>[title_variation]" value="link" <?php echo !$title_variation || $title_variation == 'link' ? 'checked' : ''; ?>>
+     */
+    
+    function wpt_wpml_config_switch_notc( ){
+
+        ?>
+        <div class="fieldwrap ultraaddons-head wpml-config-page-notce-switch">
+            <div class="ultraaddons-panel">
+            <?php echo esc_html__( 'As you are a WPML use, to change label\'s value based on your language, Change language from adminbar.', 'wpt_pro' ); ?>
+            </div>
+        </div>
+       <?php
+   }
+}
+add_action( 'wpto_admin_configuration_head', 'wpt_wpml_config_switch_notc', PHP_INT_MAX );

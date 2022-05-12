@@ -5,4 +5,8 @@ $wpt_current_lang = apply_filters( 'wpml_current_language', NULL );
 // var_dump($wpt_current_lang);
 global $sitepress;
 // var_dump($sitepress->get_active_languages());
-include_once WPT_WPML_PATH . 'admin-area.php';
+if(is_admin()){
+    include_once WPT_WPML_PATH . 'admin-area.php';
+}
+
+include_once WPT_WPML_PATH . 'frontend-area.php';

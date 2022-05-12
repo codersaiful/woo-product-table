@@ -389,8 +389,21 @@ if( ! function_exists( 'wpt_get_config_value' ) ){
      * @return type Array
      */
     function wpt_get_config_value( $table_ID ){
+        $root_option_key = $option_key = 'wpt_configure_options';
+        $config_value = $temp_config_value = get_option( $option_key );
+        $lang = apply_filters( 'wpml_current_language', NULL );
+        if( ! empty( $lang ) ){
 
-        $config_value = $temp_config_value = get_option( 'wpt_configure_options' );
+            $default_lang = apply_filters('wpml_default_language', NULL );
+            $lang_ex = $lang == $default_lang ? '': '_' . $lang;
+            $option_key =  $root_option_key . $lang_ex;
+
+            $config_l_value = get_option( $option_key );
+            // var_dump($option_key,$config_l_value,$config_value);
+            $config_value = is_array( $config_value ) && is_array( $config_l_value ) ? array_merge( $config_value, $config_l_value ) : $config_value;
+        }
+
+
         $config = get_post_meta( $table_ID, 'config', true );        
         $config = is_array( $config ) ? array_filter( $config ) : array();
         if( !empty( $config ) && is_array( $config ) && is_array( $config_value ) ){
