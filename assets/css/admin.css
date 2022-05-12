@@ -1670,3 +1670,11 @@ body.post-type-wpt_product_table #stick_on_scroll-on {
     margin-bottom: 15px;
     font-size: 14px;
   }
+
+
+  /* wpml area start **/
+p.wpt-each-input {margin: 0;}
+.language-area {margin-bottom: 8px;}
+p.lang-area-title {margin: 0;}
+.wpml-lang-input-area {display: flex;gap: 10px;}
+  /* wpml area end **/

@@ -485,6 +485,19 @@ class WPT_Product_Table{
     include_once $this->path('BASE_DIR','includes/helper-functions.php'); 
     include_once $this->path('BASE_DIR','includes/shortcode.php');
        
+    /**
+     * Include WPML Integration
+     * 
+     * Maximum task will handle from this folder.
+     * Otherwise all other task will in particular position
+     * 
+     * @since 3.1.5.0
+     * @author Saiful Islam <codersaiful@gmail.com>
+     * @link https://wpml.org/documentation/
+     */
+    if( has_filter( 'wpml_current_language' ) ){
+        include_once $this->path('BASE_DIR','wpml/init.php');
+    }
    }
    
         
