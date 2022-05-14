@@ -454,7 +454,7 @@ if( !function_exists( 'wpt_configure_label_part' ) ){
                     <tr>
                         <th><label for="wpt_table_search_eee" class="wpt_label"><?php esc_html_e( 'SearchBox Placeholder text', 'wpt_pro' ); ?></label></label></th>
                         <td>
-                            <input name="<?php echo esc_attr( $field_name ); ?>[search_box_placeholder]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['search_box_placeholder'] ?? '' ); ?>" id="wpt_table_search_eee" type="text" placeholder="<?php esc_attr_e( 'Select Innet Items', 'wpt_pro' ); ?>">
+                            <input name="<?php echo esc_attr( $field_name ); ?>[search_order_placeholder]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['search_order_placeholder'] ?? '' ); ?>" id="wpt_table_search_eee" type="text" placeholder="<?php esc_attr_e( 'Select Innet Items', 'wpt_pro' ); ?>">
                         </td>
                     </tr>
                 </tbody>

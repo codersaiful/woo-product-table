@@ -241,7 +241,7 @@ $default = array(
     'search_box_searchkeyword' => __( 'Search Keyword', 'wpt_pro' ),
     'search_box_orderby'    => __( 'Order By', 'wpt_pro' ),
     'search_box_order'      => __( 'Order', 'wpt_pro' ),
-    'search_box_placeholder'      => __( 'Select inner Item.', 'wpt_pro' ),
+    'search_order_placeholder'      => __( 'Select inner Item.', 'wpt_pro' ),
 );
 $default = apply_filters( 'wpto_default_configure', $default );
 WPT_Product_Table::$default = $default;
