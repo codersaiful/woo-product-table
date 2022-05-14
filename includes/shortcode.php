@@ -15,12 +15,17 @@ if( ! function_exists( 'wpt_shortcode_generator' ) ){
      */
     function wpt_shortcode_generator( $atts = false ) {
 
+        $lang = apply_filters( 'wpml_current_language', NULL );
+        $default_lang = apply_filters('wpml_default_language', NULL );
+        $lang_ex = $lang == $default_lang ? '': '_' . $lang;
+
+        $default_lang_bool = $lang == $default_lang ? true : false;
         //Getting WooProductTable Pro
         $table_show = apply_filters('wpt_table_show_top', true, $atts );
         if( !$table_show ){
             return false;
         }
-        $config_value = get_option( 'wpt_configure_options' );
+        $config_value = wpt_get_config_value();
         $_device_name = wpt_detect_current_device();
         $_device = $_device_name == 'desktop' ? '' : '_'.$_device_name;
         
@@ -36,10 +41,11 @@ if( ! function_exists( 'wpt_shortcode_generator' ) ){
         extract( shortcode_atts( $pairs, $atts ) );
         
         $atts_id = isset( $atts['id'] ) && !empty( $atts['id'] ) ? (int) $atts['id'] : 0; 
+        $atts_id = apply_filters( 'wpml_object_id', $atts_id, 'wpt_product_table', TRUE  );
         $table_status = get_post_status( $atts_id );
 
         if( $atts_id && get_post_type( $atts_id ) == 'wpt_product_table' && $table_status == 'publish' ){
-            $ID = $table_ID = (int) $atts['id']; //Table ID added at V5.0. And as this part is already encapsule with if and return is false, so no need previous declearation
+            $ID = $table_ID = $atts_id;//(int) $atts['id']; //Table ID added at V5.0. And as this part is already encapsule with if and return is false, so no need previous declearation
             $GLOBALS['wpt_product_table'] = $ID;
             $_device = wpt_col_settingwise_device( $ID );
 
@@ -137,6 +143,14 @@ if( ! function_exists( 'wpt_shortcode_generator' ) ){
             $responsive = isset( $basics['responsive'] ) ? $basics['responsive'] : 'no_responsive';
             $add_to_cart_selected_text = isset( $basics['add_to_cart_selected_text'] ) ? $basics['add_to_cart_selected_text'] : __( 'Add to cart selected', 'wpt_pro' );
             $check_uncheck_text = isset( $basics['check_uncheck_text'] ) ? $basics['check_uncheck_text'] : __( 'Check/Uncheck', 'wpt_pro' );//$basics['check_uncheck_text'];
+            
+            if( ! $default_lang_bool ){
+                $lang = '_'.$lang;
+                $check_uncheck_text = $basics['check_uncheck_text' . $lang] ?? $check_uncheck_text;
+                $add_to_cart_selected_text = $basics['add_to_cart_selected_text' . $lang] ?? $add_to_cart_selected_text;
+                $add_to_cart_text = $basics['add_to_cart_text' . $lang] ?? $add_to_cart_text;
+            }
+
             $author = !empty( $basics['author'] ) ? $basics['author'] : false;
             $author_name = !empty( $basics['author_name'] ) ? $basics['author_name'] : false;
 
@@ -776,10 +790,13 @@ if( ! function_exists( 'wpt_table_row_generator' ) ){
         if(isset( $args['s'] ) && $args['s'] == 'false'){
             $args['s'] = false;
         }
+
+        $args['suppress_filters'] = 1;
         
         $args['posts_per_page'] = is_numeric( $args['posts_per_page'] ) ? (int) $args['posts_per_page'] : $args['posts_per_page'];
-        
+        // var_dump($args);
         $product_loop = new WP_Query($args);
+        // var_dump($product_loop);
 
         /**
          * If not set any Shorting (ASC/DESC) than Post loop will Random by Shuffle()
@@ -790,7 +807,12 @@ if( ! function_exists( 'wpt_table_row_generator' ) ){
         }
         
         $product_loop = apply_filters( 'wpto_product_loop', $product_loop, $table_ID, $args );
-        
+        // var_dump($table_ID,000000000);
+        // $ddddddd = apply_filters( 'wpml_object_id', $table_ID, 'wpt_product_table', TRUE  );
+        // var_dump($ddddddd);
+        // $newId = wpml_object_id_filter( $table_ID, 'wpt_product_table' );
+        // var_dump($newId);
+
         $wpt_table_row_serial = (( $args['paged'] - 1) * $args['posts_per_page']) + 1; //For giving class id for each Row as well
         if (  $product_loop->have_posts() ) : while ($product_loop->have_posts()): $product_loop->the_post();
                 global $product;
@@ -1095,10 +1117,10 @@ if( !function_exists( 'wpt_search_box' ) ){
         $order = isset( $_GET['order'] ) ? sanitize_text_field( $_GET['order'] ) : $order;
 
             $single_keyword = $config_value['search_keyword_text'];//__( 'Search keyword', 'wpt_pro' );
-            $search_box_placeholder = $config_value['search_box_searchkeyword'];//__( 'Search keyword', 'wpt_pro' );
+            $search_order_placeholder = $config_value['search_box_searchkeyword'];//__( 'Search keyword', 'wpt_pro' );
             $html .= "<div class='search_single_column'>";
             $html .= '<label class="search_keyword_label single_keyword" for="single_keyword_' . $temp_number . '">' . $single_keyword . '</label>';
-            $html .= '<input data-key="s" value="' . $search_keyword . '" class="query_box_direct_value" id="single_keyword_' . $temp_number . '" value="" placeholder="' . $search_box_placeholder . '"/>';
+            $html .= '<input data-key="s" value="' . $search_keyword . '" class="query_box_direct_value" id="single_keyword_' . $temp_number . '" value="" placeholder="' . $search_order_placeholder . '"/>';
             $html .= "</div>";// End of .search_single_column
 
             $order_by_validation = apply_filters( 'wpto_searchbox_order_show', false,$temp_number, $config_value, $search_box_texonomiy_keyword );

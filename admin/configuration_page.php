@@ -12,11 +12,19 @@ if( !function_exists( 'wpt_configuration_page' ) ){
             'page' => 'configuration_page',
             'module' => 'free',
         );
+        $lang = apply_filters( 'wpml_current_language', NULL );
+        $default_lang = apply_filters('wpml_default_language', NULL );
+        $lang_ex = $lang == $default_lang ? '': '_' . $lang;
+
+        $default_lang_bool = $lang == $default_lang ? true : false;
+
+        $root_option_key = WPT_OPTION_KEY;
+        $option_key =  $root_option_key . $lang_ex;
         $settings = apply_filters( 'wpto_configuration_settings', $settings );
         if( isset( $_POST['data'] ) && isset( $_POST['reset_button'] ) ){
             //Reset 
             $value = WPT_Product_Table::$default;
-            update_option( 'wpt_configure_options',  $value  );
+            update_option( $option_key,  $value  );
 
         }else if( isset( $_POST['data'] ) && isset( $_POST['configure_submit'] ) ){
             //configure_submit
@@ -30,9 +38,17 @@ if( !function_exists( 'wpt_configuration_page' ) ){
                 );
             }
             // $value 's all key_value is sanitized before update on database
-            update_option( 'wpt_configure_options',  $value );
+            update_option( $option_key,  $value );
         }
-        $current_config_value = get_option( 'wpt_configure_options' );
+        $current_config_value = get_option( $option_key );
+        
+        if( empty( $current_config_value ) ){
+            $current_config_value = get_option( $root_option_key );
+        }
+        
+        $lang = apply_filters( 'wpml_current_language', NULL );
+        $default_lang = apply_filters('wpml_default_language', NULL );
+    
         
         $wrapper_class = isset( $settings['module'] ) ? $settings['module'] : '';
         
@@ -43,6 +59,7 @@ if( !function_exists( 'wpt_configuration_page' ) ){
             <?php wpt_get_pro_discount_message(); ?>
             <div id="wpt_configuration_form" class="wpt_leftside ">
                 <?php do_action( 'wpto_admin_configuration_head' ); ?>
+                
                 <div class="fieldwrap">
                     <form action="" method="POST">
                         <?php 
@@ -53,11 +70,12 @@ if( !function_exists( 'wpt_configuration_page' ) ){
                      */
                     do_action( 'wpto_admin_configuration_form_version_data', $settings,$current_config_value );
                     
-                    /**
-                     * To add something and Anything at the top of Form Of Configuratin Page
-                     */
-                    do_action( 'wpto_admin_configuration_form_top', $settings,$current_config_value ); 
-                    
+                    if( $default_lang_bool ){
+                        /**
+                         * To add something and Anything at the top of Form Of Configuratin Page
+                         */
+                        do_action( 'wpto_admin_configuration_form_top', $settings,$current_config_value ); 
+                    }
                     
                     do_action( 'wpto_admin_configuration_form', $settings,$current_config_value,'data' ); //'data' It's Forms Field Name Such: <input name='data[search_box]'>
                     

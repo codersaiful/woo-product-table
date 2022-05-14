@@ -381,19 +381,59 @@ if( ! function_exists( 'wpt_add_extra_inside_items' ) ){
 
 add_filter( 'wpto_inside_item_arr', 'wpt_add_extra_inside_items' ); //$items,$keyword, $column_settings, $columns_array, $post
 
+if( ! function_exists( 'wpt_get_config' ) ){
+
+    /**
+     * WPML Applied here.
+     * Automatically return value will be based on wpml language version.
+     * 
+     * Get only configuration value
+     * from confiiguration page. It will not come from 
+     * post ID actually
+     * 
+     * 
+     *
+     * @return Array it will return an Array
+     */
+    function wpt_get_config( $config_key = false ){
+        if( ! $config_key ) return wpt_get_config_value();
+
+        $full_config = wpt_get_config_value();
+        return $full_config[$config_key] ?? '';
+
+    }
+}
 if( ! function_exists( 'wpt_get_config_value' ) ){
     /**
+     * WPML Applied here.
+     * Automatically return value will be based on wpml language version.
+     * 
      * getting Config value. If get config value from post, then it will receive from post, Otherwise, will take data from Configuration value.
      * 
      * @param type $table_ID Mainly post ID of wpt_product_table. That means: its post id of product table
      * @return type Array
      */
-    function wpt_get_config_value( $table_ID ){
+    function wpt_get_config_value( $table_ID = false ){
+        $root_option_key = $option_key = WPT_OPTION_KEY;
+        $config_value = $temp_config_value = get_option( $option_key );
+        $lang = apply_filters( 'wpml_current_language', NULL );
+        
+        if( ! empty( $lang ) ){
 
-        $config_value = $temp_config_value = get_option( 'wpt_configure_options' );
+            $default_lang = apply_filters('wpml_default_language', NULL );
+            $lang_ex = $lang == $default_lang ? '': '_' . $lang;
+            $option_key =  $root_option_key . $lang_ex;
+
+            $config_l_value = get_option( $option_key );
+
+            $config_value = is_array( $config_value ) && is_array( $config_l_value ) ? array_merge( $config_value, $config_l_value ) : $config_value;
+        }
+
+        if( ! $table_ID ) return $config_value;
+
         $config = get_post_meta( $table_ID, 'config', true );        
         $config = is_array( $config ) ? array_filter( $config ) : array();
-        if( !empty( $config ) && is_array( $config ) && is_array( $config_value ) ){
+        if( ! empty( $config ) && is_array( $config ) && is_array( $config_value ) ){
             $config_value = array_merge( $config_value, $config );
         }
         $config_value = apply_filters( 'wpto_get_config_value', $config_value, $table_ID );

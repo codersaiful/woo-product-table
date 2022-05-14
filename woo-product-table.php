@@ -33,7 +33,7 @@ if( ! defined( 'WPT_PLUGIN_BASE_FOLDER' ) ){
 }
 
 if( ! defined( 'WPT_DEV_VERSION' ) ){
-    define( 'WPT_DEV_VERSION', '3.1.5.0' );
+    define( 'WPT_DEV_VERSION', '3.1.5.1' );
 }
 
 if( ! defined( 'WPT_CAPABILITY' ) ){
@@ -67,6 +67,9 @@ if( ! defined( 'WPT_PLUGIN_FOLDER_NAME' ) ){
 
 if( ! defined( 'WPT_PLUGIN_FILE_NAME' ) ){
     define( "WPT_PLUGIN_FILE_NAME", __FILE__ ); //aDDED TO NEW VERSION
+}
+if( ! defined( 'WPT_OPTION_KEY' ) ){
+    define( "WPT_OPTION_KEY", 'wpt_configure_options' ); //aDDED TO NEW VERSION
 }
 
 /**
@@ -238,6 +241,7 @@ $default = array(
     'search_box_searchkeyword' => __( 'Search Keyword', 'wpt_pro' ),
     'search_box_orderby'    => __( 'Order By', 'wpt_pro' ),
     'search_box_order'      => __( 'Order', 'wpt_pro' ),
+    'search_order_placeholder'      => __( 'Select inner Item.', 'wpt_pro' ),
 );
 $default = apply_filters( 'wpto_default_configure', $default );
 WPT_Product_Table::$default = $default;
@@ -485,6 +489,19 @@ class WPT_Product_Table{
     include_once $this->path('BASE_DIR','includes/helper-functions.php'); 
     include_once $this->path('BASE_DIR','includes/shortcode.php');
        
+    /**
+     * Include WPML Integration
+     * 
+     * Maximum task will handle from this folder.
+     * Otherwise all other task will in particular position
+     * 
+     * @since 3.1.5.0
+     * @author Saiful Islam <codersaiful@gmail.com>
+     * @link https://wpml.org/documentation/
+     */
+    if( has_filter( 'wpml_current_language' ) ){
+        include_once $this->path('BASE_DIR','wpml/init.php');
+    }
    }
    
         
@@ -584,16 +601,16 @@ class WPT_Product_Table{
 
 
         //Configuration Data Update
-        $current_value = get_option('wpt_configure_options');
+        $current_value = get_option( WPT_OPTION_KEY );
         $default_value = self::$default;
         if( empty( $current_value ) ){
-            update_option( 'wpt_configure_options', $default_value );
+            update_option( WPT_OPTION_KEY, $default_value );
             return;
         }
         
         if( is_array( $current_value ) && is_array( $default_value ) ){
             $updated = array_merge( $default_value, $current_value );
-            update_option( 'wpt_configure_options', $updated );
+            update_option( WPT_OPTION_KEY, $updated );
             return;
         }
    }

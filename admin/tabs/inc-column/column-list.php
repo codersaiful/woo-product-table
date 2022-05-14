@@ -61,7 +61,22 @@
             
             
             <div class="wpt_column_setting_single_extra">
+
                 <?php 
+                $current_colum_settings = $column_settings[$keyword] ?? array();
+                /**
+                 * @Hook wpto_column_basic_form global hook for All column
+                 * and it will show always automatically
+                 * 
+                 * Used in free version at 
+                 * wpml/admin-area.php to show Language Field based on WPML plugin.
+                 * 
+                 * 
+                 * @since 3.1.5.0
+                 * @author Saiful Islam <codersaiful@gmail.com>
+                 */
+                do_action( 'wpto_column_basic_form' , $keyword, $_device_name, $current_colum_settings, $column_settings, $columns_array, $updated_columns_array, $post, $additional_data );
+
                 /**
                  * Adding Extra Features Based on Specific keyword
                  * 

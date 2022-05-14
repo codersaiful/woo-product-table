@@ -19,7 +19,7 @@ if( ! class_exists( 'WPT_Required' ) ){
 
             /**
              * Getting help from configure
-             * $config = get_option( 'wpt_configure_options' );
+             * $config = get_option( WPT_OPTION_KEY );
         $disable_plugin_noti = !isset( $config['disable_plugin_noti'] ) ? true : false;
              */
 

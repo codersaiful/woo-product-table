@@ -105,6 +105,13 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
     function wpt_configure_basic_part( $settings,$current_config_value,$field_name ){
         $page = isset( $settings['page'] ) ? $settings['page'] : 'not_set_page'; //configuration_page
         $user_can_edit = wpt_user_can_edit() ? 'user_can_edit' : 'user_can_not_edit';
+
+        $lang = apply_filters( 'wpml_current_language', NULL );
+        $default_lang = apply_filters('wpml_default_language', NULL );
+        
+        if( $lang !== $default_lang && $page == 'configuration_page' ) return;
+
+        // var_dump($page);
         ?>
         <div class="section ultraaddons-panel basic <?php echo esc_attr( $page ); ?>">
             <h3 class="with-background dark-background"><?php esc_html_e( 'Basic Settings', 'wpt_pro' );?></h3>
@@ -304,6 +311,19 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
                             </select>
                         </td>
                     </tr>
+
+                    <tr>
+                        <th><label class="wpt_label" for="wpt_table_product_count"><?php esc_html_e( 'Item/Products Count system [New]', 'wpt_pro' ); ?></label></th>
+                        <td>
+                            <select name="<?php echo esc_attr( $field_name ); ?>[item_count]" id="wpt_table_product_count" class="wpt_fullwidth ua_input" >
+                                <?php wpt_default_option( $page ) ?>
+                                <option value="" <?php wpt_selected( 'item_count', '' ); ?>><?php esc_html_e( 'Products Wise', 'wpt_pro' ); ?></option>
+                                <option value="all" <?php wpt_selected( 'item_count', 'all' ); ?>><?php esc_html_e( 'All Items', 'wpt_pro' ); ?></option>
+                            </select>
+
+                        </td>
+                    </tr>
+
                 </tbody>
             </table><?php do_action( 'wpto_admin_configuration_panel_bottom',$settings,$current_config_value ); ?>
         </div>
@@ -318,7 +338,7 @@ if( !function_exists( 'wpt_configure_label_part' ) ){
     function wpt_configure_label_part($settings, $current_config_value,$field_name){
         $page = isset( $settings['page'] ) ? $settings['page'] : 'not_set_page';
         $user_can_edit = wpt_user_can_edit() ? 'user_can_edit' : 'user_can_not_edit';
-        //$current_config_value = get_option( 'wpt_configure_options' );
+        
         ?>
         <div class="section ultraaddons-panel label <?php echo esc_attr( $page ); ?>">
             <h3 class="with-background dark-background"><?php esc_html_e( 'Label Text', 'wpt_pro' );?></h3>
@@ -398,17 +418,7 @@ if( !function_exists( 'wpt_configure_label_part' ) ){
                             <input name="<?php echo esc_attr( $field_name ); ?>[items]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['items'] ); ?>" id="wpt_table_items" type="text" placeholder="<?php esc_attr_e( 'Item | for All selected Button', 'wpt_pro' ); ?>">
                         </td>
                     </tr>
-                    <tr>
-                        <th><label class="wpt_label" for="wpt_table_product_count"><?php esc_html_e( 'Item/Products Count system [New]', 'wpt_pro' ); ?></label></th>
-                        <td>
-                            <select name="<?php echo esc_attr( $field_name ); ?>[item_count]" id="wpt_table_product_count" class="wpt_fullwidth ua_input" >
-                                <?php wpt_default_option( $page ) ?>
-                                <option value="" <?php wpt_selected( 'item_count', '' ); ?>><?php esc_html_e( 'Products Wise', 'wpt_pro' ); ?></option>
-                                <option value="all" <?php wpt_selected( 'item_count', 'all' ); ?>><?php esc_html_e( 'All Items', 'wpt_pro' ); ?></option>
-                            </select>
-
-                        </td>
-                    </tr>
+                    
                     <tr> 
                         <th> <label for="wpt_table_item_add_selct_all" class="wpt_label"><?php esc_html_e( 'Add to Cart all selected [Added] Text', 'wpt_pro' ); ?></label></th>
                         <td>
@@ -441,6 +451,12 @@ if( !function_exists( 'wpt_configure_label_part' ) ){
                             <input name="<?php echo esc_attr( $field_name ); ?>[search_box_order]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['search_box_order'] ); ?>" id="wpt_table_search_eee" type="text" placeholder="<?php esc_attr_e( 'Order text', 'wpt_pro' ); ?>">
                         </td>
                     </tr>
+                    <tr>
+                        <th><label for="wpt_table_search_eee" class="wpt_label"><?php esc_html_e( 'Search Dropdown Placeholder text', 'wpt_pro' ); ?></label></label></th>
+                        <td>
+                            <input name="<?php echo esc_attr( $field_name ); ?>[search_order_placeholder]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['search_order_placeholder'] ?? '' ); ?>" id="wpt_table_search_eee" type="text" placeholder="<?php esc_attr_e( 'Select Innet Items', 'wpt_pro' ); ?>">
+                        </td>
+                    </tr>
                 </tbody>
             </table><?php do_action( 'wpto_admin_configuration_panel_bottom',$settings,$current_config_value ); ?>
         </div>
@@ -455,7 +471,7 @@ if( !function_exists( 'wpt_configure_external_part' ) ){
     
     function wpt_configure_external_part( $settings,$current_config_value,$field_name ){
         $page = isset( $settings['page'] ) ? $settings['page'] : 'not_set_page';
-        //$current_config_value = get_option( 'wpt_configure_options' );
+        
         ?>
         <div class="section ultraaddons-panel label <?php echo esc_attr( $page ); ?>">
             <h3 class="with-background dark-background"><?php echo sprintf( esc_html__( 'External Plugin\'s %s[YITH]%s ', 'wpt_pro' ),'<span style="color: orange; font-size: 18px;">', '</span>' );?></h3>
@@ -507,7 +523,7 @@ if( !function_exists( 'wpt_configure_default_content_part' ) ){
     
     function wpt_configure_default_content_part( $settings,$current_config_value,$field_name ){
         $page = isset( $settings['page'] ) ? $settings['page'] : 'not_set_page';
-        //$current_config_value = get_option( 'wpt_configure_options' );
+        
         // label <?php echo esc_attr( $page ); "
         ?>
         <div class="section ultraaddons-panel default_content <?php echo esc_attr( $page );?>">
@@ -552,7 +568,7 @@ if( !function_exists( 'wpt_configure_all_message_part' ) ){
     function wpt_configure_all_message_part( $settings,$current_config_value,$field_name ){
         $page = isset( $settings['page'] ) ? $settings['page'] : 'not_set_page';
         $user_can_edit = wpt_user_can_edit() ? 'user_can_edit' : 'user_can_not_edit';
-        //$current_config_value = get_option( 'wpt_configure_options' );
+
         // label <?php echo esc_attr( $page ); "
         ?>
         <div class="section ultraaddons-panel all_message <?php echo esc_attr( $page ); ?>">
