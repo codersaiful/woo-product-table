@@ -25,7 +25,7 @@ if( ! function_exists( 'wpt_shortcode_generator' ) ){
         if( !$table_show ){
             return false;
         }
-        $config_value = get_option( 'wpt_configure_options' );
+        $config_value = wpt_get_config_value();
         $_device_name = wpt_detect_current_device();
         $_device = $_device_name == 'desktop' ? '' : '_'.$_device_name;
         

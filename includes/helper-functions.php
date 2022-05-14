@@ -400,7 +400,7 @@ if( ! function_exists( 'wpt_adding_to_cart' ) ){
         $cart_item_data = apply_filters('wpto_adding_time_cart_meta', $cart_item_data, $product_id, $quantity, $variation_id);
         $validation = apply_filters( 'woocommerce_add_to_cart_validation', true, $product_id, $quantity, $variation_id, $variation, $cart_item_data );     
         if( $validation && WC()->cart->add_to_cart( $product_id, $quantity, $variation_id, $variation, $cart_item_data ) ){
-            $config_value = get_option( 'wpt_configure_options' );
+            $config_value = get_option( WPT_OPTION_KEY );
             if( $config_value['popup_notice'] == '1' ){
                 wc_add_notice( '"' . get_the_title( $product_id ) . '" ' . $config_value['add2cart_all_added_text']);
             }

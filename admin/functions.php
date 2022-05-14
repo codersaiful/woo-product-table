@@ -26,12 +26,12 @@ if( !function_exists( 'wpt_selected' ) ){
      * Inside Config Tab or Inside Configuration Page
      * Executing If available or Not. 
      * If false $default_config, Then It will come from 
-     * get_option( 'wpt_configure_options' )
+     * get_option( WPT_OPTION_KEY )
      * 
      * @since 2.4 
      */
     function wpt_selected(  $keyword, $gotten_value, $default_config = false ){
-        $current_config_value = is_array( $default_config ) ? $default_config : get_option( 'wpt_configure_options' );
+        $current_config_value = is_array( $default_config ) ? $default_config : get_option( WPT_OPTION_KEY );
         echo ( isset( $current_config_value[$keyword] ) && $current_config_value[$keyword] == $gotten_value ? 'selected' : false  );
     }
 }

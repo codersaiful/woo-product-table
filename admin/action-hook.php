@@ -338,7 +338,7 @@ if( !function_exists( 'wpt_configure_label_part' ) ){
     function wpt_configure_label_part($settings, $current_config_value,$field_name){
         $page = isset( $settings['page'] ) ? $settings['page'] : 'not_set_page';
         $user_can_edit = wpt_user_can_edit() ? 'user_can_edit' : 'user_can_not_edit';
-        //$current_config_value = get_option( 'wpt_configure_options' );
+        
         ?>
         <div class="section ultraaddons-panel label <?php echo esc_attr( $page ); ?>">
             <h3 class="with-background dark-background"><?php esc_html_e( 'Label Text', 'wpt_pro' );?></h3>
@@ -451,6 +451,12 @@ if( !function_exists( 'wpt_configure_label_part' ) ){
                             <input name="<?php echo esc_attr( $field_name ); ?>[search_box_order]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['search_box_order'] ); ?>" id="wpt_table_search_eee" type="text" placeholder="<?php esc_attr_e( 'Order text', 'wpt_pro' ); ?>">
                         </td>
                     </tr>
+                    <tr>
+                        <th><label for="wpt_table_search_eee" class="wpt_label"><?php esc_html_e( 'SearchBox Placeholder text', 'wpt_pro' ); ?></label></label></th>
+                        <td>
+                            <input name="<?php echo esc_attr( $field_name ); ?>[search_box_placeholder]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['search_box_placeholder'] ?? '' ); ?>" id="wpt_table_search_eee" type="text" placeholder="<?php esc_attr_e( 'Select Innet Items', 'wpt_pro' ); ?>">
+                        </td>
+                    </tr>
                 </tbody>
             </table><?php do_action( 'wpto_admin_configuration_panel_bottom',$settings,$current_config_value ); ?>
         </div>
@@ -465,7 +471,7 @@ if( !function_exists( 'wpt_configure_external_part' ) ){
     
     function wpt_configure_external_part( $settings,$current_config_value,$field_name ){
         $page = isset( $settings['page'] ) ? $settings['page'] : 'not_set_page';
-        //$current_config_value = get_option( 'wpt_configure_options' );
+        
         ?>
         <div class="section ultraaddons-panel label <?php echo esc_attr( $page ); ?>">
             <h3 class="with-background dark-background"><?php echo sprintf( esc_html__( 'External Plugin\'s %s[YITH]%s ', 'wpt_pro' ),'<span style="color: orange; font-size: 18px;">', '</span>' );?></h3>
@@ -517,7 +523,7 @@ if( !function_exists( 'wpt_configure_default_content_part' ) ){
     
     function wpt_configure_default_content_part( $settings,$current_config_value,$field_name ){
         $page = isset( $settings['page'] ) ? $settings['page'] : 'not_set_page';
-        //$current_config_value = get_option( 'wpt_configure_options' );
+        
         // label <?php echo esc_attr( $page ); "
         ?>
         <div class="section ultraaddons-panel default_content <?php echo esc_attr( $page );?>">
@@ -562,7 +568,7 @@ if( !function_exists( 'wpt_configure_all_message_part' ) ){
     function wpt_configure_all_message_part( $settings,$current_config_value,$field_name ){
         $page = isset( $settings['page'] ) ? $settings['page'] : 'not_set_page';
         $user_can_edit = wpt_user_can_edit() ? 'user_can_edit' : 'user_can_not_edit';
-        //$current_config_value = get_option( 'wpt_configure_options' );
+
         // label <?php echo esc_attr( $page ); "
         ?>
         <div class="section ultraaddons-panel all_message <?php echo esc_attr( $page ); ?>">

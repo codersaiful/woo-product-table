@@ -18,7 +18,7 @@ if( !function_exists( 'wpt_configuration_page' ) ){
 
         $default_lang_bool = $lang == $default_lang ? true : false;
 
-        $root_option_key = 'wpt_configure_options';
+        $root_option_key = WPT_OPTION_KEY;
         $option_key =  $root_option_key . $lang_ex;
         $settings = apply_filters( 'wpto_configuration_settings', $settings );
         if( isset( $_POST['data'] ) && isset( $_POST['reset_button'] ) ){
