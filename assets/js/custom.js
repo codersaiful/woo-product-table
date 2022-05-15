@@ -143,6 +143,8 @@ jQuery(function($) {
                     var thisTableTop = $('#table_id_' + temp_number).offset();
                     body.animate({scrollTop:thisTableTop.top}, 500, 'swing');
 
+                    $(document.body).trigger('wpt_paginate_done', temp_number);
+
                 },
                 success: function(data) {
                     targetTableBody.html(data);
