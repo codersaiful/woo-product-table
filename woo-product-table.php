@@ -1,10 +1,10 @@
 <?php
 /**
  * Plugin Name: Product Table for WooCommerce
- * Plugin URI: https://wooproducttable.com/pricing
+ * Plugin URI: https://wooproducttable.com/pricing/?utm_source=WPT+Plugin+Dashboard&utm_medium=Free+Version
  * Description: WooCommerce all products display as a table in one page by shortcode. Fully responsive and mobile friendly. Easily customizable - color,background,title,text color etc.
  * Author: CodeAstrology.com
- * Author URI: https://wooproducttable.com/
+ * Author URI: https://wooproducttable.com/?utm_source=WPT+Plugin+Dashboard&utm_medium=Free+Version
  * Tags: woocommerce product list,woocommerce product table, wc product table, product grid view, inventory, shop product table
  * 
  * Version: 3.1.5
