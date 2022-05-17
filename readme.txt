@@ -212,6 +212,11 @@ You can easily show specific category products. While creating new table click o
 
 == Changelog ==
 
+= 3.1.5 =
+  * WPML Full Support
+  * Advance Search's Dropdown Placeholder content change feature added from Configuration Page or Tab.
+  * Bug Fix
+  * More Theme Compatible fix.
 
 = 3.1.4 =
   * Spelling fixed on some place.

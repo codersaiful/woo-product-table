@@ -84,26 +84,21 @@ if( ! class_exists( 'CA_Framework\Require_Control' ) ){
 
         public function run()
         {
-            //Check Admin User
-            if( ! is_admin() ) return;
-
-            // Return null, If already our required plugin is installed.
-            if( is_plugin_active( $this->plugin_slug ) ) return;
-
-            //Return Null Controll;
-            if( isset( $_GET['action'] ) && ( $_GET['action'] == 'install-plugin' || $_GET['action'] == 'activate' ) ){
-                $this->stop_next = 1;
-                return $this->stop_next;
+            if(
+                ! is_admin() || //Check Admin User
+                is_plugin_active( $this->plugin_slug ) || // Return null, If already our required plugin is installed.
+                isset( $_GET['action'] ) && ( $_GET['action'] == 'install-plugin' || $_GET['action'] == 'activate' ) || //Return Null Controll;
+                ! $this->required && $this->repeat_display() //Check Aganin installation prosibility when reconneded and Date over. by default we set diff_limit = 5 days.
+            ){
+                $this->stop_next = 1; 
+                return;
             }
-
-            //Check Aganin installation prosibility when reconneded and Date over. by default we set diff_limit = 5 days.
-            if( ! $this->required && $this->repeat_display() ) return;
 
             //Final Display Notice 
             add_action( 'admin_notices', [ $this, 'display_notice' ] );
 
             if( $this->required ) $this->stop_next = 1;
-            return $this->stop_next;
+            return;
         }
 
         /**
