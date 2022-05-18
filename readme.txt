@@ -218,6 +218,10 @@ You can easily show specific category products. While creating new table click o
   * Bug Fix
   * More Theme Compatible fix.
 
+= 3.1.5 =
+  * Spelling fixed on some place.
+  * Bug Fix
+
 = 3.1.4 =
   * Spelling fixed on some place.
   * Bug Fix
