@@ -85,18 +85,11 @@ if( ! class_exists( 'CA_Framework\Require_Control' ) ){
         public function run()
         {
             
-            //Check Admin User
-            if( ! is_admin() ){
-                $this->stop_next = 1; 
+            //Check Admin User // Return null, If already our required plugin is installed.
+            if( ! is_admin() || is_plugin_active( $this->plugin_slug ) ){ 
                 return;
             }
             
-
-            // Return null, If already our required plugin is installed.
-            if( is_plugin_active( $this->plugin_slug ) ) return;
-            
-           
-
             //Return Null Controll;
             if( isset( $_GET['action'] ) && ( $_GET['action'] == 'install-plugin' || $_GET['action'] == 'activate' ) ){
                 $this->stop_next = 1;
@@ -109,8 +102,10 @@ if( ! class_exists( 'CA_Framework\Require_Control' ) ){
             //Final Display Notice 
             add_action( 'admin_notices', [ $this, 'display_notice' ] );
 
-            if( $this->required ) $this->stop_next = 1;
-            return $this->stop_next;
+            if( $this->required ){
+                $this->stop_next = 1;
+            };
+            return;
         }
 
         /**
