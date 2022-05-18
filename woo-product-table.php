@@ -163,16 +163,7 @@ WPT_Product_Table::$colums_disable_array = array(
     'blank',
 );
 
-//Set Style Selection Options.
-WPT_Product_Table::$style_form_options = array(
-    'custom'        =>  __( 'Customized Design', 'wpt_pro' ),
-    'default'       =>  __( 'Default Style', 'wpt_pro' ),
-    'blacky'        =>  __( 'Beautifull Blacky', 'wpt_pro' ),
-    'smart'         =>  __( 'Smart Thin', 'wpt_pro' ),
-    'none'          =>  __( 'Select None', 'wpt_pro' ),
-    'green'         =>  __( 'Green Style', 'wpt_pro' ),
-    'blue'          =>  __( 'Blue Style', 'wpt_pro' ),
-);
+
 /**
  * Set ShortCode text as Static Properties
  * 
@@ -254,38 +245,7 @@ WPT_Product_Table::$default = $default;
  */
 class WPT_Product_Table{
     
-    /**
-     * Static Property
-     * Used for Maintenance of Admin Notice for Require Plugin
-     * With Our Plogin Woo Product Table Pro and Woo Product Table
-     *
-     * @var Array
-     */
-    public static $own = array(
-        'plugin'  => 'woo-product-table/woo-product-table.php',
-        'plugin_slug'  => 'woo-product-table',
-        'type'  => 'error',
-        'message' => 'Install To working',
-        'btn_text' => 'Install Now',
-        'name' => 'Woo Product Table',
-        'perpose' => 'install', //install,upgrade,activation
-    );
-    /**
-     * Basic information for UltraAddons
-     *
-     * acceptable data is
-     * $plugin_url = 'https://wordpress.org/plugins/ultraaddons-elementor-lite/';
-       $plugin_slug = 'ultraaddons-elementor-lite';
-       $perpose = 'install';
-       $type = 'warning';
-     * @var type 
-     */
-    public static $ultraaddons_args = array(
-        'plugin_url'    =>  'https://wordpress.org/plugins/ultraaddons-elementor-lite/',
-        'plugin_slug'   => 'ultraaddons-elementor-lite',
-        'perpose'       =>  'install',     
-    );
-
+    
     /**
      * To set Default Value for Woo Product Table, So that, we can set Default Value in Plugin Start and 
      * can get Any were
