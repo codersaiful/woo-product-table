@@ -84,12 +84,18 @@ if( ! class_exists( 'CA_Framework\Require_Control' ) ){
 
         public function run()
         {
+            // Return null, If already our required plugin is installed.
+            if( is_plugin_active( $this->plugin_slug ) ){ 
+                return;
+            }
+
             if( $this->required && ! is_plugin_active( $this->plugin_slug ) ){
                 $this->stop_next = 1;
+                return;
             };
 
-            //Check Admin User // Return null, If already our required plugin is installed.
-            if( ! is_admin() || is_plugin_active( $this->plugin_slug ) ){ 
+            //Check Admin User
+            if( ! is_admin() ){ 
                 return;
             }
             
