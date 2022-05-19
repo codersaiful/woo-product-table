@@ -39,6 +39,7 @@ if( ! class_exists( 'CA_Framework\Require_Control' ) ){
         );
 
         private $stop_next = 0;
+        private $file = __FILE__;
 
         /**
          * Controller of Manage required/recommended plugin.
@@ -91,7 +92,6 @@ if( ! class_exists( 'CA_Framework\Require_Control' ) ){
 
             if( $this->required && ! is_plugin_active( $this->plugin_slug ) ){
                 $this->stop_next = 1;
-                return;
             };
 
             //Check Admin User
@@ -113,6 +113,16 @@ if( ! class_exists( 'CA_Framework\Require_Control' ) ){
             return;
         }
 
+        /**
+         * Get File information, from where class is calling.
+         * It's required for debugging.
+         *
+         * @return String Get File information, from where class is calling.
+         */
+        public function get_file(){
+            return $this->file;
+        }
+        
         /**
          * Display Notice Again after close using close button
          * I have taken help for this part of Notice's Object js part
