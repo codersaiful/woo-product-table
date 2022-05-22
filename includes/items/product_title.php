@@ -6,15 +6,15 @@ $description_on = isset( $column_settings['description_off'] ) ? 'no' : 'yes';
 $title_variation = isset( $column_settings['title_variation'] ) ? $column_settings['title_variation'] : 'link';
 
 if($title_variation == 'link'){
-    $wpt_single_product_title .= "<a class='wpt_product_title_in_td' target='{$config_value['product_link_target']}' href='" . esc_url(get_the_permalink()) . "'>" . get_the_title() . "</a>";
+    $wpt_single_product_title .= "<a class='wpt_product_title_in_td' target='{$config_value['product_link_target']}' href='" . esc_url(get_the_permalink()) . "'>" . $product->get_title() . "</a>";
 } elseif($title_variation == 'nolink'){
-    $wpt_single_product_title .= "<span class='wpt_product_title_in_td'>" . get_the_title() . "</span>";
+    $wpt_single_product_title .= "<span class='wpt_product_title_in_td'>" . $product->get_title() . "</span>";
 } elseif($title_variation == 'yith'){
-    $wpt_single_product_title .= "<a class='wpt_product_title_in_td yith-wcqv-button' data-product_id=" . $data['id'] . " href='#'>" . get_the_title() . "</a>";
+    $wpt_single_product_title .= "<a class='wpt_product_title_in_td yith-wcqv-button' data-product_id=" . $data['id'] . " href='#'>" . $product->get_title() . "</a>";
 }elseif($title_variation == 'ca_quick_view'){ //Quick View by Code Astrology //https://wordpress.org/plugins/ca-quick-view/
-    $wpt_single_product_title .= "<a class='wpt_product_title_in_td caqv-open-modal' data-id=" . $data['id'] . " >" . get_the_title() . "</a>";
+    $wpt_single_product_title .= "<a class='wpt_product_title_in_td caqv-open-modal' data-id=" . $data['id'] . " >" . $product->get_title() . "</a>";
 }else{
-    $wpt_single_product_title .= "<span class='wpt_product_title_in_td'>" . get_the_title() . "</span>";
+    $wpt_single_product_title .= "<span class='wpt_product_title_in_td'>" . $product->get_title() . "</span>";
 }
 
 
