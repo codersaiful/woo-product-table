@@ -12,6 +12,7 @@ jQuery(function($) {
             notice_timeout = WPT_DATA.notice_timeout;
         }
         
+
         //Select2
         if(typeof $('.wpt_product_table_wrapper .search_select').select2 === 'function' && $('.wpt_product_table_wrapper .search_select').length > 0 && WPT_DATA.select2 !== 'disable' ){
             var select2Object = {};

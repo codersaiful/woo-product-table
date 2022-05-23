@@ -1,17 +1,17 @@
 <?php
 /**
  * Plugin Name: Product Table for WooCommerce
- * Plugin URI: https://wooproducttable.com/pricing
+ * Plugin URI: https://wooproducttable.com/pricing/?utm_source=WPT+Plugin+Dashboard&utm_medium=Free+Version
  * Description: WooCommerce all products display as a table in one page by shortcode. Fully responsive and mobile friendly. Easily customizable - color,background,title,text color etc.
  * Author: CodeAstrology.com
- * Author URI: https://wooproducttable.com/
+ * Author URI: https://wooproducttable.com/?utm_source=WPT+Plugin+Dashboard&utm_medium=Free+Version
  * Tags: woocommerce product list,woocommerce product table, wc product table, product grid view, inventory, shop product table
  * 
- * Version: 3.1.5
+ * Version: 3.1.6
  * Requires at least:    4.0.0
  * Tested up to:         5.9.3
  * WC requires at least: 3.0.0
- * WC tested up to: 	 6.3.1
+ * WC tested up to: 	 6.5.1
  * 
  * 
  * Text Domain: wpt_pro
@@ -33,7 +33,7 @@ if( ! defined( 'WPT_PLUGIN_BASE_FOLDER' ) ){
 }
 
 if( ! defined( 'WPT_DEV_VERSION' ) ){
-    define( 'WPT_DEV_VERSION', '3.1.5.1' );
+    define( 'WPT_DEV_VERSION', '3.1.6.0' );
 }
 
 if( ! defined( 'WPT_CAPABILITY' ) ){
@@ -163,16 +163,7 @@ WPT_Product_Table::$colums_disable_array = array(
     'blank',
 );
 
-//Set Style Selection Options.
-WPT_Product_Table::$style_form_options = array(
-    'custom'        =>  __( 'Customized Design', 'wpt_pro' ),
-    'default'       =>  __( 'Default Style', 'wpt_pro' ),
-    'blacky'        =>  __( 'Beautifull Blacky', 'wpt_pro' ),
-    'smart'         =>  __( 'Smart Thin', 'wpt_pro' ),
-    'none'          =>  __( 'Select None', 'wpt_pro' ),
-    'green'         =>  __( 'Green Style', 'wpt_pro' ),
-    'blue'          =>  __( 'Blue Style', 'wpt_pro' ),
-);
+
 /**
  * Set ShortCode text as Static Properties
  * 
@@ -254,38 +245,7 @@ WPT_Product_Table::$default = $default;
  */
 class WPT_Product_Table{
     
-    /**
-     * Static Property
-     * Used for Maintenance of Admin Notice for Require Plugin
-     * With Our Plogin Woo Product Table Pro and Woo Product Table
-     *
-     * @var Array
-     */
-    public static $own = array(
-        'plugin'  => 'woo-product-table/woo-product-table.php',
-        'plugin_slug'  => 'woo-product-table',
-        'type'  => 'error',
-        'message' => 'Install To working',
-        'btn_text' => 'Install Now',
-        'name' => 'Woo Product Table',
-        'perpose' => 'install', //install,upgrade,activation
-    );
-    /**
-     * Basic information for UltraAddons
-     *
-     * acceptable data is
-     * $plugin_url = 'https://wordpress.org/plugins/ultraaddons-elementor-lite/';
-       $plugin_slug = 'ultraaddons-elementor-lite';
-       $perpose = 'install';
-       $type = 'warning';
-     * @var type 
-     */
-    public static $ultraaddons_args = array(
-        'plugin_url'    =>  'https://wordpress.org/plugins/ultraaddons-elementor-lite/',
-        'plugin_slug'   => 'ultraaddons-elementor-lite',
-        'perpose'       =>  'install',     
-    );
-
+    
     /**
      * To set Default Value for Woo Product Table, So that, we can set Default Value in Plugin Start and 
      * can get Any were

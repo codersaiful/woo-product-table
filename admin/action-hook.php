@@ -29,10 +29,10 @@ if( !function_exists( 'wpt_admin_form_top' ) ){
   </svg>
 
             <?php echo esc_html__( 'GitHub Repo', 'wpt_pro' ); ?></a></li>
-            <li><a target="_blank" href="https://demo.wooproducttable.com/"><?php echo esc_html__( 'Demo', 'wpt_pro' ); ?></a></li>
+            <li><a target="_blank" href="https://demo.wooproducttable.com/?utm_source=Product+Table+EditPage&utm_medium=Free+Version"><?php echo esc_html__( 'Demo', 'wpt_pro' ); ?></a></li>
             <li><a target="_blank" href="https://github.com/codersaiful/woo-product-table/discussions"><?php echo esc_html__( 'Forum on Repo', 'wpt_pro' ); ?></a></li>
-            <li><a target="_blank" href="https://wooproducttable.com/documentation/"><?php echo esc_html__( 'Documentation', 'wpt_pro' ); ?></a></li>
-            <li><a target="_blank" href="https://codeastrology.com/supports/"><?php echo esc_html__( 'Get Support', 'wpt_pro' ); ?></a></li>
+            <li><a target="_blank" href="https://wooproducttable.com/documentation/?utm_source=Product+Table+EditPage&utm_medium=Free+Version"><?php echo esc_html__( 'Documentation', 'wpt_pro' ); ?></a></li>
+            <li><a target="_blank" href="https://codeastrology.com/support/?utm_source=Product+Table+EditPage&utm_medium=Free+Version"><?php echo esc_html__( 'Get Support', 'wpt_pro' ); ?></a></li>
             
 
         </ul>    

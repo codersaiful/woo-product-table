@@ -39,6 +39,7 @@ if( ! class_exists( 'CA_Framework\Require_Control' ) ){
         );
 
         private $stop_next = 0;
+        private $file = __FILE__;
 
         /**
          * Controller of Manage required/recommended plugin.
@@ -84,16 +85,24 @@ if( ! class_exists( 'CA_Framework\Require_Control' ) ){
 
         public function run()
         {
-            //Check Admin User
-            if( ! is_admin() ) return;
-
             // Return null, If already our required plugin is installed.
-            if( is_plugin_active( $this->plugin_slug ) ) return;
+            if( is_plugin_active( $this->plugin_slug ) ){ 
+                return;
+            }
 
+            if( $this->required && ! is_plugin_active( $this->plugin_slug ) ){
+                $this->stop_next = 1;
+            };
+
+            //Check Admin User
+            if( ! is_admin() ){ 
+                return;
+            }
+            
             //Return Null Controll;
             if( isset( $_GET['action'] ) && ( $_GET['action'] == 'install-plugin' || $_GET['action'] == 'activate' ) ){
                 $this->stop_next = 1;
-                return $this->stop_next;
+                return;
             }
 
             //Check Aganin installation prosibility when reconneded and Date over. by default we set diff_limit = 5 days.
@@ -101,11 +110,19 @@ if( ! class_exists( 'CA_Framework\Require_Control' ) ){
 
             //Final Display Notice 
             add_action( 'admin_notices', [ $this, 'display_notice' ] );
-
-            if( $this->required ) $this->stop_next = 1;
-            return $this->stop_next;
+            return;
         }
 
+        /**
+         * Get File information, from where class is calling.
+         * It's required for debugging.
+         *
+         * @return String Get File information, from where class is calling.
+         */
+        public function get_file(){
+            return $this->file;
+        }
+        
         /**
          * Display Notice Again after close using close button
          * I have taken help for this part of Notice's Object js part
