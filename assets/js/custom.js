@@ -13,28 +13,6 @@ jQuery(function($) {
         }
         
 
-
-        // $(window).on('scroll',function(){
-        //     var scroll = $(window).scrollTop();
-
-        //     var table = $('.normal_table_wrapper').position();
-        //     var tableTop = table.top;
-        //     console.log(scroll,tableTop);
-        //     if(scroll > tableTop){
-        //         $('.wpt_table_tag_wrapper').css({
-        //             overflow: 'auto',
-        //             height: '550px'
-        //         });
-        //     }else{
-        //         $('.wpt_table_tag_wrapper').css({
-        //             overflow: 'auto',
-        //             height: 'auto'
-        //         });
-        //     }
-            
-        // });
-
-
         //Select2
         if(typeof $('.wpt_product_table_wrapper .search_select').select2 === 'function' && $('.wpt_product_table_wrapper .search_select').length > 0 && WPT_DATA.select2 !== 'disable' ){
             var select2Object = {};
