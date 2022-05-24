@@ -36,8 +36,8 @@ if( ! class_exists( 'WPT_Required' ) ){
             self::$stop_next += $req_wc_next;
             
             if( ! $req_wc_next ){
-                //self::display_notice();
-                //self::display_common_notice();
+                self::display_notice();
+                self::display_common_notice();
             }
 
             return self::$stop_next;
@@ -58,29 +58,30 @@ if( ! class_exists( 'WPT_Required' ) ){
                  * 
                  */
 
-                $small_notc = new Notice('small1');
+                $small_notc = new Notice('small2');
                 $small_notc->set_message(sprintf( __( '<b>Product Table for Woocommerce (Woo Product Table)</b>: lots of special feature waiting for you. %s.', 'wpt_pro' ), "<a href='https://wooproducttable.com/pricing/'>Get Premium</a>" ));
                 $small_notc->set_diff_limit(7);
                 $small_notc->show();
 
 
-                /**
-                 * Eid Offer Discount
-                 * 
-                 * 
-                 */
-                $my_message = '<b>EID Mubarak!!!</b> Upto 60% discount for - <b>Product Table for WooCommerce (Woo Product Table)</b> Plugin. This offer will stay valid upto EID day.';
-                $offerNc = new Notice('offerapr22');
-                $offerNc->set_title( 'Eid Offer: 60% off' )
-                ->set_diff_limit(3)
-                ->set_type('primary')
-                ->set_message( $my_message )
-                ->add_button([
-                    'text' => 'Get Product Table Premium',
-                    'type' => 'danager',
-                    'link' => 'https://wooproducttable.com/pricing/'
-                ])
-                ->show();
+                
+                // $my_message = 'Discount for <b>Product Table for WooCommerce (Woo Product Table)</b> Plugin. Limited Time.';
+                // $offerNc = new Notice('offerapr23');
+                // $offerNc->set_title( 'Special Discount' )
+                // ->set_diff_limit(10)
+                // ->set_type('error')
+                // ->set_message( $my_message )
+                // ->add_button([
+                //     'text' => 'Get Premium',
+                //     'type' => 'danager',
+                //     'link' => 'https://wooproducttable.com/pricing/'
+                // ])
+                // ->add_button([
+                //     'text' => 'Documentation',
+                //     'type' => 'error',
+                //     'link' => 'https://wooproducttable.com/documentation/'
+                // ])
+                // ->show();
                 
                 
 
