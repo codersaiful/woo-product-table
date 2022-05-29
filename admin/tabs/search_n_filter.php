@@ -1,5 +1,11 @@
 <?php
 $meta_search_n_filter =  get_post_meta( $post->ID, 'search_n_filter', true );
+
+$terms = get_terms();
+$allTerms = array();
+foreach($terms as $term){
+    $allTerms[$term->taxonomy]=$term->taxonomy;
+}
 ?>
 <div class="section ultraaddons-panel">
     
@@ -32,20 +38,32 @@ $meta_search_n_filter =  get_post_meta( $post->ID, 'search_n_filter', true );
                     <label class="wpt_label" for="wpt_taxonomy_keywords"><?php esc_html_e( 'Taxonomy Keywords for Advance Search Box (Separate with comma[,])', 'wpt_pro' ); ?></label>
                 </th>
                 <td>
-                    <input name="search_n_filter[taxonomy_keywords]" data-name='taxonomy_keywords' id="wpt_taxonomy_keywords" value="<?php echo isset( $meta_search_n_filter['taxonomy_keywords'] ) ?$meta_search_n_filter['taxonomy_keywords'] : 'product_cat,product_tag'; ?>" class="wpt_fullwidth wpt_data_filed_atts ua_input" type="text" placeholder="<?php esc_attr_e( 'eg: product_cat,product_tag,color,size', 'wpt_pro' ); ?>">
-                    <p><?php echo sprintf( esc_html__( 'There are lot of %s for creating Taxonomy.', 'wpt_pro' ),
-                            '<a href="https://wordpress.org/plugins/search/Taxonomy/" target="_blank">Taxonomy Creator Plugin available</a>'
-                            );
+                    <?php
+                    
+                    $taxonomy_keywords = $meta_search_n_filter['taxonomy_keywords'] ?? array();
+                    
                     ?>
-                    </p>
+                    <select name="search_n_filter[taxonomy_keywords][]" class="wpt_fullwidth wpt_data_filed_atts wpt_select2 ua_input" multiple>
+                        <?php
+                        foreach($allTerms as $eTerms){
+                            $taxonomy_details = get_taxonomy( $eTerms );
+                            $label = $taxonomy_details->labels->menu_name ?? '';
+                            if(empty($label)) continue;
+                            $selected = is_array( $taxonomy_keywords ) && in_array($eTerms, $taxonomy_keywords) ? 'selected' : '';
+                            echo "<option value='$eTerms' $selected>$label</option>";
+                        }
+                        ?>
+                    </select>
+                    <!-- <input name="search_n_filter[taxonomy_keywords]" data-name='taxonomy_keywords' id="wpt_taxonomy_keywords" value="<?php echo isset( $meta_search_n_filter['taxonomy_keywords'] ) ?$meta_search_n_filter['taxonomy_keywords'] : 'product_cat,product_tag'; ?>" class="wpt_fullwidth wpt_data_filed_atts ua_input" type="text" placeholder="<?php esc_attr_e( 'eg: product_cat,product_tag,color,size', 'wpt_pro' ); ?>"> -->
+                    
                 </td>
             </tr>
         </table>
 
     <?php
-        if( isset( $meta_search_n_filter['taxonomy_keywords'] ) && strlen( $meta_search_n_filter['taxonomy_keywords'] ) > 0 ){
-            $snf_keywords = $meta_search_n_filter['taxonomy_keywords'];
-            $snf_keywords = explode( ',', $snf_keywords );
+        if( is_array( $taxonomy_keywords ) ){
+            // $snf_keywords = $meta_search_n_filter['taxonomy_keywords'];
+            $snf_keywords = $taxonomy_keywords;//explode( ',', $snf_keywords );
 
 
             foreach( $snf_keywords as $per_keyword ){
@@ -120,11 +138,24 @@ $meta_search_n_filter =  get_post_meta( $post->ID, 'search_n_filter', true );
                     <label class="wpt_label" for="wpt_filter"><?php esc_html_e( 'Taxonomy Keywords for Filter (Separate with comma[,])', 'wpt_pro' ); ?></label>
                 </th>
                 <td>
-                    <input name="search_n_filter[filter]" data-name='filter' id="wpt_filter" value="<?php echo isset( $meta_search_n_filter['filter'] ) ?$meta_search_n_filter['filter'] : 'product_cat,product_tag'; ?>" class="wpt_fullwidth wpt_data_filed_atts ua_input" type="text" value="" placeholder="<?php esc_attr_e( 'eg: product_cat,product_tag,color,size', 'wpt_pro' ); ?>">
-                    <p><?php echo sprintf( esc_html__( 'There are lot of %s for creating Taxonomy.', 'wpt_pro' ),
-                            '<a href="https://wordpress.org/plugins/search/Taxonomy/" target="_blank">Taxonomy Creator Plugin available</a>'
-                            );
+                <?php
+                    
+                    $mini_filter_keywords = $meta_search_n_filter['filter'] ?? array();
+                    
                     ?>
+                    <select name="search_n_filter[filter][]" multiple class="wpt_fullwidth wpt_data_filed_atts wpt_select2 ua_input">
+                        <?php
+                        foreach($allTerms as $eTerms){
+                            $taxonomy_details = get_taxonomy( $eTerms );
+                            $label = $taxonomy_details->labels->menu_name ?? '';
+                            if(empty($label)) continue;
+                            $selected = is_array($mini_filter_keywords) && in_array($eTerms, $mini_filter_keywords) ? 'selected' : '';
+                            echo "<option value='$eTerms' $selected>$label</option>";
+                        }
+                        ?>
+                    </select>
+
+                    
                     </p>
                 </td>
             </tr>

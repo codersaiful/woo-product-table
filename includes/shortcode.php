@@ -197,10 +197,10 @@ if( ! function_exists( 'wpt_shortcode_generator' ) ){
             
             //Search and Filter
             $search_box = $search_n_filter['search_box'] == 'no' ? false : true;
-            $texonomiy_keywords = wpt_explode_string_to_array( $search_n_filter['taxonomy_keywords'] ); 
+            $texonomiy_keywords = $search_n_filter['taxonomy_keywords'] ?? array();
 
             $filter_box = $search_n_filter['filter_box'] == 'no' ? false : true;
-            $filter_keywords = wpt_explode_string_to_array( $search_n_filter['filter'] );
+            $filter_keywords = $search_n_filter['filter'] ?? array();
 
             //Pagination Start
             $pagination_start = isset( $pagination['start'] ) ? $pagination['start'] : '1'; //1 FOR ENABLE, AND 0 FOR DISABLE //Default value 1 - Enable
