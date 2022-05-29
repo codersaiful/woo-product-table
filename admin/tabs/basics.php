@@ -220,7 +220,7 @@ do_action( 'wpto_admin_basic_tab',$meta_basics, $tab, $post, $tab_array );
 
 
     <div class="wpt_column">
-        <table class="ultraaddons-table">
+        <table class="ultraaddons-table wpt-table-separator">
             <tr>
                 <th>
                     <label class="wpt_label wpt_table_operation" for='wpt_table_operation'><?php esc_html_e('Taxonomy Query Operation','wpt_pro');?></label>

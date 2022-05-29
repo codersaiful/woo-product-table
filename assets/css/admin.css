@@ -1670,8 +1670,21 @@ body.post-type-wpt_product_table #stick_on_scroll-on {
     margin-bottom: 15px;
     font-size: 14px;
   }
-
-
+  table.wpt-table-separator, tr.wpt-table-separator, td.wpt-table-separator, div.wpt-table-separator {
+    border-top: 3px solid #007694;
+    padding-top: 30px;
+    margin-top: 30px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+ }
+ table.wpt-table-separator-light, 
+ tr.wpt-table-separator-light, 
+ td.wpt-table-separator-light, 
+ div.wpt-table-separator-light {
+    border-top: 1px solid #b2c5c98c;
+    padding-top: 15px;
+    padding-bottom: 10px;
+ }
   /* wpml area start **/
 p.wpt-each-input {margin: 0;}
 .language-area {margin-bottom: 8px;}
@@ -1687,3 +1700,5 @@ p.lang-area-title {margin: 0;}
 
 .wpml-lang-input-area.basic-tab-wpml-area>div.wpt-each-input input {width: 100%;}
   /* wpml area end **/
+
+

@@ -32,7 +32,7 @@ foreach($terms as $term){
     <?php do_action( 'wpto_admin_search_n_filter_tab', $meta_search_n_filter, $post ); ?>
 
 
-        <table class="ultraaddons-table wpt_snf_on_off ">
+        <table class="ultraaddons-table wpt_snf_on_off wpt-table-separator-light">
             <tr>
                 <th>
                     <label class="wpt_label" for="wpt_taxonomy_keywords"><?php esc_html_e( 'Taxonomy Keywords for Advance Search Box (Separate with comma[,])', 'wpt_pro' ); ?></label>
@@ -116,7 +116,7 @@ foreach($terms as $term){
 
 
     <div class="wpt_column">
-        <table class="ultraaddons-table">
+        <table class="ultraaddons-table wpt-table-separator">
             <tr>
                 <th>
                     <label class="wpt_label" for="wpt_filter_box"><?php esc_html_e( 'Mini Filter', 'wpt_pro' ); ?></label>
