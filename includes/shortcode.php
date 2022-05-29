@@ -196,10 +196,10 @@ if( ! function_exists( 'wpt_shortcode_generator' ) ){
             $table_mobileHide_keywords = isset( $mobile['disable'] ) ? $mobile['disable'] : false;
             
             //Search and Filter
-            $search_box = $search_n_filter['search_box'] == 'no' ? false : true;
+            $search_box = isset( $search_n_filter['search_box'] ) && $search_n_filter['search_box'] == 'no' ? false : true;
             $texonomiy_keywords = $search_n_filter['taxonomy_keywords'] ?? array();
 
-            $filter_box = $search_n_filter['filter_box'] == 'no' ? false : true;
+            $filter_box = isset( $search_n_filter['filter_box'] ) && $search_n_filter['filter_box'] == 'no' ? false : true;
             $filter_keywords = $search_n_filter['filter'] ?? array();
 
             //Pagination Start

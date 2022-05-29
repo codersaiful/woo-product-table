@@ -101,7 +101,10 @@ if( ! function_exists( 'wpt_ajax_paginate_links_load' ) ){
             $args['s'] = false;
         }
 
+        $args = apply_filters( 'wpto_query_arg_ajax', $args, $directkey, $targetTableArgs, $custom_field, $texonomies );
+
         $args['posts_per_page'] = is_numeric( $args['posts_per_page'] ) ? (int) $args['posts_per_page'] : $args['posts_per_page'];
+        
         
         $table_row_generator_array = array(
             'args'                      => $args,
@@ -162,6 +165,7 @@ if( ! function_exists( 'wpt_ajax_table_row_load' ) ){
         
         $data = filter_input_array(INPUT_POST,$filter_args);
         $data = array_filter( $data );
+        
         $targetTableArgs = ( isset( $data['targetTableArgs'] ) && is_array( $data['targetTableArgs'] ) ? $data['targetTableArgs'] : false );
         $temp_number = ( isset( $data['temp_number'] ) ? absint( $data['temp_number'] ) : false );
         $directkey = ( isset( $data['directkey'] ) && is_array( $data['directkey'] ) ? $data['directkey'] : false );
@@ -222,7 +226,9 @@ if( ! function_exists( 'wpt_ajax_table_row_load' ) ){
         if(isset( $args['s'] ) && $args['s'] == 'false'){
             $args['s'] = false;
         }
-   
+        
+        $args = apply_filters( 'wpto_query_arg_ajax', $args, $directkey, $targetTableArgs, $custom_field, $texonomies );
+
         $table_row_generator_array = array(
             'args'                      => $args,
             'wpt_table_column_keywords' => $table_column_keywords,
