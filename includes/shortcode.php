@@ -1113,42 +1113,25 @@ if( !function_exists( 'wpt_search_box' ) ){
         $html .= "<div class='search_single search_single_direct'>";
         
         $search_keyword = isset( $_GET['search_key'] ) ? sanitize_text_field( $_GET['search_key'] ) : '';
-        $order_by = isset( $_GET['orderby'] ) ? sanitize_text_field( $_GET['orderby'] ) : $order_by;
-        $order = isset( $_GET['order'] ) ? sanitize_text_field( $_GET['order'] ) : $order;
+        
 
-            $single_keyword = $config_value['search_keyword_text'];//__( 'Search keyword', 'wpt_pro' );
-            $search_order_placeholder = $config_value['search_box_searchkeyword'];//__( 'Search keyword', 'wpt_pro' );
-            $html .= "<div class='search_single_column'>";
-            $html .= '<label class="search_keyword_label single_keyword" for="single_keyword_' . $temp_number . '">' . $single_keyword . '</label>';
-            $html .= '<input data-key="s" value="' . $search_keyword . '" class="query_box_direct_value" id="single_keyword_' . $temp_number . '" value="" placeholder="' . $search_order_placeholder . '"/>';
-            $html .= "</div>";// End of .search_single_column
+        $single_keyword = $config_value['search_keyword_text'];//__( 'Search keyword', 'wpt_pro' );
+        $search_order_placeholder = $config_value['search_box_searchkeyword'];//__( 'Search keyword', 'wpt_pro' );
+        $html .= "<div class='search_single_column'>";
+        $html .= '<label class="search_keyword_label single_keyword" for="single_keyword_' . $temp_number . '">' . $single_keyword . '</label>';
+        $html .= '<input data-key="s" value="' . $search_keyword . '" class="query_box_direct_value" id="single_keyword_' . $temp_number . '" value="" placeholder="' . $search_order_placeholder . '"/>';
+        $html .= "</div>";// End of .search_single_column
 
-            $order_by_validation = apply_filters( 'wpto_searchbox_order_show', false,$temp_number, $config_value, $search_box_texonomiy_keyword );
-            if( $order_by_validation ):
-            $single_keyword = $config_value['search_box_orderby'];//__( 'Order By', 'wpt_pro' ); //search_box_orderby
-            $html .= "<div class='search_single_column search_single_sort search_single_order_by'>";
-            $html .= '<label class="search_keyword_label single_keyword" for="order_by' . $temp_number . '">' . $single_keyword . '</label>';
-
-            $html .= '<select data-key="orderby" id="order_by_' . $temp_number . '" class="query_box_direct_value select2" >';
-            $html .= '<option value="name" '. wpt_check_sortOrder( $order_by, 'name' ) .'>'.esc_html__( 'Name','wpt_pro' ).'</option>';
-            $html .= '<option value="menu_order" '. wpt_check_sortOrder( $order_by, 'menu_order' ) .'>'.esc_html__( 'Menu Order','wpt_pro' ).'</option>';
-            $html .= '<option value="type" '. wpt_check_sortOrder( $order_by, 'type' ) .'>'.esc_html__( 'Type','wpt_pro' ).'</option>';
-            $html .= '<option value="comment_count" '. wpt_check_sortOrder( $order_by, 'comment_count' ) .'>'.esc_html__( 'Reviews','wpt_pro' ).'</option>';
-            $html .= '</select>';
-
-            $html .= "</div>";// End of .search_single_column
-
-            $single_keyword = $config_value['search_box_order']; //__( 'Order', 'wpt_pro' );
-            $html .= "<div class='search_single_column search_single_order'>";
-            $html .= '<label class="search_keyword_label single_keyword" for="order_' . $temp_number . '">' . $single_keyword . '</label>';
-            $html .= '<select data-key="order" id="order_' . $temp_number . '" class="query_box_direct_value select2" >  ';
-            $html .= '<option value="ASC" '. wpt_check_sortOrder( $order, 'ASC' ) .'>'.esc_html__( 'ASCENDING','wpt_pro' ).'</option>';
-            $html .= '<option value="DESC" '. wpt_check_sortOrder( $order, 'DESC' ) .'>'.esc_html__( 'DESCENDING','wpt_pro' ).'</option>';
-            $html .= '<option value="random" '. wpt_check_sortOrder( $order, 'random' ) .'>'.esc_html__( 'Random','wpt_pro' ).'</option>';
-            $html .= '</select>';
-
-            $html .= "</div>";// End of .search_single_column
-            endif;
+        ob_start();
+        /**
+         * Used following hook to insert two insert other field
+         * such:
+         * Order By, Order and On sale
+         * 
+         * @author Saiful Islam <codersaiful@gmail.com>
+         */
+        do_action( 'wpto_search_box_basics', $temp_number, $config_value, $order_by, $order );
+        $html .= ob_get_clean();
 
         $html .= "</div>"; //end of .search_single
 

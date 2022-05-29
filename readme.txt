@@ -213,6 +213,7 @@ You can easily show specific category products. While creating new table click o
 == Changelog ==
 
 = 3.1.8 =
+  * New filter Added `wpto_search_box_basics` for search box of Advance
   * Search and Filter bug fixed andded advance features.
 
 = 3.1.7 =
