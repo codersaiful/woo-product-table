@@ -1739,7 +1739,6 @@ jQuery(function($) {
                 var priceFormat = WPT_DATA.priceFormat;
                
                 var newPrice;
-    
                 switch (priceFormat) {
                 case 'left': // left
                     //newPrice = targetCurrency + totalPrice.replace(".",targetPriceDecimalSeparator);
