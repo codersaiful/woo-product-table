@@ -794,7 +794,7 @@ if( ! function_exists( 'wpt_table_row_generator' ) ){
         $args['suppress_filters'] = 1;
         
         $args['posts_per_page'] = is_numeric( $args['posts_per_page'] ) ? (int) $args['posts_per_page'] : $args['posts_per_page'];
-        var_dump($args);
+        // var_dump($args);
         $product_loop = new WP_Query($args);
         // var_dump($product_loop);
 
