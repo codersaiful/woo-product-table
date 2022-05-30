@@ -439,14 +439,14 @@ if( !function_exists( 'wpt_configure_label_part' ) ){
                             <input name="<?php echo esc_attr( $field_name ); ?>[search_box_searchkeyword]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['search_box_searchkeyword'] ); ?>" id="wpt_table_search_box_searchkeyword" type="text" placeholder="<?php esc_attr_e( 'Search Keyword text', 'wpt_pro' ); ?>">
                         </td>
                     </tr>
-
+                    <?php if( defined( 'WPT_PRO_DEV_VERSION' ) ){ ?>
                     <tr>
                         <th><label for="wpt_table_search_box_sale" class="wpt_label"><?php esc_html_e( 'SearchBox Sale text', 'wpt_pro' ); ?></label></label></th>
                         <td>
-                            <input name="<?php echo esc_attr( $field_name ); ?>[search_box_sale]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['search_box_sale'] ?? 'Sale' ); ?>" id="wpt_table_search_box_sale" type="text" placeholder="<?php esc_attr_e( 'Sale', 'wpt_pro' ); ?>">
+                            <input name="<?php echo esc_attr( $field_name ); ?>[search_box_sale]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['search_box_sale'] ?? '' ); ?>" id="wpt_table_search_box_sale" type="text" placeholder="<?php esc_attr_e( 'Sale', 'wpt_pro' ); ?>">
                         </td>
                     </tr>
-
+                    <?php } ?>
                     <tr>
                         <th><label for="wpt_table_search_box_orderby" class="wpt_label"><?php esc_html_e( 'SearchBox Order By text', 'wpt_pro' ); ?></label></label></th>
                         <td>
