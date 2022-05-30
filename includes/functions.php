@@ -1605,10 +1605,11 @@ if( ! function_exists( 'wpt_get_agrs_for_variable' ) ){
 
         if( ! empty( $args['post_parent__in'] ) ){
             unset($args['post__in']);
-            unset($args['tax_query']['product_cat_IN']);
-            unset($args['tax_query']['product_cat_AND']);
-            unset($args['tax_query']['product_tag_IN']);
-            unset($args['tax_query']['product_tag_AND']);
+            unset($args['tax_query']);
+            // unset($args['tax_query']['product_cat_IN']);
+            // unset($args['tax_query']['product_cat_AND']);
+            // unset($args['tax_query']['product_tag_IN']);
+            // unset($args['tax_query']['product_tag_AND']);
 
         }
 
