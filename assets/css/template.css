@@ -611,12 +611,15 @@ table.add_cart_right_icon tr .wpt_action a.button:after {
   overflow: hidden;
 }
 .dark_wrapper .dark_table.custom_table tr {
-  border-color: #46637f;
-opacity: 1 !important;border: 1px solid #28333f;}
+border-color: #46637f;
+opacity: 1 !important;
+border: 1px solid #6b7c8f;
+}
 
 @media (min-width: 480px) {
   .dark_wrapper .dark_table.custom_table, .dark_wrapper .dark_table.custom_table td {
     padding: 1em !important;
+    background: #34495E;
   }
 }
 .dark_wrapper .dark_table.custom_table thead .wpt_table_header_row th, .dark_wrapper .dark_table.custom_table td:before {
@@ -652,7 +655,8 @@ padding: 15px 10px;}
     border-radius: 5px;
 }
 .dark_wrapper .dark_table.custom_table tbody tr a.button, 
-.dark_wrapper .caqv-open-modal{
+.dark_wrapper .caqv-open-modal, .dark_wrapper  button, 
+.dark_wrapper .button{
 	background: #4b908f;
 	font-size:14px;
 	font-weight:400;
@@ -795,6 +799,7 @@ text-decoration: none;
     font-weight: 400;
     border-radius: 5px;
     margin-right: 7px;
+    color: #fff;
 }
 .dark_wrapper a.page-numbers:hover, 
 .dark_wrapper a.page-numbers:focus, 
