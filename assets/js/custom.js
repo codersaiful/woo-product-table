@@ -893,6 +893,7 @@ jQuery(function($) {
                 totalPrice = totalPrice.toFixed(targetNumbersPoint);
 
                 var priceFormat = WPT_DATA.priceFormat;
+                
                 var newPrice;
                 switch(priceFormat){
                     case 'left': // left
@@ -1731,24 +1732,30 @@ jQuery(function($) {
                 var targetCurrency = targetTotalSelector.data('currency');
                 var targetPriceDecimalSeparator = targetTotalSelector.data('price_decimal_separator');
                 var targetPriceThousandlSeparator = targetTotalSelector.data('thousand_separator');
+
                 var targetNumbersPoint = targetTotalSelector.data('number_of_decimal');
                 var totalPrice = parseFloat(targetPrice) * parseFloat(Qty_Val);
                 totalPrice = totalPrice.toFixed(targetNumbersPoint);
                 var priceFormat = WPT_DATA.priceFormat;
+               
                 var newPrice;
-                switch(priceFormat){
-                    case 'left': // left
-                        newPrice = targetCurrency + totalPrice.replace(".",targetPriceDecimalSeparator);
-                        break;
-                    case 'right': // right
-                        newPrice = totalPrice.replace(".",targetPriceDecimalSeparator) + targetCurrency;
-                        break;
-                    case 'left-space': // left with space
-                        newPrice = targetCurrency + ' ' + totalPrice.replace(".",targetPriceDecimalSeparator);
-                        break;
-                    case 'right-space': // right with space
-                        newPrice = totalPrice.replace(".",targetPriceDecimalSeparator) + ' ' + targetCurrency;
-                        break;
+                switch (priceFormat) {
+                case 'left': // left
+                    //newPrice = targetCurrency + totalPrice.replace(".",targetPriceDecimalSeparator);
+                    newPrice = targetCurrency+ (totalPrice + '').replace(/\B(?=(?:\d{3})+\b)/g, ',');
+                    break;
+                case 'right': // right
+                    //newPrice = totalPrice.replace(".",targetPriceDecimalSeparator) + targetCurrency;
+                    newPrice = (totalPrice + '').replace(/\B(?=(?:\d{3})+\b)/g, ',') + targetCurrency;
+                    break;
+                case 'left-space': // left with space
+                    //newPrice = targetCurrency + ' ' + totalPrice.replace(".",targetPriceDecimalSeparator);
+                    newPrice = targetCurrency + ' ' +  (totalPrice + '').replace(/\B(?=(?:\d{3})+\b)/g, ',');
+                    break;
+                case 'right-space': // right with space
+                    //newPrice = totalPrice.replace(".",targetPriceDecimalSeparator) + ' ' + targetCurrency;
+                    newPrice =  (totalPrice + '').replace(/\B(?=(?:\d{3})+\b)/g, ',') + ' ' + targetCurrency;
+                    break;
                 }
 
                 $('.yith_request_temp_' + temp_number + '_id_' + product_id).attr('data-quantity', Qty_Val);
