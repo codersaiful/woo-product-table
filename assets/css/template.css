@@ -783,6 +783,13 @@ text-decoration: none;
     font-weight: 400;
 
 }
+.dark_wrapper .wpt_product_table tbody tr .star-rating{
+    margin: 0;
+}
+.dark_wrapper .wpt_product_table .star-rating::before {
+    font-size: 14px;
+    color: #ddcd10;
+}
 .dark_wrapper .dark_table.custom_table a.button.wpt_woo_add_cart_button>span.wpt_ccount {
     right: -14px;
 }
