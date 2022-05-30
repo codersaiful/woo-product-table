@@ -2710,11 +2710,11 @@ jQuery(function($) {
          */
         $('.wpt_product_table input.input-text.qty.text').trigger('change');
         
-        
          $('.yith-ywraq-add-to-quote').each(function(){
              let qty = $(this).closest('tr').data('quantity');
             $(this).append('<input type="hidden" class="input-text qty text" value="' + qty + '">');
         });
+        
         
     });
 });
