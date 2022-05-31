@@ -9,7 +9,7 @@
     $tab_array = array(
         'column_settings'   => __( 'Column', 'wpt_pro' ),
         'basics'            => __( 'Basics', 'wpt_pro' ),
-        'table_style'       => sprintf(__( 'Design %sPro%s', 'wpt_pro' ), '<i class="wpt_pro_badge">', '</i>' ),
+        'table_style'       => sprintf(__( 'Design %sLimited%s', 'wpt_pro' ), '<i class="wpt_pro_badge">', '</i>' ),
         'conditions'        => __( 'Conditions', 'wpt_pro' ),
         'search_n_filter'   => __( 'Search & Filter','wpt_pro' ),
         //'responsive'   => __( 'Responsive', 'wpt_pro' ),
@@ -78,6 +78,7 @@
              */
             do_action( 'wpto_admin_tab_' . $tab, $post, $tab_array );
             include $tab_file_of_admin; 
+            do_action( 'wpto_admin_tab_bottom_' . $tab, $post, $tab_array );
         }elseif( $tab_validation ){
             echo '<h2>' . $tab . '.php ' . esc_html__( 'file is not found in tabs folder','wpt_pro' ) . '</h2>';
         }
