@@ -873,8 +873,9 @@ text-decoration: none;
     border-collapse: collapse;
 }
 .smart_light_wrapper tbody tr td{
-    vertical-align: middle;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 5px;
+    vertical-align: middle;
 }
 
 .smart_light_wrapper table a{
@@ -970,6 +971,9 @@ color:#777
     border-top: 1.2px solid #007bff;
     border-bottom: 1.2px solid #007bff;
     transition: .5s;
+}
+.smart_light_wrapper td.wpt_thumbnails img {
+    border-radius: 5px;
 }
 @media only screen and (min-width: 761px) {
     table.custom_table tbody tr:nth-child(2n+2) td input {
