@@ -967,10 +967,46 @@ color:#777
     background:transparent;
     color: rgb(0, 0, 0);
 }
-.smart_light_wrapper table tbody tr:hover{
-    border-top: 1.2px solid #007bff;
-    border-bottom: 1.2px solid #007bff;
-    transition: .5s;
+
+.smart_light_wrapper table tbody tr th, 
+.smart_light_wrapper table tbody tr td {
+    position: relative;
+    -webkit-transition: .3s all ease;
+    -o-transition: .3s all ease;
+    transition: .3s all ease;
+}
+.smart_light_wrapper table tbody tr th:before, 
+.smart_light_wrapper table tbody tr th:after, 
+.smart_light_wrapper table tbody tr td:before, 
+.smart_light_wrapper table tbody tr td:after {
+    -webkit-transition: .3s all ease;
+    -o-transition: .3s all ease;
+    transition: .3s all ease;
+    content: "";
+    left: 0;
+    right: 0;
+    position: absolute;
+    height: 1px;
+    background: #007bff;
+    width: 100%;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.smart_light_wrapper table tbody tr:hover th:before, 
+.smart_light_wrapper table tbody tr:hover th:after, 
+.smart_light_wrapper table tbody tr:hover td:before, 
+.smart_light_wrapper table tbody tr:hover td:after {
+    opacity: 1;
+    visibility: visible;
+}
+.smart_light_wrapper table tbody tr th:after, 
+.smart_light_wrapper table tbody tr td:after {
+    bottom: -1px;
+}
+.smart_light_wrapper tbody tr th:before, 
+.smart_light_wrapper tbody tr td:before {
+    top: -1px;
 }
 .smart_light_wrapper td.wpt_thumbnails img {
     border-radius: 5px;
