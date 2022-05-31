@@ -1649,3 +1649,28 @@ if( defined('B2BKING_DIR') && ! function_exists( 'wpt_b2bking_plugin_integration
 
     add_filter( 'wpto_table_query_args', 'wpt_b2bking_plugin_integration' );
 }
+
+
+/**
+ * Pro version CSS template hanndle
+ * we have a folder inside css folder
+ * and template will load based on choosen template.
+ *
+ * @param [type] $tbl_id
+ * @return void
+ */
+function wpt_default_css_template( $tbl_id ){
+    
+    $meta = get_post_meta( $tbl_id, 'table_style', true );
+    $template = $meta['template'] ?? false;
+    if( $template == 'none' || $template == 'default' || $template == 'custom' ) return;
+    if( ! $template ) return;
+    
+    $template_dir = WPT_BASE_DIR . 'assets/css/templates/'. $template . '.css';
+
+    if( ! is_file( $template_dir ) ) return;
+
+    $template_file = WPT_Product_Table::getPath('BASE_URL') . 'assets/css/templates/' . $template . '.css';
+    wp_enqueue_style( 'wpt-template-' . $template , $template_file, array(), WOO_Product_Table::getVersion(), 'all' );
+}
+add_action( 'wpto_action_start_table','wpt_default_css_template', 999 );
