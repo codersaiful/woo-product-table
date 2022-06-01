@@ -1663,7 +1663,7 @@ function wpt_default_css_template( $tbl_id ){
     
     $meta = get_post_meta( $tbl_id, 'table_style', true );
     $template = $meta['template'] ?? false;
-    if( $template == 'none' || $template == 'default' || $template == 'custom' ) return;
+    if( $template == 'none' || $template == 'default' || $template == 'custom' );
     if( ! $template ) return;
     
     $template_dir = WPT_BASE_DIR . 'assets/css/templates/'. $template . '.css';

@@ -1,0 +1,47 @@
+/*********** Template: Default ************/
+.default_table thead .wpt_table_header_row th {
+    padding: 17px;
+    color: #fff;
+    background: #0a7f9c;
+}
+.default_table{
+	position: relative;
+	border-collapse: collapse;
+	width: 100%;
+	margin: 0 auto;
+	position: relative;
+}
+.default_table thead{
+	border-bottom: 2px solid #36304a;
+}
+
+.default_table td,
+.default_table th {
+	padding: 10px;
+}
+.default_table tbody tr td{
+	border: 1px solid #F6F6F6;
+}
+.default_table .wpt_row td img{
+        height: auto;
+} 
+.default_table tbody tr{
+	transition: all .5s;
+}
+
+.default_table tbody tr:hover{
+	background: #f7faff4f;
+}
+.default_table tbody tr a.button{
+	display: inline-block;
+    padding: 10px;
+    background: #36304a;
+    color: #fff;
+    font-size: 14px;
+    border-radius: 3px;
+    font-weight: bold;
+}
+/*for hover of default template*/
+table#wpt_table.wpt_product_table.default_table thead>tr>th.this_column_sorted {
+    background-color: rgb(245, 245, 245) !important;
+}
