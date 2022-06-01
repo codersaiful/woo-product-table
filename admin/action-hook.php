@@ -688,3 +688,25 @@ if( !function_exists( 'wpt_profeatures_message_box' ) ){
     }
 }
 add_action( 'wpo_pro_feature_message', 'wpt_profeatures_message_box' );
+
+/**
+ * This will add a new input box inside short description column
+ * we can add description limit 
+ */
+if( !function_exists( 'wpt_extra_field_for_disc_limit' ) ){
+    
+    function wpt_extra_field_for_disc_limit( $_device_name, $column_settings ){
+
+        $short_description = isset( $column_settings['short_description'] ) ? $column_settings['short_description'] : false;
+        $short_description_length = isset( $short_description['short_description_length'] ) ? $short_description['short_description_length'] : '';
+
+          ?>
+              <label><?php echo esc_html__( 'Description Length :', 'wpt_pro' ); ?></label>
+              <input type="text" class="ua_input" name="column_settings<?php echo esc_attr( $_device_name ); ?>[short_description][short_description_length]" value="<?php echo esc_attr( $short_description_length ); ?>">
+              
+          <?php
+  
+    }
+    
+ }
+ add_action( 'wpto_column_setting_form_inside_short_description', 'wpt_extra_field_for_disc_limit', 10, 2 );
