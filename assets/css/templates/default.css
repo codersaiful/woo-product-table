@@ -2,7 +2,9 @@
 .default_wrapper{
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-
+.default_wrapper .wpt_table_tag_wrapper{
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
 table.default_table {
 	font-size: 15px;
 	text-align: left;
