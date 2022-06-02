@@ -1,47 +1,220 @@
 /*********** Template: Default ************/
-.default_table thead .wpt_table_header_row th {
+.default_wrapper{
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+table.default_table {
+	font-size: 15px;
+	text-align: left;
+	border-radius: 5px;
+	}
+  table.default_table a, .default_wrapper a{
+	  text-decoration: none;
+  }
+  table.default_table  thead .wpt_table_header_row th {
     padding: 17px;
     color: #fff;
-    background: #0a7f9c;
-}
-.default_table{
-	position: relative;
-	border-collapse: collapse;
-	width: 100%;
-	margin: 0 auto;
-	position: relative;
-}
-.default_table thead{
-	border-bottom: 2px solid #36304a;
+    background: #0093b8;
+	font-weight: 600;
 }
 
-.default_table td,
-.default_table th {
+  table.default_table td, table.default_table th {
+	color: #2b686e;
 	padding: 10px;
-}
-.default_table tbody tr td{
-	border: 1px solid #F6F6F6;
-}
-.default_table .wpt_row td img{
-        height: auto;
-} 
-.default_table tbody tr{
-	transition: all .5s;
+  }
+  table.default_table td {
+	vertical-align: middle;
+	}
+  table.default_table td:last-child {
+	font-size: 0.95em;
+	line-height: 1.4;
+	text-align: left;
+  }
+  table.default_table th {
+	background-color: #daeff1;
+	font-weight: 300;
+	border: none;
+	}
+  table.default_table tr:nth-child(2n) {
+	background-color: white;
+  }
+  table.default_table tr:nth-child(2n+1) {
+	background-color: #edf7f8;
+  }
+  table.default_table input[type="checkbox"]:checked + label::after{
+	content: "\2713";
+	color: #fff;
+	top: 0px;
+	font-size: 14px;
+	font-weight: bold;
+	left: 4px;
+	position: absolute;
 }
 
-.default_table tbody tr:hover{
-	background: #f7faff4f;
+table.default_table input[type=checkbox]:checked+label:before {
+	background: #0093b8;
+	border-color: #83d7ec;
 }
-.default_table tbody tr a.button{
+table.default_table input[type=checkbox]+label:before{
+	border: 1px solid #bbbbbb;
+	content: '';
+	margin-right: 3px;
 	display: inline-block;
-    padding: 10px;
-    background: #36304a;
-    color: #fff;
-    font-size: 14px;
+	vertical-align: text-top;
+	width: 20px;
+	height: 20px;
+	background: #e6e6e6;
+	border-radius: 3px;
+}
+.default_wrapper .wpt_table_pagination span.page-numbers.current, 
+.default_wrapper .wpt_table_pagination a.page-numbers.current {
+    background-color: #0093b8;
+    border: 1px solid #0093b8;
+    border-radius: 5px;
+}
+.default_wrapper a.page-numbers, 
+.default_wrapper .wpt_table_pagination span.page-numbers {
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+    border: 1px solid #ddd;
+    margin: 0px;
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 5px;
+}
+div.default_wrapper input[type=checkbox]+label:before {
+    border: 1px solid #bbbbbb;
+    content: '';
+    margin-right: 5px;
+    display: inline-block;
+    vertical-align: text-top;
+    width: 20px;
+    height: 20px;
+    background: #e6e6e6;
     border-radius: 3px;
-    font-weight: bold;
 }
-/*for hover of default template*/
-table#wpt_table.wpt_product_table.default_table thead>tr>th.this_column_sorted {
-    background-color: rgb(245, 245, 245) !important;
+  @media screen and (max-width: 700px) {
+	table.default_table, tr, td {
+	  display: block;
+	}
+  
+	.default_table td:first-child {
+	  position: absolute;
+	  top: 50%;
+	  transform: translateY(-50%);
+	  width: 100px;
+	}
+	.default_table td:not(:first-child) {
+	  clear: both;
+	  margin-left: 100px;
+	  padding: 4px 20px 4px 90px;
+	  position: relative;
+	  text-align: left;
+	}
+	.default_table td:not(:first-child):before {
+	  color: #91ced4;
+	  content: "";
+	  display: block;
+	  left: 0;
+	  position: absolute;
+	}
+  
+	.default_table tr {
+	  padding: 10px 0;
+	  position: relative;
+	}
+	.default_table tr:first-child {
+	  display: none;
+	}
+  }
+
+.default_wrapper .default_table.custom_table tbody tr a.button, 
+.default_wrapper .caqv-open-modal, .default_wrapper  button, 
+.default_wrapper .button{
+	background: #0093b8;
+	font-size:14px;
+	font-weight:400;
+    border-radius: 5px;
+    color: #fff;
+    text-decoration: none;
 }
+
+.default_wrapper div.tables_cart_message_box div.widget_shopping_cart_content li.woocommerce-mini-cart-item.mini_cart_item {
+    border: 1px solid #0093b8;
+    padding: 1px;
+    border-radius: 6px;
+    margin: 2px;
+    min-height: auto;
+}
+.default_wrapper a{
+	text-decoration: none;
+	color: #2b686e;
+}
+.default_wrapper div.tables_cart_message_box div.widget_shopping_cart_content .total{
+	font-size: 18px;
+	margin-top: 10px;
+	color: #2b686e
+}
+.default_wrapper div.tables_cart_message_box div.widget_shopping_cart_content li a.remove::before {
+    background: #2b6884;
+
+}
+.default_wrapper input[type=checkbox]+label {
+    color: #2b6884;
+}
+.default_wrapper .all_check_header_footer.all_check_header>span {
+    border: 1px solid rgb(0 147 184);
+    border-radius: 5px;
+    margin-right: 5px;
+}
+.default_wrapper .all_check_footer {
+    background:transparent;
+}
+.default_wrapper .default_table tr:hover { 
+	 box-shadow: 0px 2px 10px 0px rgba(0,0,0,0.5); 
+	 cursor: pointer;
+}
+  @media screen and (max-width: 500px) {
+	.default_table img {
+	  border: 3px solid;
+	  border-color: #daeff1;
+	  height: 100px;
+	  margin: 0.5rem 0;
+	  width: 100px;
+	}
+  
+	.default_table td:first-child {
+	  background-color: #c8e7ea;
+	  border-bottom: 1px solid #91ced4;
+	  border-radius: 10px 10px 0 0;
+	  position: relative;
+	  top: 0;
+	  transform: translateY(0);
+	  width: 100%;
+	}
+	.default_table td:not(:first-child) {
+	  margin: 0;
+	  padding: 5px 1em;
+	  width: 100%;
+	}
+	.default_table td:not(:first-child):before {
+	  font-size: 0.8em;
+	  padding-top: 0.3em;
+	  position: relative;
+	}
+	.default_table td:last-child {
+	  padding-bottom: 1rem !important;
+	}
+  
+	.default_table tr {
+	  background-color: white !important;
+	  border: 1px solid #6cbec6;
+	  border-radius: 10px;
+	  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
+	  margin: 0.5rem 0;
+	  padding: 0;
+	}
+  
+
+  }

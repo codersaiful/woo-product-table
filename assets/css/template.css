@@ -347,7 +347,6 @@ table#wpt_table.wpt_product_table.business_table thead>tr>th.this_column_sorted 
 .custom_table thead .wpt_table_header_row th{
 	padding: 17px;
 	color: #fff;
-	background: #0a7f9c;
 }
 .custom_table td,
 .custom_table th {
