@@ -1,6 +1,12 @@
 /*********** Template: Default ************/
-.default_wrapper{
-	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+.default_wrapper .wpt_product_title_in_td{
+	font-size: 17px;
+}
+.default_wrapper .product_description, 
+.default_wrapper .total, 
+.default_wrapper .wpt_product_price, 
+.default_wrapper .default_table p{
+	font-size: 15px;
 }
 .default_wrapper .wpt_table_tag_wrapper{
 	box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
@@ -140,6 +146,8 @@ div.default_wrapper input[type=checkbox]+label:before {
 	border-radius: 5px;
 	color: #fff;
 	text-decoration: none !important;
+	white-space: nowrap;
+	padding: 10px;
 }
 
 .default_wrapper div.tables_cart_message_box div.widget_shopping_cart_content li.woocommerce-mini-cart-item.mini_cart_item {
@@ -173,10 +181,7 @@ div.default_wrapper input[type=checkbox]+label:before {
 .default_wrapper .all_check_footer {
     background:transparent;
 }
-.default_wrapper .default_table tr:hover {
-	box-shadow: rgb(2 2 2 / 49%) 0px 7px 12px 0px;
-	cursor: pointer;
-}
+
 .default_wrapper .default_table select, 
 .default_wrapper .default_table .wpt_varition_section select {
     border: 1px solid #97c6cb;
@@ -208,20 +213,20 @@ div.default_wrapper input[type=checkbox]+label:before {
 	border: 1px solid #97c6cb;
 	font-size: 14px;
 }
-.wpt_product_table-template-default .select2-container--default .select2-results__option--highlighted[aria-selected], 
-.wpt_product_table-template-default .select2-container--default .select2-results__option--highlighted[data-selected] {
+ .select2-container--default .select2-results__option--highlighted[aria-selected], 
+ .select2-container--default .select2-results__option--highlighted[data-selected] {
     background-color: rgb(0 147 184);
     color: #fff;
 	font-size: 16px;
 }
-.wpt_product_table-template-default .default_wrapper  .quantity input[type="number"]{
+ .default_wrapper  .quantity input[type="number"]{
 	border: 1px solid #97c6cb;
 	border-radius: 5px;
 }
-.wpt_product_table-template-default .select2-container--default .select2-selection--multiple .select2-selection__rendered li{
+ .select2-container--default .select2-selection--multiple .select2-selection__rendered li{
 margin: 0;
 }
-.wpt_product_table-template-default .select2-container--default .select2-selection--multiple .select2-selection__choice {
+ .select2-container--default .select2-selection--multiple .select2-selection__choice {
     background-color: #edf7f8;
     border: 1px solid #0093b8;
     border-radius: 5px;
