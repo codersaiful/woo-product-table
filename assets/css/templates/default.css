@@ -135,9 +135,9 @@ div.default_wrapper input[type=checkbox]+label:before {
 	background: #0093b8;
 	font-size:14px;
 	font-weight:400;
-    border-radius: 5px;
-    color: #fff;
-    text-decoration: none;
+	border-radius: 5px;
+	color: #fff;
+	text-decoration: none !important;
 }
 
 .default_wrapper div.tables_cart_message_box div.widget_shopping_cart_content li.woocommerce-mini-cart-item.mini_cart_item {
@@ -148,7 +148,7 @@ div.default_wrapper input[type=checkbox]+label:before {
     min-height: auto;
 }
 .default_wrapper a{
-	text-decoration: none;
+	text-decoration: none !important;
 	color: #2b686e;
 }
 .default_wrapper div.tables_cart_message_box div.widget_shopping_cart_content .total{
@@ -171,9 +171,14 @@ div.default_wrapper input[type=checkbox]+label:before {
 .default_wrapper .all_check_footer {
     background:transparent;
 }
-.default_wrapper .default_table tr:hover { 
-	 box-shadow: 0px 2px 10px 0px rgba(0,0,0,0.5); 
-	 cursor: pointer;
+.default_wrapper .default_table tr:hover {
+	box-shadow: rgb(2 2 2 / 49%) 0px 7px 29px 0px;
+	cursor: pointer;
+}
+.default_wrapper .default_table select, 
+.default_wrapper .default_table .wpt_varition_section select {
+    border: 1px solid #97c6cb;
+
 }
   @media screen and (max-width: 500px) {
 	.default_table img {
