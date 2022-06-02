@@ -174,13 +174,27 @@ div.default_wrapper input[type=checkbox]+label:before {
     background:transparent;
 }
 .default_wrapper .default_table tr:hover {
-	box-shadow: rgb(2 2 2 / 49%) 0px 7px 29px 0px;
+	box-shadow: rgb(2 2 2 / 49%) 0px 7px 12px 0px;
 	cursor: pointer;
 }
 .default_wrapper .default_table select, 
 .default_wrapper .default_table .wpt_varition_section select {
     border: 1px solid #97c6cb;
 
+}
+.default_wrapper .search_single .query_box_direct_value, 
+.default_wrapper .instance_search_input {
+    width: 100%;
+    border-radius: 5px;
+    padding: 6px 5px 5px 5px;
+    border: 1px solid #97c6cb;
+    height: 42px;
+	padding: 10px;
+}
+.default_wrapper .search_single .query_box_direct_value:focus-visible, 
+.default_wrapper .instance_search_input:focus-visible {
+	outline: 2px solid rgb(0 147 184);
+	
 }
   @media screen and (max-width: 500px) {
 	.default_table img {

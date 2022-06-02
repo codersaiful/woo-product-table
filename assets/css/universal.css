@@ -89,7 +89,7 @@ div.wpt_product_table_wrapper input[type=checkbox]:disabled+label:before {
 }
 
 div.wpt_product_table_wrapper input[type=checkbox]:checked+label:after {
-	content: '\2713ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œ';
+	content: '\2713ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã¢â‚¬Å“';
 	color: #fff;
 	top: 1px;
 	font-size: 11px;
@@ -152,7 +152,7 @@ div.wpt_product_table_wrapper input[type=radio]:disabled+label:before {
 }
 
 div.wpt_product_table_wrapper input[type=radio]:checked+label:after {
-	content: 'ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬ÂÃƒâ€šÃ‚Â';
+	content: 'ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚ÂÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â';
 	color: #fff;
 	top: 0px;
 	font-size: 20px;
@@ -254,7 +254,10 @@ div.wpt_product_table_wrapper table#wpt_table tr.wpt_row td.wpt_action a.button.
     width: 312px;
 }
 .wpt_product_table *,.wpt_product_table tr>td,.wpt_product_table td{
-    box-sizing: border-box;vertical-align:middle;
+    box-sizing: border-box;
+    vertical-align:
+    middle;
+    text-align: left;
 }
 
 .wpt_product_table tbody tr td.wpt_thumbnail {
@@ -1831,7 +1834,7 @@ input[type="submit"].loading::after,
     font-family: "Font Awesome 5 Free";
     font-weight: 900;
     vertical-align: baseline;
-    content: "ÃƒÆ’Ã‚Â¯ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¾Ãƒâ€šÃ‚Â";
+    content: "ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¯ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¾ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â";
     height: 20px;
     width: 20px;
     line-height: 20px;
