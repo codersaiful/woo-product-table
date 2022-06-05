@@ -235,6 +235,14 @@ margin: 0;
 .default_wrappe table.default_table:not( .has-background ) tbody tr:nth-child(2n) td {
     background-color: #edf7f8;
 }
+/*Extra Tweakup*/
+table:not( .has-background ) tbody tr:nth-child(2n) td, fieldset, fieldset legend {
+    background-color: #fff;
+}
+
+table:not( .has-background ) tbody td {
+    background-color: #edf7f8;
+}
   @media screen and (max-width: 500px) {
 	.default_table img {
 	  border: 3px solid;
