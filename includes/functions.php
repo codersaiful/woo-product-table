@@ -1671,6 +1671,6 @@ function wpt_default_css_template( $tbl_id ){
     if( ! is_file( $template_dir ) ) return;
 
     $template_file = WPT_Product_Table::getPath('BASE_URL') . 'assets/css/templates/' . $template . '.css';
-    wp_enqueue_style( 'wpt-template-' . $template , $template_file, array(), WOO_Product_Table::getVersion(), 'all' );
+    wp_enqueue_style( 'wpt-template-' . $template , $template_file, array(), WPT_DEV_VERSION, 'all' );
 }
 add_action( 'wpto_action_start_table','wpt_default_css_template', 999 );
