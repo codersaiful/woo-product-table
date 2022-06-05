@@ -1,5 +1,4 @@
 /*********** Template: Default ************/
-
 .default_wrapper .wpt_product_title_in_td{
 	font-size: 17px;
 }
@@ -149,6 +148,7 @@ div.default_wrapper input[type=checkbox]+label:before {
 	text-decoration: none !important;
 	white-space: nowrap;
 	padding: 10px;
+	line-height: 27px;
 }
 
 .default_wrapper div.tables_cart_message_box div.widget_shopping_cart_content li.woocommerce-mini-cart-item.mini_cart_item {
@@ -224,7 +224,7 @@ div.default_wrapper input[type=checkbox]+label:before {
 	border: 1px solid #97c6cb;
 	border-radius: 5px;
 }
- .select2-container--default .select2-selection--multiple .select2-selection__rendered li{
+.select2-container--default .select2-selection--multiple .select2-selection__rendered li{
 margin: 0;
 }
  .select2-container--default .select2-selection--multiple .select2-selection__choice {
@@ -232,7 +232,9 @@ margin: 0;
     border: 1px solid #0093b8;
     border-radius: 5px;
 }
-
+.default_wrappe table.default_table:not( .has-background ) tbody tr:nth-child(2n) td {
+    background-color: #edf7f8;
+}
   @media screen and (max-width: 500px) {
 	.default_table img {
 	  border: 3px solid;
