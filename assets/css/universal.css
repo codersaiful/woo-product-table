@@ -1936,3 +1936,10 @@ select.search_select.cascade-filtering {
         /* box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4); */
         z-index: 2;
       }
+
+      .wpt_empty_cart_btn.button.button-empty-cart:before {
+        content: '\e814';
+        font-family: 'fontello';
+        margin: 0 5px;
+        color: #dd3333;
+    }
