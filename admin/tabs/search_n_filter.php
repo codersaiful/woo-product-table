@@ -44,7 +44,7 @@ foreach($terms as $term){
                     if( is_string( $taxonomy_keywords ) && ! empty( $taxonomy_keywords ) ){
                         $taxonomy_keywords = wpt_explode_string_to_array( $taxonomy_keywords );
                     }
-                    var_dump($taxonomy_keywords);
+                    
                     
                     ?>
                     <select name="search_n_filter[taxonomy_keywords][]" class="wpt_fullwidth wpt_data_filed_atts wpt_select2 ua_input" multiple>
