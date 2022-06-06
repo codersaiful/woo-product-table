@@ -215,6 +215,8 @@ You can easily show specific category products. While creating new table click o
 = 3.1.8 =
   * New filter Added `wpto_search_box_basics` for search box of Advance
   * Search and Filter bug fixed andded advance features.
+  * Empty Cart buttin fixed.
+  * Fontello added. Some cutom icon added to our table.
 
 = 3.1.7 =
   * Audio file issue fixed in table.

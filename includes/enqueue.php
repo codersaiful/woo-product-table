@@ -16,6 +16,12 @@ if( !function_exists( 'wpt_enqueue' ) ){
        //Custom CSS Style for Woo Product Table's Table (Universal-for all table) and (template-for defien-table)
        wp_enqueue_style( 'wpt-universal', WPT_Product_Table::getPath('BASE_URL') . 'assets/css/universal.css', array(), WPT_Product_Table::getVersion(), 'all' );
        wp_enqueue_style( 'wpt-template-table', WPT_Product_Table::getPath('BASE_URL') . 'assets/css/template.css', array(), WPT_Product_Table::getVersion(), 'all' );
+       
+       /**
+        * Customized fontello file
+        * @since 3.1.8.2
+        */
+       wp_enqueue_style( 'wpt-fontello', WPT_Product_Table::getPath('BASE_URL') . 'assets/fontello/css/fontello.css', array(), WPT_Product_Table::getVersion(), 'all' );
 
        //jQuery file including. jQuery is a already registerd to WordPress
        wp_enqueue_script( 'jquery' );
