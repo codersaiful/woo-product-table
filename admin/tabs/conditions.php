@@ -1,7 +1,20 @@
 <?php
 $meta_conditions =  get_post_meta( $post->ID, 'conditions', true );
 $access = wpt_user_can_edit();
+$catalog_orderby_options = apply_filters(
+    'woocommerce_catalog_orderby',
+    array(
+        'menu_order' => __( 'Default sorting (Menu Order)', 'woocommerce' ),
+        'popularity' => __( 'Sort by popularity', 'woocommerce' ),
+        'rating'     => __( 'Sort by average rating', 'woocommerce' ),
+        'date'       => __( 'Sort by latest', 'woocommerce' ),
+        'price'      => __( 'Sort by price: low to high', 'woocommerce' ),
+        'price-desc' => __( 'Sort by price: high to low', 'woocommerce' ),
+    )
+);
 
+$menu_order = $catalog_orderby_options['menu_order'] ?? '';
+unset($catalog_orderby_options['menu_order']);
 ?>
 <div class="section ultraaddons-panel">
     <div class="wpt_column">
@@ -30,8 +43,9 @@ $access = wpt_user_can_edit();
                 </th>
                 <td>
                     <select name="conditions[sort_order_by]" data-name='sort_order_by' id="wpt_table_sort_order_by" class="wpt_fullwidth wpt_data_filed_atts ua_input" >
-                        <option value="name" <?php echo isset( $meta_conditions['sort_order_by'] ) && $meta_conditions['sort_order_by'] == 'name' ? 'selected' : ''; ?>><?php esc_html_e( 'Name (Default)', 'wpt_pro' ); ?></option>
-                        <option value="menu_order" <?php echo isset( $meta_conditions['sort_order_by'] ) && $meta_conditions['sort_order_by'] == 'menu_order' ? 'selected' : ''; ?>><?php esc_html_e( 'Menu Order', 'wpt_pro' ); ?></option> <!-- default menu_order -->
+                        <option value="menu_order" <?php echo isset( $meta_conditions['sort_order_by'] ) && $meta_conditions['sort_order_by'] == 'menu_order' ? 'selected' : ''; ?>><?php esc_html_e( $menu_order ); ?></option>
+                        <option value="name" <?php echo isset( $meta_conditions['sort_order_by'] ) && $meta_conditions['sort_order_by'] == 'name' ? 'selected' : ''; ?>><?php esc_html_e( 'Name', 'wpt_pro' ); ?></option>
+                        
                         <option value="title" <?php echo isset( $meta_conditions['sort_order_by'] ) && $meta_conditions['sort_order_by'] == 'title' ? 'selected' : ''; ?>><?php esc_html_e( 'Product Title', 'wpt_pro' ); ?></option>
 
                         <option value="date" <?php echo isset( $meta_conditions['sort_order_by'] ) && $meta_conditions['sort_order_by'] == 'date' ? 'selected' : ''; ?>><?php esc_html_e( 'Date', 'wpt_pro' ); ?></option>
@@ -42,7 +56,16 @@ $access = wpt_user_can_edit();
                         if( $access ){
                         ?>
                         <option value="meta_value_num" <?php echo isset( $meta_conditions['sort_order_by'] ) && $meta_conditions['sort_order_by'] == 'meta_value_num' ? 'selected' : ''; ?>><?php esc_html_e( 'Custom Meta Number (if numeric data)', 'wpt_pro' ); ?></option>
+                        <?php
+                        foreach ( $catalog_orderby_options as $id => $name ) :
                         
+                        $val = $meta_conditions['sort_order_by'] ?? '';
+                        $selected = $val == $id ? 'selected' : '';
+                        ?>
+                            <option value="<?php echo esc_attr( $id ); ?>" 
+                            <?php echo esc_attr( $selected ); ?>>
+                            <?php esc_html_e( $name ); ?></option>
+                        <?php endforeach; ?>
                         <option value="author" <?php echo isset( $meta_conditions['sort_order_by'] ) && $meta_conditions['sort_order_by'] == 'author' ? 'selected' : ''; ?>><?php esc_html_e( 'Author', 'wpt_pro' ); ?></option>
                         
                         <option value="type" <?php echo isset( $meta_conditions['sort_order_by'] ) && $meta_conditions['sort_order_by'] == 'type' ? 'selected' : ''; ?>><?php esc_html_e( 'Type', 'wpt_pro' ); ?></option>
@@ -51,7 +74,10 @@ $access = wpt_user_can_edit();
                         
                         <option value="rand" <?php echo isset( $meta_conditions['sort_order_by'] ) && $meta_conditions['sort_order_by'] == 'rand' ? 'selected' : ''; ?>><?php esc_html_e( 'Rand', 'wpt_pro' ); ?></option>
                         
-                        <?php }else{ ?>
+                        <?php }else{ 
+                                foreach ( $catalog_orderby_options as $id => $name ) : ?>
+                                    <option disabled><?php echo esc_html( $name ); ?></option>
+                            <?php endforeach; ?>
                             <option disabled><?php echo esc_html__( 'Custom Meta Number(Pro)', 'wpt_pro' ); ?></option>
                             <option disabled><?php echo esc_html__( 'Author(Pro)', 'wpt_pro' ); ?></option>
                             <option disabled><?php echo esc_html__( 'Type(Pro)', 'wpt_pro' ); ?></option>
