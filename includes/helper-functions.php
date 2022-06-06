@@ -101,6 +101,9 @@ if( ! function_exists( 'wpt_ajax_paginate_links_load' ) ){
             $args['s'] = false;
         }
 
+        $args['orderby'] = $directkey['orderby'] ?? '';
+        $args['order'] = $directkey['order'] ?? '';
+        
         $args = apply_filters( 'wpto_query_arg_ajax', $args, $directkey, $targetTableArgs, $custom_field, $texonomies );
 
         $args['posts_per_page'] = is_numeric( $args['posts_per_page'] ) ? (int) $args['posts_per_page'] : $args['posts_per_page'];
@@ -197,10 +200,13 @@ if( ! function_exists( 'wpt_ajax_table_row_load' ) ){
 
         }
         
-        if( !empty( $directkey ) && isset( $directkey['orderby'] ) && isset( $directkey['order'] ) ){
-            $args['orderby'] = sanitize_text_field( $directkey['orderby'] );
-            $args['order'] = sanitize_text_field( $directkey['order'] );
-        }
+        // if( !empty( $directkey ) && isset( $directkey['orderby'] ) && isset( $directkey['order'] ) ){
+        //     $args['orderby'] = sanitize_text_field( $directkey['orderby'] );
+        //     $args['order'] = sanitize_text_field( $directkey['order'] );
+        // }
+
+        $args['orderby'] = $directkey['orderby'] ?? '';
+        $args['order'] = $directkey['order'] ?? '';
         
         /**
          * Page Number Hander
