@@ -18,7 +18,7 @@ if($title_variation == 'link'){
 }
 
 
-$desc = $data[$description_type];
+$desc = $data[$description_type] ?? '';
 
 //$desc_attr = strip_tags($desc);
 $wpt_single_product_title .= $description_on && $description_on == 'yes' && $desc ? "<div class='product_description'>" .  do_shortcode( $desc ) . "</div>" : '';
