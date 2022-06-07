@@ -230,7 +230,7 @@ $default = array(
     //Added Search Box Features @Since 3.3
     'search_box_title' => sprintf( __( 'Search Box (%sAll Fields Optional%s)', 'wpt_pro' ),'<small>', '</small>'),
     'search_box_searchkeyword' => __( 'Search Keyword', 'wpt_pro' ),
-    'search_box_orderby'    => __( 'Order By', 'wpt_pro' ),
+    'search_box_orderby'    => __( 'Sort By', 'wpt_pro' ),
     'search_box_order'      => __( 'Order', 'wpt_pro' ),
     'search_order_placeholder'      => __( 'Select inner Item.', 'wpt_pro' ),
 );
