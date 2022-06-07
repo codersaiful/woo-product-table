@@ -1134,6 +1134,10 @@ if( !function_exists( 'wpt_search_box' ) ){
         $html .= ob_get_clean();
 
         $html .= "</div>"; //end of .search_single
+        
+        if( is_string( $search_box_texonomiy_keyword ) && ! empty( $search_box_texonomiy_keyword ) ){
+            $search_box_texonomiy_keyword = wpt_explode_string_to_array( $search_box_texonomiy_keyword );
+        }
 
         /**
          * Texonomies Handle based on $search_box_texonomiy_keyword
