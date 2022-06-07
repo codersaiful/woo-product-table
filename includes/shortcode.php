@@ -15,6 +15,7 @@ if( ! function_exists( 'wpt_shortcode_generator' ) ){
      */
     function wpt_shortcode_generator( $atts = false ) {
 
+        
         $lang = apply_filters( 'wpml_current_language', NULL );
         $default_lang = apply_filters('wpml_default_language', NULL );
         $lang_ex = $lang == $default_lang ? '': '_' . $lang;
@@ -43,7 +44,7 @@ if( ! function_exists( 'wpt_shortcode_generator' ) ){
         $atts_id = isset( $atts['id'] ) && !empty( $atts['id'] ) ? (int) $atts['id'] : 0; 
         $atts_id = apply_filters( 'wpml_object_id', $atts_id, 'wpt_product_table', TRUE  );
         $table_status = get_post_status( $atts_id );
-
+        set_query_var( 'woo_product_table', $atts_id );
         if( $atts_id && get_post_type( $atts_id ) == 'wpt_product_table' && $table_status == 'publish' ){
             $ID = $table_ID = $atts_id;//(int) $atts['id']; //Table ID added at V5.0. And as this part is already encapsule with if and return is false, so no need previous declearation
             $GLOBALS['wpt_product_table'] = $ID;
