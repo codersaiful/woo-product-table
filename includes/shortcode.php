@@ -15,7 +15,7 @@ if( ! function_exists( 'wpt_shortcode_generator' ) ){
      */
     function wpt_shortcode_generator( $atts = false ) {
 
-        
+        do_action( 'wpt_load' );
         $lang = apply_filters( 'wpml_current_language', NULL );
         $default_lang = apply_filters('wpml_default_language', NULL );
         $lang_ex = $lang == $default_lang ? '': '_' . $lang;
@@ -44,7 +44,23 @@ if( ! function_exists( 'wpt_shortcode_generator' ) ){
         $atts_id = isset( $atts['id'] ) && !empty( $atts['id'] ) ? (int) $atts['id'] : 0; 
         $atts_id = apply_filters( 'wpml_object_id', $atts_id, 'wpt_product_table', TRUE  );
         $table_status = get_post_status( $atts_id );
+
+        /**
+         * set query var
+         * for our product table
+         * to check that table is loaded any where on any place.
+         * 
+         * we can check it, it qe get query var. 
+         * global $wp_query;
+         * $wpt_query = $wp_query->query_vars;
+         *
+         * isset( $wpt_query['woo_product_table'] ) 
+         * 
+         * 
+
+         */
         set_query_var( 'woo_product_table', $atts_id );
+
         if( $atts_id && get_post_type( $atts_id ) == 'wpt_product_table' && $table_status == 'publish' ){
             $ID = $table_ID = $atts_id;//(int) $atts['id']; //Table ID added at V5.0. And as this part is already encapsule with if and return is false, so no need previous declearation
             $GLOBALS['wpt_product_table'] = $ID;
@@ -686,8 +702,14 @@ if( ! function_exists( 'wpt_shortcode_generator' ) ){
         //$html .= apply_filters('wpt_after_table_wrapper', ''); //Apply Filter Just After Table Wrapper div tag
         $html .= isset( $custom_css_code ) ? $custom_css_code : '';
 
+        /**
+         * New Action hook added
+         * 
+         * @since 3.1.8.3
+         * @author Saiful Islam <codersaiful@gmail.com>
+         */
+        do_action( 'wpt_loaded', $table_ID );
         
-
         return $html;
     }
 }
