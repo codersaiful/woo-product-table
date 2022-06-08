@@ -58,16 +58,16 @@ if( ! class_exists( 'WPT_Required' ) ){
                  * 
                  */
 
-                $small_notc = new Notice('small3');
-                $small_notc->set_message(sprintf( __( '<b>Product Table for Woocommerce (WooProductTable)</b>: ARE YOU LOOKING FOR DISCOUNT? %s.', 'wpt_pro' ), "<a href='https://wooproducttable.com/pricing/'>GET DISCOUNT HERE</a>" ));
+                $small_notc = new Notice('small4');
+                $small_notc->set_message(sprintf( __( 'Are you enjoying <b>Product Table for Woocommerce (WooProductTable)</b>: LOOKING DISCOUNT? %s.', 'wpt_pro' ), "<a href='https://wooproducttable.com/pricing/?ref=1&campaign=55Offer&utm_source=Default_Offer_LINK' target='_blank'>GET DISCOUNT HERE</a>" ));
                 $small_notc->set_diff_limit(7);
                 $small_notc->show();
 
 
                 $target = 'https://wooproducttable.com/pricing/?ref=1&campaign=55Offer&utm_source=Offer_LINK';
                 $demo_link = 'https://demo.wooproducttable.com/?ref=1&campaign=55Offer&utm_source=Offer_LINK';
-                $my_message = 'Have you enjoyed using <b>Product Table for WooCommerce (Woo Product Table)</b> Plugin? Get up to 60% OFF your purchase.';
-                $offerNc = new Notice('offerJun8-tddd3w');
+                $my_message = 'Have you enjoyed using <b>Product Table for WooCommerce (Woo Product Table)</b> Plugin? Get up to 60% OFF your purchase. [FOR LIMITED TIME]';
+                $offerNc = new Notice('offerJun8');
                 $offerNc->set_title( 'Discount UPTO 60%' )
                 ->set_diff_limit(4)
                 ->set_type('offer')
