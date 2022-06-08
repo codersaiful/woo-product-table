@@ -48,6 +48,14 @@ if( ! class_exists( 'CA_Framework\Notice' ) ){
         private $buttons = array();
 
         /**
+         * Declear your Action Hook, where you want to show
+         * your Notice/Message/Offer
+         *
+         * @var String|Null 
+         */
+        private $location;
+
+        /**
          * Define a Unique notice ID,
          * Example: new CA_Framework\Notice('skdlq')
          *
@@ -64,6 +72,11 @@ if( ! class_exists( 'CA_Framework\Notice' ) ){
         public function set_diff_limit( $day )
         {
             $this->diff_limit = $day;
+            return $this;
+        }
+        public function set_location( $location )
+        {
+            $this->location = $location;
             return $this;
         }
 
@@ -111,6 +124,7 @@ if( ! class_exists( 'CA_Framework\Notice' ) ){
          * * primary
          * * success
          * * error
+         * * offer
          *
          * @author Saiful <codersaiful@gmail.com>
          * @param String $notice_type
@@ -207,6 +221,13 @@ if( ! class_exists( 'CA_Framework\Notice' ) ){
             if( $date_diff >= $this->diff_limit ){
                 add_action("admin_notices", [$this, "notice_output"]);
             }
+
+            
+            if( $this->location ){
+                add_action( $this->location , [$this, "location_notice_output"]);
+            }
+
+
             
         }
     
@@ -216,12 +237,28 @@ if( ! class_exists( 'CA_Framework\Notice' ) ){
          */
         public function notice_output(){
         ?>
-         <div data-notice_id="<?php echo $this->notice_id; ?>" class='notice ca-notice notice-<?php echo esc_attr( $this->notice_type ); ?>'>
-            <div class="ca-notice-content">
-            <?php
-            // var_dump($this->get_buttons());
-            ?>
+            <div data-notice_id="<?php echo $this->notice_id; ?>" class='notice ca-notice notice-<?php echo esc_attr( $this->notice_type ); ?>'>
+            <?php $this->notice_html(); ?>
+            </div>
+         <?php
+        }
+        /**
+         * Notice Output
+         */
+        public function location_notice_output(){
+        ?>
+            <div data-notice_id="<?php echo $this->notice_id; ?>" class='anywhere-notice ca-notice notice-<?php echo esc_attr( $this->notice_type ); ?>'>
+            <?php $this->notice_html(); ?>
+            </div>
+         <?php
+        }
 
+        private function notice_html( $args = array() )
+        {
+
+            if( ! is_array( $args ) ) return;
+            ?>
+            <div class="ca-notice-content">
                     <?php if( ! empty( $this->img ) ): ?>
                     <div class="ca-logo">
                         <a class="ca-logo-link" href="<?php echo esc_url( $this->img_target ); ?>" target="_blank">
@@ -261,8 +298,8 @@ if( ! class_exists( 'CA_Framework\Notice' ) ){
                        
                     <button class="ca-notice-dismiss"></button>
             </div>
-          </div>
-         <?php
+            
+            <?php
         }
     
         

@@ -58,30 +58,41 @@ if( ! class_exists( 'WPT_Required' ) ){
                  * 
                  */
 
-                $small_notc = new Notice('small2');
-                $small_notc->set_message(sprintf( __( '<b>Product Table for Woocommerce (Woo Product Table)</b>: lots of special feature waiting for you. %s.', 'wpt_pro' ), "<a href='https://wooproducttable.com/pricing/'>Get Premium</a>" ));
+                $small_notc = new Notice('small4');
+                $small_notc->set_message(sprintf( __( 'Are you enjoying <b>Product Table for Woocommerce (WooProductTable)</b>: LOOKING DISCOUNT? %s.', 'wpt_pro' ), "<a href='https://wooproducttable.com/pricing/?ref=1&campaign=55Offer&utm_source=Default_Offer_LINK' target='_blank'>GET DISCOUNT HERE</a>" ));
                 $small_notc->set_diff_limit(7);
                 $small_notc->show();
 
 
-                
-                // $my_message = 'Discount for <b>Product Table for WooCommerce (Woo Product Table)</b> Plugin. Limited Time.';
-                // $offerNc = new Notice('offerapr23');
-                // $offerNc->set_title( 'Special Discount' )
-                // ->set_diff_limit(10)
-                // ->set_type('error')
-                // ->set_message( $my_message )
-                // ->add_button([
-                //     'text' => 'Get Premium',
-                //     'type' => 'danager',
-                //     'link' => 'https://wooproducttable.com/pricing/'
-                // ])
-                // ->add_button([
-                //     'text' => 'Documentation',
-                //     'type' => 'error',
-                //     'link' => 'https://wooproducttable.com/documentation/'
-                // ])
-                // ->show();
+                $target = 'https://wooproducttable.com/pricing/?ref=1&campaign=55Offer&utm_source=Offer_LINK';
+                $demo_link = 'https://demo.wooproducttable.com/?ref=1&campaign=55Offer&utm_source=Offer_LINK';
+                $my_message = 'Have you enjoyed using <b>Product Table for WooCommerce (Woo Product Table)</b> Plugin? Get up to 60% OFF your purchase. [FOR LIMITED TIME]';
+                $offerNc = new Notice('offerJun8');
+                $offerNc->set_title( 'Discount UPTO 60%' )
+                ->set_diff_limit(4)
+                ->set_type('offer')
+                ->set_img( WPT_BASE_URL. 'assets/images/offr/55-percent-offer.jpg')
+                ->set_img_target( $target )
+                ->set_message( $my_message )
+                ->add_button([
+                    'text' => 'Check YOUR DISCOUNT',
+                    'type' => 'error',
+                    'link' => $target,
+                ])
+                ->add_button([
+                    'text' => 'Demo',
+                    'type' => 'primary',
+                    'link' => $demo_link
+                ])
+                ->add_button([
+                    'text' => 'Docs',
+                    'type' => 'primary',
+                    'link' => 'https://wooproducttable.com/documentation/'
+                ]);
+                if( method_exists($offerNc, 'set_location') ){
+                    $offerNc->set_location('wpt_offer_here');
+                }
+                $offerNc->show();
                 
                 
 

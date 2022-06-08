@@ -5,6 +5,7 @@
         <div class="fieldwrap ultraaddons-head">
             <div class="section ultraaddons-feature-panel feature-head">
                 <h1 class=""><?php echo esc_html__( 'Quick View of Pro features', 'wpt_pro' ); ?></h1>
+                
                 <?php wpt_get_pro_discount_message(); ?>
             
             </div>
@@ -18,7 +19,7 @@
                 <div class="col col-left has-text">
                     <h2><?php echo esc_html__( 'AWESOEM [PRO] SUPPORT', 'wpt_pro' ); ?></h2>
                     <p><?php echo esc_html__( 'We have Special Pro Agent for our Pro Customer.', 'wpt_pro' ); ?></p>
-
+                    <?php do_action( 'wpt_offer_here' ); ?>
                 </div>
             </div>
             <div class="section ultraaddons-feature-panel odd">
@@ -26,6 +27,7 @@
                     <img src="<?php echo WPT_BASE_URL . 'assets/images/features/contents.jpg';?>">
                 </div>
                 <div class="col col-right has-text">
+                
                     <h2><?php echo esc_html__( 'Customizable Table using WordPress Classic Editor', 'wpt_pro' ); ?></h2>
                     <p><?php echo esc_html__( 'From now you can easily design your product table is look with whatever you want.
                         We have added lots of tags to customize your table rows. Here are few of them:', 'wpt_pro' ); ?></p>
