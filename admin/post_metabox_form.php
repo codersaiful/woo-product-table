@@ -9,7 +9,7 @@
     $tab_array = array(
         'column_settings'   => __( 'Column', 'wpt_pro' ),
         'basics'            => __( 'Basics', 'wpt_pro' ),
-        'table_style'       => sprintf(__( 'Design %sLimited%s', 'wpt_pro' ), '<i class="wpt_pro_badge">', '</i>' ),
+        'table_style'       => sprintf(__( 'Design %sLimited%s', 'wpt_pro' ), '<i class="wpt_limited_badge">', '</i>' ),
         'conditions'        => __( 'Conditions', 'wpt_pro' ),
         'search_n_filter'   => __( 'Search & Filter','wpt_pro' ),
         //'responsive'   => __( 'Responsive', 'wpt_pro' ),

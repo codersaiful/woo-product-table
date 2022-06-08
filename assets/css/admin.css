@@ -649,12 +649,13 @@ li.wpt_sortable_peritem.enabled {
 
 .wpt_nav_tab small,
 .wpt_nav_tab i.wpt_pro_badge,
+.wpt_nav_tab i.wpt_limited_badge,
 table.wp-list-table.widefat.plugins tr.active[data-slug='woo-product-table'] div>span[class='0'],
 table.wp-list-table.widefat.plugins tr[data-slug='product-table-for-woocommerce-woo-product-table-pro'] div>span[class='0'],
 .wpt_nav_tab i.wpt_pro_only {
     background: #00cbff;
     position: absolute;
-    top: -5px;
+    top: -1px;
     right: -1px;
     padding: 0px 7px;
     color: #f1f1f1;
@@ -686,6 +687,13 @@ table.wp-list-table.widefat.plugins tr.active[data-slug='product-table-for-wooco
     border: 0 none;
     font-size: 8px;
     padding: 0 6px;
+}
+.wpt_nav_tab i.wpt_limited_badge {
+    background: #ead61f;
+    border: 0 none;
+    font-size: 8px;
+    padding: 0 6px;
+    color: black;
 }
 .wpt_nav_tab i.wpt_pro_only {
     font-size: 8px;
