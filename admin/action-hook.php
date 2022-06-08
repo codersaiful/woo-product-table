@@ -326,6 +326,7 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
 
                 </tbody>
             </table><?php do_action( 'wpto_admin_configuration_panel_bottom',$settings,$current_config_value ); ?>
+            <?php do_action( 'wpt_offer_here' );  ?>
         </div>
          <?php
          

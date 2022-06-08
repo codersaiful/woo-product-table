@@ -137,7 +137,7 @@
                 ><?php esc_html_e( 'Save Change', 'wpt_pro' );?></button>
     </div>
 
-    <?php wpt_get_pro_discount_message(); ?>
+    <?php do_action( 'wpt_offer_here' ); ?>
 </div>
 
 <style>
