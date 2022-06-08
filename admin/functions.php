@@ -106,10 +106,7 @@ function wpt_user_can_edit(){
 }
 
 function wpt_get_pro_discount_message(){
-    
-    if( ! defined( 'WPT_PRO_DEV_VERSION' ) ){
-            
-    }
+    return;
 
 }
 
