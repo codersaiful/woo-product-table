@@ -9,6 +9,7 @@
 if( !function_exists( 'wpt_enqueue' ) ){
     /**
      * CSS or Style file add for FrontEnd Section. 
+     * ONLY WHEN TABLE LOADED, MEANS: When call the action hook wpt_load
      * 
      * @since 1.0.0
      */
@@ -18,14 +19,6 @@ if( !function_exists( 'wpt_enqueue' ) ){
        wp_enqueue_style( 'wpt-universal', WPT_Product_Table::getPath('BASE_URL') . 'assets/css/universal.css', array(), WPT_Product_Table::getVersion(), 'all' );
        wp_enqueue_style( 'wpt-template-table', WPT_Product_Table::getPath('BASE_URL') . 'assets/css/template.css', array(), WPT_Product_Table::getVersion(), 'all' );
        
-       /**
-        * Customized fontello file
-        * And animate css file added
-        * @since 3.1.8.2
-        */
-       wp_enqueue_style( 'wpt-fontello', WPT_Product_Table::getPath('BASE_URL') . 'assets/fontello/css/fontello.css', array(), WPT_Product_Table::getVersion(), 'all' );
-       wp_enqueue_style( 'animate', WPT_Product_Table::getPath('BASE_URL') . 'assets/fontello/css/animation.css', array(), WPT_Product_Table::getVersion(), 'all' );
-
        //jQuery file including. jQuery is a already registerd to WordPress
        wp_enqueue_script( 'jquery' );
 
@@ -92,5 +85,28 @@ if( !function_exists( 'wpt_enqueue' ) ){
         }
    }
 }
-add_action( 'wpt_loaded', 'wpt_enqueue', 99 );
-// add_action( 'wp_enqueue_scripts', 'wpt_enqueue', 99 );
+add_action( 'wpt_load', 'wpt_enqueue', 99 );
+
+
+if( !function_exists( 'wpt_allways_enqueue' ) ){
+
+    /**
+     * CSS or Style file add for FrontEnd Section. 
+     * 
+     * @since 1.0.0
+     */
+   function wpt_allways_enqueue(){
+    
+       if( ! is_woocommerce() ) return;
+       /**
+        * Customized fontello file
+        * And animate css file added
+        * @since 3.1.8.2
+        */
+       wp_enqueue_style( 'wpt-fontello', WPT_Product_Table::getPath('BASE_URL') . 'assets/fontello/css/fontello.css', array(), WPT_Product_Table::getVersion(), 'all' );
+       wp_enqueue_style( 'animate', WPT_Product_Table::getPath('BASE_URL') . 'assets/fontello/css/animation.css', array(), WPT_Product_Table::getVersion(), 'all' );
+
+       
+   }
+}
+add_action( 'wp_enqueue_scripts', 'wpt_allways_enqueue', 99 );
