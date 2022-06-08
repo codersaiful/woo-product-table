@@ -681,10 +681,12 @@ if( !function_exists( 'wpt_profeatures_message_box' ) ){
     function wpt_profeatures_message_box( $value ){
         $img_url = WPT_BASE_URL . 'assets/images/pro-features/';
         ?>
+        <?php do_action( 'wpt_premium_image_top' ); ?>
         <div class="wpt-pro-only-featues <?php echo esc_attr( $value ); ?>">
             
             <img src="<?php echo esc_attr( $img_url . $value . '.png' ); ?>">
         </div>
+        <?php do_action( 'wpt_premium_image_bottom' ); ?>
          <?php
     }
 }
