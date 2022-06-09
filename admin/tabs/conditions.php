@@ -1,6 +1,6 @@
 <?php
 $meta_conditions =  get_post_meta( $post->ID, 'conditions', true );
-$access = wpt_user_can_edit();
+$access = defined( 'WPT_PRO_DEV_VERSION' );
 $catalog_orderby_options = apply_filters(
     'woocommerce_catalog_orderby',
     array(
@@ -76,7 +76,7 @@ unset($catalog_orderby_options['menu_order']);
                         
                         <?php }else{ 
                                 foreach ( $catalog_orderby_options as $id => $name ) : ?>
-                                    <option disabled><?php echo esc_html( $name ); ?></option>
+                                    <option disabled><?php echo esc_html( $name ); ?>  (<?php echo esc_html__( 'Pro', 'wpt_pro' ); ?>)</option>
                             <?php endforeach; ?>
                             <option disabled><?php echo esc_html__( 'Custom Meta Number(Pro)', 'wpt_pro' ); ?></option>
                             <option disabled><?php echo esc_html__( 'Author(Pro)', 'wpt_pro' ); ?></option>

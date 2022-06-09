@@ -101,8 +101,13 @@ if( ! function_exists( 'wpt_ajax_paginate_links_load' ) ){
             $args['s'] = false;
         }
 
-        $args['orderby'] = $directkey['orderby'] ?? '';
-        $args['order'] = $directkey['order'] ?? '';
+        $conditions = get_post_meta( $table_ID, 'conditions', true );
+        $sort = $conditions['sort'] ?? '';
+        $sort_order_by = $conditions['sort_order_by'] ?? '';
+        
+
+        $args['orderby'] = $directkey['orderby'] ?? $sort_order_by;
+        $args['order'] = $directkey['order'] ?? $sort;
         
         $args = apply_filters( 'wpto_query_arg_ajax', $args, $directkey, $targetTableArgs, $custom_field, $texonomies );
 
@@ -205,8 +210,13 @@ if( ! function_exists( 'wpt_ajax_table_row_load' ) ){
         //     $args['order'] = sanitize_text_field( $directkey['order'] );
         // }
 
-        $args['orderby'] = $directkey['orderby'] ?? '';
-        $args['order'] = $directkey['order'] ?? '';
+        $conditions = get_post_meta( $table_ID, 'conditions', true );
+        $sort = $conditions['sort'] ?? '';
+        $sort_order_by = $conditions['sort_order_by'] ?? '';
+        
+
+        $args['orderby'] = $directkey['orderby'] ?? $sort_order_by;
+        $args['order'] = $directkey['order'] ?? $sort;
         
         /**
          * Page Number Hander
