@@ -93,10 +93,7 @@ unset($catalog_orderby_options['menu_order']);
                     <p><?php echo esc_html__( 'Chose [custom_meta or custom_meta_value] - if you want to sort by price, model, sku, color itc. For price or any number, Please chose Custom Meta value(if number)', 'wpt_pro' ); ?></p>
                 </td>
             </tr>
-        </table>
-    </div>
-    <div style="display: none;" class="wpt_column" id="wpt_meta_value_wrapper">
-        <table class="ultraaddons-table">
+        
             <tr>
                 <th>
                     <label class="wpt_label" for="wpt_product_meta_value_sort"><?php echo sprintf( esc_html__( 'Meta Value for [Custom Meta Value] of %s Custom Meta Value %s', 'wpt_pro' ),'<b>','</b>' ); ?></label>
@@ -106,11 +103,7 @@ unset($catalog_orderby_options['menu_order']);
                     <p style="color: #00aef0;"><?php esc_html_e( 'Type your Right meta value here. EG: "_sku,_price,_customNumber" - use any one only, there should no any space or comma', 'wpt_pro' ); ?></p>
                 </td>
             </tr>
-        </table>
-    </div>
-
-    <div class="wpt_column">
-        <table class="ultraaddons-table">
+ 
             <tr>
                 <th>
                     <label class="wpt_label" for="wpt_product_min_price"><?php esc_html_e( 'Minimum Price', 'wpt_pro' ); ?></label>
@@ -119,10 +112,7 @@ unset($catalog_orderby_options['menu_order']);
                     <input name="conditions[min_price]" data-name='min_price' value="<?php echo isset( $meta_conditions['min_price'] ) ?$meta_conditions['min_price'] : ''; ?>" id="wpt_product_min_price" class="wpt_fullwidth wpt_data_filed_atts ua_input" type="number" pattern="[0-9]*">
                 </td>
             </tr>
-        </table>
-    </div>
-    <div class="wpt_column">
-        <table class="ultraaddons-table">
+
             <tr>
                 <th>
                     <label class="wpt_label" for="wpt_product_max_price"><?php esc_html_e( 'Maximum Price', 'wpt_pro' ); ?></label>
@@ -131,10 +121,7 @@ unset($catalog_orderby_options['menu_order']);
                     <input name="conditions[max_price]" data-name='max_price' value="<?php echo isset( $meta_conditions['max_price'] ) ?$meta_conditions['max_price'] : ''; ?>" id="wpt_product_max_price" class="wpt_fullwidth wpt_data_filed_atts ua_input" type="number" pattern="[0-9]*">
                 </td>
             </tr>
-        </table>
-    </div>
-    <div class="wpt_column">
-        <table class="ultraaddons-table">
+
             <tr>
                 <th>
                     <label class="wpt_label" for="wpt_table_description_type"><?php esc_html_e( 'Description Type', 'wpt_pro' ); ?></label>
@@ -147,11 +134,7 @@ unset($catalog_orderby_options['menu_order']);
                     <p style="color: #0087be;"><?php echo sprintf( esc_html__( 'Here was %sdescription_lenght%s, But from 3.6, We have removed %sdescription_lenght%s', 'wpt_pro' ),'<b>','</b>','<b>','</b>' ); ?>.</p>
                 </td>
             </tr>
-        </table>
-    </div>
 
-    <div class="wpt_column">
-        <table class="ultraaddons-table">
             <tr>
                 <th>
                     <label class="wpt_label" for="wpt_table_only_stock"><?php esc_html_e( 'Stock Status', 'wpt_pro' ); ?></label>
@@ -165,11 +148,7 @@ unset($catalog_orderby_options['menu_order']);
                     </select>
                 </td>
             </tr>
-        </table>
-    </div>
 
-    <div class="wpt_column">
-        <table class="ultraaddons-table">
             <tr>
                 <th>
                     <label class="wpt_label" for="wpt_table_only_sale"><?php esc_html_e( 'Sale Products', 'wpt_pro' ); ?></label>
@@ -181,12 +160,7 @@ unset($catalog_orderby_options['menu_order']);
                     </select>
                 </td>
             </tr>
-        </table>
-    </div>
 
-
-    <div class="wpt_column">
-        <table class="ultraaddons-table">
             <tr>
                 <th>
                     <label class="wpt_label" for="wpt_posts_per_page"><?php esc_html_e( 'Post Limit/Per Load Limit', 'wpt_pro' ); ?></label>
@@ -195,11 +169,7 @@ unset($catalog_orderby_options['menu_order']);
                     <input name="conditions[posts_per_page]" data-name='posts_per_page' value="<?php echo isset( $meta_conditions['posts_per_page'] ) ?$meta_conditions['posts_per_page'] : '20'; ?>" id="wpt_posts_per_page" class="wpt_fullwidth wpt_data_filed_atts ua_input" type="number" pattern="[0-9]*" placeholder="<?php esc_attr_e( 'Eg: 50 (for display 20 products', 'wpt_pro' ); ?>" value="20">
                 </td>
             </tr>
-        </table>
-    </div>
 
-    <div class="wpt_column">
-        <table class="ultraaddons-table">
             <tr>
                 <th>
                     <label class="wpt_label" for="wpt_table_table_type"><?php esc_html_e( 'Third Party Plugin Supporting ', 'wpt_pro' ); ?></label>
@@ -209,6 +179,26 @@ unset($catalog_orderby_options['menu_order']);
                         <option value="normal_table" <?php echo isset( $meta_conditions['table_type'] ) && $meta_conditions['table_type'] == 'normal_table' ? 'selected' : ''; ?>><?php esc_html_e( 'Default', 'wpt_pro' ); ?></option>
                         <option value="advance_table" <?php echo isset( $meta_conditions['table_type'] ) && $meta_conditions['table_type'] == 'advance_table' ? 'selected' : ''; ?>><?php esc_html_e( 'Enable', 'wpt_pro' ); ?></option>
                     </select>
+                </td>
+            </tr>
+
+            <tr>
+                <th>
+                    <label style="display: inline;width: inherit;" class="wpt_label wpt_column_hide_unhide_tab" for="wpt_wp_force"><?php esc_html_e( 'WP Force', 'wpt_pro' );?></label>
+                </th>
+                <td>
+                    <label class="switch">
+                        <?php
+                        $wp_force = $meta_conditions['wp_force'] ?? '';
+                        $wp_force_chk = ! empty( $wp_force ) ? 'checked="checked"' : '';
+                        ?>
+                        <input  name="conditions[wp_force]" type="checkbox" id="wpt_wp_force" <?php echo esc_attr( $wp_force_chk ); ?>>
+                        <div class="slider round"><!--ADDED HTML -->
+                            <span class="on">On</span><span class="off">Off</span><!--END-->
+                        </div>
+                    </label>
+                    
+                                    
                 </td>
             </tr>
         </table>

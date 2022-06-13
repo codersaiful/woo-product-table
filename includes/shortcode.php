@@ -766,6 +766,8 @@ if( ! function_exists( 'wpt_table_row_generator' ) ){
         $_device = wpt_col_settingwise_device( $table_ID );
         $basics = get_post_meta( $table_ID, 'basics', true );
         $design = get_post_meta( $table_ID, 'table_style', true );
+        $conditions = get_post_meta( $table_ID, 'conditions', true );
+        
 
         $args                   = $table_row_generator_array['args'];
         $table_column_keywords = $table_row_generator_array['wpt_table_column_keywords'];
@@ -845,10 +847,11 @@ if( ! function_exists( 'wpt_table_row_generator' ) ){
                 $parent_id = $product->get_parent_id(); // Version 2.7.7
                 
                 (Int) $id = $data['id'];
-                // This code should be in latest branch
-//                if($table_type != 'advance_table' && wp_doing_ajax()) {
-//                    wp('p=' . $id . '&post_type=product'); //Its in under Process, need more checking on this features.
-//                }
+                
+                $wp_force = $conditions['wp_force'] ?? false;
+               if( $wp_force ) {
+                   wp('p=' . $id . '&post_type=product');
+               }
 
                 $taxonomy_class = 'filter_row ';
                 $data_tax = false;
