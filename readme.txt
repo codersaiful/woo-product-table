@@ -215,6 +215,7 @@ You can easily show specific category products. While creating new table click o
 = 3.1.9 =
   * Fixed: pagination sorting issue fixed.
   * Added: wp force added for supporting other thirdparty plugin.
+  * Fixed: checkbox issue for thirdparty Plugin support.
 
 = 3.1.8 =
   * New filter Added `wpto_search_box_basics` for search box of Advance
