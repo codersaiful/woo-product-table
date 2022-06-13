@@ -2231,7 +2231,7 @@ jQuery(function($) {
 
             WPT_BlankNotice();
             var product_id = $(this).parents('tr').data('product_id');
-            var thisButton = $('tr.wpt_row_product_id_' + product_id + ' .wpt_action button.single_add_to_cart_button');
+            var thisButton = $('tr#product_id_' + product_id + ' .wpt_action button.single_add_to_cart_button');
             var thisTable = $(this).parents('div.wpt_product_table_wrapper');
             var table_id = $(this).parents('div.wpt_product_table_wrapper').attr('id');
             
@@ -2269,6 +2269,7 @@ jQuery(function($) {
                     thisButton.addClass('added');
                 //WPT_MiniCart();
             }).done(function(){
+                
                 $( document.body ).trigger( 'added_to_cart' ); //Trigger and sent added_to_cart event
                 $( document.body ).trigger( 'updated_cart_totals' );
                 $( document.body ).trigger( 'wc_fragments_refreshed' );
