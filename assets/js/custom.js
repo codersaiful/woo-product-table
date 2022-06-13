@@ -2474,8 +2474,8 @@ jQuery(function($) {
         
        
         $(document).on( 'reset_data', 'div.advance_table_wrapper table.advance_table.wpt_product_table form.cart', function() {
-            var temp_number = $(this).parents('td').data('temp_number');
-            var product_id = $(this).parents('td').data('product_id');
+            var temp_number = $(this).parents('tr.wpt_row').data('temp_number');
+            var product_id = $(this).parents('tr.wpt_row').data('product_id');
             var quoted_target = 'yith_request_temp_' + temp_number + '_id_' + product_id;
             var addToQuoteSelector = $('.' + quoted_target);
             var checkBoxSelector = $('.wpt_check_temp_' + temp_number + '_pr_' + product_id);
@@ -2490,8 +2490,10 @@ jQuery(function($) {
             
         });
         $(document).on( 'found_variation', 'div.advance_table_wrapper table.advance_table.wpt_product_table form.cart', function( event, variation ) {
-            var temp_number = $(this).parents('td').data('temp_number');
-            var product_id = $(this).parents('td').data('product_id');
+            
+            var temp_number = $(this).parents('tr.wpt_row').data('temp_number');
+            var product_id = $(this).parents('tr.wpt_row').data('product_id');
+            var my_product_id = $(event.currentTarget).parents('tr.wpt_row').data('product_id');
             
             var targetThumbs = $('#table_id_' + temp_number + ' #product_id_' + product_id + ' wpt_thumbnails img');
             var quoted_target = 'yith_request_temp_' + temp_number + '_id_' + product_id;
