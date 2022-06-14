@@ -1941,5 +1941,5 @@ select.search_select.cascade-filtering {
         content: '\e814';
         font-family: 'fontello';
         margin: 0 5px;
-        color: #dd3333;
+        /* color: #dd3333; */
     }

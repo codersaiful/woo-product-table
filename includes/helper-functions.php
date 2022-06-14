@@ -113,6 +113,9 @@ if( ! function_exists( 'wpt_ajax_paginate_links_load' ) ){
 
         $args['posts_per_page'] = is_numeric( $args['posts_per_page'] ) ? (int) $args['posts_per_page'] : $args['posts_per_page'];
         
+        if(isset($args['post__in']) && ( $args['post__in'] == 'false' || empty($args['post__in']) )){
+            unset($args['post__in']);
+        }
         
         $table_row_generator_array = array(
             'args'                      => $args,
@@ -244,6 +247,10 @@ if( ! function_exists( 'wpt_ajax_table_row_load' ) ){
         }
         
         $args = apply_filters( 'wpto_query_arg_ajax', $args, $directkey, $targetTableArgs, $custom_field, $texonomies );
+        
+        if(isset($args['post__in']) && ( $args['post__in'] == 'false' || empty($args['post__in']) )){
+            unset($args['post__in']);
+        }
 
         $table_row_generator_array = array(
             'args'                      => $args,

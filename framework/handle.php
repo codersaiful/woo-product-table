@@ -72,7 +72,7 @@ if( ! class_exists( 'WPT_Required' ) ){
                 $my_message = 'Have you enjoyed using <b>Product Table for WooCommerce (Woo Product Table)</b> Plugin? Get up to 60% OFF your purchase. [FOR LIMITED TIME]';
                 $offerNc = new Notice('offerJune8');
                 $offerNc->set_title( 'Discount UPTO 60%' )
-                ->set_diff_limit(4)
+                ->set_diff_limit(10)
                 ->set_type('offer')
                 ->set_img( WPT_BASE_URL. 'assets/images/offr/55-percent-offer.jpg')
                 ->set_img_target( $target )
