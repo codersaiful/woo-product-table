@@ -205,11 +205,16 @@ if( ! function_exists( 'wpt_product_title_column_add' ) ){
     function wpt_product_title_column_add( $_device_name, $column_settings ){
 
         $title_variation = isset( $column_settings['title_variation']) ? $column_settings['title_variation'] : false;
+
+        $variation_name_with_title =  isset( $column_settings['variation_name_with_title'] ) ? $column_settings['variation_name_with_title'] : 'on';
+        $variation_name_with_title = $variation_name_with_title == 'off' ? 'checked="checked"' : '';
+
         $description_off =  isset( $column_settings['description_off'] ) ? $column_settings['description_off'] : 'on';
         $description_off = $description_off == 'off' ? 'checked="checked"' : '';
        ?>
         <div class="description_off_wrapper">
             <label for="description_off<?php echo esc_attr( $_device_name ); ?>"><input id="description_off<?php echo esc_attr( $_device_name ); ?>" title="Disable Deactivate Description from Title Column" name="column_settings<?php echo esc_attr( $_device_name ); ?>[description_off]" id="description_off" class="description_off" type="checkbox" value="off" <?php echo esc_attr( $description_off ); ?>> <?php echo esc_html__( 'Disable Description', 'wpt_pro' ); ?></label>
+            <label for="variation_name_with_title<?php echo esc_attr( $_device_name ); ?>"><input id="variation_name_with_title<?php echo esc_attr( $_device_name ); ?>" title="Show variation names with title" name="column_settings<?php echo esc_attr( $_device_name ); ?>[variation_name_with_title]" id="variation_name_with_title" class="variation_name_with_title" type="checkbox" value="off" <?php echo esc_attr( $variation_name_with_title ); ?>> <?php echo esc_html__( 'Show Variation Name With Title', 'wpt_pro' ); ?></label>
         </div>
         <div class="title_variation">
             <label for="link<?php echo esc_attr( $_device_name ); ?>"><input type="radio" id="link<?php echo esc_attr( $_device_name ); ?>" name="column_settings<?php echo esc_attr( $_device_name ); ?>[title_variation]" value="link" <?php echo !$title_variation || $title_variation == 'link' ? 'checked' : ''; ?>> <?php echo esc_html__( 'Link Enable', 'wpt_pro' ); ?></label>
