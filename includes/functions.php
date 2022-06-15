@@ -1138,7 +1138,17 @@ if( ! function_exists( 'wpt_args_manipulation_frontend' ) ){
      */
     function wpt_args_manipulation_frontend( $args ){
 
-        if( is_page() || is_single() ){
+        /**
+         * This is an extra and hidden feature
+         * which has no any option,
+         * only possible by shortcode
+         * like: 
+         * [Product_Table id='19555'  name='Popular' behavior='normal']
+         * 
+         * @since 3.1.8.4
+         */
+        $behavior = $args['behavior'] ?? '';
+        if( is_page() || is_single() || $behavior == 'normal' ){
             return $args;
         }
         //MainTain for Archives Page
