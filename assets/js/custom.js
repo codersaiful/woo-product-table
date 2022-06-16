@@ -2475,11 +2475,16 @@ jQuery(function($) {
         
        
         $(document).on( 'reset_data', 'div.advance_table_wrapper table.advance_table.wpt_product_table form.cart', function() {
-            var temp_number = $(this).parents('tr.wpt_row').data('temp_number');
-            var product_id = $(this).parents('tr.wpt_row').data('product_id');
+            var thisRow = $(this).parents('tr.wpt_row');
+
+            var temp_number = thisRow.data('temp_number');
+            var product_id = thisRow.data('product_id');
             var quoted_target = 'yith_request_temp_' + temp_number + '_id_' + product_id;
             var addToQuoteSelector = $('.' + quoted_target);
             var checkBoxSelector = $('.wpt_check_temp_' + temp_number + '_pr_' + product_id);
+            
+            thisRow.attr('data-variation_id', '' );
+            
             function enable_disable_class() {
                 addToQuoteSelector.removeClass('enabled');
                 addToQuoteSelector.addClass('disabled');
@@ -2491,9 +2496,10 @@ jQuery(function($) {
             
         });
         $(document).on( 'found_variation', 'div.advance_table_wrapper table.advance_table.wpt_product_table form.cart', function( event, variation ) {
-            
-            var temp_number = $(this).parents('tr.wpt_row').data('temp_number');
-            var product_id = $(this).parents('tr.wpt_row').data('product_id');
+            var thisRow = $(this).parents('tr.wpt_row');
+
+            var temp_number = thisRow.data('temp_number');
+            var product_id = thisRow.data('product_id');
             var my_product_id = $(event.currentTarget).parents('tr.wpt_row').data('product_id');
             
             var targetThumbs = $('#table_id_' + temp_number + ' #product_id_' + product_id + ' wpt_thumbnails img');
@@ -2505,6 +2511,10 @@ jQuery(function($) {
                 return targetElement;
             }
             
+
+            //Adding selected variation ID adding at row
+            thisRow.attr('data-variation_id', variation.variation_id );
+
             /**
              * Set Variations value to the targetted column's td
              * 
