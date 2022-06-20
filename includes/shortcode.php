@@ -496,6 +496,7 @@ if( ! function_exists( 'wpt_shortcode_generator' ) ){
         
         $wrapper_class = $args['wrapper_class'] ?? '';
         $wrapper_class_arr[] = $wrapper_class;
+        
         $wrapper_class_arr = apply_filters( 'wpto_wrapper_tag_class_arr', $wrapper_class_arr, $table_ID, $args, $column_settings, $enabled_column_array, $column_array );
         $wrapper_class_arr = implode( " ", $wrapper_class_arr );
 

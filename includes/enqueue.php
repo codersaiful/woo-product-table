@@ -173,6 +173,7 @@ function wpt_datatable_wise_arg_manage( $args, $table_ID ){
     
     $args['posts_per_page' ] = apply_filters( 'wpto_datatable_posts_limit', 300, $args, $table_ID );
     $args['pagination' ] = 0;
+    $args['wrapper_class' ] = 'wpt-datatable';
 
     return $args;
 }
