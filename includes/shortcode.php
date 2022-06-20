@@ -220,7 +220,7 @@ if( ! function_exists( 'wpt_shortcode_generator' ) ){
             $filter_keywords = $search_n_filter['filter'] ?? array();
 
             //Pagination Start
-            $pagination_start = isset( $pagination['start'] ) ? $pagination['start'] : '1'; //1 FOR ENABLE, AND 0 FOR DISABLE //Default value 1 - Enable
+            $pagination_start = $pagination['start'] ?? '1'; //1 FOR ENABLE, AND 0 FOR DISABLE //Default value 1 - Enable
 
         }else{
             return false;
@@ -247,6 +247,7 @@ if( ! function_exists( 'wpt_shortcode_generator' ) ){
             'post_status'   =>  'publish',
             'meta_query' => array(),
             'wpt_query_type' => 'default',
+            'pagination'    => $pagination_start ?? 0,
         );
 
         /**
@@ -492,6 +493,9 @@ if( ! function_exists( 'wpt_shortcode_generator' ) ){
                 $checkbox,
                 "wpt_" . $pagination_ajax,
             );
+        
+        $wrapper_class = $args['wrapper_class'] ?? '';
+        $wrapper_class_arr[] = $wrapper_class;
         $wrapper_class_arr = apply_filters( 'wpto_wrapper_tag_class_arr', $wrapper_class_arr, $table_ID, $args, $column_settings, $enabled_column_array, $column_array );
         $wrapper_class_arr = implode( " ", $wrapper_class_arr );
 
@@ -673,7 +677,7 @@ if( ! function_exists( 'wpt_shortcode_generator' ) ){
         $Load_More_Text = $config_value['load_more_text'];
 
         //pagination
-        if( $pagination_start && $pagination_start == '1' ){
+        if( isset( $args['pagination'] ) && $args['pagination'] == '1' ){
             $html .= wpt_pagination_by_args( $args , $temp_number);
         }
         $Load_More = '<div id="wpt_load_more_wrapper_' . $temp_number . '" class="wpt_load_more_wrapper ' . $config_value['disable_loading_more'] . '"><button data-temp_number="' . $temp_number . '" data-load_type="current_page" data-type="load_more" class="button wpt_load_more">' . $Load_More_Text . '</button></div>';

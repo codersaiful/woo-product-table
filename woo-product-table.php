@@ -54,6 +54,10 @@ if( ! defined( 'WPT_BASE_URL' ) ){
     define( "WPT_BASE_URL", plugins_url() . '/'. plugin_basename( dirname( __FILE__ ) ) . '/' );
 }
 
+if( ! defined( 'WPT_ASSETS_URL' ) ){
+    define( "WPT_ASSETS_URL", WPT_BASE_URL . 'assets/' );
+}
+
 if( ! defined( 'WPT_DIR_BASE' ) ){
     define( "WPT_DIR_BASE", dirname( __FILE__ ) . '/' );
 }

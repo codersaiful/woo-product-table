@@ -64,7 +64,7 @@ if( ! class_exists( 'WPT_Required' ) ){
                 if( method_exists($small_notc, 'set_location') ){
                     $small_notc->set_location('wpt_premium_image_top'); //wpt_premium_image_bottom
                 }
-                $small_notc->show();
+                // $small_notc->show();
 
 
                 $target = 'https://wooproducttable.com/pricing/?ref=1&campaign=55Offer&utm_source=Offer_LINK';
@@ -95,7 +95,7 @@ if( ! class_exists( 'WPT_Required' ) ){
                 if( method_exists($offerNc, 'set_location') ){
                     $offerNc->set_location('wpt_offer_here'); //wpt_premium_image_bottom
                 }
-                $offerNc->show();
+                // $offerNc->show();
                 
                 
 

@@ -8,12 +8,12 @@
      */
     $tab_array = array(
         'column_settings'   => __( 'Column', 'wpt_pro' ),
-        'basics'            => __( 'Basics', 'wpt_pro' ),
+        'query'            => __( 'Query', 'wpt_pro' ),
+        // 'basics'            => __( 'Basics', 'wpt_pro' ), //Has removed @version 3.1.9.5
         'table_style'       => sprintf(__( 'Design %sLimited%s', 'wpt_pro' ), '<i class="wpt_limited_badge">', '</i>' ),
-        'conditions'        => __( 'Conditions', 'wpt_pro' ),
+        'options'            => __( 'Options/Basics/Conditions', 'wpt_pro' ),
+        // 'conditions'        => __( 'Extra Options', 'wpt_pro' ), //Has removed @version 3.1.9.5
         'search_n_filter'   => __( 'Search & Filter','wpt_pro' ),
-        //'responsive'   => __( 'Responsive', 'wpt_pro' ),
-        //'mobile'            => __( 'Mobile Issue', 'wpt_pro' ), //@todo NO need, this line also will remove in next vertion
         'config'            => sprintf(__( 'Configuration %sPro%s', 'wpt_pro' ), '<i class="wpt_pro_badge">', '</i>' ),
     );
     $tab_array = apply_filters( 'wpto_admin_tab_array', $tab_array, $post );

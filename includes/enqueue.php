@@ -114,3 +114,66 @@ function wpt_enqueue_common(){
     wp_enqueue_style( 'wpt-fontello', WPT_Product_Table::getPath('BASE_URL') . 'assets/fontello/css/fontello.css', array(), WPT_Product_Table::getVersion(), 'all' );
     wp_enqueue_style( 'animate', WPT_Product_Table::getPath('BASE_URL') . 'assets/fontello/css/animation.css', array(), WPT_Product_Table::getVersion(), 'all' );
 }
+
+
+if( ! function_exists( 'wpt_datatables_enqueue' ) ){
+    
+    /**
+     * DataTable enable disable function using enqueue
+     * Used hook wpt_loaded
+     * 
+     * @since 3.1.9.0
+     * @author Saiful Islam <codersaiful@gmail.com>
+     *
+     * @param Int $table_ID It also can string actually
+     * @return void
+     */
+   function wpt_datatables_enqueue( $table_ID ){ 
+    
+        $condtion = get_post_meta( $table_ID, 'conditions', true );
+        $datatable = $condtion['datatable'] ?? false;
+        $datatable = apply_filters( 'wpto_datatable_load', $datatable, $table_ID );
+        if( ! $datatable ) return;
+
+        //wpto_table_query_args
+        //Args changed for pagination when Called/Enable DataTable
+        
+        
+
+        wp_register_style('datatables', WPT_ASSETS_URL . 'DataTables/datatables.min.css', array(), '1.12.1');
+        wp_enqueue_style('datatables');
+        wp_register_script( 'datatables', WPT_ASSETS_URL . 'DataTables/datatables.min.js', array( 'jquery' ), '1.12.1', true );
+        wp_enqueue_script( 'datatables' );
+
+        wp_register_script( 'wpt-datatables', WPT_ASSETS_URL . 'js/datatables-handle.js', array( 'jquery' ), '1.12.1', true );
+        wp_enqueue_script( 'wpt-datatables' );
+
+        $DATATABLE = array( 
+            'table_id'        => $table_ID,
+            );
+
+        /**
+         * Filter for datatable Options/Object 
+         * @Hook filter wpto_localize_datatable To change or add/delete something
+         * 
+         * @since 3.1.9.0
+         */
+        $DATATABLE = apply_filters( 'wpto_localize_datatable', $DATATABLE, $table_ID );
+        wp_localize_script( 'wpt-datatables', 'WPT_DATATABLE', $DATATABLE );
+
+   }
+}
+add_action( 'wpt_loaded', 'wpt_datatables_enqueue', 99 ); //wp_enqueue_scripts
+
+function wpt_datatable_wise_arg_manage( $args, $table_ID ){
+    $condtion = get_post_meta( $table_ID, 'conditions', true );
+    $datatable = $condtion['datatable'] ?? false;
+    $datatable = apply_filters( 'wpto_datatable_load', $datatable, $table_ID );
+    if( ! $datatable ) return $args;
+    
+    $args['posts_per_page' ] = apply_filters( 'wpto_datatable_posts_limit', 300, $args, $table_ID );
+    $args['pagination' ] = 0;
+
+    return $args;
+}
+add_filter( 'wpto_table_query_args', 'wpt_datatable_wise_arg_manage', PHP_INT_MAX, 2 );
