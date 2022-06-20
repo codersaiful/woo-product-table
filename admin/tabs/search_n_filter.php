@@ -7,7 +7,6 @@ $default_tax = array();
 if($post_status == 'auto-draft'){
     $default_tax = array('product_cat','product_tag');
 }
-var_dump($post_status);
 
 $terms = get_terms();
 $allTerms = array();
