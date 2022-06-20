@@ -1,11 +1,23 @@
 <?php
+global $post;
 $meta_search_n_filter =  get_post_meta( $post->ID, 'search_n_filter', true );
+
+$post_status = $post->post_status;
+$default_tax = array();
+if($post_status == 'auto-draft'){
+    $default_tax = array('product_cat','product_tag');
+}
+var_dump($post_status);
 
 $terms = get_terms();
 $allTerms = array();
 foreach($terms as $term){
+    $tax = $term->taxonomy;
+    if( $tax == 'category' || $tax == 'nav_menu' || $tax == 'post_format' || $tax == 'product_type' || $tax == 'wp_theme' ) continue;
+    if( $tax == 'translation_priority' || $tax == 'elementor_font_type' || $tax == 'elementor_library_type' || $tax == 'product_type' || $tax == 'wp_theme' ) continue;
     $allTerms[$term->taxonomy]=$term->taxonomy;
 }
+
 ?>
 <div class="section ultraaddons-panel">
     
@@ -40,7 +52,7 @@ foreach($terms as $term){
                 <td>
                     <?php
                     
-                    $taxonomy_keywords = $meta_search_n_filter['taxonomy_keywords'] ?? array();
+                    $taxonomy_keywords = $meta_search_n_filter['taxonomy_keywords'] ?? $default_tax;
                     if( is_string( $taxonomy_keywords ) && ! empty( $taxonomy_keywords ) ){
                         $taxonomy_keywords = wpt_explode_string_to_array( $taxonomy_keywords );
                     }
@@ -144,7 +156,7 @@ foreach($terms as $term){
                 <td>
                 <?php
                     
-                    $mini_filter_keywords = $meta_search_n_filter['filter'] ?? array();
+                    $mini_filter_keywords = $meta_search_n_filter['filter'] ?? $default_tax;
                     
                     ?>
                     <select name="search_n_filter[filter][]" multiple class="wpt_fullwidth wpt_data_filed_atts wpt_select2 ua_input">
