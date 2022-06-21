@@ -197,7 +197,7 @@ $meta_conditions =  get_post_meta( $post->ID, 'conditions', true );
                     </label>
                     <p class="warning">
                         <b>Tips:</b>
-                        <span>If you enable DataTable, Your table will show 300 products and it will disable pagination too.</span>
+                        <span>If you enable DataTable, Your table will show 300 products with DataTable's pagination and it will disable our plugin's default pagination too.</span>
                     </p>
                                     
                 </td>
