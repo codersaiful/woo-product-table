@@ -150,7 +150,7 @@ if( ! function_exists( 'wpt_datatables_enqueue' ) ){
 
         $DATATABLE = array( 
             'table_id'        => $table_ID,
-            );
+        );
 
         /**
          * Filter for datatable Options/Object 

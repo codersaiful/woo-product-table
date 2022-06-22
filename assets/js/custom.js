@@ -148,7 +148,7 @@ jQuery(function($) {
             }else{
                 return;
             }
-            console.log(targetTableArgs,data);
+            // console.log(targetTableArgs,data);
             
 
             $.ajax({
@@ -1642,6 +1642,14 @@ jQuery(function($) {
             window.history.pushState('data', null, link.replace(/(^&)|(&$)/g, ""));
         }
         
+        $(document.body).on('click','h1.entry-title',function(){
+            var temp_number = '19541';
+            var newjsonData = $('#table_id_' + temp_number + ' mypagi').attr('myjson');
+            var thisNewPagiWrappers = $('#table_id_' + temp_number + ' .wpt_table_pagination').attr('data-whole_data');
+            // console.log('newjsonData',JSON.parse(newjsonData));
+            console.log('thisNewPagiWrappers',JSON.parse(thisNewPagiWrappers));
+                    
+        });
         
         function loadPaginationLinks($data,temp_number){
             var targetTable = $('#table_id_' + temp_number + ' table#wpt_table');
@@ -1654,11 +1662,12 @@ jQuery(function($) {
                         
                         thisPagiWrappers.html(paginate_data);
                         changeSpanToAPagi();
-                        var newjsonData = $('mypagi').attr('myjson');
+                        var newjsonData = $('#table_id_' + temp_number + ' mypagi').attr('myjson');
                         var thisNewPagiWrappers = $('#table_id_' + temp_number + ' .wpt_table_pagination').attr('data-whole_data');
-                        
-                        console.log('newjsonData',JSON.parse(newjsonData));
-                        console.log('thisNewPagiWrappers',JSON.parse(thisNewPagiWrappers));
+                        thisNewPagiWrappers = JSON.parse(thisNewPagiWrappers);
+                        thisNewPagiWrappers = thisNewPagiWrappers.targetTableArgs;
+                        // console.log('newjsonData',JSON.parse(newjsonData));
+                        // console.log('thisNewPagiWrappers',thisNewPagiWrappers);
                         targetTable.attr( 'data-data_json', newjsonData );
                         thisPagiWrappers.removeClass('pagination_loading');
                     }
