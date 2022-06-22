@@ -107,13 +107,13 @@ jQuery(function($) {
                 //targetTableArgs = JSON.parse(targetTableArgs);
 
             let newArgs = $(this).parents('mypagi').attr('myjson');   
-            console.log(typeof newArgs, newArgs);
+            // console.log(typeof newArgs, newArgs);
             if( typeof newArgs !== 'undefined' && typeof newArgs === 'string' ){
                 targetTableArgs = JSON.parse(newArgs);
             }else{
                 targetTableArgs = JSON.parse(targetTableArgs);
             }
-            console.log(targetTableArgs);
+            // console.log(targetTableArgs);
                 
                 
             var targetTableBody = $('#table_id_' + temp_number + ' table#wpt_table tbody');
@@ -125,16 +125,27 @@ jQuery(function($) {
             var pageNumber = page_number;
             targetTableBody.css('opacity','0.2');
             thisPagiWrappers.addClass('pagination_loading');
+
+            var data = {
+                action:         'wpt_query_table_load_by_args',
+                temp_number:    temp_number,
+                targetTableArgs:targetTableArgs,
+                pageNumber:     pageNumber,
+                load_type:     load_type,
+            };
+            var whole_data = $('#table_id_' + temp_number + ' .wpt_table_pagination').attr('data-whole_data');
+            if( typeof whole_data !== 'undefined' && typeof whole_data === 'string' ){
+                data = JSON.parse(whole_data);
+                data.load_type = load_type;
+                data.pageNumber = pageNumber;
+
+                
+            }
+            console.log(data);
             $.ajax({
                 type: 'POST',
                 url: ajax_url,// + get_data,
-                data: {
-                    action:         'wpt_query_table_load_by_args',
-                    temp_number:    temp_number,
-                    targetTableArgs:targetTableArgs,
-                    pageNumber:     pageNumber,
-                    load_type:     load_type,
-                },
+                data: data,
                 complete: function(){
                     $( document ).trigger( 'wc_fragments_refreshed' );
                     arrangingTDContentForMobile(); //@Since 5.2

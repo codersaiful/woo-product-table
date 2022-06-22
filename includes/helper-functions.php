@@ -134,10 +134,10 @@ if( ! function_exists( 'wpt_ajax_paginate_links_load' ) ){
             'checkbox'            => $checkbox, 
         );
         echo '<mypagi myjson="'. esc_attr( wp_json_encode( $table_row_generator_array ) ) .'">'. wpt_paginate_links( $args ) . '</mypagi>';
-        var_dump($args);
-        echo '<pre>';
-        print_r( $_POST );
-        echo '</pre>';
+        // var_dump($args);
+        // echo '<pre>';
+        // print_r( $_POST );
+        // echo '</pre>';
         die();
     }
 }
