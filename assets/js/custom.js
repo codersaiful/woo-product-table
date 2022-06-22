@@ -93,7 +93,7 @@ jQuery(function($) {
         /**
          * Pagination
          */
-        $('body').on('click','.wpt_pagination_ajax .wpt_table_pagination a',function(e){
+        $(document.body).on('click','.wpt_pagination_ajax .wpt_table_pagination a',function(e){
             e.preventDefault();
             var thisButton = $(this);
 
@@ -104,7 +104,18 @@ jQuery(function($) {
             
             var targetTable = $('#table_id_' + temp_number + ' table#wpt_table');
             var targetTableArgs = targetTable.attr( 'data-data_json' );
+                //targetTableArgs = JSON.parse(targetTableArgs);
+
+            let newArgs = $(this).parents('mypagi').attr('myjson');   
+            console.log(typeof newArgs, newArgs);
+            if( typeof newArgs !== 'undefined' && typeof newArgs === 'string' ){
+                targetTableArgs = JSON.parse(newArgs);
+            }else{
                 targetTableArgs = JSON.parse(targetTableArgs);
+            }
+            console.log(targetTableArgs);
+                
+                
             var targetTableBody = $('#table_id_' + temp_number + ' table#wpt_table tbody');
             var thisPagiWrappers = $('#table_id_' + temp_number + ' .wpt_table_pagination');
             var thisPagiLinks = $('#table_id_' + temp_number + ' .wpt_table_pagination a.page-numbers');
@@ -1463,20 +1474,23 @@ jQuery(function($) {
 
             //Display Loading on before load
             targetTableBody.prepend("<div class='wpt_loader_text'>" + config_json.loading_more_text + "</div>"); //Laoding..
-            $(document.body).trigger('wpt_query_progress',targetTableArgs);
+            var data = {
+                action:         'wpt_query_table_load_by_args',
+                temp_number:    temp_number,
+                directkey:      directkey,
+                targetTableArgs:targetTableArgs, 
+                texonomies:     texonomies,
+                pageNumber:     pageNumber,
+                load_type:     load_type,
+                custom_field:    custom_field,
+            };
+            var whold_data = JSON.stringify(data);
+            $('#table_id_' + temp_number + ' .wpt_table_pagination').attr('data-whole_data', whold_data);
+            $(document.body).trigger('wpt_query_progress',targetTableArgs, data);
             $.ajax({
                 type: 'POST',
                 url: ajax_url,// + get_data,
-                data: {
-                    action:         'wpt_query_table_load_by_args',
-                    temp_number:    temp_number,
-                    directkey:      directkey,
-                    targetTableArgs:targetTableArgs, 
-                    texonomies:     texonomies,
-                    pageNumber:     pageNumber,
-                    load_type:     load_type,
-                    custom_field:    custom_field,
-                },
+                data: data,
                 complete: function(){
                     $( document ).trigger( 'wc_fragments_refreshed' );
                     arrangingTDContentForMobile(); //@Since 5.2

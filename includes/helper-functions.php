@@ -255,7 +255,7 @@ if( ! function_exists( 'wpt_ajax_table_row_load' ) ){
         if(isset($args['post__in']) && ( $args['post__in'] == 'false' || empty($args['post__in']) )){
             unset($args['post__in']);
         }
-        var_dump($directkey,$args);
+        // var_dump($directkey,$args);
         $table_row_generator_array = array(
             'args'                      => $args,
             'wpt_table_column_keywords' => $table_column_keywords,
