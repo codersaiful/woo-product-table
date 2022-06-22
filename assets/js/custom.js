@@ -104,18 +104,18 @@ jQuery(function($) {
             
             var targetTable = $('#table_id_' + temp_number + ' table#wpt_table');
             var targetTableArgs = targetTable.attr( 'data-data_json' );
-                //targetTableArgs = JSON.parse(targetTableArgs);
-
-            let newArgs = $(this).parents('mypagi').attr('myjson');   
-            // console.log(typeof newArgs, newArgs);
-            if( typeof newArgs !== 'undefined' && typeof newArgs === 'string' ){
-                targetTableArgs = JSON.parse(newArgs);
-            }else{
                 targetTableArgs = JSON.parse(targetTableArgs);
-            }
-            // console.log(targetTableArgs);
+
+            // let newArgs = $(this).parents('mypagi').attr('myjson');   
+            // // console.log(typeof newArgs, newArgs);
+            // if( typeof newArgs !== 'undefined' && typeof newArgs === 'string' ){
+            //     targetTableArgs = JSON.parse(newArgs);
+            // }else{
+            //     targetTableArgs = JSON.parse(targetTableArgs);
+            // }
+            // // console.log(targetTableArgs);
                 
-                
+           
             var targetTableBody = $('#table_id_' + temp_number + ' table#wpt_table tbody');
             var thisPagiWrappers = $('#table_id_' + temp_number + ' .wpt_table_pagination');
             var thisPagiLinks = $('#table_id_' + temp_number + ' .wpt_table_pagination a.page-numbers');
@@ -126,22 +126,31 @@ jQuery(function($) {
             targetTableBody.css('opacity','0.2');
             thisPagiWrappers.addClass('pagination_loading');
 
-            var data = {
-                action:         'wpt_query_table_load_by_args',
-                temp_number:    temp_number,
-                targetTableArgs:targetTableArgs,
-                pageNumber:     pageNumber,
-                load_type:     load_type,
-            };
+            var data;
+            // var data = {
+            //     action:         'wpt_query_table_load_by_args',
+            //     temp_number:    temp_number,
+            //     targetTableArgs:targetTableArgs,
+            //     pageNumber:     pageNumber,
+            //     load_type:     load_type,
+            // };
             var whole_data = $('#table_id_' + temp_number + ' .wpt_table_pagination').attr('data-whole_data');
             if( typeof whole_data !== 'undefined' && typeof whole_data === 'string' ){
                 data = JSON.parse(whole_data);
+                
                 data.load_type = load_type;
+                data.targetTableArgs = targetTableArgs;
                 data.pageNumber = pageNumber;
+                data.temp_number = temp_number;
+                data.action = 'wpt_query_table_load_by_args';
 
                 
+            }else{
+                return;
             }
-            console.log(data);
+            console.log(targetTableArgs,data);
+            
+
             $.ajax({
                 type: 'POST',
                 url: ajax_url,// + get_data,
@@ -1642,9 +1651,14 @@ jQuery(function($) {
                     data: $data,
                     success: function(paginate_data){
                         var thisPagiWrappers = $('#table_id_' + temp_number + ' .wpt_table_pagination');
+                        
                         thisPagiWrappers.html(paginate_data);
                         changeSpanToAPagi();
                         var newjsonData = $('mypagi').attr('myjson');
+                        var thisNewPagiWrappers = $('#table_id_' + temp_number + ' .wpt_table_pagination').attr('data-whole_data');
+                        
+                        console.log('newjsonData',JSON.parse(newjsonData));
+                        console.log('thisNewPagiWrappers',JSON.parse(thisNewPagiWrappers));
                         targetTable.attr( 'data-data_json', newjsonData );
                         thisPagiWrappers.removeClass('pagination_loading');
                     }

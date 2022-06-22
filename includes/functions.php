@@ -719,11 +719,11 @@ if( ! function_exists( 'wpt_pagination_by_args' ) ){
      * @param type $args Args of WP_Query's
      * @return type String
      */
-    function wpt_pagination_by_args( $args = false, $temp_number = false ){
-
+    function wpt_pagination_by_args( $args = false, $temp_number = false, $whole_data = array() ){
+        $whole_data = is_array( $whole_data ) ? $whole_data : array();
         $html = false;
         if( $args ){
-            $html .= "<div class='wpt_table_pagination' data-temp_number='{$temp_number}'>";
+            $html .= "<div class='wpt_table_pagination' data-temp_number='{$temp_number}' data-whole_data='". esc_attr( wp_json_encode( $whole_data ) ) ."'>";
             $paginate = wpt_paginate_links( $args );
             $html .= $paginate; 
             $html .= "</div>";
