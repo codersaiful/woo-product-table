@@ -213,6 +213,7 @@ You can easily show specific category products. While creating new table click o
 == Changelog ==
 
 = 3.1.9 =
+  * Fixed: Pagination on Advance Search issue has been solved.
   * Added: DataTable added as new features.
   * Changed: Dashboard Table Edit -> tab has been changed.
   * Fixed: pagination sorting issue fixed.
