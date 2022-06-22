@@ -11,7 +11,7 @@
  * Requires at least:    4.0.0
  * Tested up to:         6.0
  * WC requires at least: 3.0.0
- * WC tested up to: 	 6.5.1
+ * WC tested up to: 	 6.6.1
  * 
  * 
  * Text Domain: wpt_pro
