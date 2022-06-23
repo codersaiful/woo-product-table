@@ -6,7 +6,20 @@ base class beautiful_beautiful_blacky_wrapper
   --beautiful-black: #25252b;
   --beautiful-black-hover:#2e2e36;
 }
+  .beautiful_blacky_wrapper a, .beautiful_blacky_wrapper a:hover{
+    text-decoration: none !important;
+  }
+  .beautiful_blacky_wrapper .woocommerce-mini-cart__buttons.buttons a{
+    background:var(--beautiful-black);
+    font-size: 14px;
+    font-weight: 400;
+    border-radius: 3px;
+  }
+  .beautiful_blacky_wrapper ul.woocommerce-mini-cart li a{
+    color: var(--beautiful-black-hover);
+    font-size: 16px;
 
+  }
   .beautiful_blacky_wrapper table {
     color: #212529;
     background: var(--beautiful-black-hover);
@@ -48,7 +61,7 @@ base class beautiful_beautiful_blacky_wrapper
     font-size: 14px;
     border-radius: 3px;
     font-weight:400;
-    text-decoration: none !important;
+
 }
     .beautiful_blacky_wrapper table thead tr, 
     .beautiful_blacky_wrapper table thead th {
@@ -123,10 +136,6 @@ base class beautiful_beautiful_blacky_wrapper
 
     /*Checkbox*/
 
-  
-    
-
-
   .beautiful_blacky_wrapper.wpt_product_table_wrapper input[type=checkbox]:checked+label:before {
       background: var(--beautiful-blue);
       border-color: var(--beautiful-blue);
@@ -197,7 +206,6 @@ base class beautiful_beautiful_blacky_wrapper
   font-size: 14px;
   margin-left: 10px;
   font-weight: 400;
-  text-decoration: none !important;
 }
 .all_check_header_footer.all_check_header>span {
   background:#ddd
@@ -205,6 +213,7 @@ base class beautiful_beautiful_blacky_wrapper
   padding: 7px 10px 2px 10px;
   border: 1px solid rgba(119, 115, 115, 0.12);
 }
+
 /*Test Purpose*/
 /* body.custom-background {
   background-color: #000;
