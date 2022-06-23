@@ -17,7 +17,7 @@ base class beautiful_beautiful_blacky_wrapper
     color: #fff;
   }
   .beautiful_blacky_wrapper ul.woocommerce-mini-cart li a{
-    color: var(--beautiful-black-hover);
+    color: #ffffff;
     font-size: 16px;
 
   }
@@ -217,14 +217,16 @@ base class beautiful_beautiful_blacky_wrapper
   color: rgb(233, 233, 233);
 }
 .beautiful_blacky_wrapper .all_check_header_footer.all_check_header>span {
-    background: #ddd;
-    display: flex;
-    padding: 7px;
-    border: 1px solid rgba(119, 115, 115, 0.12);
-    justify-content: center;
-    align-items: center;
+  background: var(--beautiful-black-hover)
+  display: flex;
+  padding: 7px;
+  border: 1px solid rgba(119, 115, 115, 0.12);
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  border-radius: 3px;
 }
-}
+
 .beautiful_blacky_wrapper .custom_table .wpt_row td img {
   border-radius: 3px;
 }
