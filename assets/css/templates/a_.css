@@ -57,12 +57,12 @@ base class beautiful_beautiful_blacky_wrapper
   .beautiful_blacky_wrapper table tbody tr a.button.disabled, 
   .beautiful_blacky_wrapper table tbody tr a.button.alt.disabled {
     padding: 8px 9px;
-    background:var(--beautiful-blue);
+    background: transparent;
     color: #fff;
     font-size: 14px;
     border-radius: 3px;
     font-weight:400;
-
+    border: 1px solid #466a9a;
 }
     .beautiful_blacky_wrapper table thead tr, 
     .beautiful_blacky_wrapper table thead th {
@@ -142,7 +142,7 @@ base class beautiful_beautiful_blacky_wrapper
       border-color: var(--beautiful-blue);
   }
   .beautiful_blacky_wrapper.wpt_product_table_wrapper input[type=checkbox]+label:before{
-    border: 1px solid #5f5f6c;
+    border: 1px solid #466a9a;
     content: '';
     margin-right: 3px;
     display: inline-block;
