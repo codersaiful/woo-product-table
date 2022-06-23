@@ -2,14 +2,14 @@
 base class beautiful_beautiful_blacky_wrapper
 */
 :root {
-  --blue: #007bff;
-  --black: #25252b;
-  --black-hover:#2e2e36;
+  --beautiful-blue: #007bff;
+  --beautiful-black: #25252b;
+  --beautiful-black-hover:#2e2e36;
 }
 
   .beautiful_blacky_wrapper table {
     color: #212529;
-    background: var(--black-hover);
+    background: var(--beautiful-black-hover);
     font-size: 16px;
   }
   .beautiful_blacky_wrapper table thead th {
@@ -27,8 +27,8 @@ base class beautiful_beautiful_blacky_wrapper
   .beautiful_blacky_wrapper table span.wpt-pro-tag-on-sale {
     display: inline-block;
     padding: 2px;
-    border: 1px solid var(--blue);;
-    background: var(--blue);;
+    border: 1px solid var(--beautiful-blue);
+    background: var(--beautiful-blue);
     color: #fff;
     font-weight: 500;
     border-radius: 3px;
@@ -41,7 +41,7 @@ base class beautiful_beautiful_blacky_wrapper
   .beautiful_blacky_wrapper table tbody tr a.button.disabled, 
   .beautiful_blacky_wrapper table tbody tr a.button.alt.disabled {
     padding: 8px 9px;
-    background:var(--blue);
+    background:var(--beautiful-blue);
     color: #fff;
     font-size: 14px;
     border-radius: 3px;
@@ -76,7 +76,7 @@ base class beautiful_beautiful_blacky_wrapper
       }
       .beautiful_blacky_wrapper table tbody tr th,
       .beautiful_blacky_wrapper table tbody tr td {
-        background: var(--black);
+        background: var(--beautiful-black);
         border: none;
         -webkit-transition: .3s all ease;
         -o-transition: .3s all ease;
@@ -107,7 +107,7 @@ base class beautiful_beautiful_blacky_wrapper
     .beautiful_blacky_wrapper table tbody tr:hover th, .beautiful_blacky_wrapper table tbody tr:hover td,
     .beautiful_blacky_wrapper table tbody tr:hover .wpt_product_title_in_td {
       color: #fff;
-      background: var(--black-hover);
+      background: var(--beautiful-black-hover);
     }
     .beautiful_blacky_wrapper table tbody tr.active th a, 
     .beautiful_blacky_wrapper table tbody tr.active td a, 
@@ -115,3 +115,66 @@ base class beautiful_beautiful_blacky_wrapper
     .beautiful_blacky_wrapper table tbody tr:hover td a {
       color: #fff; 
     }
+
+    /*Checkbox*/
+    .smart_light_wrapper .smart_light_table input[type="checkbox"]:checked + label::after {
+      content: "âœ“";
+      color: #ffffff;
+      top: 0px;
+      font-size: 14px;
+      font-weight: bold;
+      left: 4px;
+      position: absolute;
+  }
+  .beautiful_blacky_wrapper table input[type=checkbox]:checked+label:before {
+      background: var(--beautiful-blue);
+      border-color: var(--beautiful-blue);
+  }
+  .beautiful_blacky_wrapper table input[type=checkbox]+label:before{
+    border: 1px solid #5f5f6c;
+    content: '';
+    margin-right: 3px;
+    display: inline-block;
+    vertical-align: text-top;
+    width: 20px;
+    height: 20px;
+    background: var(--beautiful-black-hover);
+    border-radius: 2px;
+}
+
+.beautiful_blacky_wrapper.wpt_product_table_wrapper input[type=checkbox]:checked+label:after {
+  content: '\2713';
+  color: #fff;
+  top: 0px;
+  font-size: 14px;
+  font-weight: bold;
+  left: 4px;
+  position: absolute;
+}
+.beautiful_blacky_wrapper .wpt_table_pagination span.page-numbers.current, 
+.beautiful_blacky_wrapper .wpt_table_pagination a.page-numbers.current {
+  background-color: var(--beautiful-black);
+  color: #ffff;
+  border: 1px solid var(--beautiful-black);
+  font-weight: bold;
+  font-size: 14px;
+}
+.beautiful_blacky_wrapper .wpt_table_pagination a.page-numbers, 
+.beautiful_blacky_wrapper .wpt_table_pagination span.page-numbers {
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color .3s;
+  border: 1px solid #ddd;
+  margin: 0px;
+  display: inline-block;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 3px;
+}
+.beautiful_blacky_wrapper .wpt_table_pagination a.page-numbers:hover, 
+.beautiful_blacky_wrapper .wpt_table_pagination a.page-numbers:focus, 
+.beautiful_blacky_wrapper .wpt_table_pagination span.page-numbers:hover, 
+.beautiful_blacky_wrapper .wpt_table_pagination span.page-numbers:focus {
+  background: var(--beautiful-black-hover);
+  color: #fff;
+}
