@@ -213,7 +213,10 @@ base class beautiful_beautiful_blacky_wrapper
   margin-left: 10px;
   font-weight: 400;
 }
-.all_check_header_footer.all_check_header>span {
+.beautiful_blacky_wrapper .all_check_header_footer .button.add_to_cart_all_selected:hover{
+  color: rgb(233, 233, 233);
+}
+.beautiful_blacky_wrapper .all_check_header_footer.all_check_header>span {
     background: #ddd;
     display: flex;
     padding: 7px;
@@ -229,3 +232,13 @@ base class beautiful_beautiful_blacky_wrapper
 .beautiful_blacky_wrapper table:not( .has-background ) th {
   background-color: var(--beautiful-black-hover);
 }
+.beautiful_blacky_wrapper.wpt_product_table_wrapper div.tables_cart_message_box div.widget_shopping_cart_content li.woocommerce-mini-cart-item.mini_cart_item {
+  background: var(--beautiful-black);
+  color: #fff;
+}
+
+
+/*test purpose
+body{
+  background: #000000;
+}*/
