@@ -2,7 +2,7 @@
 base class beautiful_beautiful_blacky_wrapper
 */
 :root {
-  --beautiful-blue: #007bff;
+  --beautiful-blue: #466a9a;
   --beautiful-black: #25252b;
   --beautiful-black-hover:#2e2e36;
 }
@@ -163,7 +163,6 @@ base class beautiful_beautiful_blacky_wrapper
   position: absolute;
 }
 .beautiful_blacky_wrapper.wpt_product_table_wrapper .all_check_header input[type=checkbox]+label:before{
-  background: #b3b3b3;
   margin-right: 10px;
 }
 
@@ -217,7 +216,7 @@ base class beautiful_beautiful_blacky_wrapper
   color: rgb(233, 233, 233);
 }
 .beautiful_blacky_wrapper .all_check_header_footer.all_check_header>span {
-  background: var(--beautiful-black-hover)
+  background: var(--beautiful-black-hover);
   display: flex;
   padding: 7px;
   border: 1px solid rgba(119, 115, 115, 0.12);
@@ -239,7 +238,9 @@ base class beautiful_beautiful_blacky_wrapper
   color: #fff;
 }
 
-
+.beautiful_blacky_wrapper table th.wpt_action {
+  text-align: right;
+}
 /*test purpose
 body{
   background: #000000;
