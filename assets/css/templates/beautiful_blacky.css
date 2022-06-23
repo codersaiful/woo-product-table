@@ -241,6 +241,19 @@ base class beautiful_beautiful_blacky_wrapper
 .beautiful_blacky_wrapper table th.wpt_action {
   text-align: right;
 }
+.beautiful_blacky_wrapper .search_single .query_box_direct_value, .beautiful_blacky_wrapper .instance_search_input {
+  width: 100%;
+  border-radius: 2px;
+  padding: 6px 5px 5px 5px;
+  border: 1px solid #25252b;
+  padding: 12px;
+}
+.beautiful_blacky_wrapper a:focus, 
+.beautiful_blacky_wrapper input:focus, 
+.beautiful_blacky_wrapper textarea:focus, 
+.beautiful_blacky_wrapper button:focus {
+  outline: 2px solid var(--beautiful-blue);
+}
 /*test purpose
 body{
   background: #000000;
