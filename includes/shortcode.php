@@ -15,6 +15,7 @@ if( ! function_exists( 'wpt_shortcode_generator' ) ){
      */
     function wpt_shortcode_generator( $atts = false ) {
 
+        do_action( 'wpt_load' );
         $lang = apply_filters( 'wpml_current_language', NULL );
         $default_lang = apply_filters('wpml_default_language', NULL );
         $lang_ex = $lang == $default_lang ? '': '_' . $lang;
@@ -43,6 +44,22 @@ if( ! function_exists( 'wpt_shortcode_generator' ) ){
         $atts_id = isset( $atts['id'] ) && !empty( $atts['id'] ) ? (int) $atts['id'] : 0; 
         $atts_id = apply_filters( 'wpml_object_id', $atts_id, 'wpt_product_table', TRUE  );
         $table_status = get_post_status( $atts_id );
+
+        /**
+         * set query var
+         * for our product table
+         * to check that table is loaded any where on any place.
+         * 
+         * we can check it, it qe get query var. 
+         * global $wp_query;
+         * $wpt_query = $wp_query->query_vars;
+         *
+         * isset( $wpt_query['woo_product_table'] ) 
+         * 
+         * 
+
+         */
+        set_query_var( 'woo_product_table', $atts_id );
 
         if( $atts_id && get_post_type( $atts_id ) == 'wpt_product_table' && $table_status == 'publish' ){
             $ID = $table_ID = $atts_id;//(int) $atts['id']; //Table ID added at V5.0. And as this part is already encapsule with if and return is false, so no need previous declearation
@@ -181,29 +198,29 @@ if( ! function_exists( 'wpt_shortcode_generator' ) ){
             }
 
             //Conditions Tab Part
-            $sort = $conditions['sort'];
-            $sort_order_by = $conditions['sort_order_by'];
-            $meta_value_sort = $conditions['meta_value_sort'];
-            $min_price = $conditions['min_price'];
-            $max_price = $conditions['max_price'];
-            $description_type = $conditions['description_type'];
+            $sort = $conditions['sort'] ?? '';
+            $sort_order_by = $conditions['sort_order_by'] ?? '';
+            $meta_value_sort = $conditions['meta_value_sort'] ?? '';
+            $min_price = $conditions['min_price'] ?? '';
+            $max_price = $conditions['max_price'] ?? '';
+            $description_type = $conditions['description_type'] ?? '';
             $only_stock = !empty( $conditions['only_stock'] ) && $conditions['only_stock'] !== 'no' ? $conditions['only_stock'] : false;
             $only_sale = isset( $conditions['only_sale'] ) && $conditions['only_sale'] == 'yes' ? true : false;
-            $posts_per_page = (int) $conditions['posts_per_page'];
+            $posts_per_page = $conditions['posts_per_page'] ?? 20;
 
             //Mobile tab part
 
             $table_mobileHide_keywords = isset( $mobile['disable'] ) ? $mobile['disable'] : false;
             
             //Search and Filter
-            $search_box = $search_n_filter['search_box'] == 'no' ? false : true;
-            $texonomiy_keywords = wpt_explode_string_to_array( $search_n_filter['taxonomy_keywords'] ); 
+            $search_box = isset( $search_n_filter['search_box'] ) && $search_n_filter['search_box'] == 'no' ? false : true;
+            $texonomiy_keywords = $search_n_filter['taxonomy_keywords'] ?? array();
 
-            $filter_box = $search_n_filter['filter_box'] == 'no' ? false : true;
-            $filter_keywords = wpt_explode_string_to_array( $search_n_filter['filter'] );
+            $filter_box = isset( $search_n_filter['filter_box'] ) && $search_n_filter['filter_box'] == 'no' ? false : true;
+            $filter_keywords = $search_n_filter['filter'] ?? array();
 
             //Pagination Start
-            $pagination_start = isset( $pagination['start'] ) ? $pagination['start'] : '1'; //1 FOR ENABLE, AND 0 FOR DISABLE //Default value 1 - Enable
+            $pagination_start = $pagination['start'] ?? '1'; //1 FOR ENABLE, AND 0 FOR DISABLE //Default value 1 - Enable
 
         }else{
             return false;
@@ -230,6 +247,7 @@ if( ! function_exists( 'wpt_shortcode_generator' ) ){
             'post_status'   =>  'publish',
             'meta_query' => array(),
             'wpt_query_type' => 'default',
+            'pagination'    => $pagination_start ?? 0,
         );
 
         /**
@@ -475,6 +493,10 @@ if( ! function_exists( 'wpt_shortcode_generator' ) ){
                 $checkbox,
                 "wpt_" . $pagination_ajax,
             );
+        
+        $wrapper_class = $args['wrapper_class'] ?? '';
+        $wrapper_class_arr[] = $wrapper_class;
+        
         $wrapper_class_arr = apply_filters( 'wpto_wrapper_tag_class_arr', $wrapper_class_arr, $table_ID, $args, $column_settings, $enabled_column_array, $column_array );
         $wrapper_class_arr = implode( " ", $wrapper_class_arr );
 
@@ -656,8 +678,8 @@ if( ! function_exists( 'wpt_shortcode_generator' ) ){
         $Load_More_Text = $config_value['load_more_text'];
 
         //pagination
-        if( $pagination_start && $pagination_start == '1' ){
-            $html .= wpt_pagination_by_args( $args , $temp_number);
+        if( isset( $args['pagination'] ) && $args['pagination'] == '1' ){
+            $html .= wpt_pagination_by_args( $args , $temp_number, $table_row_generator_array);
         }
         $Load_More = '<div id="wpt_load_more_wrapper_' . $temp_number . '" class="wpt_load_more_wrapper ' . $config_value['disable_loading_more'] . '"><button data-temp_number="' . $temp_number . '" data-load_type="current_page" data-type="load_more" class="button wpt_load_more">' . $Load_More_Text . '</button></div>';
         $html .= ( $posts_per_page != -1 ? $Load_More : '' );//$Load_More;
@@ -685,8 +707,14 @@ if( ! function_exists( 'wpt_shortcode_generator' ) ){
         //$html .= apply_filters('wpt_after_table_wrapper', ''); //Apply Filter Just After Table Wrapper div tag
         $html .= isset( $custom_css_code ) ? $custom_css_code : '';
 
+        /**
+         * New Action hook added
+         * 
+         * @since 3.1.8.3
+         * @author Saiful Islam <codersaiful@gmail.com>
+         */
+        do_action( 'wpt_loaded', $table_ID );
         
-
         return $html;
     }
 }
@@ -743,6 +771,8 @@ if( ! function_exists( 'wpt_table_row_generator' ) ){
         $_device = wpt_col_settingwise_device( $table_ID );
         $basics = get_post_meta( $table_ID, 'basics', true );
         $design = get_post_meta( $table_ID, 'table_style', true );
+        $conditions = get_post_meta( $table_ID, 'conditions', true );
+        
 
         $args                   = $table_row_generator_array['args'];
         $table_column_keywords = $table_row_generator_array['wpt_table_column_keywords'];
@@ -791,10 +821,12 @@ if( ! function_exists( 'wpt_table_row_generator' ) ){
             $args['s'] = false;
         }
 
-        $args['suppress_filters'] = 1;
-        
         $args['posts_per_page'] = is_numeric( $args['posts_per_page'] ) ? (int) $args['posts_per_page'] : $args['posts_per_page'];
-        // var_dump($args);
+        
+        if( ! isset($args['s']) ){
+            $args['suppress_filters'] = 1;
+        }
+        // var_dump($args['tax_query']);
         $product_loop = new WP_Query($args);
         // var_dump($product_loop);
 
@@ -807,11 +839,7 @@ if( ! function_exists( 'wpt_table_row_generator' ) ){
         }
         
         $product_loop = apply_filters( 'wpto_product_loop', $product_loop, $table_ID, $args );
-        // var_dump($table_ID,000000000);
-        // $ddddddd = apply_filters( 'wpml_object_id', $table_ID, 'wpt_product_table', TRUE  );
-        // var_dump($ddddddd);
-        // $newId = wpml_object_id_filter( $table_ID, 'wpt_product_table' );
-        // var_dump($newId);
+        
 
         $wpt_table_row_serial = (( $args['paged'] - 1) * $args['posts_per_page']) + 1; //For giving class id for each Row as well
         if (  $product_loop->have_posts() ) : while ($product_loop->have_posts()): $product_loop->the_post();
@@ -822,10 +850,11 @@ if( ! function_exists( 'wpt_table_row_generator' ) ){
                 $parent_id = $product->get_parent_id(); // Version 2.7.7
                 
                 (Int) $id = $data['id'];
-                // This code should be in latest branch
-//                if($table_type != 'advance_table' && wp_doing_ajax()) {
-//                    wp('p=' . $id . '&post_type=product'); //Its in under Process, need more checking on this features.
-//                }
+                
+                $wp_force = $conditions['wp_force'] ?? false;
+               if( $wp_force ) {
+                   wp('p=' . $id . '&post_type=product');
+               }
 
                 $taxonomy_class = 'filter_row ';
                 $data_tax = false;
@@ -1113,44 +1142,31 @@ if( !function_exists( 'wpt_search_box' ) ){
         $html .= "<div class='search_single search_single_direct'>";
         
         $search_keyword = isset( $_GET['search_key'] ) ? sanitize_text_field( $_GET['search_key'] ) : '';
-        $order_by = isset( $_GET['orderby'] ) ? sanitize_text_field( $_GET['orderby'] ) : $order_by;
-        $order = isset( $_GET['order'] ) ? sanitize_text_field( $_GET['order'] ) : $order;
+        
 
-            $single_keyword = $config_value['search_keyword_text'];//__( 'Search keyword', 'wpt_pro' );
-            $search_order_placeholder = $config_value['search_box_searchkeyword'];//__( 'Search keyword', 'wpt_pro' );
-            $html .= "<div class='search_single_column'>";
-            $html .= '<label class="search_keyword_label single_keyword" for="single_keyword_' . $temp_number . '">' . $single_keyword . '</label>';
-            $html .= '<input data-key="s" value="' . $search_keyword . '" class="query_box_direct_value" id="single_keyword_' . $temp_number . '" value="" placeholder="' . $search_order_placeholder . '"/>';
-            $html .= "</div>";// End of .search_single_column
+        $single_keyword = $config_value['search_keyword_text'];//__( 'Search keyword', 'wpt_pro' );
+        $search_order_placeholder = $config_value['search_box_searchkeyword'];//__( 'Search keyword', 'wpt_pro' );
+        $html .= "<div class='search_single_column'>";
+        $html .= '<label class="search_keyword_label single_keyword" for="single_keyword_' . $temp_number . '">' . $single_keyword . '</label>';
+        $html .= '<input data-key="s" value="' . $search_keyword . '" class="query_box_direct_value" id="single_keyword_' . $temp_number . '" value="" placeholder="' . $search_order_placeholder . '"/>';
+        $html .= "</div>";// End of .search_single_column
 
-            $order_by_validation = apply_filters( 'wpto_searchbox_order_show', false,$temp_number, $config_value, $search_box_texonomiy_keyword );
-            if( $order_by_validation ):
-            $single_keyword = $config_value['search_box_orderby'];//__( 'Order By', 'wpt_pro' ); //search_box_orderby
-            $html .= "<div class='search_single_column search_single_sort search_single_order_by'>";
-            $html .= '<label class="search_keyword_label single_keyword" for="order_by' . $temp_number . '">' . $single_keyword . '</label>';
-
-            $html .= '<select data-key="orderby" id="order_by_' . $temp_number . '" class="query_box_direct_value select2" >';
-            $html .= '<option value="name" '. wpt_check_sortOrder( $order_by, 'name' ) .'>'.esc_html__( 'Name','wpt_pro' ).'</option>';
-            $html .= '<option value="menu_order" '. wpt_check_sortOrder( $order_by, 'menu_order' ) .'>'.esc_html__( 'Menu Order','wpt_pro' ).'</option>';
-            $html .= '<option value="type" '. wpt_check_sortOrder( $order_by, 'type' ) .'>'.esc_html__( 'Type','wpt_pro' ).'</option>';
-            $html .= '<option value="comment_count" '. wpt_check_sortOrder( $order_by, 'comment_count' ) .'>'.esc_html__( 'Reviews','wpt_pro' ).'</option>';
-            $html .= '</select>';
-
-            $html .= "</div>";// End of .search_single_column
-
-            $single_keyword = $config_value['search_box_order']; //__( 'Order', 'wpt_pro' );
-            $html .= "<div class='search_single_column search_single_order'>";
-            $html .= '<label class="search_keyword_label single_keyword" for="order_' . $temp_number . '">' . $single_keyword . '</label>';
-            $html .= '<select data-key="order" id="order_' . $temp_number . '" class="query_box_direct_value select2" >  ';
-            $html .= '<option value="ASC" '. wpt_check_sortOrder( $order, 'ASC' ) .'>'.esc_html__( 'ASCENDING','wpt_pro' ).'</option>';
-            $html .= '<option value="DESC" '. wpt_check_sortOrder( $order, 'DESC' ) .'>'.esc_html__( 'DESCENDING','wpt_pro' ).'</option>';
-            $html .= '<option value="random" '. wpt_check_sortOrder( $order, 'random' ) .'>'.esc_html__( 'Random','wpt_pro' ).'</option>';
-            $html .= '</select>';
-
-            $html .= "</div>";// End of .search_single_column
-            endif;
+        ob_start();
+        /**
+         * Used following hook to insert two insert other field
+         * such:
+         * Order By, Order and On sale
+         * 
+         * @author Saiful Islam <codersaiful@gmail.com>
+         */
+        do_action( 'wpto_search_box_basics', $temp_number, $config_value, $order_by, $order );
+        $html .= ob_get_clean();
 
         $html .= "</div>"; //end of .search_single
+        
+        if( is_string( $search_box_texonomiy_keyword ) && ! empty( $search_box_texonomiy_keyword ) ){
+            $search_box_texonomiy_keyword = wpt_explode_string_to_array( $search_box_texonomiy_keyword );
+        }
 
         /**
          * Texonomies Handle based on $search_box_texonomiy_keyword
@@ -1199,6 +1215,10 @@ if( ! function_exists( 'wpt_filter_box' ) ){
     function wpt_filter_box($temp_number, $filter_keywords = false ){
 
         $html = $html_select = false;
+        
+        if( is_string( $filter_keywords ) && ! empty( $filter_keywords ) ){
+            $filter_keywords = wpt_explode_string_to_array( $filter_keywords );
+        }
         
         $config_value = wpt_get_config_value( $temp_number ); //V5.0 temp number is post_ID , $table_ID
         /**

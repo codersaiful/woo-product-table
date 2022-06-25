@@ -15,7 +15,6 @@ if( $table_type == 'advance_table'){
             if($variation_in_action){
                 break;
             }
-            
         }
     }
     

@@ -326,6 +326,7 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
 
                 </tbody>
             </table><?php do_action( 'wpto_admin_configuration_panel_bottom',$settings,$current_config_value ); ?>
+            <?php do_action( 'wpt_offer_here' );  ?>
         </div>
          <?php
          
@@ -439,6 +440,14 @@ if( !function_exists( 'wpt_configure_label_part' ) ){
                             <input name="<?php echo esc_attr( $field_name ); ?>[search_box_searchkeyword]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['search_box_searchkeyword'] ); ?>" id="wpt_table_search_box_searchkeyword" type="text" placeholder="<?php esc_attr_e( 'Search Keyword text', 'wpt_pro' ); ?>">
                         </td>
                     </tr>
+                    <?php if( defined( 'WPT_PRO_DEV_VERSION' ) ){ ?>
+                    <tr>
+                        <th><label for="wpt_table_search_box_sale" class="wpt_label"><?php esc_html_e( 'SearchBox Sale text', 'wpt_pro' ); ?></label></label></th>
+                        <td>
+                            <input name="<?php echo esc_attr( $field_name ); ?>[search_box_sale]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['search_box_sale'] ?? '' ); ?>" id="wpt_table_search_box_sale" type="text" placeholder="<?php esc_attr_e( 'Sale', 'wpt_pro' ); ?>">
+                        </td>
+                    </tr>
+                    <?php } ?>
                     <tr>
                         <th><label for="wpt_table_search_box_orderby" class="wpt_label"><?php esc_html_e( 'SearchBox Order By text', 'wpt_pro' ); ?></label></label></th>
                         <td>
@@ -672,11 +681,35 @@ if( !function_exists( 'wpt_profeatures_message_box' ) ){
     function wpt_profeatures_message_box( $value ){
         $img_url = WPT_BASE_URL . 'assets/images/pro-features/';
         ?>
+        <?php do_action( 'wpt_premium_image_top' ); ?>
         <div class="wpt-pro-only-featues <?php echo esc_attr( $value ); ?>">
             
             <img src="<?php echo esc_attr( $img_url . $value . '.png' ); ?>">
         </div>
+        <?php do_action( 'wpt_premium_image_bottom' ); ?>
          <?php
     }
 }
 add_action( 'wpo_pro_feature_message', 'wpt_profeatures_message_box' );
+
+/**
+ * This will add a new input box inside short description column
+ * we can add description limit 
+ */
+if( !function_exists( 'wpt_extra_field_for_disc_limit' ) ){
+    
+    function wpt_extra_field_for_disc_limit( $_device_name, $column_settings ){
+
+        $short_description = isset( $column_settings['short_description'] ) ? $column_settings['short_description'] : false;
+        $short_description_length = isset( $short_description['short_description_length'] ) ? $short_description['short_description_length'] : '';
+
+          ?>
+              <label><?php echo esc_html__( 'Description Length :', 'wpt_pro' ); ?></label>
+              <input type="text" class="ua_input" name="column_settings<?php echo esc_attr( $_device_name ); ?>[short_description][short_description_length]" value="<?php echo esc_attr( $short_description_length ); ?>">
+              
+          <?php
+  
+    }
+    
+ }
+ add_action( 'wpto_column_setting_form_inside_short_description', 'wpt_extra_field_for_disc_limit', 10, 2 );

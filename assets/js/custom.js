@@ -93,7 +93,7 @@ jQuery(function($) {
         /**
          * Pagination
          */
-        $('body').on('click','.wpt_pagination_ajax .wpt_table_pagination a',function(e){
+        $(document.body).on('click','.wpt_pagination_ajax .wpt_table_pagination a',function(e){
             e.preventDefault();
             var thisButton = $(this);
 
@@ -105,6 +105,17 @@ jQuery(function($) {
             var targetTable = $('#table_id_' + temp_number + ' table#wpt_table');
             var targetTableArgs = targetTable.attr( 'data-data_json' );
                 targetTableArgs = JSON.parse(targetTableArgs);
+
+            // let newArgs = $(this).parents('mypagi').attr('myjson');   
+            // // console.log(typeof newArgs, newArgs);
+            // if( typeof newArgs !== 'undefined' && typeof newArgs === 'string' ){
+            //     targetTableArgs = JSON.parse(newArgs);
+            // }else{
+            //     targetTableArgs = JSON.parse(targetTableArgs);
+            // }
+            // // console.log(targetTableArgs);
+                
+           
             var targetTableBody = $('#table_id_' + temp_number + ' table#wpt_table tbody');
             var thisPagiWrappers = $('#table_id_' + temp_number + ' .wpt_table_pagination');
             var thisPagiLinks = $('#table_id_' + temp_number + ' .wpt_table_pagination a.page-numbers');
@@ -114,16 +125,36 @@ jQuery(function($) {
             var pageNumber = page_number;
             targetTableBody.css('opacity','0.2');
             thisPagiWrappers.addClass('pagination_loading');
+
+            var data;
+            // var data = {
+            //     action:         'wpt_query_table_load_by_args',
+            //     temp_number:    temp_number,
+            //     targetTableArgs:targetTableArgs,
+            //     pageNumber:     pageNumber,
+            //     load_type:     load_type,
+            // };
+            var whole_data = $('#table_id_' + temp_number + ' .wpt_table_pagination').attr('data-whole_data');
+            if( typeof whole_data !== 'undefined' && typeof whole_data === 'string' ){
+                data = JSON.parse(whole_data);
+                
+                data.load_type = load_type;
+                data.targetTableArgs = targetTableArgs;
+                data.pageNumber = pageNumber;
+                data.temp_number = temp_number;
+                data.action = 'wpt_query_table_load_by_args';
+
+                
+            }else{
+                return;
+            }
+            // console.log(targetTableArgs,data);
+            
+
             $.ajax({
                 type: 'POST',
                 url: ajax_url,// + get_data,
-                data: {
-                    action:         'wpt_query_table_load_by_args',
-                    temp_number:    temp_number,
-                    targetTableArgs:targetTableArgs,
-                    pageNumber:     pageNumber,
-                    load_type:     load_type,
-                },
+                data: data,
                 complete: function(){
                     $( document ).trigger( 'wc_fragments_refreshed' );
                     arrangingTDContentForMobile(); //@Since 5.2
@@ -325,8 +356,8 @@ jQuery(function($) {
                         
 
                         if( fragments.hasOwnProperty('wpt_per_product') && fragments.wpt_per_product !== "false" && config_json.empty_cart_text ){
-                            var emty_cart_btn = '<span class="wpt_empty_cart_btn">' + config_json.empty_cart_text + '</span>';
-                            $('.wpt_product_table_wrapper div.tables_cart_message_box a.cart-contents').append(emty_cart_btn);
+                            var emty_cart_btn = '<a class="wpt_empty_cart_btn button button-empty-cart">' + config_json.empty_cart_text + '</a>';
+                            $('.wpt_product_table_wrapper div.tables_cart_message_box p.woocommerce-mini-cart__buttons.buttons').prepend(emty_cart_btn);
                         }else{
                             $('.wpt_empty_cart_btn').remove();
                         }
@@ -893,6 +924,7 @@ jQuery(function($) {
                 totalPrice = totalPrice.toFixed(targetNumbersPoint);
 
                 var priceFormat = WPT_DATA.priceFormat;
+                
                 var newPrice;
                 switch(priceFormat){
                     case 'left': // left
@@ -1462,20 +1494,23 @@ jQuery(function($) {
 
             //Display Loading on before load
             targetTableBody.prepend("<div class='wpt_loader_text'>" + config_json.loading_more_text + "</div>"); //Laoding..
-            $(document.body).trigger('wpt_query_progress',targetTableArgs);
+            var data = {
+                action:         'wpt_query_table_load_by_args',
+                temp_number:    temp_number,
+                directkey:      directkey,
+                targetTableArgs:targetTableArgs, 
+                texonomies:     texonomies,
+                pageNumber:     pageNumber,
+                load_type:     load_type,
+                custom_field:    custom_field,
+            };
+            var whold_data = JSON.stringify(data);
+            $('#table_id_' + temp_number + ' .wpt_table_pagination').attr('data-whole_data', whold_data);
+            $(document.body).trigger('wpt_query_progress',targetTableArgs, data);
             $.ajax({
                 type: 'POST',
                 url: ajax_url,// + get_data,
-                data: {
-                    action:         'wpt_query_table_load_by_args',
-                    temp_number:    temp_number,
-                    directkey:      directkey,
-                    targetTableArgs:targetTableArgs, 
-                    texonomies:     texonomies,
-                    pageNumber:     pageNumber,
-                    load_type:     load_type,
-                    custom_field:    custom_field,
-                },
+                data: data,
                 complete: function(){
                     $( document ).trigger( 'wc_fragments_refreshed' );
                     arrangingTDContentForMobile(); //@Since 5.2
@@ -1607,6 +1642,14 @@ jQuery(function($) {
             window.history.pushState('data', null, link.replace(/(^&)|(&$)/g, ""));
         }
         
+        $(document.body).on('click','h1.entry-title',function(){
+            var temp_number = '19541';
+            var newjsonData = $('#table_id_' + temp_number + ' mypagi').attr('myjson');
+            var thisNewPagiWrappers = $('#table_id_' + temp_number + ' .wpt_table_pagination').attr('data-whole_data');
+            // console.log('newjsonData',JSON.parse(newjsonData));
+            console.log('thisNewPagiWrappers',JSON.parse(thisNewPagiWrappers));
+                    
+        });
         
         function loadPaginationLinks($data,temp_number){
             var targetTable = $('#table_id_' + temp_number + ' table#wpt_table');
@@ -1616,9 +1659,15 @@ jQuery(function($) {
                     data: $data,
                     success: function(paginate_data){
                         var thisPagiWrappers = $('#table_id_' + temp_number + ' .wpt_table_pagination');
+                        
                         thisPagiWrappers.html(paginate_data);
                         changeSpanToAPagi();
-                        var newjsonData = $('mypagi').attr('myjson');
+                        var newjsonData = $('#table_id_' + temp_number + ' mypagi').attr('myjson');
+                        var thisNewPagiWrappers = $('#table_id_' + temp_number + ' .wpt_table_pagination').attr('data-whole_data');
+                        thisNewPagiWrappers = JSON.parse(thisNewPagiWrappers);
+                        thisNewPagiWrappers = thisNewPagiWrappers.targetTableArgs;
+                        // console.log('newjsonData',JSON.parse(newjsonData));
+                        // console.log('thisNewPagiWrappers',thisNewPagiWrappers);
                         targetTable.attr( 'data-data_json', newjsonData );
                         thisPagiWrappers.removeClass('pagination_loading');
                     }
@@ -1731,24 +1780,30 @@ jQuery(function($) {
                 var targetCurrency = targetTotalSelector.data('currency');
                 var targetPriceDecimalSeparator = targetTotalSelector.data('price_decimal_separator');
                 var targetPriceThousandlSeparator = targetTotalSelector.data('thousand_separator');
+
                 var targetNumbersPoint = targetTotalSelector.data('number_of_decimal');
                 var totalPrice = parseFloat(targetPrice) * parseFloat(Qty_Val);
                 totalPrice = totalPrice.toFixed(targetNumbersPoint);
                 var priceFormat = WPT_DATA.priceFormat;
+               
                 var newPrice;
-                switch(priceFormat){
-                    case 'left': // left
-                        newPrice = targetCurrency + totalPrice.replace(".",targetPriceDecimalSeparator);
-                        break;
-                    case 'right': // right
-                        newPrice = totalPrice.replace(".",targetPriceDecimalSeparator) + targetCurrency;
-                        break;
-                    case 'left-space': // left with space
-                        newPrice = targetCurrency + ' ' + totalPrice.replace(".",targetPriceDecimalSeparator);
-                        break;
-                    case 'right-space': // right with space
-                        newPrice = totalPrice.replace(".",targetPriceDecimalSeparator) + ' ' + targetCurrency;
-                        break;
+                switch (priceFormat) {
+                case 'left': // left
+                    //newPrice = targetCurrency + totalPrice.replace(".",targetPriceDecimalSeparator);
+                    newPrice = targetCurrency+ (totalPrice + '').replace(/\B(?=(?:\d{3})+\b)/g, ',');
+                    break;
+                case 'right': // right
+                    //newPrice = totalPrice.replace(".",targetPriceDecimalSeparator) + targetCurrency;
+                    newPrice = (totalPrice + '').replace(/\B(?=(?:\d{3})+\b)/g, ',') + targetCurrency;
+                    break;
+                case 'left-space': // left with space
+                    //newPrice = targetCurrency + ' ' + totalPrice.replace(".",targetPriceDecimalSeparator);
+                    newPrice = targetCurrency + ' ' +  (totalPrice + '').replace(/\B(?=(?:\d{3})+\b)/g, ',');
+                    break;
+                case 'right-space': // right with space
+                    //newPrice = totalPrice.replace(".",targetPriceDecimalSeparator) + ' ' + targetCurrency;
+                    newPrice =  (totalPrice + '').replace(/\B(?=(?:\d{3})+\b)/g, ',') + ' ' + targetCurrency;
+                    break;
                 }
 
                 $('.yith_request_temp_' + temp_number + '_id_' + product_id).attr('data-quantity', Qty_Val);
@@ -2224,7 +2279,7 @@ jQuery(function($) {
 
             WPT_BlankNotice();
             var product_id = $(this).parents('tr').data('product_id');
-            var thisButton = $('tr.wpt_row_product_id_' + product_id + ' .wpt_action button.single_add_to_cart_button');
+            var thisButton = $('tr#product_id_' + product_id + ' .wpt_action button.single_add_to_cart_button');
             var thisTable = $(this).parents('div.wpt_product_table_wrapper');
             var table_id = $(this).parents('div.wpt_product_table_wrapper').attr('id');
             
@@ -2262,6 +2317,7 @@ jQuery(function($) {
                     thisButton.addClass('added');
                 //WPT_MiniCart();
             }).done(function(){
+                
                 $( document.body ).trigger( 'added_to_cart' ); //Trigger and sent added_to_cart event
                 $( document.body ).trigger( 'updated_cart_totals' );
                 $( document.body ).trigger( 'wc_fragments_refreshed' );
@@ -2467,11 +2523,16 @@ jQuery(function($) {
         
        
         $(document).on( 'reset_data', 'div.advance_table_wrapper table.advance_table.wpt_product_table form.cart', function() {
-            var temp_number = $(this).parents('td').data('temp_number');
-            var product_id = $(this).parents('td').data('product_id');
+            var thisRow = $(this).parents('tr.wpt_row');
+
+            var temp_number = thisRow.data('temp_number');
+            var product_id = thisRow.data('product_id');
             var quoted_target = 'yith_request_temp_' + temp_number + '_id_' + product_id;
             var addToQuoteSelector = $('.' + quoted_target);
             var checkBoxSelector = $('.wpt_check_temp_' + temp_number + '_pr_' + product_id);
+            
+            thisRow.attr('data-variation_id', '' );
+            
             function enable_disable_class() {
                 addToQuoteSelector.removeClass('enabled');
                 addToQuoteSelector.addClass('disabled');
@@ -2483,8 +2544,11 @@ jQuery(function($) {
             
         });
         $(document).on( 'found_variation', 'div.advance_table_wrapper table.advance_table.wpt_product_table form.cart', function( event, variation ) {
-            var temp_number = $(this).parents('td').data('temp_number');
-            var product_id = $(this).parents('td').data('product_id');
+            var thisRow = $(this).parents('tr.wpt_row');
+
+            var temp_number = thisRow.data('temp_number');
+            var product_id = thisRow.data('product_id');
+            var my_product_id = $(event.currentTarget).parents('tr.wpt_row').data('product_id');
             
             var targetThumbs = $('#table_id_' + temp_number + ' #product_id_' + product_id + ' wpt_thumbnails img');
             var quoted_target = 'yith_request_temp_' + temp_number + '_id_' + product_id;
@@ -2495,6 +2559,10 @@ jQuery(function($) {
                 return targetElement;
             }
             
+
+            //Adding selected variation ID adding at row
+            thisRow.attr('data-variation_id', variation.variation_id );
+
             /**
              * Set Variations value to the targetted column's td
              * 
@@ -2703,11 +2771,11 @@ jQuery(function($) {
          */
         $('.wpt_product_table input.input-text.qty.text').trigger('change');
         
-        
          $('.yith-ywraq-add-to-quote').each(function(){
              let qty = $(this).closest('tr').data('quantity');
             $(this).append('<input type="hidden" class="input-text qty text" value="' + qty + '">');
         });
+        
         
     });
 });

@@ -203,13 +203,19 @@ add_filter( 'wpto_checkbox_validation', 'wpt_checkbox_validation', 10, 3);
 if( ! function_exists( 'wpt_product_title_column_add' ) ){
     
     function wpt_product_title_column_add( $_device_name, $column_settings ){
-
+        
         $title_variation = isset( $column_settings['title_variation']) ? $column_settings['title_variation'] : false;
+
+        
+        $variation_in_title =  $column_settings['product_title']['variation_in_title'] ?? '';
+        $variation_in_title = $variation_in_title == 'on' ? 'checked="checked"' : '';
+
         $description_off =  isset( $column_settings['description_off'] ) ? $column_settings['description_off'] : 'on';
         $description_off = $description_off == 'off' ? 'checked="checked"' : '';
        ?>
         <div class="description_off_wrapper">
             <label for="description_off<?php echo esc_attr( $_device_name ); ?>"><input id="description_off<?php echo esc_attr( $_device_name ); ?>" title="Disable Deactivate Description from Title Column" name="column_settings<?php echo esc_attr( $_device_name ); ?>[description_off]" id="description_off" class="description_off" type="checkbox" value="off" <?php echo esc_attr( $description_off ); ?>> <?php echo esc_html__( 'Disable Description', 'wpt_pro' ); ?></label>
+            <label for="variation_in_title<?php echo esc_attr( $_device_name ); ?>"><input id="variation_in_title<?php echo esc_attr( $_device_name ); ?>" title="Show variation names with title" name="column_settings<?php echo esc_attr( $_device_name ); ?>[product_title][variation_in_title]" id="variation_in_title" class="variation_in_title" type="checkbox" <?php echo esc_attr( $variation_in_title ); ?>> <?php echo esc_html__( 'Show Variation Name With Title', 'wpt_pro' ); ?></label>
         </div>
         <div class="title_variation">
             <label for="link<?php echo esc_attr( $_device_name ); ?>"><input type="radio" id="link<?php echo esc_attr( $_device_name ); ?>" name="column_settings<?php echo esc_attr( $_device_name ); ?>[title_variation]" value="link" <?php echo !$title_variation || $title_variation == 'link' ? 'checked' : ''; ?>> <?php echo esc_html__( 'Link Enable', 'wpt_pro' ); ?></label>
@@ -713,11 +719,11 @@ if( ! function_exists( 'wpt_pagination_by_args' ) ){
      * @param type $args Args of WP_Query's
      * @return type String
      */
-    function wpt_pagination_by_args( $args = false, $temp_number = false ){
-
+    function wpt_pagination_by_args( $args = false, $temp_number = false, $whole_data = array() ){
+        $whole_data = is_array( $whole_data ) ? $whole_data : array();
         $html = false;
         if( $args ){
-            $html .= "<div class='wpt_table_pagination' data-temp_number='{$temp_number}'>";
+            $html .= "<div class='wpt_table_pagination' data-temp_number='{$temp_number}' data-whole_data='". esc_attr( wp_json_encode( $whole_data ) ) ."'>";
             $paginate = wpt_paginate_links( $args );
             $html .= $paginate; 
             $html .= "</div>";
@@ -1138,7 +1144,17 @@ if( ! function_exists( 'wpt_args_manipulation_frontend' ) ){
      */
     function wpt_args_manipulation_frontend( $args ){
 
-        if( is_page() || is_single() ){
+        /**
+         * This is an extra and hidden feature
+         * which has no any option,
+         * only possible by shortcode
+         * like: 
+         * [Product_Table id='19555'  name='Popular' behavior='normal']
+         * 
+         * @since 3.1.8.4
+         */
+        $behavior = $args['behavior'] ?? '';
+        if( is_page() || is_single() || $behavior == 'normal' ){
             return $args;
         }
         //MainTain for Archives Page
@@ -1605,10 +1621,11 @@ if( ! function_exists( 'wpt_get_agrs_for_variable' ) ){
 
         if( ! empty( $args['post_parent__in'] ) ){
             unset($args['post__in']);
-            unset($args['tax_query']['product_cat_IN']);
-            unset($args['tax_query']['product_cat_AND']);
-            unset($args['tax_query']['product_tag_IN']);
-            unset($args['tax_query']['product_tag_AND']);
+            unset($args['tax_query']);
+            // unset($args['tax_query']['product_cat_IN']);
+            // unset($args['tax_query']['product_cat_AND']);
+            // unset($args['tax_query']['product_tag_IN']);
+            // unset($args['tax_query']['product_tag_AND']);
 
         }
 
@@ -1648,3 +1665,29 @@ if( defined('B2BKING_DIR') && ! function_exists( 'wpt_b2bking_plugin_integration
 
     add_filter( 'wpto_table_query_args', 'wpt_b2bking_plugin_integration' );
 }
+
+
+/**
+ * Pro version CSS template hanndle
+ * we have a folder inside css folder
+ * and template will load based on choosen template.
+ *
+ * @param [type] $tbl_id
+ * @return void
+ */
+function wpt_default_css_template( $tbl_id ){
+    
+    $meta = get_post_meta( $tbl_id, 'table_style', true );
+    $template = $meta['template'] ?? false;
+    if( $template == 'none' || $template == 'custom' ) return;
+    if( ! $template ) return;
+    
+    $template_dir = WPT_BASE_DIR . 'assets/css/templates/'. $template . '.css';
+
+    if( ! is_file( $template_dir ) ) return;
+
+    $template_file = WPT_Product_Table::getPath('BASE_URL') . 'assets/css/templates/' . $template . '.css';
+    wp_enqueue_style( 'wpt-template-' . $template , $template_file, array(), WPT_DEV_VERSION, 'all' );
+}
+add_action( 'wpt_loaded','wpt_default_css_template', 999 );
+// add_action( 'wpto_action_start_table','wpt_default_css_template', 999 );

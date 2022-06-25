@@ -101,7 +101,21 @@ if( ! function_exists( 'wpt_ajax_paginate_links_load' ) ){
             $args['s'] = false;
         }
 
+        $conditions = get_post_meta( $table_ID, 'conditions', true );
+        $sort = $conditions['sort'] ?? '';
+        $sort_order_by = $conditions['sort_order_by'] ?? '';
+        
+
+        $args['orderby'] = $directkey['orderby'] ?? $sort_order_by;
+        $args['order'] = $directkey['order'] ?? $sort;
+        
+        $args = apply_filters( 'wpto_query_arg_ajax', $args, $directkey, $targetTableArgs, $custom_field, $texonomies );
+
         $args['posts_per_page'] = is_numeric( $args['posts_per_page'] ) ? (int) $args['posts_per_page'] : $args['posts_per_page'];
+        
+        if(isset($args['post__in']) && ( $args['post__in'] == 'false' || empty($args['post__in']) )){
+            unset($args['post__in']);
+        }
         
         $table_row_generator_array = array(
             'args'                      => $args,
@@ -120,6 +134,10 @@ if( ! function_exists( 'wpt_ajax_paginate_links_load' ) ){
             'checkbox'            => $checkbox, 
         );
         echo '<mypagi myjson="'. esc_attr( wp_json_encode( $table_row_generator_array ) ) .'">'. wpt_paginate_links( $args ) . '</mypagi>';
+        // var_dump($args);
+        // echo '<pre>';
+        // print_r( $_POST );
+        // echo '</pre>';
         die();
     }
 }
@@ -162,6 +180,7 @@ if( ! function_exists( 'wpt_ajax_table_row_load' ) ){
         
         $data = filter_input_array(INPUT_POST,$filter_args);
         $data = array_filter( $data );
+        
         $targetTableArgs = ( isset( $data['targetTableArgs'] ) && is_array( $data['targetTableArgs'] ) ? $data['targetTableArgs'] : false );
         $temp_number = ( isset( $data['temp_number'] ) ? absint( $data['temp_number'] ) : false );
         $directkey = ( isset( $data['directkey'] ) && is_array( $data['directkey'] ) ? $data['directkey'] : false );
@@ -193,10 +212,18 @@ if( ! function_exists( 'wpt_ajax_table_row_load' ) ){
 
         }
         
-        if( !empty( $directkey ) && isset( $directkey['orderby'] ) && isset( $directkey['order'] ) ){
-            $args['orderby'] = sanitize_text_field( $directkey['orderby'] );
-            $args['order'] = sanitize_text_field( $directkey['order'] );
-        }
+        // if( !empty( $directkey ) && isset( $directkey['orderby'] ) && isset( $directkey['order'] ) ){
+        //     $args['orderby'] = sanitize_text_field( $directkey['orderby'] );
+        //     $args['order'] = sanitize_text_field( $directkey['order'] );
+        // }
+
+        $conditions = get_post_meta( $table_ID, 'conditions', true );
+        $sort = $conditions['sort'] ?? '';
+        $sort_order_by = $conditions['sort_order_by'] ?? '';
+        
+
+        $args['orderby'] = $directkey['orderby'] ?? $sort_order_by;
+        $args['order'] = $directkey['order'] ?? $sort;
         
         /**
          * Page Number Hander
@@ -222,7 +249,13 @@ if( ! function_exists( 'wpt_ajax_table_row_load' ) ){
         if(isset( $args['s'] ) && $args['s'] == 'false'){
             $args['s'] = false;
         }
-   
+        
+        $args = apply_filters( 'wpto_query_arg_ajax', $args, $directkey, $targetTableArgs, $custom_field, $texonomies );
+        
+        if(isset($args['post__in']) && ( $args['post__in'] == 'false' || empty($args['post__in']) )){
+            unset($args['post__in']);
+        }
+        // var_dump($directkey,$args);
         $table_row_generator_array = array(
             'args'                      => $args,
             'wpt_table_column_keywords' => $table_column_keywords,

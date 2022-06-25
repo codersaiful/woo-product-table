@@ -1,3 +1,6 @@
+<?php 
+$columns_array = apply_filters( 'wpto_final_column_arr', $columns_array );
+?>
 <ul id="wpt_column_sortable" class="wpt_column_sortable">
     <?php
     /**

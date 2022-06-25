@@ -1,4 +1,6 @@
-
+<?php 
+$columns_array = apply_filters( 'wpto_final_column_arr', $columns_array );
+?>
 <!-- Enable Active Collumn -->
 <div class="add_switch_col_wrapper">
     <div class="section ultraaddons-panel add_new_column">

@@ -61,7 +61,11 @@ if( !function_exists( 'wpt_configuration_page' ) ){
                 <?php do_action( 'wpto_admin_configuration_head' ); ?>
                 
                 <div class="fieldwrap">
+                <?php 
+                // do_action( 'wpt_offer_here' );
+                 ?>
                     <form action="" method="POST">
+                    <?php do_action( 'wpo_pro_feature_message', 'configuration_page_top' ); ?>
                         <?php 
                     /**
                      * Here wil will include two input Like bellow:
@@ -90,6 +94,8 @@ if( !function_exists( 'wpt_configuration_page' ) ){
                                     ><?php esc_html_e( 'Reset Settings', 'wpt_pro' );?></button>
                         </div>
                     </form>
+                    
+                    <?php do_action( 'wpt_offer_here' ); ?>
                 </div>
 
             </div>

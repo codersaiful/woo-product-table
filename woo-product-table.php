@@ -1,17 +1,17 @@
 <?php
 /**
- * Plugin Name: Product Table for WooCommerce
+ * Plugin Name: Product Table for WooCommerce by codeAstrology (WooproductTable)
  * Plugin URI: https://wooproducttable.com/pricing/?utm_source=WPT+Plugin+Dashboard&utm_medium=Free+Version
- * Description: WooCommerce all products display as a table in one page by shortcode. Fully responsive and mobile friendly. Easily customizable - color,background,title,text color etc.
+ * Description: (WooproductTable) WooCommerce all products display as a table in one page by shortcode. Fully responsive and mobile friendly. Easily customizable - color,background,title,text color etc.
  * Author: CodeAstrology.com
  * Author URI: https://wooproducttable.com/?utm_source=WPT+Plugin+Dashboard&utm_medium=Free+Version
  * Tags: woocommerce product list,woocommerce product table, wc product table, product grid view, inventory, shop product table
  * 
- * Version: 3.1.7
+ * Version: 3.1.9
  * Requires at least:    4.0.0
- * Tested up to:         5.9.3
+ * Tested up to:         6.0
  * WC requires at least: 3.0.0
- * WC tested up to: 	 6.5.1
+ * WC tested up to: 	 6.6.1
  * 
  * 
  * Text Domain: wpt_pro
@@ -33,7 +33,7 @@ if( ! defined( 'WPT_PLUGIN_BASE_FOLDER' ) ){
 }
 
 if( ! defined( 'WPT_DEV_VERSION' ) ){
-    define( 'WPT_DEV_VERSION', '3.1.6.1' );
+    define( 'WPT_DEV_VERSION', '3.1.9.1' );
 }
 
 if( ! defined( 'WPT_CAPABILITY' ) ){
@@ -52,6 +52,10 @@ if( ! defined( 'WPT_PLUGIN_BASE_FILE' ) ){
 
 if( ! defined( 'WPT_BASE_URL' ) ){
     define( "WPT_BASE_URL", plugins_url() . '/'. plugin_basename( dirname( __FILE__ ) ) . '/' );
+}
+
+if( ! defined( 'WPT_ASSETS_URL' ) ){
+    define( "WPT_ASSETS_URL", WPT_BASE_URL . 'assets/' );
 }
 
 if( ! defined( 'WPT_DIR_BASE' ) ){
@@ -230,7 +234,7 @@ $default = array(
     //Added Search Box Features @Since 3.3
     'search_box_title' => sprintf( __( 'Search Box (%sAll Fields Optional%s)', 'wpt_pro' ),'<small>', '</small>'),
     'search_box_searchkeyword' => __( 'Search Keyword', 'wpt_pro' ),
-    'search_box_orderby'    => __( 'Order By', 'wpt_pro' ),
+    'search_box_orderby'    => __( 'Sort By', 'wpt_pro' ),
     'search_box_order'      => __( 'Order', 'wpt_pro' ),
     'search_order_placeholder'      => __( 'Select inner Item.', 'wpt_pro' ),
 );

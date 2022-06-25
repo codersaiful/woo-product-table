@@ -1,10 +1,10 @@
-=== Product Table for WooCommerce ===
+=== Product Table for WooCommerce by codeAstrology===
 Contributors: codersaiful,codeastrology
 Donate link: https://wooproducttable.com/pricing/?ref=CodeAstrology&utm_source=WPT_Installed_DonateLink
-Tags: wc product table, wooproducttable,woocommerce product table, product table, wc table, quick order table, wholesale table, restaurants table
+Tags: wc product table, wooproducttable, woo product table,woocommerce product table, product table, wc table, quick order table, wholesale table, restaurants table
 Requires at least: 4.0.0
-Tested up to: 5.9.3
-Stable tag: 3.1.7
+Tested up to: 6.0
+Stable tag: 3.1.9
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -12,7 +12,7 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Easily display your products as table by tiny shortcode. Such: [Product_Table id='1']. Support default editor, any Page Builder & Gutenberg.
 
 == Description ==
-Product Table plugin helps you to display your WooCommerce products in a searchable table layout with filters.  Add a table on any page or post via a shortcode. You can create tables as many as you want.
+(WooproductTable) Product Table plugin helps you to display your WooCommerce products in a searchable table layout with filters.  Add a table on any page or post via a shortcode. You can create tables as many as you want.
 Create a table for restaurant order systems, Online music sell, Mobile Wholesale, Course Booking, or Selling books any many more.
 
 **Have a looks in short**
@@ -211,6 +211,24 @@ You can easily show specific category products. While creating new table click o
 25. Manually responsive for mobile devices
 
 == Changelog ==
+
+= 3.1.9 =
+  * Fixed: Pagination on Advance Search issue has been solved.
+  * Added: DataTable added as new features.
+  * Changed: Dashboard Table Edit -> tab has been changed.
+  * Fixed: pagination sorting issue fixed.
+  * Added: wp force added for supporting other thirdparty plugin.
+  * Fixed: checkbox issue for thirdparty Plugin support.
+  * Fixed: Search Issue
+  * Changed: By default Advance search enabled in Pro version.
+
+= 3.1.8 =
+  * New filter Added `wpto_search_box_basics` for search box of Advance
+  * Search and Filter bug fixed andded advance features.
+  * Empty Cart buttin fixed.
+  * Fontello added. Some cutom icon added to our table.
+  * Added Action_Hook wpt_load for staring product table anywhere.
+  * Added Action_Hook wpt_loaded at the end product table anywhere.
 
 = 3.1.7 =
   * Audio file issue fixed in table.
