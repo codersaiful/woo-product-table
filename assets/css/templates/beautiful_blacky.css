@@ -18,13 +18,12 @@ base class beautiful_beautiful_blacky_wrapper
   }
   .beautiful_blacky_wrapper ul.woocommerce-mini-cart li a{
     color: #ffffff;
-    font-size: 16px;
-
+    font-size: 14px;
   }
   .beautiful_blacky_wrapper table {
     color: #212529;
     background: var(--beautiful-black-hover);
-    font-size: 16px;
+    font-size: 15px;
     border: none;
     margin-bottom: 20px;
   }
@@ -213,6 +212,7 @@ base class beautiful_beautiful_blacky_wrapper
   font-size: 14px;
   margin-left: 10px;
   font-weight: 400;
+  color: #ffffff;
 }
 .beautiful_blacky_wrapper .all_check_header_footer .button.add_to_cart_all_selected:hover{
   color: rgb(233, 233, 233);
@@ -245,10 +245,11 @@ base class beautiful_beautiful_blacky_wrapper
 }
 .beautiful_blacky_wrapper .search_single .query_box_direct_value, .beautiful_blacky_wrapper .instance_search_input {
   width: 100%;
-  border-radius: 2px;
+  border-radius: 4px;
   padding: 6px 5px 5px 5px;
-  border: 1px solid #25252b;
+  border: 1px solid #b7b7b7;
   padding: 12px;
+  height: 45px;
 }
 .beautiful_blacky_wrapper a:focus, 
 .beautiful_blacky_wrapper input:focus, 
@@ -256,7 +257,42 @@ base class beautiful_beautiful_blacky_wrapper
 .beautiful_blacky_wrapper button:focus {
   outline: 2px solid var(--beautiful-blue);
 }
-/*test purpose
-body{
-  background: #000000;
-}*/
+.beautiful_blacky_wrapper .search_single_column {
+  display: block;
+  width: 100%;
+  margin-right: 10px;
+}
+.beautiful_blacky_wrapper .search_single_column input{
+  height:45px;
+}
+.beautiful_blacky_wrapper .wpt_search_box .search_box_wrapper {
+  position: relative;
+  text-align: left;
+}
+.beautiful_blacky_wrapper h3.search_box_label {
+  text-align: left;
+  margin-bottom: 15px;
+}
+.beautiful_blacky_wrapper h3.search_box_label.wpt_product_table_wrapper div.tables_cart_message_box div.widget_shopping_cart_content li.woocommerce-mini-cart-item.mini_cart_item * {
+  font-size: 14px;
+}
+.beautiful_blacky_wrapper .quantity .qty {
+  width: 4.5em;
+  text-align: center;
+  border-radius: 3px;
+  height: 40px;
+  background-color: var(--beautiful-blue);
+  color: #fff;
+  border: none;
+  padding: 0 5px;
+}
+.beautiful_blacky_wrapper  input[type=number]::-webkit-inner-spin-button, 
+.beautiful_blacky_wrapper  input[type=number]::-webkit-outer-spin-button {  
+   opacity: 0.7;
+}
+.beautiful_blacky_wrapper .wpt_edit_table > a {
+  font-size: 18px;
+  color: #25252b;
+  background: #ffffff;
+  border: 1px solid #ddd;
+}
