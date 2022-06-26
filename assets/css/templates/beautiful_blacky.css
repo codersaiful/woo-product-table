@@ -72,11 +72,11 @@ base class beautiful_beautiful_blacky_wrapper
     }
     .beautiful_blacky_wrapper table tbody th, 
     .beautiful_blacky_wrapper table tbody td {
-      color: #777;
+      color: #b3b3b3;
       font-weight: 400;
       padding-bottom: 15px;
       padding-top: 15px;
-      font-weight: 300; 
+      font-weight: 300;
     }
     
     .beautiful_blacky_wrapper table tbody tr:not(.spacer) {
@@ -131,8 +131,10 @@ base class beautiful_beautiful_blacky_wrapper
     .beautiful_blacky_wrapper table tbody tr.active th a, 
     .beautiful_blacky_wrapper table tbody tr.active td a, 
     .beautiful_blacky_wrapper table tbody tr:hover th a, 
-    .beautiful_blacky_wrapper table tbody tr:hover td a {
-      color: #fff; 
+    .beautiful_blacky_wrapper table tbody tr:hover td a,
+    .beautiful_blacky_wrapper table tr.wpt_selected_tr td a,
+    .beautiful_blacky_wrapper table tr.wpt_selected_tr td{
+      color: #fff !important; 
     }
 
     /*Checkbox*/
