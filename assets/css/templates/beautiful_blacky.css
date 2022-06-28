@@ -243,6 +243,8 @@ base class beautiful_beautiful_blacky_wrapper
 .beautiful_blacky_wrapper table th.wpt_action {
   text-align: right;
 }
+/*======Search bar=========*/
+
 .beautiful_blacky_wrapper .search_single .query_box_direct_value, .beautiful_blacky_wrapper .instance_search_input {
   width: 100%;
   border-radius: 4px;
@@ -276,6 +278,8 @@ base class beautiful_beautiful_blacky_wrapper
 .beautiful_blacky_wrapper h3.search_box_label.wpt_product_table_wrapper div.tables_cart_message_box div.widget_shopping_cart_content li.woocommerce-mini-cart-item.mini_cart_item * {
   font-size: 14px;
 }
+/*===== QTY =========*/
+
 .beautiful_blacky_wrapper .quantity .qty {
   width: 4.5em;
   text-align: center;
@@ -304,4 +308,14 @@ base class beautiful_beautiful_blacky_wrapper
 }
 .beautiful_blacky_wrapper .td_or_cell.wpt_check{
   display: table-cell !important
+}
+  /*=== View Cart ===*/
+  .beautiful_blacky_wrapper table#wpt_table.wpt_product_table a.added_to_cart.wc-forward {
+    font-size: 12px;
+    padding: 2px 5px;
+    font-weight: normal;
+    background: transparent;
+    color: white;
+    text-decoration: none;
+    letter-spacing: 2px;
 }
