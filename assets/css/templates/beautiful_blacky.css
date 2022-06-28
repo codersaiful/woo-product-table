@@ -249,7 +249,7 @@ base class beautiful_beautiful_blacky_wrapper
   padding: 6px 5px 5px 5px;
   border: 1px solid #b7b7b7;
   padding: 12px;
-  height: 45px;
+  height: 42px;
 }
 .beautiful_blacky_wrapper a:focus, 
 .beautiful_blacky_wrapper input:focus, 
@@ -297,5 +297,11 @@ base class beautiful_beautiful_blacky_wrapper
   border: 1px solid #ddd;
 }
 .beautiful_blacky_wrapper .select2-container .select2-selection--multiple {
-  min-height: 45px;
+  min-height: 42px;
+}
+.beautiful_blacky_wrapper .select2-container--default .select2-selection--single .select2-selection__rendered {
+  font-size: 15px;
+}
+.beautiful_blacky_wrapper .td_or_cell.wpt_check{
+  display: table-cell !important
 }
