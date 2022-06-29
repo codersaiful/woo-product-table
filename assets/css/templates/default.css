@@ -110,7 +110,7 @@ base class default_wrapper
   .default_wrapper table tbody tr th,
   .default_wrapper table tbody tr td {
     background: var(--wpt-default);
-    padding-bottom: 1em;
+    padding-bottom: .5em;
     border-spacing: 1px;
     border: none;
     -webkit-transition: .3s all ease;
@@ -150,34 +150,30 @@ base class default_wrapper
   .default_wrapper table tbody tr.active th a,
   .default_wrapper table tbody tr.active td a,
   .default_wrapper table tbody tr:hover th a,
-  .default_wrapper table tbody tr:hover td a,
-  .default_wrapper table tr.wpt_selected_tr td a,
-  .default_wrapper table tr.wpt_selected_tr td {
-    color: #fff !important;
+  .default_wrapper table tbody tr:hover td a {
+    color: #000000 !important;
   }
   
-  /*Checkbox*/
+  /*------- Checkbox ---------*/
   
-  .default_wrapper.wpt_product_table_wrapper input[type-checkbox]:checked+label:before {
-    background: var(--wpt-default);
-    border-color: var(--wpt-default-border);
+  div.wpt_product_table_wrapper.default_wrapper input[type=checkbox]+label:before {
+    background: var(--wpt-default-border);
+    border:1px solid var(--wpt-default-input);
   }
   
-  .default_wrapper.wpt_product_table_wrapper input[type-checkbox]+label:before {
-    border: 1px solid var(--wpt-default-border);
+  div.wpt_product_table_wrapper.default_wrapper input[type=checkbox]+label:before {
     content: '';
     margin-right: 3px;
     display: inline-block;
     vertical-align: text-top;
     width: 20px;
     height: 20px;
-    background: var(--wpt-default-hover);
     border-radius: 2px;
+	margin-right: 4px;
   }
-  
-  .default_wrapper.wpt_product_table_wrapper input[type-checkbox]:checked+label:after {
+  div.wpt_product_table_wrapper.default_wrapper input[type=checkbox]:checked+label:after {
     content: '\2713';
-    color: #fff;
+    color: var(--wpt-default-input);
     top: 0px;
     font-size: 14px;
     font-weight: bold;
@@ -185,10 +181,10 @@ base class default_wrapper
     position: absolute;
   }
   
-  .default_wrapper.wpt_product_table_wrapper .all_check_header input[type-checkbox]+label:before {
-    margin-right: 10px;
+  div.wpt_product_table_wrapper.default_wrapper input[type=checkbox].wpt_check_universal.wpt_check_universal_header:checked+label:after, 
+  div.wpt_product_table_wrapper.default_wrapper input.wpt_check_universal.wpt_check_universal_header[type=checkbox]:checked+label:after{
+	color:var(--wpt-default-input)
   }
-  
   /*------- Pagination -------*/
   
   .default_wrapper .wpt_table_pagination span.page-numbers.current,
