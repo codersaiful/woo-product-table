@@ -1,16 +1,16 @@
 <?php
 $templates_default = array(
+    'none'          =>  __( 'Select None', 'wpt_pro' ),
     'default'       =>  __( 'Default Style', 'wpt_pro' ),
     'beautiful_blacky' =>  __( 'Beautiful Blacky', 'wpt_pro' ),
-    'none'          =>  __( 'Select None', 'wpt_pro' ),
 );
 $pro_templates = array(
-    'custom'       =>  __( 'Customized Design', 'wpt_pro' ),
     'smart'         =>  __( 'Smart Thin', 'wpt_pro' ),
     'green'         =>  __( 'Green Style', 'wpt_pro' ),
     'blue'          =>  __( 'Blue Style', 'wpt_pro' ),
     'dark'          =>  __( 'Dark Style', 'wpt_pro' ),
     'smart_light'   =>  __( 'Smart Light', 'wpt_pro' ),
+    'custom'       =>  __( 'Customized Design', 'wpt_pro' ),
 );
 $additional_templates = array();
 $additional_templates = apply_filters( 'wpto_table_template_arr', $additional_templates );
