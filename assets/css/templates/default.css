@@ -157,8 +157,8 @@ base class default_wrapper
   /*------- Checkbox ---------*/
   
   div.wpt_product_table_wrapper.default_wrapper input[type=checkbox]+label:before {
-    background: var(--wpt-default-border);
-    border:1px solid var(--wpt-default-input);
+    background: #f3f3f3;
+    border: 1px solid #90cbed;
   }
   
   div.wpt_product_table_wrapper.default_wrapper input[type=checkbox]+label:before {
