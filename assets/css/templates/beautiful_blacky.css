@@ -406,7 +406,7 @@ body.wpt_table_body .beautiful_blacky_wrapper table tbody tr a.button:hover.alt.
   border-radius: 3px;
   height: 40px;
   background-color: var(--beautiful-blue);
-  color: #000;
+  color: #fff;
   border: none;
   padding: 0 5px;
 }
