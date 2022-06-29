@@ -139,13 +139,27 @@ body.wpt_table_body .beautiful_blacky_wrapper table tbody tr a.button:hover.alt.
 
 }
 
+
+
+/* plus minus button (fatima) */
 .wpt_table_body .beautiful_blacky_wrapper .qib-button-wrapper button.qib-button {
   padding: 6px 16px 8px;
   background-color: var(--beautiful-blue);
   color:#fff; 
+  border: 1px solid  var(--beautiful-blue); 
+
+}
+.wpt_table_body .beautiful_blacky_wrapper .qib-button-wrapper button.qib-button:hover {
+  padding: 6px 16px 8px;
+  background-color:  transparent; 
+  color: var(--beautiful-blue);
+  border:1px solid  var(--beautiful-blue);
 
 }
 
+.beautiful_blacky_wrapper .td_or_cell.wpt_check { 
+  display: table-cell !important;
+}
 /* column fixed (fatima) */
 .beautiful_blacky_wrapper .wpt_search_box .search_box_wrapper .search_single.search_single_direct {
   display: flex;
