@@ -5,6 +5,7 @@ base class default_wrapper
     --wpt-default: #edf7f8;
     --wpt-default-hover: #fff;
     --wpt-default-border: #e2f8fa;
+    --wpt-default-dark-border:#90cbed;
     --wpt-default-text-color:#444444;
     --wpt-default-input:#027ec5;
   }
@@ -46,17 +47,17 @@ base class default_wrapper
   }
   
   .default_wrapper table.default_table tbody td .wpt_product_title_in_td {
-    color: #b3b3b3;
+    color: var(--wpt-default-input);
     font-weight: 500;
     text-decoration: none;
-    font-size: 16px;
+    font-size: 18px;
   }
   
   .default_wrapper table span.wpt-pro-tag-on-sale {
     display: inline-block;
     padding: 2px;
-    border: 1px solid var(--wpt-default);
-    background: var(--wpt-default);
+    border: 1px solid var(--wpt-default-input);
+    background: var(--wpt-default-input);
     color: #fff;
     font-weight: 500;
     border-radius: 3px;
@@ -145,13 +146,6 @@ base class default_wrapper
   .default_wrapper table tr:hover {
     color: #fff;
     background: var(--wpt-default-hover)
-  }
-  
-  .default_wrapper table tbody tr.active th a,
-  .default_wrapper table tbody tr.active td a,
-  .default_wrapper table tbody tr:hover th a,
-  .default_wrapper table tbody tr:hover td a {
-    color: #000000 !important;
   }
   
   /*------- Checkbox ---------*/
@@ -379,3 +373,6 @@ base class default_wrapper
     background: var(--wpt-default-input);
     border-radius: 25px;
   }
+  .wpt_product_table_wrapper.default_wr select, .wpt_varition_section select {
+    border: 1px solid var(--wpt-default-dark-border);
+}
