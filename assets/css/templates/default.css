@@ -373,6 +373,10 @@ base class default_wrapper
     background: var(--wpt-default-input);
     border-radius: 25px;
   }
-  .wpt_product_table_wrapper.default_wr select, .wpt_varition_section select {
+  .wpt_product_table_wrapper.default_wrap select, .wpt_varition_section select {
     border: 1px solid var(--wpt-default-dark-border);
+}
+.wpt_product_table_wrapper .search_single label.search_keyword_label {
+    display: block;
+    margin-bottom: 5px;
 }
