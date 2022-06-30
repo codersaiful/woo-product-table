@@ -427,8 +427,8 @@ body.wpt_table_body .beautiful_blacky_wrapper table tbody tr a.button:hover.alt.
   text-align: center;
   border-radius: 3px;
   height: 40px;
-  background-color: var(--beautiful-blue);
-  color: #fff;
+  background-color: #fff;
+  color: #000;
   border: none;
   padding: 0 5px;
 }
