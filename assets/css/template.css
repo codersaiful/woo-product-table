@@ -7,6 +7,154 @@ Blue Template - blue
 */
 
 
+
+/********************** Template: blacky ************************************/
+.blacky_table{
+	position: relative;
+	border-collapse: collapse;
+	background: white;
+	width: 100%;
+	margin: 0 auto;
+}
+.blacky_table thead .wpt_table_header_row th{
+	height: 50px;
+	color: #fff;
+	background: #36304a;
+}
+.blacky_table td,
+.blacky_table th {
+	padding: 10px;
+}
+.blacky_table tbody tr td{
+	border: 1px solid #e1e1e1;
+}
+.blacky_table .wpt_row td img{
+        height: auto;
+} 
+.blacky_table tbody tr{
+	transition: all .5s;
+}
+.blacky_table.tr_bg_1{
+	background: #efefef;
+	padding: 10px;
+}
+.blacky_table .tr_bg_2{
+	background: #f7f7f7;
+	padding: 10px;
+}
+.blacky_table tbody tr:hover{
+	background: #f7faff;
+}
+.blacky_table tbody tr a.button{
+	display: inline-block;
+    padding: 10px;
+    background: #36304a;
+    color: #fff;
+    font-size: 14px;
+    border-radius: 3px;
+    font-weight: bold;
+}
+table#wpt_table.wpt_product_table.blacky_table thead>tr>th.this_column_sorted {
+    background-color: rgb(16, 14, 23) !important;
+}
+
+/********************** Template: blacky End************************************/
+
+/********************** Template: green************************************/
+.green_table{
+	position: relative;
+	border-collapse: collapse;
+	background: white;
+	width: 100%;
+	margin: 0 auto;
+}
+.green_table thead .wpt_table_header_row th{
+	height: 50px;
+	color: #fff;
+	background: #00b20b;
+}
+.green_table td,
+.green_table th {
+	padding: 10px;
+}
+.green_table tbody tr td{
+	border: 1px solid #e1e1e1;
+}
+.green_table .wpt_row td img{
+        height: auto;
+} 
+.green_table tbody tr{
+	transition: all .5s;
+}
+
+.green_table tbody tr:hover{
+	background: #f7faff;
+}
+.green_table tbody tr a.button{
+	display: inline-block;
+    padding: 10px;
+    background: #00b20b;
+    color: #fff;
+    font-size: 14px;
+    border-radius: 3px;
+    font-weight: bold;
+}
+table#wpt_table.wpt_product_table.green_table thead>tr>th.this_column_sorted {
+    background-color: rgb(3, 130, 10) !important;
+}
+/********************** Template: green End************************************/
+
+
+/********************** Template: blue************************************/
+
+.blue_table{
+	position: relative;
+	border-collapse: collapse;
+	background: white;
+	width: 100%;
+	margin: 0 auto;
+}
+.blue_table thead .wpt_table_header_row th{
+	height: 50px;
+	color: #fff;
+	background: #0824a5;
+}
+.blue_table td,
+.blue_table th {
+	padding: 10px;
+}
+.blue_table tbody tr td{
+	border: 1px solid #e1e1e1;
+}
+.blue_table .wpt_row td img{
+        height: auto;
+} 
+.blue_table tbody tr{
+	transition: all .5s;
+}
+
+.blue_table tbody tr:hover{
+	background: #f7faff;
+}
+.blue_table tbody tr a.button{
+	display: inline-block;
+    padding: 10px;
+    background: #0824a5;
+    color: #fff;
+    font-size: 14px;
+    border-radius: 3px;
+    font-weight: bold;
+}
+
+table#wpt_table.wpt_product_table.blue_table thead>tr>th.this_column_sorted {
+    background-color: rgb(40, 76, 241) !important;
+}
+
+/********************** Template: blue End************************************/
+
+
+
+
 /*******************************End of Business Style***************************/
 .business_table{
 	position: relative;
