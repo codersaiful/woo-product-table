@@ -142,7 +142,7 @@ body.wpt_table_body .beautiful_blacky_wrapper table tbody tr a.button:hover.alt.
 
 
 /* plus minus button (fatima) */
-.wpt_table_body .beautiful_blacky_wrapper .qib-button-wrapper button.qib-button {
+ .beautiful_blacky_wrapper .qib-button-wrapper button.qib-button {
   padding: 6px 16px 8px;
   background-color: var(--beautiful-blue);
   color: #fff;
@@ -150,7 +150,7 @@ body.wpt_table_body .beautiful_blacky_wrapper table tbody tr a.button:hover.alt.
 
 }
 
-.wpt_table_body .beautiful_blacky_wrapper .qib-button-wrapper button.qib-button:hover {
+ .beautiful_blacky_wrapper .qib-button-wrapper button.qib-button:hover {
   padding: 6px 16px 8px;
   background-color: transparent;
   color: var(--beautiful-blue);
@@ -466,4 +466,14 @@ body.wpt_table_body .beautiful_blacky_wrapper table tbody tr a.button:hover.alt.
   color: white;
   text-decoration: none;
   letter-spacing: 2px;
+}
+.beautiful_blacky_wrapper tbody tr a.button, 
+.beautiful_blacky_wrapper tbody tr a.button.adding, 
+.beautiful_blacky_wrapper tbody tr a.button.alt.wc-variation-selection-needed, 
+.beautiful_blacky_wrapper tbody tr a.button.adding.wc-variation-selection-needed, 
+.beautiful_blacky_wrapper tbody tr a.button.disabled, 
+.beautiful_blacky_wrapper tbody tr a.button.alt.disabled {
+  background:var(--beautiful-blue);
+  border:1px solid var(--beautiful-black-hover);
+  color: #fff;
 }

@@ -331,7 +331,23 @@ color:var(--wpt-default-primary)
   border: 1px solid #90cbed;
   box-shadow: unset;
 }
+/* plus minus button (fatima) */
+.default_wrapper .qib-button-wrapper button.qib-button {
+  padding: 6px 16px 8px;
+  color: var(--wpt-default-primary);
+  border: 1px solid var(--wpt-default-dark-border);
 
+}
+
+ .default_wrapper .qib-button-wrapper button.qib-button:hover {
+  padding: 6px 16px 8px;
+  background-color: transparent;
+  border:1px solid var(--wpt-default-dark-border);
+}
+.default_wrapper .qib-button-wrapper .quantity input.input-text.qty.text {
+  border: 1px solid var(--wpt-default-dark-border);
+  color: #024d7e;
+}
 .default_wrapper .default_table input[type=number]::-webkit-inner-spin-button,
 .default_wrapper .default_table input[type=number]::-webkit-outer-spin-button {
   opacity: 0.7;
