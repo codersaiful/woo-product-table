@@ -8,57 +8,6 @@ Blue Template - blue
 
 
 
-/********************** Template: blacky ************************************/
-.blacky_table{
-	position: relative;
-	border-collapse: collapse;
-	background: white;
-	width: 100%;
-	margin: 0 auto;
-}
-.blacky_table thead .wpt_table_header_row th{
-	height: 50px;
-	color: #fff;
-	background: #36304a;
-}
-.blacky_table td,
-.blacky_table th {
-	padding: 10px;
-}
-.blacky_table tbody tr td{
-	border: 1px solid #e1e1e1;
-}
-.blacky_table .wpt_row td img{
-        height: auto;
-} 
-.blacky_table tbody tr{
-	transition: all .5s;
-}
-.blacky_table.tr_bg_1{
-	background: #efefef;
-	padding: 10px;
-}
-.blacky_table .tr_bg_2{
-	background: #f7f7f7;
-	padding: 10px;
-}
-.blacky_table tbody tr:hover{
-	background: #f7faff;
-}
-.blacky_table tbody tr a.button{
-	display: inline-block;
-    padding: 10px;
-    background: #36304a;
-    color: #fff;
-    font-size: 14px;
-    border-radius: 3px;
-    font-weight: bold;
-}
-table#wpt_table.wpt_product_table.blacky_table thead>tr>th.this_column_sorted {
-    background-color: rgb(16, 14, 23) !important;
-}
-
-/********************** Template: blacky End************************************/
 
 /********************** Template: green************************************/
 .green_table{
