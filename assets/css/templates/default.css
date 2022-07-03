@@ -2,12 +2,13 @@
 base class default_wrapper
 */
 :root {
-  --wpt-default: #edf7f8;
+  --wpt-default-primary:#0093b8;
+  --wpt-default-secondary: #edf7f8;
   --wpt-default-hover: #fff;
   --wpt-default-border: #e2f8fa;
   --wpt-default-dark-border:#90cbed;
-  --wpt-default-text-color:#444444;
-  --wpt-default-input:#027ec5;
+  --wpt-default-text-color:#508491;
+  
 }
 
 .default_wrapper a,
@@ -16,7 +17,7 @@ base class default_wrapper
 }
 
 .default_wrapper .woocommerce-mini-cart__buttons.buttons a {
-  background: var(--wpt-default-input);
+  background: var(--wpt-default-primary);
   font-size: 14px;
   font-weight: 400;
   border-radius: 3px;
@@ -29,7 +30,7 @@ base class default_wrapper
 }
 
 .default_wrapper table {
-  background: var(--wpt-default);
+  background: var(--wpt-default-secondary);
   color: var(--wpt-default-text-color);
   font-size: 15px;
   margin-bottom: 20px;
@@ -49,8 +50,8 @@ base class default_wrapper
 }
 
 .default_wrapper table.default_table tbody td .wpt_product_title_in_td {
-  color: var(--wpt-default-input);
-  font-weight: 500;
+  color: #02485a;
+  font-weight: 600;
   text-decoration: none;
   font-size: 18px;
 }
@@ -58,8 +59,8 @@ base class default_wrapper
 .default_wrapper table span.wpt-pro-tag-on-sale {
   display: inline-block;
   padding: 2px;
-  border: 1px solid var(--wpt-default-input);
-  background: var(--wpt-default-input);
+  border: 1px solid var(--wpt-default-primary);
+  background: var(--wpt-default-primary);
   color: #fff;
   font-weight: 500;
   border-radius: 3px;
@@ -73,12 +74,12 @@ base class default_wrapper
 .default_wrapper table tbody tr a.button.disabled,
 .default_wrapper table tbody tr a.button.alt.disabled {
   padding: 8px 9px;
-  background:var(--wpt-default-input);
+  background:var(--wpt-default-primary);
   color: #fff;
   font-size: 14px;
   border-radius: 3px;
   font-weight: 400;
-  border: 1px solid var(--wpt-default-input);
+  border: 1px solid var(--wpt-default-primary);
 }
 
 .default_wrapper table thead tr,
@@ -90,7 +91,7 @@ base class default_wrapper
 
 .default_wrapper table tbody th,
 .default_wrapper table tbody td {
-  color: var(--wpt-default-text-color);
+  color: #7ea6b1;
   padding-bottom: 15px;
   padding-top: 15px;
   font-weight: 400;
@@ -112,7 +113,7 @@ base class default_wrapper
 
 .default_wrapper table tbody tr th,
 .default_wrapper table tbody tr td {
-  background: var(--wpt-default);
+  background: var(--wpt-default-secondary);
   padding-bottom: .5em;
   border-spacing: 1px;
   border: none;
@@ -123,7 +124,7 @@ base class default_wrapper
 
 .default_wrapper table tbody tr th a,
 .default_wrapper table tbody tr td a {
-  color: #b3b3b3;
+  color: #02485a;
 }
 
 .default_wrapper table tbody tr th:first-child,
@@ -173,7 +174,7 @@ margin-right: 4px;
 }
 div.wpt_product_table_wrapper.default_wrapper input[type=checkbox]:checked+label:after {
   content: '\2713';
-  color: var(--wpt-default-input);
+  color: var(--wpt-default-primary);
   top: 0px;
   font-size: 14px;
   font-weight: bold;
@@ -183,15 +184,15 @@ div.wpt_product_table_wrapper.default_wrapper input[type=checkbox]:checked+label
 
 div.wpt_product_table_wrapper.default_wrapper input[type=checkbox].wpt_check_universal.wpt_check_universal_header:checked+label:after, 
 div.wpt_product_table_wrapper.default_wrapper input.wpt_check_universal.wpt_check_universal_header[type=checkbox]:checked+label:after{
-color:var(--wpt-default-input)
+color:var(--wpt-default-primary)
 }
 /*------- Pagination -------*/
 
 .default_wrapper .wpt_table_pagination span.page-numbers.current,
 .default_wrapper .wpt_table_pagination a.page-numbers.current {
-  background-color: var(--wpt-default-input);
+  background-color: var(--wpt-default-primary);
   color: #ffff;
-  border: 1px solid var(--wpt-default-input);
+  border: 1px solid var(--wpt-default-primary);
   font-weight: bold;
   font-size: 14px;
 }
@@ -201,7 +202,7 @@ color:var(--wpt-default-input)
   padding: 8px 16px;
   text-decoration: none;
   transition: background-color .3s;
-  border: 1px solid var(--wpt-default-input);
+  border: 1px solid var(--wpt-default-primary);
   margin: 0px;
   display: inline-block;
   cursor: pointer;
@@ -213,7 +214,7 @@ color:var(--wpt-default-input)
 .default_wrapper .wpt_table_pagination a.page-numbers:focus,
 .default_wrapper .wpt_table_pagination span.page-numbers:hover,
 .default_wrapper .wpt_table_pagination span.page-numbers:focus {
-  background: var(--wpt-default-input);
+  background: var(--wpt-default-primary);
   color: #fff;
 }
 
@@ -230,7 +231,7 @@ color:var(--wpt-default-input)
 }
 
 .default_wrapper .all_check_header_footer .button.add_to_cart_all_selected {
-  background: var(--wpt-default-input);
+  background: var(--wpt-default-primary);
   padding: 10px 30px;
   font-size: 14px;
   margin-left: 10px;
@@ -243,13 +244,13 @@ color:var(--wpt-default-input)
 }
 
 .default_wrapper .all_check_header_footer.all_check_header>span {
-  background: #b2c1c9;
+  /* background: #b2c1c9; */
   display: flex;
   padding: 7px;
-  border: 1px solid rgb(178 193 201);
+  border: 1px solid rgb(0 147 184);
   justify-content: center;
   align-items: center;
-  color: #fff;
+  color: #000;
   border-radius: 3px;
 }
 
@@ -262,7 +263,7 @@ color:var(--wpt-default-input)
 }
 .default_wrapper table td,
 .default_wrapper table:not(.has-background) th {
-  background-color: var(--wpt-default-input);
+  background-color: var(--wpt-default-primary);
 }
 
 .default_wrapper.wpt_product_table_wrapper div.tables_cart_message_box div.widget_shopping_cart_content li.woocommerce-mini-cart-item.mini_cart_item {
@@ -290,7 +291,7 @@ color:var(--wpt-default-input)
 .default_wrapper input:focus,
 .default_wrapper textarea:focus,
 .default_wrapper button:focus {
-  outline: 2px solid var(--wpt-default);
+  outline: 2px solid var(--wpt-default-secondary);
 }
 
 .default_wrapper .search_single_column {
@@ -375,7 +376,7 @@ color:var(--wpt-default-input)
 
 .wpt_product_table_wrapper.default_wrapper div.tables_cart_message_box div.widget_shopping_cart_content li a.remove::before {
   font-size: 24px;
-  background: var(--wpt-default-input);
+  background: var(--wpt-default-primary);
   border-radius: 25px;
 }
 .wpt_product_table_wrapper.default_wrap select, .wpt_varition_section select {
@@ -385,5 +386,3 @@ color:var(--wpt-default-input)
   display: block;
   margin-bottom: 5px;
 }
-
-
