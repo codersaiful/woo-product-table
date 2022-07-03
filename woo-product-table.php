@@ -33,7 +33,7 @@ if( ! defined( 'WPT_PLUGIN_BASE_FOLDER' ) ){
 }
 
 if( ! defined( 'WPT_DEV_VERSION' ) ){
-    define( 'WPT_DEV_VERSION', '3.1.9.1' );
+    define( 'WPT_DEV_VERSION', '3.1.9.3' );
 }
 
 if( ! defined( 'WPT_CAPABILITY' ) ){
