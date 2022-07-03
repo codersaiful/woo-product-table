@@ -174,7 +174,7 @@ if( ! function_exists( 'wpt_shortcode_generator' ) ){
             //Auto checkbox checked for on load in basic tab - This will generate calss only
             $checkbox = isset( $basics['checkbox'] ) && !empty( $basics['checkbox'] ) ? $basics['checkbox'] : 'wpt_no_checked_table';
             //Design Tab part and generat CSS in html as <style> tag
-            $template = isset( $table_style['template'] ) ? $table_style['template'] : 'custom'; //Default value for old version is 'default'
+            $template = $table_style['template'] ?? '';
             $custom_css_code = false;
             $custom_table = 'no_custom_style';
             if( is_array($table_style) && $template != 'none' ){
