@@ -722,6 +722,16 @@ if( ! function_exists( 'wpt_pagination_by_args' ) ){
     function wpt_pagination_by_args( $args = false, $temp_number = false, $whole_data = array() ){
         $whole_data = is_array( $whole_data ) ? $whole_data : array();
         $html = false;
+        /**
+         * This is confiused filter
+         * asole ata add kora thik hobe kina sure na.
+         * tobe pore check kore dekha jete pare.
+         * amora ei filter ta rakhbo ki na.
+         * 
+         * @since 3.1.9.3
+         */
+        // $args = apply_filters( 'wpto_table_query_args', $args, $temp_number, $whole_data, false, false, false );
+        
         if( $args ){
             $html .= "<div class='wpt_table_pagination' data-temp_number='{$temp_number}' data-whole_data='". esc_attr( wp_json_encode( $whole_data ) ) ."'>";
             $paginate = wpt_paginate_links( $args );
