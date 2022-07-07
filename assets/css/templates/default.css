@@ -135,12 +135,12 @@ base class default_wrapper
 
 }
 
-body.wpt_table_body .default_wrapper button,
-body.wpt_table_body .default_wrapper button.adding,
-body.wpt_table_body .default_wrapper button.alt.wc-variation-selection-needed,
-body.wpt_table_body .default_wrapper button.adding.wc-variation-selection-needed,
-body.wpt_table_body .default_wrapper button.disabled,
-body.wpt_table_body .default_wrapper button.alt.disabled {
+body.wpt_table_body .default_wrapper button.caqv-open-modal,
+body.wpt_table_body .default_wrapper button.caqv-open-modal.adding,
+body.wpt_table_body .default_wrapper button.caqv-open-modal.alt.wc-variation-selection-needed,
+body.wpt_table_body .default_wrapper button.caqv-open-modal.adding.wc-variation-selection-needed,
+body.wpt_table_body .default_wrapper button.caqv-open-modal.disabled,
+body.wpt_table_body .default_wrapper button.caqv-open-modal.alt.disabled {  
   padding: 8px 9px;
   background: var(--wpt-default-primary) !important;
   color: #fff !important;
