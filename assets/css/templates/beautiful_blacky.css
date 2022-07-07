@@ -38,13 +38,13 @@ base class beautiful_beautiful_blacky_wrapper
   font-weight: 500;
 }
 
-.wpt_product_table_wrapper table.wpt_product_table_table tbody td .wpt_product_title_in_td {
+.wpt_product_table_wrapper table.wpt_product_table tbody td .wpt_product_title_in_td {
   color: var(--beautiful-blue);
   font-weight: 500;
   text-decoration: none;
   font-size: 16px;
 }
-.wpt_product_table_wrapper table.wpt_product_table_table tbody td .wpt_product_title_in_td:hover {
+.wpt_product_table_wrapper table.wpt_product_table tbody td .wpt_product_title_in_td:hover { 
   color:var(--beautiful-head);
 }
 
