@@ -1117,6 +1117,9 @@ div.wpt-footer-cart-wrapper.always_hide{display: none;}
     color: #cecece;
 }
 .wpt-footer-cart-wrapper > a:empty{display: none;}
+div.wpt-footer-cart-wrapper>a:after, div.wpt-footer-cart-wrapper>a {
+    background-color: #4caf50;
+}
 /*------new for per product End-- a.button.wpt_woo_add_cart_button>span.wpt_ccount:empty{display: none;}------*/
 
 
@@ -1943,3 +1946,4 @@ select.search_select.cascade-filtering {
         margin: 0 5px;
         /* color: #dd3333; */
     }
+    
