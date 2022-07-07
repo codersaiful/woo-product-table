@@ -50,11 +50,11 @@ base class default_wrapper
   font-weight: 500;
 }
 
-.wpt_product_table_wrapper table.wpt_product_table_table thead {
+.wpt_product_table_wrapper table.wpt_product_table thead {
   border-bottom: 1px solid #ffffff;
 }
 
-.wpt_product_table_wrapper table.wpt_product_table_table tbody td .wpt_product_title_in_td {
+.wpt_product_table_wrapper table.wpt_product_table tbody td .wpt_product_title_in_td {
   color: #02485a;
   font-weight: 600;
   text-decoration: none;
@@ -522,8 +522,8 @@ body.wpt_table_body .wpt_product_table_wrapper button:focus {
   color: #024d7e;
 }
 
-.wpt_product_table_wrapper .wpt_product_table_table input[type=number]::-webkit-inner-spin-button,
-.wpt_product_table_wrapper .wpt_product_table_table input[type=number]::-webkit-outer-spin-button {
+.wpt_product_table_wrapper .wpt_product_table input[type=number]::-webkit-inner-spin-button, 
+.wpt_product_table_wrapper .wpt_product_table input[type=number]::-webkit-outer-spin-button {
   opacity: 0.7;
 }
 

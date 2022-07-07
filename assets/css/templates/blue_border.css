@@ -210,7 +210,7 @@
     background-color: var(--smart-light-blue);
   }
   
-  .wpt_product_table_wrapper .wpt_product_table_table .product_description {
+  .wpt_product_table_wrapper .wpt_product_table .product_description {
     color: #777;
   }
   
@@ -438,9 +438,9 @@
   background: #f5f5f5;
   background-color: #f5f5f5;
 }
-body.wpt_table_body .wpt_product_table_wrapper table.wpt_product_table_table tbody tr.wpt_row>td { 
+body.wpt_table_body .wpt_product_table_wrapper table.wpt_product_table tbody tr.wpt_row>td { 
   border-color: #F6F6F6;
-  border-left-width: 1px;
+  border-left-width: 1px; 
   border-left-style: solid; 
   color:#000; 
   font-size: 16px;

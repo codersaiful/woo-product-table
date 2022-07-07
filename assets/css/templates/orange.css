@@ -56,7 +56,7 @@ base class beautiful_orange_wrapper
   border-bottom: 1px solid #42597c;
 }
 
-.wpt_product_table_wrapper table.wpt_product_table_table tbody td .wpt_product_title_in_td {
+.wpt_product_table_wrapper table.wpt_product_table tbody td .wpt_product_title_in_td { 
   color: var(--orange-primary);
   font-weight: 600;
   text-decoration: none;
