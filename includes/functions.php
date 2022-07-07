@@ -1689,6 +1689,7 @@ function wpt_default_css_template( $tbl_id ){
     
     $meta = get_post_meta( $tbl_id, 'table_style', true );
     $template = $meta['template'] ?? false;
+    $template = apply_filters( 'wpto_table_template', $template, $tbl_id );
     if( $template == 'none' || $template == 'custom' ) return;
     if( ! $template ) return;
     
