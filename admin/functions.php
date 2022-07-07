@@ -349,3 +349,32 @@ if( ! function_exists( 'wpt_add_tabs' ) ){
 }
 add_action( 'current_screen', 'wpt_add_tabs', 50 );
 
+
+function wpt_get_free_templates(){
+    $templates_default = array(
+        'none'              =>  __( 'Select None', 'wpt_pro' ),
+        'default'           =>  __( 'Default Style', 'wpt_pro' ),
+        'beautiful_blacky'  =>  __( 'Beautiful Blacky', 'wpt_pro' ),
+        'classic'           =>  __( 'Classic', 'wpt_pro' ),    
+        'blue_border'       =>  __( 'Blue Border', 'wpt_pro' ),
+        'smart_border'      =>  __( 'Smart Border', 'wpt_pro' ), 
+        'pink'              =>  __( 'Pink Style', 'wpt_pro' ),  
+        'modern'            =>  __( 'Modern Style', 'wpt_pro' ),  
+        'orange'            =>  __( 'Orange Style', 'wpt_pro' ),   
+    );
+
+    return $templates_default;
+}
+if( ! function_exists( 'wpt_get_pro_templates' ) ){
+    function wpt_get_pro_templates(){
+        $pro_templates = array(
+            'smart'         =>  __( 'Smart Thin', 'wpt_pro' ),
+            'green'         =>  __( 'Green Style', 'wpt_pro' ),
+            'blue'          =>  __( 'Blue Style', 'wpt_pro' ),
+            'dark'          =>  __( 'Dark Style', 'wpt_pro' ),
+            'smart_light'   =>  __( 'Smart Light', 'wpt_pro' ),
+            'custom'       =>  __( 'Customized Design', 'wpt_pro' ),
+        );
+        return $pro_templates;
+    }
+}

@@ -1,8 +1,8 @@
 <?php
 $templates_default = array(
-    'none'          =>  __( 'Select None', 'wpt_pro' ),
-    'default'       =>  __( 'Default Style', 'wpt_pro' ),
-    'beautiful_blacky' =>  __( 'Beautiful Blacky', 'wpt_pro' ),
+    'none'              =>  __( 'Select None', 'wpt_pro' ),
+    'default'           =>  __( 'Default Style', 'wpt_pro' ),
+    'beautiful_blacky'  =>  __( 'Beautiful Blacky', 'wpt_pro' ),
 );
 $pro_templates = array(
     'smart'         =>  __( 'Smart Thin', 'wpt_pro' ),
@@ -10,7 +10,12 @@ $pro_templates = array(
     'blue'          =>  __( 'Blue Style', 'wpt_pro' ),
     'dark'          =>  __( 'Dark Style', 'wpt_pro' ),
     'smart_light'   =>  __( 'Smart Light', 'wpt_pro' ),
-    'custom'       =>  __( 'Customized Design', 'wpt_pro' ),
+    'classic'           =>  __( 'Classic', 'wpt_pro' ),    
+    'blue_border'       =>  __( 'Blue Border', 'wpt_pro' ),
+    'smart_border'      =>  __( 'Smart Border', 'wpt_pro' ), 
+    'pink'              =>  __( 'Pink Style', 'wpt_pro' ),  
+    'modern'            =>  __( 'Modern Style', 'wpt_pro' ),  
+    'orange'            =>  __( 'Orange Style', 'wpt_pro' ),   
 );
 $additional_templates = array();
 $additional_templates = apply_filters( 'wpto_table_template_arr', $additional_templates );
@@ -24,7 +29,7 @@ foreach( $templates_default as $temp_key => $tempplate_name ){
 }
 foreach( $pro_templates as $temp_key => $tempplate_name ){
     $table_templates[$temp_key] = array(
-        'type' => 'limited',
+        'type' => 'approved',
         'value' => $tempplate_name
     );
 }
