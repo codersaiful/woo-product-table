@@ -1,8 +1,14 @@
 <?php
 $templates_default = array(
-    'none'          =>  __( 'Select None', 'wpt_pro' ),
-    'default'       =>  __( 'Default Style', 'wpt_pro' ),
-    'beautiful_blacky' =>  __( 'Beautiful Blacky', 'wpt_pro' ),
+    'none'              =>  __( 'Select None', 'wpt_pro' ),
+    'default'           =>  __( 'Default Style', 'wpt_pro' ),
+    'beautiful_blacky'  =>  __( 'Beautiful Blacky', 'wpt_pro' ),
+    'classic'           =>  __( 'Classic', 'wpt_pro' ),    
+    'blue_border'       =>  __( 'Blue Border', 'wpt_pro' ),
+    'smart_border'      =>  __( 'Smart Border', 'wpt_pro' ), 
+    'pink'              =>  __( 'Pink Style', 'wpt_pro' ),  
+    'modern'            =>  __( 'Modern Style', 'wpt_pro' ),  
+    'orange'            =>  __( 'Orange Style', 'wpt_pro' ),   
 );
 $pro_templates = array(
     'smart'         =>  __( 'Smart Thin', 'wpt_pro' ),
