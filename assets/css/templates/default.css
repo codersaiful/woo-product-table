@@ -142,7 +142,7 @@ body.wpt_table_body .default_wrapper button.caqv-open-modal.adding.wc-variation-
 body.wpt_table_body .default_wrapper button.caqv-open-modal.disabled,
 body.wpt_table_body .default_wrapper button.caqv-open-modal.alt.disabled {  
   padding: 8px 9px;
-  background: var(--wpt-default-primary) !important;
+  background: var(--wpt-default-primary) !important; 
   color: #fff !important;
   font-size: 14px;
   border-radius: 3px;
