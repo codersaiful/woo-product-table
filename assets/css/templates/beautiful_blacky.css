@@ -204,6 +204,14 @@ body.wpt_table_body .beautiful_blacky_wrapper table tbody tr a.button:hover.alt.
   padding-top: 15px;
   /* font-weight: 300; */
 }
+body.wpt_table_body .beautiful_blacky_wrapper .beautiful_blacky.custom_table tbody tr td {
+  font-weight: 400;
+  padding-bottom: 15px;
+  padding-top: 15px;
+  color: #909cad !important; 
+  border-radius: .4em;
+  overflow: hidden;
+}
 
 .beautiful_blacky_wrapper table tbody tr:not(.spacer) {
   border-radius: 7px;
