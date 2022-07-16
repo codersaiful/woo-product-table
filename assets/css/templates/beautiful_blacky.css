@@ -102,12 +102,12 @@ body.wpt_table_body .beautiful_blacky_wrapper table tbody tr a.button:hover.alt.
 }
 
 /* advanced action button (fatima) */
-.wpt_table_body .beautiful_blacky_wrapper button,
-.wpt_table_body .beautiful_blacky_wrapper button.adding,
-.wpt_table_body .beautiful_blacky_wrapper button.alt.wc-variation-selection-needed,
-.wpt_table_body .beautiful_blacky_wrapper button.adding.wc-variation-selection-needed,
-.wpt_table_body .beautiful_blacky_wrapper button.disabled,
-.wpt_table_body .beautiful_blacky_wrapper button.alt.disabled {
+.wpt_table_body .beautiful_blacky_wrapper button.caqv-open-modal,
+.wpt_table_body .beautiful_blacky_wrapper button.caqv-open-modal.adding,
+.wpt_table_body .beautiful_blacky_wrapper button.caqv-open-modal.alt.wc-variation-selection-needed,
+.wpt_table_body .beautiful_blacky_wrapper button.caqv-open-modal.adding.wc-variation-selection-needed,
+.wpt_table_body .beautiful_blacky_wrapper button.caqv-open-modal.disabled,
+.wpt_table_body .beautiful_blacky_wrapper button.caqv-open-modal.alt.disabled {
   padding: 8px 9px;
   background: var(--beautiful-blue);
   color: #fff;

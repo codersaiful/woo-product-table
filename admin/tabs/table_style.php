@@ -16,6 +16,7 @@ $pro_templates = array(
     'pink'              =>  __( 'Pink Style', 'wpt_pro' ),  
     'modern'            =>  __( 'Modern Style', 'wpt_pro' ),  
     'orange'            =>  __( 'Orange Style', 'wpt_pro' ),   
+    'lightseagreen'     =>  __( 'Lightseagreen Style', 'wpt_pro' ), 
 );
 $additional_templates = array();
 $additional_templates = apply_filters( 'wpto_table_template_arr', $additional_templates );
