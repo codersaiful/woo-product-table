@@ -228,8 +228,8 @@ body.wpt_table_body .beautiful_blacky_wrapper .beautiful_blacky.custom_table tbo
 }
 
 body.wpt_table_body .beautiful_blacky_wrapper table tbody tr th,
-.beautiful_blacky_wrapper table tbody tr td {
-  background: var(--beautiful-black) !important;
+body.wpt_table_body .beautiful_blacky_wrapper table tbody tr td {
+  background-color: var(--beautiful-black) !important;
   padding-bottom: 1em;
   border-spacing: 1px;
   border: none;
@@ -454,11 +454,16 @@ body.wpt_table_body .beautiful_blacky_wrapper table:not(.has-background) tbody t
   line-height: 14px;
 }
 
-.beautiful_blacky_wrapper .select2-container--default .beautiful_blacky_wrapper .select2-selection--multiple {
+body.wpt_table_body .beautiful_blacky_wrapper .select2-container--default,
+body.wpt_table_body .beautiful_blacky_wrapper .select2-selection--multiple {
   background-color: #fff;
-  border: 1px solid var(--beautiful-blue);
+  border: 1px solid var(--beautiful-blue) !important;
   border-radius: 4px;
   cursor: text;
+}
+body.wpt_table_body .beautiful_blacky_wrapper .select2-container .select2-selection--multiple,
+body.wpt_table_body .beautiful_blacky_wrapper .select2-container--default .select2-selection--single {
+  border: 1px solid var(--beautiful-blue) !important;
 }
 .beautiful_blacky_wrapper a:focus,
 .beautiful_blacky_wrapper input:focus,

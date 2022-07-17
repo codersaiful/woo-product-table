@@ -278,6 +278,18 @@ body.wpt_table_body .default_wrapper table tbody tr td {
   box-shadow: unset;
 }
 
+body.wpt_table_body .default_wrapper .select2-container--default,
+body.wpt_table_body .default_wrapper .select2-selection--multiple {
+  background-color: #fff;
+  border: 1px solid #ccd2d3;
+  border-radius: 4px;
+  cursor: text;
+}
+body.wpt_table_body .default_wrapper .select2-container .select2-selection--multiple,
+body.wpt_table_body .default_wrapper .select2-container--default .select2-selection--single {
+  border: 1px solid #ccd2d3;
+}
+
 /*------- Checkbox ---------*/
 
 div.wpt_product_table_wrapper.default_wrapper input[type=checkbox]+label:before {
