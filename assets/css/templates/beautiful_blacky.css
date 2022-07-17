@@ -227,9 +227,9 @@ body.wpt_table_body .beautiful_blacky_wrapper .beautiful_blacky.custom_table tbo
   box-shadow: 0 2px 10px -5px rgba(0, 0, 0, 0.1);
 }
 
-.beautiful_blacky_wrapper table tbody tr th,
+body.wpt_table_body .beautiful_blacky_wrapper table tbody tr th,
 .beautiful_blacky_wrapper table tbody tr td {
-  background: var(--beautiful-black);
+  background: var(--beautiful-black) !important;
   padding-bottom: 1em;
   border-spacing: 1px;
   border: none;
@@ -339,7 +339,7 @@ body.wpt_table_body .beautiful_blacky_wrapper table tbody tr.wpt_row>td .product
   font-size: 14px;
   font-weight: bold;
   left: 5px;
-  position: absolute;
+  position: absolute; 
 }
 
 .beautiful_blacky_wrapper.wpt_product_table_wrapper .all_check_header input[type=checkbox]+label:before {
@@ -417,11 +417,11 @@ body.wpt_table_body .beautiful_blacky_wrapper table tbody tr.wpt_row>td .product
   border-radius: 3px;
 }
 
-.beautiful_blacky_wrapper table:not(.has-background) tbody tr:nth-child(2n) td,
+body.wpt_table_body .beautiful_blacky_wrapper table:not(.has-background) tbody tr:nth-child(2n) td,
 .beautiful_blacky_wrapper table:not(.has-background) th {
-  background-color: var(--beautiful-head);
+  background-color: var(--beautiful-head) !important;
   font-size: 16px;
-  text-align: left;
+  text-align: left; 
 }
 
 .beautiful_blacky_wrapper.wpt_product_table_wrapper div.tables_cart_message_box div.widget_shopping_cart_content li.woocommerce-mini-cart-item.mini_cart_item {
@@ -454,6 +454,12 @@ body.wpt_table_body .beautiful_blacky_wrapper table tbody tr.wpt_row>td .product
   line-height: 14px;
 }
 
+.beautiful_blacky_wrapper .select2-container--default .beautiful_blacky_wrapper .select2-selection--multiple {
+  background-color: #fff;
+  border: 1px solid var(--beautiful-blue);
+  border-radius: 4px;
+  cursor: text;
+}
 .beautiful_blacky_wrapper a:focus,
 .beautiful_blacky_wrapper input:focus,
 .beautiful_blacky_wrapper select:focus, 
@@ -471,11 +477,14 @@ body.wpt_table_body .beautiful_blacky_wrapper table tbody tr.wpt_row>td .product
 
 .beautiful_blacky_wrapper .search_single_column input {
   height: 45px;
-}
+} 
 
-.beautiful_blacky_wrapper .wpt_search_box .search_box_wrapper {
+body.wpt_table_body .beautiful_blacky_wrapper .wpt_search_box .search_box_wrapper {
   position: relative;
   text-align: left;
+  font-size:14px;
+  font-weight:400;
+  color:#000;
 }
 
 .beautiful_blacky_wrapper h3.search_box_label {
