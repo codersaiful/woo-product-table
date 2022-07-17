@@ -40,6 +40,13 @@ base class default_wrapper
   margin-bottom: 20px;
 }
 
+body.wpt_table_body .default_wrapper table thead tr, body.wpt_table_body .default_wrapper table thead th {
+  border-top: none;
+  border-bottom: none !important;
+  color: #fff;
+  background-color: var(--wpt-default-primary) !important; 
+}
+
 .default_wrapper .wpt_table_tag_wrapper {
   box-shadow: rgba(0, 0, 0, 0.041) 0px 4px 12px;
 }
@@ -71,13 +78,37 @@ base class default_wrapper
   border-radius: 3px;
   font-size: 16px;
 }
+body.wpt_table_body .default_wrapper .default_table.custom_table tbody tr a.button.single_add_to_cart_button,
+body.wpt_table_body .default_wrapper .default_table.custom_table tbody tr a.button.single_add_to_cart_button.adding, 
+body.wpt_table_body .default_wrapper .default_table.custom_table tbody tr a.button.single_add_to_cart_button.alt.wc-variation-selection-needed,
+body.wpt_table_body .default_wrapper .default_table.custom_table tbody tr a.button.single_add_to_cart_button.adding.wc-variation-selection-needed, 
+body.wpt_table_body .default_wrapper .default_table.custom_table tbody tr a.button.single_add_to_cart_button.disabled,
+body.wpt_table_body .default_wrapper .default_table.custom_table tbody tr a.button.single_add_to_cart_button.alt.disabled {
+  padding: 8px 9px;
+  background: var(--wpt-default-primary) !important;
+  border: 1px solid var(--wpt-default-primary) !important;
+  color: #fff;
+  font-size: 14px;
+  border-radius: 3px; 
+  font-weight: bold;
+}
+body.wpt_table_body .default_wrapper .default_table.custom_table tbody tr a.button.single_add_to_cart_button:hover,
+body.wpt_table_body .default_wrapper .default_table.custom_table tbody tr a.button.single_add_to_cart_button:hover.adding, 
+body.wpt_table_body .default_wrapper .default_table.custom_table tbody tr a.button.single_add_to_cart_button:hover.alt.wc-variation-selection-needed,
+body.wpt_table_body .default_wrapper .default_table.custom_table tbody tr a.button.single_add_to_cart_button:hover.adding.wc-variation-selection-needed, 
+body.wpt_table_body .default_wrapper .default_table.custom_table tbody tr a.button.single_add_to_cart_button:hover.disabled,
+body.wpt_table_body .default_wrapper .default_table.custom_table tbody tr a.button.single_add_to_cart_button:hover.alt.disabled { 
+  background: transparent !important;
+  color: var(--wpt-default-primary) !important;
+  border: 1px solid var(--wpt-default-primary);
+}
 
-.default_wrapper table tbody tr a.button,
-.default_wrapper table tbody tr a.button.adding,
-.default_wrapper table tbody tr a.button.alt.wc-variation-selection-needed,
-.default_wrapper table tbody tr a.button.adding.wc-variation-selection-needed,
-.default_wrapper table tbody tr a.button.disabled,
-.default_wrapper table tbody tr a.button.alt.disabled {
+body.wpt_table_body .default_wrapper table tbody tr a.button.add_to_cart_button,
+body.wpt_table_body .default_wrapper table tbody tr a.button.add_to_cart_button.adding,
+body.wpt_table_body .default_wrapper table tbody tr a.button.add_to_cart_button.alt.wc-variation-selection-needed,
+body.wpt_table_body .default_wrapper table tbody tr a.button.add_to_cart_button.adding.wc-variation-selection-needed,
+body.wpt_table_body .default_wrapper table tbody tr a.button.add_to_cart_button.disabled,
+body.wpt_table_body .default_wrapper table tbody tr a.button.add_to_cart_button.alt.disabled {
   padding: 8px 9px;
   background: var(--wpt-default-primary) !important;
   color: #fff !important;
@@ -88,17 +119,18 @@ base class default_wrapper
   white-space: nowrap;
 }
 
-.default_wrapper table tbody tr a.button:hover,
-.default_wrapper table tbody tr a.button:hover.adding,
-.default_wrapper table tbody tr a.button:hover.alt.wc-variation-selection-needed,
-.default_wrapper table tbody tr a.button:hover.adding.wc-variation-selection-needed,
-.default_wrapper table tbody tr a.button:hover.disabled,
-.default_wrapper table tbody tr a.button:hover.alt.disabled {
+body.wpt_table_body .default_wrapper table tbody tr a.button.add_to_cart_button:hover,
+body.wpt_table_body .default_wrapper table tbody tr a.button.add_to_cart_button:hover.adding,
+body.wpt_table_body .default_wrapper table tbody tr a.button.add_to_cart_button:hover.alt.wc-variation-selection-needed,
+body.wpt_table_body .default_wrapper table tbody tr a.button.add_to_cart_button:hover.adding.wc-variation-selection-needed,
+body.wpt_table_body .default_wrapper table tbody tr a.button.add_to_cart_button:hover.disabled,
+body.wpt_table_body .default_wrapper table tbody tr a.button.add_to_cart_button:hover.alt.disabled {
   padding: 8px 9px;
   background: transparent !important;
   color: var(--wpt-default-primary) !important;
   border: 1px solid var(--wpt-default-primary);
 }
+
 
 /* advanced action button (fatima) */
 .wpt_table_body .default_wrapper button.single_add_to_cart_button,
@@ -170,6 +202,7 @@ body.wpt_table_body .wpt_product_table_wrapper .custom_table thead .wpt_table_he
   padding: 17px;
   color: #fff;
   white-space: nowrap;
+  background-color: var(--wpt-default-primary) !important; 
 }
 .default_wrapper table thead tr,
 .default_wrapper table thead th {
@@ -199,9 +232,9 @@ body.wpt_table_body .wpt_product_table_wrapper .custom_table thead .wpt_table_he
   box-shadow: 0 2px 10px -5px rgba(0, 0, 0, 0.1);
 }
 
-.default_wrapper table tbody tr th,
-.default_wrapper table tbody tr td {
-  background: var(--wpt-default-secondary);
+body.wpt_table_body .default_wrapper table tbody tr th,
+body.wpt_table_body .default_wrapper table tbody tr td {
+  background: var(--wpt-default-secondary) !important;
   padding-bottom: .5em;
   border-spacing: 1px;
   border: none;
@@ -351,8 +384,8 @@ div.wpt_product_table_wrapper.default_wrapper input.wpt_check_universal.wpt_chec
   border-radius: 3px;
 }
 
-.default_wrapper table:not(.has-background) tbody tr:nth-child(2n) td {
-  background-color: var(--wpt-default-hover);
+body.wpt_table_body .default_wrapper table:not(.has-background) tbody tr:nth-child(2n) td {
+  background-color: var(--wpt-default-hover) !important; 
 }
 
 .default_wrapper table td,
