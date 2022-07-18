@@ -320,6 +320,14 @@ body.wpt_table_body .beautiful_blacky_wrapper table tbody tr.wpt_row>td .product
   background: transparent;
   margin-right: 35px;
 }
+.beautiful_blacky_wrapper .wpt_product_table tbody tr .star-rating::before, .star-rating span::before {
+	content: "";
+	top: 0;
+	left: 0;
+	position: absolute;
+	color: #fff !important;
+}
+
 
 /*Checkbox*/
 

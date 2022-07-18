@@ -237,7 +237,13 @@ body.wpt_table_body .wpt_product_table_wrapper .custom_table thead .wpt_table_he
   border-bottom: none !important;
   color: #fff;
 }
-
+.dark_wrapper .wpt_product_table tbody tr .star-rating::before, .star-rating span::before {
+	content: "";
+	top: 0;
+	left: 0;
+	position: absolute;
+	color: #02485a !important; 
+}
 .default_wrapper table tbody th,
 .default_wrapper table tbody td {
   color: #02485a;
