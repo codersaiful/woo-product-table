@@ -185,6 +185,33 @@ body.wpt_table_body .default_wrapper button.caqv-open-modal.alt.disabled {
   white-space: nowrap;
 }
 
+body.wpt_table_body .default_wrapper .default_table.custom_table tbody tr a.button, 
+body.wpt_table_body .default_wrapper .default_table.custom_table tbody tr a.button.adding, 
+body.wpt_table_body .default_wrapper .default_table.custom_table tbody tr a.button.alt.wc-variation-selection-needed, 
+body.wpt_table_body .default_wrapper .default_table.custom_table tbody tr a.button.adding.wc-variation-selection-needed, 
+body.wpt_table_body .default_wrapper .default_table.custom_table tbody tr a.button.disabled,
+ body.wpt_table_body .default_wrapper .default_table.custom_table tbody tr a.button.alt.disabled {
+  padding: 8px 9px;
+  background: var(--wpt-default-primary) !important; 
+  border: 1px solid var(--wpt-default-primary);
+  color: #fff;
+  font-size: 13px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+body.wpt_table_body .default_wrapper .default_table.custom_table tbody tr a.button:hover, 
+body.wpt_table_body .default_wrapper .default_table.custom_table tbody tr a.button:hover.adding, 
+body.wpt_table_body .default_wrapper .default_table.custom_table tbody tr a.button:hover.alt.wc-variation-selection-needed, 
+body.wpt_table_body .default_wrapper .default_table.custom_table tbody tr a.button:hover.adding.wc-variation-selection-needed, 
+body.wpt_table_body .default_wrapper .default_table.custom_table tbody tr a.button:hover.disabled,
+ body.wpt_table_body .default_wrapper .default_table.custom_table tbody tr a.button:hover.alt.disabled {
+  background: transparent !important;
+  border: 1px solid var(--wpt-default-primary);
+  color: var(--wpt-default-primary) !important;
+  text-decoration: none;
+ }
+
 /* fatima  */
 body.wpt_table_body .wpt_product_table_wrapper .qib-button.qib-button-wrapper .plus.qib-button {
   background: transparent !important;
@@ -210,12 +237,23 @@ body.wpt_table_body .wpt_product_table_wrapper .custom_table thead .wpt_table_he
   border-bottom: none !important;
   color: #fff;
 }
-
+.dark_wrapper .wpt_product_table tbody tr .star-rating::before, .star-rating span::before {
+	content: "";
+	top: 0;
+	left: 0;
+	position: absolute;
+	color: #02485a !important; 
+}
 .default_wrapper table tbody th,
 .default_wrapper table tbody td {
   color: #02485a;
  padding:12px 20px;
   font-weight: 400;
+}
+.default_wrapper tbody tr td .music_title {
+	color: var(--wpt-default-text-color);
+  font-size: 16px;
+  font-weight: 500;
 }
 
 .default_wrapper table tbody tr:not(.spacer) {
@@ -278,13 +316,7 @@ body.wpt_table_body .default_wrapper table tbody tr td {
   box-shadow: unset;
 }
 
-body.wpt_table_body .default_wrapper .select2-container--default,
-body.wpt_table_body .default_wrapper .select2-selection--multiple {
-  background-color: #fff;
-  border: 1px solid #ccd2d3;
-  border-radius: 4px;
-  cursor: text;
-}
+
 body.wpt_table_body .default_wrapper .select2-container .select2-selection--multiple,
 body.wpt_table_body .default_wrapper .select2-container--default .select2-selection--single {
   border: 1px solid #ccd2d3;
