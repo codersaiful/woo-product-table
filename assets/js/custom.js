@@ -2129,8 +2129,28 @@ jQuery(function($) {
             var target_table_wrapper_id = '#table_id_' + temp_number;
             var thisColObject = $(this);
             var status = false;
+            var disableClass = [
+                // '.wpt_product_id',
+                // '.wpt_thumbnails',
+                // '.wpt_quick',
+                // '.wpt_message',
+                // '.wpt_serial_number',
+                // '.wpt_quoterequest',
+                // '.wpt_action',
+                '.wpt_quantity',
+                '.wpt_check',
+            ];
+            var number_class = $('td'+target_class + '>.text_with_number');//.find('.text_with_number');
+            var content_type = 'normal';
+            if(target_class.search('.wpt_price') != -1){
+                content_type = 'price';
+            }else if(number_class.length > 0 || target_class.search('.wpt_product_id') != -1 ){
+                content_type = 'number';
+            }
+            console.log('td'+target_class,number_class.length,content_type);
+            
             //for check box collumn //wpt_thumbnails //wpt_product_id
-            if(target_class !== '.wpt_product_id' && target_class !== '.wpt_thumbnails' && target_class !== '.wpt_quick' && target_class !== '.wpt_message' && target_class !== '.wpt_serial_number' && target_class !== '.wpt_quoterequest' && target_class !== '.wpt_check' && target_class !== '.wpt_quantity' && target_class !== '.wpt_action'){
+            if($.inArray(target_class,disableClass) == -1){
             
                 $(target_table_wrapper_id + ' .' +class_for_sorted).removeClass(class_for_sorted);
                 
@@ -2150,12 +2170,27 @@ jQuery(function($) {
                 var contentHTMLArray = [];
                 var currentColumnObject = $(target_table_wrapper_id + ' table tbody td' + target_class);
                 currentColumnObject.each(function(index){
-                    var text,html = '';
-                    text = $(this).text();
-                    var product_id = $(this).parent('tr').data('product_id');
+                    var text,
+                    html = '', 
+                    product_id = $(this).parent('tr').data('product_id');
 
-                    //Refine text
-                    text = text + '_' + product_id;
+                    text = $(this).text();
+                    text = $.trim(text);
+                    if(content_type == 'price'){
+                        text = $(this).find('span.woocommerce-Price-amount.amount').last().text();
+                    }else if(content_type == 'number'){
+                        text = text.replace(/[^0-9.]/g,'');
+                        if(text == ''){
+                            text = 0;
+                        }
+
+                        text += (1000000000+parseInt(product_id));
+                        text = parseInt(text);
+                    }else{
+                        text = $.trim(text.substring(0,80));
+                        text = text + "_" + product_id;
+                    }
+                    console.log(text);
                     var rowInsideHTMLData = $(this).parent('tr').html();
 
                     var thisRowObject = $('#table_id_'+ temp_number +' #product_id_' + product_id);
@@ -2174,8 +2209,16 @@ jQuery(function($) {
                     contentArray[index] = text;
                     contentHTMLArray[text] = html;
                 });
+                console.log(contentArray);
                 function sortingData(a, b){
                     
+
+                    // if(sort_type === 'ASC'){
+                    //     return a-b;
+                    // }else{
+                    //     return b-a;
+                    // }
+
                     //Added at 3.4
 
                     if(target_class === '.wpt_price' || target_class === '.wpt_price.this_column_sorted') { //.wpt_price.this_column_sorted
