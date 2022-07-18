@@ -1,7 +1,7 @@
 <?php
 $templates_default = array(
-    'none'              =>  __( 'Select None', 'wpt_pro' ),
     'default'           =>  __( 'Default Style', 'wpt_pro' ),
+    'none'              =>  __( 'Template None', 'wpt_pro' ),
     'beautiful_blacky'  =>  __( 'Beautiful Blacky', 'wpt_pro' ),
 );
 $pro_templates = array(
