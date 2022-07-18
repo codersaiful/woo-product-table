@@ -327,7 +327,14 @@ body.wpt_table_body .beautiful_blacky_wrapper table tbody tr.wpt_row>td .product
 	position: absolute;
 	color: #fff !important;
 }
-
+.beautiful_blacky_wrapper tbody tr td .audio_artist {
+	color: #fff;
+}
+.beautiful_blacky_wrapper tbody tr td .music_title {
+	color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+}
 
 /*Checkbox*/
 
