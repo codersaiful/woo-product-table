@@ -2211,13 +2211,15 @@ jQuery(function($) {
                 });
                 console.log(contentArray);
                 function sortingData(a, b){
-                    
-
-                    // if(sort_type === 'ASC'){
-                    //     return a-b;
-                    // }else{
-                    //     return b-a;
+                    // if(content_type == 'price' || content_type == 'number'){
+                    //     if(sort_type === 'ASC'){
+                    //         return a-b;
+                    //     }else{
+                    //         return b-a;
+                    //     }
                     // }
+
+                    
 
                     //Added at 3.4
 
