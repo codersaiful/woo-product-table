@@ -256,8 +256,8 @@ body.wpt_table_body .beautiful_blacky_wrapper table tbody td {
     padding-bottom: 15px;
     padding-top: 15px;
 }
-body.wpt_table_body .beautiful_blacky_wrapper table tbody th span,
-body.wpt_table_body .beautiful_blacky_wrapper table tbody td span { 
+body.wpt_table_body .beautiful_blacky_wrapper table tbody th .content span,
+body.wpt_table_body .beautiful_blacky_wrapper table tbody td .content span { 
     color: #fff !important;   
     font-weight: 600;
     font-size: 18px;
