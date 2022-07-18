@@ -250,6 +250,14 @@ body.wpt_table_body .wpt_product_table_wrapper .custom_table thead .wpt_table_he
  padding:12px 20px;
   font-weight: 400;
 }
+body.wpt_table_body .default_wrapper table tbody th span,
+body.wpt_table_body .default_wrapper table tbody td span { 
+    color: #02485a !important;   
+    font-weight: 600;
+    font-size: 18px;
+    padding-bottom: 15px; 
+    padding-top: 15px;
+}
 .default_wrapper tbody tr td .music_title {
 	color: var(--wpt-default-text-color);
   font-size: 16px;

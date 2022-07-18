@@ -256,6 +256,15 @@ body.wpt_table_body .beautiful_blacky_wrapper table tbody td {
     padding-bottom: 15px;
     padding-top: 15px;
 }
+body.wpt_table_body .beautiful_blacky_wrapper table tbody th span,
+body.wpt_table_body .beautiful_blacky_wrapper table tbody td span { 
+    color: #fff !important;   
+    font-weight: 600;
+    font-size: 18px;
+    padding-bottom: 15px; 
+    padding-top: 15px;
+}
+
 body.wpt_table_body .beautiful_blacky_wrapper table tbody th,
 body.wpt_table_body .beautiful_blacky_wrapper table tbody td .woocommerce-Price-amount.amount { 
     color: #fff !important; 
@@ -336,6 +345,15 @@ body.wpt_table_body .beautiful_blacky_wrapper table tbody tr.wpt_row>td .product
   font-weight: 500;
 }
 
+body.wpt_table_body .beautiful_blacky_wrapper .star-rating span {
+	overflow: hidden;
+	float: left;
+	top: 0;
+	left: 0;
+	position: absolute;
+	padding-top: 1.5em;
+	color: #fff;
+}
 /*Checkbox*/
 
 .beautiful_blacky_wrapper.wpt_product_table_wrapper input[type=checkbox]:checked+label:before {
