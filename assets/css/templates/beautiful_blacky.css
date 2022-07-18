@@ -264,6 +264,14 @@ body.wpt_table_body .beautiful_blacky_wrapper table tbody td .woocommerce-Price-
     padding-bottom: 15px; 
     padding-top: 15px;
 }
+body.wpt_table_body .beautiful_blacky_wrapper table tbody th,
+body.wpt_table_body .beautiful_blacky_wrapper table tbody td .wpt_total  { 
+    color: #fff !important; 
+    font-weight: 700;
+    font-size: 18px;
+    padding-bottom: 15px; 
+    padding-top: 15px;
+}
 .beautiful_blacky_wrapper table tbody th,
 .beautiful_blacky_wrapper table tbody td .wpt_product_price ins {
     color: #fff; 
@@ -311,6 +319,21 @@ body.wpt_table_body .beautiful_blacky_wrapper table tbody tr.wpt_row>td .product
   font-size: 16px;
   background: transparent;
   margin-right: 35px;
+}
+.beautiful_blacky_wrapper .wpt_product_table tbody tr .star-rating::before, .star-rating span::before {
+	content: "";
+	top: 0;
+	left: 0;
+	position: absolute;
+	color: #fff !important;
+}
+.beautiful_blacky_wrapper tbody tr td .audio_artist {
+	color: #fff;
+}
+.beautiful_blacky_wrapper tbody tr td .music_title {
+	color: #fff;
+  font-size: 16px;
+  font-weight: 500;
 }
 
 /*Checkbox*/
@@ -454,13 +477,7 @@ body.wpt_table_body .beautiful_blacky_wrapper table:not(.has-background) tbody t
   line-height: 14px;
 }
 
-body.wpt_table_body .beautiful_blacky_wrapper .select2-container--default,
-body.wpt_table_body .beautiful_blacky_wrapper .select2-selection--multiple {
-  background-color: #fff;
-  border: 1px solid var(--beautiful-blue) !important;
-  border-radius: 4px;
-  cursor: text;
-}
+
 body.wpt_table_body .beautiful_blacky_wrapper .select2-container .select2-selection--multiple,
 body.wpt_table_body .beautiful_blacky_wrapper .select2-container--default .select2-selection--single {
   border: 1px solid var(--beautiful-blue) !important;
