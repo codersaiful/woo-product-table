@@ -70,8 +70,8 @@ if( ! class_exists( 'WPT_Required' ) ){
                 $target = 'https://wooproducttable.com/pricing/?discount=OfferJuly19&campaign=55Offer&utm_source=Offer_LINK';
                 $demo_link = 'https://demo.wooproducttable.com/?campaign=55Offer&utm_source=Offer_LINK';
                 $my_message = 'Have you enjoyed using <b>Product Table for WooCommerce (Woo Product Table)</b> Plugin? Get up to 60% OFF your purchase. [FOR LIMITED TIME]';
-                $offerNc = new Notice('offerJuly19');
-                $offerNc->set_title( 'Discount UPTO 60%' )
+                $offerNc = new Notice('offerJuly19ss');
+                $offerNc->set_title( 'WOO Product Table ::: Discount UPTO 60%' )
                 ->set_diff_limit(10)
                 ->set_type('offer')
                 ->set_img( WPT_BASE_URL. 'assets/images/offr/offerjuly.jpg')
@@ -79,7 +79,7 @@ if( ! class_exists( 'WPT_Required' ) ){
                 ->set_message( $my_message )
                 ->add_button([
                     'text' => 'Claim Discount',
-                    'type' => 'error',
+                    'type' => 'primary',
                     'link' => $target,
                 ]);
                 if( method_exists($offerNc, 'set_location') ){
