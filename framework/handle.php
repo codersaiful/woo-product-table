@@ -64,38 +64,28 @@ if( ! class_exists( 'WPT_Required' ) ){
                 if( method_exists($small_notc, 'set_location') ){
                     $small_notc->set_location('wpt_premium_image_top'); //wpt_premium_image_bottom
                 }
-                // $small_notc->show();
+                $small_notc->show();
 
 
-                $target = 'https://wooproducttable.com/pricing/?campaign=55Offer&utm_source=Offer_LINK';
+                $target = 'https://wooproducttable.com/pricing/?discount=OfferJuly19&campaign=55Offer&utm_source=Offer_LINK';
                 $demo_link = 'https://demo.wooproducttable.com/?campaign=55Offer&utm_source=Offer_LINK';
                 $my_message = 'Have you enjoyed using <b>Product Table for WooCommerce (Woo Product Table)</b> Plugin? Get up to 60% OFF your purchase. [FOR LIMITED TIME]';
-                $offerNc = new Notice('offerJune8');
+                $offerNc = new Notice('offerJuly19');
                 $offerNc->set_title( 'Discount UPTO 60%' )
                 ->set_diff_limit(10)
                 ->set_type('offer')
-                ->set_img( WPT_BASE_URL. 'assets/images/offr/55-percent-offer.jpg')
+                ->set_img( WPT_BASE_URL. 'assets/images/offr/offerjuly.jpg')
                 ->set_img_target( $target )
                 ->set_message( $my_message )
                 ->add_button([
-                    'text' => 'Check YOUR DISCOUNT',
+                    'text' => 'Claim Discount',
                     'type' => 'error',
                     'link' => $target,
-                ])
-                ->add_button([
-                    'text' => 'Demo',
-                    'type' => 'primary',
-                    'link' => $demo_link
-                ])
-                ->add_button([
-                    'text' => 'Docs',
-                    'type' => 'primary',
-                    'link' => 'https://wooproducttable.com/documentation/'
                 ]);
                 if( method_exists($offerNc, 'set_location') ){
                     $offerNc->set_location('wpt_offer_here'); //wpt_premium_image_bottom
                 }
-                // $offerNc->show();
+                $offerNc->show();
                 
                 
 
