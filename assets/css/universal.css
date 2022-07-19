@@ -211,7 +211,12 @@ a.button.wpt_woo_add_cart_button{
     position: relative;
     display: inline-block;
 }
-
+tr.visible_row.wpt_row td a.button,
+tr.visible_row.wpt_row td a.wpt_woo_add_cart_button,
+tr.visible_row.wpt_row .col_inside_tag.action a {
+    margin-bottom: 5px;
+    white-space: nowrap;
+}
 /*
 a.wpt_added_to_cart{
   font-family: WooCommerce;
@@ -1218,6 +1223,9 @@ table.wpt_product_table tr.wpt_selected_tr .wpt_quantity{
     table.wpt_product_table tr.wpt_selected_tr>td{
         background: transparent;
     }
+    th.wpt_product_title, td.wpt_product_title, td.wpt_product_title>* {
+        white-space: nowrap;
+    }
 }
 @media only screen and (max-width: 767px) {
     table#wpt_table.mobile_responsive.wpt_product_table th{ display: none!important;}        
@@ -1923,6 +1931,9 @@ select.search_select.cascade-filtering {
             text-align: right;
             padding-right: 10px;
         }
+        th.wpt_product_title, td.wpt_product_title, td.wpt_product_title>* {
+            white-space: nowrap;
+        }
 
     } 
     table tr.wpt_row td.wpt_quoterequest.addedd{
@@ -1946,6 +1957,4 @@ select.search_select.cascade-filtering {
         margin: 0 5px;
         /* color: #dd3333; */
     }
-    th.wpt_product_title, td.wpt_product_title, td.wpt_product_title>* {
-        white-space: nowrap;
-    }
+    

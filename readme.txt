@@ -4,7 +4,7 @@ Donate link: https://wooproducttable.com/pricing/?ref=CodeAstrology&utm_source=W
 Tags: wc product table, wooproducttable, woo product table,woocommerce product table, product table, wc table, quick order table, wholesale table, restaurants table
 Requires at least: 4.0.0
 Tested up to: 6.0
-Stable tag: 3.2.0
+Stable tag: 3.2.1
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -212,7 +212,7 @@ You can easily show specific category products. While creating new table click o
 
 == Changelog ==
 
-= 3.2.0 =
+= 3.2.1 =
   * Fixed: Soring issue solved for any number type content
   * Added: convert a column for numerical sorting. need to add class `text_with_number` for column 
   * Bug Fixed
