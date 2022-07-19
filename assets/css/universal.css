@@ -1946,4 +1946,6 @@ select.search_select.cascade-filtering {
         margin: 0 5px;
         /* color: #dd3333; */
     }
-    
+    th.wpt_product_title, td.wpt_product_title, td.wpt_product_title>* {
+        white-space: nowrap;
+    }

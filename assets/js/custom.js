@@ -2116,46 +2116,101 @@ jQuery(function($) {
                 $(this).html(html);
             });
         }
+
+        /**
+         * We will grab number/inter from Sting. such from 1st,3rd,5th to 1,3,4 as well 
+         * as from price $23.45 to 23.45
+         * 
+         * I have used it into soring perpose code
+         * 
+         * @param {string} text 
+         * @param {string|int|number} product_id 
+         * @returns int
+         */
+        function textToIntForSorting(text,product_id){
+            text = text.replace(/[^0-9.]/g,'');
+            if(text == ''){
+                text = 0;
+            }
+
+            text += (1000000000+parseInt(product_id));
+            text = parseInt(text);
+            return text;
+        }
         /**
          * Colunm Sorting Option
+         * js base column sorting.
+         * N.B: you have to enable it from Configuration page.
          * 
          * @since 2.8
          * @date 26.7.2018
          */
-        $('body').on('click','div.wpt_column_sort table.wpt_product_table thead tr th',function(){
+        $(document.body).on('click','div.wpt_column_sort table.wpt_product_table thead tr th',function(){
             var class_for_sorted = 'this_column_sorted';
             var temp_number = $(this).parent().data('temp_number');
             var target_class = '.' + $(this).attr('class').split(' ').join('.');
             var target_table_wrapper_id = '#table_id_' + temp_number;
             var thisColObject = $(this);
             var status = false;
+            var disableClass = [
+                // '.wpt_product_id',
+                // '.wpt_thumbnails',
+                // '.wpt_quick',
+                // '.wpt_message',
+                // '.wpt_serial_number',
+                // '.wpt_quoterequest',
+                // '.wpt_action',
+                '.wpt_quantity',
+                '.wpt_check',
+            ];
+            var number_class = $('td'+target_class + '>.text_with_number');//.find('.text_with_number');
+            var content_type = 'normal';
+            if(target_class.search('.wpt_price') != -1){
+                content_type = 'price';
+            }else if(number_class.length > 0 || target_class.search('.wpt_product_id') != -1 ){
+                content_type = 'number';
+            }
+                        
+            var sort_type = $(this).attr('data-sort_type');
+                
+            if(!sort_type || sort_type === 'ASC'){
+                sort_type = 'ASC';
+                $(this).attr('data-sort_type','DESC');
+            }else{
+
+                $(this).attr('data-sort_type','ASC');
+            }
+
+
             //for check box collumn //wpt_thumbnails //wpt_product_id
-            if(target_class !== '.wpt_product_id' && target_class !== '.wpt_thumbnails' && target_class !== '.wpt_quick' && target_class !== '.wpt_message' && target_class !== '.wpt_serial_number' && target_class !== '.wpt_quoterequest' && target_class !== '.wpt_check' && target_class !== '.wpt_quantity' && target_class !== '.wpt_action'){
+            if($.inArray(target_class,disableClass) == -1){
             
                 $(target_table_wrapper_id + ' .' +class_for_sorted).removeClass(class_for_sorted);
                 
                 //Again Class Reform after remove class
                 target_class = '.' + $(this).attr('class').split(' ').join('.');
 
-                var sort_type = $(this).attr('data-sort_type');
                 
-                if(!sort_type || sort_type === 'ASC'){
-                    sort_type = 'ASC';
-                    $(this).attr('data-sort_type','DESC');
-                }else{
-
-                    $(this).attr('data-sort_type','ASC');
-                }
                 var contentArray = [];
                 var contentHTMLArray = [];
                 var currentColumnObject = $(target_table_wrapper_id + ' table tbody td' + target_class);
                 currentColumnObject.each(function(index){
-                    var text,html = '';
-                    text = $(this).text();
-                    var product_id = $(this).parent('tr').data('product_id');
+                    var text,
+                    html = '', 
+                    product_id = $(this).parent('tr').data('product_id');
 
-                    //Refine text
-                    text = text + '_' + product_id;
+                    text = $(this).text();
+                    text = $.trim(text);
+                    if(content_type == 'price'){
+                        text = $(this).find('span.woocommerce-Price-amount.amount').last().text();
+                        text = textToIntForSorting(text,product_id);
+                    }else if(content_type == 'number'){
+                        text = textToIntForSorting(text,product_id);
+                    }else{
+                        text = $.trim(text.substring(0,80));
+                        text = text + "_" + product_id;
+                    }
+                    
                     var rowInsideHTMLData = $(this).parent('tr').html();
 
                     var thisRowObject = $('#table_id_'+ temp_number +' #product_id_' + product_id);
@@ -2174,17 +2229,9 @@ jQuery(function($) {
                     contentArray[index] = text;
                     contentHTMLArray[text] = html;
                 });
+                
                 function sortingData(a, b){
                     
-                    //Added at 3.4
-
-                    if(target_class === '.wpt_price' || target_class === '.wpt_price.this_column_sorted') { //.wpt_price.this_column_sorted
-                        a = ( a.match(/\d+\.\d+|\d+\b|\d+(?=\w)/g) || [] ).map(function (v) {return +v;});
-                        a = a[0];
-
-                        b = ( b.match(/\d+\.\d+|\d+\b|\d+(?=\w)/g) || [] ).map(function (v) {return +v;});
-                        b = b[0];
-                    }
                     var return_data;
                     if(sort_type === 'ASC'){
                         return_data = ((a < b) ? -1 : ((a > b) ? 1 : 0));
