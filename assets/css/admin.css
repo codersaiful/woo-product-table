@@ -1751,6 +1751,43 @@ p.lang-area-title {margin: 0;}
     margin: 0;
     clear: both;
 }
+.anywhere-notice {}
+
+.anywhere-notice h1 {
+    font-size: 16px;
+    padding: 0;
+    margin: 0;
+}
+
+.anywhere-notice .ca-msg-text {
+    padding: 0;
+    margin: 0;
+}
+
+.anywhere-notice .ca-msg-text p {
+    padding: 0;
+    margin: 0;
+    font-size: 14px !important;
+    color: #007694;
+    float: left;
+    display: inherit;
+    width: fit-content;
+    /* background: gainsboro; */
+}
+
+.anywhere-notice p.ca-links-collection {
+    /* background: red; */
+    width: fit-content;
+    float: right;
+    position: absolute;
+    right: 15px;
+    top: 40%;
+}
+
+.anywhere-notice p.ca-links-collection a.ca-button {
+    padding: 5px 12px;
+    background: #ff9800;
+}
 p.wpt-shorcode-render-box {
     font-size: 16px;
     margin: 0;
