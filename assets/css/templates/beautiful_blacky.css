@@ -538,7 +538,7 @@ body.wpt_table_body .beautiful_blacky_wrapper .wpt_search_box .search_box_wrappe
 
 /*===== QTY =========*/
 
-.beautiful_blacky_wrapper .quantity .qty {
+/* .beautiful_blacky_wrapper .quantity .qty {
   width: 2.8em;
   text-align: center;
   border-radius: 3px;
@@ -549,7 +549,7 @@ body.wpt_table_body .beautiful_blacky_wrapper .wpt_search_box .search_box_wrappe
   padding: 0 5px;
   outline: 0;
   font-size: 16px;
-}
+} */
 
 .beautiful_blacky_wrapper input[type=number]::-webkit-inner-spin-button,
 .beautiful_blacky_wrapper input[type=number]::-webkit-outer-spin-button {
