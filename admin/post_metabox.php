@@ -87,9 +87,23 @@ if( ! function_exists( 'wpt_shortcode_metabox_render' ) ){
         echo '<p style="color: #007692;font-weight:bold;display:none; padding-left: 12px;" class="wpt_metabox_copy_content"></p>';
         echo '</div>';
         ?>
+
+        <p>
+            <strong>First Publish Product Table</strong> and then 
+            Copy this sortcode and paste to your desired page. 
+            You can 
+            <a href="<?php echo esc_attr( admin_url('post-new.php?post_type=page') ); ?>">
+                Create new page
+            </a> or  Go to 
+            <a href="<?php echo esc_attr( admin_url('edit.php?post_type=page') ); ?>">
+                All Pages
+            </a>
+        </p>
 <div class="wpt-tips-github">
+        
     <p>
         <b><?php echo esc_html__( 'Tips:', 'wpt_pro' ); ?></b>
+        
         <span>
             <?php echo esc_html__( 'If you want to be a Contributor, Go to ', 'wpt_pro' ); ?>
             <a target="_blank" href="https://github.com/codersaiful/woo-product-table"><?php echo esc_html__( 'Github Repo', 'wpt_pro' ); ?></a>.
