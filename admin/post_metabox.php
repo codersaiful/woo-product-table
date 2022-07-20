@@ -88,7 +88,7 @@ if( ! function_exists( 'wpt_shortcode_metabox_render' ) ){
         echo '</div>';
         ?>
 
-        <p>
+        <p class="wpt-shorcode-render-box">
             <strong>First Publish Product Table</strong> and then 
             Copy this sortcode and paste to your desired page. 
             You can 
