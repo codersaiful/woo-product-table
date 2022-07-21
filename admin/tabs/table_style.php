@@ -20,6 +20,7 @@ $pro_templates = array(
     'red'               =>  __( 'Red Style', 'wpt_pro' ),  
     'golden'            =>  __( 'Golden  Style', 'wpt_pro' ),
     'yellow'            =>  __( 'Yellow  Style', 'wpt_pro' ), 
+    'black'            =>  __( 'Black Style', 'wpt_pro' ), 
     
 );
 $additional_templates = array();
