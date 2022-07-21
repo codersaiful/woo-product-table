@@ -154,7 +154,7 @@ if( ! function_exists( 'wpt_shortcode_generator' ) ){
             $ajax_action = $basics['ajax_action'];//isset( $basics['ajax_action'] ) ? $basics['ajax_action'] : false;
             $pagination_ajax = isset( $basics['pagination_ajax'] ) ? $basics['pagination_ajax'] : 'pagination_ajax';
             $minicart_position = $basics['minicart_position'];//isset( $basics['ajax_action'] ) ? $basics['ajax_action'] : false;
-            $table_class = $basics['table_class'];//isset( $basics['ajax_action'] ) ? $basics['ajax_action'] : false;
+            $table_class = $basics['table_class'] ?? '';//isset( $basics['ajax_action'] ) ? $basics['ajax_action'] : false;
             $temp_number = $ID;//Temp Number Has REmoved Totally $basics['temp_number'];// + $ID; //$ID has removed from temp_number
             $add_to_cart_text = $basics['add_to_cart_text'];
             $responsive = isset( $basics['responsive'] ) ? $basics['responsive'] : 'no_responsive';
