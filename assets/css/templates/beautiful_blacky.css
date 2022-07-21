@@ -536,6 +536,7 @@ body.wpt_table_body .beautiful_blacky_wrapper .wpt_search_box .search_box_wrappe
   font-size: 14px;
 }
 
+
 /*===== QTY =========*/
 
 /* .beautiful_blacky_wrapper .quantity .qty {
@@ -611,6 +612,10 @@ body.wpt_table_body .beautiful_blacky_wrapper .wpt_search_box .search_box_wrappe
 .beautiful_blacky_wrapper tbody tr a.button.alt.disabled {
   background:var(--beautiful-blue);
   border:1px solid var(--beautiful-black-hover);
+  color: #fff;
+}
+.hentry .entry-content .wp-block-button .wp-block-button__link, .editor-styles-wrapper .wp-block-button .wp-block-button__link {
+  background: #000;
   color: #fff;
 }
 .woocommerce-message, .woocommerce-info, .woocommerce-error, .woocommerce-noreviews, p.no-comments {
