@@ -536,9 +536,10 @@ body.wpt_table_body .beautiful_blacky_wrapper .wpt_search_box .search_box_wrappe
   font-size: 14px;
 }
 
+
 /*===== QTY =========*/
 
-.beautiful_blacky_wrapper .quantity .qty {
+/* .beautiful_blacky_wrapper .quantity .qty {
   width: 2.8em;
   text-align: center;
   border-radius: 3px;
@@ -549,7 +550,7 @@ body.wpt_table_body .beautiful_blacky_wrapper .wpt_search_box .search_box_wrappe
   padding: 0 5px;
   outline: 0;
   font-size: 16px;
-}
+} */
 
 .beautiful_blacky_wrapper input[type=number]::-webkit-inner-spin-button,
 .beautiful_blacky_wrapper input[type=number]::-webkit-outer-spin-button {
@@ -611,6 +612,10 @@ body.wpt_table_body .beautiful_blacky_wrapper .wpt_search_box .search_box_wrappe
 .beautiful_blacky_wrapper tbody tr a.button.alt.disabled {
   background:var(--beautiful-blue);
   border:1px solid var(--beautiful-black-hover);
+  color: #fff;
+}
+.hentry .entry-content .wp-block-button .wp-block-button__link, .editor-styles-wrapper .wp-block-button .wp-block-button__link {
+  background: #000;
   color: #fff;
 }
 .woocommerce-message, .woocommerce-info, .woocommerce-error, .woocommerce-noreviews, p.no-comments {
