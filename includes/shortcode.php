@@ -151,12 +151,12 @@ if( ! function_exists( 'wpt_shortcode_generator' ) ){
             $post_exclude = isset( $basics['post_exclude'] ) ? $basics['post_exclude'] : false; //wpt_explode_string_to_array($basics['post_exclude']);
             $cat_explude = isset( $basics['cat_explude'] ) ? $basics['cat_explude'] : false;
             $product_tag_ids = isset( $basics['product_tag_ids'] ) ? $basics['product_tag_ids'] : false;
-            $ajax_action = $basics['ajax_action'];//isset( $basics['ajax_action'] ) ? $basics['ajax_action'] : false;
+            $ajax_action = $basics['ajax_action'] ?? '';//isset( $basics['ajax_action'] ) ? $basics['ajax_action'] : false;
             $pagination_ajax = isset( $basics['pagination_ajax'] ) ? $basics['pagination_ajax'] : 'pagination_ajax';
-            $minicart_position = $basics['minicart_position'];//isset( $basics['ajax_action'] ) ? $basics['ajax_action'] : false;
+            $minicart_position = $basics['minicart_position'] ?? '';//isset( $basics['ajax_action'] ) ? $basics['ajax_action'] : false;
             $table_class = $basics['table_class'] ?? '';//isset( $basics['ajax_action'] ) ? $basics['ajax_action'] : false;
             $temp_number = $ID;//Temp Number Has REmoved Totally $basics['temp_number'];// + $ID; //$ID has removed from temp_number
-            $add_to_cart_text = $basics['add_to_cart_text'];
+            $add_to_cart_text = $basics['add_to_cart_text'] ?? '';
             $responsive = isset( $basics['responsive'] ) ? $basics['responsive'] : 'no_responsive';
             $add_to_cart_selected_text = isset( $basics['add_to_cart_selected_text'] ) ? $basics['add_to_cart_selected_text'] : __( 'Add to cart selected', 'wpt_pro' );
             $check_uncheck_text = isset( $basics['check_uncheck_text'] ) ? $basics['check_uncheck_text'] : __( 'Check/Uncheck', 'wpt_pro' );//$basics['check_uncheck_text'];
