@@ -144,7 +144,7 @@ if( ! function_exists( 'wpt_wpml_config_switch_notc' ) ){
         ?>
         <div class="fieldwrap ultraaddons-head wpml-config-page-notce-switch">
             <div class="ultraaddons-panel">
-            <?php echo esc_html__( 'As you are a WPML use, to change label\'s value based on your language, Change language from adminbar.', 'wpt_pro' ); ?>
+            <?php echo esc_html__( 'TIPS for WPML USER: to change Message\'s value based on your language, First change language from admin bar and then change your message.', 'wpt_pro' ); ?>
             </div>
         </div>
        <?php

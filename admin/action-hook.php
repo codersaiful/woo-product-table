@@ -69,7 +69,7 @@ if( !function_exists( 'wpt_configuration_page_head' ) ){
     function wpt_configuration_page_head(){
         ?>
         <div class="fieldwrap ultraaddons-head">
-            <div class="ultraaddons-panel">
+            <div class="ultraaddons-panel border-with-shadow">
                 <h1 class="wp-heading-inline plugin_name plugin-name"><?php echo WPT_Product_Table::getName(); ?> <span class="plugin-version">v <?php echo WPT_Product_Table::getVersion(); ?></span></h1>
                 
             </div>

@@ -221,6 +221,7 @@ $default = array(
     'right_combination_message_alt' => __( 'Product variations is not set Properly. May be: price is not inputted. may be: Out of Stock.', 'wpt_pro' ),
     'no_more_query_message' => __( 'There is no more products based on current Query.', 'wpt_pro' ),
     'select_all_items_message' => __( 'Please select all items.', 'wpt_pro' ),
+    'please_choose_items' => __( 'Please select some items.', 'wpt_pro' ),
     'out_of_stock_message'  => __( 'Out of Stock', 'wpt_pro' ),
     'adding_in_progress'    =>  __( 'Adding in Progress', 'wpt_pro' ),
     'no_right_combination'  =>  __( 'No Right Combination', 'wpt_pro' ),

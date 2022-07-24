@@ -1699,7 +1699,19 @@ p.wpt-each-input {margin: 0;}
 p.lang-area-title {margin: 0;}
 .wpml-lang-input-area {display: flex;gap: 10px;}
 .wpml-config-page-notce-switch {font-size: 20px;}
-.wpml-config-page-notce-switch>div {background: #fff8b866;color: #9c27b0;}
+.wpml-config-page-notce-switch>div {
+    background: #ffffff;
+    color: #ff5722;
+    line-height: initial;
+    /* border: 1px solid #cdcdcd; */
+    border-top: 3px solid #607d8b;
+    box-shadow: 0 0 20px 0 #0000001a;
+}
+.border-with-shadow{
+    background: #ffffff;
+    border-top: 3px solid #607d8b;
+    box-shadow: 0 0 20px 0 #0000001a;
+}
 .wpml-lang-input-area.basic-tab-wpml-area>div {min-width: 400px;}
 
 .wpt-each-injjput {min-width: 400px;}
