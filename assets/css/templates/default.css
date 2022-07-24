@@ -682,3 +682,16 @@ body.wpt_table_body .default_wrapper button:focus {
   display: block;
   margin-bottom: 5px;
 }
+.default_wrapper .wpt_load_more {
+  border: 1px solid var(--wpt-default-primary);
+  color: #fff;
+  border-radius: 3px;
+  transition: all .5s;
+  background-color: var(--wpt-default-primary);
+}
+
+.default_wrapper .wpt_load_more:hover {
+  background-color: transparent;
+  border: 1px solid var(--wpt-default-primary);
+  color: var(--wpt-default-primary);
+} 

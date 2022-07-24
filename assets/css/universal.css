@@ -1967,5 +1967,7 @@ select.search_select.cascade-filtering {
         cursor: pointer;
         vertical-align: middle;
     }
-      
+    th.wpt_price {
+    text-align: left; 
+}  
     
