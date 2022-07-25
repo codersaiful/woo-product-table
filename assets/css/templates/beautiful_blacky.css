@@ -241,6 +241,26 @@ body.wpt_table_body .beautiful_blacky_wrapper table tbody tr td {
   -o-transition: .3s all ease;
   transition: .3s all ease;
 }
+ .beautiful_blacky_wrapper table tbody tr th, 
+ .beautiful_blacky_wrapper table tbody tr td {
+  background-color: var(--beautiful-black) !important;
+  padding-bottom: 1em;
+  border-spacing: 1px;
+  border: none;
+  -webkit-transition: .3s all ease;
+  -o-transition: .3s all ease;
+  transition: .3s all ease;
+}
+
+.beautiful_blacky_wrapper table:not(.has-background) tbody tr:nth-child(2n) td, 
+.beautiful_blacky_wrapper table:not(.has-background) th {
+  background-color: var(--beautiful-head) !important;
+  font-size: 16px;
+  text-align: left;   
+}
+table:not( .has-background ) tbody td {
+  background-color: var(--beautiful-head) !important;
+}
 
 .beautiful_blacky_wrapper table.wpt_product_table tr.wpt_selected_tr>td {
   background: var(--beautiful-black);
