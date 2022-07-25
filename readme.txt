@@ -212,6 +212,11 @@ You can easily show specific category products. While creating new table click o
 
 == Changelog ==
 
+= 3.2.2 =
+  * Import Issue fixed
+  * Big Data/Saving Optimized
+  * Bug Fixed
+
 = 3.2.1 =
   * Fixed: Soring issue solved for any number type content
   * Added: convert a column for numerical sorting. need to add class `text_with_number` for column 
