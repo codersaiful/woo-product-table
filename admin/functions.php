@@ -91,13 +91,13 @@ function wpt_remove_empty_value_from_array( $array ){
     // return $array;
 
     foreach ($array as $key => &$value) {
-        if (empty($value)) {
+        if ( ! is_bool( $value ) && empty($value)) {
            unset($array[$key]);
         }
         else {
            if (is_array($value)) {
               $value = wpt_remove_empty_value_from_array($value);
-              if (empty($value)) {
+              if (! is_bool( $value ) && empty($value)) {
                  unset($array[$key]);
               }
            }

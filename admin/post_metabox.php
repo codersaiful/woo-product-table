@@ -343,8 +343,8 @@ if( ! function_exists( 'wpt_shortcode_configuration_metabox_save_meta' ) ){
         );
         
         $submitte_data = filter_input_array( INPUT_POST, $filtar_args );
-        $submitte_data = array_filter( $submitte_data );
 
+        $submitte_data = wpt_remove_empty_value_from_array($submitte_data);
         /********* Column Setting Optimizing Start here ***********/
 
         //Fixing for tablet setting
@@ -461,9 +461,10 @@ if( ! function_exists( 'wpt_shortcode_configuration_metabox_save_meta' ) ){
              * Only for customer use at this moment.
              */
             $tab_data = apply_filters( 'wpto_tab_data_on_save_' . $tab, $tab_data, $post_id, $save_tab_array );
+            $tab_data = wpt_remove_empty_value_from_array( $tab_data );
             update_post_meta( $post_id, $tab, $tab_data );
         }
-
+        
         /**
          * @Hook Action: wpto_on_save_post
          * To change data when Form will save.
