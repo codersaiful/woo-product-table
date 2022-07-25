@@ -1978,4 +1978,7 @@ select.search_select.cascade-filtering {
     th.wpt_price {
     text-align: left; 
 }  
+.qib-button-wrapper .quantity input.input-text.qty.text {
+    width: 3rem;
+}
     
