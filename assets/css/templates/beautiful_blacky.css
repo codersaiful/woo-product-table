@@ -663,3 +663,7 @@ body.wpt_table_body .beautiful_blacky_wrapper .wpt_search_box .search_box_wrappe
 p.no-comments {
   background-color: #37aee9 !important;
 }
+
+div.wpt-footer-cart-wrapper>a:after, div.wpt-footer-cart-wrapper>a {
+  background-color: #37aee9 !important;
+}
