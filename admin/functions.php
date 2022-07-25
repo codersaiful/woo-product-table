@@ -56,6 +56,57 @@ if( !function_exists( 'wpt_default_option' ) ){
     }
 }
 
+/**
+ * Remove empty Array value from an Multi-dimensional Array
+ * I have taken help from a stackoverflow tips.
+ *
+ * @param Array $array Obviously should be an Array
+ * @return Array
+ * 
+ * @link https://stackoverflow.com/questions/9895130/recursively-remove-empty-elements-and-subarrays-from-a-multi-dimensional-array
+ * 
+ */
+function wpt_remove_empty_value_from_array( $array ){
+
+
+    if( ! is_array( $array ) ) return $array;
+    // foreach($array as $key=>&$arr){
+    //     if( empty( $arr ) ){
+    //         unset( $array[$key] );
+    //     }
+    //     if( is_array($arr) ){
+    //         wpt_remove_empty_value_from_array( $arr );
+    //     }
+    // }
+    // return $array;
+
+    // $array = array_filter($array,function($val){
+    //     if( is_array( $val ) ){
+    //         return wpt_remove_empty_value_from_array( $val );
+    //     }
+    //     return ! empty($val);
+    // });
+
+    // $array = array_filter(array_map('array_filter', $array));
+    // return $array;
+
+    foreach ($array as $key => &$value) {
+        if (empty($value)) {
+           unset($array[$key]);
+        }
+        else {
+           if (is_array($value)) {
+              $value = wpt_remove_empty_value_from_array($value);
+              if (empty($value)) {
+                 unset($array[$key]);
+              }
+           }
+        }
+     }
+  
+     return $array;
+}
+
 
 
 /**
