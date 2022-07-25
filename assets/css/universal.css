@@ -1843,6 +1843,14 @@ input[type="submit"].loading::after,
     animation: 0.75s linear 0s infinite normal none running fa-spin;
 }
 
+.wpt-post-not-publish {
+    color: #ad5b5b;
+    font-size: 18px;
+    background: #dcdcdc70;
+    padding: 25px 10px 1px 10px;
+    border-top: 3px solid #d00;
+}
+
 button.loading, 
 a.loading, 
 a.wpt_woo_add_cart_button.loading, 

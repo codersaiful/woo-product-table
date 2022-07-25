@@ -223,7 +223,24 @@ if( ! function_exists( 'wpt_shortcode_generator' ) ){
             $pagination_start = $pagination['start'] ?? '1'; //1 FOR ENABLE, AND 0 FOR DISABLE //Default value 1 - Enable
 
         }else{
-            return false;
+            $error_html = "<div class='wpt-post-not-publish'><p>";
+            $error_html .= __( 'Your Product Table post is not published properly. ' );
+            if( $atts_id && get_post_type( $atts_id ) == 'wpt_product_table' ){
+                
+                $admin_action_url = admin_url("post.php?post=$atts_id&action=edit");
+                $error_html .= "<a href='$admin_action_url' target='_blank'>";
+                $error_html .= __( 'Go here to publish your post' );
+                $error_html .= "<a>";
+            }else{
+                $admin_action_url = admin_url('edit.php?post_type=wpt_product_table');
+                
+                $error_html .= "<a href='$admin_action_url' target='_blank'>";
+                $error_html .= __( 'Click here to create a new Product Table' );
+                $error_html .= "<a>";
+            }
+            
+            $error_html .= "</p></div>";
+            return $error_html;
         }
         /***************This will be out of If condition of ID's************************/ 
 
