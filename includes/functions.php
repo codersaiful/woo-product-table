@@ -1093,9 +1093,9 @@ if( ! function_exists( 'wpt_adding_body_class' ) ){
     function wpt_adding_body_class( $class ) {
 
         global $post,$shortCodeText;
+        if( ! isset($post->post_content) ) return $class;
         
-        if( ( isset($post->post_content) && has_shortcode( $post->post_content, $shortCodeText ) ) 
-        || $post->post_type == 'wpt_product_table' ) {
+        if(  has_shortcode( $post->post_content, $shortCodeText ) || $post->post_type == 'wpt_product_table' ) {
             $class[] = 'wpt_table_body';
             $class[] = 'woocommerce';
         }
