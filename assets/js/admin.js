@@ -13,19 +13,6 @@ jQuery.fn.extend({
     }
 });
 
-$(document.body).on('click','p.wpt-max_input_vars-warning',function(){
-    //.not('.enabled')
-    // alert(333);
-    //http://wowmotty.blogspot.com/2011/10/jquery-rename-attribute-renameattr.html
-    // $('input.colum_data_input.shortcode').renameAttr('name', 'backup-name' );
-    // $('.wpt_column_sortable .wpt_sortable_peritem.enabled').find('input,select').each(function(){
-        
-    // });
-    
-    $('.wpt_column_sortable .wpt_sortable_peritem').not('.enabled').find('input,select').renameAttr('name', 'backup-name' );
-    $('.wpt_column_sortable .wpt_sortable_peritem.enabled').find('input,select').renameAttr('backup-name', 'name' );
-    
-});
 (function($) {
     'use strict';
     $(document).ready(function() {
@@ -200,6 +187,21 @@ $(document.body).on('click','p.wpt-max_input_vars-warning',function(){
             });
         });
         
+        OptimizeColumnWithName();
+        /**
+         * When column will hide, or in display none, than we will change his attribute (name) to (backup-name)
+         * and when it will come on .enabled class
+         * we will change it's name to again attribute (name)
+         * 
+         * @since 3.2.2.0
+         */
+        function OptimizeColumnWithName(){
+            setTimeout(function(){
+                $('.wpt_column_sortable .wpt_sortable_peritem').not('.enabled').find('input,select').renameAttr('name', 'backup-name' );
+                $('.wpt_column_sortable .wpt_sortable_peritem.enabled').find('input,select').renameAttr('backup-name', 'name' );
+            },1000);
+            
+        }
         $(document).on('click','span.extra_all_on_off',function(){
             var key = $(this).data('key');
             var thisExpand = $(this);
@@ -433,6 +435,7 @@ $(document.body).on('click','p.wpt-max_input_vars-warning',function(){
                     targetLiSelector.removeClass('enabled');
                 });
             }
+            OptimizeColumnWithName();
 //            
 //            targetLiSelector.fadeIn(function(){
 //                $(this).css('opacity','0.3');
@@ -469,6 +472,7 @@ $(document.body).on('click','p.wpt-max_input_vars-warning',function(){
                 $(this).removeClass('enabled');
                 targetLiSelector.removeClass('enabled');
             }
+            OptimizeColumnWithName();
         });
 
         /*********Columns , meta sorting orders and mobile checkbox controlling end here************/
