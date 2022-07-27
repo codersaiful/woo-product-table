@@ -361,7 +361,6 @@ span#wpt_popup_close:hover{
 
 div#wpt_table_wrapper,div#wpt_table_wrapper *{
     transition: all .4s !important;
-    padding-top: 0px;  
 }
 
 /****************Style for Live Cart of Table******************/
