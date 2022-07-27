@@ -1693,6 +1693,9 @@ body.post-type-wpt_product_table #stick_on_scroll-on {
     padding-top: 15px;
     padding-bottom: 10px;
  }
+ p.wpt-max_input_vars-warning {
+    color: #d00;
+}
   /* wpml area start **/
 p.wpt-each-input {margin: 0;}
 .language-area {margin-bottom: 8px;}
