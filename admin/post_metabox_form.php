@@ -1,5 +1,8 @@
 <div id="wpt_configuration_form" class="wpt_shortcode_gen_panel ultraaddons ultraaddons-wrapper">
-    <?php do_action( 'wpto_form_top', $post ); ?>
+    <?php 
+    $max_input_var = ini_get('max_input_vars');
+    // var_dump($max_input_var);
+    do_action( 'wpto_form_top', $post ); ?>
     <!-- New Version's Warning. We will remove it from 5.00 | End -->
     <?php
     /**
