@@ -361,7 +361,7 @@ span#wpt_popup_close:hover{
 
 div#wpt_table_wrapper,div#wpt_table_wrapper *{
     transition: all .4s !important;
-    padding-top: 3px;
+    padding-top: 0px;  
 }
 
 /****************Style for Live Cart of Table******************/
@@ -1978,7 +1978,18 @@ select.search_select.cascade-filtering {
     th.wpt_price {
     text-align: left; 
 }  
-.qib-button-wrapper .quantity input.input-text.qty.text {
-    width: 3rem;
+.playlist li, .playlist div {
+    color: #151b48;
+    cursor: pointer;
+    margin: 0;
+}
+
+.dataTables_wrapper .dataTables_filter input {
+	border: 1px solid #aaa;
+	border-radius: 3px;
+	padding: 5px;
+	background-color: transparent;
+	margin-left: 0px;
+	margin-bottom: 10px; 
 }
     
