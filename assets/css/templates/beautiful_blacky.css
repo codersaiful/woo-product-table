@@ -675,7 +675,9 @@ body.wpt_table_body .beautiful_blacky_wrapper .wpt_search_box .search_box_wrappe
   border: 1px solid var(--beautiful-blue);
   color: var(--beautiful-blue);
 }
-
+.qib-button-wrapper .quantity input.input-text.qty.text {
+  width: 3rem; 
+}
 .woocommerce-message,
 .woocommerce-info,
 .woocommerce-error,

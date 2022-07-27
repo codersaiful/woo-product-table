@@ -721,3 +721,6 @@ body.wpt_table_body .default_wrapper button:focus {
   border: 1px solid var(--wpt-default-primary);
   color: var(--wpt-default-primary);
 }
+.qib-button-wrapper .quantity input.input-text.qty.text {
+  width: 3rem;
+} 

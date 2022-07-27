@@ -1,5 +1,18 @@
 <div id="wpt_configuration_form" class="wpt_shortcode_gen_panel ultraaddons ultraaddons-wrapper">
-    <?php do_action( 'wpto_form_top', $post ); ?>
+    <?php 
+    $max_input_var = ini_get('max_input_vars');
+    if( $max_input_var  < 1500 ){
+    ?>
+    <p class="wpt-max_input_vars-warning">
+        Your server <code> max_input_vars: <?php echo esc_html( $max_input_var ); ?> </code>. 
+        It's should be gatter than 1500. <br>
+        How can you handle it. <a href="https://wooproducttable.com/doc/troubleshoots/full-table-data-is-not-saving/">See Tutorial</a>
+
+    </p>
+    <?php 
+    }
+    
+    do_action( 'wpto_form_top', $post ); ?>
     <!-- New Version's Warning. We will remove it from 5.00 | End -->
     <?php
     /**
