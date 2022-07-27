@@ -1978,18 +1978,14 @@ select.search_select.cascade-filtering {
     th.wpt_price {
     text-align: left; 
 }  
-.playlist li, .playlist div {
-    color: #151b48;
-    cursor: pointer;
-    margin: 0;
-}
+
 
 .dataTables_wrapper .dataTables_filter input {
 	border: 1px solid #aaa;
 	border-radius: 3px;
 	padding: 5px;
 	background-color: transparent;
-	margin-left: 0px;
+	margin-left: 0px !important;
 	margin-bottom: 10px; 
 }
     
