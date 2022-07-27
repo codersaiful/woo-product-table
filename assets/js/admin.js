@@ -1,3 +1,31 @@
+jQuery.fn.extend({
+    renameAttr: function( name, newName, removeData ) {
+      var val;
+      return this.each(function() {
+        val = jQuery.attr( this, name );
+        jQuery.attr( this, newName, val );
+        jQuery.removeAttr( this, name );
+        // remove original data
+        if (removeData !== false){
+          jQuery.removeData( this, name.replace('data-','') );
+        }
+      });
+    }
+});
+
+$(document.body).on('click','p.wpt-max_input_vars-warning',function(){
+    //.not('.enabled')
+    // alert(333);
+    //http://wowmotty.blogspot.com/2011/10/jquery-rename-attribute-renameattr.html
+    // $('input.colum_data_input.shortcode').renameAttr('name', 'backup-name' );
+    // $('.wpt_column_sortable .wpt_sortable_peritem.enabled').find('input,select').each(function(){
+        
+    // });
+    
+    $('.wpt_column_sortable .wpt_sortable_peritem').not('.enabled').find('input,select').renameAttr('name', 'backup-name' );
+    $('.wpt_column_sortable .wpt_sortable_peritem.enabled').find('input,select').renameAttr('backup-name', 'name' );
+    
+});
 (function($) {
     'use strict';
     $(document).ready(function() {
