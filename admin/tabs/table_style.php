@@ -23,8 +23,10 @@ $pro_templates = array(
     'black'            =>  __( 'Black Style', 'wpt_pro' ), 
     
 );
-$additional_templates = array();
-$additional_templates = apply_filters( 'wpto_table_template_arr', $additional_templates );
+
+$additional_templates = apply_filters( 'wpto_table_template_arr', $pro_templates );
+
+$pro_templates = array_merge($pro_templates,$additional_templates);
 
 $table_templates = array();
 foreach( $templates_default as $temp_key => $tempplate_name ){
@@ -35,18 +37,11 @@ foreach( $templates_default as $temp_key => $tempplate_name ){
 }
 foreach( $pro_templates as $temp_key => $tempplate_name ){
     $table_templates[$temp_key] = array(
-        'type' => 'approved',
+        'type' => class_exists( 'WOO_Product_Table' ) ? 'approved' : 'limited',
         'value' => $tempplate_name
     );
 }
-if( is_array( $additional_templates ) ){
-    foreach( $additional_templates as $temp_key => $tempplate_name ){
-        $table_templates[$temp_key] = array(
-            'type' => 'approved',
-            'value' => $tempplate_name
-        );
-    }
-}
+
 $meta_table_style_inPost = get_post_meta($post->ID, 'table_style', true);
 $current_template = $meta_table_style_inPost['template'] ?? '';
 
