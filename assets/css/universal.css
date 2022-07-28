@@ -1140,10 +1140,10 @@ table.wpt_product_table tr.wpt_selected_tr .wpt_quantity{
 
 /*Responsive Version is here*/
 @media only screen and (min-width: 768px) and (max-width: 991px){
-    table#wpt_table.mobile_responsive.wpt_product_table>tbody>tr>td,
+    /* table#wpt_table.mobile_responsive.wpt_product_table>tbody>tr>td,
     table#wpt_table.mobile_responsive.wpt_product_table>thead>tr>th{
         display: none;
-    }
+    } */
     table#wpt_table.mobile_responsive.wpt_product_table .wpt_product_title,
     table#wpt_table.mobile_responsive.wpt_product_table .wpt_Message,
     table#wpt_table.mobile_responsive.wpt_product_table .wpt_action,
@@ -1217,7 +1217,8 @@ table.wpt_product_table tr.wpt_selected_tr .wpt_quantity{
     .all_check_header_footer.all_check_header {
         padding-right: 0;
     }
-    table#wpt_table.mobile_responsive.wpt_product_table>thead{display: none;}
+    /* table#wpt_table.mobile_responsive.wpt_product_table>thead{display: none;} */
+
     table#wpt_table.mobile_responsive.wpt_product_table .wpt_action {
         padding-top: 34px !important;
         padding-bottom: 10px !important;
@@ -1242,7 +1243,8 @@ table.wpt_product_table tr.wpt_selected_tr .wpt_quantity{
     }
 }
 @media only screen and (max-width: 767px) {
-    table#wpt_table.mobile_responsive.wpt_product_table th{ display: none!important;}        
+    /* table#wpt_table.mobile_responsive.wpt_product_table th{ display: none!important;}         */
+
     /* Force table to not be like tables anymore */
     table#wpt_table.mobile_responsive.wpt_product_table, 
     table#wpt_table.mobile_responsive.wpt_product_table thead, 
@@ -1275,11 +1277,25 @@ table.wpt_product_table tr.wpt_selected_tr .wpt_quantity{
         align-items: flex-start;
         align-content: space-around;
     }
+    /* template-chose-area (fatima)  */
+    .template-chose-area form {
+        display: block;
+    }
+    .temp-chose-description {
+        padding-left: 0px;
+        margin-top: 14px;
+    }
+    .wpt_quantity {
+        display: none;
+    }
+    .wpt_action {
+        display: none;
+    }
     /* Hide table headers (but not display: none;, for accessibility) */
-    table#wpt_table.mobile_responsive.wpt_product_table thead tr,
+    /* table#wpt_table.mobile_responsive.wpt_product_table thead tr,
     table#wpt_table.mobile_responsive.wpt_product_table td.wpt_total.total_general{ 
         display: none !important;
-    }
+    } */
     #wpt_table.no_responsive {
         overflow: auto;
         width: 100%;
