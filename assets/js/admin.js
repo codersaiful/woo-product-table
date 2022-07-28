@@ -1,3 +1,18 @@
+jQuery.fn.extend({
+    renameAttr: function( name, newName, removeData ) {
+      var val;
+      return this.each(function() {
+        val = jQuery.attr( this, name );
+        jQuery.attr( this, newName, val );
+        jQuery.removeAttr( this, name );
+        // remove original data
+        if (removeData !== false){
+          jQuery.removeData( this, name.replace('data-','') );
+        }
+      });
+    }
+});
+
 (function($) {
     'use strict';
     $(document).ready(function() {
@@ -172,6 +187,21 @@
             });
         });
         
+        OptimizeColumnWithName();
+        /**
+         * When column will hide, or in display none, than we will change his attribute (name) to (backup-name)
+         * and when it will come on .enabled class
+         * we will change it's name to again attribute (name)
+         * 
+         * @since 3.2.2.0
+         */
+        function OptimizeColumnWithName(){
+            setTimeout(function(){
+                $('.wpt_column_sortable .wpt_sortable_peritem').not('.enabled').find('input,select').renameAttr('name', 'backup-name' );
+                $('.wpt_column_sortable .wpt_sortable_peritem.enabled').find('input,select').renameAttr('backup-name', 'name' );
+            },1000);
+            
+        }
         $(document).on('click','span.extra_all_on_off',function(){
             var key = $(this).data('key');
             var thisExpand = $(this);
@@ -405,6 +435,7 @@
                     targetLiSelector.removeClass('enabled');
                 });
             }
+            OptimizeColumnWithName();
 //            
 //            targetLiSelector.fadeIn(function(){
 //                $(this).css('opacity','0.3');
@@ -441,6 +472,7 @@
                 $(this).removeClass('enabled');
                 targetLiSelector.removeClass('enabled');
             }
+            OptimizeColumnWithName();
         });
 
         /*********Columns , meta sorting orders and mobile checkbox controlling end here************/
