@@ -357,5 +357,8 @@ table.add_cart_right_icon tr .wpt_action a.button:after {
     table#wpt_table.mobile_responsive.wpt_product_table tr>td{
         padding: 10px;
     }
+    .wpt_product_table.mobile_responsive .col_inside_tag.autoresponsive-label-show {
+        padding-left: 0;
+    }
 }
 

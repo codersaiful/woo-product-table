@@ -675,6 +675,10 @@ body.wpt_table_body .beautiful_blacky_wrapper .wpt_search_box .search_box_wrappe
   border: 1px solid var(--beautiful-blue);
   color: var(--beautiful-blue);
 }
+.wp-block-button__link {
+  background: var(--beautiful-blue) !important;
+  color: #fff !important;
+}
 .qib-button-wrapper .quantity input.input-text.qty.text {
   width: 3rem; 
 }
