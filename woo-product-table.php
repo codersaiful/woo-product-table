@@ -121,7 +121,6 @@ $column_array = array(
     'product_id'    => __( 'ID', 'wpt_pro' ),
     'serial_number' => __( 'SL', 'wpt_pro' ),
     'action'        => __( 'Action', 'wpt_pro' ),
-    'advanced_action' => __( 'Advanced Action', 'wpt_pro' ),
 );
 
 $column_array = apply_filters( 'wpto_default_column_arr', $column_array );

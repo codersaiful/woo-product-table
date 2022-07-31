@@ -102,8 +102,9 @@ foreach( $table_column_keywords as $keyword => $keyword_title ){
             $file = $items_permanent_dir . 'default.php';
             $file = apply_filters( 'wpto_defult_file_loc', $file, $keyword, $product, $settings);
         }
-
-        $style_str = isset( $column_settings[$keyword]['style_str'] ) && !empty( $column_settings[$keyword]['style_str'] ) ? $column_settings[$keyword]['style_str'] : '';
+        
+        $style_str = $column_settings[$keyword]['style_str'] ?? '';
+        $style_str = ! empty( $style_str ) ? preg_replace('/(;|!important;)/i',' !important;',$style_str) : '';
         
         $td_class_arr = array(
             "td_or_cell",

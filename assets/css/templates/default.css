@@ -35,10 +35,14 @@ base class default_wrapper
 }
 
 .default_wrapper table {
-  background: var(--wpt-default-secondary);
+  /* background: var(--wpt-default-secondary); */
   color: var(--wpt-default-text-color);
   font-size: 15px;
   margin-bottom: 20px;
+}
+.wp-block-button__link {
+  background: var(--wpt-default-primary) !important;
+  color: #fff !important; 
 }
 
 body.wpt_table_body .default_wrapper table thead tr,

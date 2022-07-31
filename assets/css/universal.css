@@ -1154,24 +1154,9 @@ table.wpt_product_table tr.wpt_selected_tr .wpt_quantity{
     td.wpt_product_title {
         position: relative;
     }
-    /* fatima  */
-    table.custom_table tbody .wpt_product_title {
-        max-width: 450px;
-    } 
-    .custom_table .wpt_row td img {
-        margin: 0 !important; 
-        padding:10px 0;
-    }
-
     .wpt_for_thumbs_desc.wpt_thumbnails>img {
         display: inline;
-    } 
-    /* fatima  */
-    tbody tr.visible_row.wpt_row .col_inside_tag.action {
-        align-items: flex-start;
     }
-
-
     /*customize*/
     .wpt_for_product_action{
         margin-bottom: 5px;
@@ -1238,7 +1223,7 @@ table.wpt_product_table tr.wpt_selected_tr .wpt_quantity{
         background: transparent;
     }
     th.wpt_product_title, td.wpt_product_title, td.wpt_product_title>* {
-        white-space: nowrap;
+        /* white-space: nowrap; */
     }
 }
 @media only screen and (max-width: 767px) {
@@ -1264,17 +1249,7 @@ table.wpt_product_table tr.wpt_selected_tr .wpt_quantity{
     td.wpt_Message>input.message {
         width: 100%;
     }
-    .custom_table .wpt_row td img {
-        margin: 0 !important; 
-        padding:10px 0;
-    } 
-    tbody tr.visible_row.wpt_row .col_inside_tag.action { 
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: flex-start;
-        align-content: space-around;
-    }
+    
     /* Hide table headers (but not display: none;, for accessibility) */
     table#wpt_table.mobile_responsive.wpt_product_table thead tr,
     table#wpt_table.mobile_responsive.wpt_product_table td.wpt_total.total_general{ 
@@ -1332,9 +1307,9 @@ table.wpt_product_table tr.wpt_selected_tr .wpt_quantity{
     .wpt_for_thumbs_desc.wpt_thumbnails {
         max-width: 100%;
     }
-    table#wpt_table.mobile_responsive.wpt_product_table td.wpt_action {
+    /* table#wpt_table.mobile_responsive.wpt_product_table td.wpt_action {
         text-align: right !important;
-    }
+    } */
     .wpt_conditon_desc_load {
         text-align: right;
     }
@@ -1354,7 +1329,7 @@ table.wpt_product_table tr.wpt_selected_tr .wpt_quantity{
     table#wpt_table.mobile_responsive.wpt_product_table td.wpt_check {
         position: absolute !important;
         top: 5px;
-        right: 5px;
+        right: 10px;
         z-index: 6;
         display: block;
         height: 30px !important;
@@ -1963,9 +1938,7 @@ select.search_select.cascade-filtering {
             text-align: right;
             padding-right: 10px;
         }
-        th.wpt_product_title, td.wpt_product_title, td.wpt_product_title>* {
-            white-space: nowrap;
-        }
+        
 
     } 
     table tr.wpt_row td.wpt_quoterequest.addedd{
