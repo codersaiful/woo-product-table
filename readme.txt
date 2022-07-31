@@ -212,6 +212,11 @@ You can easily show specific category products. While creating new table click o
 
 == Changelog ==
 
+= 3.2.4 =
+* Bug Fixed: Pagination saving issue fixed
+* Bug Fixed: Instance Search updated
+
+
 = 3.2.3 =
   * Big Data not saving issue fixed
   * Data Form Saving Optimized
