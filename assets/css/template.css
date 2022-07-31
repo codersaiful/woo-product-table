@@ -345,5 +345,17 @@ table.add_cart_right_icon tr .wpt_action a.button:after {
     .wpt_action {
         padding-top: 1px;
     }
+    .mobile_responsive .wpt_row td img{
+        margin: 0;
+    } 
+    tr.visible_row.wpt_row .col_inside_tag.action {
+        align-items: flex-start;
+    }
+    table#wpt_table.mobile_responsive.wpt_product_table tr {
+        padding: 0;
+    }
+    table#wpt_table.mobile_responsive.wpt_product_table tr>td{
+        padding: 10px;
+    }
 }
 
