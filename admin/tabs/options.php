@@ -92,10 +92,11 @@ $data = isset( $meta_basics['data'] ) ? $meta_basics['data'] : false;
                         <label class="wpt_label" for="wpt_table_pagination_enable"><?php esc_html_e( 'Pagination', 'wpt_pro' ); ?></label>
                     </th>
                     <td>
+                        <?php var_dump($pagination); ?>
                         <select name="pagination[start]" data-name='sort' id="wpt_table_pagination_enable" class="wpt_fullwidth wpt_data_filed_atts ua_input" >
 
                             <option value="1" <?php echo isset( $pagination['start'] ) && $pagination['start'] == '1' ? 'selected' : ''; ?>><?php esc_html_e( 'Enable (Default)', 'wpt_pro' ); ?></option>
-                            <option value="0" <?php echo isset( $pagination['start'] ) && $pagination['start'] == '0' ? 'selected' : ''; ?>><?php esc_html_e( 'Disable', 'wpt_pro' ); ?></option>
+                            <option value="off" <?php echo isset( $pagination['start'] ) && $pagination['start'] == 'off' ? 'selected' : ''; ?>><?php esc_html_e( 'Disable', 'wpt_pro' ); ?></option>
                         </select>
                         <p><?php esc_html_e( 'To change style, go to Design tab', 'wpt_pro' ); ?></p>
                         <p class="warning"><?php echo sprintf(esc_html__( '%1$sPagination will not work%2$s on WooCommerce shop, archive page or created shop archive page by any page builder. %1$sThis feature will only work on table page where table shortcode pasted.%2$s', 'wpt_pro' ), '<b>', '</b>'); ?></p>
