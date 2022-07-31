@@ -1933,7 +1933,7 @@ jQuery(function($) {
                     }
                 });
                 
-                if(serial > 0 || value_size === 0){
+                if(value_size === serial){ //serial > 0 ||
                     $(this).fadeIn();
                     $(this).addClass('instance_search_applied');
                 }else{
