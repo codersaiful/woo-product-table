@@ -336,6 +336,9 @@ table.add_cart_right_icon tr .wpt_action a.button:after {
     content: '';
     display: none !important;
 }
+.woocommerce-notices-wrapper {
+    position: relative;
+}
 
 /*  responsive */
 @media only screen and (max-width: 767px) {
