@@ -92,7 +92,6 @@ $data = isset( $meta_basics['data'] ) ? $meta_basics['data'] : false;
                         <label class="wpt_label" for="wpt_table_pagination_enable"><?php esc_html_e( 'Pagination', 'wpt_pro' ); ?></label>
                     </th>
                     <td>
-                        <?php var_dump($pagination); ?>
                         <select name="pagination[start]" data-name='sort' id="wpt_table_pagination_enable" class="wpt_fullwidth wpt_data_filed_atts ua_input" >
 
                             <option value="1" <?php echo isset( $pagination['start'] ) && $pagination['start'] == '1' ? 'selected' : ''; ?>><?php esc_html_e( 'Enable (Default)', 'wpt_pro' ); ?></option>
@@ -218,6 +217,16 @@ $meta_conditions =  get_post_meta( $post->ID, 'conditions', true );
                             <span class="on">On</span><span class="off">Off</span><!--END-->
                         </div>
                     </label>
+                    <p class="warning">
+                        <b>Developer Option:</b>
+                        <span>
+                            <i>This is only for Developer!!</i><br>
+                            This option enable <code>wp()</code> in loop in product table. 
+                            <a href="https://github.com/codersaiful/woo-product-table/search?q=$wp_force" target="_blank">Check</a>
+                            where we have used wp() function. And what is 
+                            <a href="https://developer.wordpress.org/reference/functions/wp/" target="_blank">wp() in WordPress</a>
+                        </span>
+                    </p>
                     
                                     
                 </td>
