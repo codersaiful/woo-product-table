@@ -1223,7 +1223,7 @@ table.wpt_product_table tr.wpt_selected_tr .wpt_quantity{
         background: transparent;
     }
     th.wpt_product_title, td.wpt_product_title, td.wpt_product_title>* {
-        white-space: nowrap;
+        /* white-space: nowrap; */
     }
 }
 @media only screen and (max-width: 767px) {
