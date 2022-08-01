@@ -59,8 +59,9 @@ if( !function_exists( 'temp_file_for_new_shortcode' ) ){
         return $file;
     }
 }
-add_filter( 'wpto_template_loc_item_new_shortcode', 'temp_file_for_new_shortcode', 10 );
+add_filter( 'wpto_template_loc_item_{new_shortcode}', 'temp_file_for_new_shortcode', 10 );
 ```
+Here {new_shortcode} is column's keyword. it's dynamic and changeable based on your column name/keyword.
 
 ## Example File code(my_shortcode.php)
 ```php
