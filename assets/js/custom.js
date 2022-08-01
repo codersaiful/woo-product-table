@@ -1094,6 +1094,10 @@ jQuery(function($) {
             return false;
         });
 
+        function showAlert(){
+            
+        }
+
         /**
          * Add to cart All selected
          * all selected product add to cart from here
