@@ -11,7 +11,7 @@
         'query'            => __( 'Query', 'wpt_pro' ),
         // 'basics'            => __( 'Basics', 'wpt_pro' ), //Has removed @version 3.1.9.5
         'table_style'       => sprintf(__( 'Design %sLimited%s', 'wpt_pro' ), '<i class="wpt_limited_badge">', '</i>' ),
-        'options'            => __( 'Options/Basics/Conditions', 'wpt_pro' ),
+        'options'            => __( 'Options', 'wpt_pro' ),
         // 'conditions'        => __( 'Extra Options', 'wpt_pro' ), //Has removed @version 3.1.9.5
         'search_n_filter'   => __( 'Search & Filter','wpt_pro' ),
         'config'            => sprintf(__( 'Configuration %sPro%s', 'wpt_pro' ), '<i class="wpt_pro_badge">', '</i>' ),

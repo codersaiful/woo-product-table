@@ -220,7 +220,7 @@ if( ! function_exists( 'wpt_shortcode_generator' ) ){
             $filter_keywords = $search_n_filter['filter'] ?? array();
 
             //Pagination Start
-            $pagination_start = $pagination['start'] ?? '1'; //1 FOR ENABLE, AND 0 FOR DISABLE //Default value 1 - Enable
+            $pagination_start = $pagination['start'] ?? ''; //1 FOR ENABLE, AND 0 FOR DISABLE //Default value 1 - Enable
 
         }else{
             $error_html = "<div class='wpt-post-not-publish'><p>";
