@@ -152,7 +152,7 @@ div.wpt_product_table_wrapper input[type=radio]:disabled+label:before {
 }
 
 div.wpt_product_table_wrapper input[type=radio]:checked+label:after {
-	content: '●';
+	content: 'â—';
 	color: #fff;
 	top: 0px;
 	font-size: 20px;
@@ -1827,7 +1827,7 @@ input[type="submit"].loading::after,
     font-family: "Font Awesome 5 Free";
     font-weight: 900;
     vertical-align: baseline;
-    content: "";
+    content: "ï„";
     height: 20px;
     width: 20px;
     line-height: 20px;
@@ -1986,9 +1986,16 @@ select.search_select.cascade-filtering {
 	margin-bottom: 10px; 
 }
 span.preview_info {
+    position: relative;
     display: inline-block;
     padding: 10px;
-    color: #43454b;
-    background: #f2f2f2;
-
+    color: #fff;
+    background: #0a7f9c;
+    padding-left: 30px;
+}
+span.preview_info:before{
+    font-family:dashicons;
+    content: "\f14c";
+    position:absolute;
+    left: 7px;
 }
