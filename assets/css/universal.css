@@ -1985,4 +1985,10 @@ select.search_select.cascade-filtering {
 	margin-left: 0px !important;
 	margin-bottom: 10px; 
 }
-    
+span.preview_info {
+    display: inline-block;
+    padding: 10px;
+    color: #43454b;
+    background: #f2f2f2;
+
+}

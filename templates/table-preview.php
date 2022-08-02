@@ -50,12 +50,12 @@
             readonly="readonly"
             >    
             
-            
         <?php } ?>
-        
+        <span class="preview_info">
+            <?php echo esc_html__('For perfect view paste shortcode on a page.', 'wpt_pro');?>
+        </span>
+        </div>  
 
-
-    </div>    
     <?php
 
 
