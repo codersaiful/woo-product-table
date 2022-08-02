@@ -1999,3 +1999,13 @@ span.preview_info:before{
     position:absolute;
     left: 7px;
 }
+.wpt_edit_table > a {
+position: relative;
+padding-left: 30px;
+}
+.wpt_edit_table > a::before {
+    font-family:dashicons;
+    content: "\f464";
+    position:absolute;
+    left: 7px;
+}
