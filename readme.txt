@@ -215,6 +215,7 @@ You can easily show specific category products. While creating new table click o
 = 3.2.4 =
 * Bug Fixed: Pagination saving issue fixed
 * Bug Fixed: Instance Search updated
+* Changed: WPML area for Tab's String has transferred to Option Tab.
 
 
 = 3.2.3 =
