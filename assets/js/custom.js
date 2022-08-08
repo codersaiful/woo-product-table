@@ -323,9 +323,7 @@ jQuery(function($) {
          */
         function WPT_MiniCart(){
             var minicart_type = $('div.tables_cart_message_box').attr('data-type');
-            if(typeof minicart_type === 'undefined'){
-                return;
-            }            
+                      
             $.ajax({
                 type: 'POST',
                 url: ajax_url,
@@ -335,6 +333,9 @@ jQuery(function($) {
                 success: function(response){
 
                     setFragmentsRefresh( response );
+                    if(typeof minicart_type === 'undefined'){
+                        return;
+                    }
                     if(typeof minicart_type !== 'undefined'){
                         var cart_hash = response.cart_hash;
                         var fragments = response.fragments;
