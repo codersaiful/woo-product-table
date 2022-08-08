@@ -317,17 +317,20 @@ jQuery.fn.extend({
         /**************Admin Panel's Setting Tab End Here****************/
         
         /*********Columns , meta sorting orders and mobile checkbox controlling start here************/
-        /**
+       /**
          * If chose Custom Meta value than
          * Custom meta value's input field will be visible
          * Otherise, By default, It stay hidden
          */
+        $("#wpt_meta_value_wrapper").hide();
         $('body.wpt_admin_body').on('change','#wpt_table_sort_order_by',function(){
             var current_val = $(this).val();
             if(current_val === 'meta_value' || current_val === 'meta_value_num'){
-                $("#wpt_meta_value_wrapper").fadeIn();
+                $("#wpt_meta_value_wrapper").css('background','#f0f0f1');
+                $("#wpt_meta_value_wrapper").show('slow');
+
             }else{
-                $("#wpt_meta_value_wrapper").fadeOut();
+                $("#wpt_meta_value_wrapper").hide('slow');
             }
         });
         
@@ -335,7 +338,7 @@ jQuery.fn.extend({
         if(wpt_table_sort_order_by === 'meta_value' || wpt_table_sort_order_by === 'meta_value_num'){
             $("#wpt_meta_value_wrapper").fadeIn();
         }
-        
+
         /**
          * On of Element based on Selected Value for Select Tag
          * Add an Attribute  data-on="yes|.wpt_snf_on_off" or
