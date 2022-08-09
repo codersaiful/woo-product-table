@@ -1674,11 +1674,11 @@ jQuery(function($) {
                         thisPagiWrappers.html(paginate_data);
                         changeSpanToAPagi();
                         var newjsonData = $('#table_id_' + temp_number + ' mypagi').attr('myjson');
-                        var thisNewPagiWrappers = $('#table_id_' + temp_number + ' .wpt_table_pagination').attr('data-whole_data');
-                        thisNewPagiWrappers = JSON.parse(thisNewPagiWrappers);
-                        thisNewPagiWrappers = thisNewPagiWrappers.targetTableArgs;
-                        // console.log('newjsonData',JSON.parse(newjsonData));
-                        // console.log('thisNewPagiWrappers',thisNewPagiWrappers);
+                        // var thisNewPagiWrappers = $('#table_id_' + temp_number + ' .wpt_table_pagination').attr('data-whole_data');
+                        
+                        // thisNewPagiWrappers = JSON.parse(thisNewPagiWrappers);
+                        // thisNewPagiWrappers = thisNewPagiWrappers.targetTableArgs;
+                        
                         targetTable.attr( 'data-data_json', newjsonData );
                         thisPagiWrappers.removeClass('pagination_loading');
                     }
