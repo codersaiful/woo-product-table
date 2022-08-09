@@ -1824,10 +1824,10 @@ input[type="submit"].loading::after,
 .added_to_cart.loading::after {
     -webkit-font-smoothing: antialiased;
     font-style: normal;
-    font-family: "Font Awesome 5 Free";
+
     font-weight: 900;
     vertical-align: baseline;
-    content: "ï„";
+
     height: 20px;
     width: 20px;
     line-height: 20px;
