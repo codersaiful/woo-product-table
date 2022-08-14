@@ -87,7 +87,7 @@ if( ! function_exists( 'wpt_wpml_basic_tab' ) ){
             'check_uncheck_text',
         );
        ?>
-        <div class="language-area">
+        <div class="language-area wpt-table-separator">
             <p class="lang-area-title"><?php echo esc_html__( 'WPML Translate Area', 'wpt_pro' ); ?></p>
             <div class="wpml-lang-input-area basic-tab-wpml-area">
                 <?php foreach( $active_langs as $active_lang ){
@@ -131,7 +131,7 @@ if( ! function_exists( 'wpt_wpml_basic_tab' ) ){
        <?php
    }
 }
-add_action( 'wpto_admin_basic_tab_bottom', 'wpt_wpml_basic_tab', 999 );
+add_action( 'wpto_admin_option_tab_bottom', 'wpt_wpml_basic_tab', 999 );
 
 if( ! function_exists( 'wpt_wpml_config_switch_notc' ) ){
 

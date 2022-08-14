@@ -323,9 +323,7 @@ jQuery(function($) {
          */
         function WPT_MiniCart(){
             var minicart_type = $('div.tables_cart_message_box').attr('data-type');
-            if(typeof minicart_type === 'undefined'){
-                return;
-            }            
+                      
             $.ajax({
                 type: 'POST',
                 url: ajax_url,
@@ -335,6 +333,9 @@ jQuery(function($) {
                 success: function(response){
 
                     setFragmentsRefresh( response );
+                    if(typeof minicart_type === 'undefined'){
+                        return;
+                    }
                     if(typeof minicart_type !== 'undefined'){
                         var cart_hash = response.cart_hash;
                         var fragments = response.fragments;
@@ -508,7 +509,7 @@ jQuery(function($) {
             e.preventDefault();
             var temp_number = $(this).closest( '.wpt_action' ).data('temp_number');
             config_json = getConfig_json( temp_number );
-            alert(config_json.sorry_out_of_stock);
+            showAlert(config_json.sorry_out_of_stock);
             return false;
         });
         
@@ -687,11 +688,21 @@ jQuery(function($) {
             });
         });
 
+        function showAlert(alertMessage){
+            if(typeof alertMessage == 'string'){
+                var tempMsg = alertMessage.trim();
+                if(tempMsg.length !== 0){
+                    alert(alertMessage);
+                }
+            }else{
+                console.log("You have inserted " + typeof alertMessage + " Variable. But should be a String.");
+            }
+        }
         $('body').on('click', 'a.wpt_variation_product.single_add_to_cart_button.button.disabled,a.disabled.yith_add_to_quote_request.button', function(e) {
             e.preventDefault();
             var temp_number = $(this).closest( '.wpt_action' ).data('temp_number');
             config_json = getConfig_json( temp_number );
-            alert(config_json.no_right_combination);
+            showAlert(config_json.no_right_combination);
             return false;
             
         });
@@ -701,7 +712,7 @@ jQuery(function($) {
             e.preventDefault();
             var temp_number = $(this).closest( '.wpt_action' ).data('temp_number');
             config_json = getConfig_json( temp_number ); //Added vat V5.0
-            alert(config_json.adding_in_progress);
+            showAlert(config_json.adding_in_progress);
             return false;
 
         });
@@ -1090,7 +1101,7 @@ jQuery(function($) {
             e.preventDefault();
             var temp_number = $(this).data('temp_number');
             config_json = getConfig_json( temp_number ); //Added vat V5.0
-            alert(config_json.sorry_plz_right_combination);
+            showAlert(config_json.sorry_plz_right_combination);
             return false;
         });
 
@@ -1169,7 +1180,7 @@ jQuery(function($) {
                 currentAllSelectedButtonSelector.removeClass('disabled');
                 currentAllSelectedButtonSelector.removeClass('loading');
                 tableWrapperTag.removeClass('loading-table');
-                alert(config_json.please_choose_items);
+                showAlert(config_json.please_choose_items);
                 return false;
             }
 
@@ -1587,7 +1598,7 @@ jQuery(function($) {
                         }else{
                             $('#wpt_load_more_wrapper_' + temp_number).remove();
                             targetTable.removeClass('wpt_overflow_hiddent');
-                            alert(config_json.no_more_query_message);//"There is no more products based on current Query."
+                            showAlert(config_json.no_more_query_message);//"There is no more products based on current Query."
                         }
                         
                     }
@@ -1663,11 +1674,11 @@ jQuery(function($) {
                         thisPagiWrappers.html(paginate_data);
                         changeSpanToAPagi();
                         var newjsonData = $('#table_id_' + temp_number + ' mypagi').attr('myjson');
-                        var thisNewPagiWrappers = $('#table_id_' + temp_number + ' .wpt_table_pagination').attr('data-whole_data');
-                        thisNewPagiWrappers = JSON.parse(thisNewPagiWrappers);
-                        thisNewPagiWrappers = thisNewPagiWrappers.targetTableArgs;
-                        // console.log('newjsonData',JSON.parse(newjsonData));
-                        // console.log('thisNewPagiWrappers',thisNewPagiWrappers);
+                        // var thisNewPagiWrappers = $('#table_id_' + temp_number + ' .wpt_table_pagination').attr('data-whole_data');
+                        
+                        // thisNewPagiWrappers = JSON.parse(thisNewPagiWrappers);
+                        // thisNewPagiWrappers = thisNewPagiWrappers.targetTableArgs;
+                        
                         targetTable.attr( 'data-data_json', newjsonData );
                         thisPagiWrappers.removeClass('pagination_loading');
                     }
@@ -1985,7 +1996,7 @@ jQuery(function($) {
             var type = $(this).closest('tr.wpt_row').data('type')
             
             if(type !== 'variable' && response_msg !== ''){
-                alert(response_msg);
+                showAlert(response_msg);
                 $('.' + selector).html(msg.added);
                 return false;
             }
@@ -2046,9 +2057,7 @@ jQuery(function($) {
                     //}
                     $('.' + selector).attr('data-response_msg',response.message);
                     var html;
-                    //$('.wpt_quoterequest img').remove();
-                    //$('.' + selector + '+.yith_ywraq_add_item_browse_message').remove();
-                    //$('.' + selector + '+.yith_ywraq_add_item_response_message').remove();
+                    
                     html = '<div class="yith_ywraq_add_item_response_message">' + response.message + '</div>';
                     html += '<a class="yith_browse_link" href="'+response.rqa_url+'" target="_blank">' + yith_browse_list + '</a>';
                     
@@ -2056,7 +2065,7 @@ jQuery(function($) {
                 }else{
                     $('.' + selector).html(msg.added);
                 }
-                //thisButton.parent().show();  //New added at 4.0.19 
+                
             }
         });
         });
@@ -2101,12 +2110,10 @@ jQuery(function($) {
                 
                 if(config_json.sort_mini_filter === 'ASC'){
                     taxArray.sort();
-                    //taxArray.sort(function(a,b){return a-b});
+                    
                 }else if(config_json.sort_mini_filter === 'DESC'){
                     taxArray.sort();
                     taxArray.reverse();
-                    
-                    //taxArray.sort(function(a,b){return b-a});
                 }
                 
                 var html = '<option value="">' + label + '</option>';
@@ -2153,13 +2160,6 @@ jQuery(function($) {
             var thisColObject = $(this);
             var status = false;
             var disableClass = [
-                // '.wpt_product_id',
-                // '.wpt_thumbnails',
-                // '.wpt_quick',
-                // '.wpt_message',
-                // '.wpt_serial_number',
-                // '.wpt_quoterequest',
-                // '.wpt_action',
                 '.wpt_quantity',
                 '.wpt_check',
             ];
@@ -2282,23 +2282,7 @@ jQuery(function($) {
             } 
         }
         // Removing link feature End here  */
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+
     /*
      * Start code for Advance Version
      * Version: 5.3
@@ -2492,7 +2476,6 @@ jQuery(function($) {
                     products: products_data,
                 },
                 complete: function(){
-                    //alert('complete');
                     $( document ).trigger( 'wc_fragments_refreshed' );
                 },
                 success: function( response ) {
@@ -2548,7 +2531,7 @@ jQuery(function($) {
             if (itemAmount < 1) {
                 currentAllSelectedButtonSelector.removeClass('disabled');
                 currentAllSelectedButtonSelector.removeClass('loading');
-                alert(config_json.please_choose_items);
+                showAlert(config_json.please_choose_items);
                 return false;
             }
             currentAllSelectedButtonSelector.removeClass('disabled');
@@ -2658,33 +2641,7 @@ jQuery(function($) {
             targetThumbs.attr('data-variation_id', variation.variation_id);
 
         });
-        
-        
-    //$(document).on('submit','table.advance_table.wpt_product_table form',function(e){ //div.advance_table_wrapper table.advance_table.wpt_product_table
-    
-        
-        
-        
-        /**
-         * Sticky Header Feature to be enable
-        $(".wpt_product_table").floatThead({
-            scrollingTop:50,
-            position: 'fixed',
-            zIndex: 989898989,
-        });
-        */
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+  
         
         
         $('.wpt_product_table_wrapper').each(function(){
@@ -2734,7 +2691,6 @@ jQuery(function($) {
 
                     htmlImg = ""; //wpt_for_thumbs_desc
 
-                    //htmlDesc += "<div class='wpt_mobile_desc_part'>";
                     $(this).children('td.wpt_for_thumbs_desc').each(function(){
                         var attr = "";
                         $.each(this.attributes, function() {

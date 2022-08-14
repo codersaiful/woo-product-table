@@ -1537,6 +1537,7 @@ function wpt_product_table_preview_template( $template_file ){
 }
 add_filter( 'template_include', 'wpt_product_table_preview_template' );
 
+
 /**
  * for action.php inside items 
  * 

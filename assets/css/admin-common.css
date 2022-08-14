@@ -142,7 +142,7 @@ h1.with-background.dark-background {}
 .ultraaddons-panel table tr th label{font-weight: 400;text-shadow: -1px 0 0px #0572a982;font-size: 17px;}
 .ultraaddons-panel table tr th,
 .ultraaddons-panel table tr td{
-    padding: 6px 0 16px 0;
+    padding: 7px 10px;
     vertical-align: text-bottom;
 }
 

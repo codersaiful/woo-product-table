@@ -327,7 +327,7 @@ unset($catalog_orderby_options['menu_order']);
                 </td>
             </tr>
         
-            <tr>
+            <tr id="wpt_meta_value_wrapper">
                 <th>
                     <label class="wpt_label" for="wpt_product_meta_value_sort"><?php echo sprintf( esc_html__( 'Meta Value for [Custom Meta Value] of %s Custom Meta Value %s', 'wpt_pro' ),'<b>','</b>' ); ?></label>
                 </th>
