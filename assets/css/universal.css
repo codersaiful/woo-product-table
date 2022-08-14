@@ -1063,7 +1063,8 @@ div.wpt-footer-cart-wrapper.always_hide{display: none;}
     text-align: center;
     width: 100%;
     display: block;
-    padding-top: 35%;
+    padding-top: calc(50% - 8px);
+    height: 100%;
 }
 .wpt-footer-cart-wrapper > a:after {
     content: "";
