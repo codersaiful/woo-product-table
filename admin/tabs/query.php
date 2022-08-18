@@ -248,6 +248,8 @@ $catalog_orderby_options = apply_filters(
         'date'       => __( 'Sort by latest', 'woocommerce' ),
         'price'      => __( 'Sort by price: low to high', 'woocommerce' ),
         'price-desc' => __( 'Sort by price: high to low', 'woocommerce' ),
+        //New added @since 3.2.3.1
+        //'featured_products' => __( 'Sort by Featured Products', 'woocommerce' ),
     )
 );
 
