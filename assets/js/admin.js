@@ -38,6 +38,13 @@ jQuery.fn.extend({
             allowClear: true
         });
 
+        /**
+         * Hellping need link 
+         * @link https://stackoverflow.com/questions/15636302/attach-click-event-to-element-in-select2-result
+         * @link http://jsfiddle.net/6jaodjzq/
+         * @link http://jsfiddle.net/sc147a1L/4/ (Worked)
+         * @link 
+         */
         $('select.internal_select').select2({
             placeholder: "Select mulitple inner Items.",
             allowClear: true

@@ -370,25 +370,22 @@ if( ! function_exists( 'wpt_column_add_extra_items' ) ){
                 'option' => $allowed_atts
             ) ); ?>
         </select>
-        
-        <p class="wpt-inter-item-edit-trigger-wrapper">
+
+        <!-- <p class="wpt-inter-trigger-wrapper">
         <?php
             foreach( $_items as $_item ){
             $_target_key = $_item;
             $_target_name = $items_columns[$_item] ?? "";
         ?>
-        <a></a>
-        <?php
-
-                var_dump($items_columns[$_item]);
-            } ?>
-        </p>
+        <span class="wpt-inner-trigger" data-target="<?php echo esc_attr( $_target_key ); ?>" ><?php echo esc_html( $_target_name ); ?></span>
+        <?php } ?>
+        </p> -->
         </div>
-        <div class="inside-column-edit">
+        <!-- <div class="inside-column-edit">
             <?php
-            var_dump($_items);
+            // var_dump($_items);
             ?>
-        </div>
+        </div> -->
         <?php
     }
 }

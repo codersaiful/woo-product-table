@@ -24,7 +24,7 @@ $column_settings = get_post_meta( $post->ID, 'column_settings', true );
 if( empty( $column_settings ) ){
     $column_settings = array();
 }
-var_dump($column_settings);
+
 
 $additional_collumn = array_diff(array_keys($for_add), array_keys( WPT_Product_Table::$columns_array ));
 
