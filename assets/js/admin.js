@@ -52,9 +52,8 @@ jQuery.fn.extend({
         $('select.internal_select').on('select2:select', function (e) {
             let myTargetClass = 'inside-column-enabled';
             var data = e.params.data;
-            var target = data.id;
-            console.log(target);
-            // $('.wpt_sortable_peritem')
+            var target = data.id; //It's keyword name actually such: product_id,product_title etc
+            
             var parentUL = $(this).closest('ul.wpt_column_sortable');
             var sameElement = parentUL.find('.wpt_sortable_peritem');
             sameElement.removeClass(myTargetClass);
@@ -64,10 +63,38 @@ jQuery.fn.extend({
             targetElement.addClass(myTargetClass);
             OptimizeColumnWithName();
             
-            console.log(e);
-            console.log(data);
+            
         });
         
+
+        /**
+         * this function is still inactive.
+         * will enable asap.
+         * 
+         * 
+         * @param {String} keyword It's a target element of column
+         * @param {*} e 
+         */
+        function showInsideItemPopup(keyword,e){
+            let myTargetClass = 'inside-column-enabled';
+            var parentUL = $(e).closest('ul.wpt_column_sortable');
+            
+            var sameElement = $('.wpt_sortable_peritem');
+            sameElement.removeClass(myTargetClass);
+            var targetElement = parentUL.find('.wpt_sortable_peritem.column_keyword_' + keyword);
+            targetElement.find('.colum_data_input').trigger('click');
+            targetElement.addClass('expanded_li');
+            targetElement.addClass(myTargetClass);
+            OptimizeColumnWithName();
+        }
+
+        $(document.body).on('click',function(event){
+            var inside_item = $('.inside-column-enabled').length;
+            if (inside_item > 0 && $(event.target).closest(".wpt_shortable_data").length === 0) {
+                $('.inside-column-enabled').removeClass('inside-column-enabled');
+              }
+        });
+
         /**
          * Product Exclude Include Feature Added Here,
          * Which is normally in Pro Actually
