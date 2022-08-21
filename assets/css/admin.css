@@ -1849,6 +1849,6 @@ ul#wpt_column_sortable>li.wpt_sortable_peritem.inside-column-enabled span.wpt_co
 ul#wpt_column_sortable>li.wpt_sortable_peritem.inside-column-enabled div.extra-inner-item-wrapper,
 /* ul#wpt_column_sortable>li.wpt_sortable_peritem.inside-column-enabled ,
 ul#wpt_column_sortable>li.wpt_sortable_peritem.inside-column-enabled , */
-ul#wpt_column_sortable>li.wpt_sortable_peritem.inside-column-enabled{
+ul#wpt_column_sortable>li.wpt_sortable_peritem.inside-column-enabled .something{
     display: none !important;
 }

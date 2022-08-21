@@ -47,7 +47,21 @@ jQuery.fn.extend({
          */
         $('select.internal_select').select2({
             placeholder: "Select mulitple inner Items.",
-            allowClear: true
+            allowClear: true,
+        });
+        $('select.internal_select').on('select2:select', function (e) {
+            let myTargetClass = 'inside-column-enabled';
+            var data = e.params.data;
+            var target = data.id;
+            console.log(target);
+            // $('.wpt_sortable_peritem')
+            var parentUL = $(this).closest('ul.wpt_column_sortable');
+            var sameElement = parentUL.find('.wpt_sortable_peritem');
+            sameElement.removeClass(myTargetClass);
+            var targetElement = parentUL.find('.wpt_sortable_peritem.column_keyword_' + target).addClass(myTargetClass);
+
+            console.log(e);
+            console.log(data);
         });
         /**
          * Product Exclude Include Feature Added Here,
