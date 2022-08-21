@@ -48,6 +48,13 @@ jQuery.fn.extend({
         $('select.internal_select').select2({
             placeholder: "Select mulitple inner Items.",
             allowClear: true,
+            // tags: true,
+            // templateResult:function(data){
+            //     console.log(data);
+            //     return "S Islam";
+            // },
+
+
         });
         $('select.internal_select').on('select2:select', function (e) {
             let myTargetClass = 'inside-column-enabled';
