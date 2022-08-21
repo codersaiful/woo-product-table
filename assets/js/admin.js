@@ -58,11 +58,15 @@ jQuery.fn.extend({
             var parentUL = $(this).closest('ul.wpt_column_sortable');
             var sameElement = parentUL.find('.wpt_sortable_peritem');
             sameElement.removeClass(myTargetClass);
-            var targetElement = parentUL.find('.wpt_sortable_peritem.column_keyword_' + target).addClass(myTargetClass);
-
+            var targetElement = parentUL.find('.wpt_sortable_peritem.column_keyword_' + target);
+            targetElement.addClass('expanded_li');
+            targetElement.addClass(myTargetClass);
+            OptimizeColumnWithName();
+            
             console.log(e);
             console.log(data);
         });
+        
         /**
          * Product Exclude Include Feature Added Here,
          * Which is normally in Pro Actually
@@ -220,6 +224,24 @@ jQuery.fn.extend({
             setTimeout(function(){
                 $('.wpt_column_sortable .wpt_sortable_peritem').not('.enabled').find('input,select').renameAttr('name', 'backup-name' );
                 $('.wpt_column_sortable .wpt_sortable_peritem.enabled').find('input,select').renameAttr('backup-name', 'name' );
+
+
+                var saiful = {};
+                $('select.internal_select').each(function(){
+                    var data = $(this).val();
+                    var parent = $(this).closest('ul.wpt_column_sortable');
+                    if( typeof data == 'object' && data.length > 0){
+                        $(data).each(function(index,value){
+                            // saiful[value] = value;
+                            // console.log('.wpt_sortable_peritem.column_keyword_' + value);
+                            // parent.find('.wpt_sortable_peritem.column_keyword_' + value).addClass('saiful-islam-hello');
+                            parent.find('.wpt_sortable_peritem.column_keyword_' + value).find('input,select').renameAttr('backup-name', 'name' );
+                        });
+                    }
+                    
+                });
+
+                
             },1000);
             
         }
