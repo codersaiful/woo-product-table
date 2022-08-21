@@ -59,6 +59,7 @@ jQuery.fn.extend({
             var sameElement = parentUL.find('.wpt_sortable_peritem');
             sameElement.removeClass(myTargetClass);
             var targetElement = parentUL.find('.wpt_sortable_peritem.column_keyword_' + target);
+            targetElement.find('.colum_data_input').trigger('click');
             targetElement.addClass('expanded_li');
             targetElement.addClass(myTargetClass);
             OptimizeColumnWithName();
