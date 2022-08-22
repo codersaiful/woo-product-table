@@ -38,6 +38,7 @@ jQuery.fn.extend({
             allowClear: true
         });
 
+        
         /**
          * Hellping need link 
          * @link https://stackoverflow.com/questions/15636302/attach-click-event-to-element-in-select2-result
@@ -48,20 +49,50 @@ jQuery.fn.extend({
         $('select.internal_select').select2({
             placeholder: "Select mulitple inner Items.",
             allowClear: true,
-            // tags: true,
-            // templateResult:function(data){
-            //     console.log(data);
-            //     return "S Islam";
-            // },
+            // escapeMarkup: function(m) { return m; },
+            // templateResult:customizedItem,
+            templateSelection:selectionWithEditLink,
+            // templateSelection:customizedItem,
 
 
         });
-        $('select.internal_select').on('select2:select', function (e) {
-            let myTargetClass = 'inside-column-enabled';
-            var data = e.params.data;
-            var target = data.id; //It's keyword name actually such: product_id,product_title etc
+        
+        function selectionWithEditLink(state, container){
+            container.append($('<span class="selected-state"></span>').text(state.text));
+            $('<a class="edit-my-column-easily" data-keyword="' + state.id + '"> Edit</i>')
+                .appendTo(container)
+                .mousedown(function(e) {
+                    e.stopPropagation();            
+                })
+                .click(function(e) {
+                    e.preventDefault();
+                    var target = state.id;
+                    var thisObject = $(this);
+                    openTargetInsideItem( target, thisObject );
+                });
+        }
+
+        /**
+         * Unused function, I tried to use it for select2 element 
+         * edit
+         * 
+         * @param {objec} item 
+         * @returns 
+         */
+
+        function customizedItem(item){
             
-            var parentUL = $(this).closest('ul.wpt_column_sortable');
+            if (!item.id) { return item.text; }
+
+            var output = '<span> ' + item.text + ' <a class="edit-my-column-easily" href="#' + item.id + '">Edit</a></span>';
+            return $(output);
+        }
+        
+
+        function openTargetInsideItem( target, thisObject ){
+            
+            let myTargetClass = 'inside-column-enabled';
+            var parentUL = thisObject.closest('ul.wpt_column_sortable');
             var sameElement = parentUL.find('.wpt_sortable_peritem');
             sameElement.removeClass(myTargetClass);
             var targetElement = parentUL.find('.wpt_sortable_peritem.column_keyword_' + target);
@@ -69,36 +100,27 @@ jQuery.fn.extend({
             targetElement.addClass('expanded_li');
             targetElement.addClass(myTargetClass);
             OptimizeColumnWithName();
-            
-            
+            $('a.my-inslide-close-button.button').remove();
+            var myCloseButton = '<a class="my-inslide-close-button button">x</a>';
+            targetElement.find('.wpt_shortable_data').append(myCloseButton);
+        }
+
+        $('select.internal_select').on('select2:select', function( e ){
+            var data = e.params.data;
+            var target = data.id; //It's keyword name actually such: product_id,product_title etc
+            var thisObject = $(this);
+            openTargetInsideItem( target, thisObject );            
         });
         
 
-        /**
-         * this function is still inactive.
-         * will enable asap.
-         * 
-         * 
-         * @param {String} keyword It's a target element of column
-         * @param {*} e 
-         */
-        function showInsideItemPopup(keyword,e){
-            let myTargetClass = 'inside-column-enabled';
-            var parentUL = $(e).closest('ul.wpt_column_sortable');
-            
-            var sameElement = $('.wpt_sortable_peritem');
-            sameElement.removeClass(myTargetClass);
-            var targetElement = parentUL.find('.wpt_sortable_peritem.column_keyword_' + keyword);
-            targetElement.find('.colum_data_input').trigger('click');
-            targetElement.addClass('expanded_li');
-            targetElement.addClass(myTargetClass);
-            OptimizeColumnWithName();
-        }
-
+        
+        $(document.body).on('click','a.my-inslide-close-button.button',function(){
+            $('.inside-column-enabled').fadeOut().removeClass('inside-column-enabled');
+        });
         $(document.body).on('click',function(event){
             var inside_item = $('.inside-column-enabled').length;
             if (inside_item > 0 && $(event.target).closest(".wpt_shortable_data").length === 0) {
-                $('.inside-column-enabled').removeClass('inside-column-enabled');
+                $('.inside-column-enabled').fadeOut().removeClass('inside-column-enabled');
               }
         });
 
