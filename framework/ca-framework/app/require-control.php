@@ -359,10 +359,14 @@ if( ! class_exists( 'CA_Framework\Require_Control' ) ){
             if($this->message){
                 $message .= "<br>" . $this->message;
             }
+            $notice_class = 'notice notice-error';
+            if($this->location){
+                $notice_class = 'anwwhere-notice anywhere-required-plugin';
+            }
 
             $required = $this->required;
             ?>
-            <div data-notice_id="<?php echo esc_attr( $this->notice_id ); ?>" class="<?php echo esc_attr( $this->status ); ?> ca-notice ca-reuire-plugin-notice notice notice-error">
+            <div data-notice_id="<?php echo esc_attr( $this->notice_id ); ?>" class="<?php echo esc_attr( $this->status ); ?> ca-notice ca-reuire-plugin-notice <?php echo esc_attr( $notice_class ); ?>">
                 <p class="ca-require-plugin-msg" ><?php echo wp_kses_post( $message ); ?></p>
                 <p class="ca-button-collection">
                     <a href="<?php echo esc_url( $this->gen_link() ); ?>" class="ca-button"><?php echo esc_attr( $this->status ); ?></a>
