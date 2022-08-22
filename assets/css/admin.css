@@ -1094,9 +1094,13 @@ body.wpt_admin_body .select2-container--default .select2-results__option--highli
 }
 body.wpt_admin_body .select2-container--default .select2-selection--multiple .select2-selection__rendered li {
     display: flex;
+}
+body.wpt_admin_body select.internal_select.select2-hidden-accessible + span .select2-selection__rendered li {
+    display: flex;
     flex-direction: row;
     width: 100%;
     align-items: baseline;
+    position: relative;
 }
 body.wpt_admin_body .select2-container--default .select2-selection--multiple .select2-selection__rendered li:hover {
     background: #dddddd78;
