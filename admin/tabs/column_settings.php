@@ -25,6 +25,7 @@ if( empty( $column_settings ) ){
     $column_settings = array();
 }
 
+
 $additional_collumn = array_diff(array_keys($for_add), array_keys( WPT_Product_Table::$columns_array ));
 
 //var_dump($meta_enable_column_array,array_merge($meta_enable_column_array,$columns_array));

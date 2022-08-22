@@ -38,10 +38,92 @@ jQuery.fn.extend({
             allowClear: true
         });
 
+        
+        /**
+         * Hellping need link 
+         * @link https://stackoverflow.com/questions/15636302/attach-click-event-to-element-in-select2-result
+         * @link http://jsfiddle.net/6jaodjzq/
+         * @link http://jsfiddle.net/sc147a1L/4/ (Worked)
+         * @link 
+         */
         $('select.internal_select').select2({
             placeholder: "Select mulitple inner Items.",
-            allowClear: true
+            allowClear: true,
+            // escapeMarkup: function(m) { return m; },
+            // templateResult:customizedItem,
+            templateSelection:selectionWithEditLink,
+            // templateSelection:customizedItem,
+
+
         });
+        
+        function selectionWithEditLink(state, container){
+            container.append($('<span class="selected-state"></span>').text(state.text));
+            $('<a class="edit-my-column-easily" data-keyword="' + state.id + '"> Edit</i>')
+                .appendTo(container)
+                .mousedown(function(e) {
+                    e.stopPropagation();            
+                })
+                .click(function(e) {
+                    e.preventDefault();
+                    var target = state.id;
+                    var thisObject = $(this);
+                    openTargetInsideItem( target, thisObject );
+                });
+        }
+
+        /**
+         * Unused function, I tried to use it for select2 element 
+         * edit
+         * 
+         * @param {objec} item 
+         * @returns 
+         */
+
+        function customizedItem(item){
+            
+            if (!item.id) { return item.text; }
+
+            var output = '<span> ' + item.text + ' <a class="edit-my-column-easily" href="#' + item.id + '">Edit</a></span>';
+            return $(output);
+        }
+        
+
+        function openTargetInsideItem( target, thisObject ){
+            
+            let myTargetClass = 'inside-column-enabled';
+            var parentUL = thisObject.closest('ul.wpt_column_sortable');
+            var sameElement = parentUL.find('.wpt_sortable_peritem');
+            sameElement.removeClass(myTargetClass);
+            var targetElement = parentUL.find('.wpt_sortable_peritem.column_keyword_' + target);
+            targetElement.find('.colum_data_input').trigger('click');
+            targetElement.addClass('expanded_li');
+            targetElement.addClass(myTargetClass);
+            OptimizeColumnWithName();
+            $('a.my-inslide-close-button.button').remove();
+            var myCloseButton = '<a class="my-inslide-close-button button">x</a>';
+            targetElement.find('.wpt_shortable_data').append(myCloseButton);
+        }
+
+        $('select.internal_select').on('select2:select', function( e ){
+            var data = e.params.data;
+            var target = data.id; //It's keyword name actually such: product_id,product_title etc
+            var thisObject = $(this);
+            openTargetInsideItem( target, thisObject );            
+        });
+        
+
+        
+        $(document.body).on('click','a.my-inslide-close-button.button',function(){
+            $('.inside-column-enabled').fadeOut().removeClass('inside-column-enabled');
+        });
+        $(document.body).on('click',function(event){
+            var inside_item = $('.inside-column-enabled').length;
+            if (inside_item > 0 && $(event.target).closest(".wpt_shortable_data").length === 0) {
+                $('.inside-column-enabled').fadeOut().removeClass('inside-column-enabled');
+              }
+        });
+
         /**
          * Product Exclude Include Feature Added Here,
          * Which is normally in Pro Actually
@@ -199,6 +281,24 @@ jQuery.fn.extend({
             setTimeout(function(){
                 $('.wpt_column_sortable .wpt_sortable_peritem').not('.enabled').find('input,select').renameAttr('name', 'backup-name' );
                 $('.wpt_column_sortable .wpt_sortable_peritem.enabled').find('input,select').renameAttr('backup-name', 'name' );
+
+
+                var saiful = {};
+                $('select.internal_select').each(function(){
+                    var data = $(this).val();
+                    var parent = $(this).closest('ul.wpt_column_sortable');
+                    if( typeof data == 'object' && data.length > 0){
+                        $(data).each(function(index,value){
+                            // saiful[value] = value;
+                            // console.log('.wpt_sortable_peritem.column_keyword_' + value);
+                            // parent.find('.wpt_sortable_peritem.column_keyword_' + value).addClass('saiful-islam-hello');
+                            parent.find('.wpt_sortable_peritem.column_keyword_' + value).find('input,select').renameAttr('backup-name', 'name' );
+                        });
+                    }
+                    
+                });
+
+                
             },1000);
             
         }

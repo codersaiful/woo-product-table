@@ -319,6 +319,8 @@ if( ! function_exists( 'wpt_column_add_extra_items' ) ){
         $items = is_array( $items ) ? $items : array();
         $items = array_filter( $items );
         
+        $_items = $items;
+
         /**
          * @Hook Filter: wpto_inside_thecked_item_arr
          * Available Args: $items, $keyword, $column_settings, $columns_array, $post
@@ -332,7 +334,7 @@ if( ! function_exists( 'wpt_column_add_extra_items' ) ){
             $columns_array = array_merge(array_flip($items),$columns_array);
         }
         ?>
-        <div class="column_add_extra_items">
+        <div class="column_add_extra_items extra-inner-item-wrapper">
         <label for="<?php echo esc_attr( "column_settings{$_device_name}_{$keyword}" ); ?>"><?php echo esc_html__( 'Select multiple inner items:', 'wpt_pro' ); ?></label>
 
         <?php
@@ -368,7 +370,22 @@ if( ! function_exists( 'wpt_column_add_extra_items' ) ){
                 'option' => $allowed_atts
             ) ); ?>
         </select>
+
+        <!-- <p class="wpt-inter-trigger-wrapper">
+        <?php
+            foreach( $_items as $_item ){
+            $_target_key = $_item;
+            $_target_name = $items_columns[$_item] ?? "";
+        ?>
+        <span class="wpt-inner-trigger" data-target="<?php echo esc_attr( $_target_key ); ?>" ><?php echo esc_html( $_target_name ); ?></span>
+        <?php } ?>
+        </p> -->
         </div>
+        <!-- <div class="inside-column-edit">
+            <?php
+            // var_dump($_items);
+            ?>
+        </div> -->
         <?php
     }
 }

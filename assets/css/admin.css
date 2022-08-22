@@ -1095,6 +1095,16 @@ body.wpt_admin_body .select2-container--default .select2-results__option--highli
 body.wpt_admin_body .select2-container--default .select2-selection--multiple .select2-selection__rendered li {
     display: flex;
 }
+body.wpt_admin_body select.internal_select.select2-hidden-accessible + span .select2-selection__rendered li {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: baseline;
+    position: relative;
+}
+body.wpt_admin_body .select2-container--default .select2-selection--multiple .select2-selection__rendered li:hover {
+    background: #dddddd78;
+}
 body.wpt_admin_body .select2-container--default .select2-selection--multiple .select2-selection__choice {
     background-color: rgb(255, 255, 255);
     border: 1px solid white;
@@ -1486,7 +1496,7 @@ body.wpt_admin_body .ultraaddons .warning {
     border-radius: 3px 12px 72px 12px;
     /* background: #4caf50; */
     /* border: 1px solid #3f9b43; */
-    z-index: 99999;
+    z-index: 75;
 }
 
 body.post-type-wpt_product_table .stick_on_scroll#stick_on_scroll-on, 
@@ -1807,4 +1817,110 @@ p.wpt-shorcode-render-box {
     font-size: 16px;
     margin: 0;
     color: #003d4c;
+}
+/* ul#wpt_column_sortable>li.wpt_sortable_peritem.inside-column-enabled {
+    display: block !important;
+    position: fixed !important;
+    top: 94px;
+    left: calc((100% - 900px - 25px)/2);
+    background: white;
+    width: 900px;
+    box-shadow: 0 10px 30px 0 black;
+    border: 5px solid black;
+    padding: 50px;
+} */
+
+ul#wpt_column_sortable>li.wpt_sortable_peritem.inside-column-enabled {
+    display: block !important;
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    background: #000000b0;
+    width: 100%;
+    border: 0 none;
+    padding: 50px;
+    height: 100%;
+    opacity: 1;
+    z-index: 99999;
+}
+a.edit-my-column-easily {
+    padding: 0 12px;
+    background: #007694;
+    color: white;
+    border-radius: 7px;
+    margin-left: 12px;
+    cursor: pointer;
+    position: absolute;
+    right: 19px;
+}
+a.edit-my-column-easily:hover {
+    background: #0c9ec3;
+}
+ul#wpt_column_sortable>li.wpt_sortable_peritem.inside-column-enabled .wpt_shortable_data {
+    max-width: 800px;
+    background: white !important;
+    margin: auto;
+    padding: 50px;
+    overflow: hidden;
+    /* height: 800px; */
+    max-height: 76%;
+    overflow-y: auto;
+    box-shadow: 0 10px 30px 0 #000000bf;
+    border-radius: 8px;
+    padding-bottom: 30px;
+    position: relative;
+    padding-top: 35px;
+}
+ul#wpt_column_sortable>li.wpt_sortable_peritem.inside-column-enabled .wpt_shortable_data>input {
+    border: 1px solid #000;
+    background: #8bc34a42;
+    width: 100%;
+}
+
+ul#wpt_column_sortable>li.wpt_sortable_peritem.inside-column-enabled span.extra_all_on_off {
+    right: unset;
+    padding: 6px 15px;
+    cursor: pointer;
+    top: 0;
+    bottom: unset;
+}
+
+body.wpt_admin_body span.select2-container.select2-container--default.select2-container--open{
+    z-index: 45;
+}
+/* ul#wpt_column_sortable>li.wpt_sortable_peritem.inside-column-enabled span.extra_all_on_off, */
+ul#wpt_column_sortable>li.wpt_sortable_peritem.inside-column-enabled span.wpt_column_arrow,
+ul#wpt_column_sortable>li.wpt_sortable_peritem.inside-column-enabled div.extra-inner-item-wrapper,
+/* ul#wpt_column_sortable>li.wpt_sortable_peritem.inside-column-enabled ,
+ul#wpt_column_sortable>li.wpt_sortable_peritem.inside-column-enabled , */
+.inside-column-enabled .wpt_column_setting_extra .column_tag_for_all,
+.inside-column-enabled .wpt_column_setting_extra .column_label_fullwidth,
+.inside-column-enabled .wpt_column_setting_extra tr.each-style.each-style-background-color,
+.inside-column-enabled .wpt_column_setting_extra tr.each-style.each-style-border,
+.inside-column-enabled .wpt_column_setting_extra tr.each-style.each-style-vertical-align,
+/* .inside-column-enabled input.colum_data_input.check, */
+ul#wpt_column_sortable>li.wpt_sortable_peritem.inside-column-enabled span.handle{
+    display: none !important;
+}
+
+ul#wpt_column_sortable>li.inside-column-enabled .wpt_column_setting_extra.for_all.extra_all_check{}
+ul#wpt_column_sortable>li.wpt_sortable_peritem.inside-column-enabled .wpt_column_setting_extra.for_all.extra_all_check{
+    padding: 0 !important;
+    margin: 0 !important;
+}
+.inside-column-enabled .wpt_column_setting_extra{
+
+}
+.inside-column-enabled .wpt_column_setting_extra{
+
+}
+.inside-column-enabled .wpt_column_setting_extra{
+
+}
+a.my-inslide-close-button.button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #d00;
+    color: white;
 }
