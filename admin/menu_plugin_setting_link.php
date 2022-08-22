@@ -46,6 +46,7 @@ if( !function_exists( 'wpt_admin_menu' ) ){
         
         add_submenu_page( 'edit.php?post_type=wpt_product_table', esc_html__( 'Pro Features', 'wpt_pro' ),  __( 'Pro Features', 'wpt_pro' ), 'manage_options', 'wpt-pro-features', 'wpt_pro_features_content' );
         add_submenu_page( 'edit.php?post_type=wpt_product_table', esc_html__( 'Browse Plugins', 'wpt_pro' ),  __( 'Browse Plugins', 'wpt_pro' ), WPT_CAPABILITY, 'wpt-browse-plugins', 'wpt_browse_all_plugin_list' );
+        add_submenu_page( 'edit.php?post_type=wpt_product_table', esc_html__( 'Live Support', 'wpt_pro' ),  __( 'Live Support', 'wpt_pro' ), WPT_CAPABILITY, 'wpt-live-support', 'wpt_live_support' );
     }
 }
 add_action( 'admin_menu', 'wpt_admin_menu' );

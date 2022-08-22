@@ -413,6 +413,17 @@ class WPT_Product_Table{
        include_once $this->path('BASE_DIR','admin/wpt_product_table_post.php');
        if( is_admin() ){
            
+
+            /**
+             * Including CA_Framework
+             * 
+             * @since 3.1.3.1
+             * @author Saiful <codersaiful@gmail.com>
+             */
+            require_once WPT_DIR_BASE . '/framework/recommeded.php';
+
+            WOO_Product_Table\Framework\Recommeded::check();
+
             include_once $this->path('BASE_DIR','admin/post_metabox.php');
             include_once $this->path('BASE_DIR','admin/duplicate.php');
             include_once $this->path('BASE_DIR','admin/functions.php'); //Added at V7.0.0 @date 
@@ -421,6 +432,7 @@ class WPT_Product_Table{
             include_once $this->path('BASE_DIR','admin/admin-enqueue.php');
             include_once $this->path('BASE_DIR','admin/fac_support_page.php');
             include_once $this->path('BASE_DIR','admin/configuration_page.php');
+            include_once $this->path('BASE_DIR','admin/live_support_page.php');
             //Admin Section Action Hook, which we can Control from Addon
             include_once $this->path('BASE_DIR','admin/action-hook.php');
        }
