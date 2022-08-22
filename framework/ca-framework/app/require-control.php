@@ -33,6 +33,15 @@ if( ! class_exists( 'CA_Framework\Require_Control' ) ){
 
         private $message;
 
+        /**
+         * Declear your Action Hook, where you want to show
+         * your Notice/Message/Offer
+         *
+         * @var String|Null 
+         */
+        private $location;
+
+
         private $sample_plugin = array(
             'Name' =>   'Requrie Plugin',
             'PluginURI' => 'https://profiles.wordpress.org/codersaiful/#content-plugins',
@@ -108,11 +117,20 @@ if( ! class_exists( 'CA_Framework\Require_Control' ) ){
             //Check Aganin installation prosibility when reconneded and Date over. by default we set diff_limit = 5 days.
             if( ! $this->required && $this->repeat_display() ) return;
 
-            //Final Display Notice 
-            add_action( 'admin_notices', [ $this, 'display_notice' ] );
+            if( $this->location ){
+                add_action( $this->location , [$this, "display_notice"]);
+            }else{
+                add_action( 'admin_notices', [ $this, 'display_notice' ] );
+            }
+            
             return;
         }
 
+        public function set_location( $location )
+        {
+            $this->location = $location;
+            return $this;
+        }
         /**
          * Get File information, from where class is calling.
          * It's required for debugging.
