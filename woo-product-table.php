@@ -421,6 +421,7 @@ class WPT_Product_Table{
             include_once $this->path('BASE_DIR','admin/admin-enqueue.php');
             include_once $this->path('BASE_DIR','admin/fac_support_page.php');
             include_once $this->path('BASE_DIR','admin/configuration_page.php');
+            include_once $this->path('BASE_DIR','admin/live_support_page.php');
             //Admin Section Action Hook, which we can Control from Addon
             include_once $this->path('BASE_DIR','admin/action-hook.php');
        }
