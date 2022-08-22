@@ -1094,6 +1094,12 @@ body.wpt_admin_body .select2-container--default .select2-results__option--highli
 }
 body.wpt_admin_body .select2-container--default .select2-selection--multiple .select2-selection__rendered li {
     display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: baseline;
+}
+body.wpt_admin_body .select2-container--default .select2-selection--multiple .select2-selection__rendered li:hover {
+    background: #dddddd78;
 }
 body.wpt_admin_body .select2-container--default .select2-selection--multiple .select2-selection__choice {
     background-color: rgb(255, 255, 255);
@@ -1840,6 +1846,8 @@ a.edit-my-column-easily {
     border-radius: 7px;
     margin-left: 12px;
     cursor: pointer;
+    position: absolute;
+    right: 19px;
 }
 a.edit-my-column-easily:hover {
     background: #0c9ec3;

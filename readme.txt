@@ -217,6 +217,7 @@ You can easily show specific category products. While creating new table click o
 * Bug Fixed: Instance Search updated
 * Changed: WPML area for Tab's String has transferred to Option Tab.
 * Added: Live support service from plugin setting page.
+* Added: Inside Item handle feature/ edit feature added like a modal.
 
 
 = 3.2.3 =
