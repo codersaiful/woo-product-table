@@ -269,6 +269,12 @@
       "css": "mobile",
       "code": 61707,
       "src": "fontawesome"
+    },
+    {
+      "uid": "3c24ee33c9487bbf18796ca6dffa1905",
+      "css": "expand-collapse",
+      "code": 59423,
+      "src": "fontawesome"
     }
   ]
 }
