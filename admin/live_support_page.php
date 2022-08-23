@@ -183,7 +183,9 @@ if (!function_exists('wpt_live_support')) {
                 text-decoration: none;
                 color: #04849d;
             }
-
+            h2.wpt-heading-title.wpt-size-default {
+                font-size: 3em;
+            }
         </style>
         <div class="wpt-container wpt-column-gap-default">
             <div class="wpt-column wpt-col-100 wpt-top-column wpt-element wpt-element-2e8d520c" data-id="2e8d520c" data-element_type="column">
