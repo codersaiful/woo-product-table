@@ -1841,7 +1841,7 @@ ul#wpt_column_sortable>li.wpt_sortable_peritem.inside-column-enabled {
     padding: 50px;
     height: 100%;
     opacity: 1;
-    z-index: 99999;
+    z-index: 70;
 }
 a.edit-my-column-easily {
     padding: 0 12px;
