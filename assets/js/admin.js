@@ -101,7 +101,7 @@ jQuery.fn.extend({
             targetElement.addClass(myTargetClass);
             OptimizeColumnWithName();
             $('a.my-inslide-close-button.button').remove();
-            var myCloseButton = '<a class="my-inslide-close-button button">x</a>';
+            var myCloseButton = '<a class="my-inslide-close-button button">Close</a>';
             targetElement.find('.wpt_shortable_data').append(myCloseButton);
         }
 
