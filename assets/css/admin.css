@@ -1924,3 +1924,10 @@ a.my-inslide-close-button.button {
     background-color: #d00;
     color: white;
 }
+
+span.colum_data_input.wpt-expand {
+    background: #636161;
+    color: white;
+    padding: 2px 15px;
+    cursor: pointer;
+}
