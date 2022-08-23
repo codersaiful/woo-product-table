@@ -33,11 +33,6 @@ if (!function_exists('wpt_live_support')) {
             .wpt-6539 .wpt-element.wpt-element-727a4d7a {
                 text-align: center;
             }
-
-            .container {
-                max-width: 1120px;
-            }
-
             .elementor *,
             .elementor :after,
             .elementor :before {
@@ -70,7 +65,7 @@ if (!function_exists('wpt_live_support')) {
 
             .col-md-4 {
                 flex: 0 0 auto;
-                width: 350px;
+                width: 300px;
             }
 
             .fadeInUp {
@@ -82,7 +77,7 @@ if (!function_exists('wpt_live_support')) {
                 border-radius: 6px;
                 background: #fff;
                 box-shadow: 0 50px 120px 0 rgba(4, 73, 89, 0.08);
-                padding: 40px 40px 50px;
+                padding: 15PX;
                 margin-bottom: 30px;
             }
 
