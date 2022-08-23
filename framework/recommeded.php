@@ -21,7 +21,8 @@ class Recommeded
         if( method_exists($req_qv, 'set_location') ){
             $req_qv->set_location('wpto_column_setting_form_quick_view'); //wpt_premium_image_bottom
             // $req_qv->set_location('wpto_column_setting_form_inside_quick_view'); //wpt_premium_image_bottom
+            $req_qv->run();
         }
-        $req_qv->run();
+        
     }
 }
