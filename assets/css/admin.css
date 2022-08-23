@@ -1932,7 +1932,7 @@ a.my-inslide-close-button.button {
     background-color: #d00;
     color: white;
 }
-.inside-column-enabled.expanded_li span.wpt-expand {
+.inside-column-enabled span.wpt-expand {
     position: absolute;
     top: -3px;
     border-radius: 0;
