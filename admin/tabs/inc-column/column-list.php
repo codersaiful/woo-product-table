@@ -39,7 +39,7 @@ $columns_array = apply_filters( 'wpto_final_column_arr', $columns_array );
                    type="text" 
                    title="<?php echo esc_attr__( 'Click for Expand/Collapse. Edit your Column Title here.', 'wpt_pro' ); ?>"
                    value="<?php echo htmlentities( $updated_title ); ?>" <?php echo esc_attr( $readOnly ); ?>> 
-                   <span data-key="<?php echo esc_attr( $keyword ); ?>" class=" colum_data_input wpt-expand"><i class="wpt-expand-collapse"></i></span>
+                   <span data-key="<?php echo esc_attr( $keyword ); ?>" class=" colum_data_input wpt-expand"><i class="wpt-expand-collapse"></i>Expand</span>
             
             <?php
             //Type Maintenance

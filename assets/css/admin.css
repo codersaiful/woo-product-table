@@ -1917,19 +1917,23 @@ ul#wpt_column_sortable>li.wpt_sortable_peritem.inside-column-enabled .wpt_column
 .inside-column-enabled .wpt_column_setting_extra{
 
 }
-a.my-inslide-close-button.button {
+.inside-column-enabled .wpt_column_setting_extra a.my-inslide-close-button.button {
     position: absolute;
     top: 10px;
     right: 10px;
     background-color: #d00;
     color: white;
 }
+.inside-column-enabled .wpt_column_setting_extra span.colum_data_input.wpt-expand {
+    position: absolute;
+    top: -3px;
+    border-radius: 0;
+}
 
 span.colum_data_input.wpt-expand {
-    background: #787070;
-    color: white;
+    background: #ebf4f7;
+    color: #07a7d0;
     padding: 5px 10px 5px 10px;
     cursor: pointer;
     font-size: 15px;
-    border-radius: 5px;
 }
