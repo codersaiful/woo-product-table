@@ -30,6 +30,7 @@
 .wpt-ok-circle:before { content: '\e81c'; } /* '' */
 .wpt-left-open:before { content: '\e81d'; } /* '' */
 .wpt-right-open:before { content: '\e81e'; } /* '' */
+.wpt-expand-collapse:before { content: '\e81f'; } /* '' */
 .wpt-spin1:before { content: '\e830'; } /* '' */
 .wpt-spin2:before { content: '\e831'; } /* '' */
 .wpt-spin3:before { content: '\e832'; } /* '' */
