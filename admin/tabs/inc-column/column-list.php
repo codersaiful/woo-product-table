@@ -39,7 +39,7 @@ $columns_array = apply_filters( 'wpto_final_column_arr', $columns_array );
                    type="text" 
                    title="<?php echo esc_attr__( 'Click for Expand/Collapse. Edit your Column Title here.', 'wpt_pro' ); ?>"
                    value="<?php echo htmlentities( $updated_title ); ?>" <?php echo esc_attr( $readOnly ); ?>> 
-                   <span data-key="<?php echo esc_attr( $keyword ); ?>" class=" colum_data_input wpt-expand"><i class="wpt-expand-collapse"></i>Expand</span>
+                   <span data-key="<?php echo esc_attr( $keyword ); ?>" class="wpt-expand"><i class="wpt-expand-collapse"></i>Expand</span>
             
             <?php
             //Type Maintenance
@@ -90,6 +90,7 @@ $columns_array = apply_filters( 'wpto_final_column_arr', $columns_array );
                  */
                 do_action( 'wpto_column_setting_form_' . $keyword, $_device_name, $column_settings, $columns_array, $updated_columns_array, $post, $additional_data ); ?>
             </div>
+            <span data-key="<?php echo esc_attr( $keyword ); ?>" class="extra_all_on_off on_now"><i class="on_off_icon"></i>Expand</span>
             <div class="wpt_column_setting_extra for_all extra_all_<?php echo esc_attr( $keyword ); ?>" data-wpt_column_setting_extra="extra_all_<?php echo esc_attr( $keyword ); ?>">
                 <?php do_action( 'wpto_column_setting_form_inside_' . $keyword, $_device_name, $column_settings, $columns_array, $updated_columns_array, $post, $additional_data ); ?>
                 <?php 
