@@ -67,11 +67,11 @@ if( ! class_exists( 'WPT_Required' ) ){
                 $small_notc->show();
 
 
-                $target = 'https://wooproducttable.com/pricing/?discount=OfferJuly19&campaign=55Offer&utm_source=Offer_LINK';
-                $demo_link = 'https://demo.wooproducttable.com/?campaign=55Offer&utm_source=Offer_LINK';
-                $my_message = 'Have you enjoyed using <b>Product Table for WooCommerce (Woo Product Table)</b> Plugin? Get up to 60% OFF your purchase. [FOR LIMITED TIME]';
-                $offerNc = new Notice('offerJuly19sfs');
-                $offerNc->set_title( 'WOO Product Table ::: Discount UPTO 60%' )
+                $target = 'https://wooproducttable.com/pricing/?campaign=Normal&utm_source=Offer_LINK';
+                $demo_link = 'https://demo.wooproducttable.com/?campaign=Normal&utm_source=Offer_LINK';
+                $my_message = 'Have you enjoyed using <b>Product Table for WooCommerce (Woo Product Table)</b> Plugin? Get up to 40% OFF your purchase.';
+                $offerNc = new Notice('offeraug22');
+                $offerNc->set_title( '' )
                 ->set_diff_limit(10)
                 ->set_type('offer')
                 ->set_img( WPT_BASE_URL. 'assets/images/offr/offerjuly.jpg')
