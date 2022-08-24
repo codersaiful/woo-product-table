@@ -128,7 +128,7 @@ ul#wpt_keyword_hide_mobile li>span.handle.checkbox_handle>input
     left: 32%;
 }
 .wpt_shortable_data>input{
-    width: 80%;
+    width: 60%;
 }
 .wpt_shortable_data>input{
     background: #6c87940d;
@@ -1927,9 +1927,9 @@ ul#wpt_column_sortable>li.wpt_sortable_peritem.inside-column-enabled .wpt_column
 }
 a.my-inslide-close-button.button {
     position: absolute;
-    top: 10px;
-    right: 10px;
-    background-color: #d00;
+    top: 2px;
+    right: 0px;
+    background-color: #000;
     color: white;
 }
 .inside-column-enabled span.wpt-expand {
