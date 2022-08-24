@@ -189,8 +189,8 @@ if (!function_exists('wpt_live_support')) {
                             <div class="wpt-widget-container">
                                 
                                 <h2 class="wpt-heading-title wpt-size-default">Documentation</h2>
-                                <a target="_blank"  href="https://wooproducttable.com/doc/" class="doc_border_btn all_doc_btn wow fadeinUp">
-                                        View All<i class="arrow_right"></i>
+                                <a target="_blank"  href="https://wooproducttable.com/documentation/" class="doc_border_btn all_doc_btn wow fadeinUp">
+                                        View Online<i class="arrow_right"></i>
                                 </a>
                                 <br>
                                 <br>
