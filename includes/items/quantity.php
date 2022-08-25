@@ -1,4 +1,6 @@
-<?php
+<div class="tag_or_div">
+    <div class="welcome-to-all">
+    <?php
 /**
  * Checking if is_sold_individually
  * then wc will not show qty box
@@ -17,3 +19,6 @@ $t_args = array(
     'step'        => apply_filters( 'woocommerce_quantity_input_step', 1, $product ),
 );
 woocommerce_quantity_input( $t_args , $product, true );
+?>
+    </div>
+</div>

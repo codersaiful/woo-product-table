@@ -33,11 +33,6 @@ if (!function_exists('wpt_live_support')) {
             .wpt-6539 .wpt-element.wpt-element-727a4d7a {
                 text-align: center;
             }
-
-            .container {
-                max-width: 1120px;
-            }
-
             .elementor *,
             .elementor :after,
             .elementor :before {
@@ -70,7 +65,7 @@ if (!function_exists('wpt_live_support')) {
 
             .col-md-4 {
                 flex: 0 0 auto;
-                width: 350px;
+                width: 300px;
             }
 
             .fadeInUp {
@@ -82,7 +77,7 @@ if (!function_exists('wpt_live_support')) {
                 border-radius: 6px;
                 background: #fff;
                 box-shadow: 0 50px 120px 0 rgba(4, 73, 89, 0.08);
-                padding: 40px 40px 50px;
+                padding: 15PX;
                 margin-bottom: 30px;
             }
 
@@ -183,7 +178,9 @@ if (!function_exists('wpt_live_support')) {
                 text-decoration: none;
                 color: #04849d;
             }
-
+            h2.wpt-heading-title.wpt-size-default {
+                font-size: 3em;
+            }
         </style>
         <div class="wpt-container wpt-column-gap-default">
             <div class="wpt-column wpt-col-100 wpt-top-column wpt-element wpt-element-2e8d520c" data-id="2e8d520c" data-element_type="column">
@@ -192,8 +189,8 @@ if (!function_exists('wpt_live_support')) {
                             <div class="wpt-widget-container">
                                 
                                 <h2 class="wpt-heading-title wpt-size-default">Documentation</h2>
-                                <a href="https://wooproducttable.com/doc/" class="doc_border_btn all_doc_btn wow fadeinUp">
-                                        View All<i class="arrow_right"></i>
+                                <a target="_blank"  href="https://wooproducttable.com/documentation/" class="doc_border_btn all_doc_btn wow fadeinUp">
+                                        View Online<i class="arrow_right"></i>
                                 </a>
                                 <br>
                                 <br>
@@ -211,19 +208,19 @@ if (!function_exists('wpt_live_support')) {
                                             </div>
                                             <ul class="list-unstyled tag_list">
                                                 <li>
-                                                    <a href="https://wooproducttable.com/doc/pre-sale/do-you-have-free-trial-period/">
+                                                    <a target="_blank"  href="https://wooproducttable.com/doc/pre-sale/do-you-have-free-trial-period/">
                                                         <i class="icon_document_alt"></i> Do I have free trial period? </a>
                                                 </li>
                                                 <li>
-                                                    <a href="https://wooproducttable.com/doc/pre-sale/do-you-have-any-coupons-or-discount-code/">
+                                                    <a target="_blank"  href="https://wooproducttable.com/doc/pre-sale/do-you-have-any-coupons-or-discount-code/">
                                                         <i class="icon_document_alt"></i> Do you have any coupons or discount code? </a>
                                                 </li>
                                                 <li>
-                                                    <a href="https://wooproducttable.com/doc/pre-sale/can-i-get-a-refund/">
+                                                    <a target="_blank"  href="https://wooproducttable.com/doc/pre-sale/can-i-get-a-refund/">
                                                         <i class="icon_document_alt"></i> Can I get a refund? </a>
                                                 </li>
                                             </ul>
-                                            <a href="https://wooproducttable.com/doc/pre-sale/" class="doc_border_btn">
+                                            <a target="_blank"  href="https://wooproducttable.com/doc/pre-sale/" class="doc_border_btn">
                                                 View All<i class="arrow_right"></i>
                                             </a>
                                         </div>
@@ -236,19 +233,19 @@ if (!function_exists('wpt_live_support')) {
                                             </div>
                                             <ul class="list-unstyled tag_list">
                                                 <li>
-                                                    <a href="https://wooproducttable.com/doc/gating-start/how-to-create-woocommerce-product-table/">
+                                                    <a target="_blank"  href="https://wooproducttable.com/doc/gating-start/how-to-create-woocommerce-product-table/">
                                                         <i class="icon_document_alt"></i> How to create WooCommerce Product Table? </a>
                                                 </li>
                                                 <li>
-                                                    <a href="https://wooproducttable.com/doc/gating-start/where-is-my-plugin-purchase-code/">
+                                                    <a target="_blank"  href="https://wooproducttable.com/doc/gating-start/where-is-my-plugin-purchase-code/">
                                                         <i class="icon_document_alt"></i> Where is my plugin purchase code? (Only for CodeCanyon user) </a>
                                                 </li>
                                                 <li>
-                                                    <a href="https://wooproducttable.com/doc/gating-start/get-automatic-updates-from-codecanyon/">
+                                                    <a target="_blank"  href="https://wooproducttable.com/doc/gating-start/get-automatic-updates-from-codecanyon/">
                                                         <i class="icon_document_alt"></i> Get Automatic Updates from CodeCanyon (Only for CodeCanyon user) </a>
                                                 </li>
                                             </ul>
-                                            <a href="https://wooproducttable.com/doc/gating-start/" class="doc_border_btn">
+                                            <a target="_blank"  href="https://wooproducttable.com/doc/gating-start/" class="doc_border_btn">
                                                 View All<i class="arrow_right"></i>
                                             </a>
                                         </div>
@@ -261,19 +258,19 @@ if (!function_exists('wpt_live_support')) {
                                             </div>
                                             <ul class="list-unstyled tag_list">
                                                 <li>
-                                                    <a href="https://wooproducttable.com/doc/installation/how-to-translate-product-table-by-wpml/">
+                                                    <a target="_blank"  href="https://wooproducttable.com/doc/installation/how-to-translate-product-table-by-wpml/">
                                                         <i class="icon_document_alt"></i> How to translate Product table by WPML </a>
                                                 </li>
                                                 <li>
-                                                    <a href="https://wooproducttable.com/doc/installation/how-to-download-pro-plugin-from-codeastrology/">
+                                                    <a target="_blank"  href="https://wooproducttable.com/doc/installation/how-to-download-pro-plugin-from-codeastrology/">
                                                         <i class="icon_document_alt"></i> How to download pro plugin from CodeAstrology </a>
                                                 </li>
                                                 <li>
-                                                    <a href="https://wooproducttable.com/doc/installation/how-to-install-woo-product-table-plugin/">
+                                                    <a target="_blank"  href="https://wooproducttable.com/doc/installation/how-to-install-woo-product-table-plugin/">
                                                         <i class="icon_document_alt"></i> How to install Woo Product Table Pro Plugin </a>
                                                 </li>
                                             </ul>
-                                            <a href="https://wooproducttable.com/doc/installation/" class="doc_border_btn">
+                                            <a target="_blank"  href="https://wooproducttable.com/doc/installation/" class="doc_border_btn">
                                                 View All<i class="arrow_right"></i>
                                             </a>
                                         </div>
@@ -286,15 +283,15 @@ if (!function_exists('wpt_live_support')) {
                                             </div>
                                             <ul class="list-unstyled tag_list">
                                                 <li>
-                                                    <a href="https://wooproducttable.com/doc/license/upgrade-product-table-license/">
+                                                    <a target="_blank"  href="https://wooproducttable.com/doc/license/upgrade-product-table-license/">
                                                         <i class="icon_document_alt"></i> Upgrade product table license </a>
                                                 </li>
                                                 <li>
-                                                    <a href="https://wooproducttable.com/doc/license/where-is-my-license-key/">
+                                                    <a target="_blank"  href="https://wooproducttable.com/doc/license/where-is-my-license-key/">
                                                         <i class="icon_document_alt"></i> Where is my license key </a>
                                                 </li>
                                             </ul>
-                                            <a href="https://wooproducttable.com/doc/license/" class="doc_border_btn">
+                                            <a target="_blank"  href="https://wooproducttable.com/doc/license/" class="doc_border_btn">
                                                 View All<i class="arrow_right"></i>
                                             </a>
                                         </div>
@@ -307,19 +304,19 @@ if (!function_exists('wpt_live_support')) {
                                             </div>
                                             <ul class="list-unstyled tag_list">
                                                 <li>
-                                                    <a href="https://wooproducttable.com/doc/table-design/select-wrapper-tag/">
+                                                    <a target="_blank"  href="https://wooproducttable.com/doc/table-design/select-wrapper-tag/">
                                                         <i class="icon_document_alt"></i> Quickly Change Design With Wrapper Tag </a>
                                                 </li>
                                                 <li>
-                                                    <a href="https://wooproducttable.com/doc/table-design/change-style/">
+                                                    <a target="_blank"  href="https://wooproducttable.com/doc/table-design/change-style/">
                                                         <i class="icon_document_alt"></i> Change column style </a>
                                                 </li>
                                                 <li>
-                                                    <a href="https://wooproducttable.com/doc/table-design/change-table-design-using-template/">
+                                                    <a target="_blank"  href="https://wooproducttable.com/doc/table-design/change-table-design-using-template/">
                                                         <i class="icon_document_alt"></i> Change Table Design Using Template </a>
                                                 </li>
                                             </ul>
-                                            <a href="https://wooproducttable.com/doc/table-design/" class="doc_border_btn">
+                                            <a target="_blank"  href="https://wooproducttable.com/doc/table-design/" class="doc_border_btn">
                                                 View All<i class="arrow_right"></i>
                                             </a>
                                         </div>
@@ -332,19 +329,19 @@ if (!function_exists('wpt_live_support')) {
                                             </div>
                                             <ul class="list-unstyled tag_list">
                                                 <li>
-                                                    <a href="https://wooproducttable.com/doc/search-and-filter/how-to-sort-products-using-tags-or-custom-taxonomy/">
+                                                    <a target="_blank"  href="https://wooproducttable.com/doc/search-and-filter/how-to-sort-products-using-tags-or-custom-taxonomy/">
                                                         <i class="icon_document_alt"></i> How to sort products using tags or custom taxonomy? </a>
                                                 </li>
                                                 <li>
-                                                    <a href="https://wooproducttable.com/doc/search-and-filter/show-product-attributes-in-different-column-and-search-box/">
+                                                    <a target="_blank"  href="https://wooproducttable.com/doc/search-and-filter/show-product-attributes-in-different-column-and-search-box/">
                                                         <i class="icon_document_alt"></i> How to show product attributes in a different column and search box </a>
                                                 </li>
                                                 <li>
-                                                    <a href="https://wooproducttable.com/doc/search-and-filter/create-an-advanced-search-box-table/">
+                                                    <a target="_blank"  href="https://wooproducttable.com/doc/search-and-filter/create-an-advanced-search-box-table/">
                                                         <i class="icon_document_alt"></i> Create an advanced search box table </a>
                                                 </li>
                                             </ul>
-                                            <a href="https://wooproducttable.com/doc/search-and-filter/" class="doc_border_btn">
+                                            <a target="_blank"  href="https://wooproducttable.com/doc/search-and-filter/" class="doc_border_btn">
                                                 View All<i class="arrow_right"></i>
                                             </a>
                                         </div>
@@ -357,19 +354,19 @@ if (!function_exists('wpt_live_support')) {
                                             </div>
                                             <ul class="list-unstyled tag_list">
                                                 <li>
-                                                    <a href="https://wooproducttable.com/doc/table-options/show-product-variations-as-table/">
+                                                    <a target="_blank"  href="https://wooproducttable.com/doc/table-options/show-product-variations-as-table/">
                                                         <i class="icon_document_alt"></i> Show Product Variations as Table </a>
                                                 </li>
                                                 <li>
-                                                    <a href="https://wooproducttable.com/doc/table-options/enable-disable-columns/">
+                                                    <a target="_blank"  href="https://wooproducttable.com/doc/table-options/enable-disable-columns/">
                                                         <i class="icon_document_alt"></i> Enable/Disable Columns </a>
                                                 </li>
                                                 <li>
-                                                    <a href="https://wooproducttable.com/doc/table-options/add-custom-taxonomy-as-table-column/">
+                                                    <a target="_blank"  href="https://wooproducttable.com/doc/table-options/add-custom-taxonomy-as-table-column/">
                                                         <i class="icon_document_alt"></i> Add Custom Taxonomy as Table Column </a>
                                                 </li>
                                             </ul>
-                                            <a href="https://wooproducttable.com/doc/table-options/" class="doc_border_btn">
+                                            <a target="_blank"  href="https://wooproducttable.com/doc/table-options/" class="doc_border_btn">
                                                 View All<i class="arrow_right"></i>
                                             </a>
                                         </div>
@@ -382,19 +379,19 @@ if (!function_exists('wpt_live_support')) {
                                             </div>
                                             <ul class="list-unstyled tag_list">
                                                 <li>
-                                                    <a href="https://wooproducttable.com/doc/tutorials/how-to-create-music-shop-using-woocommerce-product-table/">
+                                                    <a target="_blank"  href="https://wooproducttable.com/doc/tutorials/how-to-create-music-shop-using-woocommerce-product-table/">
                                                         <i class="icon_document_alt"></i> How to create an online music shop using WooCommerce Product Table </a>
                                                 </li>
                                                 <li>
-                                                    <a href="https://wooproducttable.com/doc/tutorials/how-to-create-a-restaurant-table-using-woo-product-table/">
+                                                    <a target="_blank"  href="https://wooproducttable.com/doc/tutorials/how-to-create-a-restaurant-table-using-woo-product-table/">
                                                         <i class="icon_document_alt"></i> How to create a restaurant table using Woo Product Table? </a>
                                                 </li>
                                                 <li>
-                                                    <a href="https://wooproducttable.com/doc/tutorials/create-an-online-book-store-using-woo-product-table/">
+                                                    <a target="_blank"  href="https://wooproducttable.com/doc/tutorials/create-an-online-book-store-using-woo-product-table/">
                                                         <i class="icon_document_alt"></i> Create an Online Book Store using Woo Product Table </a>
                                                 </li>
                                             </ul>
-                                            <a href="https://wooproducttable.com/doc/tutorials/" class="doc_border_btn">
+                                            <a target="_blank"  href="https://wooproducttable.com/doc/tutorials/" class="doc_border_btn">
                                                 View All<i class="arrow_right"></i>
                                             </a>
                                         </div>
@@ -407,19 +404,19 @@ if (!function_exists('wpt_live_support')) {
                                             </div>
                                             <ul class="list-unstyled tag_list">
                                                 <li>
-                                                    <a href="https://wooproducttable.com/doc/advance-uses/remove-extra-white-space/">
+                                                    <a target="_blank"  href="https://wooproducttable.com/doc/advance-uses/remove-extra-white-space/">
                                                         <i class="icon_document_alt"></i> Remove extra white space </a>
                                                 </li>
                                                 <li>
-                                                    <a href="https://wooproducttable.com/doc/advance-uses/woo-product-table-hooks-actions-and-filters/">
+                                                    <a target="_blank"  href="https://wooproducttable.com/doc/advance-uses/woo-product-table-hooks-actions-and-filters/">
                                                         <i class="icon_document_alt"></i> Woo Product Table Hooks: Actions and filters </a>
                                                 </li>
                                                 <li>
-                                                    <a href="https://wooproducttable.com/doc/advance-uses/change-default-woocommerce-thumbnail-image-size-for-woo-product-table/">
+                                                    <a target="_blank"  href="https://wooproducttable.com/doc/advance-uses/change-default-woocommerce-thumbnail-image-size-for-woo-product-table/">
                                                         <i class="icon_document_alt"></i> Change Default WooCommerce Thumbnail Image Size for Woo Product Table </a>
                                                 </li>
                                             </ul>
-                                            <a href="https://wooproducttable.com/doc/advance-uses/" class="doc_border_btn">
+                                            <a target="_blank"  href="https://wooproducttable.com/doc/advance-uses/" class="doc_border_btn">
                                                 View All<i class="arrow_right"></i>
                                             </a>
                                         </div>
@@ -432,19 +429,19 @@ if (!function_exists('wpt_live_support')) {
                                             </div>
                                             <ul class="list-unstyled tag_list">
                                                 <li>
-                                                    <a href="https://wooproducttable.com/doc/basic-tips/how-to-add-custom-html-in-wordpress-page-or-post/">
+                                                    <a target="_blank"  href="https://wooproducttable.com/doc/basic-tips/how-to-add-custom-html-in-wordpress-page-or-post/">
                                                         <i class="icon_document_alt"></i> How to Add Custom HTML in WordPress Page or Post </a>
                                                 </li>
                                                 <li>
-                                                    <a href="https://wooproducttable.com/doc/basic-tips/how-to-add-custom-css-in-wordpress-page-or-post/">
+                                                    <a target="_blank"  href="https://wooproducttable.com/doc/basic-tips/how-to-add-custom-css-in-wordpress-page-or-post/">
                                                         <i class="icon_document_alt"></i> How to Add Custom CSS in WordPress Page or Post </a>
                                                 </li>
                                                 <li>
-                                                    <a href="https://wooproducttable.com/doc/basic-tips/how-to-find-custom-taxonomies-in-wordpress/">
+                                                    <a target="_blank"  href="https://wooproducttable.com/doc/basic-tips/how-to-find-custom-taxonomies-in-wordpress/">
                                                         <i class="icon_document_alt"></i> How to find custom taxonomies in WordPress? </a>
                                                 </li>
                                             </ul>
-                                            <a href="https://wooproducttable.com/doc/basic-tips/" class="doc_border_btn">
+                                            <a target="_blank"  href="https://wooproducttable.com/doc/basic-tips/" class="doc_border_btn">
                                                 View All<i class="arrow_right"></i>
                                             </a>
                                         </div>
@@ -457,11 +454,11 @@ if (!function_exists('wpt_live_support')) {
                                             </div>
                                             <ul class="list-unstyled tag_list">
                                                 <li>
-                                                    <a href="https://wooproducttable.com/doc/woocommerce-tips/change-or-remove-woocommerce-currency-symbols/">
+                                                    <a target="_blank"  href="https://wooproducttable.com/doc/woocommerce-tips/change-or-remove-woocommerce-currency-symbols/">
                                                         <i class="icon_document_alt"></i> Change or remove WooCommerce currency symbols </a>
                                                 </li>
                                             </ul>
-                                            <a href="https://wooproducttable.com/doc/woocommerce-tips/" class="doc_border_btn">
+                                            <a target="_blank"  href="https://wooproducttable.com/doc/woocommerce-tips/" class="doc_border_btn">
                                                 View All<i class="arrow_right"></i>
                                             </a>
                                         </div>
@@ -474,11 +471,11 @@ if (!function_exists('wpt_live_support')) {
                                             </div>
                                             <ul class="list-unstyled tag_list">
                                                 <li>
-                                                    <a href="https://wooproducttable.com/doc/troubleshoots/full-table-data-is-not-saving/">
+                                                    <a target="_blank"  href="https://wooproducttable.com/doc/troubleshoots/full-table-data-is-not-saving/">
                                                         <i class="icon_document_alt"></i> Full Table data is not saving </a>
                                                 </li>
                                             </ul>
-                                            <a href="https://wooproducttable.com/doc/troubleshoots/" class="doc_border_btn">
+                                            <a target="_blank"  href="https://wooproducttable.com/doc/troubleshoots/" class="doc_border_btn">
                                                 View All<i class="arrow_right"></i>
                                             </a>
                                         </div>
@@ -491,18 +488,18 @@ if (!function_exists('wpt_live_support')) {
                                             </div>
                                             <ul class="list-unstyled tag_list">
                                                 <li>
-                                                    <a href="https://wooproducttable.com/doc/developer-docs/wishlist-not-displaying-yith-plugin/">
+                                                    <a target="_blank"  href="https://wooproducttable.com/doc/developer-docs/wishlist-not-displaying-yith-plugin/">
                                                         <i class="icon_document_alt"></i> Wishlist Not Displaying ( YITH Plugin ) </a>
                                                 </li>
                                             </ul>
-                                            <a href="https://wooproducttable.com/doc/developer-docs/" class="doc_border_btn">
+                                            <a target="_blank"  href="https://wooproducttable.com/doc/developer-docs/" class="doc_border_btn">
                                                 View All<i class="arrow_right"></i>
                                             </a>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="text-center">
-                                    <a href="https://wooproducttable.com/doc/" class="doc_border_btn all_doc_btn wow fadeinUp">
+                                    <a target="_blank"  href="https://wooproducttable.com/doc/" class="doc_border_btn all_doc_btn wow fadeinUp">
                                         View All<i class="arrow_right"></i>
                                     </a>
                                 </div>

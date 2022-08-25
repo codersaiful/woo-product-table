@@ -101,7 +101,7 @@ jQuery.fn.extend({
             targetElement.addClass(myTargetClass);
             OptimizeColumnWithName();
             $('a.my-inslide-close-button.button').remove();
-            var myCloseButton = '<a class="my-inslide-close-button button">x</a>';
+            var myCloseButton = '<a class="my-inslide-close-button button">Close</a>';
             targetElement.find('.wpt_shortable_data').append(myCloseButton);
         }
 
@@ -243,7 +243,7 @@ jQuery.fn.extend({
         $( ".wpt_responsive_each_wraper" ).sortable({handle:this});
         
         
-        $(document).on('click','.colum_data_input',function(){
+        $(document).on('click','.colum_data_input, .wpt-expand',function(){
             var parents = $(this).parents('.wpt_shortable_data');
             var onOff = parents.children('.extra_all_on_off');
             var extras = parents.children('.wpt_column_setting_extra');

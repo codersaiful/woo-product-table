@@ -1,6 +1,6 @@
 {
   "name": "",
-  "css_prefix_text": "icon-",
+  "css_prefix_text": "wpt-",
   "css_use_suffix": false,
   "hinting": true,
   "units_per_em": 1000,
@@ -268,6 +268,12 @@
       "uid": "0357f7abbc0babf43509669f332e41e6",
       "css": "mobile",
       "code": 61707,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "3c24ee33c9487bbf18796ca6dffa1905",
+      "css": "expand-collapse",
+      "code": 59423,
       "src": "fontawesome"
     }
   ]

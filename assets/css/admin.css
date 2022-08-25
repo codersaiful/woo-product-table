@@ -128,7 +128,7 @@ ul#wpt_keyword_hide_mobile li>span.handle.checkbox_handle>input
     left: 32%;
 }
 .wpt_shortable_data>input{
-    width: 80%;
+    width: 60%;
 }
 .wpt_shortable_data>input{
     background: #6c87940d;
@@ -1841,7 +1841,7 @@ ul#wpt_column_sortable>li.wpt_sortable_peritem.inside-column-enabled {
     padding: 50px;
     height: 100%;
     opacity: 1;
-    z-index: 99999;
+    z-index: 70;
 }
 a.edit-my-column-easily {
     padding: 0 12px;
@@ -1888,6 +1888,12 @@ ul#wpt_column_sortable>li.wpt_sortable_peritem.inside-column-enabled span.extra_
 body.wpt_admin_body span.select2-container.select2-container--default.select2-container--open{
     z-index: 45;
 }
+span.extra_all_on_off {
+    display: none;
+}
+li.expanded_li span.extra_all_on_off {
+    display: inline-block;
+}
 /* ul#wpt_column_sortable>li.wpt_sortable_peritem.inside-column-enabled span.extra_all_on_off, */
 ul#wpt_column_sortable>li.wpt_sortable_peritem.inside-column-enabled span.wpt_column_arrow,
 ul#wpt_column_sortable>li.wpt_sortable_peritem.inside-column-enabled div.extra-inner-item-wrapper,
@@ -1898,6 +1904,8 @@ ul#wpt_column_sortable>li.wpt_sortable_peritem.inside-column-enabled , */
 .inside-column-enabled .wpt_column_setting_extra tr.each-style.each-style-background-color,
 .inside-column-enabled .wpt_column_setting_extra tr.each-style.each-style-border,
 .inside-column-enabled .wpt_column_setting_extra tr.each-style.each-style-vertical-align,
+li.expanded_li.inside-column-enabled span.extra_all_on_off,
+.inside-column-enabled span.extra_all_on_off,
 /* .inside-column-enabled input.colum_data_input.check, */
 ul#wpt_column_sortable>li.wpt_sortable_peritem.inside-column-enabled span.handle{
     display: none !important;
@@ -1919,8 +1927,21 @@ ul#wpt_column_sortable>li.wpt_sortable_peritem.inside-column-enabled .wpt_column
 }
 a.my-inslide-close-button.button {
     position: absolute;
-    top: 10px;
-    right: 10px;
-    background-color: #d00;
+    top: 2px;
+    right: 0px;
+    background-color: #000;
     color: white;
+}
+.inside-column-enabled span.wpt-expand {
+    position: absolute;
+    top: -3px;
+    border-radius: 0;
+}
+
+span.wpt-expand {
+    background: #ebf4f7;
+    color: #07a7d0;
+    padding: 5px 10px 5px 10px;
+    cursor: pointer;
+    font-size: 15px;
 }
