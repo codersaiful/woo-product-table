@@ -1852,6 +1852,7 @@ a.edit-my-column-easily {
     cursor: pointer;
     position: absolute;
     right: 19px;
+    margin-right: 10px;
 }
 a.edit-my-column-easily:hover {
     background: #0c9ec3;
