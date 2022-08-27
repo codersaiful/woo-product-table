@@ -1761,68 +1761,70 @@ jQuery(function($) {
                 $( thisRow + ' .message').val(msg);
         });
         
-        $('body').on('change', '.wpt_row input.input-text.qty.text', function() {
-                var temp_number = $(this).parents('tr.wpt_row').data('temp_number');
-                var Qty_Val = $(this).val();
-                var product_id = $(this).parents('tr').data('product_id');
+        $(document).on('keyup','.wpt_row input.input-text.qty.text', inputBoxChangeHandle);
+        $('body').on('change', '.wpt_row input.input-text.qty.text', inputBoxChangeHandle);
+        function inputBoxChangeHandle() {
+            var temp_number = $(this).parents('tr.wpt_row').data('temp_number');
+            var Qty_Val = $(this).val();
+            var product_id = $(this).parents('tr').data('product_id');
+        
+            var thisRow = '#table_id_' + temp_number + ' tr.product_id_' + product_id;
             
-                var thisRow = '#table_id_' + temp_number + ' tr.product_id_' + product_id;
-                
-                $( thisRow + ' input.input-text.qty.text').val(Qty_Val);
-                $( thisRow ).attr('data-quantity', Qty_Val);
-                $( thisRow + ' a.wpt_woo_add_cart_button').attr('data-quantity', Qty_Val);
-                $( thisRow + ' a.add_to_cart_button ').attr('data-quantity', Qty_Val);
-                var Item_URL = '?add-to-cart=' + product_id + '&quantity=' + Qty_Val;
-                $( thisRow + ' a.add_to_cart_button ').attr('href', Item_URL);
-                var targetTotalSelector = $('#table_id_' + temp_number + ' .product_id_' + product_id + ' .wpt_total_item.total_general');
-                 
+            $( thisRow + ' input.input-text.qty.text').val(Qty_Val);
+            $( thisRow ).attr('data-quantity', Qty_Val);
+            $( thisRow + ' a.wpt_woo_add_cart_button').attr('data-quantity', Qty_Val);
+            $( thisRow + ' a.add_to_cart_button ').attr('data-quantity', Qty_Val);
+            var Item_URL = '?add-to-cart=' + product_id + '&quantity=' + Qty_Val;
+            $( thisRow + ' a.add_to_cart_button ').attr('href', Item_URL);
+            var targetTotalSelector = $('#table_id_' + temp_number + ' .product_id_' + product_id + ' .wpt_total_item.total_general');
+             
+        
+            var targetWeightSelector = $('#table_id_' + temp_number + ' .product_id_' + product_id + ' .weight-box');
+            var targetWeightAttr = $('#table_id_' + temp_number + ' .product_id_' + product_id + ' .weight-box').attr('data-weight');
+            var totalWeight =  parseFloat(targetWeightAttr) * parseFloat(Qty_Val);
+            totalWeight = totalWeight.toFixed(2);
+            if(totalWeight === 'NaN'){
+            totalWeight = '';
+            }
+            targetWeightSelector.html(totalWeight);
             
-                var targetWeightSelector = $('#table_id_' + temp_number + ' .product_id_' + product_id + ' .weight-box');
-                var targetWeightAttr = $('#table_id_' + temp_number + ' .product_id_' + product_id + ' .weight-box').attr('data-weight');
-                var totalWeight =  parseFloat(targetWeightAttr) * parseFloat(Qty_Val);
-                totalWeight = totalWeight.toFixed(2);
-                if(totalWeight === 'NaN'){
-                totalWeight = '';
-                }
-                targetWeightSelector.html(totalWeight);
-                
-                var targetTotalStrongSelector = $('#table_id_' + temp_number + ' .product_id_' + product_id + ' .wpt_total_item.total_general strong');
-                var targetPrice = targetTotalSelector.attr('data-price');
-                var targetCurrency = targetTotalSelector.data('currency');
-                var targetPriceDecimalSeparator = targetTotalSelector.data('price_decimal_separator');
-                var targetPriceThousandlSeparator = targetTotalSelector.data('thousand_separator');
+            var targetTotalStrongSelector = $('#table_id_' + temp_number + ' .product_id_' + product_id + ' .wpt_total_item.total_general strong');
+            var targetPrice = targetTotalSelector.attr('data-price');
+            var targetCurrency = targetTotalSelector.data('currency');
+            var targetPriceDecimalSeparator = targetTotalSelector.data('price_decimal_separator');
+            var targetPriceThousandlSeparator = targetTotalSelector.data('thousand_separator');
 
-                var targetNumbersPoint = targetTotalSelector.data('number_of_decimal');
-                var totalPrice = parseFloat(targetPrice) * parseFloat(Qty_Val);
-                totalPrice = totalPrice.toFixed(targetNumbersPoint);
-                var priceFormat = WPT_DATA.priceFormat;
-               
-                var newPrice;
-                switch (priceFormat) {
-                case 'left': // left
-                    //newPrice = targetCurrency + totalPrice.replace(".",targetPriceDecimalSeparator);
-                    newPrice = targetCurrency+ (totalPrice + '').replace(/\B(?=(?:\d{3})+\b)/g, ',');
-                    break;
-                case 'right': // right
-                    //newPrice = totalPrice.replace(".",targetPriceDecimalSeparator) + targetCurrency;
-                    newPrice = (totalPrice + '').replace(/\B(?=(?:\d{3})+\b)/g, ',') + targetCurrency;
-                    break;
-                case 'left-space': // left with space
-                    //newPrice = targetCurrency + ' ' + totalPrice.replace(".",targetPriceDecimalSeparator);
-                    newPrice = targetCurrency + ' ' +  (totalPrice + '').replace(/\B(?=(?:\d{3})+\b)/g, ',');
-                    break;
-                case 'right-space': // right with space
-                    //newPrice = totalPrice.replace(".",targetPriceDecimalSeparator) + ' ' + targetCurrency;
-                    newPrice =  (totalPrice + '').replace(/\B(?=(?:\d{3})+\b)/g, ',') + ' ' + targetCurrency;
-                    break;
-                }
+            var targetNumbersPoint = targetTotalSelector.data('number_of_decimal');
+            var totalPrice = parseFloat(targetPrice) * parseFloat(Qty_Val);
+            totalPrice = totalPrice.toFixed(targetNumbersPoint);
+            var priceFormat = WPT_DATA.priceFormat;
+           
+            var newPrice;
+            switch (priceFormat) {
+            case 'left': // left
+                //newPrice = targetCurrency + totalPrice.replace(".",targetPriceDecimalSeparator);
+                newPrice = targetCurrency+ (totalPrice + '').replace(/\B(?=(?:\d{3})+\b)/g, ',');
+                break;
+            case 'right': // right
+                //newPrice = totalPrice.replace(".",targetPriceDecimalSeparator) + targetCurrency;
+                newPrice = (totalPrice + '').replace(/\B(?=(?:\d{3})+\b)/g, ',') + targetCurrency;
+                break;
+            case 'left-space': // left with space
+                //newPrice = targetCurrency + ' ' + totalPrice.replace(".",targetPriceDecimalSeparator);
+                newPrice = targetCurrency + ' ' +  (totalPrice + '').replace(/\B(?=(?:\d{3})+\b)/g, ',');
+                break;
+            case 'right-space': // right with space
+                //newPrice = totalPrice.replace(".",targetPriceDecimalSeparator) + ' ' + targetCurrency;
+                newPrice =  (totalPrice + '').replace(/\B(?=(?:\d{3})+\b)/g, ',') + ' ' + targetCurrency;
+                break;
+            }
 
-                $('.yith_request_temp_' + temp_number + '_id_' + product_id).attr('data-quantity', Qty_Val);
-                $('#table_id_' + temp_number + ' .product_id_' + product_id + ' .wpt_total_item.total_general strong').html(newPrice);
-                //$(target_row_id + ' a.add_to_cart_button').attr('data-quantity', Qty_Val); //wpt_total_item total_general
-                
-                updateCheckBoxCount(temp_number);
-            });
+            $('.yith_request_temp_' + temp_number + '_id_' + product_id).attr('data-quantity', Qty_Val);
+            $('#table_id_' + temp_number + ' .product_id_' + product_id + ' .wpt_total_item.total_general strong').html(newPrice);
+            //$(target_row_id + ' a.add_to_cart_button').attr('data-quantity', Qty_Val); //wpt_total_item total_general
+            
+            updateCheckBoxCount(temp_number);
+        }
 
         
         function updateCheckBoxCount(temp_number){
