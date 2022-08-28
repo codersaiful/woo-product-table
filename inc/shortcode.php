@@ -2,6 +2,7 @@
 namespace WOO_PRODUCT_TABLE\Inc;
 
 use WOO_PRODUCT_TABLE\Inc\Handle\Message as Msg;
+use WOO_PRODUCT_TABLE\Inc\Handle\Args;
 
 class Shortcode{
 
@@ -11,6 +12,8 @@ class Shortcode{
     public $status;
     public $post_type;
     public $req_post_type = 'wpt_product_table';
+    public $posts_per_page = 20;
+    public $table_type = 'normal_table';
 
     public $is_table;
 
@@ -19,6 +22,16 @@ class Shortcode{
     public $_enable_cols;
     public $column_array;
     public $column_settings;
+
+    public $basics;
+    public $basics_args;
+
+    public $search_n_filter;
+    public $conditions;
+    public $pagination;
+
+
+    public $args;
     
 
     public function run(){
@@ -52,13 +65,32 @@ class Shortcode{
         $this->column_array = get_post_meta( $this->table_id, 'column_array' . $this->_device, true );
         $this->column_settings = get_post_meta( $this->table_id, 'column_settings' . $this->_device, true);
         
-        $this->_enable_cols = apply_filters('wpt_enable_cols', $this->_enable_cols, $this);
+
+        //we will removed this filter after few version. 
+        $this->_enable_cols = apply_filters( 'wpto_enabled_column_array', $this->_enable_cols, $this->table_id, $this->atts, $this->column_settings, $this->column_array );
+        /**
+         * @Hook Filter wpto_enabled_column_array to change or modify column amount, we can use it.
+         */
+        $this->_enable_cols = apply_filters('wpt_enabled_column', $this->_enable_cols, $this);
 
 
 
         if( empty( $this->_enable_cols ) ){
             return Msg::not_found_cols($this);
         }
+
+
+        $this->basics = $this->get_meta( 'basics' );
+        $this->basics_args = $this->get_meta( 'args' );
+        $this->conditions = $this->get_meta( 'conditions' );
+        
+        $this->search_n_filter = $this->get_meta( 'search_n_filter' );
+        $this->pagination = $this->get_meta( 'pagination' );
+
+        $this->posts_per_page = $this->conditions['posts_per_page'] ?? $this->posts_per_page;
+        $this->table_type = $this->conditions['table_type'] ?? $this->table_type;
+
+        $this->args = Args::manage($this);
 
 
         var_dump($this);
@@ -70,6 +102,28 @@ class Shortcode{
     }
     public function get_shortcde_text(){
         return $this->shortcde_text;
+    }
+
+
+    /**
+     * Getting meta value,
+     * which need as array actually
+     * 
+     * use:
+     * $this->basic = $this->get_meta('basics');
+     * 
+     * used for:
+     * $basics = get_post_meta( $ID, 'basics', true );
+     * get_post_meta( $ID, 'table_style', true );
+     * 
+     * @since 3.2.4.1
+     *
+     * @param string $meta_key it to be meta key. It will retrive data from our table post
+     * @return array
+     */
+    private function get_meta( string $meta_key ){
+        $data = get_post_meta( $this->table_id, $meta_key, true );
+        return is_array( $data ) ? $data : [];
     }
 
 }
