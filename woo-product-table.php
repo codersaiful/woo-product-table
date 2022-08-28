@@ -384,7 +384,12 @@ class WPT_Product_Table{
         }
 
        $dir = dirname( __FILE__ ); //dirname( __FILE__ )
-
+        /**
+         * Include Autoloader
+         * @since 8.0.2.4
+         * @author Saiful Islam <codersaiful@gmail.com>
+         */
+        include_once $dir . '/autoloader.php';
        /**
         * See $path_args for Set Path and set Constant
         * 
@@ -478,6 +483,10 @@ class WPT_Product_Table{
     if( has_filter( 'wpml_current_language' ) ){
         include_once $this->path('BASE_DIR','wpml/init.php');
     }
+
+    $shortcode = new WOO_PRODUCT_TABLE\Inc\Shortcode();
+    $shortcode->run();
+    
    }
    
         
