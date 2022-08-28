@@ -220,7 +220,7 @@ You can easily show specific category products. While creating new table click o
 * Added: Inside Item handle feature/ edit feature added like a modal.
 * Added: Auto Responsive Label Issue has been solved
 * Added: Quick Quantity enable on keyup
-
+* Added: Total Price change on quick quantity Change on keyup.
 
 = 3.2.3 =
   * Big Data not saving issue fixed
