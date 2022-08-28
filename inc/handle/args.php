@@ -26,6 +26,7 @@ class Args{
             unset( $args['s'] );
         }
 
+        $shortcode->meta_value_sort = $shortcode->conditions['meta_value_sort'] ?? '';
         $shortcode->orderby = $shortcode->conditions['sort_order_by'] ?? '';
         $shortcode->order = $shortcode->conditions['sort'] ?? '';
 
@@ -34,9 +35,9 @@ class Args{
             $args['order'] = $shortcode->order;
         }
 
-        if( $shortcode->order && ( $shortcode->orderby == 'meta_value' || $shortcode->orderby == 'meta_value_num' ) ){
+        if( $shortcode->meta_value_sort && ( $shortcode->orderby == 'meta_value' || $shortcode->orderby == 'meta_value_num' ) ){
             $args['meta_query'][] = [
-                'key'     => $shortcode->order,
+                'key'     => $shortcode->meta_value_sort,
                 'compare' => 'EXISTS',
             ];
         }
