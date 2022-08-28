@@ -16,8 +16,8 @@ class Shortcode{
     public $table_type = 'normal_table';
 
     public $is_table;
-
     public $_device;
+    public $args;
 
     public $_enable_cols;
     public $column_array;
@@ -31,7 +31,7 @@ class Shortcode{
     public $pagination;
 
 
-    public $args;
+    
     
 
     public function run(){
@@ -89,6 +89,10 @@ class Shortcode{
 
         $this->posts_per_page = $this->conditions['posts_per_page'] ?? $this->posts_per_page;
         $this->table_type = $this->conditions['table_type'] ?? $this->table_type;
+
+
+        //Some Basic Meta Values | All other query related available in Args Class
+        $this->minicart_position = $this->basics['minicart_position'] ?? '';
 
         $this->args = Args::manage($this);
 
