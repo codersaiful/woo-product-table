@@ -44,9 +44,40 @@ class Shortcode{
         extract( shortcode_atts( $pairs, $atts ) );
         
         $this->assing_property($atts);
+        var_dump($this);
+        ob_start();
 
+        $this->wrapper_class = [
+            $this->table_type . "_wrapper",
+            "detected_device_" . $this->_device . '_wrapper',
+            " wpt_temporary_wrapper_" . $this->table_id,
+            " wpt_id_" . $this->table_id,
+            "wpt_product_table_wrapper",
+            $this->template . "_wrapper woocommerce",
+            $this->checkbox,
+            "wpt_" . $this->pagination_ajax,
+        ];
 
-        var_dump($this->args);
+        //In Future Update version, this filter will removed
+        $this->wrapper_class = apply_filters( 'wpto_wrapper_tag_class_arr', $this->wrapper_class, $this->table_id, $this->args, $this->column_settings, $this->_enable_cols, $this->column_array );
+        $this->wrapper_class = $this->apply_filter( 'wpt_wrapper_class', $this->wrapper_class );
+        
+        $wrapper_class_arr = implode( " ", $wrapper_class_arr );
+
+        ?>
+        <div data-checkout_url="<?php echo esc_url( wc_get_checkout_url() ); ?>" 
+        data-temp_number="<?php echo esc_attr( $this->table_id ); ?>" 
+        data-add_to_cart="<?php echo esc_attr( $this->this->add_to_cart_text ); ?>" 
+        data-site_url="<?php echo esc_url( site_url() ); ?>" 
+        id="table_id_<?php echo esc_attr( $this->table_id ); ?>" 
+        class="normal_table_wrapper detected_device__wrapper  wpt_temporary_wrapper_2519  wpt_id_2519 wpt_product_table_wrapper default_wrapper woocommerce wpt_no_checked_table wpt_pagination_ajax   wpt_device_desktop">
+        
+        </div>
+        
+        <?php 
+        
+
+        return ob_get_clean();
     }
 
     public function assing_property( $atts ){
@@ -91,6 +122,7 @@ class Shortcode{
         $this->basics = $this->get_meta( 'basics' );
         $this->basics_args = $this->get_meta( 'args' );
         $this->conditions = $this->get_meta( 'conditions' );
+        $this->table_style = $this->get_meta( 'table_style' );
         
         $this->search_n_filter = $this->get_meta( 'search_n_filter' );
         $this->pagination = $this->get_meta( 'pagination' );
@@ -101,6 +133,13 @@ class Shortcode{
 
         //Some Basic Meta Values | All other query related available in Args Class
         $this->minicart_position = $this->basics['minicart_position'] ?? '';
+        $this->add_to_cart_text = $this->basics['add_to_cart_text'] ?? '';//$basics['add_to_cart_text'] ?? ''
+        $this->pagination_ajax = $this->basics['pagination_ajax'] ?? '';
+        $this->checkbox = $this->basics['checkbox'] ?? 'wpt_no_checked_table'; //$checkbox = isset( $basics['checkbox'] ) && !empty( $basics['checkbox'] ) ? $basics['checkbox'] : 'wpt_no_checked_table';
+
+        //Some others from other meta
+        $this->template = $this->table_style['template'] ?? '';
+
 
         $this->args = Args::manage($this);
     }
