@@ -92,6 +92,7 @@ class Shortcode{
                 class="<?php echo esc_attr( Table_Attr::table_class( $this ) ); ?>">
 
                 <?php $this->table_head(); ?>
+                <?php $this->table_body(); ?>
                 </table>
             </div>
 
@@ -186,6 +187,9 @@ class Shortcode{
         return $this->shortcde_text;
     }
 
+    private function table_body(){
+        
+    }
     private function table_head(){
         if( ! $this->table_head ) return;
         if( ! $this->is_table_head ) return; //Check column available or not, if empty array of _enable_cols, it will return false.
