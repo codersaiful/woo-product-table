@@ -2,6 +2,7 @@
 namespace WOO_PRODUCT_TABLE\Inc\Handle;
 
 use WOO_PRODUCT_TABLE\Inc\Shortcode;
+use WOO_PRODUCT_TABLE\Inc\Table\Row;
 class Table_Attr{
 
     public static function wrapper_class( Shortcode $shortcode ){
@@ -52,5 +53,36 @@ class Table_Attr{
         }
 
         return implode( " ", $shortcode->table_class );
+    }
+
+    public static function row_class( Row $row  ){
+
+        $row->row_class = [
+            "visible_row",
+            "wpt_row",
+            "wpt_row_" . $row->table_id,
+            "wpt_row_serial_",
+            "wpt_row_product_id_" . get_the_ID(),
+            "product_id_" . get_the_ID(),
+            $row->taxonomy_class,
+            $row->product_type,
+            "product_type_" . $row->product_type,
+            "stock_status_" . $row->product_data['stock_status'],
+            "backorders_" . $row->product_data['backorders'],
+            "sku_" . $row->product_data['sku'],
+            "status_" . $row->product_data['status'],
+            $row->individual,
+                    
+        ];
+
+        //In Future Update version, this filter will removed
+        $row->row_class = apply_filters( 'wpto_tr_class_arr', $row->row_class, $row->args, $row->table_id, $row->column_settings, $row->_enable_cols, $row->product_data );
+        $row->row_class = $row->apply_filter( 'wpt_tr_class', $row->row_class );
+        
+        if( ! is_array( $row->row_class ) ){
+            $row->row_class = [];
+        }
+
+        return implode( " ", $row->row_class );
     }
 }

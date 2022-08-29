@@ -44,7 +44,22 @@ class Message{
         return $error_html;
     }
 
-
+    public static function not_found_product(Shortcode $shortcode){
+        $msg = $shortcode->_config['product_not_founded'] ?? __( 'Product not found!', 'wpt_pro' );
+    ?>
+        <div class='wpt_product_not_found'><?php echo wp_kses_post( $msg ); ?></div>
+    <?php    
+    }
+    public static function not_found_product_tr(Shortcode $shortcode){
+        
+    ?>
+    <tr class="product-not-found-tr" colspan="<?php echo esc_attr( $shortcode->col_count ); ?>">
+        <td>
+        <?php self::not_found_product( $shortcode ); ?>
+        </td>
+    </tr>
+    <?php    
+    }
 
 
 }
