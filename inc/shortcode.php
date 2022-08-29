@@ -3,6 +3,7 @@ namespace WOO_PRODUCT_TABLE\Inc;
 
 use WOO_PRODUCT_TABLE\Inc\Handle\Message as Msg;
 use WOO_PRODUCT_TABLE\Inc\Handle\Args;
+use WOO_PRODUCT_TABLE\Inc\Handle\Table_Attr;
 
 class Shortcode{
 
@@ -17,6 +18,7 @@ class Shortcode{
 
     public $is_table;
     public $_device;
+    public $_config;
     public $args;
 
     public $_enable_cols;
@@ -31,7 +33,18 @@ class Shortcode{
     public $pagination;
 
 
-    
+    public $post_include;
+    public $post_exclude;
+    public $min_price;
+    public $max_price;
+    public $minicart_position;
+    public $add_to_cart_text;
+    public $pagination_ajax;
+    public $checkbox;
+    public $template;
+
+    public $wrapper_class;
+
     
 
     public function run(){
@@ -47,30 +60,28 @@ class Shortcode{
         // var_dump($this);
         ob_start();
 
-        $this->wrapper_class = [
-            $this->table_type . "_wrapper",
-            "detected_device_" . $this->_device . '_wrapper',
-            " wpt_temporary_wrapper_" . $this->table_id,
-            " wpt_id_" . $this->table_id,
-            "wpt_product_table_wrapper",
-            $this->template . "_wrapper woocommerce",
-            $this->checkbox,
-            "wpt_" . $this->pagination_ajax,
-        ];
+        
 
-        //In Future Update version, this filter will removed
-        $this->wrapper_class = apply_filters( 'wpto_wrapper_tag_class_arr', $this->wrapper_class, $this->table_id, $this->args, $this->column_settings, $this->_enable_cols, $this->column_array );
-        $this->wrapper_class = $this->apply_filter( 'wpt_wrapper_class', $this->wrapper_class );
-        var_dump($this->args);
         ?>
         <div data-checkout_url="<?php echo esc_url( wc_get_checkout_url() ); ?>" 
         data-temp_number="<?php echo esc_attr( $this->table_id ); ?>" 
         data-add_to_cart="<?php echo esc_attr( $this->add_to_cart_text ); ?>" 
         data-site_url="<?php echo esc_url( site_url() ); ?>" 
         id="table_id_<?php echo esc_attr( $this->table_id ); ?>" 
-        class="<?php echo esc_attr( implode( " ", $this->wrapper_class ) ); ?>">
-        
-            
+        class="<?php echo esc_attr( Table_Attr::wrapper_class( $this ) ); ?>">
+            <h1 class="test_title">Test Titlte</h1>
+            <div class="wpt_table_tag_wrapper">
+                <table 
+                data-page_number=""
+                data-temp_number=""
+                data-config_json=""
+                data-data_json=""
+                data-data_json_backup=""
+                id="wpt_table"
+                class="<?php echo esc_attr( Table_Attr::table_class( $this ) ); ?>">
+
+                </table>
+            </div>
 
         </div>
         
@@ -99,6 +110,7 @@ class Shortcode{
           
 
 
+        $this->_config = wpt_get_config_value( $this->table_id );
         $this->_device = wpt_col_settingwise_device( $this->table_id );
         $this->_enable_cols = get_post_meta( $this->table_id, 'enabled_column_array' . $this->_device, true );
         $this->column_array = get_post_meta( $this->table_id, 'column_array' . $this->_device, true );
@@ -191,7 +203,7 @@ class Shortcode{
      * @param boolean $default_ouptput for do_action, normally we will not return anything, if need we can add it.
      * @return void
      */
-    private function do_action( string $action_hook, $default_ouptput = false ){
+    public function do_action( string $action_hook, $default_ouptput = false ){
         ob_start();
         /**
          * To Insert Content at Top of the Table, Just inside of Wrapper tag of Table
@@ -210,7 +222,7 @@ class Shortcode{
      * @param boolean|array|string|null $ouptput It's can be any type of data. which we want to store as filter hook
      * @return boolean|array|string|null 
      */
-    private function apply_filter( string $filter_hook, $ouptput = false ){
+    public function apply_filter( string $filter_hook, $ouptput = false ){
         return apply_filters( $filter_hook, $ouptput, $this );
     }
 }

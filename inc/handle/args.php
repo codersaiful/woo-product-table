@@ -8,8 +8,8 @@ class Args{
     public static function manage( Shortcode $shortcode ){
         $shortcode->post_include = $shortcode->basics['post_include'] ?? [];
         $shortcode->post_exclude = $shortcode->basics['post_exclude'] ?? [];
-        $shortcode->min_price = $shortcode->basics['min_price'] ?? '';
-        $shortcode->max_price = $shortcode->basics['max_price'] ?? '';
+        $shortcode->min_price = $shortcode->conditions['min_price'] ?? '';
+        $shortcode->max_price = $shortcode->conditions['max_price'] ?? '';
 
         $args = [
             'posts_per_page' => $shortcode->posts_per_page ?? -1,
