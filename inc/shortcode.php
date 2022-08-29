@@ -43,6 +43,14 @@ class Shortcode{
         $pairs = array( 'exclude' => false );
         extract( shortcode_atts( $pairs, $atts ) );
         
+        $this->assing_property($atts);
+
+
+        var_dump($this->args);
+    }
+
+    public function assing_property( $atts ){
+        
 
         $this->table_id = isset( $atts['id'] ) && !empty( $atts['id'] ) ? (int) $atts['id'] : 0; 
         $this->table_id = apply_filters( 'wpml_object_id', $this->table_id, $this->req_post_type, TRUE  );
@@ -95,9 +103,6 @@ class Shortcode{
         $this->minicart_position = $this->basics['minicart_position'] ?? '';
 
         $this->args = Args::manage($this);
-
-
-        var_dump($this);
     }
 
     public function set_shortcde_text( string $shortcde_text ){
@@ -130,4 +135,35 @@ class Shortcode{
         return is_array( $data ) ? $data : [];
     }
 
+    /**
+     * Declear Do_Action for inside shortcode Table
+     * Here we will take only one Variable, that is 
+     * this Class Object as param
+     *
+     * @param string $action_hook action hook keyword
+     * @param boolean $default_ouptput for do_action, normally we will not return anything, if need we can add it.
+     * @return void
+     */
+    private function do_action( string $action_hook, $default_ouptput = false ){
+        ob_start();
+        /**
+         * To Insert Content at Top of the Table, Just inside of Wrapper tag of Table
+         * Available Args $table_ID, $args, $config_value, $atts;
+         */
+        do_action( $action_hook, $default_ouptput, $this );
+        return ob_get_clean();
+    }
+
+    /**
+     * Our Filter Hook define, Only for this Object/Class 
+     * It will not use any other place actually.
+     * It will call only here inside Shortcode Class
+     *
+     * @param string $filter_hook filter hook keyword
+     * @param boolean|array|string|null $ouptput It's can be any type of data. which we want to store as filter hook
+     * @return void
+     */
+    private function apply_filter( string $filter_hook, $ouptput = false ){
+        return apply_filters( $filter_hook, $ouptput, $this );
+    }
 }
