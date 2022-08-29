@@ -61,8 +61,6 @@ class Shortcode{
         //In Future Update version, this filter will removed
         $this->wrapper_class = apply_filters( 'wpto_wrapper_tag_class_arr', $this->wrapper_class, $this->table_id, $this->args, $this->column_settings, $this->_enable_cols, $this->column_array );
         $this->wrapper_class = $this->apply_filter( 'wpt_wrapper_class', $this->wrapper_class );
-        
-        $wrapper_class_arr = implode( " ", $wrapper_class_arr );
 
         ?>
         <div data-checkout_url="<?php echo esc_url( wc_get_checkout_url() ); ?>" 
@@ -70,7 +68,7 @@ class Shortcode{
         data-add_to_cart="<?php echo esc_attr( $this->this->add_to_cart_text ); ?>" 
         data-site_url="<?php echo esc_url( site_url() ); ?>" 
         id="table_id_<?php echo esc_attr( $this->table_id ); ?>" 
-        class="normal_table_wrapper detected_device__wrapper  wpt_temporary_wrapper_2519  wpt_id_2519 wpt_product_table_wrapper default_wrapper woocommerce wpt_no_checked_table wpt_pagination_ajax   wpt_device_desktop">
+        class="<?php echo esc_attr( implode( " ", $this->wrapper_class ) ); ?>">
         
         </div>
         
@@ -200,7 +198,7 @@ class Shortcode{
      *
      * @param string $filter_hook filter hook keyword
      * @param boolean|array|string|null $ouptput It's can be any type of data. which we want to store as filter hook
-     * @return void
+     * @return boolean|array|string|null 
      */
     private function apply_filter( string $filter_hook, $ouptput = false ){
         return apply_filters( $filter_hook, $ouptput, $this );
