@@ -8,6 +8,7 @@ use WOO_PRODUCT_TABLE\Inc\Handle\Table_Attr;
 class Shortcode{
 
     public $shortcde_text = 'SAIFUL_TABLE';
+    private $assing_property = false;
     public $atts;
     public $table_id;
     public $status;
@@ -54,6 +55,7 @@ class Shortcode{
     public $_config;
     public $wrapper_class;
     public $table_class;
+
 
     
 
@@ -177,6 +179,9 @@ class Shortcode{
          * @Hook filter wpt_query_args manage wpt table query args using filter hook
          */
         $this->args = $this->apply_filter( 'wpt_query_args', $this->args );
+
+
+        $this->assing_property = true;
     }
 
     public function set_shortcde_text( string $shortcde_text ){
@@ -187,8 +192,22 @@ class Shortcode{
         return $this->shortcde_text;
     }
 
-    private function table_body(){
+    private function table_body( $id = false ){
+        if( ! $this->assing_property && ! $id ){
+            $atts = [
+                'id' => $id
+            ];
+            $this->assing_property( $atts );
+        }
+        $product_loop = new \WP_Query( $this->args );
+        if ($this->sort == 'random') {
+            shuffle( $product_loop->posts );
+        }
+        $product_loop = apply_filters( 'wpto_product_loop', $product_loop, $this->table_id, $this->args );
+        $product_loop = $this->apply_filter( 'wpt_product_loop', $product_loop );
         
+        
+
     }
     private function table_head(){
         if( ! $this->table_head ) return;
