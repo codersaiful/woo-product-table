@@ -65,7 +65,7 @@ class Shortcode{
         ?>
         <div data-checkout_url="<?php echo esc_url( wc_get_checkout_url() ); ?>" 
         data-temp_number="<?php echo esc_attr( $this->table_id ); ?>" 
-        data-add_to_cart="<?php echo esc_attr( $this->this->add_to_cart_text ); ?>" 
+        data-add_to_cart="<?php echo esc_attr( $this->add_to_cart_text ); ?>" 
         data-site_url="<?php echo esc_url( site_url() ); ?>" 
         id="table_id_<?php echo esc_attr( $this->table_id ); ?>" 
         class="<?php echo esc_attr( implode( " ", $this->wrapper_class ) ); ?>">
