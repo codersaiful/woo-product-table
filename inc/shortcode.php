@@ -150,6 +150,7 @@ class Shortcode extends Shortcode_Base{
         if( empty( $this->_enable_cols ) || ! is_array( $this->_enable_cols ) ){
             $this->is_table_head = false;
             $this->is_table_column = false;
+            $this->_enable_cols = [];
             return Msg::not_found_cols($this);
         }
 
@@ -171,6 +172,7 @@ class Shortcode extends Shortcode_Base{
         //Some Basic Meta Values | All other query related available in Args Class
         $this->table_head = ! isset( $this->basics['table_head'] ) ? true : false;
         $this->minicart_position = $this->basics['minicart_position'] ?? '';
+        $this->ajax_action = $this->basics['ajax_action'] ?? '';
         $this->add_to_cart_text = $this->basics['add_to_cart_text'] ?? '';//$basics['add_to_cart_text'] ?? ''
         $this->pagination_ajax = $this->basics['pagination_ajax'] ?? '';
         $this->checkbox = $this->basics['checkbox'] ?? 'wpt_no_checked_table'; //$checkbox = isset( $basics['checkbox'] ) && !empty( $basics['checkbox'] ) ? $basics['checkbox'] : 'wpt_no_checked_table';
