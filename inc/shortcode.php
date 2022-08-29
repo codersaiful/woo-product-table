@@ -44,7 +44,7 @@ class Shortcode{
         extract( shortcode_atts( $pairs, $atts ) );
         
         $this->assing_property($atts);
-        var_dump($this);
+        // var_dump($this);
         ob_start();
 
         $this->wrapper_class = [
@@ -61,7 +61,7 @@ class Shortcode{
         //In Future Update version, this filter will removed
         $this->wrapper_class = apply_filters( 'wpto_wrapper_tag_class_arr', $this->wrapper_class, $this->table_id, $this->args, $this->column_settings, $this->_enable_cols, $this->column_array );
         $this->wrapper_class = $this->apply_filter( 'wpt_wrapper_class', $this->wrapper_class );
-
+        var_dump($this->args);
         ?>
         <div data-checkout_url="<?php echo esc_url( wc_get_checkout_url() ); ?>" 
         data-temp_number="<?php echo esc_attr( $this->table_id ); ?>" 
@@ -70,6 +70,8 @@ class Shortcode{
         id="table_id_<?php echo esc_attr( $this->table_id ); ?>" 
         class="<?php echo esc_attr( implode( " ", $this->wrapper_class ) ); ?>">
         
+            
+
         </div>
         
         <?php 
@@ -138,8 +140,16 @@ class Shortcode{
         //Some others from other meta
         $this->template = $this->table_style['template'] ?? '';
 
-
+        
         $this->args = Args::manage($this);
+
+        //This Filter will be deleted in future update
+        $this->args = apply_filters( 'wpto_table_query_args', $this->args, $this->table_id, $this->atts, $this->column_settings, $this->_enable_cols, $this->column_array );
+
+        /**
+         * @Hook filter wpt_query_args manage wpt table query args using filter hook
+         */
+        $this->args = $this->apply_filter( 'wpt_query_args', $this->args );
     }
 
     public function set_shortcde_text( string $shortcde_text ){
