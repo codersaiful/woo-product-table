@@ -7,7 +7,9 @@ $has_gallery = !empty($product->get_gallery_image_ids()) ? true : false;
 $img_src = wp_get_attachment_image_src(get_post_thumbnail_id($id), 'full', false);
 $img_attr = $img_src ? " data-url='{$img_src[0]}' data-width='{$img_src[1]}' data-height='{$img_src[2]}' " : '';
 
-$thumbs_size = apply_filters('wpto_thumbs_size', array($config_value['thumbs_image_size'], $config_value['thumbs_image_size']), $settings, $column_settings, $table_ID, $product);
+$config_img_size = $config_value['thumbs_image_size'] ?? 100;
+$thumbs_size = is_numeric( $config_img_size ) ? [$config_img_size,$config_img_size] : $config_img_size;
+$thumbs_size = apply_filters('wpto_thumbs_size', $thumbs_size, $settings, $column_settings, $table_ID, $product);
 $thumbs_img = woocommerce_get_product_thumbnail($thumbs_size);
 $tag_start = "<div data-product_id='{$id}' class='wpt_thumbnails_{$thumb_variation} ' {$img_attr}>";
 $tag_end = "</div>";

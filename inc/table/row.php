@@ -12,6 +12,7 @@ class Row extends Table_Base{
     public $product_id;
     public $product_parent_id;
     public $product_type;
+    public $product_sku;
     public $data_tax = null;
     
     public $attributes = [];
@@ -69,15 +70,19 @@ class Row extends Table_Base{
         $this->add_to_cart_text = $shortcode->add_to_cart_text;
         $this->product_permalink = get_the_permalink();
         $this->product_stock_status = $this->product_data['stock_status'] ?? '';
+        $this->product_sku = $this->product_data['sku'] ?? '';
         $this->product_stock_status_class = ( $this->product_stock_status == 'onbackorder' || $this->product_stock_status == 'instock' ? 'add_to_cart_button' : $this->product_stock_status . '_add_to_cart_button disabled' );
         $this->default_quantity = apply_filters( 'woocommerce_quantity_input_min', 1, $product );
 
         $this->wp_force = $shortcode->conditions['wp_force'] ?? false;
 
+        // var_dump($shortcode);
         
         // $this->base = $shortcode;
         // $this->protduct = $product;
 
+        $this->table_style = $shortcode->table_style;
+        
         $this->items_directory = $shortcode->items_directory;
         
 
@@ -145,11 +150,35 @@ class Row extends Table_Base{
 
             ?>
             <td class="<?php echo esc_attr( Table_Attr::td_class($keyword, $this) ); ?>"
+            data-keyword="<?php echo esc_attr( $keyword ); ?>" 
+            data-temp_number="<?php echo esc_attr( $this->table_id ); ?>" 
+            data-sku="<?php echo esc_attr( $this->product_sku ); ?>"
             style="<?php echo esc_attr( $style_str ); ?>"
             >
             <?php
+
+            /**
+             * Adding Content at the top of Each Table
+             * 
+             * @Hooked: wpt_pro_add_toggle_content -10, at includes/functions.php file of Pro Version
+             * 
+             * This wpto_ hook will be removed in future update
+             */
+            do_action( 'wpto_column_top', $keyword, $this->table_id, $settings, $this->column_settings, $product );
+            do_action( 'wpt_column_top', $keyword, $this );
             
             include $file;
+
+
+
+            /**
+             * Adding Content at the Bottom of Each TableTD
+             * 
+             * 
+             * This wpto_ hook will be removed in future update
+             */
+            do_action( 'wpto_column_bottom', $keyword, $this->table_id, $settings, $this->column_settings, $product );
+            do_action( 'wpt_column_bottom', $keyword, $this );
             ?>
             </td>
             <?php
