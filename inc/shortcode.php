@@ -61,6 +61,7 @@ class Shortcode extends Shortcode_Base{
     public $_config;
     public $wrapper_class;
     public $table_class;
+    public $is_column_label = false;
 
     public $items_directory;
     public $items_permanent_dir;
@@ -203,6 +204,7 @@ class Shortcode extends Shortcode_Base{
         $this->items_directory = apply_filters('wpto_item_dir', $this->items_permanent_dir, $this->table_id, null );
         $this->items_directory = $this->apply_filter( 'wpt_item_dir', $this->items_directory );
 
+        $this->is_column_label = $this->table_style['tr.wpt_table_head th']['auto-responsive-column-label'] ?? false;
     }
 
     public function set_shortcde_text( string $shortcde_text ){

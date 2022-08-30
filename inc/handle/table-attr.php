@@ -55,7 +55,7 @@ class Table_Attr{
         return implode( " ", $shortcode->table_class );
     }
 
-    public static function row_class( Row $row  ){
+    public static function tr_class( Row $row  ){
 
         $row->row_class = [
             "visible_row",
@@ -83,8 +83,8 @@ class Table_Attr{
             $row->row_class = [];
         }
 
-        $row->row_class_string = implode( " ", $row->row_class );
-        return $row->row_class_string;
+        $row->tr_class_string = implode( " ", $row->row_class );
+        return $row->tr_class_string;
     }
 
     public static function td_class( string $keyword, Row $row ){

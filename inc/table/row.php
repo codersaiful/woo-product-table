@@ -14,6 +14,18 @@ class Row extends Table_Base{
     public $product_type;
     public $product_sku;
     public $data_tax = null;
+
+    /**
+     * We have some Variable Available inside 
+     * Item page or Inside TD file
+     * which will store here.
+     * 
+     * Even we also can customize this value using filter hook
+     * @Hook filter wpt_avialable_variables
+     *
+     * @var array
+     */
+    public $avialable_variables = [];
     
     public $attributes = [];
     public $available_variations = [];
@@ -24,7 +36,26 @@ class Row extends Table_Base{
     public $column_settings;
 
     public $taxonomy_class;
-    public $row_class;
+
+    /**
+     * Tr Class for this table row mean, tr's class
+     * I will generate it using Table_Attr::tr_class() and it will return an array
+     *
+     * @var Array
+     */
+    public $tr_class;
+    //for table tr class which will return a string.
+    public $tr_class_strings;
+
+    /**
+     * Actually in action column, we have used a class $row_class, which is manage product type
+     * if variable product, row class will go 'data_product_variations woocommerce-variation-add-to-cart variations_button woocommerce-variation-add-to-cart-disabled'
+     * 
+     * and I will send it  over there using our method data_for_extract();
+     *
+     * @var string
+     */
+    public $row_class = '';
     public $wp_force;
     public $checkbox;
     public $default_quantity;
@@ -36,6 +67,7 @@ class Row extends Table_Base{
 
     public $table_id;
     public $table_type;
+    public $is_column_label;
 
     public $protduct;
     public $product_data;
@@ -56,6 +88,7 @@ class Row extends Table_Base{
             $variable = new \WC_Product_Variable( $this->product_id );
             $this->available_variations = $variable->get_available_variations();
             $this->attributes = $variable->get_variation_attributes();
+            $this->row_class = 'data_product_variations woocommerce-variation-add-to-cart variations_button woocommerce-variation-add-to-cart-disabled';
         }
         //$description_type = $conditions['description_type'] ?? '';
         $this->description_type = $shortcode->conditions['description_type'] ?? '';
@@ -71,6 +104,7 @@ class Row extends Table_Base{
         $this->product_permalink = get_the_permalink();
         $this->product_stock_status = $this->product_data['stock_status'] ?? '';
         $this->product_sku = $this->product_data['sku'] ?? '';
+        $this->product_sku = $this->product_data['sku'] ?? '';
         $this->product_stock_status_class = ( $this->product_stock_status == 'onbackorder' || $this->product_stock_status == 'instock' ? 'add_to_cart_button' : $this->product_stock_status . '_add_to_cart_button disabled' );
         $this->default_quantity = apply_filters( 'woocommerce_quantity_input_min', 1, $product );
 
@@ -81,7 +115,8 @@ class Row extends Table_Base{
         // $this->base = $shortcode;
         // $this->protduct = $product;
 
-        $this->table_style = $shortcode->table_style;
+        // $this->table_style = $shortcode->table_style;
+        $this->is_column_label = $shortcode->is_column_label;
         
         $this->items_directory = $shortcode->items_directory;
         
@@ -94,7 +129,7 @@ class Row extends Table_Base{
         
         extract($this->data_for_extract());
 
-        $row_class = Table_Attr::row_class( $this );
+        $tr_classs = Table_Attr::tr_class( $this );
 
         
 
@@ -106,7 +141,7 @@ class Row extends Table_Base{
         $this->data_tax = $this->apply_filter( 'wpt_table_row_attr', $this->data_tax );
         ?>
         <tr
-        class="<?php echo esc_attr( $row_class ); ?>"
+        class="<?php echo esc_attr( $tr_classs ); ?>"
         
         id="product_id_<?php echo esc_attr( $this->product_id ); ?>"
         data-product_id="<?php echo esc_attr( $this->product_id ); ?>"
@@ -146,13 +181,14 @@ class Row extends Table_Base{
             $style_str = $this->column_settings[$keyword]['style_str'] ?? '';
             $style_str = ! empty( $style_str ) ? preg_replace('/(;|!important;)/i',' !important;',$style_str) : '';
         
-
-
+            $column_title = $this->column_array[$keyword] ?? '';
+            $td_class = Table_Attr::td_class($keyword, $this);
             ?>
-            <td class="<?php echo esc_attr( Table_Attr::td_class($keyword, $this) ); ?>"
+            <td class="<?php echo esc_attr( $td_class ); ?>"
             data-keyword="<?php echo esc_attr( $keyword ); ?>" 
             data-temp_number="<?php echo esc_attr( $this->table_id ); ?>" 
             data-sku="<?php echo esc_attr( $this->product_sku ); ?>"
+            data-title="<?php echo esc_attr( $column_title ); ?>"
             style="<?php echo esc_attr( $style_str ); ?>"
             >
             <?php
@@ -167,9 +203,21 @@ class Row extends Table_Base{
             do_action( 'wpto_column_top', $keyword, $this->table_id, $settings, $this->column_settings, $product );
             do_action( 'wpt_column_top', $keyword, $this );
             
-            include $file;
-
-
+            $tag = $settings['tag'] ?? 'div';
+            $tag_class = $settings['tag_class'] ?? '';
+            if( $this->is_column_label ){
+                $tag_class .= ' autoresponsive-label-show';
+            }
+            ?>
+            <<?php echo esc_html( $tag ); ?> 
+            data-keyword="<?php echo esc_attr( $keyword ) ; ?>"
+            data-title="<?php echo esc_attr( $column_title ); ?>"
+            data-sku="<?php echo esc_attr( $this->product_sku ); ?>"
+            class="<?php echo esc_attr( $tag_class ); ?>">
+                <?php include $file; ?>
+            </<?php echo esc_html( $tag ); ?>>
+            
+            <?php
 
             /**
              * Adding Content at the Bottom of Each TableTD
@@ -230,30 +278,32 @@ class Row extends Table_Base{
      * @return Array a set of collection for Inner Item or for any TD. I need to extract it actually
      */
     private function data_for_extract(){
-        return [
-        'id' => $this->product_id,
-        'table_type' => $this->table_type,
-        'product_type' => $this->product_type,
-        'temp_number' => $this->table_id,
-        'table_ID' => $this->table_id,
-        'data' => $this->product_data,
-        'config_value' => $this->table_config,
-        'column_settings' => $this->column_settings,
-        'checkbox' =>  $this->checkbox,
-        'table_column_keywords' => $this->_enable_cols,
-        'ajax_action' => $this->ajax_action,
-        'add_to_cart_text' => $this->add_to_cart_text,
-        'default_quantity' => $this->default_quantity,
-        'stock_status' => $this->product_stock_status,
-        'stock_status_class' => $this->product_stock_status_class,
-
-        'description_type' => $this->description_type,
-        //For Variable Product
-        'attributes' => $this->attributes,
-        'available_variations' => $this->available_variations,
-
-
-        'row_class' => Table_Attr::row_class( $this ),
+        $this->avialable_variables = [
+            'id' => $this->product_id,
+            'table_type' => $this->table_type,
+            'product_type' => $this->product_type,
+            'temp_number' => $this->table_id,
+            'table_ID' => $this->table_id,
+            'data' => $this->product_data,
+            'config_value' => $this->table_config,
+            'column_settings' => $this->column_settings,
+            'checkbox' =>  $this->checkbox,
+            'table_column_keywords' => $this->_enable_cols,
+            'ajax_action' => $this->ajax_action,
+            'add_to_cart_text' => $this->add_to_cart_text,
+            'default_quantity' => $this->default_quantity,
+            'stock_status' => $this->product_stock_status,
+            'stock_status_class' => $this->product_stock_status_class,
+    
+            'description_type' => $this->description_type,
+            //For Variable Product
+            'attributes' => $this->attributes,
+            'available_variations' => $this->available_variations,
+    
+    
+            'row_class' => $this->row_class,
         ];
+
+        return $this->apply_filter( 'wpt_avialable_variables', $this->avialable_variables );
     }
 }
