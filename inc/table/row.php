@@ -12,7 +12,8 @@ class Row extends Table_Base{
     public $product_id;
     public $product_parent_id;
     public $product_type;
-    public $product_data;
+    public $data_tax = null;
+    
     public $attributes = [];
     public $available_variations = [];
 
@@ -30,11 +31,16 @@ class Row extends Table_Base{
     public $row_class;
     public $wp_force;
     public $checkbox;
+    public $default_quantity;
+    public $add_to_cart_text;
+    public $ajax_action;
+    public $product_permalink;
 
     public $table_id;
     public $table_type;
 
     public $protduct;
+    public $product_data;
     public $base;
 
 
@@ -64,6 +70,7 @@ class Row extends Table_Base{
 
         $this->ajax_action = $shortcode->ajax_action;
         $this->add_to_cart_text = $shortcode->add_to_cart_text;
+        $this->product_permalink = get_the_permalink();
         $this->default_quantity = apply_filters( 'woocommerce_quantity_input_min', 1, $product );
 
         $this->wp_force = $shortcode->conditions['wp_force'] ?? false;
@@ -107,21 +114,37 @@ class Row extends Table_Base{
         $available_variations = $this->available_variations;
 
 
-        $row_class = '';//It will need to be fix
+        $row_class = Table_Attr::row_class( $this );
 
+        
 
         //New Added
         $row = $table_row = $this;
         
-        
+        // var_dump($this);
+        $this->data_tax = apply_filters( 'wpto_table_row_attr', $this->data_tax, $product, false, $this->column_settings, $this->table_id );
+        $this->data_tax = $this->apply_filter( 'wpt_table_row_attr', $this->data_tax );
         ?>
-        <tr class="<?php echo esc_attr( Table_Attr::row_class( $this ) ); ?>">
+        <tr
+        class="<?php echo esc_attr( $row_class ); ?>"
+        
+        id="product_id_<?php echo esc_attr( $this->product_id ); ?>"
+        data-product_id="<?php echo esc_attr( $this->product_id ); ?>"
+        data-temp_number="<?php echo esc_attr( $this->table_id ); ?>"
+        data-type="<?php echo esc_attr( $this->product_type ); ?>"
+        data-parent_id="<?php echo esc_attr( $this->product_parent_id ); ?>"
+        data-quantity="<?php echo esc_attr( $this->default_quantity ); ?>"
+        data-href="<?php echo esc_url( $this->product_permalink ); ?>"
+        data-product_variations="<?php echo esc_attr( htmlspecialchars( wp_json_encode( $this->available_variations ) ) ); ?>"
+        additional_json=""
+        <?php echo esc_attr( $this->data_tax ); ?>
+        role="row">
         <?php
 
 
         foreach( $this->_enable_cols as $keyword => $col ){
             $settings = $this->column_settings[$keyword] ?? false;
-
+            
             $type = isset( $settings['type'] ) && !empty( $settings['type'] ) ? $settings['type'] : 'default';
             $file_name = $type !== 'default' ? $type : $keyword;
             $file = $this->items_directory. $file_name . '.php';

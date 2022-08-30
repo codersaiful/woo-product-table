@@ -21,6 +21,7 @@ $items_permanent_dir = WPT_DIR_BASE . 'includes/items/';
 $items_permanent_dir = apply_filters('wpto_item_permanent_dir', $items_permanent_dir, $table_ID, $product );
 $items_directory = apply_filters('wpto_item_dir', $items_permanent_dir, $table_ID, $product );
 foreach( $table_column_keywords as $keyword => $keyword_title ){
+    var_dump($keyword);
     // var_dump($column_array);
     if( is_string( $keyword ) ){
         $in_extra_manager = false;
