@@ -53,6 +53,9 @@ class Shortcode extends Shortcode_Base{
     public $checkbox;
     public $template;
 
+    public $filter_box;
+    public $filter;
+
     public $orderby;
     public $order;
     public $meta_value_sort;
@@ -184,7 +187,11 @@ class Shortcode extends Shortcode_Base{
 
         //Some others from other meta
         $this->template = $this->table_style['template'] ?? '';
-
+        $filter_box = $this->search_n_filter['filter_box'] ?? '';
+        $this->filter_box = $filter_box == 'yes' ? true : false;
+        if( $this->filter_box ){
+            $this->filter = $this->search_n_filter['filter'] ?? [];
+        }
         
         $this->args = Args::manage($this);
 

@@ -35,7 +35,9 @@ class Row extends Table_Base{
     public $column_array;
     public $column_settings;
 
-    public $taxonomy_class;
+    //Actually it's for mini filter
+    public $taxonomy_class = 'no_filter';
+    public $filter;
 
     /**
      * Tr Class for this table row mean, tr's class
@@ -83,6 +85,13 @@ class Row extends Table_Base{
         $this->product_parent_id = $product->get_parent_id();//$parent_id = $product->get_parent_id();
         $this->individual = $product->is_sold_individually() ? "individually-sold" : "not-individually-sold";
         $this->product_data = $product->get_data();
+        $this->filter = $shortcode->filter;
+
+
+        if($this->filter){
+            $this->generate_taxo_n_data_tax( $this->filter );
+        }
+        
 
         if( $this->product_type == 'variable' ){
             $variable = new \WC_Product_Variable( $this->product_id );
@@ -119,11 +128,26 @@ class Row extends Table_Base{
         $this->is_column_label = $shortcode->is_column_label;
         
         $this->items_directory = $shortcode->items_directory;
-        
-
 
     }
 
+    protected function generate_taxo_n_data_tax( $filter ){
+        $this->taxonomy_class = 'filter_row ';
+        foreach( $filter as $tax_keyword){
+            $terms = wp_get_post_terms( $this->product_id, $tax_keyword  );
+            if( ! is_array( $terms ) ) continue;
+
+            $attr = "data-{$tax_keyword}=";
+
+            $attr_value = false;
+            foreach( $terms as $term ){
+                $this->taxonomy_class .= $tax_keyword . '_' . $this->table_id . '_' . $term->term_id . ' ';
+                $attr_value .= $term->term_id . ':' . $term->name . ', ';
+            }
+            $this->data_tax .= $attr . '"' . $attr_value . '" ';
+        }
+
+    }
     public function render(){
         global $product;
         
@@ -152,7 +176,7 @@ class Row extends Table_Base{
         data-href="<?php echo esc_url( $this->product_permalink ); ?>"
         data-product_variations="<?php echo esc_attr( htmlspecialchars( wp_json_encode( $this->available_variations ) ) ); ?>"
         additional_json=""
-        <?php echo esc_attr( $this->data_tax ); ?>
+        <?php echo $this->data_tax; ?>
         role="row">
         <?php
 
