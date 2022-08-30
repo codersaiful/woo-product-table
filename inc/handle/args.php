@@ -10,7 +10,7 @@ class Args{
         $shortcode->post_exclude = $shortcode->basics['post_exclude'] ?? [];
         $shortcode->min_price = $shortcode->conditions['min_price'] ?? '';
         $shortcode->max_price = $shortcode->conditions['max_price'] ?? '';
-
+        
         $args = [
             'posts_per_page' => $shortcode->posts_per_page ?? -1,
             'post_type' => array('product'), //, 'product_variation','product'
@@ -87,8 +87,14 @@ class Args{
 
 
 
-        
-        return $args;
+        /**
+         * What is Basics Args:
+         * Actually in database by query tab filed of different taxonomy
+         * we store like query and stored it in basics tab
+         * and I made a property by following code at Class Shortcode:inc/shortcode.php
+         * $this->basics_args = $this->basics['args'] ?? [];
+         */
+        return array_merge( $args, $shortcode->basics_args );
     }
 
 

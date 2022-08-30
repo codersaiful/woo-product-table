@@ -159,7 +159,8 @@ class Shortcode extends Shortcode_Base{
 
         $this->basics = $this->get_meta( 'basics' );
         
-        $this->basics_args = $this->get_meta( 'args' );
+        $this->basics_args = $this->basics['args'] ?? [];
+        
         $this->conditions = $this->get_meta( 'conditions' );
         $this->table_style = $this->get_meta( 'table_style' );
         

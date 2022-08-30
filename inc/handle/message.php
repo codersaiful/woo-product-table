@@ -53,8 +53,8 @@ class Message{
     public static function not_found_product_tr(Shortcode $shortcode){
         
     ?>
-    <tr class="product-not-found-tr" colspan="<?php echo esc_attr( $shortcode->col_count ); ?>">
-        <td>
+    <tr class="product-not-found-tr">
+        <td  colspan="<?php echo esc_attr( $shortcode->col_count ); ?>">
         <?php self::not_found_product( $shortcode ); ?>
         </td>
     </tr>
