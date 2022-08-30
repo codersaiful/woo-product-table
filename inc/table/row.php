@@ -246,6 +246,9 @@ class Row extends Table_Base{
             
             <?php
 
+            $items = $settings['items'] ?? false;
+            $this->handle_items( $items );
+
             /**
              * Adding Content at the Bottom of Each TableTD
              * 
@@ -265,6 +268,12 @@ class Row extends Table_Base{
         // var_dump($this);
     }
 
+    public function handle_items( $items = false ){
+        if( empty( $items ) || ! is_array( $items ) ) return;
+        foreach( $items as $item_key ){
+            $this->render_item( $item_key );
+        }
+    }
     public function render_item( string $keyword ){
         global $product;
         
@@ -282,12 +291,12 @@ class Row extends Table_Base{
             $file = $this->items_directory. 'default.php';
         }
         ?>
-        <td>
+        <div class="saiful-islam">
         <?php
         
         include $file;
         ?>
-        </td>
+        </div>
         <?php
     }
 
