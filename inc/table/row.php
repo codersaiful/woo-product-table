@@ -206,6 +206,9 @@ class Row extends Table_Base{
             $style_str = ! empty( $style_str ) ? preg_replace('/(;|!important;)/i',' !important;',$style_str) : '';
         
             $column_title = $this->column_array[$keyword] ?? '';
+            if( $keyword == 'check' ){
+                $column_title = '';
+            }
             $td_class = Table_Attr::td_class($keyword, $this);
             ?>
             <td class="<?php echo esc_attr( $td_class ); ?>"
