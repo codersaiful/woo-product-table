@@ -17,11 +17,6 @@ class Row extends Table_Base{
     public $attributes = [];
     public $available_variations = [];
 
-
-    public $items_directory;
-    public $items_permanent_dir;
-
-
     public $args;
     public $_enable_cols;
     public $column_array;
@@ -35,6 +30,8 @@ class Row extends Table_Base{
     public $add_to_cart_text;
     public $ajax_action;
     public $product_permalink;
+    public $product_stock_status;
+    public $product_stock_status_class;
 
     public $table_id;
     public $table_type;
@@ -71,6 +68,8 @@ class Row extends Table_Base{
         $this->ajax_action = $shortcode->ajax_action;
         $this->add_to_cart_text = $shortcode->add_to_cart_text;
         $this->product_permalink = get_the_permalink();
+        $this->product_stock_status = $this->product_data['stock_status'] ?? '';
+        $this->product_stock_status_class = ( $this->product_stock_status == 'onbackorder' || $this->product_stock_status == 'instock' ? 'add_to_cart_button' : $this->product_stock_status . '_add_to_cart_button disabled' );
         $this->default_quantity = apply_filters( 'woocommerce_quantity_input_min', 1, $product );
 
         $this->wp_force = $shortcode->conditions['wp_force'] ?? false;
@@ -79,9 +78,7 @@ class Row extends Table_Base{
         // $this->base = $shortcode;
         // $this->protduct = $product;
 
-        $this->items_permanent_dir = WPT_DIR_BASE . 'includes/items/';
-        $this->items_permanent_dir = apply_filters('wpto_item_permanent_dir', $this->items_permanent_dir, $this->table_id, $product );
-        $this->items_directory = apply_filters('wpto_item_dir', $this->items_permanent_dir, $this->table_id, $product );
+        $this->items_directory = $shortcode->items_directory;
         
 
 
@@ -89,30 +86,8 @@ class Row extends Table_Base{
 
     public function render(){
         global $product;
-        /**
-         * Some usefull Variable for editing from 
-         */
-        (Int) $id = $this->product_data['id'] ?? 0;
-        $table_type = $this->table_type;
-        $product_type = $this->product_type;
-        $temp_number  = $this->table_id;
-        $table_ID = $this->table_id;
-        $data  = $this->product_data;
-        $config_value  = $this->table_config;
-        $column_settings  = $this->column_settings;
-        $checkbox   = $this->checkbox;
-        $table_column_keywords = $this->_enable_cols;
-        $ajax_action = $this->ajax_action;
-        $add_to_cart_text = $this->add_to_cart_text;
-        $default_quantity = $this->default_quantity;
-        $stock_status = $this->product_data['stock_status'];
-        $stock_status_class = ( $stock_status == 'onbackorder' || $stock_status == 'instock' ? 'add_to_cart_button' : $stock_status . '_add_to_cart_button disabled' );
-
-        $description_type = $this->description_type;
-        //For Variable Product
-        $attributes = $this->attributes;
-        $available_variations = $this->available_variations;
-
+        
+        extract($this->data_for_extract());
 
         $row_class = Table_Attr::row_class( $this );
 
@@ -143,17 +118,37 @@ class Row extends Table_Base{
 
 
         foreach( $this->_enable_cols as $keyword => $col ){
+            
             $settings = $this->column_settings[$keyword] ?? false;
             
             $type = isset( $settings['type'] ) && !empty( $settings['type'] ) ? $settings['type'] : 'default';
             $file_name = $type !== 'default' ? $type : $keyword;
+
+            //This will be removed in future update actually
+            $this->items_directory = apply_filters('wpto_template_folder', $this->items_directory,$keyword, $type, $this->table_id, $product, $settings, $this->column_settings );
+            
+            $this->items_directory = $this->apply_filter( 'wpt_template_folder', $this->items_directory );
+
             $file = $this->items_directory. $file_name . '.php';
-            if( !file_exists( $file ) ){
+
+            $file = apply_filters( 'wpto_template_loc', $file, $keyword, $type, $this->table_id, $product, $file_name, $this->column_settings, $settings ); //@Filter Added 
+            $file = $this->apply_filter( 'wpt_template_loc', $file );
+            if( ! file_exists( $file ) ){
                 $file = $this->items_directory. 'default.php';
             }
+
+
+            $style_str = $this->column_settings[$keyword]['style_str'] ?? '';
+            $style_str = ! empty( $style_str ) ? preg_replace('/(;|!important;)/i',' !important;',$style_str) : '';
+        
+
+
             ?>
-            <td>
+            <td class="<?php echo esc_attr( Table_Attr::td_class($keyword, $this) ); ?>"
+            style="<?php echo esc_attr( $style_str ); ?>"
+            >
             <?php
+            
             include $file;
             ?>
             </td>
@@ -164,5 +159,72 @@ class Row extends Table_Base{
         <?php
 
         // var_dump($this);
+    }
+
+    public function render_item( string $keyword ){
+        global $product;
+        
+        extract($this->data_for_extract());
+
+
+
+        $settings = $this->column_settings[$keyword] ?? false;
+            
+        $type = isset( $settings['type'] ) && !empty( $settings['type'] ) ? $settings['type'] : 'default';
+        $file_name = $type !== 'default' ? $type : $keyword;
+        $file = $this->items_directory. $file_name . '.php';
+        
+        if( !file_exists( $file ) ){
+            $file = $this->items_directory. 'default.php';
+        }
+        ?>
+        <td>
+        <?php
+        
+        include $file;
+        ?>
+        </td>
+        <?php
+    }
+
+    /**
+     * All Variation which will be need inside item,
+     * I have used in this Method,
+     * 
+     * Here also will stay a filter, where user will able to 
+     * insert new Variable for inner item 
+     * and for any td of table
+     * 
+     * @since 3.2.4.2
+     * 
+     * @author Saiful Islam <codersaiful@gmail.com>
+     * @return Array a set of collection for Inner Item or for any TD. I need to extract it actually
+     */
+    private function data_for_extract(){
+        return [
+        'id' => $this->product_id,
+        'table_type' => $this->table_type,
+        'product_type' => $this->product_type,
+        'temp_number' => $this->table_id,
+        'table_ID' => $this->table_id,
+        'data' => $this->product_data,
+        'config_value' => $this->table_config,
+        'column_settings' => $this->column_settings,
+        'checkbox' =>  $this->checkbox,
+        'table_column_keywords' => $this->_enable_cols,
+        'ajax_action' => $this->ajax_action,
+        'add_to_cart_text' => $this->add_to_cart_text,
+        'default_quantity' => $this->default_quantity,
+        'stock_status' => $this->product_stock_status,
+        'stock_status_class' => $this->product_stock_status_class,
+
+        'description_type' => $this->description_type,
+        //For Variable Product
+        'attributes' => $this->attributes,
+        'available_variations' => $this->available_variations,
+
+
+        'row_class' => Table_Attr::row_class( $this ),
+        ];
     }
 }

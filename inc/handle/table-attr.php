@@ -83,6 +83,29 @@ class Table_Attr{
             $row->row_class = [];
         }
 
-        return implode( " ", $row->row_class );
+        $row->row_class_string = implode( " ", $row->row_class );
+        return $row->row_class_string;
+    }
+
+    public static function td_class( string $keyword, Row $row ){
+        $td_class_arr = array(
+            "td_or_cell",
+            "wpt_" . $keyword,
+            "wpt_temp_" . $row->table_id,
+        );
+        
+        /**
+         * Adding Class using Filter Hook
+         * 
+         * @Hooked: wpt_add_td_class -10 at includes/functions.php 
+         */
+        $td_class_arr = apply_filters( 'wpto_td_class_arr', $td_class_arr, $keyword, $row->table_id, $row->args, $row->column_settings, null, null );
+        $td_class_arr = $row->apply_filter( 'wpt_td_class', $td_class_arr );
+        if( is_array( $td_class_arr ) ){
+            $td_class = implode( " ", $td_class_arr );
+        }else{
+            $td_class = 'wpt_table_td wpt_' . $keyword;
+        }
+        return $td_class;
     }
 }

@@ -62,6 +62,9 @@ class Shortcode extends Shortcode_Base{
     public $wrapper_class;
     public $table_class;
 
+    public $items_directory;
+    public $items_permanent_dir;
+
 
     
 
@@ -194,6 +197,12 @@ class Shortcode extends Shortcode_Base{
 
 
         $this->assing_property = true;
+
+        $this->items_permanent_dir = WPT_DIR_BASE . 'includes/items/';
+        $this->items_permanent_dir = apply_filters('wpto_item_permanent_dir', $this->items_permanent_dir, $this->table_id, null );
+        $this->items_directory = apply_filters('wpto_item_dir', $this->items_permanent_dir, $this->table_id, null );
+        $this->items_directory = $this->apply_filter( 'wpt_item_dir', $this->items_directory );
+
     }
 
     public function set_shortcde_text( string $shortcde_text ){
