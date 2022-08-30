@@ -28,7 +28,15 @@ https://www.youtube.com/watch?v=jZ9bx4VqB08
 
 **[Visit Official Site](https://wooproducttable.com/#discount)**
 
-**Demo table list**
+👣 [List of Woo Product Table Plugin Features](https://wooproducttable.com/doc/gating-start/woo-product-table-plugin-features/)
+🔅 [How to create a WooCommerce Product Table?](https://wooproducttable.com/doc/gating-start/how-to-create-woocommerce-product-table/)
+🔅 [How to show product attributes in a different column and search box?](https://wooproducttable.com/doc/search-and-filter/show-product-attributes-in-different-column-and-search-box/)
+🔅 [How to sort products using tags or custom taxonomy?](https://wooproducttable.com/doc/search-and-filter/how-to-sort-products-using-tags-or-custom-taxonomy/)
+🔅 [How to display Table On Specific Archive page](https://wooproducttable.com/doc/table-options/display-table-on-specific-archive-page-category-tag-attribute-page/)
+🔅 [How to create an Online Book Store using Woo Product Table?](https://wooproducttable.com/doc/tutorials/create-an-online-book-store-using-woo-product-table/)
+🔅 [How to Add Custom Column Using Action and Filter Hooks?](https://wooproducttable.com/doc/advance-uses/how-to-add-custom-column-using-action-and-filter-hooks/)
+
+**Demo table list** 
 
 * [Advanced Search Table](https://demo.wooproducttable.com/demo-list/clean-blue-table-with-advanced-search/) <br>Our most valuable feature is search & filter. Customers can filter products by any taxonomy or attribute like products categories, tags, color, or size. Also can filter by any custom field data. Have an option to search from specific areas.
 
@@ -67,6 +75,20 @@ https://www.youtube.com/watch?v=jZ9bx4VqB08
 
 Please Visit our demo site to see all our demo tables. [All Demo](https://demo.wooproducttable.com/) 
 
+** 🏆Product Table Has Received 5 (⭐⭐⭐⭐⭐ ) Reviews. Let's See What Our Users Said:**
+
+🎉 Easy to Install and Configure – Great Support.<br>
+🎉 Best Product Table is a great plugin for WooCommerce.<br>
+🎉 Excellent plugin for wholesale stores.<br>
+🎉 Great Plugin with Loads of features<br>
+🎉 It is simple to use and has a lot of future for free.<br>
+
+**🥇🥇🥇 Success Stories of People We Are Proud to Know :**<br>
+👨 I just want to thank Code Astrology for helping me,set up the table and everything for the website. It looks really good. They've actually done some custom coding for me as well. And just all throughout the process of getting it sorted,it was easy. I could contact them with the tickets,and yeah,it worked really well. So thank you very much.<br>
+  — Alex K. O., Founder of KO Welding Pty Ltd.
+
+https://www.youtube.com/shorts/Qq8Ck8yqQ5U
+
 <h2>Our main features ( Pro and Free )</h2>
 
 **Drag and Drop**<br>
@@ -97,6 +119,8 @@ We provide our plugin’s complete control to the developers. You can pass query
 
 *Get help from our [documentation](https://wooproducttable.com/documentation/).*
 
+👉 [See Our Official GitHub Page Here](https://github.com/codersaiful/woo-product-table)
+
 Our [YouTube Playlist](https://www.youtube.com/channel/UCnrFzReNAohkHglbF91ZEYA/playlists).
 
 **Important feature ( Pro and Free )**
@@ -122,7 +146,9 @@ Our [YouTube Playlist](https://www.youtube.com/channel/UCnrFzReNAohkHglbF91ZEYA/
 * Showing Popup Notices
 * Redirect to Checkout Page
 
-**list of Integration plugin**
+💥💥💥 [Checkout Which Features Are Free And Which Are Not.](https://wooproducttable.com/pricing/)
+
+**🚩🚩🚩 list of Integration plugin**
 
 * Addons - UltraAddons Elementor Lite
 * Quantity Plus Minus Button for WooCommerce
@@ -142,6 +168,23 @@ To get Item's Template From Active Theme, Use following Directory.
 Suppose: Item name is price, than location/directory from theme will be:
 * `[YourTheme]/woo-product-table/items/price.php`
 
+**MORE OPTIONS AND FLEXIBILITY IN CUSTOMIZING**<br>
+When accompanied by a product table , you can design every section and every column as you want. You can design each column individually too. Not only that, you can display multiple inner items inside one column, like price, quantity, category, and many more.<br>
+Columns can be easily changed by dragging and dropping. You can show or hide multiple columns with one click.<br>
+Actions and filter hooks allow developers to change or add code without editing core files. They are used extensively throughout WordPress and WooCommerce and are very useful to you.<br>
+👉 [Learn More](https://wooproducttable.com/doc/advance-uses/woo-product-table-hooks-actions-and-filters)  👈
+
+**YOU HAVE THE POWER**<br>
+With 31 predefined columns , you can use the Product Table in a way to control everything in your e-commerce. Shop Archive Override, Product Exclude/Include, Column Customization, Mini Cart, and controlling who can see your specific products on specific pages are just a few examples.<br>
+
+**PRE BUILD TEMPLATE**<br>
+There are over 16 different pre-made Product Table templates available, each of which gives a unique front-end experience. From that viewpoint, they have complete command and visibility. To make sure that customers can get the benefits of being in the product table, we have made sure that all of our templates are compatible with the front end.<br>
+ 
+**FAST, SECURE AND EASY**<br>
+With a Product Table Plugin, you can feel confident that your business processes will go quickly and easily. User-friendly and adaptable to all popular themes.<br>
+
+**👷 CONTRIBUTE 👷**<br>
+You are welcome to contribute  to this project. We ask that you join the [Github repository.](https://github.com/codersaiful/woo-product-table)
 
 == Installation ==
 
