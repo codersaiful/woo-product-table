@@ -33,13 +33,13 @@ class Shortcode_Base{
      * @param boolean $default_ouptput for do_action, normally we will not return anything, if need we can add it.
      * @return void
      */
-    public function do_action( string $action_hook, $default_ouptput = false ){
+    public function do_action( string $action_hook ){
         ob_start();
         /**
          * To Insert Content at Top of the Table, Just inside of Wrapper tag of Table
          * Available Args $table_ID, $args, $config_value, $atts;
          */
-        do_action( $action_hook, $default_ouptput, $this );
+        do_action( $action_hook, $this ); //$default_ouptput,
         return ob_get_clean();
     }
 

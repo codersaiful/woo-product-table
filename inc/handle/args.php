@@ -86,6 +86,9 @@ class Args{
         }
 
 
+        $page_number = ( get_query_var( 'page' ) ) ? get_query_var( 'page' ) : 1;
+        $shortcode->page_number = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : $page_number;
+        $args['paged'] = (int) $shortcode->page_number;
 
         /**
          * What is Basics Args:

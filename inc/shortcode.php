@@ -3,6 +3,7 @@ namespace WOO_PRODUCT_TABLE\Inc;
 
 use WOO_PRODUCT_TABLE\Inc\Handle\Message as Msg;
 use WOO_PRODUCT_TABLE\Inc\Handle\Args;
+use WOO_PRODUCT_TABLE\Inc\Handle\Search_Box;
 use WOO_PRODUCT_TABLE\Inc\Handle\Table_Attr;
 use WOO_PRODUCT_TABLE\Inc\Table\Row;
 
@@ -19,6 +20,8 @@ class Shortcode extends Shortcode_Base{
     public $table_type = 'normal_table';
 
     public $is_table;
+    public $page_number = 1;
+
 
     /**
      * Check column available or not, if empty array of _enable_cols, it will return false.
@@ -53,6 +56,13 @@ class Shortcode extends Shortcode_Base{
     public $checkbox;
     public $template;
 
+    /**
+     * For enequeue name, we will use this
+     *
+     * @var string|null
+     */
+    public $template_name;
+
     public $filter_box;
     public $filter;
 
@@ -68,11 +78,14 @@ class Shortcode extends Shortcode_Base{
 
     public $items_directory;
     public $items_permanent_dir;
+    public $dev_version = WPT_DEV_VERSION;
+    
 
 
     
 
     public function run(){
+        
         add_shortcode( $this->shortcde_text, [$this, 'shortcode'] );
     }
     public function shortcode($atts){
@@ -83,11 +96,22 @@ class Shortcode extends Shortcode_Base{
         extract( shortcode_atts( $pairs, $atts ) );
         
         $this->assing_property($atts);
+        $this->startup_loader($atts);
+        
         // var_dump($this);
         ob_start();
 
-        
+        if( $this->search_box ){
+            Search_Box::render($this);
+        }else{
+        ?>
+        <button data-type="query" data-temp_number="<?php echo esc_attr( $this->table_id ); ?>" id="wpt_query_search_button_<?php echo esc_attr( $this->table_id ); ?>" class="button wpt_search_button query_button wpt_query_search_button wpt_query_search_button_<?php echo esc_attr( $this->table_id ); ?>" style="visibility: hidden;height:1px;"></button>
+        <?php
+        }
+        do_action( 'wpto_after_advance_search_box', $this->table_id, $this->args, $this->column_settings, $this->_enable_cols, $this->_config, $this->atts );
 
+
+        do_action( 'wpto_action_before_table', $this->table_id, $this->args, $this->column_settings, $this->_enable_cols, $this->_config, $this->atts );
         ?>
         <div data-checkout_url="<?php echo esc_url( wc_get_checkout_url() ); ?>" 
         data-temp_number="<?php echo esc_attr( $this->table_id ); ?>" 
@@ -97,9 +121,10 @@ class Shortcode extends Shortcode_Base{
         class="<?php echo esc_attr( Table_Attr::wrapper_class( $this ) ); ?>">
             
             <div class="wpt_table_tag_wrapper">
+                
                 <table 
-                data-page_number=""
-                data-temp_number=""
+                data-page_number="<?php echo esc_attr( $this->page_number + 1 ); ?>"
+                data-temp_number="<?php echo esc_attr( $this->table_id ); ?>"
                 data-config_json=""
                 data-data_json=""
                 data-data_json_backup=""
@@ -110,6 +135,22 @@ class Shortcode extends Shortcode_Base{
                 <?php $this->table_body(); ?>
                 </table>
             </div>
+            <?php 
+            do_action( 'wpto_action_after_table', $this->table_id, $this->args, $this->column_settings, $this->_enable_cols, $this->_config, $this->atts );
+            $this->do_action( 'wpt_after_table' );
+            ?>
+
+            <?php 
+            if( $this->pagination ){
+                
+                $this->pagination_render();
+            }
+
+
+
+            do_action( 'wpto_table_wrapper_bottom', $this->table_id, $this->args, $this->column_settings, $this->_enable_cols, $this->_config, $this->atts );
+            $this->do_action( 'wpt_table_wrapper_bottom' );
+             ?>
 
         </div>
         
@@ -117,6 +158,24 @@ class Shortcode extends Shortcode_Base{
         
 
         return ob_get_clean();
+    }
+
+    /**
+     * Here wi will assaign, which will no load for load 
+     * Table row.
+     * Only will be load on first startup. 
+     *
+     * @param [type] $atts
+     * @return void
+     */
+    public function startup_loader( $atts ){
+        
+        if( ! $this->assing_property ){
+            $this->assing_property( $atts );
+        }
+
+        // $this->enqueue();
+
     }
 
     public function assing_property( $atts ){
@@ -172,7 +231,9 @@ class Shortcode extends Shortcode_Base{
         $this->table_style = $this->get_meta( 'table_style' );
         
         $this->search_n_filter = $this->get_meta( 'search_n_filter' );
-        $this->pagination = $this->get_meta( 'pagination' );
+        $pagi_data = $this->get_meta( 'pagination' );
+        $this->pagination = isset( $pagi_data['start'] ) && $pagi_data['start']==1;
+        
 
         $this->posts_per_page = $this->conditions['posts_per_page'] ?? $this->posts_per_page;
         $this->table_type = $this->conditions['table_type'] ?? $this->table_type;
@@ -189,6 +250,10 @@ class Shortcode extends Shortcode_Base{
         $this->template = $this->table_style['template'] ?? '';
         $filter_box = $this->search_n_filter['filter_box'] ?? '';
         $this->filter_box = $filter_box == 'yes' ? true : false;
+        
+        $search_box = $this->search_n_filter['search_box'] ?? '';
+        $this->search_box = $filter_box == 'yes' ? true : false;
+
         if( $this->filter_box ){
             $this->filter = $this->search_n_filter['filter'] ?? [];
         }
@@ -213,6 +278,21 @@ class Shortcode extends Shortcode_Base{
 
         $this->is_column_label = $this->table_style['tr.wpt_table_head th']['auto-responsive-column-label'] ?? false;
     }
+
+    public function enqueue(){
+
+        /**
+         * Template Control is here.
+         */
+        $this->template_name = 'wpt-template-' . $this->template;
+        $template_file_name = apply_filters( 'wpto_table_template', $this->template, $this->table_id );
+        $template_dir = WPT_BASE_URL . 'assets/css/templates/'. $template_file_name . '.css';
+        $template_dir = $this->apply_filter( 'wpt_template_url', $template_dir );
+        
+        wp_register_style($this->template_name, $template_dir, array(), $this->dev_version, 'all');
+        wp_enqueue_style($this->template_name);
+    }
+
 
     public function set_shortcde_text( string $shortcde_text ){
         $this->shortcde_text = $shortcde_text;
@@ -278,5 +358,8 @@ class Shortcode extends Shortcode_Base{
         
     }
 
-    
+    public function pagination_render(){
+       echo wpt_pagination_by_args( $this->args , $this->table_id, ['args' => $this->args]);
+    }
+        
 }

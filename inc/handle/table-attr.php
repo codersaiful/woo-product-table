@@ -57,7 +57,7 @@ class Table_Attr{
 
     public static function tr_class( Row $row  ){
 
-        $row->row_class = [
+        $row->tr_class = [
             "visible_row",
             "wpt_row",
             "wpt_row_" . $row->table_id,
@@ -76,14 +76,14 @@ class Table_Attr{
         ];
 
         //In Future Update version, this filter will removed
-        $row->row_class = apply_filters( 'wpto_tr_class_arr', $row->row_class, $row->args, $row->table_id, $row->column_settings, $row->_enable_cols, $row->product_data );
-        $row->row_class = $row->apply_filter( 'wpt_tr_class', $row->row_class );
+        $row->tr_class = apply_filters( 'wpto_tr_class_arr', $row->tr_class, $row->args, $row->table_id, $row->column_settings, $row->_enable_cols, $row->product_data );
+        $row->tr_class = $row->apply_filter( 'wpt_tr_class', $row->tr_class );
         
-        if( ! is_array( $row->row_class ) ){
-            $row->row_class = [];
+        if( ! is_array( $row->tr_class ) ){
+            $row->tr_class = [];
         }
 
-        $row->tr_class_string = implode( " ", $row->row_class );
+        $row->tr_class_string = implode( " ", $row->tr_class );
         return $row->tr_class_string;
     }
 
