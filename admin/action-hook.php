@@ -214,8 +214,8 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
                         <th><label class="wpt_label" for="wpt_table_thumbs_image_size"><?php echo sprintf(esc_html__( 'Thumbs Image Size', 'wpt_pro' ), '<small>', '</small>' ); ?></label></th>
                         <td>
                             <input name="<?php echo esc_attr( $field_name ); ?>[thumbs_image_size]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['thumbs_image_size'] ); ?>" id="wpt_table_thumbs_image_size" type="text" placeholder="<?php esc_attr_e( 'Thumbnail size. eg: 56', 'wpt_pro' ); ?>" min="16" max="" pattern="[0-9]*" inputmode="numeric">
+                            <p><?php esc_html_e( 'You can use number like 150 or use as text version like full, medium, large', 'wpt_pro' ); ?></p>
                         </td>
-                        p><?php esc_html_e( 'You can use number like 150 or use as text version like full, medium, large', 'wpt_pro' ); ?></p>
                     </tr>
 
                     <tr> 
