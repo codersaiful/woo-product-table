@@ -85,6 +85,8 @@ class Shortcode extends Shortcode_Base{
     
 
     public function run(){
+        add_action( 'wp_ajax_wpt_query', [$this,'ajax_row_load'] );
+        add_action( 'wp_ajax_nopriv_wpt_query', [$this,'ajax_row_load'] );
         
         add_shortcode( $this->shortcde_text, [$this, 'shortcode'] );
     }
@@ -101,17 +103,6 @@ class Shortcode extends Shortcode_Base{
         // var_dump($this);
         ob_start();
 
-        if( $this->search_box ){
-            Search_Box::render($this);
-        }else{
-        ?>
-        <button data-type="query" data-temp_number="<?php echo esc_attr( $this->table_id ); ?>" id="wpt_query_search_button_<?php echo esc_attr( $this->table_id ); ?>" class="button wpt_search_button query_button wpt_query_search_button wpt_query_search_button_<?php echo esc_attr( $this->table_id ); ?>" style="visibility: hidden;height:1px;"></button>
-        <?php
-        }
-        do_action( 'wpto_after_advance_search_box', $this->table_id, $this->args, $this->column_settings, $this->_enable_cols, $this->_config, $this->atts );
-
-
-        do_action( 'wpto_action_before_table', $this->table_id, $this->args, $this->column_settings, $this->_enable_cols, $this->_config, $this->atts );
         ?>
         <div data-checkout_url="<?php echo esc_url( wc_get_checkout_url() ); ?>" 
         data-temp_number="<?php echo esc_attr( $this->table_id ); ?>" 
@@ -119,7 +110,14 @@ class Shortcode extends Shortcode_Base{
         data-site_url="<?php echo esc_url( site_url() ); ?>" 
         id="table_id_<?php echo esc_attr( $this->table_id ); ?>" 
         class="<?php echo esc_attr( Table_Attr::wrapper_class( $this ) ); ?>">
-            
+            <?php
+            $this->search_box_render();
+        
+            do_action( 'wpto_after_advance_search_box', $this->table_id, $this->args, $this->column_settings, $this->_enable_cols, $this->_config, $this->atts );
+    
+    
+            do_action( 'wpto_action_before_table', $this->table_id, $this->args, $this->column_settings, $this->_enable_cols, $this->_config, $this->atts );
+            ?>
             <div class="wpt_table_tag_wrapper">
                 
                 <table 
@@ -134,7 +132,10 @@ class Shortcode extends Shortcode_Base{
                 <?php $this->table_head(); ?>
                 <?php $this->table_body(); ?>
                 </table>
-            </div>
+
+
+
+            </div> <!-- /.wpt_table_tag_wrapper -->
             <?php 
             do_action( 'wpto_action_after_table', $this->table_id, $this->args, $this->column_settings, $this->_enable_cols, $this->_config, $this->atts );
             $this->do_action( 'wpt_after_table' );
@@ -152,10 +153,10 @@ class Shortcode extends Shortcode_Base{
             $this->do_action( 'wpt_table_wrapper_bottom' );
              ?>
 
-        </div>
+        </div><!-- /.main wrapper -->
         
         <?php 
-        
+        // do_action( 'wpt_loaded', $this->table_id );
 
         return ob_get_clean();
     }
@@ -173,13 +174,17 @@ class Shortcode extends Shortcode_Base{
         if( ! $this->assing_property ){
             $this->assing_property( $atts );
         }
-
-        // $this->enqueue();
+        
+        
+        $this->enqueue();
 
     }
 
     public function assing_property( $atts ){
         
+        if( ! $this->atts ){
+            $this->atts = $atts;
+        }
 
         $this->table_id = isset( $atts['id'] ) && !empty( $atts['id'] ) ? (int) $atts['id'] : 0; 
         $this->table_id = apply_filters( 'wpml_object_id', $this->table_id, $this->req_post_type, TRUE  );
@@ -252,7 +257,7 @@ class Shortcode extends Shortcode_Base{
         $this->filter_box = $filter_box == 'yes' ? true : false;
         
         $search_box = $this->search_n_filter['search_box'] ?? '';
-        $this->search_box = $filter_box == 'yes' ? true : false;
+        $this->search_box = $search_box == 'yes' ? true : false;
 
         if( $this->filter_box ){
             $this->filter = $this->search_n_filter['filter'] ?? [];
@@ -362,4 +367,51 @@ class Shortcode extends Shortcode_Base{
        echo wpt_pagination_by_args( $this->args , $this->table_id, ['args' => $this->args]);
     }
         
+    public function search_box_render(){
+        
+        if( $this->search_box ){
+            Search_Box::render($this);
+        }else{
+        ?>
+        <button data-type="query" data-temp_number="<?php echo esc_attr( $this->table_id ); ?>" id="wpt_query_search_button_<?php echo esc_attr( $this->table_id ); ?>" class="button wpt_search_button query_button wpt_query_search_button wpt_query_search_button_<?php echo esc_attr( $this->table_id ); ?>" style="visibility: hidden;height:1px;"></button>
+        <?php
+        }
+    }
+    
+    public function ajax_row_load(){
+        $table_id = $_POST['table_id'] ?? 0;
+        $table_id = (int) $table_id;
+        $atts = ['id'=> $table_id];
+        
+        
+        $args = $_POST['args'] ?? [];
+        if( is_array( $args ) ){
+            $args = array_filter( $args, function( $item ){
+                return ! empty( $item );
+            });
+        }
+
+        
+        $this->assing_property($atts); 
+        if( is_array( $args ) && ! empty( $args ) ){
+            
+            unset($this->args['tax_query']);
+            unset($this->args['meta_query']);
+
+            $this->args = array_merge( $args,$this->args );
+        }
+
+        
+        $this->table_body();
+
+        die();
+    }
+
+    public static function body_class( $class ){
+        // var_dump($class);
+        if( ! is_array( $class ) ) return $class;
+        $class[] = 'wpt_table_body';
+        $class[] = 'woocommerce';
+        return $class;
+    }
 }

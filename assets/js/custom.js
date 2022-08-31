@@ -1376,6 +1376,53 @@ jQuery(function($) {
            $('#wpt_query_search_button_' + temp_number).trigger('click');
         });
         
+        $(document.body).on('click','.wpt-search-products',function(){
+            let value,key;
+            let table_id = $(this).data('table_id');
+            var targetTable = $('#table_id_' + table_id + ' table#wpt_table');
+
+            var texonomies = {};
+            value = false;
+            $('#search_box_' + table_id + ' .search_select.query').each(function(){
+                
+                key = $(this).data('key');
+                var value = $(this).val();//[];var tempSerial = 0;
+                if(value != ""){
+                    texonomies[key] = value;
+                }
+            });
+
+            var tax_query = {};
+            Object.keys(texonomies).forEach(function(aaa,bbb){
+                var key = aaa + '_IN';
+                if(texonomies[aaa] !== null && Object.keys(texonomies[aaa]).length > 0){
+                    tax_query[key] = {
+                        taxonomy: aaa,
+                        field:  'id',  
+                        terms:  texonomies[aaa],
+                        operator:   'IN'
+                    };
+                }
+            });
+            var s= $('#search_box_' + table_id + ' .search_single_direct .query_box_direct_value').val();
+            var data = {
+                action: 'wpt_query',
+                table_id:table_id,
+                args: {
+                    s: s,
+                    tax_query: tax_query,
+                }
+            };
+            $.ajax({
+                type: 'POST',
+                url: ajax_url,// + get_data,
+                data: data,
+                success:function(response){
+                    // $('header.entry-header').html(response);
+                    targetTable.find('tbody').html(response);
+                }
+            });
+        });
         /**
          * Search Box Query and Scripting Here
          * @since 1.9
@@ -1450,11 +1497,11 @@ jQuery(function($) {
             
 
             //Generating Taxonomy for Query Args inside wp_query
-            var final_taxomony = {};
+            var tax_query = {};
             Object.keys(texonomies).forEach(function(aaa,bbb){
                 var key = aaa + '_IN';
                 if(texonomies[aaa] !== null && Object.keys(texonomies[aaa]).length > 0){
-                    final_taxomony[key] = {
+                    tax_query[key] = {
                         taxonomy: aaa,
                         field:  'id',  
                         terms:  texonomies[aaa],
@@ -1465,7 +1512,7 @@ jQuery(function($) {
                 } 
             });
             if(Object.keys(texonomies).length > 0){
-                Object.assign(targetTableArgs.args.tax_query,final_taxomony);
+                Object.assign(targetTableArgs.args.tax_query,tax_query);
             }else{
                 targetTableArgs.args.tax_query = targetTableArgsBackup.args.tax_query;
             }
@@ -1476,7 +1523,7 @@ jQuery(function($) {
                 console.log(key,bbb);
                 if(Object.keys(custom_field[key]).length > 0){ //custom_field[key] !== null && 
                     var compare = multiple_attr[key];
-                    console.log("COM", multiple_attr[key],compare, typeof compare);
+                    
                     if(! compare){
                             final_custom_field[key] = {
                                     key: key,  

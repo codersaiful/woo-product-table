@@ -77,7 +77,12 @@ class Search_Box{
         $html .= '</div>'; //End of .search_box_singles
 
         
-        $html .= '<button data-type="query" data-temp_number="' . $shortcode->table_id . '" id="wpt_query_search_button_' . $shortcode->table_id . '" class="button wpt_search_button query_button wpt_query_search_button wpt_query_search_button_' . $shortcode->table_id . '">' . $config_value['search_button_text'] . '</button>';
+        // $html .= '<button data-type="query" data-temp_number="' . $shortcode->table_id . '" id="wpt_query_search_button_' . $shortcode->table_id . '" class="button wpt_search_button query_button wpt_query_search_button wpt_query_search_button_' . $shortcode->table_id . '">' . $config_value['search_button_text'] . '</button>';
+        
+        //New and Testing
+        $html .= '<button data-table_id="' . $shortcode->table_id . '" id="wpt_query_search_button_' . $shortcode->table_id . '" class="button wpt-search-products wpt_query_search_button_' . $shortcode->table_id . '">' . $config_value['search_button_text'] . '</button>';
+        
+        
         $html .= '</div>';//End of .search_box_fixer
         $html .= '</div>';//End of .wpt_search_box
         echo $html;
