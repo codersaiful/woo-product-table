@@ -255,6 +255,9 @@ You can easily show specific category products. While creating new table click o
 
 == Changelog ==
 
+= 3.2.5 =
+* `text_with_number` sorting issue has been solved
+
 = 3.2.4 =
 * Bug Fixed: Icon/Font-Icon confliction issue has been solved.
 * Bug Fixed: Pagination saving issue fixed
