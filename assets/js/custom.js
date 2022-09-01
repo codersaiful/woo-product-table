@@ -1404,7 +1404,7 @@ jQuery(function($) {
                     };
                 }
             });
-            var s= $('#search_box_' + table_id + ' .search_single_direct .query_box_direct_value').val();
+            var s= $('#search_box_' + table_id + ' .search_single_direct .query-keyword-input-box').val();
             var data = {
                 action: 'wpt_query',
                 table_id:table_id,

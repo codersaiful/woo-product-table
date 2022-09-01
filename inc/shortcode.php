@@ -62,6 +62,25 @@ class Shortcode extends Shortcode_Base{
      * @var string|null
      */
     public $template_name;
+    // /whole_search/search_box/hide_input
+
+    public $search_box;
+
+    /**
+     * Search Area selected from whole site or on selected category
+     *
+     * @var [type]
+     */
+    public $whole_search;
+
+    /**
+     * Actually Hide Inputbox from Search Box Area
+     * Advance Search Box area.
+     *
+     * @var string|bool
+     */
+    public $hide_input;
+
 
     public $filter_box;
     public $filter;
@@ -174,8 +193,9 @@ class Shortcode extends Shortcode_Base{
         if( ! $this->assing_property ){
             $this->assing_property( $atts );
         }
-        
-        
+
+        $this->hide_input = $this->search_n_filter['hide_input'] ?? false;
+                
         $this->enqueue();
 
     }
@@ -258,6 +278,8 @@ class Shortcode extends Shortcode_Base{
         
         $search_box = $this->search_n_filter['search_box'] ?? '';
         $this->search_box = $search_box == 'yes' ? true : false;
+        
+        $this->whole_search = $this->search_n_filter['whole_search'] ?? false;
 
         if( $this->filter_box ){
             $this->filter = $this->search_n_filter['filter'] ?? [];
@@ -391,16 +413,20 @@ class Shortcode extends Shortcode_Base{
             });
         }
 
-        
+        //It's need to the beginning of this process.
         $this->assing_property($atts); 
-        if( is_array( $args ) && ! empty( $args ) ){
-            
-            unset($this->args['tax_query']);
-            unset($this->args['meta_query']);
+        
+        
 
+
+        if( is_array( $args ) && ! empty( $args ) ){
+
+            if( $this->whole_search ){
+                unset($this->args['tax_query']);
+                unset($this->args['meta_query']);
+            }
             $this->args = array_merge( $args,$this->args );
         }
-
         
         $this->table_body();
 

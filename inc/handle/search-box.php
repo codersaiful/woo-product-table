@@ -15,22 +15,20 @@ class Search_Box{
         $html .= '<h3 class="search_box_label">' . $config_value['search_box_title'] . '</h3>';
         $html .= "<div class='search_box_wrapper'>";
 
-        /**
-         * Search Input Box
-         * At Version 3.3, we have changed few features
-         */
-        $html .= "<div class='search_single search_single_direct'>";
         
-        $search_keyword = isset( $_GET['search_key'] ) ? sanitize_text_field( $_GET['search_key'] ) : '';
+        if( $shortcode->hide_input ){
+            $html_inputBox = false;
+        }else{
+            $html_inputBox = '';
+            $search_keyword = isset( $_GET['search_key'] ) ? sanitize_text_field( $_GET['search_key'] ) : '';
+            $single_keyword = $config_value['search_keyword_text'];//__( 'Search keyword', 'wpt_pro' );
+            $search_order_placeholder = $config_value['search_box_searchkeyword'];//__( 'Search keyword', 'wpt_pro' );
+            $html_inputBox .= "<div class='search_single_column'>";
+            $html_inputBox .= '<label class="search_keyword_label single_keyword" for="single_keyword_' . $shortcode->table_id . '">' . $single_keyword . '</label>';
+            $html_inputBox .= '<input data-key="s" value="' . $search_keyword . '" class="query-keyword-input-box query_box_direct_value" id="single_keyword_' . $shortcode->table_id . '" value="" placeholder="' . $search_order_placeholder . '"/>';
+            $html_inputBox .= "</div>";// End of .search_single_column
+        }
         
-
-        $single_keyword = $config_value['search_keyword_text'];//__( 'Search keyword', 'wpt_pro' );
-        $search_order_placeholder = $config_value['search_box_searchkeyword'];//__( 'Search keyword', 'wpt_pro' );
-        $html .= "<div class='search_single_column'>";
-        $html .= '<label class="search_keyword_label single_keyword" for="single_keyword_' . $shortcode->table_id . '">' . $single_keyword . '</label>';
-        $html .= '<input data-key="s" value="' . $search_keyword . '" class="query_box_direct_value" id="single_keyword_' . $shortcode->table_id . '" value="" placeholder="' . $search_order_placeholder . '"/>';
-        $html .= "</div>";// End of .search_single_column
-
         ob_start();
         /**
          * Used following hook to insert two insert other field
@@ -41,10 +39,18 @@ class Search_Box{
          */
         
         do_action( 'wpto_search_box_basics', $shortcode->table_id, $config_value, $shortcode->orderby, $shortcode->order );
-        $html .= ob_get_clean();
+        $extra_html = ob_get_clean();
 
-        $html .= "</div>"; //end of .search_single
+        if( ! empty( $extra_html ) || $html_inputBox){
+
+            $html .= "<div class='search_single search_single_direct'>";
+            $html .= $html_inputBox;
+            $html .= $extra_html;
+            $html .= "</div>"; //end of .search_single
+            
+        }
         
+
         if( is_string( $taxonomy_keywords ) && ! empty( $taxonomy_keywords ) ){
             $taxonomy_keywords = wpt_explode_string_to_array( $taxonomy_keywords );
         }
