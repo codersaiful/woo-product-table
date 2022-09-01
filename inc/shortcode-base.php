@@ -2,6 +2,7 @@
 namespace WOO_PRODUCT_TABLE\Inc;
 
 class Shortcode_Base{
+    public $_root = __CLASS__;
 
     /**
      * Getting meta value,

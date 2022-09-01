@@ -104,9 +104,17 @@ class Shortcode extends Shortcode_Base{
     
 
     public function run(){
-        add_action( 'wp_ajax_wpt_query', [$this,'ajax_row_load'] );
-        add_action( 'wp_ajax_nopriv_wpt_query', [$this,'ajax_row_load'] );
         
+        /**
+         * All lf our Ajax for our Table/Shortcode will handle from
+         * Shortcode_Ajax().
+         * 
+         * We have extended here Our this Class/Shortcode Class
+         * 
+         * @since 3.2.5.0
+         */
+        new Shortcode_Ajax();
+                
         add_shortcode( $this->shortcde_text, [$this, 'shortcode'] );
     }
     public function shortcode($atts){
@@ -329,7 +337,7 @@ class Shortcode extends Shortcode_Base{
         return $this->shortcde_text;
     }
 
-    private function table_body( $id = false ){
+    protected function table_body( $id = false ){
         if( ! $this->assing_property && ! $id ){
             $atts = [
                 'id' => $id
@@ -359,7 +367,7 @@ class Shortcode extends Shortcode_Base{
 
 
     }
-    private function table_head(){
+    protected function table_head(){
         if( ! $this->table_head ) return;
         if( ! $this->is_table_head ) return; //Check column available or not, if empty array of _enable_cols, it will return false.
         
@@ -400,39 +408,6 @@ class Shortcode extends Shortcode_Base{
         }
     }
     
-    public function ajax_row_load(){
-        $table_id = $_POST['table_id'] ?? 0;
-        $table_id = (int) $table_id;
-        $atts = ['id'=> $table_id];
-        
-        
-        $args = $_POST['args'] ?? [];
-        if( is_array( $args ) ){
-            $args = array_filter( $args, function( $item ){
-                return ! empty( $item );
-            });
-        }
-
-        //It's need to the beginning of this process.
-        $this->assing_property($atts); 
-        
-        
-
-
-        if( is_array( $args ) && ! empty( $args ) ){
-
-            if( $this->whole_search ){
-                unset($this->args['tax_query']);
-                unset($this->args['meta_query']);
-            }
-            $this->args = array_merge( $args,$this->args );
-        }
-        
-        $this->table_body();
-
-        die();
-    }
-
     public static function body_class( $class ){
         
         if( ! is_array( $class ) ) return $class;
