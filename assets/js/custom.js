@@ -2202,6 +2202,7 @@ jQuery(function($) {
          * @date 26.7.2018
          */
         $(document.body).on('click','div.wpt_column_sort table.wpt_product_table thead tr th',function(){
+            console.clear();
             var class_for_sorted = 'this_column_sorted';
             var temp_number = $(this).parent().data('temp_number');
             var target_class = '.' + $(this).attr('class').split(' ').join('.');
@@ -2230,7 +2231,7 @@ jQuery(function($) {
                 $(this).attr('data-sort_type','ASC');
             }
 
-
+            console.log(content_type,target_class,disableClass);
             //for check box collumn //wpt_thumbnails //wpt_product_id
             if($.inArray(target_class,disableClass) == -1){
             
@@ -2254,9 +2255,14 @@ jQuery(function($) {
                         text = $(this).find('span.woocommerce-Price-amount.amount').last().text();
                         text = textToIntForSorting(text,product_id);
                     }else if(content_type == 'number'){
+                        
                         text = textToIntForSorting(text,product_id);
+                        if(isNaN(text)){
+                            text = product_id;
+                        }
                     }else{
                         text = $.trim(text.substring(0,80));
+                        
                         text = text + "_" + product_id;
                     }
                     
