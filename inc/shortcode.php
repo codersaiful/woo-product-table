@@ -434,7 +434,7 @@ class Shortcode extends Shortcode_Base{
     }
 
     public static function body_class( $class ){
-        // var_dump($class);
+        
         if( ! is_array( $class ) ) return $class;
         $class[] = 'wpt_table_body';
         $class[] = 'woocommerce';
