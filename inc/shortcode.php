@@ -11,6 +11,14 @@ class Shortcode extends Shortcode_Base{
 
     public $shortcde_text = 'SAIFUL_TABLE';
     private $assing_property = false;
+
+    /**
+     * If not passed over filter hook 
+     * the args Attribute.
+     *
+     * @var bool|null
+     */
+    private $args_organized;
     public $atts;
     public $table_id;
     public $status;
@@ -296,12 +304,9 @@ class Shortcode extends Shortcode_Base{
         $this->args = Args::manage($this);
 
         //This Filter will be deleted in future update
-        $this->args = apply_filters( 'wpto_table_query_args', $this->args, $this->table_id, $this->atts, $this->column_settings, $this->_enable_cols, $this->column_array );
+        // $this->args = apply_filters( 'wpto_table_query_args', $this->args, $this->table_id, $this->atts, $this->column_settings, $this->_enable_cols, $this->column_array );
 
-        /**
-         * @Hook filter wpt_query_args manage wpt table query args using filter hook
-         */
-        $this->args = $this->apply_filter( 'wpt_query_args', $this->args );
+        
 
 
         $this->assing_property = true;
@@ -337,6 +342,34 @@ class Shortcode extends Shortcode_Base{
         return $this->shortcde_text;
     }
 
+    /**
+     * Args Organize means,
+     * Args will be pass using @Fillter Hook.
+     * I have made two hook primarily
+     * * wpto_table_query_args which is old, I will remove it in future update
+     * * wpt_query_args It's final hook, where User will get Own Object as second Params.
+     *
+     * @return this|object|Shortcode
+     */
+    protected function argsOrganize(){
+        
+        $this->args = apply_filters( 'wpto_table_query_args', $this->args, $this->table_id, $this->atts, $this->column_settings, $this->_enable_cols, $this->column_array );
+        /**
+         * @Hook filter wpt_query_args manage wpt table query args using filter hook
+         */
+        $this->args = $this->apply_filter( 'wpt_query_args', $this->args );
+        $this->args_organized = true;
+        return $this;
+    }
+
+    /**
+     * Content of Table Body,
+     * Actually it's all Table Row
+     * This method will generate all table row based on args
+     *
+     * @param boolean $id Optional, It will not be need, If we dont' age our full Object and Assign_Propery method
+     * @return void
+     */
     protected function table_body( $id = false ){
         if( ! $this->assing_property && ! $id ){
             $atts = [
@@ -344,6 +377,10 @@ class Shortcode extends Shortcode_Base{
             ];
             $this->assing_property( $atts );
         }
+        if( ! $this->args_organized ){
+            $this->argsOrganize();
+        }
+
         $product_loop = new \WP_Query( $this->args );
         if ($this->orderby == 'random') {
             shuffle( $product_loop->posts );

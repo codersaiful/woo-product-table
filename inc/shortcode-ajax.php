@@ -17,6 +17,8 @@ class Shortcode_Ajax extends Shortcode{
         add_action( 'wp_ajax_nopriv_wpt_query', [$this,'ajax_row_load'] );
     }
 
+
+
     public function ajax_row_load(){
         $table_id = $_POST['table_id'] ?? 0;
         $table_id = (int) $table_id;
@@ -24,28 +26,28 @@ class Shortcode_Ajax extends Shortcode{
         
         
         $args = $_POST['args'] ?? [];
-        if( is_array( $args ) ){
-            $args = array_filter( $args, function( $item ){
-                return ! empty( $item );
-            });
-        }
+        $args = $this->arrayFilter( $args );
 
         //It's need to the beginning of this process.
         $this->assing_property($atts); 
         
-        
 
+        //unsetArrayItem
+        var_dump($args);
 
         if( is_array( $args ) && ! empty( $args ) ){
+            unset($this->args['post__in']);
+            unset($this->args['post__not_in']);
 
             if( $this->whole_search ){
                 unset($this->args['tax_query']);
                 unset($this->args['meta_query']);
             }
-            $this->args = array_merge( $args,$this->args );
+            // var_dump($this->args, $args);
+            $this->args = array_merge( $this->args, $args );
         }
-        
-        $this->table_body();
+        // var_dump($this->args);
+        $this->argsOrganize()->table_body();
 
         die();
     }

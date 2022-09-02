@@ -843,6 +843,7 @@ if( ! function_exists( 'wpt_table_row_generator' ) ){
         if( ! isset($args['s']) ){
             $args['suppress_filters'] = 1;
         }
+        var_dump($args);
         // var_dump($args['tax_query']);
         $product_loop = new WP_Query($args);
         // var_dump($product_loop);

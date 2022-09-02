@@ -1377,6 +1377,7 @@ jQuery(function($) {
         });
         
         $(document.body).on('click','.wpt-search-products',function(){
+            console.clear();
             let value,key;
             let table_id = $(this).data('table_id');
             var targetTable = $('#table_id_' + table_id + ' table#wpt_table');
@@ -1404,20 +1405,69 @@ jQuery(function($) {
                     };
                 }
             });
-            var s= $('#search_box_' + table_id + ' .search_single_direct .query-keyword-input-box').val();
+
+            var custom_field = {},meta_query  = {}, multiple_attr = {};
+
+            $('#search_box_' + table_id + ' .search_select.cf_query').each(function(){
+                var attr = $(this).attr('multiple');
+                
+                key = $(this).data('key');
+                var value = $(this).val();
+                if(value != ""){
+                    custom_field[key] = value;
+                    multiple_attr[key] = attr;
+                }
+            });
+            Object.keys(custom_field).forEach(function(key,bbb){
+                 if(Object.keys(custom_field[key]).length > 0){ //custom_field[key] !== null && 
+                    var compare = multiple_attr[key];
+                    
+                    if(! compare){
+                        meta_query[key] = {
+                                    key: key,  
+                                    value:  custom_field[key],
+                                    compare: 'LIKE'
+                            };   
+                    }else{
+                        meta_query[key] = {
+                                    key: key,  
+                                    value:  custom_field[key]
+                            }; 
+                    }
+                } 
+            });
+            
+
+            // var s= $('#search_box_' + table_id + ' .search_single_direct .query-keyword-input-box').val();
+            var directkey = {};
+            $('#search_box_' + table_id + ' .search_single_direct .query_box_direct_value').each(function(){
+                
+                key = $(this).data('key');
+                value = $(this).val();
+                //if(value != "" && value != null){
+                    directkey[key] = value;
+                //}
+            });
+            
+            var args = {
+                // s: s,
+                tax_query: tax_query,
+                meta_query: meta_query,
+            };
+            Object.assign(args,directkey);
+            console.log(args);
             var data = {
                 action: 'wpt_query',
                 table_id:table_id,
-                args: {
-                    s: s,
-                    tax_query: tax_query,
-                }
+                args: args
             };
+            console.log(data,data['meta_query']);
             $.ajax({
                 type: 'POST',
                 url: ajax_url,// + get_data,
                 data: data,
                 success:function(response){
+                    
                     // $('header.entry-header').html(response);
                     targetTable.find('tbody').html(response);
                 }

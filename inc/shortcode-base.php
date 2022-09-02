@@ -4,6 +4,32 @@ namespace WOO_PRODUCT_TABLE\Inc;
 class Shortcode_Base{
     public $_root = __CLASS__;
 
+    
+    protected function unsetArrayItem( Array $arr, $unset_item ){
+        if( ! isset( $arr[$unset_item] ) ) return $arr;
+
+        unset($arr[$unset_item]);
+        return $arr;
+    }
+
+    /**
+     * Remove Empty Array from Array
+     * If found any value Empty, It will remove that item of that array
+     *
+     * @param Array $arr Required Item.
+     * @return Array
+     */
+    protected function arrayFilter( Array $arr ){
+        if( is_array( $arr ) ){
+            $args = array_filter( $arr, function( $item ){
+                return ! empty( $item );
+            });
+        }else{
+            $arr = [];
+        }
+        return $arr;
+    }
+
     /**
      * Getting meta value,
      * which need as array actually
