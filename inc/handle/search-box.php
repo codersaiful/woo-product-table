@@ -38,7 +38,9 @@ class Search_Box{
          * @author Saiful Islam <codersaiful@gmail.com>
          */
         
-        do_action( 'wpto_search_box_basics', $shortcode->table_id, $config_value, $shortcode->orderby, $shortcode->order );
+        // do_action( 'wpto_search_box_basics', $shortcode->table_id, $config_value, $shortcode->orderby, $shortcode->order );
+        
+        $shortcode->do_action('wpt_search_box');
         $extra_html = ob_get_clean();
 
         if( ! empty( $extra_html ) || $html_inputBox){

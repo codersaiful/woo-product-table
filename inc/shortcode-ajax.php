@@ -31,22 +31,20 @@ class Shortcode_Ajax extends Shortcode{
         //It's need to the beginning of this process.
         $this->assing_property($atts); 
         
-
-        //unsetArrayItem
-        var_dump($args);
-
         if( is_array( $args ) && ! empty( $args ) ){
-            unset($this->args['post__in']);
-            unset($this->args['post__not_in']);
 
             if( $this->whole_search ){
+
+                unset($this->args['post__in']);
+                unset($this->args['post__not_in']);
+
                 unset($this->args['tax_query']);
                 unset($this->args['meta_query']);
             }
-            // var_dump($this->args, $args);
+            
             $this->args = array_merge( $this->args, $args );
         }
-        // var_dump($this->args);
+        
         $this->argsOrganize()->table_body();
 
         die();

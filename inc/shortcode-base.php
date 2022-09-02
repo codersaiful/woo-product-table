@@ -21,7 +21,7 @@ class Shortcode_Base{
      */
     protected function arrayFilter( Array $arr ){
         if( is_array( $arr ) ){
-            $args = array_filter( $arr, function( $item ){
+            $arr = array_filter( $arr, function( $item ){
                 return ! empty( $item );
             });
         }else{
