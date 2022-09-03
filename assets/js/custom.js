@@ -90,6 +90,32 @@ jQuery(function($) {
             return false;
         });
         
+
+        //New Pagination
+        $(document.body).on('click','.wpt_pagination_ajax .wpt_my_pagination a',function(e){
+            
+            e.preventDefault();
+            var thisButton = $(this);
+            var thisPagination = thisButton.closest('.wpt_my_pagination');
+            var page_number = $(thisButton).text();
+            // console.log(page_number)
+            var table_id = thisPagination.data('table_id');
+            
+            var data = {
+                action: 'wpt_pagination',
+                table_id: table_id,
+                page_number: page_number,
+            };
+            $.ajax({
+                type: 'POST',
+                url: ajax_url,// + get_data,
+                data: data,
+                success:function(result){
+                    $('header.entry-header').html(result);
+                    thisPagination.html(result);
+                }
+            });
+        });
         /**
          * Pagination
          */
