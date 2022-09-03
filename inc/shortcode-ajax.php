@@ -1,15 +1,10 @@
 <?php 
 namespace WOO_PRODUCT_TABLE\Inc;
 
-use WOO_PRODUCT_TABLE\Inc\Handle\Message as Msg;
-use WOO_PRODUCT_TABLE\Inc\Handle\Args;
-use WOO_PRODUCT_TABLE\Inc\Handle\Search_Box;
-use WOO_PRODUCT_TABLE\Inc\Handle\Table_Attr;
-use WOO_PRODUCT_TABLE\Inc\Table\Row;
 use WOO_PRODUCT_TABLE\Inc\Shortcode;
 
 class Shortcode_Ajax extends Shortcode{
-    public $test = "Test";
+    public $_root = __CLASS__;
     public function __construct()
     {
         

@@ -3,6 +3,10 @@ namespace WOO_PRODUCT_TABLE\Inc;
 
 class Shortcode_Base{
     public $_root = __CLASS__;
+    public $dev_version = WPT_DEV_VERSION;
+
+    public $items_directory;
+    public $items_permanent_dir;
 
     
     protected function unsetArrayItem( Array $arr, $unset_item ){

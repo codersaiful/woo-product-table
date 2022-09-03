@@ -9,6 +9,7 @@ use WOO_PRODUCT_TABLE\Inc\Table\Row;
 
 class Shortcode extends Shortcode_Base{
 
+    public $_root = __CLASS__;
     public $shortcde_text = 'SAIFUL_TABLE';
     private $assing_property = false;
 
@@ -103,13 +104,6 @@ class Shortcode extends Shortcode_Base{
     public $table_class;
     public $is_column_label = false;
 
-    public $items_directory;
-    public $items_permanent_dir;
-    public $dev_version = WPT_DEV_VERSION;
-    
-
-
-    
 
     public function run(){
         

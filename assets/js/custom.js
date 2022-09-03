@@ -1438,23 +1438,15 @@ jQuery(function($) {
             });
             
 
-            // var s= $('#search_box_' + table_id + ' .search_single_direct .query-keyword-input-box').val();
-            var directkey = {};
-            $('#search_box_' + table_id + ' .search_single_direct .query_box_direct_value').each(function(){
-                
-                key = $(this).data('key');
-                value = $(this).val();
-                //if(value != "" && value != null){
-                    directkey[key] = value;
-                //}
-            });
+            var s= $('#search_box_' + table_id + ' .search_single_direct .query-keyword-input-box').val();
+            
             
             var args = {
-                // s: s,
+                s: s,
                 tax_query: tax_query,
                 meta_query: meta_query,
             };
-            Object.assign(args,directkey);
+            
             console.log(args);
             var data = {
                 action: 'wpt_query',
