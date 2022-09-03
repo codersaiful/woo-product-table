@@ -20,6 +20,7 @@ class Shortcode_Ajax extends Shortcode{
 
 
     public function ajax_row_load(){
+
         $table_id = $_POST['table_id'] ?? 0;
         $table_id = (int) $table_id;
         $atts = ['id'=> $table_id];
