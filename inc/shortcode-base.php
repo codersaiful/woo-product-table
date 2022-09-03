@@ -35,7 +35,7 @@ class Shortcode_Base extends Base{
      * @param string $meta_key it to be meta key. It will retrive data from our table post
      * @return array
      */
-    protected function get_meta( string $meta_key ){
+    public function get_meta( string $meta_key ){
         $data = get_post_meta( $this->table_id, $meta_key, true );
         return is_array( $data ) ? $data : [];
     }

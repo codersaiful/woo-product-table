@@ -146,7 +146,7 @@ class Shortcode extends Shortcode_Base{
             <?php
             $this->search_box_render();
         
-            do_action( 'wpto_after_advance_search_box', $this->table_id, $this->args, $this->column_settings, $this->_enable_cols, $this->_config, $this->atts );
+            //do_action( 'wpto_after_advance_search_box', $this->table_id, $this->args, $this->column_settings, $this->_enable_cols, $this->_config, $this->atts );
     
     
             do_action( 'wpto_action_before_table', $this->table_id, $this->args, $this->column_settings, $this->_enable_cols, $this->_config, $this->atts );
@@ -431,7 +431,20 @@ class Shortcode extends Shortcode_Base{
     public function pagination_render(){
        echo wpt_pagination_by_args( $this->args , $this->table_id, ['args' => $this->args]);
     }
-        
+     
+    /**
+     * Basically for main search box and Meta field wise search box.
+     * Actually first time, there was only search box without meta field search.
+     * 
+     * Specially for Alvaro, I added a new feature,where user will able to search by meta field.
+     * 
+     * at the bottom of this method, I added a action_hook: wpt_after_searchbox
+     * where I added meta field wise search option at at Pro/Inc/Search_Extra()
+     * find there about all things.
+     *
+     * @return void
+     * @author Saiful Islam <codersaiful@gmail.com>
+     */
     public function search_box_render(){
         
         if( $this->search_box ){
@@ -441,13 +454,17 @@ class Shortcode extends Shortcode_Base{
         <button data-type="query" data-temp_number="<?php echo esc_attr( $this->table_id ); ?>" id="wpt_query_search_button_<?php echo esc_attr( $this->table_id ); ?>" class="button wpt_search_button query_button wpt_query_search_button wpt_query_search_button_<?php echo esc_attr( $this->table_id ); ?>" style="visibility: hidden;height:1px;"></button>
         <?php
         }
+
+        /**
+         * We have used this Action hook for adding Meta Field wise serch
+         * at Pro/Inc/Search_Extra()
+         * 
+         * @since 3.2.5.0
+         * @since 8.0.9.1 of Pro version
+         * 
+         * @author Saiful Islam <codersaiful@gmail.com>
+         */
+        $this->do_action( 'wpt_after_searchbox' );
     }
-    
-    public static function body_class( $class ){
-        
-        if( ! is_array( $class ) ) return $class;
-        $class[] = 'wpt_table_body';
-        $class[] = 'woocommerce';
-        return $class;
-    }
+
 }

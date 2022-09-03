@@ -42,7 +42,7 @@ class Search_Box{
         
         $shortcode->do_action('wpt_search_box');
         $extra_html = ob_get_clean();
-
+        // var_dump($extra_html);
         if( ! empty( $extra_html ) || $html_inputBox){
 
             $html .= "<div class='search_single search_single_direct'>";

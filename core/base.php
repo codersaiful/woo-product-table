@@ -61,13 +61,13 @@ class Base{
     public function do_action( string $action_hook ){
         
         $this->do_action[] = $action_hook;
-        ob_start();
+        
         /**
          * To Insert Content at Top of the Table, Just inside of Wrapper tag of Table
          * Available Args $table_ID, $args, $config_value, $atts;
          */
         do_action( $action_hook, $this ); //$default_ouptput,
-        return ob_get_clean();
+
     }
 
     /**
