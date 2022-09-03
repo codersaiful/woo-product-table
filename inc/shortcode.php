@@ -3,6 +3,7 @@ namespace WOO_PRODUCT_TABLE\Inc;
 
 use WOO_PRODUCT_TABLE\Inc\Handle\Message as Msg;
 use WOO_PRODUCT_TABLE\Inc\Handle\Args;
+use WOO_PRODUCT_TABLE\Inc\Handle\Pagination;
 use WOO_PRODUCT_TABLE\Inc\Handle\Search_Box;
 use WOO_PRODUCT_TABLE\Inc\Handle\Table_Attr;
 use WOO_PRODUCT_TABLE\Inc\Table\Row;
@@ -176,8 +177,7 @@ class Shortcode extends Shortcode_Base{
 
             <?php 
             if( $this->pagination ){
-                
-                $this->pagination_render();
+                Pagination::render( $this );
             }
 
 
