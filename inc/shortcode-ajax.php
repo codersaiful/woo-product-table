@@ -6,14 +6,30 @@ use WOO_PRODUCT_TABLE\Inc\Handle\Pagination;
 
 class Shortcode_Ajax extends Shortcode{
     public $_root = __CLASS__;
+    public static $get_args;
     public function __construct()
     {
         
         $this->ajax_action('wpt_query', 'ajax_row_load');
         $this->ajax_action('wpt_pagination');
+        $this->ajax_action('wpt_load_both');
     }
 
-
+    public function wpt_load_both(){
+        $atts = $this->set_atts();
+        $this->assing_property( $atts ); 
+        $page_number = $_POST['page_number'] ?? $this->page_number;
+        $this->args['paged'] = $this->page_number = $page_number;
+        $output = [];
+        ob_start();
+        $this->table_body();
+        $output['table tbody'] = ob_get_clean();
+        
+        $output['.wpt_my_pagination.wpt_table_pagination'] = Pagination::get_paginate_links($this);
+        wp_send_json( $output );
+        // var_dump($this->page_number,$this->args);
+        die();
+    }
 
     public function wpt_pagination(){
         $atts = $this->set_atts();

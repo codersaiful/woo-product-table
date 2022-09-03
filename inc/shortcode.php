@@ -6,6 +6,7 @@ use WOO_PRODUCT_TABLE\Inc\Handle\Args;
 use WOO_PRODUCT_TABLE\Inc\Handle\Pagination;
 use WOO_PRODUCT_TABLE\Inc\Handle\Search_Box;
 use WOO_PRODUCT_TABLE\Inc\Handle\Table_Attr;
+use WOO_PRODUCT_TABLE\Inc\Handle\Enqueue;
 use WOO_PRODUCT_TABLE\Inc\Table\Row;
 use WOO_PRODUCT_TABLE\Inc\Features\Basics;
 
@@ -123,6 +124,9 @@ class Shortcode extends Shortcode_Base{
                 
         $basics = new Basics();
         $basics->run();
+
+        $enequeue = new Enqueue();
+        $enequeue->run();
     }
     public function shortcode($atts){
         

@@ -4,6 +4,8 @@ namespace WOO_PRODUCT_TABLE\Core;
 class Base{
     public $_root = __CLASS__;
     public $dev_version = WPT_DEV_VERSION;
+    public $base_url = WPT_BASE_URL;
+    public $assets_url = WPT_ASSETS_URL;
 
     /**
      * Collection of add action
