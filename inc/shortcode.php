@@ -6,11 +6,12 @@ use WOO_PRODUCT_TABLE\Inc\Handle\Args;
 use WOO_PRODUCT_TABLE\Inc\Handle\Search_Box;
 use WOO_PRODUCT_TABLE\Inc\Handle\Table_Attr;
 use WOO_PRODUCT_TABLE\Inc\Table\Row;
+use WOO_PRODUCT_TABLE\Inc\Features\Basics;
 
 class Shortcode extends Shortcode_Base{
 
     public $_root = __CLASS__;
-    public $shortcde_text = 'SAIFUL_TABLE';
+    
     private $assing_property = false;
 
     /**
@@ -106,7 +107,9 @@ class Shortcode extends Shortcode_Base{
 
 
     public function run(){
-        
+
+        add_shortcode( $this->shortcde_text, [$this, 'shortcode'] );
+
         /**
          * All lf our Ajax for our Table/Shortcode will handle from
          * Shortcode_Ajax().
@@ -117,7 +120,8 @@ class Shortcode extends Shortcode_Base{
          */
         new Shortcode_Ajax();
                 
-        add_shortcode( $this->shortcde_text, [$this, 'shortcode'] );
+        $basics = new Basics();
+        $basics->run();
     }
     public function shortcode($atts){
         
