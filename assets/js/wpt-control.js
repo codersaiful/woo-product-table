@@ -154,10 +154,6 @@ jQuery(function($) {
 });
 (function( $ ) {
 
-    
-
-    var ajax_url = WPT_DATAS.ajax_url;
-
     $.TableLoadAjax = function(table_id,args,page_number,ajax_url) {
         console.log(table_id,args,page_number);
         
