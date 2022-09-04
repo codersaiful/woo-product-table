@@ -2025,7 +2025,7 @@ padding-left: 30px;
     position: absolute;
     height: 100%;
     width: 100%;
-    background: #00000026;
+    background: #00000012;
     top: 0;
     left: 0;
     z-index: 999;
@@ -2034,7 +2034,7 @@ padding-left: 30px;
 
 div.wpt_product_table_wrapper.wpt-ajax-loading {
     position: relative;
-    opacity: 0.9;
+    /* opacity: 0.9; */
 }
 div.wpt_product_table_wrapper.wpt-ajax-loading>div{
     transform: scale(0.99);
