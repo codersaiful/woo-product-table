@@ -140,6 +140,7 @@ class Shortcode extends Shortcode_Base{
         $this->startup_loader($atts);
         
         // var_dump($this);
+        //wpto_action_table_wrapper_top
         ob_start();
 
         ?>
@@ -150,6 +151,11 @@ class Shortcode extends Shortcode_Base{
         id="table_id_<?php echo esc_attr( $this->table_id ); ?>" 
         class="<?php echo esc_attr( Table_Attr::wrapper_class( $this ) ); ?>">
             <?php
+
+            if( 'top' == $this->minicart_position ){
+                $this->render_render();
+            }
+
             $this->search_box_render();
         
             //do_action( 'wpto_after_advance_search_box', $this->table_id, $this->args, $this->column_settings, $this->_enable_cols, $this->_config, $this->atts );
@@ -186,6 +192,9 @@ class Shortcode extends Shortcode_Base{
             }
 
 
+            if( 'bottom' == $this->minicart_position ){
+                $this->render_render();
+            }
 
             do_action( 'wpto_table_wrapper_bottom', $this->table_id, $this->args, $this->column_settings, $this->_enable_cols, $this->_config, $this->atts );
             $this->do_action( 'wpt_table_wrapper_bottom' );
@@ -470,6 +479,26 @@ class Shortcode extends Shortcode_Base{
          * @author Saiful Islam <codersaiful@gmail.com>
          */
         $this->do_action( 'wpt_after_searchbox' );
+    }
+
+    /**
+     * Basically for main search box and Meta field wise search box.
+     * Actually first time, there was only search box without meta field search.
+     * 
+     * Specially for Alvaro, I added a new feature,where user will able to search by meta field.
+     * 
+     * at the bottom of this method, I added a action_hook: wpt_after_searchbox
+     * where I added meta field wise search option at at Pro/Inc/Search_Extra()
+     * find there about all things.
+     *
+     * @return void
+     * @author Saiful Islam <codersaiful@gmail.com>
+     */
+    public function render_render(){
+    ?>
+    <div class='tables_cart_message_box tables_cart_message_box_<?php echo esc_attr( $this->table_id ); ?>' data-type='load'></div>
+    <?php   
+        
     }
 
 }
