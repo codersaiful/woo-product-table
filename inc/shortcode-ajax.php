@@ -43,6 +43,16 @@ class Shortcode_Ajax extends Shortcode{
 
         $page_number = $_POST['page_number'] ?? $this->page_number;
         $this->args['paged'] = $this->page_number = $page_number;
+        
+        /**
+         * Why make this propety.
+         * Actualy any any user need do something on $args after called ajax
+         * user can check using $this->args_ajax_called
+         * 
+         * @since 3.2.5.1
+         */
+        $this->args_ajax_called = true;
+
         $output = [];
         ob_start();
         $this->argsOrganize()->table_body();
