@@ -157,7 +157,8 @@ class Shortcode extends Shortcode_Base{
             }
 
             $this->search_box_render();
-        
+            //Actually this action hook is no need here, because it should called $this->search_box_render() but still we didnt' call over there.
+            //we made new for our new table
             //do_action( 'wpto_after_advance_search_box', $this->table_id, $this->args, $this->column_settings, $this->_enable_cols, $this->_config, $this->atts );
     
     
