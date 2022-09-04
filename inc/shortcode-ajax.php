@@ -10,8 +10,8 @@ class Shortcode_Ajax extends Shortcode{
     public function __construct()
     {
         
-        $this->ajax_action('wpt_query', 'ajax_row_load');
-        $this->ajax_action('wpt_pagination');
+        // $this->ajax_action('wpt_query', 'ajax_row_load');
+        // $this->ajax_action('wpt_pagination');
         $this->ajax_action('wpt_load_both');
     }
 
@@ -43,7 +43,7 @@ class Shortcode_Ajax extends Shortcode{
 
         $page_number = $_POST['page_number'] ?? $this->page_number;
         $this->args['paged'] = $this->page_number = $page_number;
-        
+
         /**
          * Why make this propety.
          * Actualy any any user need do something on $args after called ajax
