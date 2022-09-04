@@ -1,7 +1,8 @@
 (function( $ ) {
-    // var ajax_url = WPT_DATA.ajax_url;
-    $.wptAjax = function(table_id,args,page_number,ajax_url) {
-        console.log(table_id,args,page_number,ajax_url);
+    var ajax_url = WPT_DATAS.ajax_url;
+
+    $.TableLoadAjax = function(table_id,args,page_number,ajax_url) {
+        console.log(table_id,args,page_number);
         
         var thisTable = $('#table_id_' + table_id);
         if( thisTable.length < 1 ){
@@ -20,17 +21,17 @@
             url: ajax_url,
             data: data,
             success:function(result){
-                
-                if ( result ) {
-                    $.each( result, function( key, value ) {
-                        if('string' === typeof key){
-                            let selectedElement = $('#table_id_' + table_id + ' ' + key);
-                            if(typeof selectedElement === 'object'){
-                                selectedElement.html( value );
-                            }
-                        }
-                    });
-                }
+                $('.wpt_edit_table').html(result);
+                // if ( result === 5) {
+                //     $.each( result, function( key, value ) {
+                //         if('string' === typeof key){
+                //             let selectedElement = $('#table_id_' + table_id + ' ' + key);
+                //             if(typeof selectedElement === 'object'){
+                //                 selectedElement.html( value );
+                //             }
+                //         }
+                //     });
+                // }
 
                 thisTable.removeClass('wpt-ajax-loading');
 

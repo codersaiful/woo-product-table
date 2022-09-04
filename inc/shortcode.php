@@ -22,7 +22,8 @@ class Shortcode extends Shortcode_Base{
      *
      * @var bool|null
      */
-    private $args_organized;
+    public $args_organized;
+    public $args_ajax_called;
     public $atts;
     public $table_id;
     public $status;

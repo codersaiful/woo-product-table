@@ -91,32 +91,7 @@ jQuery(function($) {
         });
         
         
-
-        //New Pagination
-        $(document.body).on('click','dddd.wpt_pagination_ajax .wpt_my_pagination a',function(e){
-            
-            e.preventDefault();
-            var thisButton = $(this);
-            var thisPagination = thisButton.closest('.wpt_my_pagination');
-            var page_number = $(thisButton).text();
-            // console.log(page_number)
-            var table_id = thisPagination.data('table_id');
-            
-            var data = {
-                action: 'wpt_pagination',
-                table_id: table_id,
-                page_number: page_number,
-            };
-            $.ajax({
-                type: 'POST',
-                url: ajax_url,// + get_data,
-                data: data,
-                success:function(result){
-                    $('header.entry-header').html(result);
-                    thisPagination.html(result);
-                }
-            });
-        });
+        
         /**
          * Pagination
          */
@@ -1425,7 +1400,7 @@ jQuery(function($) {
                 url: ajax_url,
                 data: data,
                 success:function(result){
-                    // $('.wpt_edit_table').html(result);
+                    
                     if ( result ) {
                         $.each( result, function( key, value ) {
                             if('string' === typeof key){
@@ -1457,33 +1432,25 @@ jQuery(function($) {
             var page_number = $(thisButton).text();
             
             var table_id = thisPagination.data('table_id');
-            var args = getSearchQueriedArgs( table_id );
-            console.log(args);
-            // $.wptAjax(table_id, args, page_number, ajax_url);
+            var args = {};
+            // $.TableLoadAjax(table_id, args, page_number);
             loadTablePagi(table_id, args, page_number );
             
         });
+
 
         $(document.body).on('click','.wpt-search-products',function(){
             console.clear();
-            
-            let table_id = $(this).data('table_id');
-            var args = getSearchQueriedArgs( table_id );
-            
-            var page_number = 1;
-            // console.log(table_id, args, page_number);
-            loadTablePagi(table_id, args, page_number );
-            
-        });
-
-        function getSearchQueriedArgs( table_id ){
             let value,key;
+            let table_id = $(this).data('table_id');
+            var targetTable = $('#table_id_' + table_id + ' table#wpt_table');
+
             var texonomies = {};
             value = false;
             $('#search_box_' + table_id + ' .search_select.query').each(function(){
                 
                 key = $(this).data('key');
-                value = $(this).val();
+                var value = $(this).val();//[];var tempSerial = 0;
                 if(value != ""){
                     texonomies[key] = value;
                 }
@@ -1508,7 +1475,7 @@ jQuery(function($) {
                 var attr = $(this).attr('multiple');
                 
                 key = $(this).data('key');
-                value = $(this).val();
+                var value = $(this).val();
                 if(value != ""){
                     custom_field[key] = value;
                     multiple_attr[key] = attr;
@@ -1536,15 +1503,33 @@ jQuery(function($) {
 
             var s= $('#search_box_' + table_id + ' .search_single_direct .query-keyword-input-box').val();
             
-            
+            var page_number=1;
             var args = {
                 s: s,
                 tax_query: tax_query,
                 meta_query: meta_query,
             };
-            return args;
-        }
-
+            // $.TableLoadAjax(table_id, args, page_number);
+            loadTablePagi(table_id, args, page_number );
+            
+            // console.log(args);
+            // var data = {
+            //     action: 'wpt_query',
+            //     table_id:table_id,
+            //     args: args
+            // };
+            // console.log(data,data['meta_query']);
+            // $.ajax({
+            //     type: 'POST',
+            //     url: ajax_url,// + get_data,
+            //     data: data,
+            //     success:function(response){
+                    
+            //         // $('header.entry-header').html(response);
+            //         targetTable.find('tbody').html(response);
+            //     }
+            // });
+        });
         /**
          * Search Box Query and Scripting Here
          * @since 1.9

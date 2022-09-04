@@ -17,12 +17,35 @@ class Shortcode_Ajax extends Shortcode{
 
     public function wpt_load_both(){
         $atts = $this->set_atts();
-        $this->assing_property( $atts ); 
+
+        $args = $_POST['args'] ?? [];
+        $args = $this->arrayFilter( $args );
+
+        //It's need to the beginning of this process.
+        $this->assing_property($atts); 
+        
+        if( is_array( $args ) && ! empty( $args ) ){
+
+            if( $this->whole_search ){
+
+                unset($this->args['post__in']);
+                unset($this->args['post__not_in']);
+
+                unset($this->args['tax_query']);
+                unset($this->args['meta_query']);
+            }
+            
+            $this->args = array_merge( $this->args, $args );
+        }
+
+
+
+
         $page_number = $_POST['page_number'] ?? $this->page_number;
         $this->args['paged'] = $this->page_number = $page_number;
         $output = [];
         ob_start();
-        $this->table_body();
+        $this->argsOrganize()->table_body();
         $output['table tbody'] = ob_get_clean();
         
         $output['.wpt_my_pagination.wpt_table_pagination'] = Pagination::get_paginate_links($this);
@@ -66,6 +89,15 @@ class Shortcode_Ajax extends Shortcode{
             $this->args = array_merge( $this->args, $args );
         }
         
+        /**
+         * Why make this propety.
+         * Actualy any any user need do something on $args after called ajax
+         * user can check using $this->args_ajax_called
+         * 
+         * @since 3.2.5.1
+         */
+        $this->args_ajax_called = true;
+
         $this->argsOrganize()->table_body();
 
         die();
