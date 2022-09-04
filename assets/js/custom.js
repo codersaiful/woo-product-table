@@ -1404,11 +1404,11 @@ jQuery(function($) {
         });
         
 
-        var loadTablePagi = function(table_id,args,page_number){
+        var ajaxTableLoad = function(table_id,args,page_number){
             console.clear();
             var thisTable = $('#table_id_' + table_id);
             if( thisTable.length < 1 ){
-                console.log("Error on: loadTablePagi. Table not founded!");
+                console.log("Error on: ajaxTableLoad. Table not founded!");
                 return;
             }
             
@@ -1445,7 +1445,7 @@ jQuery(function($) {
                 },
                 error:function(){
                     thisTable.removeClass('wpt-ajax-loading');
-                    console.log("Error on: loadTablePagi. Error on Ajax load!");
+                    console.log("Error on: ajaxTableLoad. Error on Ajax load!");
                 }
             });
         };
@@ -1460,7 +1460,7 @@ jQuery(function($) {
             var args = getSearchQueriedArgs( table_id );
             console.log(args);
             // $.wptAjax(table_id, args, page_number, ajax_url);
-            loadTablePagi(table_id, args, page_number );
+            ajaxTableLoad(table_id, args, page_number );
             
         });
 
@@ -1472,7 +1472,7 @@ jQuery(function($) {
             
             var page_number = 1;
             // console.log(table_id, args, page_number);
-            loadTablePagi(table_id, args, page_number );
+            ajaxTableLoad(table_id, args, page_number );
             
         });
 
