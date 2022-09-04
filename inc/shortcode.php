@@ -169,7 +169,7 @@ class Shortcode extends Shortcode_Base{
                 <table 
                 data-page_number="<?php echo esc_attr( $this->page_number + 1 ); ?>"
                 data-temp_number="<?php echo esc_attr( $this->table_id ); ?>"
-                data-config_json=""
+                data-config_json="<?php echo esc_attr( wp_json_encode( $this->_config ) ); ?>"
                 data-data_json=""
                 data-data_json_backup=""
                 id="wpt_table"

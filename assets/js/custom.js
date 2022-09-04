@@ -385,8 +385,9 @@ jQuery(function($) {
 
                         }
                         
-                        //fragments.hasOwnProperty('wpt_per_product') && fragments.wpt_per_product !== "false" && 
-                        if( config_json.empty_cart_text ){
+                        console.log(fragments,config_json);
+
+                        if( fragments.hasOwnProperty('wpt_per_product') && fragments.wpt_per_product !== "false" && config_json.empty_cart_text ){
                             var emty_cart_btn = '<a class="wpt_empty_cart_btn button button-empty-cart">' + config_json.empty_cart_text + '</a>';
                             $('.wpt_product_table_wrapper div.tables_cart_message_box p.woocommerce-mini-cart__buttons.buttons').prepend(emty_cart_btn);
                         }else{

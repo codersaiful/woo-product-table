@@ -2037,6 +2037,16 @@ div.wpt_product_table_wrapper.wpt-ajax-loading {
     /* opacity: 0.9; */
 }
 div.wpt_product_table_wrapper.wpt-ajax-loading>div{
-    transform: scale(0.99);
+    /* transform: scale(0.99); */
 }
 div.wpt_product_table_wrapper.woocommerce.wpt-ajax-loading:before{display: none;}
+.search_box_wrapper span.select2-selection__clear {
+    background: #d7d7d7;
+    padding: 0px 5px;
+    color: green;
+    transition: all .3s;
+}
+.search_box_wrapper span.select2-selection__clear:hover {
+    background: #9f9f9f;
+    color: white;
+}
