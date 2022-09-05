@@ -263,7 +263,7 @@ class Shortcode extends Shortcode_Base{
         $page_number = $this->max_num_pages > 0 ? $this->page_number : 0; 
         ?>
         <p class="wpt-stats-post-count">
-            <?php printf( esc_html__( "Products %s out of %s", "wpt_pro" ), $this->product_count, $this->found_posts  ); ?>
+            <?php printf( esc_html__( "%s out of %s", "wpt_pro" ), $this->product_count, $this->found_posts  ); ?>
         </p>
         <p class="wpt-stats-page-count">
         <?php printf( esc_html__( "Page %s out of %s" ), $page_number, $this->max_num_pages  ); ?>
