@@ -240,6 +240,7 @@ if( ! function_exists( 'wpt_shortcode_generator' ) ){
             }
             
             $error_html .= "</p></div>";
+            $error_html = apply_filters( 'wpto_post_notfound_error', $error_html, $atts_id );
             return $error_html;
         }
         /***************This will be out of If condition of ID's************************/ 
