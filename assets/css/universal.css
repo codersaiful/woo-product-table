@@ -2050,3 +2050,16 @@ div.wpt_product_table_wrapper.woocommerce.wpt-ajax-loading:before{display: none;
     background: #9f9f9f;
     color: white;
 }
+.wpt-stats-report {
+    display: flex;
+}
+
+.wpt-stats-report>p {
+    padding: 0;
+    margin: 0;
+    width: 50%;
+}
+
+p.wpt-stats-page-count {
+    text-align: right;
+}

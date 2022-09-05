@@ -53,14 +53,25 @@ class Shortcode_Ajax extends Shortcode{
          */
         $this->args_ajax_called = true;
 
+        /**
+         * set_product_loop() is importants obviously
+         * for ajax also
+         */
+        $this->set_product_loop();
         $output = [];
+        
         ob_start();
         $this->argsOrganize()->table_body();
         $output['table tbody'] = ob_get_clean();
+
+        ob_start();
+        $this->argsOrganize()->stats_render();
+        $output['.wpt-stats-report'] = ob_get_clean();
+
         
         $output['.wpt_my_pagination.wpt_table_pagination'] = Pagination::get_paginate_links($this);
         wp_send_json( $output );
-        // var_dump($this->page_number,$this->args);
+        
         die();
     }
 

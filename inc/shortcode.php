@@ -108,6 +108,10 @@ class Shortcode extends Shortcode_Base{
     public $table_class;
     public $is_column_label = false;
 
+    public $max_num_pages;
+    public $product_count;
+    public $found_products;
+    public $product_loop;
 
     public function run(){
 
@@ -137,9 +141,12 @@ class Shortcode extends Shortcode_Base{
         extract( shortcode_atts( $pairs, $atts ) );
         
         $this->assing_property($atts);
+
+        //Obviously should load on after starup. Even already checked on overr there
         $this->startup_loader($atts);
         
-        // var_dump($this);
+        
+        // var_dump($this->product_loop);
         //wpto_action_table_wrapper_top
         ob_start();
 
@@ -153,7 +160,7 @@ class Shortcode extends Shortcode_Base{
             <?php
 
             if( 'top' == $this->minicart_position ){
-                $this->render_render();
+                $this->minicart_render();
             }
 
             $this->search_box_render();
@@ -164,6 +171,9 @@ class Shortcode extends Shortcode_Base{
     
             do_action( 'wpto_action_before_table', $this->table_id, $this->args, $this->column_settings, $this->_enable_cols, $this->_config, $this->atts );
             ?>
+            <div class="wpt-stats-report">
+                <?php $this->stats_render(); ?>
+            </div>
             <div class="wpt_table_tag_wrapper">
                 
                 <table 
@@ -194,7 +204,7 @@ class Shortcode extends Shortcode_Base{
 
 
             if( 'bottom' == $this->minicart_position ){
-                $this->render_render();
+                $this->minicart_render();
             }
 
             do_action( 'wpto_table_wrapper_bottom', $this->table_id, $this->args, $this->column_settings, $this->_enable_cols, $this->_config, $this->atts );
@@ -224,11 +234,47 @@ class Shortcode extends Shortcode_Base{
         }
 
         $this->hide_input = $this->search_n_filter['hide_input'] ?? false;
-                
+        $this->set_product_loop();
+           
         $this->enqueue();
 
     }
+    protected function set_product_loop(){
+        $this->product_loop = $this->get_product_loop();
 
+        //Some property value re-organized based on product loop
+        $this->product_count = (int) $this->product_loop->post_count;
+        $this->found_posts = (int) $this->product_loop->found_posts;
+        $this->max_num_pages = (int) $this->product_loop->max_num_pages;
+        if( $this->product_loop->max_num_pages < 2 ){
+            $this->pagination = false;
+        }
+             
+    }
+
+    public function stats_render(){
+        
+        if( ! $this->product_loop ){
+            $this->set_product_loop();
+        };
+        $this->product_count = (int) $this->product_loop->post_count;
+        $this->found_posts = (int) $this->product_loop->found_posts;
+        $this->max_num_pages = (int) $this->product_loop->max_num_pages;
+        $page_number = $this->max_num_pages > 0 ? $this->page_number : 0; 
+        ?>
+        <p class="wpt-stats-post-count">
+            <?php printf( esc_html__( "Products %s out of %s", "wpt_pro" ), $this->product_count, $this->found_posts  ); ?>
+        </p>
+        <p class="wpt-stats-page-count">
+        <?php printf( esc_html__( "Page %s out of %s" ), $page_number, $this->max_num_pages  ); ?>
+        </p>
+        <?php 
+        // var_dump($this->product_loop->post_count);
+        // var_dump($this->product_loop->found_posts);
+        // var_dump($this->posts_per_page);
+        // var_dump($this->page_number);
+        // var_dump($this->product_loop->max_num_pages);
+    }
     public function assing_property( $atts ){
         
         if( ! $this->atts ){
@@ -316,20 +362,14 @@ class Shortcode extends Shortcode_Base{
         
         $this->args = Args::manage($this);
 
-        //This Filter will be deleted in future update
-        // $this->args = apply_filters( 'wpto_table_query_args', $this->args, $this->table_id, $this->atts, $this->column_settings, $this->_enable_cols, $this->column_array );
-
-        
-
-
-        $this->assing_property = true;
-
         $this->items_permanent_dir = WPT_DIR_BASE . 'includes/items/';
         $this->items_permanent_dir = apply_filters('wpto_item_permanent_dir', $this->items_permanent_dir, $this->table_id, null );
         $this->items_directory = apply_filters('wpto_item_dir', $this->items_permanent_dir, $this->table_id, null );
         $this->items_directory = $this->apply_filter( 'wpt_item_dir', $this->items_directory );
 
         $this->is_column_label = $this->table_style['tr.wpt_table_head th']['auto-responsive-column-label'] ?? false;
+
+        $this->assing_property = true;
     }
 
     public function enqueue(){
@@ -375,6 +415,15 @@ class Shortcode extends Shortcode_Base{
         return $this;
     }
 
+    protected function get_product_loop(){
+        if( $this->product_loop ) return $this->product_loop;
+        if( ! $this->args_organized ){
+            $this->argsOrganize();
+        }
+        
+        return new \WP_Query( $this->args );
+    }
+
     /**
      * Content of Table Body,
      * Actually it's all Table Row
@@ -384,21 +433,16 @@ class Shortcode extends Shortcode_Base{
      * @return void
      */
     protected function table_body( $id = false ){
-        if( ! $this->assing_property && ! $id ){
-            $atts = [
-                'id' => $id
-            ];
-            $this->assing_property( $atts );
-        }
-        if( ! $this->args_organized ){
-            $this->argsOrganize();
+        if( ! $this->assing_property ){
+            echo "Error: on assing_property on the table_body!!";
+            return;
         }
 
-        $product_loop = new \WP_Query( $this->args );
+        $product_loop = $this->get_product_loop();
         if ($this->orderby == 'random') {
             shuffle( $product_loop->posts );
         }
-        
+        // var_dump($this->product_loop);
         /**
          * @deprecated 3.2.4.2 wpto_product_loop filter will removed in next version
          */
@@ -495,7 +539,7 @@ class Shortcode extends Shortcode_Base{
      * @return void
      * @author Saiful Islam <codersaiful@gmail.com>
      */
-    public function render_render(){
+    public function minicart_render(){
     ?>
     <div class='tables_cart_message_box tables_cart_message_box_<?php echo esc_attr( $this->table_id ); ?>' data-type='load'></div>
     <?php   
