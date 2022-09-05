@@ -54,10 +54,16 @@ foreach($terms as $term){
                     $hide_input_checked = $hide_input == 'on' ? 'checked' : '';
                     
                     ?>
+                    <label class="switch">
                     <input
                     name="search_n_filter[hide_input]"
                     id="wpt-search-form-order" type="checkbox" 
                     value="on" <?php echo esc_attr( $hide_input_checked ); ?>>
+                        
+                        <div class="slider round"><!--ADDED HTML -->
+                            <span class="on">On</span><span class="off">Off</span><!--END-->
+                        </div>
+                    </label>
                     <p class="message">
                         <b>Tips:</b>
                         <span>Hide Input Box of Search Area.</span>
@@ -74,10 +80,16 @@ foreach($terms as $term){
                     $whole_search_checked = $whole_search == 'on' ? 'checked' : '';
                     
                     ?>
+                    <label class="switch">
                     <input
                     name="search_n_filter[whole_search]"
                     id="wpt-search-form-order" type="checkbox" 
                     value="on" <?php echo esc_attr( $whole_search_checked ); ?>>
+                        
+                        <div class="slider round"><!--ADDED HTML -->
+                            <span class="on">On</span><span class="off">Off</span><!--END-->
+                        </div>
+                    </label>
                     <p class="message">
                         <b>Tips:</b>
                         <span>Normally search will held based on your selected query. But to search from whole site, Enable it.</span>
