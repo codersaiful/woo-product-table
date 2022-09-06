@@ -1225,6 +1225,11 @@ jQuery(function($) {
                     $( document ).trigger( 'wc_fragments_refreshed' );
                 },
                 success: function( response ) {
+
+                    currentAllSelectedButtonSelector.removeClass('disabled');
+                    currentAllSelectedButtonSelector.removeClass('loading');
+                    tableWrapperTag.removeClass('loading-table');
+                    
                     $('div.primary-navigation').html(response);
                     //setFragmentsRefresh( response );                    
                     //WPT_MiniCart();
@@ -1253,10 +1258,6 @@ jQuery(function($) {
                     }else if(config_json.all_selected_direct_checkout === 'cart'){
                         window.location.href = cartURL;
                         return;                       
-                    }else{
-                        currentAllSelectedButtonSelector.removeClass('disabled');
-                        currentAllSelectedButtonSelector.removeClass('loading');
-                        tableWrapperTag.removeClass('loading-table');
                     }
                      
                     //Added at v4.0.11
