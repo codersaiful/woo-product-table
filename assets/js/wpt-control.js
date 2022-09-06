@@ -152,7 +152,7 @@ jQuery(function($) {
 
         //Search box related code end here
         $(document.body).on( 'click','.wpt-cart-remove',function(){
-            
+            $(this).addClass('wpt_spin');
             let product_id = $(this).data('product_id');
             var data = {
                 action: 'wpt_remove_from_cart',

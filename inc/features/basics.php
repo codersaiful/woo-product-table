@@ -13,6 +13,7 @@ class Basics extends Shortcode_Base{
         if( isset($post->post_content) && has_shortcode( $post->post_content, $this->shortcde_text ) ) {
             $class[] = 'wpt_table_body';
             $class[] = 'woocommerce';
+            $class[] = 'wpt-body-' . $this->shortcde_text;
         }
         return $class;
     }
