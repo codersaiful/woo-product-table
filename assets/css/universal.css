@@ -2063,3 +2063,36 @@ div.wpt_product_table_wrapper.woocommerce.wpt-ajax-loading:before{display: none;
 p.wpt-stats-page-count {
     text-align: right;
 }
+/* span.wpt-cart-remove {
+    position: absolute;
+    right: -27px;
+    background: #0000000f;
+    color: red;
+    padding: 6px;
+    font-size: 11px;
+    line-height: 11px;
+    top: 28%;
+    display: block;
+    width: 24px;
+    height: 24px;
+} */
+.add_to_cart_button.added{
+    float: left;
+}
+span.wpt-cart-remove {
+    background: #00000000;
+    color: red;
+    padding: 4px;
+    font-size: 11px;
+    line-height: 11px;
+    display: block;
+    width: 20px;
+    height: 20px;
+    float: left;
+    margin-top: 11px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+span.wpt-cart-remove:hover{
+    background: #0000000f;
+}

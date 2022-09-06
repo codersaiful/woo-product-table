@@ -13,6 +13,7 @@ class Shortcode_Ajax extends Shortcode{
         // $this->ajax_action('wpt_query', 'ajax_row_load');
         // $this->ajax_action('wpt_pagination');
         $this->ajax_action('wpt_load_both');
+        $this->ajax_action('wpt_remove_from_cart');
     }
 
     public function wpt_load_both(){
@@ -121,6 +122,27 @@ class Shortcode_Ajax extends Shortcode{
 
         $this->argsOrganize()->table_body();
 
+        die();
+    }
+
+    public function wpt_remove_from_cart(){
+        $product_id = $_POST['product_id'] ?? 0;
+        global $wpdb, $woocommerce;
+        $removed = false;
+        $contents = $woocommerce->cart->get_cart();
+        foreach ( $contents as $cart_item_key => $cart_item_data ){
+            
+
+            if( $cart_item_data['product_id'] == $product_id || $cart_item_data['variation_id'] == $product_id ){
+
+                WC()->cart->set_quantity( $cart_item_key, 0, true );
+                $removed = false;
+                break;
+
+            }
+            
+        }
+        echo $removed ? "removed" : "not-founded";
         die();
     }
 

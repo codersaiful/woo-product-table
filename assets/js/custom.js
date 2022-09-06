@@ -1313,6 +1313,7 @@ jQuery(function($) {
         function setFragmentsRefresh( response ){
             var FooterCart = $('div.wpt-footer-cart-wrapper');
             
+            $('span.wpt-cart-remove').remove();
             $('span.wpt_ccount').html('');
             $( '.wpt_action>a.wpt_woo_add_cart_button' ).removeClass( 'added' );
             if(typeof response !== 'undefined'){
@@ -1351,6 +1352,11 @@ jQuery(function($) {
                             if(!$('.wpt_ccount.wpt_ccount_' + key ).length){
                                 $( '.wpt_row_product_id_' + key + ' .wpt_action .wpt_woo_add_cart_button' ).append( '<span class="wpt_ccount wpt_ccount_' + key + '">' + value + '</span>' );
                                 $( '.wpt_row_product_id_' + key + ' .single_add_to_cart_button' ).append( '<span class="wpt_ccount wpt_ccount_' + key + '">' + value + '</span>' );
+                            }
+                            if( $('.wpt-cart-remove.wpt-cart-remove-' + key ).length < 1){
+
+                                $( '.wpt_row_product_id_' + key + ' .wpt_action .wpt_woo_add_cart_button' ).after( '<span data-product_id="' + key + '" class="wpt-cart-remove wpt-cart-remove-' + key + '">❌</span>' );
+                                $( '.wpt_row_product_id_' + key + ' .single_add_to_cart_button' ).after( '<span data-product_id="' + key + '" class="wpt-cart-remove wpt-cart-remove-' + key + '">❌</span>' );
                             }
                         });
                     }else{

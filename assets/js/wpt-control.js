@@ -9,7 +9,7 @@ jQuery(function($) {
         var ajax_url = WPT_DATA.ajax_url;
         var site_url = WPT_DATA.site_url;
         
-        
+        //Search Box related code all start here
         var ajaxTableLoad = function(table_id,args,page_number){
             console.clear();
             var thisTable = $('#table_id_' + table_id);
@@ -149,6 +149,35 @@ jQuery(function($) {
             };
             return args;
         }
+
+        //Search box related code end here
+        $(document.body).on( 'click','.wpt-cart-remove',function(){
+            
+            let product_id = $(this).data('product_id');
+            var data = {
+                action: 'wpt_remove_from_cart',
+                product_id: product_id,
+            };
+            $.ajax({
+                type: 'POST',
+                url: ajax_url,
+                data: data,
+                success:function(result){
+                    if(result == 'removed'){
+                        $('.wpt-cart-remove..wpt-cart-remove-' + product_id).remove();
+                    }
+
+                    // $( document.body ).trigger( 'updated_cart_totals' );
+                    // $( document.body ).trigger( 'wc_fragments_refreshed' );
+                    // $( document.body ).trigger( 'wc_fragments_refresh' );
+                    // $( document.body ).trigger( 'wc_fragment_refresh' );
+                    $( document.body ).trigger( 'removed_from_cart' );
+
+                },
+                
+            });
+
+        });
 
     });
 });
