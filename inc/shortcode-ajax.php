@@ -137,7 +137,7 @@ class Shortcode_Ajax extends Shortcode{
 
                 WC()->cart->set_quantity( $cart_item_key, 0, true );
                 $removed = false;
-                break;
+                // break;
 
             }
             
