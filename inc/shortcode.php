@@ -475,7 +475,7 @@ class Shortcode extends Shortcode_Base{
                 $col_content = "<input data-type='universal_checkbox' data-temp_number='{$this->table_id}' class='wpt_check_universal' id='wpt_check_uncheck_column_{$this->table_id}' type='checkbox'><label for=wpt_check_uncheck_column_{$this->table_id}></label>";
             }
             ?>
-            <th class="<?php echo esc_attr( $key ); ?>">
+            <th class="wpt_<?php echo esc_attr( $key ); ?>">
                 <?php echo $col_content; ?>
             </th>
             <?php
