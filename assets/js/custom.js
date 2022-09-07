@@ -1801,7 +1801,12 @@ jQuery(function($) {
                 $( thisRow + ' .message').val(msg);
         });
         
+        /**
+         * keyup is actually for total price live changing 
+         * When someone type quantity then total price will change live 
+         */
         $(document).on('keyup','.wpt_row input.input-text.qty.text', inputBoxChangeHandle);
+ 
         $('body').on('change', '.wpt_row input.input-text.qty.text', inputBoxChangeHandle);
         function inputBoxChangeHandle() {
             var temp_number = $(this).parents('tr.wpt_row').data('temp_number');
@@ -1810,18 +1815,20 @@ jQuery(function($) {
         
             var thisRow = '#table_id_' + temp_number + ' tr.product_id_' + product_id;
             
-            $( thisRow + ' input.input-text.qty.text').val(Qty_Val);
+            $( thisRow + 'input.input-text.qty.text').val(Qty_Val); // input.input-text.qty.text
             $( thisRow ).attr('data-quantity', Qty_Val);
-            $( thisRow + ' a.wpt_woo_add_cart_button').attr('data-quantity', Qty_Val);
-            $( thisRow + ' a.add_to_cart_button ').attr('data-quantity', Qty_Val);
+            $( thisRow + 'a.wpt_woo_add_cart_button').attr('data-quantity', Qty_Val);
+            $( thisRow + 'a.add_to_cart_button').attr('data-quantity', Qty_Val);
             var Item_URL = '?add-to-cart=' + product_id + '&quantity=' + Qty_Val;
-            $( thisRow + ' a.add_to_cart_button ').attr('href', Item_URL);
+            $( thisRow + 'a.add_to_cart_button').attr('href', Item_URL);
             var targetTotalSelector = $('#table_id_' + temp_number + ' .product_id_' + product_id + ' .wpt_total_item.total_general');
              
         
             var targetWeightSelector = $('#table_id_' + temp_number + ' .product_id_' + product_id + ' .weight-box');
             var targetWeightAttr = $('#table_id_' + temp_number + ' .product_id_' + product_id + ' .weight-box').attr('data-weight');
+            
             var totalWeight =  parseFloat(targetWeightAttr) * parseFloat(Qty_Val);
+          
             totalWeight = totalWeight.toFixed(2);
             if(totalWeight === 'NaN'){
             totalWeight = '';
@@ -1835,7 +1842,9 @@ jQuery(function($) {
             var targetPriceThousandlSeparator = targetTotalSelector.data('thousand_separator');
 
             var targetNumbersPoint = targetTotalSelector.data('number_of_decimal');
+            console.log(Qty_Val);
             var totalPrice = parseFloat(targetPrice) * parseFloat(Qty_Val);
+            // console.log(Qty_Val);
             totalPrice = totalPrice.toFixed(targetNumbersPoint);
             var priceFormat = WPT_DATA.priceFormat;
            
