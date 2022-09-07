@@ -2261,22 +2261,17 @@ jQuery(function($) {
                         text = $(this).find('span.woocommerce-Price-amount.amount').last().text();
                         text = textToIntForSorting(text,product_id);
 
-                        rand = Math.floor(Math.random() * 200);
-                        text = text + '-' + rand;
                     }else if(content_type == 'number'){
                         
                         text = textToIntForSorting(text,product_id);
                         if(isNaN(text)){
                             text = product_id;
                         }
-                        rand = Math.floor(Math.random() * 1000);
-                        text = text + '-' + rand;
+
                     }else{
                         text = $.trim(text.substring(0,80));
                         
                         text = text + "_" + product_id;
-                        rand = Math.floor(Math.random() * 100);
-                        text = text + '-' + rand;
                     }
                     
                     var rowInsideHTMLData = $(this).parent('tr').html();
@@ -2295,8 +2290,7 @@ jQuery(function($) {
                     html += '<tr ' + thisRowAttributesHTML + '>';
                     html += rowInsideHTMLData;
                     html += '</tr>';
-                    
-                    text = text + '-saiful';
+                    // console.log(text);
                     contentArray[index] = text;
                     contentHTMLArray[text] = html;
                 });
