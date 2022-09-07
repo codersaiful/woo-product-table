@@ -1226,11 +1226,19 @@ jQuery(function($) {
                 },
                 success: function( response ) {
 
+                    if(config_json.all_selected_direct_checkout === 'yes'){
+                        window.location.href = checkoutURL;
+                        return;
+                    }else if(config_json.all_selected_direct_checkout === 'cart'){
+                        window.location.href = cartURL;
+                        return;                       
+                    }
+                    
                     currentAllSelectedButtonSelector.removeClass('disabled');
                     currentAllSelectedButtonSelector.removeClass('loading');
                     tableWrapperTag.removeClass('loading-table');
-                    
-                    $('div.primary-navigation').html(response);
+
+                    //$('div.primary-navigation').html(response);
                     //setFragmentsRefresh( response );                    
                     //WPT_MiniCart();
                     
@@ -1242,7 +1250,7 @@ jQuery(function($) {
                         $( document.body ).trigger( 'added_to_cart' ); //This will solved for fast added to cart but it will no show view cart link.
                     }
                     
-                    $( document.body ).trigger( 'added_to_cart' ); //Trigger and sent added_to_cart event
+                    //$( document.body ).trigger( 'added_to_cart' ); //Trigger and sent added_to_cart event
                     $( document.body ).trigger( 'updated_cart_totals' );
                     $( document.body ).trigger( 'wc_fragments_refreshed' );
                     $( document.body ).trigger( 'wc_fragments_refresh' );
@@ -1252,13 +1260,6 @@ jQuery(function($) {
                     if(config_json.popup_notice === '1'){
                         WPT_NoticeBoard();//Loading Notice Board
                     } 
-                    if(config_json.all_selected_direct_checkout === 'yes'){
-                        window.location.href = checkoutURL;
-                        return;
-                    }else if(config_json.all_selected_direct_checkout === 'cart'){
-                        window.location.href = cartURL;
-                        return;                       
-                    }
                      
                     //Added at v4.0.11
                     $('#table_id_' + temp_number + ' input.enabled.wpt_tabel_checkbox.wpt_td_checkbox:checked').each(function() {
