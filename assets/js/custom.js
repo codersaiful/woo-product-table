@@ -1815,12 +1815,12 @@ jQuery(function($) {
         
             var thisRow = '#table_id_' + temp_number + ' tr.product_id_' + product_id;
             
-            $( thisRow + ' input.input-text.qty.text').val(Qty_Val); // input.input-text.qty.text
+            $( thisRow + 'input.input-text.qty.text').val(Qty_Val); // input.input-text.qty.text
             $( thisRow ).attr('data-quantity', Qty_Val);
-            $( thisRow + ' a.wpt_woo_add_cart_button').attr('data-quantity', Qty_Val);
-            $( thisRow + ' a.add_to_cart_button ').attr('data-quantity', Qty_Val);
+            $( thisRow + 'a.wpt_woo_add_cart_button').attr('data-quantity', Qty_Val);
+            $( thisRow + 'a.add_to_cart_button').attr('data-quantity', Qty_Val);
             var Item_URL = '?add-to-cart=' + product_id + '&quantity=' + Qty_Val;
-            $( thisRow + ' a.add_to_cart_button ').attr('href', Item_URL);
+            $( thisRow + 'a.add_to_cart_button').attr('href', Item_URL);
             var targetTotalSelector = $('#table_id_' + temp_number + ' .product_id_' + product_id + ' .wpt_total_item.total_general');
              
         
