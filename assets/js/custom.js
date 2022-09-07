@@ -2176,16 +2176,15 @@ jQuery(function($) {
          * @param {string|int|number} product_id 
          * @returns int
          */
-        function textToIntForSorting(text,product_id){
+        function textToIntForSorting(text){
             text = text.replace(/[^0-9.]/g,'');
             if(text == ''){
                 text = 0;
             }
-
-            text += (1000000000+parseInt(product_id));
             text = parseInt(text);
             return text;
         }
+
         /**
          * Colunm Sorting Option
          * js base column sorting.
@@ -2196,7 +2195,7 @@ jQuery(function($) {
          */
         $(document.body).on('click','div.wpt_column_sort table.wpt_product_table thead tr th',function(){
             console.clear();
-            var rand;
+
             var class_for_sorted = 'this_column_sorted';
             var temp_number = $(this).parent().data('temp_number');
             var target_class = '.' + $(this).attr('class').split(' ').join('.');
@@ -2225,7 +2224,6 @@ jQuery(function($) {
                 $(this).attr('data-sort_type','ASC');
             }
 
-            // console.log(content_type,target_class,disableClass);
             //for check box collumn //wpt_thumbnails //wpt_product_id
             if($.inArray(target_class,disableClass) == -1){
             
@@ -2234,8 +2232,6 @@ jQuery(function($) {
                 //Again Class Reform after remove class
                 target_class = '.' + $(this).attr('class').split(' ').join('.');
 
-                
-                var contentArray = [];
                 var contentHTMLArray = [];
                 var currentColumnObject = $(target_table_wrapper_id + ' table tbody td' + target_class);
                 // console.log(currentColumnObject);
@@ -2245,19 +2241,15 @@ jQuery(function($) {
                     var text,
                     html = '', 
                     product_id = $(this).parent('tr').data('product_id');
-                    // index = product_id;// index + product_id;
                     text = $(this).text();
                     text = $.trim(text);
                     if(content_type == 'price'){
                         text = $(this).find('span.woocommerce-Price-amount.amount').last().text();
-                        text = textToIntForSorting(text,product_id);
+                        text = textToIntForSorting(text);
 
                     }else if(content_type == 'number'){
                         
-                        text = textToIntForSorting(text,product_id);
-                        if(isNaN(text)){
-                            text = product_id;
-                        }
+                        text = textToIntForSorting(text);
 
                     }else{
                         text = $.trim(text.substring(0,80));
@@ -2281,13 +2273,18 @@ jQuery(function($) {
                     html += '<tr ' + thisRowAttributesHTML + '>';
                     html += rowInsideHTMLData;
                     html += '</tr>';
-                    // console.log(text);
-                    contentArray[index] = text;
-                    contentHTMLArray[text] = html;
+
+                    //get_val is actually generated value
+                    contentHTMLArray[index] = {
+                        product_id: product_id,
+                        gen_val: text,
+                        html: html
+                    };
                 });
                 
-                function sortingData(a, b){
-                    
+                function sortingData(prevData,nextData){
+                    var a = prevData['gen_val'];
+                    var b = nextData['gen_val'];
                     var return_data;
                     if(sort_type === 'ASC'){
                         return_data = ((a < b) ? -1 : ((a > b) ? 1 : 0));
@@ -2296,12 +2293,12 @@ jQuery(function($) {
                     }
                     return return_data;
                   }
-                  
-                  var sortedArray = contentArray.sort(sortingData);
+                  contentHTMLArray.sort(sortingData);
+
                   var finalHTMLData = '';
-                  $.each(sortedArray,function(index,value){
-                    // console.log(value);
-                      finalHTMLData += contentHTMLArray[value];
+                  $.each(contentHTMLArray,function(index,value){
+
+                        finalHTMLData += value.html;
                   });
 
                 //Backed HTML Data
