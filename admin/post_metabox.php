@@ -90,7 +90,7 @@ if( ! function_exists( 'wpt_shortcode_metabox_render' ) ){
 
         <p class="wpt-shorcode-render-box">
             <strong>First Publish Product Table</strong> and then 
-            Copy this sortcode and paste to your desired page. 
+            copy this shortcode and paste to your desired page. 
             You can 
             <a href="<?php echo esc_attr( admin_url('post-new.php?post_type=page') ); ?>">
                 Create new page
