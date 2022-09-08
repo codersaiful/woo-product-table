@@ -43,6 +43,19 @@ class Shortcode_Ajax extends Shortcode{
 
 
         $page_number = $_POST['page_number'] ?? $this->page_number;
+        
+        /**
+         * Actually base link is not part of Args. but we take it
+         * using args when call ajax
+         * to set right link
+         * on pagination. otherwise, it was shown link
+         * like: example.com/wp-admin/wp-ajax.php?page=2
+         * 
+         * but now it wll show page linke: example.com/page/2 
+         * @since 3.2.5.2
+         */
+        $this->pagination_base_url = $_POST['args']['base_link'] ?? null;
+
         $this->args['paged'] = $this->page_number = $page_number;
 
         /**
