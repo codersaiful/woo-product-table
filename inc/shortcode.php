@@ -382,11 +382,15 @@ class Shortcode extends Shortcode_Base{
          */
         $this->template_name = 'wpt-template-' . $this->template;
         $template_file_name = apply_filters( 'wpto_table_template', $this->template, $this->table_id );
-        $template_dir = WPT_BASE_URL . 'assets/css/templates/'. $template_file_name . '.css';
-        $template_dir = $this->apply_filter( 'wpt_template_url', $template_dir );
-        
-        wp_register_style($this->template_name, $template_dir, array(), $this->dev_version, 'all');
+        $this->template_dir = $this->base_dir . 'assets/css/templates/'. $template_file_name . '.css';
+        $this->is_template_dir = is_file( $this->template_dir );
+        $this->template_url = $this->base_url . 'assets/css/templates/'. $template_file_name . '.css';
+        $this->template_url = $this->apply_filter( 'wpt_template_url', $this->template_url );
+
+        wp_register_style($this->template_name, $this->template_url, array(), $this->dev_version, 'all');
         wp_enqueue_style($this->template_name);
+
+        
     }
 
 

@@ -5,7 +5,10 @@ class Base{
     public $_root = __CLASS__;
     public $dev_version = WPT_DEV_VERSION;
     public $base_url = WPT_BASE_URL;
+    public $base_dir = WPT_BASE_DIR;
     public $assets_url = WPT_ASSETS_URL;
+
+    public $data_packed;
 
     /**
      * Collection of add action
@@ -120,5 +123,25 @@ class Base{
         if( ! method_exists($this,$method_name) ) return;
         $this->$hook_type[] = $action_hook_name;
         $hook_type( $action_hook_name, [$this, $method_name], $priority, $accepted_args );
+    }
+
+    /**
+     * For non-exist property
+     *
+     * @param string $name
+     * @return [any]|string|null|boolean|bool|object|int|float|this|null
+     */
+    public function __get( $name ){
+        return $this->data_packed[$name] ?? null;
+    }
+
+    /**
+     * For non exist property
+     *
+     * @param string $name
+     * @param [any]|string|null|boolean|bool|object|int|float|this|null $value
+     */
+    public function __set($name, $value){
+        $this->data_packed[$name] = $value;
     }
 }
