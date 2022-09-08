@@ -2031,6 +2031,7 @@ padding-left: 30px;
     z-index: 999;
     border-radius: 10px;
 }
+.button.wpt-search-products{display: none;}
 
 div.wpt_product_table_wrapper.wpt-ajax-loading {
     position: relative;
