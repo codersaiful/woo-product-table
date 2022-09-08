@@ -2116,7 +2116,7 @@ span.wpt-cart-remove {
     }
 }
 span.wpt-cart-remove:hover{
-    background-color: #0000000f;
+    /* background-color: #0000000f; */
 }
 
 
