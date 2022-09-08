@@ -992,7 +992,7 @@ a.button.wpt_woo_add_cart_button>span.wpt_ccount {
     padding-left: 4px;
     padding-right: 4px;
 }
-a.button.wpt_woo_add_cart_button.button.loading>span.wpt_ccount{display: none;}
+/* a.button.wpt_woo_add_cart_button.button.loading>span.wpt_ccount{display: none;} */
 @keyframes spin{100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}
 body.wpt_pro_table_body.wpt_pro_table table.wpt_product_table a.button.wpt_woo_add_cart_button.loading:after{
     font-family: WooCommerce;
