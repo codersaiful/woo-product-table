@@ -29,6 +29,7 @@ class Row extends Table_Base{
     
     public $attributes = [];
     public $available_variations = [];
+    public $variable_for_total = false;
 
     public $args;
     public $_enable_cols;
@@ -94,8 +95,10 @@ class Row extends Table_Base{
         
 
         if( $this->product_type == 'variable' ){
+            $this->variable_for_total = true;
             $variable = new \WC_Product_Variable( $this->product_id );
             $this->available_variations = $variable->get_available_variations();
+            
             $this->attributes = $variable->get_variation_attributes();
             $this->row_class = 'data_product_variations woocommerce-variation-add-to-cart variations_button woocommerce-variation-add-to-cart-disabled';
         }
@@ -335,6 +338,7 @@ class Row extends Table_Base{
             //For Variable Product
             'attributes' => $this->attributes,
             'available_variations' => $this->available_variations,
+            'variable_for_total' => $this->variable_for_total,
     
     
             'row_class' => $this->row_class,
