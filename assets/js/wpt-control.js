@@ -155,6 +155,7 @@ jQuery(function($) {
 
         //Search box related code end here
         $(document.body).on( 'click','.wpt-cart-remove',function(){
+            
             $(this).addClass('wpt_spin');
             let product_id = $(this).data('product_id');
             var data = {
@@ -167,8 +168,12 @@ jQuery(function($) {
                 data: data,
                 success:function(result){
                     if(result == 'removed'){
-                        $('.wpt-cart-remove..wpt-cart-remove-' + product_id).remove();
+                        
+                        // $('.wpt-cart-remove.wpt-cart-remove-' + product_id).remove();
+                        
                     }
+                    $('.wpt-cart-remove.wpt-cart-remove-' + product_id).remove();
+                    $('#product_id_' + product_id + ' a.added_to_cart.wc-forward').remove();
 
                     // $( document.body ).trigger( 'updated_cart_totals' );
                     // $( document.body ).trigger( 'wc_fragments_refreshed' );

@@ -421,6 +421,7 @@ jQuery(function($) {
                     cart_message_box.removeClass('message-box-loading');
                 },
                 success: function( response ){
+                    $('.wpt_product_table_wrapper a.added_to_cart.wc-forward').remove();
                     $( document.body ).trigger( 'updated_cart_totals' );
                     $( document.body ).trigger( 'wc_fragments_refreshed' );
                     $( document.body ).trigger( 'wc_fragments_refresh' );
