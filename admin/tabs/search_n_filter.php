@@ -46,6 +46,58 @@ foreach($terms as $term){
         <table class="ultraaddons-table wpt_snf_on_off wpt-table-separator-light">
             <tr>
                 <th>
+                    <label for="wpt-search-form-order" class="wpt_label"><?php esc_html_e( 'Hide Search Input Box', 'wpt_pro' ); ?></label>
+                </th>
+                <td>
+                    <?php
+                    $hide_input = $meta_search_n_filter['hide_input'] ?? null;
+                    $hide_input_checked = $hide_input == 'on' ? 'checked' : '';
+                    
+                    ?>
+                    <label class="switch">
+                    <input
+                    name="search_n_filter[hide_input]"
+                    id="wpt-search-form-order" type="checkbox" 
+                    value="on" <?php echo esc_attr( $hide_input_checked ); ?>>
+                        
+                        <div class="slider round"><!--ADDED HTML -->
+                            <span class="on">On</span><span class="off">Off</span><!--END-->
+                        </div>
+                    </label>
+                    <p class="message">
+                        <b>Tips:</b>
+                        <span>Hide Input Box of Search Area.</span>
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <label for="wpt-search-form-order" class="wpt_label"><?php esc_html_e( 'Search on Whole Site', 'wpt_pro' ); ?></label>
+                </th>
+                <td>
+                    <?php
+                    $whole_search = $meta_search_n_filter['whole_search'] ?? null;
+                    $whole_search_checked = $whole_search == 'on' ? 'checked' : '';
+                    
+                    ?>
+                    <label class="switch">
+                    <input
+                    name="search_n_filter[whole_search]"
+                    id="wpt-search-form-order" type="checkbox" 
+                    value="on" <?php echo esc_attr( $whole_search_checked ); ?>>
+                        
+                        <div class="slider round"><!--ADDED HTML -->
+                            <span class="on">On</span><span class="off">Off</span><!--END-->
+                        </div>
+                    </label>
+                    <p class="message">
+                        <b>Tips:</b>
+                        <span>Normally search will held based on your selected query. But to search from whole site, Enable it.</span>
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <th>
                     <label class="wpt_label" for="wpt_taxonomy_keywords"><?php esc_html_e( 'Taxonomy Keywords for Advance Search Box (Separate with comma[,])', 'wpt_pro' ); ?></label>
                 </th>
                 <td>

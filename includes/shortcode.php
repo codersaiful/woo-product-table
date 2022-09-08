@@ -240,6 +240,7 @@ if( ! function_exists( 'wpt_shortcode_generator' ) ){
             }
             
             $error_html .= "</p></div>";
+            $error_html = apply_filters( 'wpto_post_notfound_error', $error_html, $atts_id );
             return $error_html;
         }
         /***************This will be out of If condition of ID's************************/ 
@@ -843,6 +844,7 @@ if( ! function_exists( 'wpt_table_row_generator' ) ){
         if( ! isset($args['s']) ){
             $args['suppress_filters'] = 1;
         }
+        
         // var_dump($args['tax_query']);
         $product_loop = new WP_Query($args);
         // var_dump($product_loop);
