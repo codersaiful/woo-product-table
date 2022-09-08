@@ -31,7 +31,7 @@ jQuery(function($) {
                 url: ajax_url,
                 data: data,
                 success:function(result){
-                    // $('.wpt_edit_table').html(result);
+                    $('.wpt_edit_table').html(result);
                     if ( result ) {
                         $.each( result, function( key, value ) {
                             if('string' === typeof key){
@@ -64,7 +64,6 @@ jQuery(function($) {
             
             var table_id = thisPagination.data('table_id');
             var args = getSearchQueriedArgs( table_id );
-            console.log(args);
             
             ajaxTableLoad(table_id, args, page_number );
             
@@ -82,7 +81,10 @@ jQuery(function($) {
         });
 
         function getSearchQueriedArgs( table_id ){
-            let value,key;
+            let value,key,base_link;
+
+            //On ajax search, Page link shown with ajax link, we will send this base link, so that always can get smart link
+            base_link = $('.wpt-my-pagination-'  + table_id ).data('base_link');
             var texonomies = {};
             value = false;
             $('#search_box_' + table_id + ' .search_select.query').each(function(){
@@ -146,6 +148,7 @@ jQuery(function($) {
                 s: s,
                 tax_query: tax_query,
                 meta_query: meta_query,
+                base_link:base_link,
             };
             return args;
         }

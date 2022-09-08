@@ -199,6 +199,9 @@ class Shortcode extends Shortcode_Base{
 
             <?php 
             if( $this->pagination ){
+                $big = 99999999;
+                $this->pagination_base_url = str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) );
+        
                 Pagination::render( $this );
             }
 
@@ -485,10 +488,6 @@ class Shortcode extends Shortcode_Base{
         </thead>
         <?php
         
-    }
-
-    public function pagination_render(){
-       echo wpt_pagination_by_args( $this->args , $this->table_id, ['args' => $this->args]);
     }
      
     /**

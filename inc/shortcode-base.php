@@ -9,6 +9,8 @@ class Shortcode_Base extends Base{
     public $items_directory;
     public $items_permanent_dir;
 
+    public $data;
+
     
     protected function unsetArrayItem( Array $arr, $unset_item ){
         if( ! isset( $arr[$unset_item] ) ) return $arr;
@@ -40,5 +42,11 @@ class Shortcode_Base extends Base{
         return is_array( $data ) ? $data : [];
     }
 
-    
+    public function __get( $name ){
+        return $this->data[$name] ?? null;
+    }
+
+    public function __set($name, $value){
+        $this->data[$name] = $value;
+    }
 }
