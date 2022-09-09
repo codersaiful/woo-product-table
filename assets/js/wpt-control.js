@@ -31,7 +31,7 @@ jQuery(function($) {
                 url: ajax_url,
                 data: data,
                 success:function(result){
-                    $('.wpt_edit_table').html(result);
+                    // $('.wpt_edit_table').html(result);
                     if ( result ) {
                         $.each( result, function( key, value ) {
                             if('string' === typeof key){
@@ -186,6 +186,20 @@ jQuery(function($) {
             });
 
         });
+
+
+
+        /**
+         * Footer Mini cart New Version
+         * 
+         * Adding a new div to at the bottom of body
+         * <div class="wpt-new-footer-cart">
+         * 
+         * has adding here.
+         * @since 3.2.5.2
+         */
+        $(document.body).append('<div class="wpt-new-footer-cart"></div>');
+
 
     });
 });

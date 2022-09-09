@@ -2115,14 +2115,49 @@ span.wpt-cart-remove {
         transform:rotate(360deg);
     }
 }
-span.wpt-cart-remove:hover{
-    /* background-color: #0000000f; */
+.wpt-new-footer-cart {
+    background: #0093b8;
+    color: white;
+    position: fixed;
+    top: unset;
+    right: unset;
+    bottom: 35px;
+    left: calc(50% - 125px);
+    width: 300px;
+    height: 60px;
+    padding: 10px;
+    border-radius: 7px;
+    box-shadow: 0 10px 30px 0 #0000004d;
+    display: flex;
+    align-items: center;
+    z-index: 999;
 }
-
-
-
-
-
+.wpt-new-footer-cart-inside {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+.wpt-new-footer-cart-inside>* {
+    width: 50%;
+}
+.wpt-new-footer-cart-inside a.wpt-view-n {
+    text-align: right;
+    color: white;
+    font-weight: 500;
+    font-size: 18px;
+}
+.wpt-new-footer-cart:hover a.wpt-view-n {
+    color: #ffffffad;
+}
+p.wpt-product-notfound-cart {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+.wpt-new-footer-cart.wpt-foooter-cart-stats-no {
+    background: #fdfdfd;
+    color: #403c3c;
+}
 
 
 

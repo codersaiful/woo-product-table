@@ -363,6 +363,7 @@ jQuery(function($) {
                 success: function(response){
 
                     setFragmentsRefresh( response );
+                    console.log(response);
                     if(typeof minicart_type === 'undefined'){
                         return;
                     }

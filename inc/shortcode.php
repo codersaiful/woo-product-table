@@ -7,6 +7,8 @@ use WOO_PRODUCT_TABLE\Inc\Handle\Pagination;
 use WOO_PRODUCT_TABLE\Inc\Handle\Search_Box;
 use WOO_PRODUCT_TABLE\Inc\Handle\Table_Attr;
 use WOO_PRODUCT_TABLE\Inc\Handle\Enqueue;
+use WOO_PRODUCT_TABLE\Inc\Handle\Fragment;
+
 use WOO_PRODUCT_TABLE\Inc\Table\Row;
 use WOO_PRODUCT_TABLE\Inc\Features\Basics;
 
@@ -132,6 +134,9 @@ class Shortcode extends Shortcode_Base{
 
         $enequeue = new Enqueue();
         $enequeue->run();
+
+        $fragment = new Fragment();
+        $fragment->run();
     }
     public function shortcode($atts){
         
@@ -546,7 +551,6 @@ class Shortcode extends Shortcode_Base{
     ?>
     <div class='tables_cart_message_box tables_cart_message_box_<?php echo esc_attr( $this->table_id ); ?>' data-type='load'></div>
     <?php   
-        
     }
 
 }
