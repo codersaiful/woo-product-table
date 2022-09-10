@@ -2039,7 +2039,7 @@ div.wpt-ajax-loading {
     position: relative;
     /* opacity: 0.9; */
 }
-.tables_cart_message_box.div.wpt-ajax-loading{
+div.tables_cart_message_box.wpt-ajax-loading{
     padding: 10px;
 }
 div.wpt_product_table_wrapper.wpt-ajax-loading>div{
