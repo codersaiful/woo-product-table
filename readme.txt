@@ -256,6 +256,7 @@ You can easily show specific category products. While creating new table click o
 == Changelog ==
 
 = 3.2.5 =
+* `New Minicart` added for Table.
 * `text_with_number` sorting issue has been solved
 * Added: Search from whole site option added for Advance Search Box.
 * Added: Hide input of Advance search box option added.
