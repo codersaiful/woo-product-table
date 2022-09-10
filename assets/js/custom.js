@@ -675,11 +675,12 @@ jQuery(function($) {
                     argStats['table_id'] = temp_number;
                     $(document.body).trigger('wpt_adding_to_cart',argStats);
 
-                    if(WPT_DATA.add_to_cart_view){
-                        $( document.body ).trigger( 'added_to_cart', [ response.fragments, response.cart_hash, thisButton ] ); //Trigger and sent added_to_cart event
-                    }else{
-                        $( document.body ).trigger( 'added_to_cart' ); //This will solved for fast added to cart but it will no show view cart link.
-                    }
+                    // if(WPT_DATA.add_to_cart_view){
+                    //     $( document.body ).trigger( 'added_to_cart', [ response.fragments, response.cart_hash, thisButton ] ); //Trigger and sent added_to_cart event
+                    // }else{
+                    //     $( document.body ).trigger( 'added_to_cart' ); //This will solved for fast added to cart but it will no show view cart link.
+                    // }
+
                     $( document.body ).trigger( 'added_to_cart' ); //Trigger and sent added_to_cart event
                     $( document.body ).trigger( 'updated_cart_totals' );
                     $( document.body ).trigger( 'wc_fragments_refreshed' );

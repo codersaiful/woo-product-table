@@ -2020,7 +2020,7 @@ padding-left: 30px;
 
 
  /* For New CSS code  */
-.wpt-ajax-loading:after {
+div.wpt-ajax-loading:after {
     content: "";
     position: absolute;
     height: 100%;
@@ -2033,7 +2033,7 @@ padding-left: 30px;
 }
 .button.wpt-search-products{display: none;}
 
-.wpt-ajax-loading {
+div.wpt-ajax-loading {
     position: relative;
     /* opacity: 0.9; */
 }
