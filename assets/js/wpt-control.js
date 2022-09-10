@@ -153,9 +153,18 @@ jQuery(function($) {
             return args;
         }
 
+        /**
+         * footer cart animation
+         * Cart icon spining on footer mini cart 
+         * and blur effect on footer cart
+         */
+        function footerCartAnimation(){
+            $('a.wpt-view-n .wpt-bag').addClass('wpt-spin4 animate-spin');
+            $('.wpt-new-footer-cart').addClass('wpt-fcart-anim');
+        }
         //Search box related code end here
         $(document.body).on( 'click','.wpt-cart-remove',function(){
-            
+            footerCartAnimation();
             $(this).addClass('wpt_spin');
             let product_id = $(this).data('product_id');
             var data = {

@@ -569,6 +569,11 @@ jQuery(function($) {
         });
         //***********************************/
         
+        function footerCartIconSpining(){
+            $('a.wpt-view-n .wpt-bag').addClass('wpt-spin4 animate-spin');
+            $('.wpt-new-footer-cart').addClass('wpt-fcart-anim');
+        }
+
         /**
          * Add to cart button Action 
          * for Ajax add to cart
@@ -576,6 +581,7 @@ jQuery(function($) {
          */
         $('body').on('click', 'a.ajax_active.wpt_variation_product.single_add_to_cart_button.button.enabled, a.add_to_cart_button.ajax_add_to_cart, a.ajax_active.add_to_cart_button.wpt_woo_add_cart_button', function(e) {
             e.preventDefault();
+            footerCartIconSpining();
             var thisButton = $(this);
             //Adding disable and Loading class
             thisButton.addClass('disabled');
