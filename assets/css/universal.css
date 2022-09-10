@@ -2020,7 +2020,8 @@ padding-left: 30px;
 
 
  /* For New CSS code  */
-div.wpt-ajax-loading:after {
+ div.wpt_product_table_wrapper.wpt-ajax-loading:after,
+ div.wpt-ajax-loading:after {
     content: "";
     position: absolute;
     height: 100%;
@@ -2033,9 +2034,13 @@ div.wpt-ajax-loading:after {
 }
 .button.wpt-search-products{display: none;}
 
+div.wpt_product_table_wrapper.wpt-ajax-loading,
 div.wpt-ajax-loading {
     position: relative;
     /* opacity: 0.9; */
+}
+.tables_cart_message_box.div.wpt-ajax-loading{
+    padding: 10px;
 }
 div.wpt_product_table_wrapper.wpt-ajax-loading>div{
     /* transform: scale(0.99); */
