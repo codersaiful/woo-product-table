@@ -314,10 +314,10 @@ jQuery(function($) {
                     if(response !== ''){
                         noticeBoard.prepend(eachNoticeInnter);
                         eachNoticeInnter.fadeIn();  
-                        // setTimeout(function(){
-                        //     eachNoticeInnter.fadeOut('slow');
-                        //     eachNoticeInnter.remove(); 
-                        // },notice_timeout); //Detault 3000
+                        setTimeout(function(){
+                            eachNoticeInnter.fadeOut('slow');
+                            eachNoticeInnter.remove(); 
+                        },notice_timeout); //Detault 3000
                     }
                 },
                 error: function(){
