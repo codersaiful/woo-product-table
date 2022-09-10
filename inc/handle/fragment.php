@@ -43,7 +43,7 @@ if ( $this->cart_stats == 'yes' ) {
         <?php echo wp_kses_data( sprintf( _n( '%d item', '%d items', WC()->cart->get_cart_contents_count(), 'storefront' ), WC()->cart->get_cart_contents_count() ) ); ?>
     </span>
 </div>
-<a href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="wpt-view-n"><?php echo esc_html__( 'View cart', 'woocommerce' ); ?></a>
+<a target="_blank" href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="wpt-view-n"><?php echo esc_html__( 'View cart', 'woocommerce' ); ?> <i class="wpt-bag"></i></a>
 <?php }else{ ?>
 <p class="wpt-product-notfound-cart"><?php esc_html_e( 'No products in the cart.', 'woocommerce' ); ?></p>
 <?php } ?>
