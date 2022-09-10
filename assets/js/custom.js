@@ -314,10 +314,10 @@ jQuery(function($) {
                     if(response !== ''){
                         noticeBoard.prepend(eachNoticeInnter);
                         eachNoticeInnter.fadeIn();  
-                        setTimeout(function(){
-                            eachNoticeInnter.fadeOut('slow');
-                            eachNoticeInnter.remove(); 
-                        },notice_timeout); //Detault 3000
+                        // setTimeout(function(){
+                        //     eachNoticeInnter.fadeOut('slow');
+                        //     eachNoticeInnter.remove(); 
+                        // },notice_timeout); //Detault 3000
                     }
                 },
                 error: function(){
@@ -409,9 +409,10 @@ jQuery(function($) {
         
         //.wpt_product_table_wrapper div.tables_cart_message_box.message-box-loading
         $(document.body).on('click','.wpt_empty_cart_btn',function(e){
+            footerCartAnimation();
             e.preventDefault();
             var cart_message_box = $( '.wpt_product_table_wrapper div.tables_cart_message_box' );
-            cart_message_box.addClass('message-box-loading');
+            cart_message_box.addClass('wpt-ajax-loading'); //message-box-loading
                 $.ajax({
                 type: 'POST',
                 url: ajax_url,
@@ -419,7 +420,7 @@ jQuery(function($) {
                     action: 'wpt_fragment_empty_cart'
                 },
                 complete:function(){
-                    cart_message_box.removeClass('message-box-loading');
+                    cart_message_box.removeClass('wpt-ajax-loading');
                 },
                 success: function( response ){
                     $('.wpt_product_table_wrapper a.added_to_cart.wc-forward').remove();
@@ -569,7 +570,7 @@ jQuery(function($) {
         });
         //***********************************/
         
-        function footerCartIconSpining(){
+        function footerCartAnimation(){
             $('a.wpt-view-n .wpt-bag').addClass('wpt-spin4 animate-spin');
             $('.wpt-new-footer-cart').addClass('wpt-fcart-anim');
         }
@@ -581,7 +582,7 @@ jQuery(function($) {
          */
         $('body').on('click', 'a.ajax_active.wpt_variation_product.single_add_to_cart_button.button.enabled, a.add_to_cart_button.ajax_add_to_cart, a.ajax_active.add_to_cart_button.wpt_woo_add_cart_button', function(e) {
             e.preventDefault();
-            footerCartIconSpining();
+            footerCartAnimation();
             var thisButton = $(this);
             //Adding disable and Loading class
             thisButton.addClass('disabled');

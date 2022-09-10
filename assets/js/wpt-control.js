@@ -164,7 +164,7 @@ jQuery(function($) {
         }
         //Search box related code end here
         $(document.body).on( 'click','.wpt-cart-remove',function(){
-            footerCartAnimation();
+            // footerCartAnimation();
             $(this).addClass('wpt_spin');
             let product_id = $(this).data('product_id');
             var data = {
