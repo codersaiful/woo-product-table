@@ -8,6 +8,7 @@ use WOO_PRODUCT_TABLE\Inc\Handle\Search_Box;
 use WOO_PRODUCT_TABLE\Inc\Handle\Table_Attr;
 use WOO_PRODUCT_TABLE\Inc\Handle\Enqueue;
 use WOO_PRODUCT_TABLE\Inc\Handle\Fragment;
+use WOO_PRODUCT_TABLE\Inc\Handle\Add_To_Cart;
 
 use WOO_PRODUCT_TABLE\Inc\Table\Row;
 use WOO_PRODUCT_TABLE\Inc\Features\Basics;
@@ -137,6 +138,10 @@ class Shortcode extends Shortcode_Base{
 
         $fragment = new Fragment();
         $fragment->run();
+
+        $add_to_cart = new Add_To_Cart();
+        $add_to_cart->run();
+
     }
     public function shortcode($atts){
         

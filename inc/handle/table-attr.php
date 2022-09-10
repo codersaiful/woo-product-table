@@ -60,6 +60,7 @@ class Table_Attr{
         $row->tr_class = [
             "visible_row",
             "wpt_row",
+            "wpt-row",
             "wpt_row_" . $row->table_id,
             "wpt_row_serial_",
             "wpt_row_product_id_" . get_the_ID(),

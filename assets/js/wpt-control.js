@@ -187,7 +187,48 @@ jQuery(function($) {
 
         });
 
+        /**
+         * Add To Cart (add_to_cart) handle
+         * //class: add_to_cart_button,
+         */
+        $(document.body).on('click','.wpt-row .add_to_cart_button-bk',function(e){
+            e.preventDefault();
+            var thisButton = $(this);
+            var TableRow = $(this).closest('tr.wpt-row');
+            let product_id = TableRow.data('product_id'),
+            quantity = TableRow.attr('data-quantity'),
+            variation_id = null;
 
+            thisButton.addClass('loading').addClass('disabled');
+
+
+            var data = {
+                action: 'wpt_add_to_cart',
+                product_id: product_id,
+                quantity: quantity,
+                variation_id: variation_id
+            };
+
+            $.ajax({
+                type: 'POST',
+                url: ajax_url,
+                data: data,
+                success:function(result){
+                    // $('.primary-navigation').html(result);
+                    // alert(22);
+                    $( document.body ).trigger( 'added_to_cart' );
+                    thisButton.removeClass('loading').removeClass('disabled').addClass('added');
+                    // $( document.body ).trigger( 'updated_cart_totals' );
+                    // $( document.body ).trigger( 'wc_fragments_refreshed' );
+                    // $( document.body ).trigger( 'wc_fragments_refresh' );
+                    // $( document.body ).trigger( 'wc_fragment_refresh' );
+                    // $( document.body ).trigger( 'removed_from_cart' );
+
+                },
+                
+            });
+
+        });
 
         /**
          * Footer Mini cart New Version
