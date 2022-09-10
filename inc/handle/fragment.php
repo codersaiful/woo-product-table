@@ -42,7 +42,9 @@ if ( $this->cart_stats == 'yes' ) {
     <span class="count">
         <?php echo wp_kses_data( sprintf( _n( '%d item', '%d items', WC()->cart->get_cart_contents_count(), 'wpt-pro' ), WC()->cart->get_cart_contents_count() ) ); ?>
     </span>
-    <i title="<?php echo esc_attr__( 'Empty Cart.', 'wpt-pro' ); ?>" class="wpt-trash-empty"></i>
+    <span title="<?php echo esc_attr__( 'Empty Cart.', 'wpt-pro' ); ?>" class="wpt_empty_cart_btn">
+        <i class="wpt-trash-empty"></i>
+    </span>
 </div>
 <a target="_blank" href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="wpt-view-n"><?php echo esc_html__( 'View cart', 'wpt-pro' ); ?> <i class="wpt-bag"></i></a>
 <?php }else{ ?>

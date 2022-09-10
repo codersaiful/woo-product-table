@@ -275,6 +275,18 @@
       "css": "expand-collapse",
       "code": 59423,
       "src": "fontawesome"
+    },
+    {
+      "uid": "f48ae54adfb27d8ada53d0fd9e34ee10",
+      "css": "trash-empty",
+      "code": 59424,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "2cc73cc335f054682c04fe63439c4dcb",
+      "css": "trash",
+      "code": 59425,
+      "src": "linecons"
     }
   ]
 }
