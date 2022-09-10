@@ -139,8 +139,8 @@ class Shortcode extends Shortcode_Base{
         $fragment = new Fragment();
         $fragment->run();
 
-        $add_to_cart = new Add_To_Cart();
-        $add_to_cart->run();
+        // $add_to_cart = new Add_To_Cart();
+        // $add_to_cart->run();
 
     }
     public function shortcode($atts){
