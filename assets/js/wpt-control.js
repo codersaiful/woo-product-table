@@ -164,7 +164,7 @@ jQuery(function($) {
         }
         //Search box related code end here
         $(document.body).on( 'click','.wpt-cart-remove',function(){
-            // footerCartAnimation();
+            footerCartAnimation();
             $(this).addClass('wpt_spin');
             let product_id = $(this).data('product_id');
             var data = {
@@ -185,9 +185,9 @@ jQuery(function($) {
                     $('#product_id_' + product_id + ' a.added_to_cart.wc-forward').remove();
 
                     // $( document.body ).trigger( 'updated_cart_totals' );
-                    $( document.body ).trigger( 'wc_fragments_refreshed' );
-                    $( document.body ).trigger( 'wc_fragments_refresh' );
-                    $( document.body ).trigger( 'wc_fragment_refresh' );
+                    // $( document.body ).trigger( 'wc_fragments_refreshed' );
+                    // $( document.body ).trigger( 'wc_fragments_refresh' );
+                    // $( document.body ).trigger( 'wc_fragment_refresh' );
                     $( document.body ).trigger( 'removed_from_cart' );
 
                 },

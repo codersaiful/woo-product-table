@@ -6,6 +6,7 @@ use WOO_PRODUCT_TABLE\Inc\Shortcode;
 class Fragment{
     public $table_id;
     public  $cart_stats;// = ! WC()->cart->is_empty() ;
+    public $cart_lists = true;
 
     public function run(){
 
@@ -33,6 +34,11 @@ class Fragment{
         ob_start();
         ?>
 <div class="wpt-new-footer-cart wpt-foooter-cart-stats-<?php echo esc_attr( $this->cart_stats ); ?>">
+<?php
+if( $this->cart_lists && $this->cart_stats ){
+    $this->render_cart_list();
+}
+?>
 <div class="wpt-new-footer-cart-inside">
 
 <div class="wpt-cart-contents">
@@ -64,5 +70,55 @@ class Fragment{
     $fragments['.wpt-new-footer-cart'] = $output;
     return $fragments;
     // wp_send_json( $output );
+    }
+
+
+    public function render_cart_list(){
+        ?>
+        <div class="wpt-lister">
+            <div class="lister-ins">
+                <ul>
+            <?php
+            foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ) {
+                $_product   = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key );
+                $product_id = apply_filters( 'woocommerce_cart_item_product_id', $cart_item['product_id'], $cart_item, $cart_item_key );
+
+                if ( $_product && $_product->exists() && $cart_item['quantity'] > 0 && apply_filters( 'woocommerce_widget_cart_item_visible', true, $cart_item, $cart_item_key ) ) {
+                    $product_name      = apply_filters( 'woocommerce_cart_item_name', $_product->get_name(), $cart_item, $cart_item_key );
+                    $product_price     = apply_filters( 'woocommerce_cart_item_price', WC()->cart->get_product_price( $_product ), $cart_item, $cart_item_key );
+                    
+                    // var_dump($product_name);
+                ?>
+                <li>
+                <i data-product_id="<?php echo esc_attr( $product_id ); ?>" class="wpt-cart-remove wpt-trash-empty"></i>
+                    <?php 
+                    // echo apply_filters( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+					// 	'woocommerce_cart_item_remove_link',
+					// 	sprintf(
+					// 		'<a href="%s" class="remove remove_from_cart_button" aria-label="%s" data-product_id="%s" data-cart_item_key="%s" data-product_sku="%s">&times;</a>',
+					// 		esc_url( wc_get_cart_remove_url( $cart_item_key ) ),
+					// 		esc_attr__( 'Remove this item', 'woocommerce' ),
+					// 		esc_attr( $product_id ),
+					// 		esc_attr( $cart_item_key ),
+					// 		esc_attr( $_product->get_sku() )
+					// 	),
+					// 	$cart_item_key
+					// );
+                    echo wp_kses_post( $product_name );
+                    echo wc_get_formatted_cart_item_data( $cart_item );
+                    echo apply_filters( 'woocommerce_widget_cart_item_quantity', '<span class="quantity">' . sprintf( '%s &times; %s', $cart_item['quantity'], $product_price ) . '</span>', $cart_item, $cart_item_key );
+                     ?>
+                </li>
+                <?php 
+                }
+
+            }
+            ?>
+                </ul>
+            </div>
+        </div>
+
+        
+        <?php 
     }
 }

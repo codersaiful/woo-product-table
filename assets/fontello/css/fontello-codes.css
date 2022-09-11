@@ -33,6 +33,10 @@
 .wpt-expand-collapse:before { content: '\e81f'; } /* '' */
 .wpt-trash-empty:before { content: '\e820'; } /* '' */
 .wpt-trash:before { content: '\e821'; } /* '' */
+.wpt-down-open:before { content: '\e822'; } /* '' */
+.wpt-up-open:before { content: '\e823'; } /* '' */
+.wpt-up-open-mini:before { content: '\e824'; } /* '' */
+.wpt-down-open-mini:before { content: '\e825'; } /* '' */
 .wpt-spin1:before { content: '\e830'; } /* '' */
 .wpt-spin2:before { content: '\e831'; } /* '' */
 .wpt-spin3:before { content: '\e832'; } /* '' */

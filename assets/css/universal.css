@@ -2130,7 +2130,6 @@ span.wpt-cart-remove {
     left: calc(50% - 150px);
     width: 300px;
     height: 60px;
-    padding: 10px;
     border-radius: 7px;
     box-shadow: 0 10px 30px 0 #0000004d;
     display: flex;
@@ -2144,8 +2143,59 @@ span.wpt-cart-remove {
     flex-wrap: nowrap;
     justify-content: space-between;
     line-height: initial;
+    position: absolute;
+    padding: 10px;
+    height: 100%;
+    top:0;
+    left: 0;
+}
+.wpt-lister {
+    position: absolute;
+    background: #ffffff;
+    bottom: 68px;
+    left: 0;
+    width: 100%;
+    box-shadow: -2px -1px 25px 0 #00000038;
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
+    border-top: 7px solid #0a7f9c;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+}
+.wpt-lister .lister-ins {
+    padding: 10px;
+    background: #e5e5e563;
+    margin: 2px 6px 6px 6px;
+    border-radius: 0;
+    color: #0a7f9c;
+}
+.wpt-lister ul, .wpt-lister li, .wpt-lister li a{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+}
+.wpt-lister ul, .wpt-lister li{
+    list-style: none;
+}
+.lister-ins dl.variation,.lister-ins dl.variation * {
+    display: inline;
+    padding: 0;
+    margin: 0;
+    font-size: 90%;
+    font-weight: normal;
 }
 
+.lister-ins dl.variation dt {
+    color: black;
+    font-size: 85%;
+}
+.lister-ins li span.quantity {
+    margin-left: 8px;
+    font-size: 90%;
+    font-weight: 400;
+    font-style: oblique;
+}
 .wpt-new-footer-cart-inside a.wpt-view-n {
     text-align: right;
     color: white;
