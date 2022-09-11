@@ -1,7 +1,7 @@
 <?php
 
 global $shortCodeText;
-add_shortcode( $shortCodeText, 'wpt_shortcode_generator' );
+// add_shortcode( $shortCodeText, 'wpt_shortcode_generator' );
 
 if( ! function_exists( 'wpt_shortcode_generator' ) ){
 

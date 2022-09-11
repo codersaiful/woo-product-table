@@ -469,6 +469,9 @@ class WPT_Product_Table{
     include_once $this->path('BASE_DIR','includes/functions.php');
     include_once $this->path('BASE_DIR','includes/helper-functions.php'); 
     include_once $this->path('BASE_DIR','includes/shortcode.php');
+
+    $shortcode = new WOO_PRODUCT_TABLE\Inc\Shortcode();
+    $shortcode->run();
        
     /**
      * Include WPML Integration
@@ -484,12 +487,12 @@ class WPT_Product_Table{
         include_once $this->path('BASE_DIR','wpml/init.php');
     }
 
-    // update_option('wpt_oop_enble', true);
-    $wpt_oop = get_option('wpt_oop_enble');
-    if($wpt_oop){
-        $shortcode = new WOO_PRODUCT_TABLE\Inc\Shortcode();
-        $shortcode->run();
-    }
+    // // update_option('wpt_oop_enble', true);
+    // $wpt_oop = get_option('wpt_oop_enble');
+    // if($wpt_oop){
+    //     $shortcode = new WOO_PRODUCT_TABLE\Inc\Shortcode();
+    //     $shortcode->run();
+    // }
     
     
    }

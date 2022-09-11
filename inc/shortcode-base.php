@@ -4,7 +4,7 @@ namespace WOO_PRODUCT_TABLE\Inc;
 use WOO_PRODUCT_TABLE\Core\Base;
 class Shortcode_Base extends Base{
     public $_root = __CLASS__;
-    public $shortcde_text = 'SAIFUL_TABLE';
+    public $shortcde_text = 'Product_Table';
 
     public $items_directory;
     public $items_permanent_dir;
