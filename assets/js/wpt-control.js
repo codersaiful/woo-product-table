@@ -169,15 +169,18 @@ jQuery(function($) {
             footerCartAnimation();
             $(this).addClass('wpt_spin');
             let product_id = $(this).data('product_id');
+            let cart_item_key = $(this).attr('data-cart_item_key');
             var data = {
                 action: 'wpt_remove_from_cart',
                 product_id: product_id,
+                cart_item_key: cart_item_key,
             };
             $.ajax({
                 type: 'POST',
                 url: ajax_url,
                 data: data,
                 success:function(result){
+                    
                     if(result == 'removed'){
                         
                         // $('.wpt-cart-remove.wpt-cart-remove-' + product_id).remove();

@@ -109,7 +109,7 @@ if( $this->cart_lists && $this->cart_stats ){
                     // var_dump($product_name);
                 ?>
                 <li>
-                <i data-product_id="<?php echo esc_attr( $product_id ); ?>" class="wpt-cart-remove wpt-trash-empty"></i>
+                <i data-cart_item_key="<?php echo esc_attr( $cart_item_key ); ?>" class="wpt-cart-remove wpt-trash-empty"></i>
                     <?php 
                     // echo apply_filters( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 					// 	'woocommerce_cart_item_remove_link',

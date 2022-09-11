@@ -140,16 +140,27 @@ class Shortcode_Ajax extends Shortcode{
 
     public function wpt_remove_from_cart(){
         $product_id = $_POST['product_id'] ?? 0;
+        /**
+         * Founded $cart_item_key 
+         * called $req_cart_item_key
+         */
+        $req_cart_item_key = $_POST['cart_item_key'] ?? false;
+        if( $req_cart_item_key ){
+            $product_id = 0;
+        }
+        var_dump($product_id,$req_cart_item_key);
         global $wpdb, $woocommerce;
         $removed = false;
         $contents = $woocommerce->cart->get_cart();
         foreach ( $contents as $cart_item_key => $cart_item_data ){
             
-
-            if( $cart_item_data['product_id'] == $product_id || $cart_item_data['variation_id'] == $product_id ){
+            if($cart_item_key === $req_cart_item_key){
+                WC()->cart->set_quantity( $cart_item_key, 0, true );
+                $removed = true;
+            }else if( $product_id && ! $req_cart_item_key && ( $cart_item_data['product_id'] == $product_id || $cart_item_data['variation_id'] == $product_id ) ){
 
                 WC()->cart->set_quantity( $cart_item_key, 0, true );
-                $removed = false;
+                $removed = true;
                 // break;
 
             }
