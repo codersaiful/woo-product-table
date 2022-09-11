@@ -236,6 +236,13 @@ class Shortcode extends Shortcode_Base{
         <?php 
         // do_action( 'wpt_loaded', $this->table_id );
 
+        /**
+         * It's important to make new table always
+         * Actually we have created it based on already created condition actually
+         * 
+         * All checked property should make defatul here
+         */
+        $this->product_loop = null;
         return ob_get_clean();
     }
 
@@ -567,4 +574,8 @@ class Shortcode extends Shortcode_Base{
         <?php   
     }
 
+    public function __destruct()
+    {
+        $this->product_loop = null;
+    }
 }
