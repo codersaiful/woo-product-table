@@ -34,6 +34,13 @@ class Shortcode extends Shortcode_Base{
     public $req_post_type = 'wpt_product_table';
     public $posts_per_page = 20;
     public $table_type = 'normal_table';
+    /**
+     * Its for requested product type
+     * such: product, product_variation
+     *
+     * @var string
+     */
+    public $req_product_type;
 
     public $is_table;
     public $page_number = 1;
@@ -339,6 +346,8 @@ class Shortcode extends Shortcode_Base{
         $this->basics = $this->get_meta( 'basics' );
         
         $this->basics_args = $this->basics['args'] ?? [];
+        $this->req_product_type = $this->basics['product_type'] ?? 'product';
+        
         
         $this->conditions = $this->get_meta( 'conditions' );
         $this->table_style = $this->get_meta( 'table_style' );
@@ -553,9 +562,9 @@ class Shortcode extends Shortcode_Base{
      * @author Saiful Islam <codersaiful@gmail.com>
      */
     public function minicart_render(){
-    ?>
-    <div class='tables_cart_message_box tables_cart_message_box_<?php echo esc_attr( $this->table_id ); ?>' data-type='load'></div>
-    <?php   
+        ?>
+        <div class='tables_cart_message_box tables_cart_message_box_<?php echo esc_attr( $this->table_id ); ?>' data-type='load'></div>
+        <?php   
     }
 
 }

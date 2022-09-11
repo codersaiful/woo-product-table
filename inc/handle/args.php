@@ -10,10 +10,10 @@ class Args{
         $shortcode->post_exclude = $shortcode->basics['post_exclude'] ?? [];
         $shortcode->min_price = $shortcode->conditions['min_price'] ?? '';
         $shortcode->max_price = $shortcode->conditions['max_price'] ?? '';
-        
+        var_dump($shortcode->req_product_type);
         $args = [
             'posts_per_page' => $shortcode->posts_per_page ?? -1,
-            'post_type' => array('product'), //, 'product_variation','product'
+            'post_type' => $shortcode->req_product_type, //, 'product_variation','product'
             'post_status'   =>  'publish',
             'meta_query' => array(),
             'wpt_query_type' => 'default',
