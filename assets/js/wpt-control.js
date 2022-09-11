@@ -164,6 +164,7 @@ jQuery(function($) {
         }
         //Search box related code end here
         $(document.body).on( 'click','.wpt-cart-remove',function(){
+            $(this).parent('li').fadeOut();
             footerCartAnimation();
             $(this).addClass('wpt_spin');
             let product_id = $(this).data('product_id');
@@ -249,6 +250,19 @@ jQuery(function($) {
          * @since 3.2.5.2
          */
         $(document.body).append('<div class="wpt-new-footer-cart"></div>');
+
+        
+        $(document.body).on('click','.wpt-fcart-coll-expand,.wpt-cart-contents span.count',function(){
+            // $('.wpt-lister').toggleFade();
+            $('body').toggleClass('wpt-footer-cart-expand');
+            if($('body').hasClass('wpt-footer-cart-expand')){
+                // alert(44);
+                $('.wpt-lister').fadeIn('slow');
+            }else{
+                $('.wpt-lister').fadeOut('slow');
+            }
+
+        });
 
 
     });

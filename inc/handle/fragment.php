@@ -37,6 +37,9 @@ class Fragment{
 <?php
 if( $this->cart_lists && $this->cart_stats ){
     $this->render_cart_list();
+    ?>
+    <span class="wpt-fcart-coll-expand">^</span>
+    <?php
 }
 ?>
 <div class="wpt-new-footer-cart-inside">
@@ -116,6 +119,7 @@ if( $this->cart_lists && $this->cart_stats ){
             ?>
                 </ul>
             </div>
+            
         </div>
 
         

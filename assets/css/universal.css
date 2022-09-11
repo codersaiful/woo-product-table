@@ -2152,7 +2152,7 @@ span.wpt-cart-remove {
 .wpt-lister {
     position: absolute;
     background: #ffffff;
-    bottom: 68px;
+    bottom: 75px;
     left: 0;
     width: 100%;
     box-shadow: -2px -1px 25px 0 #00000038;
@@ -2162,6 +2162,10 @@ span.wpt-cart-remove {
     border-top: 7px solid #0a7f9c;
     border-bottom-left-radius: 7px;
     border-bottom-right-radius: 7px;
+    display: none;
+}
+body.wpt-footer-cart-expand .wpt-lister{
+    display: block;
 }
 .wpt-lister .lister-ins {
     padding: 10px;
@@ -2177,6 +2181,19 @@ span.wpt-cart-remove {
 }
 .wpt-lister ul, .wpt-lister li{
     list-style: none;
+}
+.wpt-new-footer-cart span.wpt-fcart-coll-expand {
+    position: absolute;
+    background: #007694;
+    color: white;
+    height: 10px;
+    top: -10px;
+    font-size: 7px;
+    right: 15px;
+    width: 24px;
+    text-align: center;
+    cursor: pointer;
+    z-index: 0;
 }
 .lister-ins dl.variation,.lister-ins dl.variation * {
     display: inline;
