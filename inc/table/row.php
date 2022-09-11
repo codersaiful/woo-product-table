@@ -122,12 +122,7 @@ class Row extends Table_Base{
 
         $this->wp_force = $shortcode->conditions['wp_force'] ?? false;
 
-        // var_dump($shortcode);
-        
-        // $this->base = $shortcode;
-        // $this->protduct = $product;
 
-        // $this->table_style = $shortcode->table_style;
         $this->is_column_label = $shortcode->is_column_label;
         
         $this->items_directory = $shortcode->items_directory;
@@ -158,12 +153,7 @@ class Row extends Table_Base{
 
         $tr_classs = Table_Attr::tr_class( $this );
 
-        
 
-        //New Added
-        $row = $table_row = $this;
-        
-        // var_dump($this);
         $this->data_tax = apply_filters( 'wpto_table_row_attr', $this->data_tax, $product, false, $this->column_settings, $this->table_id );
         $this->data_tax = $this->apply_filter( 'wpt_table_row_attr', $this->data_tax );
         ?>
@@ -186,23 +176,21 @@ class Row extends Table_Base{
 
         foreach( $this->_enable_cols as $keyword => $col ){
             
+            
             $settings = $this->column_settings[$keyword] ?? false;
             
             $type = isset( $settings['type'] ) && !empty( $settings['type'] ) ? $settings['type'] : 'default';
             $file_name = $type !== 'default' ? $type : $keyword;
+            
+            $items_directory = $this->apply_filter( 'wpt_template_folder', $this->items_directory );
 
             //This will be removed in future update actually
-            $this->items_directory = apply_filters('wpto_template_folder', $this->items_directory,$keyword, $type, $this->table_id, $product, $settings, $this->column_settings );
+            $items_directory = apply_filters('wpto_template_folder', $items_directory,$keyword, $type, $this->table_id, $product, $settings, $this->column_settings );
             
-            $this->items_directory = $this->apply_filter( 'wpt_template_folder', $this->items_directory );
+            
 
-            $file = $this->items_directory. $file_name . '.php';
-
-            $file = apply_filters( 'wpto_template_loc', $file, $keyword, $type, $this->table_id, $product, $file_name, $this->column_settings, $settings ); //@Filter Added 
-            $file = $this->apply_filter( 'wpt_template_loc', $file );
-            if( ! file_exists( $file ) ){
-                $file = $this->items_directory. 'default.php';
-            }
+            $file = $items_directory. $file_name . '.php';
+            $file = apply_filters( 'wpto_item_final_loc', $file, $file_name, $items_directory, $keyword, $this->table_id, $settings, $this->items_permanent_dir );
 
 
             $style_str = $this->column_settings[$keyword]['style_str'] ?? '';
@@ -238,13 +226,18 @@ class Row extends Table_Base{
             if( $this->is_column_label ){
                 $tag_class .= ' autoresponsive-label-show';
             }
+
             ?>
             <<?php echo esc_html( $tag ); ?> 
             data-keyword="<?php echo esc_attr( $keyword ) ; ?>"
             data-title="<?php echo esc_attr( $column_title ); ?>"
             data-sku="<?php echo esc_attr( $this->product_sku ); ?>"
             class="<?php echo esc_attr( $tag_class ); ?>">
-                <?php include $file; ?>
+                <?php 
+                if( is_file( $file ) ){
+                    include $file;
+                }
+                ?>
             </<?php echo esc_html( $tag ); ?>>
             
             <?php
@@ -287,20 +280,54 @@ class Row extends Table_Base{
         $settings = $this->column_settings[$keyword] ?? false;
             
         $type = isset( $settings['type'] ) && !empty( $settings['type'] ) ? $settings['type'] : 'default';
+
+
         $file_name = $type !== 'default' ? $type : $keyword;
-        $file = $this->items_directory. $file_name . '.php';
+            
+        $items_directory = $this->apply_filter( 'wpt_template_folder', $this->items_directory );
+
+        //This will be removed in future update actually
+        $items_directory = apply_filters('wpto_template_folder', $items_directory,$keyword, $type, $this->table_id, $product, $settings, $this->column_settings );
         
-        if( !file_exists( $file ) ){
-            $file = $this->items_directory. 'default.php';
+        
+
+        $file = $items_directory. $file_name . '.php';
+        $file = apply_filters( 'wpto_item_final_loc', $file, $file_name, $items_directory, $keyword, $this->table_id, $settings, $this->items_permanent_dir );
+
+
+        $tag = $settings['tag'] ?? 'div';;
+        $tag_class = $settings['tag_class'] ?? '';
+        $style_str = $this->column_settings[$keyword]['style_str'] ?? '';
+        $style_str = ! empty( $style_str ) ? preg_replace('/(;|!important;)/i',' !important;',$style_str) : '';
+            
+        echo $tag ? "<" . esc_html( $tag ) . " "
+                . "class='item_inside_cell wpt_" . esc_attr( $keyword ) . " " . esc_attr( $tag_class ) . "' "
+                . "data-keyword='" . esc_attr( $keyword ) . "' "
+                . "data-sku='" . esc_attr( $product->get_sku() ) . "' "
+                . "style='" . esc_attr( $style_str ) . "' "
+                . ">" : '';
+        
+        
+        /**
+         * Adding Content at the top of Each Table
+         * 
+         * @Hooked: wpt_pro_add_toggle_content -10, at includes/functions.php file of Pro Version
+         * 
+         * This wpto_ hook will be removed in future update
+         */
+        do_action( 'wpto_column_top', $keyword, $this->table_id, $settings, $this->column_settings, $product );
+        do_action( 'wpt_column_top', $keyword, $this );
+                
+
+        if( is_file( $file ) ){
+            include $file;
         }
-        ?>
-        <div class="saiful-islam">
-        <?php
+
+        do_action( 'wpto_column_top', $keyword, $this->table_id, $settings, $this->column_settings, $product );
+        do_action( 'wpt_column_top', $keyword, $this );
         
-        include $file;
-        ?>
-        </div>
-        <?php
+        echo $tag ? "</" . esc_html( $tag ) . ">" : '';
+
     }
 
     /**
