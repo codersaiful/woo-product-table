@@ -7,6 +7,22 @@ class Fragment{
     public $table_id;
     public  $cart_stats;// = ! WC()->cart->is_empty() ;
     public $cart_lists = true;
+    /**
+     * There are lot's of template ob background available for
+     * footer template. If set no template,
+     * there will apply table template wise color
+     * otherwise, if set any template, then it will show
+     * background color based on template
+     * 
+     * PLAN:
+     * --------
+     * I will set color at dashboard
+     * and it will come from setting
+     * and I will set anywhere. not planed yet
+     *
+     * @var string
+     */
+    public $cart_template = 'footer-cart-temp-none';// = 'footer-cart-temp-1';
 
     public function run(){
 
@@ -33,12 +49,12 @@ class Fragment{
         $this->cart_stats = ! WC()->cart->is_empty()  ? true : false;
         ob_start();
         ?>
-<div class="wpt-new-footer-cart wpt-foooter-cart-stats-<?php echo esc_attr( $this->cart_stats ); ?>">
+<div class="wpt-new-footer-cart <?php echo esc_attr( $this->cart_template ); ?> wpt-foooter-cart-stats-<?php echo esc_attr( $this->cart_stats ); ?>">
 <?php
 if( $this->cart_lists && $this->cart_stats ){
     $this->render_cart_list();
     ?>
-    <span class="wpt-fcart-coll-expand">^</span>
+    <span class="wpt-fcart-coll-expand"><i class="wpt-dot-3"></i></span>
     <?php
 }
 ?>

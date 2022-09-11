@@ -311,6 +311,18 @@
       "css": "down-open-mini",
       "code": 59429,
       "src": "entypo"
+    },
+    {
+      "uid": "d10920db2e79c997c5e783279291970c",
+      "css": "dot-3",
+      "code": 59430,
+      "src": "entypo"
+    },
+    {
+      "uid": "13b11ab72c6ae9c97ee12428e17f3a4e",
+      "css": "dot-2",
+      "code": 59431,
+      "src": "entypo"
     }
   ]
 }

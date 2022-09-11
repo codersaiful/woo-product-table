@@ -161,6 +161,7 @@ jQuery(function($) {
         function footerCartAnimation(){
             $('a.wpt-view-n .wpt-bag').addClass('wpt-spin4 animate-spin');
             $('.wpt-new-footer-cart').addClass('wpt-fcart-anim');
+            $('.wpt-fcart-coll-expand').addClass('animated');
         }
         //Search box related code end here
         $(document.body).on( 'click','.wpt-cart-remove',function(){
