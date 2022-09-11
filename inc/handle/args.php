@@ -113,7 +113,7 @@ class Args{
 
             self::args_for_variable();
         }
-        var_dump(self::$args);
+
         return self::$args;
     }
 
@@ -139,7 +139,6 @@ class Args{
         self::$args['post_parent__in'] = [];
 
         if( self::$tax_query_stats ){
-            var_dump(self::get_parent_ids_by_term());
             self::$args['post_parent__in'] = self::get_parent_ids_by_term();
 
         }
