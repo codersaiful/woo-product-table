@@ -153,6 +153,11 @@ jQuery(function($) {
             return args;
         }
 
+        $(document.body).on('wc_fragments_refreshed',function(response){
+            console.log('HHHHHHHHHHHH HHHHHHHHHH HHHH HHHH HHHHHHHH');
+            console.log(response);
+        });
+
         /**
          * footer cart animation
          * Cart icon spining on footer mini cart 
