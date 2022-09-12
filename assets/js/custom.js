@@ -590,6 +590,7 @@ jQuery(function($) {
             //Adding disable and Loading class
             thisButton.addClass('disabled');
             thisButton.addClass('loading');
+            
             var data = {};
             $.each( thisButton.data(), function( key, value ) {
                     data[ key ] = value;
@@ -599,7 +600,14 @@ jQuery(function($) {
             $( document ).trigger( 'adding_to_cart', [ thisButton, data ] );
             
             var product_id = $(this).data('product_id');
-            
+            var thisRow = $(this).closest('.wpt_row');
+            var Bubble = thisRow.find('.wpt_ccount');
+            if(Bubble.length == 0){
+                thisRow.find('a.add_to_cart_button').append('<span class="wpt_ccount wpt_ccount_' + product_id + '"><i class="wpt-spin5 animate-spin"></span>');
+            }else{
+                Bubble.html('<i class="wpt-spin5 animate-spin">');
+            }
+
             var temp_number = $(this).closest('#product_id_' + product_id).data('temp_number');
             config_json = getConfig_json( temp_number ); //Added at V5.0
             var qtyElement = $('#table_id_' + temp_number + ' #product_id_' + product_id + ' input.input-text.qty.text');

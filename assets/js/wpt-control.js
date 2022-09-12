@@ -2,12 +2,16 @@ jQuery(function($) {
     'use strict';
     $(document).ready(function() {
         
-        var plugin_url = WPT_DATA.plugin_url;
-        var include_url = WPT_DATA.include_url;
-        var content_url = WPT_DATA.content_url;
-        
-        var ajax_url = WPT_DATA.ajax_url;
-        var site_url = WPT_DATA.site_url;
+        var 
+        own_fragment_load = 0,
+        wc_fragment_load = 0,
+        fragment_handle_load = 0,
+        plugin_url = WPT_DATA.plugin_url,
+        include_url = WPT_DATA.include_url,
+        content_url = WPT_DATA.content_url,
+        ajax_url = WPT_DATA.ajax_url,
+        site_url = WPT_DATA.site_url;
+
         
         //Search Box related code all start here
         var ajaxTableLoad = function(table_id,args,page_number){
@@ -153,9 +157,31 @@ jQuery(function($) {
             return args;
         }
 
-
+        $(document).on('wc_fragments_refreshed',function(){
+            fragment_load();
+        });
+        $(document).on('wc_fragments_refresh',function(){
+            fragment_load();
+        });
+        
+        $(document).on('wc_fragment_refresh',function(){
+            fragment_load();
+        });
+        
+        $(document).on('removed_from_cart',function(){
+            fragment_load();
+        });
         fragment_load();
         function fragment_load(){
+            
+            
+            //Control own fragment load for the first time only
+            if(own_fragment_load > 0) return;
+
+            setInterval(function(){
+                own_fragment_load = 0;
+            },1000);
+            own_fragment_load++;
             let data = {
                 action: 'wpt_wc_fragments'
             };
@@ -166,9 +192,17 @@ jQuery(function($) {
                 success:wc_fragment_handle
             });
         }
-        function wc_fragment_handle( response ){
+        function wc_fragment_handle( ownFragment ){
             
-            // console.log(response);
+            
+            if(typeof ownFragment  !== 'object') return;
+
+            try{
+                ownFragmentPerItemsHandle( ownFragment );
+            }catch(e){
+                console.log('Something went wrong on ownFragment loads.',ownFragment);
+            }
+
             // $('.hentry.type-page .entry-header').html(response);
             return;
             var fragments = response.fragments;
@@ -196,8 +230,46 @@ jQuery(function($) {
                     }
                 });
             }
-        }
 
+            own_fragment_load++;
+        }
+        function ownFragmentPerItemsHandle(ownFragment){
+            
+            let cart_item_key,quantity;
+
+            var perItems = ownFragment.per_items;
+
+            $('.wpt_row').each(function(){
+                var thisRow = $(this);
+                var product_id = thisRow.data('product_id');
+                if(perItems[product_id] !== undefined){
+                    //class added to row
+                    thisRow.addClass('wpt-added-to-cart');
+
+                    var item = perItems[product_id];
+                    quantity = item.quantity;
+                    cart_item_key = item.cart_item_key;
+                    var Bubble = thisRow.find('.wpt_ccount');
+                    if(Bubble.length == 0){
+                        thisRow.find('a.add_to_cart_button').append('<span class="wpt_ccount wpt_ccount_' + product_id + '">' + quantity + '</span>');
+                    }else{
+                        Bubble.html(quantity);
+                    }
+                    var crossButton = thisRow.find('.wpt_ccount');
+                    if(Bubble.length == 0){
+                        thisRow.find('a.add_to_cart_button').append('<span class="wpt_ccount wpt_ccount_' + product_id + '">' + quantity + '</span>');
+                    }else{
+                        Bubble.html(quantity);
+                    }
+                    
+                }else{
+                    thisRow.removeClass('wpt-added-to-cart');
+                    thisRow.find('.wpt_ccount').remove();
+                }
+                
+                
+            });
+        }
         
         /**
          * footer cart animation

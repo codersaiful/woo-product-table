@@ -118,8 +118,8 @@ class Shortcode_Ajax extends Shortcode{
         }
         $output['per_items'] = $per_items;
 
-        var_dump($output);
-        // wp_send_json( $output );
+        // var_dump($output);
+        wp_send_json( $output );
         
         die();
 
