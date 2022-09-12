@@ -753,7 +753,7 @@ if( !function_exists( 'wpto_admin_configuration_form_top_free' ) ){
             return;
         }
         ?>
-        <div class="section ultraaddons-panel top_secion configuration_page">
+        
             <table class="ultraaddons-table">
                 <tr>
                     <th>
@@ -775,10 +775,8 @@ if( !function_exists( 'wpto_admin_configuration_form_top_free' ) ){
                     </td>
                 </tr>
             </table>
-            <div class="ultraaddons-button-wrapper">
-                <button name="configure_submit" class="button-primary primary button">Save All</button>
-            </div>
-        </div>
+            
+
          <?php
     }
 }

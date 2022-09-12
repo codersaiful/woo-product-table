@@ -75,10 +75,20 @@ if( !function_exists( 'wpt_configuration_page' ) ){
                     do_action( 'wpto_admin_configuration_form_version_data', $settings,$current_config_value );
                     
                     if( $default_lang_bool ){
+                ?>
+                    <div class="section ultraaddons-panel top_secion configuration_page">
+                <?php
                         /**
                          * To add something and Anything at the top of Form Of Configuratin Page
                          */
                         do_action( 'wpto_admin_configuration_form_top', $settings,$current_config_value ); 
+
+                ?>
+                        <div class="ultraaddons-button-wrapper">
+                            <button name="configure_submit" class="button-primary primary button">Save All</button>
+                        </div>
+                    </div>
+                <?php
                     }
                     
                     do_action( 'wpto_admin_configuration_form', $settings,$current_config_value,'data' ); //'data' It's Forms Field Name Such: <input name='data[search_box]'>
