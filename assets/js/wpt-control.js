@@ -153,12 +153,25 @@ jQuery(function($) {
             return args;
         }
 
-        // $(document.body).on('added_to_cart',function(aaa,response){
-        //     console.log('HHHHHHHHHHHH HHHHHHHHHH HHHH HHHH HHHHHHHH');
-        //     console.log(response);
-        //     console.log(aaa);
-        // });
 
+        fragment_load();
+        function fragment_load(){
+            let data = {
+                action: 'wpt_wc_fragments'
+            };
+            $.ajax({
+                type: 'POST',
+                url: ajax_url,
+                data: data,
+                success:wc_fragment_handle
+            });
+        }
+        function wc_fragment_handle( response ){
+            console.log('HHHHHHHHHHHHHHHHHH');
+            console.log(response);
+        }
+
+        
         /**
          * footer cart animation
          * Cart icon spining on footer mini cart 
