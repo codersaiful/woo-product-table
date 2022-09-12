@@ -323,7 +323,7 @@ if( ! function_exists( 'wpt_ajax_add_to_cart' ) ){
         $cart_item_data = apply_filters('wpto_cart_meta_by_additional_json', $cart_item_data, $additinal_json, $product_id, $data);
 
         wpt_adding_to_cart( $product_id, $quantity, $variation_id, $variation, $cart_item_data );
-        wpt_fragment_refresh();
+        
         die();
     }
 }
@@ -333,6 +333,7 @@ add_action( 'wp_ajax_nopriv_wpt_ajax_add_to_cart', 'wpt_ajax_add_to_cart' );
 if( ! function_exists( 'wpt_fragment_refresh' ) ){
 
     /**
+     * NEED TO DELETE IT AFTER CHECK FROM CUSTOM JS
      * Getting refresh for fragments
      * 
      * @Since 3.7
@@ -509,7 +510,7 @@ if( ! function_exists( 'wpt_adding_to_cart_multiple_items' ) ){
                 wpt_adding_to_cart( $product_id, $quantity, $variation_id, $variation, $cart_item_data );
                 $serial++;
             }
-            wpt_fragment_refresh(); 
+            
             if( $serial > 0 ){
 
                 return null;

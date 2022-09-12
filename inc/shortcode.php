@@ -279,6 +279,17 @@ class Shortcode extends Shortcode_Base{
              
     }
 
+    /**
+     * Different type stats. Like: total product quantity,
+     * how much post founded, max number of pages etc.
+     * Some Example:
+     * $this->product_count = (int) $this->product_loop->post_count;
+        $this->found_posts = (int) $this->product_loop->found_posts;
+        $this->max_num_pages = (int) $this->product_loop->max_num_pages;
+     * 
+     *
+     * @return void
+     */
     public function stats_render(){
         
         if( ! $this->product_loop ){
@@ -296,11 +307,7 @@ class Shortcode extends Shortcode_Base{
         <?php printf( esc_html__( "Page %s out of %s" ), $page_number, $this->max_num_pages  ); ?>
         </p>
         <?php 
-        // var_dump($this->product_loop->post_count);
-        // var_dump($this->product_loop->found_posts);
-        // var_dump($this->posts_per_page);
-        // var_dump($this->page_number);
-        // var_dump($this->product_loop->max_num_pages);
+
     }
     public function assing_property( $atts ){
         
@@ -402,6 +409,16 @@ class Shortcode extends Shortcode_Base{
     }
 
     public function enqueue(){
+        $this->assets_element_url = $this->assets_url . 'css/elements/';
+        $this->footer_cart = true;
+
+        //Need to add feature at dashboard
+        $this->footer_cart_template = true;
+
+        $this->css_dependency = [
+            'wpt-universal',
+            'wpt-template-table'
+        ];
 
         /**
          * Template Control is here.
@@ -413,8 +430,28 @@ class Shortcode extends Shortcode_Base{
         $this->template_url = $this->base_url . 'assets/css/templates/'. $template_file_name . '.css';
         $this->template_url = $this->apply_filter( 'wpt_template_url', $this->template_url );
 
-        wp_register_style($this->template_name, $this->template_url, array(), $this->dev_version, 'all');
+        wp_register_style($this->template_name, $this->template_url, $this->css_dependency, $this->dev_version, 'all');
         wp_enqueue_style($this->template_name);
+
+        if( 'none' !== $this->minicart_position){
+            $style_name = 'wpt-minicart';
+            $css_url = $this->assets_element_url . 'minicart.css';
+            wp_register_style($style_name, $css_url, $this->css_dependency, $this->dev_version, 'all');
+            wp_enqueue_style($style_name);
+        }
+
+        if( $this->footer_cart ){
+            $style_name = 'wpt-footer-cart';
+            $css_url = $this->assets_element_url . 'footer-cart.css';
+            wp_register_style($style_name, $css_url, $this->css_dependency, $this->dev_version, 'all');
+            wp_enqueue_style($style_name);
+        }
+        if( $this->footer_cart_template ){
+            $style_name = 'wpt-footer-cart-templates';
+            $css_url = $this->assets_element_url . 'footer-cart-templates.css';
+            wp_register_style($style_name, $css_url, $this->css_dependency, $this->dev_version, 'all');
+            wp_enqueue_style($style_name);
+        }
 
         
     }
@@ -556,21 +593,23 @@ class Shortcode extends Shortcode_Base{
     }
 
     /**
-     * Basically for main search box and Meta field wise search box.
-     * Actually first time, there was only search box without meta field search.
+     * RENDER MINICART MARKUP:
+     * Our personal Minicart where product will add after added to cart actually
+     * At previous day, here was All other things. but now I will add different things
      * 
-     * Specially for Alvaro, I added a new feature,where user will able to search by meta field.
-     * 
-     * at the bottom of this method, I added a action_hook: wpt_after_searchbox
-     * where I added meta field wise search option at at Pro/Inc/Search_Extra()
-     * find there about all things.
+     * No need any functionality, just added to div element, one is wrapper,
+     * and another is main minicart. in this part
+     * IT'S FUNCTIONALITY, autoloading will handle from Fragements Class
+     * see at inc/handle/fragment 
      *
      * @return void
      * @author Saiful Islam <codersaiful@gmail.com>
      */
     public function minicart_render(){
         ?>
-        <div class='tables_cart_message_box tables_cart_message_box_<?php echo esc_attr( $this->table_id ); ?>' data-type='load'></div>
+        <div class='tables_cart_message_box tables_cart_message_box_<?php echo esc_attr( $this->table_id ); ?>' data-type='load'>
+            <div class="widget_shopping_cart_content"></div>
+        </div>
         <?php   
     }
 

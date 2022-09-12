@@ -342,7 +342,9 @@ jQuery(function($) {
             updateCheckBoxCount(temp_number);//
 
         });
-        
+        function WPT_MiniCart(){
+
+        }
         /**
          * Mini cart Minicart Manage
          * Loading our plugin's minicart
@@ -351,7 +353,7 @@ jQuery(function($) {
          * @Added a new added function.
          * @returns {Boolean}
          */
-        function WPT_MiniCart(){
+        function WPT_MiniCart_BACKUP(){
             var minicart_type = $('div.tables_cart_message_box').attr('data-type');
                       
             $.ajax({

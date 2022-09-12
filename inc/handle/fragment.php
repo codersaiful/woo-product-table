@@ -3,6 +3,17 @@ namespace WOO_PRODUCT_TABLE\Inc\Handle;
 
 use WOO_PRODUCT_TABLE\Inc\Shortcode;
 
+/**
+ * All type fragment of our plguin.
+ * Such as:
+ * Footer Cart, product remove button and all other things will be handle from here
+ * 
+ * @since 3.2.5.3
+ * @author Saiful Islam <codersaiful@gmail.com>
+ * @class Fragment
+ * 
+ * No use of WOO_PRODUCT_TABLE\Inc\Shortcode;
+ */
 class Fragment{
 
     /**
@@ -84,8 +95,15 @@ class Fragment{
      */
     public function fragments( $fragments ){
         
-        $output = $this->getFooterCart($fragments);
+        $output = $this->getFooterCart();
         $fragments['.wpt-new-footer-cart'] = $output;
+
+        
+        $output = $this->getFooterCart();
+        $fragments['.wpt-minicart'] = $output;
+
+
+
         return $fragments;
     }
     
