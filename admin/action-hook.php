@@ -747,11 +747,17 @@ s0.parentNode.insertBefore(s1,s0);
 }
 add_filter( 'admin_head', 'wpt_tawkto_code_header', 999 );
 
+/**
+ * "Table Column Sorting" option was in pro version, we move that into free version
+ * @since 3.2.5.4
+ * @author Fazle Bari 
+ */
 if( !function_exists( 'wpto_admin_configuration_form_top_free' ) ){
     function wpto_admin_configuration_form_top_free($settings,$current_config_value){
         if( !isset( $settings['page'] ) || isset( $settings['page'] ) && $settings['page'] != 'configuration_page' ){
             return;
         }
+        
         ?>
         
             <table class="ultraaddons-table">
@@ -772,6 +778,24 @@ if( !function_exists( 'wpto_admin_configuration_form_top_free' ) ){
                             <span>If you want to sort any column like number where text like: 1st,2nd,3rd,4th. To this situation, add a custom tag className <code>text_with_number</code> for column. <a href="https://wooproducttable.com/doc/advance-uses/sort-table-column/" target="_blank">Helper doc</a> </span>
                         </p>
                                         
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <label class="wpt_label wpt_footer_template " for="wpt_table_footer_template"><?php esc_html_e( 'Footer Cart Template', 'wpt_pro' );?></label>
+                    </th>
+                    <td>
+                        <select name="data[footer_template]" class="wpt_fullwidth ua_input wpt_table_footer_template">
+                            <?php 
+                                $footer_templates = [1,2,3,4,5,6,7,7,9,10,11,12,13,14,15,16,17,18,19,20,21,22];
+                                foreach($footer_templates as $template){
+                                    $selected = isset( $current_config_value['footer_template'] ) && $current_config_value['footer_template'] == $template? 'selected' : '';
+                                    echo '<option value="'. $template .'" ' . $selected . '>'."Template No " . $template . '</option>'; 
+                                } 
+                            ?>
+                        </select>
+                        <br>
+                        <p><?php echo esc_html__( 'Select a template to change footer cart design', 'wpt_pro' ); ?></p>
                     </td>
                 </tr>
             </table>
