@@ -65,21 +65,24 @@ class Fragment{
      */
     public function run(){
 
-        add_filter( 'woocommerce_add_to_cart_fragments',[$this, 'footer_cart_fragment'] );
+        add_filter( 'woocommerce_add_to_cart_fragments',[$this, 'fragments'] );
     }
 
 
     /**
-     * Handle Footer cart fragments
+     * HANDLE ALL ADDITIONAL FRAGMENTS
+     * -------------------------------
+     * * Handle Footer cart fragments
+     * * Table Minicart Fragment Handle
      * 
-     * Specially for Footer 
+     * Specially for Footer AND Table minicart
      * 
      * @author Saiful Islam <codersaiful@gmail.com>
      *
      * @param array $fragments
      * @return array
      */
-    public function footer_cart_fragment( $fragments ){
+    public function fragments( $fragments ){
         
         $output = $this->getFooterCart($fragments);
         $fragments['.wpt-new-footer-cart'] = $output;
