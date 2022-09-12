@@ -153,10 +153,11 @@ jQuery(function($) {
             return args;
         }
 
-        $(document.body).on('wc_fragments_refreshed',function(response){
-            console.log('HHHHHHHHHHHH HHHHHHHHHH HHHH HHHH HHHHHHHH');
-            console.log(response);
-        });
+        // $(document.body).on('added_to_cart',function(aaa,response){
+        //     console.log('HHHHHHHHHHHH HHHHHHHHHH HHHH HHHH HHHHHHHH');
+        //     console.log(response);
+        //     console.log(aaa);
+        // });
 
         /**
          * footer cart animation
