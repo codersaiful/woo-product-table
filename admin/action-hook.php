@@ -746,3 +746,40 @@ s0.parentNode.insertBefore(s1,s0);
     }
 }
 add_filter( 'admin_head', 'wpt_tawkto_code_header', 999 );
+
+if( !function_exists( 'wpto_admin_configuration_form_top_free' ) ){
+    function wpto_admin_configuration_form_top_free($settings,$current_config_value){
+        if( !isset( $settings['page'] ) || isset( $settings['page'] ) && $settings['page'] != 'configuration_page' ){
+            return;
+        }
+        ?>
+        <div class="section ultraaddons-panel top_secion configuration_page">
+            <table class="ultraaddons-table">
+                <tr>
+                    <th>
+                        <label class="wpt_label wpt_column_sorting_on_off" for="wpt_column_sorting_on_off"><?php esc_html_e( 'Table Column Sorting', 'wpt_pro' );?></label>
+                    </th>
+                    <td>
+                        <label class="switch">
+                            <input  name="data[column_sort]" type="checkbox" id="wpt_column_sorting_on_off" <?php echo isset( $current_config_value['column_sort'] ) ? 'checked="checked"' : ''; ?>>
+                            <div class="slider round"><!--ADDED HTML -->
+                                <span class="on">On</span><span class="off">Off</span><!--END-->
+                            </div>
+                        </label>
+                        <p><?php echo esc_html( 'Column sorting for visible product Column.', 'wpt_pro' ); ?></p>
+                        <p class="warning">
+                            <b>Tips:</b>
+                            <span>If you want to sort any column like number where text like: 1st,2nd,3rd,4th. To this situation, add a custom tag className <code>text_with_number</code> for column. <a href="https://wooproducttable.com/doc/advance-uses/sort-table-column/" target="_blank">Helper doc</a> </span>
+                        </p>
+                                        
+                    </td>
+                </tr>
+            </table>
+            <div class="ultraaddons-button-wrapper">
+                <button name="configure_submit" class="button-primary primary button">Save All</button>
+            </div>
+        </div>
+         <?php
+    }
+}
+add_action('wpto_admin_configuration_form_top', 'wpto_admin_configuration_form_top_free',60,2);
