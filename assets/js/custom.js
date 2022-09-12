@@ -365,7 +365,7 @@ jQuery(function($) {
                 success: function(response){
 
                     setFragmentsRefresh( response );
-                    console.log(response);
+                    
                     if(typeof minicart_type === 'undefined'){
                         return;
                     }
@@ -1859,9 +1859,9 @@ jQuery(function($) {
             var targetPriceThousandlSeparator = targetTotalSelector.data('thousand_separator');
 
             var targetNumbersPoint = targetTotalSelector.data('number_of_decimal');
-            console.log(Qty_Val);
+            
             var totalPrice = parseFloat(targetPrice) * parseFloat(Qty_Val);
-            // console.log(Qty_Val);
+            
             totalPrice = totalPrice.toFixed(targetNumbersPoint);
             var priceFormat = WPT_DATA.priceFormat;
            

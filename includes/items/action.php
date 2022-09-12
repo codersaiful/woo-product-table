@@ -80,3 +80,6 @@ if( $table_type == 'advance_table'){
             ), $product,false,false);
         }
 }
+?>
+<!-- <span class="wpt_ccount product_id wpt_ccount_<?php echo esc_attr( $id ); ?>">0</span>
+<span data-product_id="17084" class="wpt-cart-remove wpt-cart-remove-17084"></span> -->

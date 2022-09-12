@@ -91,7 +91,38 @@ class Shortcode_Ajax extends Shortcode{
     }
 
     public function wpt_wc_fragments(){
-        WC_AJAX::get_refreshed_fragments();
+        
+        $output = [];
+        $per_items = [];
+        $Cart = WC()->cart->cart_contents;
+        if( is_array( $Cart ) && count( $Cart ) > 0 ){
+            foreach($Cart as $cart_item_key => $perItem){
+                // var_dump($cart_item_key,$perItem);
+                $pr_id = $perItem['product_id'];
+
+                $pqt_value = $perItem['quantity'];
+                $qtys[$pr_id] = isset( $qtys[$pr_id] ) ? $qtys[$pr_id] + $pqt_value : $pqt_value;
+
+                $per_items[$pr_id]['cart_item_key'] = $cart_item_key;
+                $per_items[$pr_id]['quantity'] = $qtys[$pr_id];
+                $per_items[$pr_id]['type'] = 'normal';
+
+                $vr_id = $perItem['variation_id'];
+                if( $vr_id ){
+                    $per_items[$vr_id]['cart_item_key'] = $cart_item_key;
+                    $per_items[$vr_id]['quantity'] = $pqt_value;
+                    $per_items[$vr_id]['type'] = 'variation';
+                }
+
+            }
+        }
+        $output['per_items'] = $per_items;
+
+        var_dump($output);
+        // wp_send_json( $output );
+        
+        die();
+
         die();
     }
 
