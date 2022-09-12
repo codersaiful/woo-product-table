@@ -4,9 +4,40 @@ namespace WOO_PRODUCT_TABLE\Inc\Handle;
 use WOO_PRODUCT_TABLE\Inc\Shortcode;
 
 class Fragment{
+
+    /**
+     * Temporary propety to store Table ID,
+     * If need anywhere actually.
+     * 
+     * Maybe, it will not be need
+     *
+     * @var [type]
+     */
     public $table_id;
-    public  $cart_stats;// = ! WC()->cart->is_empty() ;
+
+    /**
+     * Temporary property to store
+     * WC Cart status Empty or not
+     * 
+     * ***************************
+     * If empty, return false, for not empty, iit will return true
+     *
+     * @var boolean If empty, return false, for not empty, iit will return true
+     */
+    public  $cart_stats;
+
+    /**
+     * Actually this will be handle from Table Setting
+     * or Configure Setting Page
+     * 
+     * We have to handle it from Backend
+     * If enable, then we will enable it.
+     *
+     * @var boolean
+     */
     public $cart_lists = true;
+
+
     /**
      * There are lot's of template ob background available for
      * footer template. If set no template,
@@ -22,20 +53,39 @@ class Fragment{
      *
      * @var string
      */
-    public $cart_template = 'footer-cart-temp-none';// = 'footer-cart-temp-1';
+    public $footer_cart_template = 'footer-cart-temp-none';// = 'footer-cart-temp-1';
 
+    /**
+     * As like contracture method,
+     * it will enable our Fragment's alll Feature
+     * 
+     * @author Saiful Islam <codersaiful@gmail.com>
+     *
+     * @return void
+     */
     public function run(){
 
-        add_filter( 'woocommerce_add_to_cart_fragments',[$this, 'render'] );
-        // add_filter('woocommerce_quantity_input_args',[$this,'testing']);
+        add_filter( 'woocommerce_add_to_cart_fragments',[$this, 'footer_cart_fragment'] );
     }
-    public function my_footer_cart(){
 
+
+    /**
+     * Handle Footer cart fragments
+     * 
+     * Specially for Footer 
+     * 
+     * @author Saiful Islam <codersaiful@gmail.com>
+     *
+     * @param array $fragments
+     * @return array
+     */
+    public function footer_cart_fragment( $fragments ){
+        
+        $output = $this->getFooterCart($fragments);
+        $fragments['.wpt-new-footer-cart'] = $output;
+        return $fragments;
     }
-    public function testing( $args ){
-        var_dump($args);
-        return $args;
-    }
+    
 
     /**
      * We will use this method inside 
@@ -49,7 +99,7 @@ class Fragment{
         $this->cart_stats = ! WC()->cart->is_empty()  ? true : false;
         ob_start();
         ?>
-<div class="wpt-new-footer-cart <?php echo esc_attr( $this->cart_template ); ?> wpt-foooter-cart-stats-<?php echo esc_attr( $this->cart_stats ); ?>">
+<div class="wpt-new-footer-cart <?php echo esc_attr( $this->footer_cart_template ); ?> wpt-foooter-cart-stats-<?php echo esc_attr( $this->cart_stats ); ?>">
 <?php
 if( $this->cart_lists && $this->cart_stats ){
     $this->render_cart_list();
@@ -77,20 +127,10 @@ if( $this->cart_lists && $this->cart_stats ){
 
 </div>
 </div>
-
-
         <?php 
         $output = ob_get_clean();
         return $output;
     }
-    public function render( $fragments ){
-
-    $output = $this->getFooterCart();
-    $fragments['.wpt-new-footer-cart'] = $output;
-    return $fragments;
-    // wp_send_json( $output );
-    }
-
 
     public function render_cart_list(){
         ?>
