@@ -1,6 +1,7 @@
 <?php 
 namespace WOO_PRODUCT_TABLE\Inc;
 
+use WC_AJAX;
 use WOO_PRODUCT_TABLE\Inc\Shortcode;
 use WOO_PRODUCT_TABLE\Inc\Handle\Pagination;
 
@@ -9,11 +10,11 @@ class Shortcode_Ajax extends Shortcode{
     public static $get_args;
     public function __construct()
     {
-        
-        // $this->ajax_action('wpt_query', 'ajax_row_load');
-        // $this->ajax_action('wpt_pagination');
+
         $this->ajax_action('wpt_load_both');
         $this->ajax_action('wpt_remove_from_cart');
+        $this->ajax_action('wpt_wc_fragments');
+
     }
 
     public function wpt_load_both(){
@@ -89,52 +90,8 @@ class Shortcode_Ajax extends Shortcode{
         die();
     }
 
-    public function wpt_pagination(){
-        $atts = $this->set_atts();
-        $this->assing_property( $atts ); 
-        $page_number = $_POST['page_number'] ?? 1;
-        
-        $this->args['paged'] = $page_number;
-        $this->args = $this->apply_filter('wpt_args_on_ajax_pagination', $this->args );
-        echo Pagination::get_paginate_links($this);
-        die();
-
-    }
-    public function ajax_row_load(){
-
-        $atts = $this->set_atts();
-        
-        $args = $_POST['args'] ?? [];
-        $args = $this->arrayFilter( $args );
-
-        //It's need to the beginning of this process.
-        $this->assing_property($atts); 
-        
-        if( is_array( $args ) && ! empty( $args ) ){
-
-            if( $this->whole_search ){
-
-                unset($this->args['post__in']);
-                unset($this->args['post__not_in']);
-
-                unset($this->args['tax_query']);
-                unset($this->args['meta_query']);
-            }
-            
-            $this->args = array_merge( $this->args, $args );
-        }
-        
-        /**
-         * Why make this propety.
-         * Actualy any any user need do something on $args after called ajax
-         * user can check using $this->args_ajax_called
-         * 
-         * @since 3.2.5.1
-         */
-        $this->args_ajax_called = true;
-
-        $this->argsOrganize()->table_body();
-
+    public function wpt_wc_fragments(){
+        WC_AJAX::get_refreshed_fragments();
         die();
     }
 
