@@ -6,6 +6,9 @@ class Shortcode_Base extends Base{
     public $_root = __CLASS__;
     public $shortcde_text = 'Product_Table';
 
+    public $base_config;
+    public $table_on_archive;
+
     public $items_directory;
     public $items_permanent_dir;
 
@@ -17,6 +20,11 @@ class Shortcode_Base extends Base{
         return $arr;
     }
 
+    public function __construct()
+    {
+        $this->base_config = wpt_get_config_value();
+        $this->table_on_archive = $this->base_config['table_on_archive'] ?? false;
+    }
     
 
     /**

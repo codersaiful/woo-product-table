@@ -20,7 +20,7 @@ if( !function_exists( 'wpt_admin_enqueue' ) ){
          * 
          * @since 1.0.3
          */    
-        wp_enqueue_style( 'select2', WPT_Product_Table::getPath( 'BASE_URL' ) . 'assets/css/select2.min.css', array(), '4.0.13', 'all' );
+        wp_enqueue_style( 'select2', WPT_Product_Table::getPath( 'BASE_URL' ) . 'assets/select2/css/select2.min.css', array(), '4.0.13', 'all' );
 
         /**
          * Including UltraAddons CSS form Style
@@ -47,7 +47,7 @@ if( !function_exists( 'wpt_admin_enqueue' ) ){
          * 
          * @since 1.0.3
          */
-        wp_enqueue_script( 'select2', WPT_Product_Table::getPath( 'BASE_URL' ) . 'assets/js/select2.min.js', array( 'jquery' ), '4.0.13', true );
+        wp_enqueue_script( 'select2', WPT_Product_Table::getPath( 'BASE_URL' ) . 'assets/select2/js/select2.min.js', array( 'jquery' ), '4.0.13', true );
 
         //Includeing Color Picker js and css at version 4.4
         wp_enqueue_script( 'wp-color-picker' );

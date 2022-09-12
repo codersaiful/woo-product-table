@@ -14,24 +14,37 @@ use WOO_PRODUCT_TABLE\Inc\Shortcode_Base;
  */
 class Basics extends Shortcode_Base{
     
+    public $_config;
+    public $table_on_archive;
+
+    public $has_shortcode;
+    public $if_in_shop;
+
+    public $_is_table;
+
     public function run(){
         $this->filter('body_class');
         $this->action('wpt_bottom', 1, 10, 'edit_button');
     }
     public function body_class( $class ){
         global $post;
-        
-        if( isset($post->post_content) && has_shortcode( $post->post_content, $this->shortcde_text ) ) {
+        $this->has_shortcode = isset($post->post_content) && has_shortcode( $post->post_content, $this->shortcde_text );
+        $this->if_in_shop = $this->table_on_archive && ( is_shop() || is_product_category() );
+
+        $this->_is_table = $this->has_shortcode || $this->if_in_shop;
+
+        if( $this->_is_table ){
             $class[] = 'wpt_table_body';
             $class[] = 'woocommerce';
             $class[] = 'wpt-body-' . $this->shortcde_text;
         }
+
         return $class;
     }
 
     public function edit_button( Shortcode $shortcode ){
 
-        if( !current_user_can( WPT_CAPABILITY ) ) return null;
+        if( ! current_user_can( WPT_CAPABILITY ) ) return;
 
         ?>
         <div class="wpt_edit_table">

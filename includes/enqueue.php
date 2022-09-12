@@ -31,7 +31,7 @@ if( !function_exists( 'wpt_enqueue' ) ){
         * 
         * @since 1.0.3
         */    
-       wp_enqueue_style( 'select2', WPT_Product_Table::getPath('BASE_URL') . 'assets/css/select2.min.css', array( 'jquery' ), '1.8.2' );
+       wp_enqueue_style( 'select2', WPT_Product_Table::getPath('BASE_URL') . 'assets/select2/css/select2.min.css', array( 'jquery' ), '1.8.2' );
 
        /**
         * Select2 jQuery Plugin file including. 
@@ -39,7 +39,7 @@ if( !function_exists( 'wpt_enqueue' ) ){
         * 
         * @since 1.9
         */
-       wp_enqueue_script( 'select2', WPT_Product_Table::getPath('BASE_URL') . 'assets/js/select2.min.js', array( 'jquery' ), '4.0.5', true );
+       wp_enqueue_script( 'select2', WPT_Product_Table::getPath('BASE_URL') . 'assets/select2/js/select2.min.js', array( 'jquery' ), '4.0.5', true );
 
        /**
         * jQuery floatThead

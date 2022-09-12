@@ -217,30 +217,7 @@ tr.visible_row.wpt_row .col_inside_tag.action a {
     margin-bottom: 5px;
     white-space: nowrap;
 }
-/*
-a.wpt_added_to_cart{
-  font-family: WooCommerce;
-    content: '\e01c';
-    vertical-align: top;
-    font-weight: 400;
-    position: absolute;
-    top: 36%;
-    right: 7%;
-    -webkit-animation: spin 2s linear infinite;
-    animation: spin 2s linear infinite;  
-}
-div.wpt_product_table_wrapper table#wpt_table tr.wpt_row td.wpt_action a.button.disabled.wpt_woo_add_cart_button.loading::after{
-    font-family: WooCommerce;
-    content: '\e01c';
-    vertical-align: top;
-    font-weight: 400;
-    position: absolute;
-    top: 36%;
-    right: 7%;
-    -webkit-animation: spin 2s linear infinite;
-    animation: spin 2s linear infinite;
-}
-*/
+
 /*Customize Serial Number collumn*/
 .wpt_product_table thead th.serial_number{
     width: 67px;
@@ -1890,6 +1867,79 @@ padding-left: 30px;
 
 
 
+/******Copy from template.css start here*********/
+
+@media only screen and (min-width: 992px) {
+    div.wpt_for_product_desc,div.wpt_for_product_action,
+    div.wpt_for_thumbs_desc.wpt_thumbnails,
+    div.wpt_custom_cf_tax{display: none !important;}
+}
+
+/* for shop Icon*/
+/*For Shop Icon*/
+table.add_cart_only_icon tr .wpt_action a.button:before {
+    content: "\e01d";    
+    z-index: 99999;
+    margin: 11px;
+    font-family: WooCommerce;
+    font-size: initial;
+    padding: 0 9px;
+}
+table.add_cart_only_icon tr .wpt_action a.button{
+    font-size: 0 !important;
+}
+table.add_cart_only_icon tr .wpt_action a.button.added:before{
+    font-style: italic;
+    font-stretch: semi-expanded;
+}
+table.add_cart_left_icon tr .wpt_action a.button:before {
+    content: "\e01d";    
+    z-index: 99999;
+    font-family: WooCommerce;
+    font-size: initial;
+    padding: 0;
+    position: static;
+    font-size: 76%;
+    margin-right: 5px;
+}
+table.add_cart_right_icon tr .wpt_action a.button:after {
+    content: "\e01d";    
+    z-index: 99999;
+    font-family: WooCommerce;
+    font-size: initial;
+    padding: 0;
+    position: static;
+    font-size: 76%;
+    margin-left: 5px;
+}
+
+.woocommerce-notices-wrapper {
+    position: relative;
+}
+
+/*  responsive */
+@media only screen and (max-width: 767px) {
+    .wpt_product_title {
+        padding-bottom: 1px;
+    }
+    .wpt_action {
+        padding-top: 1px;
+    }
+    .mobile_responsive .wpt_row td img{
+        margin: 0;
+    } 
+    tr.visible_row.wpt_row .col_inside_tag.action {
+        align-items: flex-start;
+    }
+    table#wpt_table.mobile_responsive.wpt_product_table tr {
+        padding: 0;
+    }
+    table#wpt_table.mobile_responsive.wpt_product_table tr>td{
+        padding: 10px;
+    }
+}
+/******Copy from template.css end here*********/
+
 
 
 
@@ -1919,9 +1969,6 @@ div.wpt-ajax-loading {
 div.tables_cart_message_box.wpt-ajax-loading{
     padding: 10px;
 }
-div.wpt_product_table_wrapper.wpt-ajax-loading>div{
-    /* transform: scale(0.99); */
-}
 div.wpt_product_table_wrapper.woocommerce.wpt-ajax-loading:before{display: none;}
 .search_box_wrapper span.select2-selection__clear {
     background: #d7d7d7;
@@ -1946,19 +1993,7 @@ div.wpt_product_table_wrapper.woocommerce.wpt-ajax-loading:before{display: none;
 p.wpt-stats-page-count {
     text-align: right;
 }
-/* span.wpt-cart-remove {
-    position: absolute;
-    right: -27px;
-    background: #0000000f;
-    color: red;
-    padding: 6px;
-    font-size: 11px;
-    line-height: 11px;
-    top: 28%;
-    display: block;
-    width: 24px;
-    height: 24px;
-} */
+
 .add_to_cart_button.added{
     float: left;
 }

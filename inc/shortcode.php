@@ -417,7 +417,6 @@ class Shortcode extends Shortcode_Base{
 
         $this->css_dependency = [
             'wpt-universal',
-            'wpt-template-table'
         ];
 
         /**
