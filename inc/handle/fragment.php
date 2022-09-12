@@ -98,12 +98,6 @@ class Fragment{
         $output = $this->getFooterCart();
         $fragments['.wpt-new-footer-cart'] = $output;
 
-        
-        $output = $this->getFooterCart();
-        $fragments['.wpt-minicart'] = $output;
-
-
-
         return $fragments;
     }
     
