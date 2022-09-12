@@ -228,7 +228,7 @@ class Shortcode extends Shortcode_Base{
             }
 
             do_action( 'wpto_table_wrapper_bottom', $this->table_id, $this->args, $this->column_settings, $this->_enable_cols, $this->_config, $this->atts );
-            $this->do_action( 'wpt_table_wrapper_bottom' );
+            $this->do_action( 'wpt_bottom' );
              ?>
 
         </div><!-- /.main wrapper -->

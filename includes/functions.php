@@ -1096,64 +1096,6 @@ if( ! function_exists( 'wpt_get_value_with_woocommerce_unit' ) ){
     }
 }
 
-if( ! function_exists( 'wpt_adding_body_class' ) ){
-
-    /**
-     * Adding wpt_'s class at body tag, when Table will show.
-     * Only for frontEnd
-     * 
-     * @global type $post
-     * @global type $shortCodeText
-     * @param type $class
-     * @return string
-     */
-    function wpt_adding_body_class( $class ) {
-
-        global $post,$shortCodeText;
-        if( ! isset($post->post_content) ) return $class;
-        
-        if(  has_shortcode( $post->post_content, $shortCodeText ) || $post->post_type == 'wpt_product_table' ) {
-            $class[] = 'wpt_table_body';
-            $class[] = 'woocommerce';
-        }
-        return $class;
-    }
-}
-add_filter( 'body_class', 'wpt_adding_body_class' );
-
-
-if( ! function_exists( 'wpt_table_edit_link' ) ){
-    
-    /**
-     * Adding Edit Table link at the bottom of Table
-     * Using Action:
-     * do_action( 'wpto_table_wrapper_bottom', $table_ID, $args, $config_value, $atts )
-     * 
-     * @global type $post
-     * @global type $shortCodeText
-     * @param type $table_ID
-     * @return string
-     */
-    function wpt_table_edit_link( $table_ID ) {
-
-        if( !current_user_can( WPT_CAPABILITY ) ) return null;
-        $table_ID = (int) $table_ID;
-        ?>
-        <div class="wpt_edit_table">
-            <a href="<?php echo esc_attr( admin_url( 'post.php?post=' . $table_ID . '&action=edit&classic-editor' ) ); ?>" 
-                            target="_blank"
-                            title="<?php echo esc_attr( 'Edit your table. It will open on new tab.', 'wpt_pro' ); ?>"
-                            >
-            <?php echo esc_html__( 'Edit Table - ', 'wpt_pro' ); ?>
-            <?php echo esc_html( get_the_title( $table_ID ) ); ?>
-            </a>   
-        </div>
-
-        <?php
-    }
-}
-add_action( 'wpto_table_wrapper_bottom', 'wpt_table_edit_link', 99 );
-
 if( ! function_exists( 'wpt_args_manipulation_frontend' ) ){
 
     /**
@@ -1389,36 +1331,6 @@ if( ! function_exists( 'wpt_search_box_validation_on_off' ) ){
 }
 add_filter( 'wpto_searchbox_show', 'wpt_search_box_validation_on_off' );
 
-if( ! function_exists( 'wpt_table_preview_template_manager' ) ){
-
-    /**
-     * Not Activated Yet. Will Enable Asap
-     * 
-     * Normally Content show from page.php file of theme.
-     * We have set Custom Template File for our Table.
-     * If anybody click on Preview for Table
-     * 
-     * @param type $template_file Default Template , provided by WordPress Script
-     * 
-     * @since 2.7.8.1
-     * 
-     * @return type Manage Template Function
-     */
-    function wpt_table_preview_template_manager( $template_file ){
-        if( ! is_singular() ){
-            return $template_file;
-        }
-        $type = get_post_type();
-        if( $type == 'wpt_product_table' ){
-            $template = WPT_BASE_DIR . 'includes/preview_table.php';
-            var_dump($template);
-            return is_file( $template ) ? $template : $template_file;
-        }
-
-        return $template_file;
-    }
-}
-//add_filter( 'template_include', 'wpt_table_preview_template_manager' );
 
 if( ! function_exists( 'wpt_user_roles_by_id' ) ){
     
@@ -1556,6 +1468,15 @@ add_filter( 'template_include', 'wpt_product_table_preview_template' );
 
 
 /**
+ * **IMPORTANT** FOR OLD AND NEW VERSION
+ * USED AT includes/imtems/action.php
+ * 
+ * WHY THIS FUNCTION:
+ * actually some product has indivisual sold enabled
+ * and for these product, user will not able to add after added onece.
+ * So we checked it if for indivisual product 
+ * that product already available or not in cart
+ * 
  * for action.php inside items 
  * 
  * comment by saiful
