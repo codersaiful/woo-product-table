@@ -2054,3 +2054,6 @@ div.tables_cart_message_box a.wpt_empty_cart_btn.button {
         transform:rotate(360deg);
     }
 }
+body:not('.wpt_table_body') .wpt-new-footer-cart{
+    display: none;
+}

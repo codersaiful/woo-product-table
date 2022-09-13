@@ -98,7 +98,7 @@ class Shortcode_Base extends Base{
     protected function get_is_table(){
         global $post;
         $this->has_shortcode = isset($post->post_content) && has_shortcode( $post->post_content, $this->shortcde_text );
-        
+
         if( $this->has_shortcode ) return true;
         if( $this->table_on_archive && ( is_shop() || is_product_category() ) ) return true;
 
