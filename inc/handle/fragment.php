@@ -2,6 +2,7 @@
 namespace WOO_PRODUCT_TABLE\Inc\Handle;
 
 use WOO_PRODUCT_TABLE\Inc\Shortcode;
+use WOO_PRODUCT_TABLE\Inc\Shortcode_Base;
 
 /**
  * All type fragment of our plguin.
@@ -14,7 +15,7 @@ use WOO_PRODUCT_TABLE\Inc\Shortcode;
  * 
  * No use of WOO_PRODUCT_TABLE\Inc\Shortcode;
  */
-class Fragment{
+class Fragment extends Shortcode_Base{
 
     /**
      * Temporary propety to store Table ID,
@@ -75,7 +76,7 @@ class Fragment{
      * @return void
      */
     public function run(){
-
+        
         add_filter( 'woocommerce_add_to_cart_fragments',[$this, 'fragments'] );
     }
 
@@ -111,10 +112,11 @@ class Fragment{
      * @return void
      */
     public function getFooterCart(){
+        $template = 'footer-cart-temp-' . $this->footer_cart_template;
         $this->cart_stats = ! WC()->cart->is_empty()  ? true : false;
         ob_start();
         ?>
-<div class="wpt-new-footer-cart <?php echo esc_attr( $this->footer_cart_template ); ?> wpt-foooter-cart-stats-<?php echo esc_attr( $this->cart_stats ); ?>">
+<div class="wpt-new-footer-cart <?php echo esc_attr( $template ); ?> wpt-foooter-cart-stats-<?php echo esc_attr( $this->cart_stats ); ?>">
 <?php
 if( $this->cart_lists && $this->cart_stats ){
     $this->render_cart_list();

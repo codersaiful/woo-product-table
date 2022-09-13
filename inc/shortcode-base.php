@@ -12,6 +12,9 @@ class Shortcode_Base extends Base{
     public $items_directory;
     public $items_permanent_dir;
 
+
+    public $footer_cart_template;
+
     
     protected function unsetArrayItem( Array $arr, $unset_item ){
         if( ! isset( $arr[$unset_item] ) ) return $arr;
@@ -24,6 +27,8 @@ class Shortcode_Base extends Base{
     {
         $this->base_config = wpt_get_config_value();
         $this->table_on_archive = $this->base_config['table_on_archive'] ?? false;
+        $this->footer_cart_template = $this->base_config['footer_template'] ?? 'none';
+        
     }
     
 

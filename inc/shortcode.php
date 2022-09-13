@@ -445,7 +445,7 @@ class Shortcode extends Shortcode_Base{
             wp_register_style($style_name, $css_url, $this->css_dependency, $this->dev_version, 'all');
             wp_enqueue_style($style_name);
         }
-        if( $this->footer_cart_template ){
+        if( $this->footer_cart_template !== 'none' ){
             $style_name = 'wpt-footer-cart-templates';
             $css_url = $this->assets_element_url . 'footer-cart-templates.css';
             wp_register_style($style_name, $css_url, $this->css_dependency, $this->dev_version, 'all');
