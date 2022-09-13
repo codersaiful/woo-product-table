@@ -61,7 +61,8 @@ class Shortcode_Base extends Base{
         $table_on_variable = $this->base_config['variation_table_id'] ?? false;
         $this->table_on_variable = ! empty( $table_on_variable );
 
-        $this->footer_cart_template = $this->base_config['footer_cart_template'] ?? 'none';
+        $footer_cart_template = $this->base_config['footer_cart_template'] ?? 'none';
+        $this->footer_cart_template = $this->apply_filter( 'wpt_footer_cart_template', $footer_cart_template );
 
         //uddesso: footer cart a extra btn add korbo future a, jetate all selected item of checkbox cart a add korta jabe
         //set button er text ob on off er jonno nicher line ta kora hoyeche.
