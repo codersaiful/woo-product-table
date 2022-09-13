@@ -17,14 +17,14 @@ if( !function_exists( 'wpt_enqueue' ) ){
 
        wpt_enqueue_common();
        //Custom CSS Style for Woo Product Table's Table (Universal-for all table) and (template-for defien-table)
-       wp_enqueue_style( 'wpt-universal', WPT_Product_Table::getPath('BASE_URL') . 'assets/css/universal.css', array(), WPT_Product_Table::getVersion(), 'all' );
-       wp_enqueue_style( 'wpt-template-table', WPT_Product_Table::getPath('BASE_URL') . 'assets/css/template.css', array(), WPT_Product_Table::getVersion(), 'all' );
+       wp_enqueue_style( 'wpt-universal', WPT_Product_Table::getPath('BASE_URL') . 'assets/css/universal.css', array(), WPT_DEV_VERSION, 'all' );
+       wp_enqueue_style( 'wpt-template-table', WPT_Product_Table::getPath('BASE_URL') . 'assets/css/template.css', array('wpt-universal'), WPT_DEV_VERSION, 'all' );
        
        //jQuery file including. jQuery is a already registerd to WordPress
        wp_enqueue_script( 'jquery' );
 
        ///custom JavaScript for Woo Product Table pro plugin
-       wp_enqueue_script( 'wpt-custom-js', WPT_Product_Table::getPath('BASE_URL') . 'assets/js/custom.js', array( 'jquery' ), WPT_Product_Table::getVersion(), true );
+       wp_enqueue_script( 'wpt-custom-js', WPT_Product_Table::getPath('BASE_URL') . 'assets/js/custom.js', array( 'jquery' ), WPT_DEV_VERSION, true );
 
        /**
         * Select2 CSS file including. 
@@ -49,7 +49,7 @@ if( !function_exists( 'wpt_enqueue' ) ){
         */
        //wp_enqueue_script( 'floatThead', WPT_Product_Table::getPath('BASE_URL') . 'assets/js/jquery.floatThead.min.js', array( 'jquery' ), '2.1.4', true );
        $ajax_url = admin_url( 'admin-ajax.php' );
-       $version = class_exists( 'WOO_Product_Table' ) && WOO_Product_Table::getVersion() ? __( 'WTP Pro: ', 'wpt_pro' ) . WOO_Product_Table::getVersion() : WPT_Product_Table::getVersion();
+       $version = class_exists( 'WOO_Product_Table' ) && WOO_Product_Table::getVersion() ? __( 'WTP Pro: ', 'wpt_pro' ) . WOO_Product_Table::getVersion() : WPT_DEV_VERSION;
        $WPT_DATA = array( 
            'ajaxurl'        => $ajax_url,
            'ajax_url'       => $ajax_url,
@@ -111,8 +111,8 @@ function wpt_enqueue_common(){
     * And animate css file added
     * @since 3.1.8.2
     */
-    wp_enqueue_style( 'wpt-fontello', WPT_Product_Table::getPath('BASE_URL') . 'assets/fontello/css/fontello.css', array(), WPT_Product_Table::getVersion(), 'all' );
-    wp_enqueue_style( 'animate', WPT_Product_Table::getPath('BASE_URL') . 'assets/fontello/css/animation.css', array(), WPT_Product_Table::getVersion(), 'all' );
+    wp_enqueue_style( 'wpt-fontello', WPT_Product_Table::getPath('BASE_URL') . 'assets/fontello/css/fontello.css', array(), WPT_DEV_VERSION, 'all' );
+    wp_enqueue_style( 'animate', WPT_Product_Table::getPath('BASE_URL') . 'assets/fontello/css/animation.css', array(), WPT_DEV_VERSION, 'all' );
 }
 
 

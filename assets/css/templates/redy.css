@@ -1,11 +1,11 @@
 :root {
-    --wpt_primary: #0093b8;;
-    --wpt_primary_deep: #007694;
-    --wpt_primary_light: #0a7f9c;
+    --wpt_primary: #df0206;
+    --wpt_primary_deep: #a70003;
+    --wpt_primary_light: #ff2b2f;
 
-    --wpt_secondary: #edf7f8;
-    --wpt_secondary_deep: #ceeaed;
-    --wpt_secondary_light: #d0d1d1;
+    --wpt_secondary: #ffcfd0;
+    --wpt_secondary_deep: #d1a0a1;
+    --wpt_secondary_light: #fff4f4;
 
     --wpt_link: #02485a;
     --wpt_link_deep: #003542;
@@ -16,8 +16,8 @@
     --wpt_text_deep: #0c0000;
     --wpt_text_light: #404040;  
 
-    --wpt_extra_light: #ffeb3b;
-    --wpt_extra_deep: #d00;
+    --wpt_extra_light: #FFEB3B;
+    --wpt_extra_deep: #9C27B0;
   }
 
 
@@ -53,5 +53,3 @@
 .wpt-cart-contents span.wpt_empty_cart_btn:hover {
     color: var(--wpt_extra_light);
 }
-
-

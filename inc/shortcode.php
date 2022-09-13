@@ -79,6 +79,7 @@ class Shortcode extends Shortcode_Base{
     public $pagination_ajax;
     public $checkbox;
     public $template;
+    public $css_dependency;
 
     /**
      * For enequeue name, we will use this
@@ -426,6 +427,20 @@ class Shortcode extends Shortcode_Base{
             'wpt-universal',
         ];
 
+        
+
+        if( 'none' !== $this->minicart_position){
+
+            $this->register_enq_css( 'minicart' );
+        }
+        if( $this->footer_cart ){
+            $this->register_enq_css( 'footer-cart' );
+        }
+        
+        if( $this->checkbox_validation ){
+            $this->register_enq_css( 'checkbox-box' );
+        }
+        
         /**
          * Template Control is here.
          */
@@ -439,23 +454,14 @@ class Shortcode extends Shortcode_Base{
         wp_register_style($this->template_name, $this->template_url, $this->css_dependency, $this->dev_version, 'all');
         wp_enqueue_style($this->template_name);
 
-        if( 'none' !== $this->minicart_position){
-            $this->register_enq_css( 'minicart' );
-        }
-        if( $this->footer_cart ){
-            $this->register_enq_css( 'footer-cart' );
-        }
+        //Actually it's should be at the end of template loading,because, we want more power here.
         if( $this->footer_cart_template !== 'none' ){
             $this->register_enq_css( 'footer-cart-templates' );
         }
-        if( $this->checkbox_validation ){
-            $this->register_enq_css( 'checkbox-box' );
-        }
-
-        
     }
 
     private function register_enq_css( string $elements_file_name ){
+        
         $style_name = 'wpt-' . $elements_file_name;
         $css_url = $this->assets_element_url . $elements_file_name . '.css';
         wp_register_style($style_name, $css_url, $this->css_dependency, $this->dev_version, 'all');
