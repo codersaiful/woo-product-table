@@ -3,6 +3,7 @@ $templates_default = array(
     'default'           =>  __( 'Default Style', 'wpt_pro' ),
     'none'              =>  __( 'Template None', 'wpt_pro' ),
     'beautiful_blacky'  =>  __( 'Beautiful Blacky', 'wpt_pro' ),
+    'greeny'  =>  __( 'Greeny', 'wpt_pro' ),
 );
 $pro_templates = array(
     'smart'             =>  __( 'Smart Thin', 'wpt_pro' ),

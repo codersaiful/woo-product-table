@@ -154,12 +154,6 @@ p.wpt-product-notfound-cart {
     padding: 0;
     margin: 0;
 }
-.wpt-new-footer-cart.wpt-foooter-cart-stats-no {
-    background: #fdfdfd;
-    color: #9f9f9f;
-    height: 35px;
-    box-shadow: 0px 2px 20px #0000004a;
-}
 .wpt-new-footer-cart:hover a.wpt-view-n i.wpt-bag {
     color: white;
 }

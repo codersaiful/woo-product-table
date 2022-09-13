@@ -1,0 +1,107 @@
+:root {
+    --wpt_primary: #0093b8;;
+    --wpt_primary_deep: #007694;
+    --wpt_primary_light: #01627a;
+
+    --wpt_secondary: #edf7f8;
+    --wpt_secondary_deep: #ceeaed;
+    --wpt_secondary_light: #d0d1d1;
+
+    --wpt_link: #02485a;
+    --wpt_link_deep: #003542;
+    --wpt_link_light: #047c9b;
+    
+
+    --wpt_text: #02485a;
+    --wpt_text_deep: #0c0000;
+    --wpt_text_light: #404040;  
+
+    --extra-light: #ffeb3b;
+    --extra-cross: #d00;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+  /* Footer Cart */
+  .wpt-new-footer-cart {
+    background: #0093b8;
+}
+
+.wpt-lister {
+    background: #ffffff;
+    box-shadow: -2px -1px 25px 0 #00000038;
+    border-top: 3px solid #0a7f9c;
+
+}
+
+.wpt-lister .lister-ins {
+    background: #e5e5e563;
+    color: #0a7f9c;
+
+}
+
+.wpt-new-footer-cart span.wpt-fcart-coll-expand {
+    background: #007694;
+}
+
+
+.lister-ins dl.variation dt {
+    color: black;
+}
+.lister-ins li span.quantity {
+    background: #0000000f;
+}
+.lister-ins li {
+    border-bottom: 1px solid #0000000f;
+}
+
+.lister-ins li .wpt-cart-remove:hover{
+    color: #d00;
+}
+.wpt-new-footer-cart-inside a.wpt-view-n {
+    color: white;
+}
+.wpt-new-footer-cart:hover a.wpt-view-n {
+    color: #ffffffad;
+}
+
+.wpt-new-footer-cart:hover a.wpt-view-n i.wpt-bag {
+    color: white;
+}
+.wpt-cart-contents {
+    background: #00000014;
+}
+
+.wpt-cart-contents span.woocommerce-Price-amount.amount {
+    color: white;
+}
+.wpt-cart-contents span.count {
+    background: #00000021;
+    color: white;
+}
+body.wpt-footer-cart-expand .wpt-cart-contents span.count {
+    background: #0000006b;
+}
+
+.wpt-cart-contents span.wpt_empty_cart_btn {
+    color: #ffffffd6;
+}
+.wpt-cart-contents span.wpt_empty_cart_btn:hover {
+    color: #ffeb3b;
+}
+
+.wpt-fcart-anim::after {
+    background: #00000042;
+}
+
+
+
