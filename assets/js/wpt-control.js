@@ -1,7 +1,6 @@
 jQuery(function($) {
     'use strict';
     $(document).ready(function() {
-        
         var 
         own_fragment_load = 0,
         wc_fragment_load = 0,
@@ -158,26 +157,30 @@ jQuery(function($) {
         }
 
         $(document).on('wc_fragments_refreshed',function(){
+            if(own_fragment_load > 0) return;
             fragment_load();
         });
         $(document).on('wc_fragments_refresh',function(){
+            if(own_fragment_load > 0) return;
             fragment_load();
         });
         
         $(document).on('wc_fragment_refresh',function(){
+            if(own_fragment_load > 0) return;
             fragment_load();
         });
         
         $(document).on('removed_from_cart',function(){
+            if(own_fragment_load > 0) return;
             fragment_load();
         });
-        fragment_load();
+        // fragment_load();
         function fragment_load(){
             
             
             //Control own fragment load for the first time only
             if(own_fragment_load > 0) return;
-
+            console.log(4444444);
             setInterval(function(){
                 own_fragment_load = 0;
             },1000);
@@ -249,7 +252,7 @@ jQuery(function($) {
         function footerCartAnimation(){
             $('a.wpt-view-n .wpt-bag').addClass('wpt-spin4 animate-spin');
             $('.wpt-new-footer-cart').addClass('wpt-fcart-anim');
-            $('.wpt-fcart-coll-expand').addClass('animated');
+            $('.wpt-fcart-coll-expand').addClass('animated');            
         }
         //Search box related code end here
         $(document.body).on( 'click','.wpt-cart-remove',function(){

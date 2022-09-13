@@ -15,25 +15,18 @@ use WOO_PRODUCT_TABLE\Inc\Shortcode_Base;
 class Basics extends Shortcode_Base{
     
     public $_config;
-    public $table_on_archive;
 
-    public $has_shortcode;
-    public $if_in_shop;
-
-    public $_is_table;
+    public $empty_cart_text;
 
     public function run(){
         $this->filter('body_class');
         $this->action('wpt_bottom', 1, 10, 'edit_button');
+        $this->action('woocommerce_widget_shopping_cart_buttons', 1, 10, 'empty_cart_button');
     }
+
+    
     public function body_class( $class ){
-        global $post;
-        $this->has_shortcode = isset($post->post_content) && has_shortcode( $post->post_content, $this->shortcde_text );
-        $this->if_in_shop = $this->table_on_archive && ( is_shop() || is_product_category() );
-
-        $this->_is_table = $this->has_shortcode || $this->if_in_shop;
-
-        if( $this->_is_table ){
+        if( $this->get_is_table() ){
             $class[] = 'wpt_table_body';
             $class[] = 'woocommerce';
             $class[] = 'wpt-body-' . $this->shortcde_text;
@@ -57,6 +50,14 @@ class Basics extends Shortcode_Base{
             </a>   
         </div>
 
+        <?php
+    }
+
+    public function empty_cart_button(){
+        
+        $this->empty_cart_text = $this->base_config['empty_cart_text'] ?? '';
+        ?>
+        <a title="<?php echo esc_attr__( 'Empty Cart', 'wpt_pro' ); ?>" class="wpt_empty_cart_btn button"><i class="wpt-trash-empty"></i><?php echo esc_html( $this->empty_cart_text ); ?></a>
         <?php
     }
 }

@@ -145,6 +145,7 @@ class Shortcode_Ajax extends Shortcode{
             if($cart_item_key === $req_cart_item_key){
                 WC()->cart->set_quantity( $cart_item_key, 0, true );
                 $removed = true;
+                break;
             }else if( $product_id && ! $req_cart_item_key && ( $cart_item_data['product_id'] == $product_id || $cart_item_data['variation_id'] == $product_id ) ){
 
                 WC()->cart->set_quantity( $cart_item_key, 0, true );

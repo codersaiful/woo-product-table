@@ -589,7 +589,7 @@ jQuery(function($) {
             var thisButton = $(this);
             //Adding disable and Loading class
             thisButton.addClass('disabled');
-            thisButton.addClass('loading');
+            // thisButton.addClass('loading');
             
             var data = {};
             $.each( thisButton.data(), function( key, value ) {
@@ -633,7 +633,7 @@ jQuery(function($) {
             if(!quantity || quantity === '0'){
                 
                 thisButton.removeClass('disabled');
-                thisButton.removeClass('loading');
+                // thisButton.removeClass('loading');
                 alert("Sorry! 0 Quantity");
                 return false;
                 quantity = 1;
@@ -666,7 +666,7 @@ jQuery(function($) {
                 success: function(response) {
 
                     thisButton.removeClass('disabled');
-                    thisButton.removeClass('loading');
+                    
                     thisButton.addClass('added');
 
                     /**
@@ -686,11 +686,6 @@ jQuery(function($) {
                     argStats['table_id'] = temp_number;
                     $(document.body).trigger('wpt_adding_to_cart',argStats);
 
-                    // if(WPT_DATA.add_to_cart_view){
-                    //     $( document.body ).trigger( 'added_to_cart', [ response.fragments, response.cart_hash, thisButton ] ); //Trigger and sent added_to_cart event
-                    // }else{
-                    //     $( document.body ).trigger( 'added_to_cart' ); //This will solved for fast added to cart but it will no show view cart link.
-                    // }
 
                     $( document.body ).trigger( 'added_to_cart' ); //Trigger and sent added_to_cart event
                     $( document.body ).trigger( 'updated_cart_totals' );

@@ -8,6 +8,14 @@ class Shortcode_Base extends Base{
 
     public $base_config;
     public $table_on_archive;
+    public $table_on_variable;
+
+    /**
+     * For checking shortcode available or not
+     *
+     * @var [type]
+     */
+    public $has_shortcode;
 
     public $items_directory;
     public $items_permanent_dir;
@@ -45,7 +53,11 @@ class Shortcode_Base extends Base{
     public function __construct()
     {
         $this->base_config = wpt_get_config_value();
-        $this->table_on_archive = $this->base_config['table_on_archive'] ?? false;
+        $table_on_archive = $this->base_config['table_on_archive'] ?? false;
+        $this->table_on_archive = ! empty( $table_on_archive );
+        $table_on_variable = $this->base_config['variation_table_id'] ?? false;
+        $this->table_on_variable = ! empty( $table_on_variable );
+        
         $this->footer_cart_template = $this->base_config['footer_template'] ?? 'none';
         
     }
@@ -70,6 +82,29 @@ class Shortcode_Base extends Base{
     public function get_meta( string $meta_key ){
         $data = get_post_meta( $this->table_id, $meta_key, true );
         return is_array( $data ) ? $data : [];
+    }
+
+    /**
+     * Checking product table available or not. 
+     * Actually we have checked using post content search and 
+     * basic features of configuration page.
+     * 
+     * Now we have to check, If it available on variation page of variable product
+     * 
+     * 
+     *
+     * @return void
+     */
+    protected function get_is_table(){
+        global $post;
+        $this->has_shortcode = isset($post->post_content) && has_shortcode( $post->post_content, $this->shortcde_text );
+        
+        if( $this->has_shortcode ) return true;
+        if( $this->table_on_archive && ( is_shop() || is_product_category() ) ) return true;
+
+        $product = wc_get_product($post->ID);
+        if($this->table_on_variable && ( $product->get_type() == 'variable')) return true;
+        return;
     }
 
 }
