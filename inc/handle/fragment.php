@@ -50,22 +50,6 @@ class Fragment extends Shortcode_Base{
     public $cart_lists = true;
 
 
-    /**
-     * There are lot's of template ob background available for
-     * footer template. If set no template,
-     * there will apply table template wise color
-     * otherwise, if set any template, then it will show
-     * background color based on template
-     * 
-     * PLAN:
-     * --------
-     * I will set color at dashboard
-     * and it will come from setting
-     * and I will set anywhere. not planed yet
-     *
-     * @var string
-     */
-    public $footer_cart_template = 'footer-cart-temp-none';// = 'footer-cart-temp-1';
 
     /**
      * As like contracture method,

@@ -13,6 +13,25 @@ class Shortcode_Base extends Base{
     public $items_permanent_dir;
 
 
+    /**
+     * There are lot's of template ob background available for
+     * footer template. If set no template,
+     * there will apply table template wise color
+     * otherwise, if set any template, then it will show
+     * background color based on template
+     * 
+     * PLAN:
+     * --------
+     * I will set color at dashboard
+     * and it will come from setting
+     * and I will set anywhere. not planed yet
+     * 
+     * DONE
+     * ---------
+     * Plan executed
+     *
+     * @var string
+     */
     public $footer_cart_template;
 
     
