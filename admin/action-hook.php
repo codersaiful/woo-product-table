@@ -782,15 +782,30 @@ if( !function_exists( 'wpto_admin_configuration_form_top_free' ) ){
                 </tr>
                 <tr>
                     <th>
-                        <label class="wpt_label wpt_footer_template " for="wpt_table_footer_template"><?php esc_html_e( 'Footer Cart Template', 'wpt_pro' );?></label>
+                        <label class="wpt_label wpt_footer_cart_on_of" for="wpt_footer_cart_on_of"><?php esc_html_e( 'Footer Cart', 'wpt_pro' );?></label>
                     </th>
                     <td>
-                        <select name="data[footer_template]" class="wpt_fullwidth ua_input wpt_table_footer_template">
+                        <label class="switch">
+                            <input  name="data[footer_cart_on_of]" type="checkbox" id="wpt_footer_cart_on_of" <?php echo isset( $current_config_value['footer_cart_on_of'] ) ? 'checked="checked"' : ''; ?>>
+                            <div class="slider round"><!--ADDED HTML -->
+                                <span class="on">On</span><span class="off">Off</span><!--END-->
+                            </div>
+                        </label>
+                        <p><?php echo esc_html( 'Turn on or off footer cart', 'wpt_pro' ); ?></p>
+
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <label class="wpt_label wpt_footer_template " for="wpt_table_footer_cart_template"><?php esc_html_e( 'Footer Cart Template', 'wpt_pro' );?></label>
+                    </th>
+                    <td>
+                        <select name="data[footer_cart_template]" class="wpt_fullwidth ua_input wpt_table_footer_cart_template">
                             <option value="none">None</option>
                             <?php 
-                                $footer_templates = [1,2,3,4,5,6,7,7,9,10,11,12,13,14,15,16,17,18,19,20,21,22];
-                                foreach($footer_templates as $template){
-                                    $selected = isset( $current_config_value['footer_template'] ) && $current_config_value['footer_template'] == $template? 'selected' : '';
+                                $footer_cart_templates = [1,2,3,4,5,6,7,7,9,10,11,12,13,14,15,16,17,18,19,20,21,22];
+                                foreach($footer_cart_templates as $template){
+                                    $selected = isset( $current_config_value['footer_cart_template'] ) && $current_config_value['footer_cart_template'] == $template? 'selected' : '';
                                     echo '<option value="'. $template .'" ' . $selected . '>'."Template No " . $template . '</option>'; 
                                 } 
                             ?>
