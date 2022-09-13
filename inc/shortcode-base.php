@@ -40,6 +40,7 @@ class Shortcode_Base extends Base{
      *
      * @var string
      */
+    public $footer_cart;
     public $footer_cart_template;
 
     public $footer_cart_selected;
@@ -60,12 +61,17 @@ class Shortcode_Base extends Base{
         $table_on_variable = $this->base_config['variation_table_id'] ?? false;
         $this->table_on_variable = ! empty( $table_on_variable );
         
+<<<<<<< HEAD
         $this->footer_cart_template = $this->base_config['footer_template'] ?? 'none';
 
+=======
+        $this->footer_cart_template = $this->base_config['footer_cart_template'] ?? 'none';
+        
+>>>>>>> 44595c61fd7718a814f2afbe45f2710a3d6021bd
         // $footer_cart_selected = $this->base_config['footer_cart_selected'] ?? __( 'Carting' );
         // $this->footer_cart_selected = ! empty( $footer_cart_selected );
-
-        $this->footer_cart = true;
+        $this->footer_cart = $this->base_config['footer_cart_on_of'] ?? false;
+        //$this->footer_cart = true;
         
     }
     
