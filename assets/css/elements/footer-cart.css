@@ -267,7 +267,8 @@ body.wpt-footer-cart-expand .wpt-cart-contents span.count {
 
 /******For Mobile Device*******/
 
-@media only screen and (max-width: 600px){
+@media only screen and (max-width: 768px){
+    .wpt-new-footer-cart,
     body.wpt_device_mobile .wpt-new-footer-cart {
         border-radius: 0;
         width: 100%;

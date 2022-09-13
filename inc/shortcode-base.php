@@ -61,7 +61,7 @@ class Shortcode_Base extends Base{
         $this->table_on_variable = ! empty( $table_on_variable );
         
         $this->footer_cart_template = $this->base_config['footer_template'] ?? 'none';
-        
+
         // $footer_cart_selected = $this->base_config['footer_cart_selected'] ?? __( 'Carting' );
         // $this->footer_cart_selected = ! empty( $footer_cart_selected );
 
@@ -107,10 +107,19 @@ class Shortcode_Base extends Base{
         $this->has_shortcode = isset($post->post_content) && has_shortcode( $post->post_content, $this->shortcde_text );
 
         if( $this->has_shortcode ) return true;
-        if( $this->table_on_archive && ( is_shop() || is_product_category() ) ) return true;
+        if( $this->table_on_archive && ( is_shop() || is_product_taxonomy() ) ) return true;
+        
+        if( is_product() && $this->table_on_variable ){
+            $product = wc_get_product($post->ID);
+            return $product->get_type() == 'variable';  //It's actually boolean return.
+        }
 
-        $product = wc_get_product($post->ID);
-        if($this->table_on_variable && ( $product->get_type() == 'variable')) return true;
+        $id = get_queried_object_id();
+        $taxo_table_id = get_term_meta( $id, 'table_id', true );
+        if( is_product_taxonomy() && ! empty( $taxo_table_id ) ) return true;
+
+        
+
         return;
     }
 

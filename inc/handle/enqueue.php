@@ -27,10 +27,8 @@ class Enqueue extends Shortcode_Base{
 
     }
     public function wp_enqueue_scripts(){
-        
-        if( $this->get_is_table() ){
-            wp_enqueue_script( $this->_js_plugin_name, $this->_js_plugin_url, array( 'jquery' ), $this->dev_version, true );
-        }
+        if(!$this->get_is_table()) return;
+        wp_enqueue_script( $this->_js_plugin_name, $this->_js_plugin_url, array( 'jquery' ), $this->dev_version, true );
         
     }
 
