@@ -418,7 +418,6 @@ class Shortcode extends Shortcode_Base{
 
     public function enqueue(){
         $this->assets_element_url = $this->assets_url . 'css/elements/';
-        $this->footer_cart = true;
 
         //Need to add feature at dashboard
         $this->footer_cart_template = true;

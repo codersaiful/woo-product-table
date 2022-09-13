@@ -61,8 +61,11 @@ class Shortcode_Base extends Base{
         $this->table_on_variable = ! empty( $table_on_variable );
         
         $this->footer_cart_template = $this->base_config['footer_template'] ?? 'none';
-        $footer_cart_selected = $this->base_config['footer_cart_selected'] ?? __( 'Carting' );
-        $this->footer_cart_selected = ! empty( $footer_cart_selected );
+        
+        // $footer_cart_selected = $this->base_config['footer_cart_selected'] ?? __( 'Carting' );
+        // $this->footer_cart_selected = ! empty( $footer_cart_selected );
+
+        $this->footer_cart = true;
         
     }
     
