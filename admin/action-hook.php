@@ -786,6 +786,7 @@ if( !function_exists( 'wpto_admin_configuration_form_top_free' ) ){
                     </th>
                     <td>
                         <select name="data[footer_template]" class="wpt_fullwidth ua_input wpt_table_footer_template">
+                            <option value="none">None</option>
                             <?php 
                                 $footer_templates = [1,2,3,4,5,6,7,7,9,10,11,12,13,14,15,16,17,18,19,20,21,22];
                                 foreach($footer_templates as $template){
