@@ -170,6 +170,15 @@ jQuery(function($) {
         $(document).on('removed_from_cart',function(){
             fragment_load();
         });
+        
+        /**
+         * Our custom fragment event,
+         * if trigger, it will call
+         */
+        $(document).on('wpt_fragment_load',function(){
+            fragment_load();
+        });
+
         // fragment_load();
         function fragment_load(){
             

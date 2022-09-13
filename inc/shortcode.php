@@ -5,6 +5,7 @@ use WOO_PRODUCT_TABLE\Inc\Handle\Message as Msg;
 use WOO_PRODUCT_TABLE\Inc\Handle\Args;
 use WOO_PRODUCT_TABLE\Inc\Handle\Pagination;
 use WOO_PRODUCT_TABLE\Inc\Handle\Search_Box;
+use WOO_PRODUCT_TABLE\Inc\Handle\Checkbox_Box;
 use WOO_PRODUCT_TABLE\Inc\Handle\Table_Attr;
 use WOO_PRODUCT_TABLE\Inc\Handle\Enqueue;
 use WOO_PRODUCT_TABLE\Inc\Handle\Fragment;
@@ -187,6 +188,11 @@ class Shortcode extends Shortcode_Base{
     
     
             do_action( 'wpto_action_before_table', $this->table_id, $this->args, $this->column_settings, $this->_enable_cols, $this->_config, $this->atts );
+            
+            if($this->checkbox_validation){
+                Checkbox_Box::render($this);
+            }
+            
             ?>
             <div class="wpt-stats-report">
                 <?php $this->stats_render(); ?>
@@ -259,6 +265,8 @@ class Shortcode extends Shortcode_Base{
         if( ! $this->assing_property ){
             $this->assing_property( $atts );
         }
+
+        $this->checkbox_validation = apply_filters( 'wpto_checkbox_validation', false, $this->column_array,$this->column_settings, $this->table_id );
 
         $this->hide_input = $this->search_n_filter['hide_input'] ?? false;
         $this->set_product_loop();
@@ -433,28 +441,27 @@ class Shortcode extends Shortcode_Base{
         wp_enqueue_style($this->template_name);
 
         if( 'none' !== $this->minicart_position){
-            $style_name = 'wpt-minicart';
-            $css_url = $this->assets_element_url . 'minicart.css';
-            wp_register_style($style_name, $css_url, $this->css_dependency, $this->dev_version, 'all');
-            wp_enqueue_style($style_name);
+            $this->register_enq_css( 'minicart' );
         }
-
         if( $this->footer_cart ){
-            $style_name = 'wpt-footer-cart';
-            $css_url = $this->assets_element_url . 'footer-cart.css';
-            wp_register_style($style_name, $css_url, $this->css_dependency, $this->dev_version, 'all');
-            wp_enqueue_style($style_name);
+            $this->register_enq_css( 'footer-cart' );
         }
         if( $this->footer_cart_template !== 'none' ){
-            $style_name = 'wpt-footer-cart-templates';
-            $css_url = $this->assets_element_url . 'footer-cart-templates.css';
-            wp_register_style($style_name, $css_url, $this->css_dependency, $this->dev_version, 'all');
-            wp_enqueue_style($style_name);
+            $this->register_enq_css( 'footer-cart-templates' );
+        }
+        if( $this->checkbox_validation ){
+            $this->register_enq_css( 'checkbox-box' );
         }
 
         
     }
 
+    private function register_enq_css( string $elements_file_name ){
+        $style_name = 'wpt-' . $elements_file_name;
+        $css_url = $this->assets_element_url . $elements_file_name . '.css';
+        wp_register_style($style_name, $css_url, $this->css_dependency, $this->dev_version, 'all');
+        wp_enqueue_style($style_name);
+    }
 
     public function set_shortcde_text( string $shortcde_text ){
         $this->shortcde_text = $shortcde_text;

@@ -404,45 +404,6 @@ a.remove_cart_icon:hover{
 .wpt_live-cart-other_link>a {
     padding: 0 13px;
 }
-/*****For All/Multiple checkbox Selector add to cart button*****/
-.all_check_header_footer.all_check_header span {
-    display:  inline-block;
-}
-
-.all_check_footer {
-    display: block;
-    padding: 10px;
-    margin: 3px 0;
-    text-align: right;
-    background: rgba(0, 0, 0, 0.14901960784313725);
-    clear: both;
-}
-.all_check_header_footer.all_check_header>span {
-    background: rgba(119, 115, 115, 0.0196078431372549);
-    display: inline-block;
-    padding: 7px 10px 2px 10px;
-    border: 1px solid rgba(119, 115, 115, 0.12);
-}
-.all_check_header_footer.all_check_header>span>* {
-    padding: 0 !important;
-    margin-bottom: 2px;
-    margin-top: 2px;
-}
-.all_check_header_footer.all_check_header>span>label{
-    display: inline-block;
-}
-.all_check_header_footer.all_check_header {
-    text-align: right;
-    padding: 5px 0;
-    float: right;
-    display: flex;
-}
-a.button.add_to_cart_all_selected {
-    display: inline-block;
-}
-a.button.wpt_woo_add_cart_button.add_to_cart_button.disabled.loading {
-    opacity: 0.3;
-}
 
 /************ Style for Search Box, New added at Version: 1.9 */
 .wpt_search_box {

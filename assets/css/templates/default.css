@@ -449,12 +449,7 @@ div.wpt_product_table_wrapper.default_wrapper input.wpt_check_universal.wpt_chec
 }
 
 .default_wrapper .all_check_header_footer .button.add_to_cart_all_selected {
-  background: var(--wpt-default-primary);
-  padding: 10px 30px;
-  font-size: 14px;
-  margin-left: 10px;
-  font-weight: 400;
-  color: #ffffff;
+  /* background: var(--wpt-default-primary); */
 }
 
 .default_wrapper .all_check_header_footer .button.add_to_cart_all_selected:hover {
@@ -463,14 +458,7 @@ div.wpt_product_table_wrapper.default_wrapper input.wpt_check_universal.wpt_chec
 }
 
 .default_wrapper .all_check_header_footer.all_check_header>span {
-  /* background: #b2c1c9; */
-  display: flex;
-  padding: 7px;
-  border: 1px solid rgb(0 147 184);
-  justify-content: center;
-  align-items: center;
-  color: #000;
-  border-radius: 3px;
+
 }
 
 .default_wrapper .custom_table .wpt_row td img {

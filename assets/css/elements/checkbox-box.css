@@ -1,0 +1,34 @@
+/*****For All/Multiple checkbox Selector add to cart button*****/
+.all_check_header_footer.all_check_header span {
+    display:  inline-block;
+}
+
+.all_check_header_footer {
+    background-color: transparent;
+    padding: 15px 0;
+    font-size: 14px;
+    font-family: inherit;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: space-between;
+}
+.all_check_header_footer.all_check_header>span {
+    display: flex;
+    padding: 7px;
+    border: 1px solid rgb(0 147 184);
+    justify-content: center;
+    align-items: center;
+    color: #000;
+    border-radius: 3px;
+}
+.all_check_header_footer .button.add_to_cart_all_selected {
+    background: #0093b840;
+    padding: 10px 30px;
+    font-size: 14px;
+    margin-left: 10px;
+    font-weight: 400;
+    color: #ffffff;
+}
+.all_check_header_footer.product-selected .button.add_to_cart_all_selected{
+    background: #0093b8;
+}

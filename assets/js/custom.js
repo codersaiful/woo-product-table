@@ -1924,6 +1924,12 @@ jQuery(function($) {
                 }
                 
             });
+            var checkBoxWrapper = $('#table_id_' + temp_number + ' .all_check_header_footer');
+            if(itemAmount > 0){
+                checkBoxWrapper.addClass('product-selected');
+            }else{
+                checkBoxWrapper.removeClass('product-selected');
+            }
             var itemText = config_json.items;//'Items';
 
             if (itemAmount === 1 || itemAmount === 0) {
