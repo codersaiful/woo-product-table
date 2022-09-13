@@ -64,7 +64,10 @@ class Shortcode_Base extends Base{
         $this->footer_cart_template = $this->base_config['footer_cart_template'] ?? 'none';
         // $footer_cart_selected = $this->base_config['footer_cart_selected'] ?? __( 'Carting' );
         // $this->footer_cart_selected = ! empty( $footer_cart_selected );
-        $this->footer_cart = $this->base_config['footer_cart_on_of'] ?? false;
+        // $this->footer_cart = $this->base_config['footer_cart_on_of'] ?? false;
+        $this->footer_cart = isset($this->base_config['footer_cart_on_of']) ? $this->base_config['footer_cart_on_of'] : '' ;
+        $this->base_config['footer_cart_on_of'] ?? false;
+        // var_dump($this->footer_cart );
         
     }
     

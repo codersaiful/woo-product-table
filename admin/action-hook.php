@@ -780,22 +780,22 @@ if( !function_exists( 'wpto_admin_configuration_form_top_free' ) ){
                                         
                     </td>
                 </tr>
-                <tr>
+                <tr id="wpt_footer_cart_on">
                     <th>
-                        <label class="wpt_label wpt_footer_cart_on_of" for="wpt_footer_cart_on_of"><?php esc_html_e( 'Footer Cart', 'wpt_pro' );?></label>
+                        <label class="wpt_label wpt_footer_cart_on_of" for="wpt_footer_cart_on_of"><?php esc_html_e( 'Hide Footer Cart', 'wpt_pro' );?></label>
                     </th>
                     <td>
                         <label class="switch">
                             <input  name="data[footer_cart_on_of]" type="checkbox" id="wpt_footer_cart_on_of" <?php echo isset( $current_config_value['footer_cart_on_of'] ) ? 'checked="checked"' : ''; ?>>
                             <div class="slider round"><!--ADDED HTML -->
-                                <span class="on">On</span><span class="off">Off</span><!--END-->
+                                <span class="on">Hide</span><span class="off">Show</span><!--END-->
                             </div>
                         </label>
                         <p><?php echo esc_html( 'Turn on or off footer cart', 'wpt_pro' ); ?></p>
 
                     </td>
                 </tr>
-                <tr>
+                <tr id="wpt_footer_cart_template">
                     <th>
                         <label class="wpt_label wpt_footer_template " for="wpt_table_footer_cart_template"><?php esc_html_e( 'Footer Cart Template', 'wpt_pro' );?></label>
                     </th>

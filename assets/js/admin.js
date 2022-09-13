@@ -440,6 +440,22 @@ jQuery.fn.extend({
         }
 
         /**
+         * 
+         */
+         $("#wpt_footer_cart_template").hide();
+         $('body.wpt_admin_body').on('click','#wpt_footer_cart_on',function(){
+            console.log(22222222);
+            var current_val = $(this).val();
+            if(current_val === 'meta_value' || current_val === 'meta_value_num'){
+                $("#wpt_meta_value_wrapper").css('background','#f0f0f1');
+                $("#wpt_meta_value_wrapper").show('slow');
+
+            }else{
+                $("#wpt_meta_value_wrapper").hide('slow');
+            }
+        });
+
+        /**
          * On of Element based on Selected Value for Select Tag
          * Add an Attribute  data-on="yes|.wpt_snf_on_off" or
          * data-off="desired_value|.desired_class"
