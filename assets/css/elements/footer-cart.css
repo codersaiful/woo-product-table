@@ -256,3 +256,22 @@ body.wpt-footer-cart-expand .wpt-cart-contents span.count {
         transform: scale(1.3,2);
     }
 }
+
+
+
+
+
+
+
+
+
+/******For Mobile Device*******/
+
+@media only screen and (max-width: 600px){
+    body.wpt_device_mobile .wpt-new-footer-cart {
+        border-radius: 0;
+        width: 100%;
+        left: 0;
+        bottom: 69px;
+    }
+}
