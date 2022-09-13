@@ -786,7 +786,7 @@ if( !function_exists( 'wpto_admin_configuration_form_top_free' ) ){
                     </th>
                     <td>
                         <label class="switch">
-                            <input  name="data[footer_cart_on_of]" type="checkbox" id="wpt_footer_cart_on_of" <?php echo isset( $current_config_value['footer_cart_on_of'] ) ? 'checked="checked"' : ''; ?>>
+                            <input name="data[footer_cart_on_of]" type="checkbox" id="wpt_footer_cart_on_of" <?php echo isset( $current_config_value['footer_cart_on_of'] ) ? 'checked="checked"' : ''; ?>>
                             <div class="slider round"><!--ADDED HTML -->
                                 <span class="on">Hide</span><span class="off">Show</span><!--END-->
                             </div>
