@@ -124,6 +124,7 @@ body.wpt-footer-cart-expand span.wpt-fcart-coll-expand {
     padding: 0 5px;
     white-space: nowrap;
     border-radius: 3px;
+    float: none;
 }
 .lister-ins li {
     border-bottom: 1px solid #0000000f;
@@ -180,15 +181,12 @@ p.wpt-product-notfound-cart {
     padding: 5px;
 }
 .wpt-cart-contents span.woocommerce-Price-amount.amount {
-    /* background: #00000021; */
-    /* padding: 0 3px; */
-    /* margin-right: 5px;
-    border-radius: 5px;
-    font-weight: 600; */
+    color: white;
 }
 .wpt-cart-contents span.count {
     background: #00000021;
     padding-left: 6px;
+    color: white;
 }
 body.wpt-footer-cart-expand .wpt-cart-contents span.count {
     background: #0000006b;
