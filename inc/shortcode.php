@@ -452,7 +452,7 @@ class Shortcode extends Shortcode_Base{
         $this->is_template_dir = is_file( $this->template_dir );
         $this->template_url = $this->base_url . 'assets/css/templates/'. $template_file_name . '.css';
         $this->template_url = $this->apply_filter( 'wpt_template_url', $this->template_url );
-
+        
         wp_register_style($this->template_name, $this->template_url, $this->css_dependency, $this->dev_version, 'all');
         wp_enqueue_style($this->template_name);
         $this->load_css_override_root( $this->template_name );

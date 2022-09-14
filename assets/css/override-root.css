@@ -313,3 +313,21 @@ p.stars a:after,
 .wpt-cart-contents span.wpt_empty_cart_btn:hover {
     color: var(--wpt_warning);
 }
+/*NoticeBoard*/
+div.wpt_notice_board>div,
+div.wpt_notice_board>div.woocommerce-message {
+    color: var(--wpt_white);
+  background: var(--wpt_primary);
+}
+
+div.wpt_notice_board>div.woocommerce-error{
+  background: var(--wpt_danger);
+}
+
+div.wpt_notice_board>div:after {
+    background: var(--wpt_primary_light);
+  
+}
+div.wpt_notice_board>div:hover:after {
+    background: var(--wpt_primary_deepest)
+}

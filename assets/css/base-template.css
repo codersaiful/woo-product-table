@@ -75,10 +75,6 @@ body.wpt_table_body .wpt-wrap table thead th {
     color: #fff !important; 
 }
 
-.wpt-wrap table span.wpt-pro-tag-on-sale {
-    border: 1px solid var(--wpt-default-primary);
-    background: var(--wpt-default-primary);
-}
 
 /*************Add to Cart Customizing****************/
 tr.product_type_simple .item_inside_cell.wpt_action,
@@ -121,7 +117,6 @@ tr.visible_row.wpt_row td a.wpt_woo_add_cart_button.disabled{
 
 .wpt-wrap tr.wpt_table_header_row.wpt_table_head th {
     white-space: nowrap;
-    background-color: var(--wpt-default-primary);
   }
 .wpt-wrap table tbody th .content span,
 .wpt-wrap table tbody td .content span {
@@ -377,9 +372,7 @@ body.wpt_table_body .wpt-wrap .instance_search_input:focus-visible {
     padding: 6px 16px 8px;
 
 }
-.wpt-wrap .qib-button-wrapper button.qib-button:hover {
-    border: 1px solid var(--wpt-default-dark-border);
-}
+
 .qib-button-wrapper .quantity input.input-text.qty.text {
   width: 3rem;
 }
@@ -416,4 +409,64 @@ body.wpt_table_body .wpt-wrap .instance_search_input:focus-visible {
   font-size: 14px;
   line-height: 14px;
   text-transform: none;
+}
+/*NoticeBoard*/
+div.wpt_product_table_wrapper.woocommerce {
+  position: relative;
+  box-sizing: border-box;
+  display: block;
+}
+div.wpt_product_table_wrapper.woocommerce:before,div.wpt_product_table_wrapper.woocommerce:after{content: "";height:1px;width:100%;clear:both;}
+
+div.wpt_notice_board {
+  
+  width: 400px;
+  min-height: 1px;
+  z-index: 999999;
+  position: fixed;
+  
+  border-radius: 3px;
+  text-align: center;
+  padding: 4px;
+  cursor: pointer;
+  top: unset;
+  left: 10px;
+  bottom: 10px;
+  max-width: 100%;
+  display: block;
+}
+
+div.wpt_notice_board>div {
+  margin-bottom: 10px !important;
+  border: 0 none;
+}
+div.wpt_notice_board>div,
+div.wpt_notice_board>div.woocommerce-message {
+  position: relative;
+  text-align: left;
+  box-shadow: 0px 3px 5px -1px rgb(0 0 0 / 20%), 0px 6px 10px 0px rgb(0 0 0 / 14%), 0px 1px 18px 0px rgb(0 0 0 / 12%);
+}
+
+div.wpt_notice_board .woocommerce-error, 
+div.wpt_notice_board .woocommerce-info, 
+div.wpt_notice_board .woocommerce-message, 
+div.wpt_notice_board .woocommerce-noreviews, 
+div.wpt_notice_board p.no-comments {
+  padding: .5em .618em;
+  margin-bottom: 2px;
+}
+div.wpt_notice_board>div:before{content: "";display: none;}
+
+div.wpt_notice_board>div:after {
+  content: "x";
+  position: absolute;
+  right: 7px;
+  top: 7px;
+  width: 10px;
+  height: 10px;
+  overflow: hidden;
+  font-size: 17px;
+  text-align: center;
+  line-height: 8px;
+  padding: 7px;
 }
