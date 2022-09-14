@@ -18,6 +18,10 @@
 
     --wpt_extra_light: #ffeb3b;
     --wpt_extra_deep: #d00;
+
+    --wpt_green_signal: #00b17a;
+    --wpt_danger: rgb(247, 24, 24);
+    --wpt_warning: rgb(247, 243, 24);
   }
 
 

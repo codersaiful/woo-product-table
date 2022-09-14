@@ -15,13 +15,12 @@
   font-weight: 400;
 }
 .wpt-wrap .wpt_table_head, .wpt-wrap .wpt_table_head th {
-    padding: 8px 0;
+    padding: 11px 10px;
     margin: 0;
 }
 
 body.wpt_table_body .wpt-wrap table tbody tr th,
 body.wpt_table_body .wpt-wrap table tbody tr td {
-  padding-bottom: .5em;
   border-spacing: 1px;
   border: none;
   -webkit-transition: .3s all ease;
@@ -39,13 +38,18 @@ body.wpt_table_body .wpt-wrap table tbody tr td {
   border-bottom-right-radius: 0px;
 }
 
-
 .wpt-wrap tr.wpt-row,
-.wpt-wrap tr.wpt-row td, tr.wpt-row td>*{
-    padding: 7px 10px;
+tr.wpt-row td>*{
+    padding: 0;
     margin: 0;
 }
-
+.wpt-wrap tr.wpt-row td{
+    padding: 5px 10px;
+    margin: 0;
+}
+table.wpt-tbl tbody tr:first-child td {
+  padding-top: 12px;
+}
 body.wpt_table_body .wpt-wrap table thead tr,
 body.wpt_table_body .wpt-wrap table thead th {
   color: #fff;
@@ -81,17 +85,39 @@ body.wpt_table_body .wpt-wrap table thead th {
     background: var(--wpt-default-primary);
 }
 
-body.wpt_table_body .wpt-wrap table tbody tr a.button.add_to_cart_button,
-body.wpt_table_body .wpt-wrap table tbody tr a.button.add_to_cart_button.adding,
-body.wpt_table_body .wpt-wrap table tbody tr a.button.add_to_cart_button.alt.wc-variation-selection-needed,
-body.wpt_table_body .wpt-wrap table tbody tr a.button.add_to_cart_button.adding.wc-variation-selection-needed{
-  padding: 8px 9px;
-  color: #fff !important;
-  font-size: 14px;
-  border-radius: 3px;
-  font-weight: 400;
+/*************Add to Cart Customizing****************/
+tr.product_type_simple .item_inside_cell.wpt_action,
+tr.product_type_simple .td_or_cell.wpt_action>div{
+  display: flex;
+  flex-direction: row;
   white-space: nowrap;
 }
+.item_inside_cell.wpt_action, .td_or_cell.wpt_action>div {
+  background: transparent;
+  width: 100%;
+}
+a.button.wpt_woo_add_cart_button{
+  position: relative;
+  display: inline-block;
+}
+
+tr.visible_row.wpt_row td a.button,
+tr.visible_row.wpt_row td a.wpt_woo_add_cart_button,
+tr.visible_row.wpt_row .col_inside_tag.action a
+.wpt-wrap table tbody tr a.button.add_to_cart_button,
+.wpt-wrap table tbody tr a.button.add_to_cart_button.adding,
+.wpt-wrap table tbody tr a.button.add_to_cart_button.alt.wc-variation-selection-needed,
+.wpt-wrap table tbody tr a.button.add_to_cart_button.adding.wc-variation-selection-needed{
+  padding: 8px 11px;
+  color: #fff;
+  font-size: 14px;
+  border-radius: 2px;
+  font-weight: 400;
+  white-space: nowrap;
+  line-height: 14px;
+  cursor: pointer;
+}
+
 
 .wpt-wrap tr.wpt_table_header_row.wpt_table_head th {
     white-space: nowrap;
@@ -141,6 +167,24 @@ body.wpt_table_body .wpt-wrap table tbody tr a.button.add_to_cart_button.adding.
   border-bottom: none !important;
   box-shadow: unset;
 }
+
+/*This green signal, when added to cart*/
+/* tr.wpt-row.wpt-added-to-cart>td:last-child::after, */
+tr.wpt-row.wpt-added-to-cart>td:first-child:before {
+  content: "";
+  position: absolute;
+  height: 22px;
+  /* display: block; */
+  width: 4px;
+  top: 0;
+  left: 0;
+  height: 100%;
+}
+tr.wpt-row.wpt-added-to-cart>td:last-child::after {
+  left: unset;
+  right: 0;
+}
+
 .wpt-wrap .instance_search_wrapper {
   margin-top: 20px;
 }
@@ -220,7 +264,9 @@ div.wpt-wrap.wpt-wrap input[type=checkbox]+label:before {
 .wpt-wrap .td_or_cell.wpt_check {
   display: table-cell !important
 }  
-
+.wpt-wrap input[type=checkbox]+label, .wpt-wrap input[type=radio]+label {
+  margin: 0 0 0 0;
+}
   /* cart fatima */
 .wpt_table_body .wpt-wrap .cart {
     display: flex;
@@ -361,10 +407,17 @@ body.wpt_table_body .wpt-wrap .instance_search_input:focus-visible {
   background: var(--wpt-default-primary);
   border-radius: 25px;
 }
-/*load*/
 
+/*load*/
 .wpt-wrap .wpt_load_more {
   color: #fff;
   border-radius: 3px;
   transition: all .5s;
+}
+.search_box_wrapper span.select2-selection__clear {
+  padding: 0px 5px;
+  transition: all .3s;
+}
+.search_box_wrapper span.select2-selection__clear:hover {
+  color: white;
 }

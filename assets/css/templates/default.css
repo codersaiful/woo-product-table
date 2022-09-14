@@ -103,7 +103,10 @@ body.wpt_table_body .wpt-wrap table tbody tr td {
   color: #02485a;
 }
 
-
+/* tr.wpt-row.wpt-added-to-cart>td:last-child::after, */
+tr.wpt-row.wpt-added-to-cart>td:first-child:before {
+  background: #00b17a;
+}
 
 
 
@@ -194,7 +197,14 @@ body.wpt_table_body .wpt-wrap table tbody tr.wpt_row>td .product_description {
   border: 1px solid var(--wpt-default-border);
   color: #000;
 }
-
+.search_box_wrapper span.select2-selection__clear {
+  background: #d7d7d7;
+  color: green;
+}
+.search_box_wrapper span.select2-selection__clear:hover {
+  background: #9f9f9f;
+  color: white;
+}
 /*------Search bar---------*/
 
 .wpt-wrap .search_single .query_box_direct_value,

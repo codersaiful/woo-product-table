@@ -16,6 +16,7 @@ jQuery(function($) {
         var ajaxTableLoad = function(table_id,args,page_number){
             console.clear();
             var thisTable = $('#table_id_' + table_id);
+            var TableTagWrap = $('#table_id_' + table_id + ' .wpt_table_tag_wrapper');
             if( thisTable.length < 1 ){
                 console.log("Error on: ajaxTableLoad. Table not founded!");
                 return;
@@ -28,7 +29,7 @@ jQuery(function($) {
                 args: args,
             };
             
-            thisTable.addClass('wpt-ajax-loading'); //.wpt_product_table_wrapper.wpt-ajax-loading
+            TableTagWrap.addClass('wpt-ajax-loading'); //.wpt_product_table_wrapper.wpt-ajax-loading
             $.ajax({
                 type: 'POST',
                 url: ajax_url,
@@ -46,14 +47,14 @@ jQuery(function($) {
                         });
                     }
 
-                    thisTable.removeClass('wpt-ajax-loading');
+                    TableTagWrap.removeClass('wpt-ajax-loading');
 
                 },
                 complete:function(){
-                    thisTable.removeClass('wpt-ajax-loading');
+                    TableTagWrap.removeClass('wpt-ajax-loading');
                 },
                 error:function(){
-                    thisTable.removeClass('wpt-ajax-loading');
+                    TableTagWrap.removeClass('wpt-ajax-loading');
                     console.log("Error on: ajaxTableLoad. Error on Ajax load!");
                 }
             });

@@ -185,22 +185,6 @@ tr.wpt-row.wpt-added-to-cart {
     position: relative;
 }
 
-/* tr.wpt-row.wpt-added-to-cart>td:last-child::after, */
-tr.wpt-row.wpt-added-to-cart>td:first-child:before {
-    content: "";
-    position: absolute;
-    background: #00b17a;
-    height: 22px;
-    /* display: block; */
-    width: 4px;
-    top: 0;
-    left: 0;
-    height: 100%;
-}
-tr.wpt-row.wpt-added-to-cart>td:last-child::after {
-    left: unset;
-    right: 0;
-}
 
 div.wpt_product_table_wrapper table#wpt_table tr.wpt_row td p{padding: 0;margin: 0;}
 div.wpt_product_table_wrapper table#wpt_table tr.wpt_row td .wpt_varition_section div.wpt_message p.stock.out-of-stock{color: #d22121;}
@@ -226,17 +210,6 @@ th.wpt_check, td.wpt_check {
 table.wpt_product_table thead tr{cursor: pointer;}
 .wpt_varition_section select{display: inline-block;}
 
-/*************Add to Cart Customizing****************/
-a.button.wpt_woo_add_cart_button{
-    position: relative;
-    display: inline-block;
-}
-tr.visible_row.wpt_row td a.button,
-tr.visible_row.wpt_row td a.wpt_woo_add_cart_button,
-tr.visible_row.wpt_row .col_inside_tag.action a {
-    margin-bottom: 5px;
-    white-space: nowrap;
-}
 
 /*Customize Serial Number collumn*/
 .wpt_product_table thead th.serial_number{
@@ -249,8 +222,7 @@ tr.visible_row.wpt_row .col_inside_tag.action a {
 }
 .wpt_product_table *,.wpt_product_table tr>td,.wpt_product_table td{
     box-sizing: border-box;
-    vertical-align:
-    middle;
+    vertical-align:middle;
     text-align: left;
 }
 
@@ -489,7 +461,6 @@ button.button.wpt_search_button {
 .add_to_cart_all_selected{
     border-color: #eeeeee;
     color: #fff;
-    /* padding: 10px 30px; */
     border-radius: 3px;
     transition: all .5s;
 }
@@ -1400,10 +1371,7 @@ div.wpt_product_table_wrapper .elementor-menu-cart__product-image img {
 .item_inside_cell {
     margin: 5px 0;
 }
-div.wpt_product_table_wrapper table.wpt_product_table td.wpt_action, 
-div.wpt_product_table_wrapper table.wpt_product_table th.wpt_action {
-    padding-right: 18px;
-}
+
 .wpt_device_mobile .wpt_filter.fulter_half,
 .wpt_device_mobile .wpt_filter.fullter_full,
 .wpt_device_mobile .wpt_filter,
@@ -1625,21 +1593,6 @@ a.search_box_reset:focus,
 .wpt_product_table_wrapper div.tables_cart_message_box .widget_shopping_cart_content .elementor-menu-cart__footer-buttons {
     display: flex;
     justify-content: end;
-}
-
-.wpt_product_table_wrapper div.tables_cart_message_box.message-box-loading:before,
-.wpt_table_tag_wrapper.loading-table table.wpt_product_table:before {
-    position: absolute;
-    z-index: 9999;
-    background: url(../images/loading.gif) #7b7b7bab no-repeat center center;
-    width: 100%;
-    height: 100%;
-    content: "";
-    background-size: 50px 50px;
-    cursor: not-allowed;
-    overflow:hidden;
-    top: 0;
-    left: 0;
 }
 
 span.wpt_empty_cart_btn {
@@ -1946,16 +1899,7 @@ div.tables_cart_message_box.wpt-ajax-loading{
     padding: 10px;
 }
 div.wpt_product_table_wrapper.woocommerce.wpt-ajax-loading:before{display: none;}
-.search_box_wrapper span.select2-selection__clear {
-    background: #d7d7d7;
-    padding: 0px 5px;
-    color: green;
-    transition: all .3s;
-}
-.search_box_wrapper span.select2-selection__clear:hover {
-    background: #9f9f9f;
-    color: white;
-}
+
 .wpt-stats-report {
     display: flex;
 }

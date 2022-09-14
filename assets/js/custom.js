@@ -1157,16 +1157,16 @@ jQuery(function($) {
          */
         $('div.normal_table_wrapper a.button.add_to_cart_all_selected').click(function() {
             var temp_number = $(this).data('temp_number');
-            config_json = getConfig_json( temp_number ); //Added vat V5.0
-            var checkoutURL = WPT_DATA.checkout_url;//$('#table_id_' + temp_number).data('checkout_url');
-            var cartURL = WPT_DATA.cart_url;//$('#table_id_' + temp_number).data('cart_url');
+            config_json = getConfig_json( temp_number ); 
+            var checkoutURL = WPT_DATA.checkout_url;
+            var cartURL = WPT_DATA.cart_url;
             //Add Looading and Disable class 
             var currentAllSelectedButtonSelector = $('#table_id_' + temp_number + ' a.button.add_to_cart_all_selected');
             var tableWrapperTag = $('#table_id_' + temp_number + ' .wpt_table_tag_wrapper');
             
             currentAllSelectedButtonSelector.addClass('disabled');
             currentAllSelectedButtonSelector.addClass('loading');
-            tableWrapperTag.addClass('loading-table');
+            tableWrapperTag.addClass('wpt-ajax-loading');
 
             var add_cart_text = $('#table_id_' + temp_number).data('add_to_cart');
 
@@ -1225,7 +1225,7 @@ jQuery(function($) {
             if (itemAmount < 1) {
                 currentAllSelectedButtonSelector.removeClass('disabled');
                 currentAllSelectedButtonSelector.removeClass('loading');
-                tableWrapperTag.removeClass('loading-table');
+                tableWrapperTag.removeClass('wpt-ajax-loading');
                 showAlert(config_json.please_choose_items);
                 return false;
             }
@@ -1252,7 +1252,7 @@ jQuery(function($) {
                     
                     currentAllSelectedButtonSelector.removeClass('disabled');
                     currentAllSelectedButtonSelector.removeClass('loading');
-                    tableWrapperTag.removeClass('loading-table');
+                    tableWrapperTag.removeClass('wpt-ajax-loading');
 
                     //$('div.primary-navigation').html(response);
                     //setFragmentsRefresh( response );                    
@@ -2598,7 +2598,7 @@ jQuery(function($) {
                     }else{
                         currentAllSelectedButtonSelector.removeClass('disabled');
                         currentAllSelectedButtonSelector.removeClass('loading');
-                        //tableWrapperTag.removeClass('loading-table');
+                        //tableWrapperTag.removeClass('wpt-ajax-loading');
                     }
 
                     // //Added at v4.0.11
