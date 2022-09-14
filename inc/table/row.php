@@ -355,6 +355,7 @@ class Row extends Table_Base{
         
         $this->avialable_variables = [
             'id' => $this->product_id,
+            'args' => $this->args,
             'table_type' => $this->table_type,
             'product_type' => $this->product_type,
             'temp_number' => $this->table_id,
