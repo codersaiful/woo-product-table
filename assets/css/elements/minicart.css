@@ -1,6 +1,24 @@
 
-.tables_cart_message_box .widget_shopping_cart_content{
-    
+/*It's very important, because: our plugin aded emptyCart button on default minicart of woocommerce
+but we have to disable from all other place.*/
+a.wpt_empty_cart_btn.button {
+    display: none;
+}
+div.tables_cart_message_box a.wpt_empty_cart_btn.button {
+    display: inline;
+}
+
+.wpt-wrap .woocommerce-mini-cart__buttons.buttons a {
+    font-size: 14px;
+    font-weight: 400;
+    border-radius: 3px;
+    color: #fff;
+  }
+.wpt-wrap .woocommerce-mini-cart__buttons.buttons a:hover {
+    color: #fff;
+}
+.wpt-wrap ul.woocommerce-mini-cart li a {
+    font-size: 14px;
 }
 
 .tables_cart_message_box .widget_shopping_cart_content,

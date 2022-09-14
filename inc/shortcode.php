@@ -153,7 +153,7 @@ class Shortcode extends Shortcode_Base{
 
     }
     public function shortcode($atts){
-        do_action('saiful_islam_do_action');
+        
         $this->atts = $atts;
 
         $pairs = array( 'exclude' => false );
