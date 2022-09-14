@@ -1,7 +1,7 @@
 :root {
-    --wpt_primary: #0093b8;;
-    --wpt_primary_deep: #007694;
-    --wpt_primary_light: #0a7f9c;
+    --wpt_primary: #5BB318;
+    --wpt_primary_deep: #2B7A0B;
+    --wpt_primary_light: #7DCE13;
 
     --wpt_secondary: #edf7f8;
     --wpt_secondary_deep: #ceeaed;
@@ -12,7 +12,7 @@
     --wpt_link_light: #047c9b;
     
 
-    --wpt_text: #02485a;
+    --wpt_text: #2B7A0B;
     --wpt_text_deep: #0c0000;
     --wpt_text_light: #404040;  
 
