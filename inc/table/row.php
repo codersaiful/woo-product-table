@@ -7,7 +7,9 @@ use WOO_PRODUCT_TABLE\Inc\Handle\Table_Attr;
 class Row extends Table_Base{
     
     
-    
+    public $serial_number;
+    public $page_number;
+    public $posts_per_page;
     
     public $product_id;
     public $product_parent_id;
@@ -79,6 +81,11 @@ class Row extends Table_Base{
 
     public function __construct( Shortcode $shortcode ){
         global $product;
+        $shortcode->row_serial = $shortcode->row_serial+1;
+        $this->serial_number = $shortcode->row_serial;
+        $this->page_number = $shortcode->page_number;
+        $this->posts_per_page = $shortcode->posts_per_page;
+
         $this->table_id = $shortcode->table_id;
         $this->table_type = $shortcode->table_type;
         $this->product_id = $product->get_id();
@@ -344,6 +351,8 @@ class Row extends Table_Base{
      * @return Array a set of collection for Inner Item or for any TD. I need to extract it actually
      */
     private function data_for_extract(){
+        $serial = ( ($this->page_number - 1) * $this->posts_per_page ) + $this->serial_number;
+        
         $this->avialable_variables = [
             'id' => $this->product_id,
             'table_type' => $this->table_type,
@@ -369,6 +378,7 @@ class Row extends Table_Base{
     
     
             'row_class' => $this->row_class,
+            'wpt_table_row_serial' => $serial,
         ];
 
         return $this->apply_filter( 'wpt_avialable_variables', $this->avialable_variables );
