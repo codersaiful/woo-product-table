@@ -272,3 +272,7 @@ body.wpt_table_body .wpt-wrap button:focus {
   border: 1px solid #0093b8;
   background-color: white;
 }
+/*REview*/
+.star-rating span:before, .quantity .plus, .quantity .minus, p.stars a:hover:after, p.stars a:after, .star-rating span:before, #payment .payment_methods li input[type=radio]:first-child:checked+label:before {
+  color: #0093b8;
+}

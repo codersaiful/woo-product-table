@@ -139,12 +139,7 @@ tr.visible_row.wpt_row .col_inside_tag.action a
     -webkit-box-shadow: 0 2px 10px -5px rgba(0, 0, 0, 0.1);
     box-shadow: 0 2px 10px -5px rgba(0, 0, 0, 0.1);
   }
-.wpt_product_table tbody tr .star-rating::before{
-    content: "";
-    top: 0;
-    left: 0;
-    position: absolute;
-}
+
 .wpt-wrap .woocommerce-mini-cart__buttons.buttons a {
     font-size: 14px;
     font-weight: 400;
@@ -365,7 +360,6 @@ body.wpt_table_body .wpt-wrap .instance_search_input:focus-visible {
     font-size: 14px;
   }
   
-  /* fatima  */
   .wpt-wrap .all_check_header_footer.all_check_header>span>* {
     padding: 0 !important;
     margin-bottom: 2px;
