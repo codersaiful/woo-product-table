@@ -427,7 +427,9 @@ class Shortcode extends Shortcode_Base{
             'wpt-universal',
         ];
 
-        
+        if('none' !== $this->template){
+            $this->register_base_template();
+        }
 
         if( 'none' !== $this->minicart_position){
 
@@ -464,6 +466,25 @@ class Shortcode extends Shortcode_Base{
         
         $style_name = 'wpt-' . $elements_file_name;
         $css_url = $this->assets_element_url . $elements_file_name . '.css';
+        wp_register_style($style_name, $css_url, $this->css_dependency, $this->dev_version, 'all');
+        wp_enqueue_style($style_name);
+    }
+
+    /**
+     * It's Actually Base Template file.
+     * ROOT OF ALL TEMPLATE
+     * --------------------
+     * All template's base style and property will stay here and
+     * specific template file load after this file load
+     * 
+     * Actually in specific template file: there will stay only color change style/property 
+     *
+     * @return void
+     */
+    private function register_base_template(){
+        //wp_enqueue_style( 'wpt-template-table', WPT_Product_Table::getPath('BASE_URL') . 'assets/css/template.css', array('wpt-universal'), WPT_DEV_VERSION, 'all' );
+        $style_name = 'wpt-template';
+        $css_url = $this->assets_url . 'css/base-template.css';
         wp_register_style($style_name, $css_url, $this->css_dependency, $this->dev_version, 'all');
         wp_enqueue_style($style_name);
     }
