@@ -428,19 +428,19 @@ class Shortcode extends Shortcode_Base{
         ];
 
         if('none' !== $this->template){
-            $this->register_base_template();
+            $this->load_css_base_template();
         }
 
         if( 'none' !== $this->minicart_position){
 
-            $this->register_enq_css( 'minicart' );
+            $this->load_css_element( 'minicart' );
         }
         if( $this->footer_cart ){
-            $this->register_enq_css( 'footer-cart' );
+            $this->load_css_element( 'footer-cart' );
         }
         
         if( $this->checkbox_validation ){
-            $this->register_enq_css( 'checkbox-box' );
+            $this->load_css_element( 'checkbox-box' );
         }
         
         /**
@@ -455,14 +455,16 @@ class Shortcode extends Shortcode_Base{
 
         wp_register_style($this->template_name, $this->template_url, $this->css_dependency, $this->dev_version, 'all');
         wp_enqueue_style($this->template_name);
+        $this->load_css_override_root( $this->template_name );
+
 
         //Actually it's should be at the end of template loading,because, we want more power here.
         if( $this->footer_cart_template !== 'none' ){
-            $this->register_enq_css( 'footer-cart-templates' );
+            $this->load_css_element( 'footer-cart-templates' );
         }
     }
 
-    private function register_enq_css( string $elements_file_name ){
+    private function load_css_element( string $elements_file_name ){
         
         $style_name = 'wpt-' . $elements_file_name;
         $css_url = $this->assets_element_url . $elements_file_name . '.css';
@@ -481,11 +483,19 @@ class Shortcode extends Shortcode_Base{
      *
      * @return void
      */
-    private function register_base_template(){
+    private function load_css_base_template(){
         //wp_enqueue_style( 'wpt-template-table', WPT_Product_Table::getPath('BASE_URL') . 'assets/css/template.css', array('wpt-universal'), WPT_DEV_VERSION, 'all' );
         $style_name = 'wpt-template';
         $css_url = $this->assets_url . 'css/base-template.css';
         wp_register_style($style_name, $css_url, $this->css_dependency, $this->dev_version, 'all');
+        wp_enqueue_style($style_name);
+    }
+
+    private function load_css_override_root( string $base_template_name){
+        $style_name = 'wpt-override-template';
+        $css_dependency = array_push( $this->css_dependency, $base_template_name );
+        $css_url = $this->assets_url . 'css/override-root.css';
+        wp_register_style($style_name, $css_url, $css_dependency, $this->dev_version, 'all');
         wp_enqueue_style($style_name);
     }
 

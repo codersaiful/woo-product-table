@@ -20,9 +20,9 @@
     border-radius: 3px;
 }
 .all_check_header_footer .button.add_to_cart_all_selected {
-    padding: 10px 30px;
+    padding: 17px 30px;
     font-size: 14px;
-    margin-left: 10px;
+    line-height: 14px;
     font-weight: 400;
     border: 0;
     cursor: pointer;

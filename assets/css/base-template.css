@@ -100,6 +100,7 @@ tr.visible_row.wpt_row td a.button,
 tr.visible_row.wpt_row td a.wpt_woo_add_cart_button,
 tr.visible_row.wpt_row .col_inside_tag.action a
 .wpt-wrap table tbody tr a.button.add_to_cart_button,
+.wpt-wrap table tbody tr a.button.single_add_to_cart_button,
 .wpt-wrap table tbody tr a.button.add_to_cart_button.adding,
 .wpt-wrap table tbody tr a.button.add_to_cart_button.alt.wc-variation-selection-needed,
 .wpt-wrap table tbody tr a.button.add_to_cart_button.adding.wc-variation-selection-needed{
@@ -120,7 +121,7 @@ tr.visible_row.wpt_row td a.wpt_woo_add_cart_button.disabled{
 
 .wpt-wrap tr.wpt_table_header_row.wpt_table_head th {
     white-space: nowrap;
-    background-color: var(--wpt-default-primary) !important;
+    background-color: var(--wpt-default-primary);
   }
 .wpt-wrap table tbody th .content span,
 .wpt-wrap table tbody td .content span {
@@ -323,8 +324,8 @@ body.wpt_table_body .wpt-wrap .search_single .query_box_direct_value:focus-visib
 body.wpt_table_body .wpt-wrap .instance_search_input:focus-visible {
   border: 1px solid #ccd2d3;
   outline: 1px solid transparent;
-  color: #000 !important;
-  box-shadow: 0 0 5px #ccc !important;
+  color: #000;
+  box-shadow: 0 0 5px #ccc;
 }
 .wpt-wrap .search_single_column {
     display: block;
