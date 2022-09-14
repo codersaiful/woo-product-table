@@ -8,9 +8,9 @@
     --wpt_secondary_deep: #d1a0a1;
     --wpt_secondary_light: #fff4f4;
 
-    --wpt_link: #02485a;
-    --wpt_link_deep: #003542;
-    --wpt_link_light: #047c9b;
+    --wpt_link: #df0206;
+    --wpt_link_deep: #7c0002;
+    --wpt_link_light: #ff2b2f;
     
 
     --wpt_text: #0e0d0d;
@@ -20,7 +20,7 @@
 
     --wpt_warning: #ffeb3b;
   --wpt_danger: #9C27B0;
-  --wpt_green_signal: #00b17a;
+  --wpt_green_signal: #8bc34a;
 
   --wpt_off_white: #14141414;
   --wpt_white: #ffffff;
