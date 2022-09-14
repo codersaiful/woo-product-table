@@ -266,3 +266,9 @@ body.wpt_table_body .wpt-wrap button:focus {
   border: 1px solid var(--wpt-default-primary);
   color: var(--wpt-default-primary);
 }
+
+/*Message*/
+.wpt-wrap td.wpt_message div>input.message, .wpt-wrap .item_inside_cell.wpt_message>input.message {
+  border: 1px solid #0093b8;
+  background-color: white;
+}
