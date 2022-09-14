@@ -75,10 +75,6 @@ body.wpt_table_body .wpt-wrap table thead th {
     color: #fff !important; 
 }
 
-.wpt-wrap table span.wpt-pro-tag-on-sale {
-    border: 1px solid var(--wpt-default-primary);
-    background: var(--wpt-default-primary);
-}
 
 /*************Add to Cart Customizing****************/
 tr.product_type_simple .item_inside_cell.wpt_action,
@@ -121,7 +117,6 @@ tr.visible_row.wpt_row td a.wpt_woo_add_cart_button.disabled{
 
 .wpt-wrap tr.wpt_table_header_row.wpt_table_head th {
     white-space: nowrap;
-    background-color: var(--wpt-default-primary);
   }
 .wpt-wrap table tbody th .content span,
 .wpt-wrap table tbody td .content span {
@@ -377,9 +372,7 @@ body.wpt_table_body .wpt-wrap .instance_search_input:focus-visible {
     padding: 6px 16px 8px;
 
 }
-.wpt-wrap .qib-button-wrapper button.qib-button:hover {
-    border: 1px solid var(--wpt-default-dark-border);
-}
+
 .qib-button-wrapper .quantity input.input-text.qty.text {
   width: 3rem;
 }
