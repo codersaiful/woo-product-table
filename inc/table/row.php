@@ -16,6 +16,7 @@ class Row extends Table_Base{
     public $product_type;
     public $product_sku;
     public $data_tax = null;
+    public $_device;
 
     /**
      * We have some Variable Available inside 
@@ -372,6 +373,7 @@ class Row extends Table_Base{
             'stock_status_class' => $this->product_stock_status_class,
     
             'description_type' => $this->description_type,
+            '_device' => $this->_device,
             //For Variable Product
             'attributes' => $this->attributes,
             'available_variations' => $this->available_variations,
