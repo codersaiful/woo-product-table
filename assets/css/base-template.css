@@ -423,6 +423,7 @@ body.wpt_table_body .wpt-wrap .instance_search_input:focus-visible {
   line-height: 20px;
   height: 33px;
   margin: 0;
+  box-shadow: unset;
 }
 .wpt-wrap .qib-button-wrapper .quantity input.input-text.qty.text{
   border-radius: 0;
@@ -472,6 +473,7 @@ body.wpt_table_body .wpt-wrap .qib-button.qib-button-wrapper .plus.qib-button{
   font-size: 14px;
   line-height: 14px;
   text-transform: none;
+  box-shadow: unset;
 }
 /*NoticeBoard*/
 div.wpt-wrap.woocommerce {

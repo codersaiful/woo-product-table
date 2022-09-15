@@ -245,7 +245,7 @@ body.wpt_table_body .wpt-wrap button:focus {
 .wpt-wrap .wpt_quick_qty input.input-text.qty.text {
     border: 1px solid var(--wpt_off_white);
     background: var(--wpt_white);
-    box-shadow: unset;
+    
 }
 .wpt-wrap .qib-button-wrapper .quantity input.input-text.qty.text{
     border-left: 0;
@@ -286,12 +286,11 @@ body.wpt_table_body .wpt-wrap .qib-button.qib-button-wrapper .plus.qib-button:ho
 }
 
 /*Message*/
-.wpt-wrap td.wpt_message div>input.message,
+.wpt-wrap td.wpt_message div>input.message, 
 .wpt-wrap .item_inside_cell.wpt_message>input.message {
-    border: 1px solid var(--wpt_deep_off_white);
+    border: 1px solid var(--wpt_off_white);
     background-color: var(--wpt_white);
 }
-
 /*REview*/
 .star-rating span:before,
 .quantity .plus,
