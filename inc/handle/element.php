@@ -16,7 +16,7 @@ class Element{
         class="button wpt_load_more">
             <?php echo esc_html( $text_btn ); ?>
         </button>
-    </div>;
+    </div>
         <?php
     }
 }
