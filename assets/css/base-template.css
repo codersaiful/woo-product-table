@@ -195,27 +195,38 @@ tr.wpt-row.wpt-added-to-cart>td:last-child::after {
 /*Checkbox*/
 
 div.wpt-wrap.wpt-wrap input[type=checkbox]+label:before {
-    content: '';
-    margin-right: 3px;
-    display: inline-block;
-    vertical-align: text-top;
-    width: 20px;
-    height: 20px;
-    border-radius: 2px;
-    margin-right: 4px;
-  }
+  content: '';
+  display: inline-block;
+  vertical-align: text-top;
+  width: 22px;
+  height: 22px;
+  border-radius: 2px;
+  font-size: 18px;
+  line-height: 18px;
+}
   
-  div.wpt-wrap.wpt-wrap input[type=checkbox]:checked+label:after {
-    content: '\2713';
-    top: 0px;
-    font-size: 14px;
-    font-weight: bold;
-    left: 5px;
-    position: absolute;
-  }
-  .wpt-wrap th.wpt_check label {
+div.wpt-wrap.wpt-wrap input[type=checkbox]:checked+label:after {
+  content: '\2713';
+  top: 3px;
+  font-size: 18px;
+  font-weight: bold;
+  left: 3px;
+  position: absolute;
+  line-height: 18px;
+  width: 18px;
+  height: 18px;
+}
+div.wpt-wrap.wpt-wrap div.wpt_check_universal input[type=checkbox]:checked+label:after {
+  top: 6px;
+  left: 5px;
+}
+div.wpt-wrap.wpt-wrap tr th input[type=checkbox]+label:after {
+  font-size: 19px !important;
+  line-height: 19px !important;
+}
+.wpt-wrap th.wpt_check label {
     margin-left: -1px;
-  }
+}
 /*Pagination*/
 .wpt-wrap .wpt_table_pagination span.page-numbers.current,
 .wpt-wrap .wpt_table_pagination a.page-numbers.current {

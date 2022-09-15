@@ -44,69 +44,7 @@ div.wpt-wrap input[type=checkbox]+label {
 	padding: 0;
 }
 
-div.wpt-wrap input[type=checkbox].wpt_tabel_checkbox.wpt_td_checkbox.disabled+label:before,
-div.wpt-wrap input.wpt_tabel_checkbox.wpt_td_checkbox.disabled[type=checkbox]+label:before{
-    border: 1px solid #bbbbbb;
-    content: '';
-    margin-right: 3px;
-    display: inline-block;
-    vertical-align: text-top;
-    width: 20px;
-    height: 20px;
-    background: #e6e6e6;
-    border-radius: 3px;
-    opacity: .3;
-}
-div.wpt-wrap input[type=checkbox]+label:before {
-    border: 1px solid #bbbbbb;
-    content: '';
-    margin-right: 3px;
-    display: inline-block;
-    vertical-align: text-top;
-    width: 20px;
-    height: 20px;
-    background: #e6e6e6;
-    border-radius: 3px;
-}
 
-div.wpt-wrap input[type=checkbox]:hover+label:before {
-	background: #ccc;
-}
-
-div.wpt-wrap input[type=checkbox]:checked+label:before {
-    background: #0093b8;
-    border-color: #055569;
-}
-
-div.wpt-wrap input[type=checkbox]:disabled+label {
-	color: #b8b8b8;
-	cursor: auto;
-}
-
-div.wpt-wrap input[type=checkbox]:disabled+label:before {
-	box-shadow: none;
-	background: #ddd;
-}
-
-div.wpt-wrap input[type=checkbox]:checked+label:after {
-	content: '\2713';
-	color: #fff;
-	top: 2px;
-	font-size: 11px;
-	font-weight: bold;
-	left: 6px;
-	position: absolute;
-}
-div.wpt-wrap input[type=checkbox].wpt_check_universal.wpt_check_universal_header:checked+label:after,
-div.wpt-wrap input.wpt_check_universal.wpt_check_universal_header[type=checkbox]:checked+label:after{
-	content: '\2713';
-    color: #fff;
-    top: 4px;
-    font-size: 11px;
-    font-weight: bold;
-    left: 7px;
-    position: absolute;
-}
 
 /********** STYLE FOR A RADIO BUTTON --------------- */
 div.wpt-wrap input[type=radio] {

@@ -109,18 +109,22 @@ tr.wpt-row.wpt-added-to-cart>td:first-child:before {
 
 
 div.wpt-wrap.wpt-wrap input[type=checkbox]+label:before {
-    background: #f3f3f3;
-    border: 1px solid #90cbed;
+    background: var(--wpt_secondary_deep);
+    border: 1px solid var(--wpt_primary);
+}
+div.wpt-wrap.wpt-wrap input[type=checkbox]:checked+label:before {
+    background: var(--wpt_primary);
+    border: 1px solid var(--wpt_primary_deep);
 }
 
-
-div.wpt-wrap.wpt-wrap input[type=checkbox]:checked+label:after {
-    color: var(--wpt_primary);
+div.wpt-wrap.wpt-wrap tr th input[type=checkbox]:checked+label:before,
+div.wpt-wrap.wpt-wrap tr th input[type=checkbox]+label:before{
+    background: var(--wpt_primary_deep);
+    border: 1px solid var(--wpt_primary_deepest);
 }
 
-div.wpt-wrap.wpt-wrap input[type=checkbox].wpt_check_universal.wpt_check_universal_header:checked+label:after,
-div.wpt-wrap.wpt-wrap input.wpt_check_universal.wpt_check_universal_header[type=checkbox]:checked+label:after {
-    color: var(--wpt_primary)
+div.wpt-wrap.wpt-wrap input[type=checkbox]:checked+label:after{
+    color: var(--wpt_white);
 }
 
 /*Pagination*/
