@@ -3,6 +3,7 @@ namespace WOO_PRODUCT_TABLE\Inc;
 
 use WOO_PRODUCT_TABLE\Inc\Handle\Message as Msg;
 use WOO_PRODUCT_TABLE\Inc\Handle\Args;
+use WOO_PRODUCT_TABLE\Inc\Handle\Element;
 use WOO_PRODUCT_TABLE\Inc\Handle\Pagination;
 use WOO_PRODUCT_TABLE\Inc\Handle\Search_Box;
 use WOO_PRODUCT_TABLE\Inc\Handle\Checkbox_Box;
@@ -232,7 +233,10 @@ class Shortcode extends Shortcode_Base{
                 $this->pagination_base_url = str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) );
         
                 Pagination::render( $this );
+            }else{
+                Element::loadMore( $this );
             }
+            
 
 
             if( 'bottom' == $this->minicart_position ){
