@@ -119,6 +119,7 @@ div.tables_cart_message_box div.widget_shopping_cart_content li.woocommerce-mini
 .wpt-wrap div.tables_cart_message_box div.widget_shopping_cart_content .buttons>a.button {
     padding: 6px;
     margin-right: 5px;
+    box-shadow: none;
 }
 
 .wpt-wrap div.tables_cart_message_box div.widget_shopping_cart_content li.woocommerce-mini-cart-item.mini_cart_item img {
