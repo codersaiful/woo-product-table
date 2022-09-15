@@ -415,6 +415,7 @@ body.wpt_table_body .wpt-wrap .instance_search_input:focus-visible {
   font-size: 14px;
   line-height: 21px;
   height: 35px;
+  margin: 0 -3px;
 }
 
 body.wpt_table_body .wpt-wrap .qib-button.qib-button-wrapper .minus.qib-button,
