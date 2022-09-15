@@ -213,16 +213,16 @@ div.wpt-wrap.wpt-wrap input[type=checkbox]:checked+label:after {
   top: 3px;
   font-size: 18px;
   font-weight: bold;
-  left: 3px;
+  left: 5px;
   position: absolute;
   line-height: 18px;
   width: 18px;
   height: 18px;
 }
-div.wpt-wrap.wpt-wrap tr th input[type=checkbox]:checked+label:after,
+/* div.wpt-wrap.wpt-wrap tr th input[type=checkbox]:checked+label:after,
 div.wpt-wrap.wpt-wrap span input[type=checkbox]:checked+label:after{
   left: 5px;
-}
+} */
 div.wpt-wrap.wpt-wrap tr th input[type=checkbox]+label:after {
   font-size: 19px !important;
   line-height: 19px !important;
