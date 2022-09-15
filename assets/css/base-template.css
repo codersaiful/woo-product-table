@@ -256,12 +256,14 @@ div.wpt-wrap.wpt-wrap tr.stock_status_outofstock input[type=checkbox]+label{
 
 /*Checkbox*/
 .wpt-wrap .all_check_header_footer {
-    background-color: transparent;
-    padding: 15px 0;
-    font-size: 14px;
-    font-family: inherit;
-    text-transform: uppercase;
-  }
+  background-color: transparent;
+  padding: 0;
+  font-size: 14px;
+  font-family: inherit;
+  text-transform: uppercase;
+  height: 35px;
+  margin: 15px 0;
+}
 .wpt-wrap .td_or_cell.wpt_check {
   display: table-cell !important
 }  
@@ -388,9 +390,8 @@ body.wpt_table_body .wpt-wrap .instance_search_input:focus-visible {
   
 /*----- Quantity ---------*/
 .wpt-wrap .qib-button-wrapper button.qib-button {
-    background-color: transparent;
-    padding: 6px 16px 8px;
-
+  padding: 0;
+  text-align: center;
 }
 
 .qib-button-wrapper .quantity input.input-text.qty.text {
@@ -401,9 +402,12 @@ body.wpt_table_body .wpt-wrap .instance_search_input:focus-visible {
   opacity: 0.7;
 }
 
-.wpt-wrap .qib-button-wrapper button.qib-button, 
+.wpt-wrap .qib-button.qib-button-wrapper {
+  display: inline-flex;
+  height: 33px;
+}
 .wpt-wrap .qib-button-wrapper div.quantity.wqpmb_quantity{
-  height: 35px;
+  height: 33px;
 }
 .wpt-wrap .qib-button-wrapper .quantity input.input-text.qty.text,
 .wpt-wrap .wpt_quantity input.input-text.qty.text,
@@ -412,17 +416,30 @@ body.wpt_table_body .wpt-wrap .instance_search_input:focus-visible {
   text-align: center;
   width: 75px;
   border-radius: 2px;
-  font-size: 14px;
-  line-height: 21px;
-  height: 35px;
-  margin: 0 -3px;
+  font-size: 20px;
+  line-height: 20px;
+  height: 33px;
+  margin: 0;
 }
-
+.wpt-wrap .qib-button-wrapper .quantity input.input-text.qty.text{
+  border-radius: 0;
+}
 body.wpt_table_body .wpt-wrap .qib-button.qib-button-wrapper .minus.qib-button,
 body.wpt_table_body .wpt-wrap .qib-button.qib-button-wrapper .plus.qib-button {
-  font-size: 14px;
-  line-height:21px;
-  height: 35px;
+  font-size: 23px;
+  line-height:23px;
+  height: 33px;
+  font-weight: normal;
+}
+body.wpt_table_body .wpt-wrap .qib-button.qib-button-wrapper .minus.qib-button{
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+  border-right: 0 none;
+}
+body.wpt_table_body .wpt-wrap .qib-button.qib-button-wrapper .plus.qib-button{
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+  border-left: 0 none;
 }
 /*Mini Cart*/
 .wpt-wrap div.tables_cart_message_box div.widget_shopping_cart_content li a.remove::before {

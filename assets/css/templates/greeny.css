@@ -25,7 +25,9 @@
     --wpt_warning: rgb(247, 243, 24);
 
     --wpt_off_white: #14141414;
+    --wpt_deep_off_white: #cbcbcb;
     --wpt_white: #ffffff;
+    --wpt_gray: gray;
     --wpt_black: #000000;
   }
 

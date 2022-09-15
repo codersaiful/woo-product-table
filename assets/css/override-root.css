@@ -97,8 +97,9 @@ tr.wpt-row.wpt-added-to-cart>td:first-child:before {
 /*Checkbox*/
 div.wpt-wrap.wpt-wrap input[type=checkbox]+label:before {
     background: var(--wpt_off_white);
-    border: 1px solid var(--wpt_primary_light);
+    border: 1px solid var(--wpt_gray);
 }
+
 div.wpt-wrap.wpt-wrap input[type=checkbox]:checked+label:before {
     background: var(--wpt_primary);
     border: 1px solid var(--wpt_primary_deep);
@@ -138,8 +139,9 @@ div.wpt-wrap.wpt-wrap input[type=checkbox]:checked+label:after{
 
 /*Checkbox Header*/
 .all_check_header_footer.all_check_header>span {
-    border: 1px solid var(--wpt_primary);
+    border: 1px solid var(--wpt_secondary_deep);
     color: var(--wpt_primary);
+    background: var(--wpt_secondary);
 }
 
 .all_check_header_footer .button.add_to_cart_all_selected,
@@ -226,7 +228,7 @@ body.wpt_table_body .wpt-wrap input:focus,
 body.wpt_table_body .wpt-wrap select:focus,
 body.wpt_table_body .wpt-wrap textarea:focus,
 body.wpt_table_body .wpt-wrap button:focus {
-    outline: 2px solid var(--wpt-default-secondary);
+    outline: 0 none !important;
 }
 
 
@@ -237,29 +239,27 @@ body.wpt_table_body .wpt-wrap button:focus {
 
 }
 
-.wpt-wrap .qib-button-wrapper button.qib-button:hover {
-    border: 1px solid var(--wpt-default-dark-border);
-}
-
-.wpt-wrap .qib-button-wrapper .quantity input.input-text.qty.text {
-    border: 1px solid var(--wpt-default-dark-border);
-    color: #024d7e;
-}
 
 .wpt-wrap .qib-button-wrapper .quantity input.input-text.qty.text,
 .wpt-wrap .wpt_quantity input.input-text.qty.text,
 .wpt-wrap .wpt_quick_qty input.input-text.qty.text{
-    border: 1px solid var(--wpt_primary);
-    background-color: var(--wpt_white);
+    border: 1px solid var(--wpt_deep_off_white);
+}
+.wpt-wrap .qib-button-wrapper .quantity input.input-text.qty.text{
+    border-left: 0;
+    border-right: 0;
 }
 
 body.wpt_table_body .wpt-wrap .qib-button.qib-button-wrapper .minus.qib-button,
 body.wpt_table_body .wpt-wrap .qib-button.qib-button-wrapper .plus.qib-button {
-    background: var(--wpt_primary);
-    border: 1px solid var(--wpt_primary);
-    color: var(--wpt_white);
+    background: var(--wpt_off_white);
+    border: 1px solid var(--wpt_deep_off_white);
+    color: var(--wpt_primary_deepest);
 }
-
+body.wpt_table_body .wpt-wrap .qib-button.qib-button-wrapper .minus.qib-button:hover,
+body.wpt_table_body .wpt-wrap .qib-button.qib-button-wrapper .plus.qib-button:hover {
+    background: var(--wpt_deep_off_white);
+}
 /*Mini Cart*/
 .wpt-wrap div.tables_cart_message_box div.widget_shopping_cart_content li a.remove::before {
     background: var(--wpt_primary);
@@ -286,7 +286,7 @@ body.wpt_table_body .wpt-wrap .qib-button.qib-button-wrapper .plus.qib-button {
 /*Message*/
 .wpt-wrap td.wpt_message div>input.message,
 .wpt-wrap .item_inside_cell.wpt_message>input.message {
-    border: 1px solid var(--wpt_primary);
+    border: 1px solid var(--wpt_deep_off_white);
     background-color: var(--wpt_white);
 }
 

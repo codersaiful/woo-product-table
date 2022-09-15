@@ -110,9 +110,6 @@ div.wpt-wrap input[type=radio]:checked+label:after {
 .item_inside_cell.wpt_action{
     text-align: inherit;
 }
-.wpt-wrap .qib-button.qib-button-wrapper {
-    display: inline-block;
-}
 
 br.wpt_clear {
     clear: both;

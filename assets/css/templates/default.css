@@ -22,7 +22,9 @@
   --wpt_green_signal: #00b17a;
 
   --wpt_off_white: #14141414;
+  --wpt_deep_off_white: #cbcbcb;
   --wpt_white: #ffffff;
+  --wpt_gray: gray;
   --wpt_black: #000000;
 }
 

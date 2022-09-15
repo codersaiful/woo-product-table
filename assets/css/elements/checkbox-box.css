@@ -17,12 +17,13 @@
     padding: 7px;
     justify-content: center;
     align-items: center;
-    border-radius: 3px;
+    border-radius: 2px;
+    line-height: 24px;
 }
 .all_check_header_footer .button.add_to_cart_all_selected {
-    padding: 17px 30px;
+    padding: 7px 30px;
     font-size: 14px;
-    line-height: 14px;
+    line-height: 21px;
     font-weight: 400;
     border: 0;
     cursor: pointer;
