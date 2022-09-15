@@ -103,7 +103,9 @@ class Base{
     }
 
     /**
-     * Calling Filter Hook.
+     * Calling Filter Hook. Call like $this->filter('hook_name') and create a method with the name 
+     * 'hook_name', but if you want method name will different,
+     * than set 2nd,3rd and 4th param. 4th param will be method name param. 
      *
      * @param string $filter_hook_name [Required] and make a method by this name
      * @param integer $accepted_args [Optional]
