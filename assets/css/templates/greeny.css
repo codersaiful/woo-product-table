@@ -2,7 +2,7 @@
     --wpt_primary: #5BB318;
     --wpt_primary_deep: #2B7A0B;
     --wpt_primary_deepest: #1b6000;
-    --wpt_primary_light: #7DCE13;
+    --wpt_primary_light: #3d8905;
 
     --wpt_secondary: #edf7f8;
     --wpt_secondary_deep: #ceeaed;
@@ -31,3 +31,16 @@
     --wpt_black: #000000;
   }
 
+.wpt-wrap table.wpt-tbl tr:nth-child(2n+2) {
+  background: #00000003
+}
+
+
+.wpt-wrap table.wpt-tbl tr:nth-child(4n+2) {
+  background: #00000005
+}
+
+.wpt-wraps table.wpt-tbl tr.wpt-row {
+  /* box-shadow: 0px -1px 0px 0px #0000000d; */
+  box-shadow: 0px -1px 0px 0px #00000007;
+}

@@ -44,7 +44,7 @@ tr.wpt-row>td>*{
     margin: 0;
 }
 .wpt-wrap tr.wpt-row>td{
-    padding: 5px 10px;
+    padding: 6px 10px;
     margin: 0;
 }
 table.wpt-tbl tbody tr:first-child td {
@@ -127,16 +127,19 @@ tr.visible_row.wpt_row td a.wpt_woo_add_cart_button.disabled{
   padding-top: 15px;
 }
 
+.wpt-wrap table.wpt-tbl tr.wpt-row{
+  box-shadow: 0px -1px 0px 0px #0000000d;
+}
 .wpt-wrap table tbody tr:not(.spacer) {
-    border-radius: 7px;
+    border-radius: 0;
     overflow: hidden;
     -webkit-transition: .3s all ease;
     -o-transition: .3s all ease;
     transition: .3s all ease;
   }
   .wpt-wrap table tbody tr:not(.spacer):hover {
-    -webkit-box-shadow: 0 2px 10px -5px rgba(0, 0, 0, 0.1);
-    box-shadow: 0 2px 10px -5px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0px -1px 0px 0px #0000000f;
+    box-shadow: 0px -1px 0px 0px #0000000f;
   }
 
 
@@ -156,11 +159,10 @@ tr.visible_row.wpt_row td a.wpt_woo_add_cart_button.disabled{
 tr.wpt-row.wpt-added-to-cart>td:first-child:before {
   content: "";
   position: absolute;
-  height: 22px;
-  width: 4px;
-  top: 5%;
+  width: 1px;
+  top: 0;
   left: 0;
-  height: 90%;
+  height: 100%;
 }
 tr.wpt-row.wpt-added-to-cart>td:last-child::after {
   left: unset;
