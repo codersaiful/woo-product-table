@@ -222,6 +222,11 @@ class Shortcode extends Shortcode_Base{
             ?>
 
             <?php 
+
+            if($this->checkbox_validation){
+                Checkbox_Box::render($this, 'footer');
+            }
+
             if( $this->pagination ){
                 $big = 99999999;
                 $this->pagination_base_url = str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) );
