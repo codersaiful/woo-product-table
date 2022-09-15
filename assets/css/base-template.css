@@ -398,9 +398,29 @@ body.wpt_table_body .wpt-wrap .instance_search_input:focus-visible {
 }
 .wpt-wrap .wpt-tbl input[type=number]::-webkit-inner-spin-button,
 .wpt-wrap .wpt-tbl input[type=number]::-webkit-outer-spin-button {
-    opacity: 0.7;
+  opacity: 0.7;
 }
 
+.wpt-wrap .qib-button-wrapper button.qib-button, 
+.wpt-wrap .qib-button-wrapper div.quantity.wqpmb_quantity,
+.wpt-wrap .qib-button-wrapper .quantity input.input-text.qty.text,
+.wpt-wrap .wpt_quantity input.input-text.qty.text,
+.wpt-wrap .wpt_quick_qty input.input-text.qty.text{
+  padding: 0;
+  text-align: center;
+  width: 75px;
+  border-radius: 2px;
+  font-size: 14px;
+  line-height: 21px;
+  height: 35px;
+}
+
+body.wpt_table_body .wpt-wrap .qib-button.qib-button-wrapper .minus.qib-button,
+body.wpt_table_body .wpt-wrap .qib-button.qib-button-wrapper .plus.qib-button {
+  font-size: 14px;
+  line-height:21px;
+  height: 35px;
+}
 /*Mini Cart*/
 .wpt-wrap div.tables_cart_message_box div.widget_shopping_cart_content li a.remove::before {
   font-size: 24px;
