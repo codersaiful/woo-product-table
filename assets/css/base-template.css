@@ -228,6 +228,7 @@ div.wpt-wrap.wpt-wrap tr th input[type=checkbox]+label:after {
   line-height: 19px !important;
 }
 
+div.wpt-wrap.wpt-wrap tr.disabled input[type=checkbox]+label,
 div.wpt-wrap.wpt-wrap tr.stock_status_outofstock input[type=checkbox]+label{
   opacity: .4;
 }

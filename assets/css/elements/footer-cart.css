@@ -106,13 +106,15 @@ body.wpt-footer-cart-expand span.wpt-fcart-coll-expand {
     top: -11px;
 }
 .lister-ins dl.variation,.lister-ins dl.variation * {
-    display: inline;
+    display: inline-flex;
     padding: 0;
     margin: 0;
     font-size: 90%;
     font-weight: normal;
 }
-
+.lister-ins dl.variation>* {
+    padding: 0 3px;
+}
 .lister-ins dl.variation dt {
     color: black;
     font-size: 85%;
