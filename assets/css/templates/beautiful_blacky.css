@@ -393,12 +393,12 @@ body.wpt_table_body .beautiful_blacky_wrapper .star-rating span {
 
 /*Checkbox*/
 
-.beautiful_blacky_wrapper.wpt_product_table_wrapper input[type=checkbox]:checked+label:before {
+.beautiful_blacky_wrapper.wpt-wrap input[type=checkbox]:checked+label:before {
   background: var(--beautiful-blue);
   border-color: var(--beautiful-blue);
 }
 
-.beautiful_blacky_wrapper.wpt_product_table_wrapper input[type=checkbox]+label:before {
+.beautiful_blacky_wrapper.wpt-wrap input[type=checkbox]+label:before {
   border: 1px solid #5f5f6c;
   content: '';
   margin-right: 3px;
@@ -410,7 +410,7 @@ body.wpt_table_body .beautiful_blacky_wrapper .star-rating span {
   border-radius: 2px;
 }
 
-.beautiful_blacky_wrapper.wpt_product_table_wrapper input[type=checkbox]:checked+label:after {
+.beautiful_blacky_wrapper.wpt-wrap input[type=checkbox]:checked+label:after {
   content: '\2713';
   color: #fff;
   top: 0px;
@@ -420,7 +420,7 @@ body.wpt_table_body .beautiful_blacky_wrapper .star-rating span {
   position: absolute;
 }
 
-.beautiful_blacky_wrapper.wpt_product_table_wrapper .all_check_header input[type=checkbox]+label:before {
+.beautiful_blacky_wrapper.wpt-wrap .all_check_header input[type=checkbox]+label:before {
   margin-right: 10px;
 }
 
@@ -502,7 +502,7 @@ body.wpt_table_body .beautiful_blacky_wrapper table:not(.has-background) tbody t
   text-align: left;
 }
 
-.beautiful_blacky_wrapper.wpt_product_table_wrapper div.tables_cart_message_box div.widget_shopping_cart_content li.woocommerce-mini-cart-item.mini_cart_item {
+.beautiful_blacky_wrapper.wpt-wrap div.tables_cart_message_box div.widget_shopping_cart_content li.woocommerce-mini-cart-item.mini_cart_item {
   background: var(--beautiful-black);
   color: #fff;
 }
@@ -570,7 +570,7 @@ body.wpt_table_body .beautiful_blacky_wrapper .wpt_search_box .search_box_wrappe
   margin-bottom: 15px;
 }
 
-.beautiful_blacky_wrapper h3.search_box_label.wpt_product_table_wrapper div.tables_cart_message_box div.widget_shopping_cart_content li.woocommerce-mini-cart-item.mini_cart_item * {
+.beautiful_blacky_wrapper h3.search_box_label.wpt-wrap div.tables_cart_message_box div.widget_shopping_cart_content li.woocommerce-mini-cart-item.mini_cart_item * {
   font-size: 14px;
 }
 

@@ -14,7 +14,7 @@ jQuery(function($) {
         
 
         //Select2
-        if(typeof $('.wpt_product_table_wrapper .search_select').select2 === 'function' && $('.wpt_product_table_wrapper .search_select').length > 0 && WPT_DATA.select2 !== 'disable' ){
+        if(typeof $('.wpt-wrap .search_select').select2 === 'function' && $('.wpt-wrap .search_select').length > 0 && WPT_DATA.select2 !== 'disable' ){
             var select2Object = {};
             if( WPT_DATA.search_select_placeholder !== '' ){
                 select2Object = {
@@ -26,7 +26,7 @@ jQuery(function($) {
                 allowClear: true,
             });
             
-            $('.wpt_product_table_wrapper .search_select.query').select2(select2Object);
+            $('.wpt-wrap .search_select.query').select2(select2Object);
 
             $('select.filter_select').select2();
 
@@ -53,7 +53,7 @@ jQuery(function($) {
          * 
          * @since 4.3 we have added this condition. 
          */
-        if(!$('div.wpt_product_table_wrapper table').hasClass('wpt_product_table')){ //div wpt_product_table_wrapper 
+        if(!$('div.wpt-wrap table').hasClass('wpt_product_table')){ //div wpt-wrap 
             return false; 
         }        
         
@@ -391,7 +391,7 @@ jQuery(function($) {
 
                         if( fragments.hasOwnProperty('wpt_per_product') && fragments.wpt_per_product !== "false" && config_json.empty_cart_text ){
                             var emty_cart_btn = '<a class="wpt_empty_cart_btn button button-empty-cart">' + config_json.empty_cart_text + '</a>';
-                            $('.wpt_product_table_wrapper div.tables_cart_message_box p.woocommerce-mini-cart__buttons.buttons').prepend(emty_cart_btn);
+                            $('.wpt-wrap div.tables_cart_message_box p.woocommerce-mini-cart__buttons.buttons').prepend(emty_cart_btn);
                         }else{
                             // $('.wpt_empty_cart_btn').remove();
                         }
@@ -409,11 +409,11 @@ jQuery(function($) {
         }
         
         
-        //.wpt_product_table_wrapper div.tables_cart_message_box.message-box-loading
+        //.wpt-wrap div.tables_cart_message_box.message-box-loading
         $(document.body).on('click','.wpt_empty_cart_btn',function(e){
             footerCartAnimation();
             e.preventDefault();
-            var cart_message_box = $( '.wpt_product_table_wrapper div.tables_cart_message_box' );
+            var cart_message_box = $( '.wpt-wrap div.tables_cart_message_box' );
             cart_message_box.addClass('wpt-ajax-loading'); //message-box-loading
                 $.ajax({
                 type: 'POST',
@@ -425,7 +425,7 @@ jQuery(function($) {
                     cart_message_box.removeClass('wpt-ajax-loading');
                 },
                 success: function( response ){
-                    $('.wpt_product_table_wrapper a.added_to_cart.wc-forward').remove();
+                    $('.wpt-wrap a.added_to_cart.wc-forward').remove();
                     $( document.body ).trigger( 'updated_cart_totals' );
                     $( document.body ).trigger( 'wc_fragments_refreshed' );
                     $( document.body ).trigger( 'wc_fragments_refresh' );
@@ -453,7 +453,7 @@ jQuery(function($) {
         /**
          * Popup Image 
          */
-        $('body').on('click', '.wpt_product_table_wrapper .wpt_thumbnails_popup img', function() {
+        $('body').on('click', '.wpt-wrap .wpt_thumbnails_popup img', function() {
             var thisImg = $(this);
             var image_width, final_image_url, variation_id,imgSize;
             //For vatiation management
@@ -1339,7 +1339,7 @@ jQuery(function($) {
                     if ( fragments ) {
                         $.each( fragments, function( key, value ) {
                             if('string' === typeof key && typeof $( key ) === 'object'){
-                                $( "div.wpt_product_table_wrapper " + key ).replaceWith( value );
+                                $( "div.wpt-wrap " + key ).replaceWith( value );
 
                             }
                         });
@@ -1414,18 +1414,18 @@ jQuery(function($) {
             $('#wpt_query_search_button_' + temp_number).trigger('click');
         }));
         $('body').on('change','.search_select',function(){
-            var thisID = $(this).parents('.wpt_product_table_wrapper').attr('id');
+            var thisID = $(this).parents('.wpt-wrap').attr('id');
             var temp_number = thisID.replace('table_id_','');
            $('#wpt_query_search_button_' + temp_number).trigger('click');
         });
         $('body').on('change,focus','.query_box_direct_value',function(){
-            var thisID = $(this).parents('.wpt_product_table_wrapper').attr('id');
+            var thisID = $(this).parents('.wpt-wrap').attr('id');
             var temp_number = thisID.replace('table_id_','');
            $('#wpt_query_search_button_' + temp_number).trigger('click');
         });
         
         $('body').on('change','select.query_box_direct_value',function(){
-            var thisID = $(this).parents('.wpt_product_table_wrapper').attr('id');
+            var thisID = $(this).parents('.wpt-wrap').attr('id');
             var temp_number = thisID.replace('table_id_','');
            $('#wpt_query_search_button_' + temp_number).trigger('click');
         });
@@ -2155,7 +2155,7 @@ jQuery(function($) {
          * @returns {void}
          */
         function loadMiniFilter(){
-            $('.wpt_product_table_wrapper .wpt_filter_wrapper select.filter_select').each(function(){
+            $('.wpt-wrap .wpt_filter_wrapper select.filter_select').each(function(){
                 
                 var id = $(this).attr('id');
                 var temp_number = $(this).data('temp_number');
@@ -2400,8 +2400,8 @@ jQuery(function($) {
             WPT_BlankNotice();
             var product_id = $(this).parents('tr').data('product_id');
             var thisButton = $('tr#product_id_' + product_id + ' .wpt_action button.single_add_to_cart_button');
-            var thisTable = $(this).parents('div.wpt_product_table_wrapper');
-            var table_id = $(this).parents('div.wpt_product_table_wrapper').attr('id');
+            var thisTable = $(this).parents('div.wpt-wrap');
+            var table_id = $(this).parents('div.wpt-wrap').attr('id');
             
             var data_json = $('#' + table_id + ' table.advance_table').data( 'data_json' );
             var ajax_action = data_json.ajax_action;
@@ -2733,7 +2733,7 @@ jQuery(function($) {
   
         
         
-        $('.wpt_product_table_wrapper').each(function(){
+        $('.wpt-wrap').each(function(){
             var table_id = $(this).data('temp_number');
             var tableEl = $(this).find('table.wpt_product_table');
             var width = tableEl.width();

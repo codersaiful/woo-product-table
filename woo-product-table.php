@@ -181,7 +181,8 @@ WPT_Product_Table::$shortCode = $shortCodeText;
  * @since 1.9
  */
 $default = array(
-    'custom_message_on_single_page'=>  true, //Set true to get form in Single Product page for Custom Message
+    'custom_message_on_single_page'=>  true,
+    'column_sort'=>  'on',
     'disable_plugin_noti'=>  'on',
     'footer_cart'           =>  'always_show', //hide_for_zerro
     'footer_cart_size'      =>  '74',

@@ -107,24 +107,25 @@ class Shortcode_Base extends Base{
      * @return void
      */
     protected function get_is_table(){
-        global $post;
-        $this->has_shortcode = isset($post->post_content) && has_shortcode( $post->post_content, $this->shortcde_text );
+        return has_filter('wpt_bottom');
+        // global $post;
+        // $this->has_shortcode = isset($post->post_content) && has_shortcode( $post->post_content, $this->shortcde_text );
 
-        if( $this->has_shortcode ) return true;
-        if( $this->table_on_archive && ( is_shop() || is_product_taxonomy() ) ) return true;
+        // if( $this->has_shortcode ) return true;
+        // if( $this->table_on_archive && ( is_shop() || is_product_taxonomy() ) ) return true;
         
-        if( is_product() && $this->table_on_variable ){
-            $product = wc_get_product($post->ID);
-            return $product->get_type() == 'variable';  //It's actually boolean return.
-        }
+        // if( is_product() && $this->table_on_variable ){
+        //     $product = wc_get_product($post->ID);
+        //     return $product->get_type() == 'variable';  //It's actually boolean return.
+        // }
 
-        $id = get_queried_object_id();
-        $taxo_table_id = get_term_meta( $id, 'table_id', true );
-        if( is_product_taxonomy() && ! empty( $taxo_table_id ) ) return true;
+        // $id = get_queried_object_id();
+        // $taxo_table_id = get_term_meta( $id, 'table_id', true );
+        // if( is_product_taxonomy() && ! empty( $taxo_table_id ) ) return true;
 
         
 
-        return;
+        // return;
     }
 
 }

@@ -411,12 +411,12 @@ body.wpt_table_body .wpt-wrap .instance_search_input:focus-visible {
   text-transform: none;
 }
 /*NoticeBoard*/
-div.wpt_product_table_wrapper.woocommerce {
+div.wpt-wrap.woocommerce {
   position: relative;
   box-sizing: border-box;
   display: block;
 }
-div.wpt_product_table_wrapper.woocommerce:before,div.wpt_product_table_wrapper.woocommerce:after{content: "";height:1px;width:100%;clear:both;}
+div.wpt-wrap.woocommerce:before,div.wpt-wrap.woocommerce:after{content: "";height:1px;width:100%;clear:both;}
 
 div.wpt_notice_board {
   

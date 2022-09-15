@@ -29,7 +29,7 @@ jQuery(function($) {
                 args: args,
             };
             
-            TableTagWrap.addClass('wpt-ajax-loading'); //.wpt_product_table_wrapper.wpt-ajax-loading
+            TableTagWrap.addClass('wpt-ajax-loading'); //.wpt-wrap.wpt-ajax-loading
             $.ajax({
                 type: 'POST',
                 url: ajax_url,
@@ -340,7 +340,7 @@ jQuery(function($) {
             page_number: page_number,
             args: args,
         };
-        thisTable.addClass('wpt-ajax-loading'); //.wpt_product_table_wrapper.wpt-ajax-loading
+        thisTable.addClass('wpt-ajax-loading'); //.wpt-wrap.wpt-ajax-loading
         $.ajax({
             type: 'POST',
             url: ajax_url,
