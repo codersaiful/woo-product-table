@@ -110,6 +110,7 @@ tr.visible_row.wpt_row .col_inside_tag.action a
   cursor: pointer;
   text-transform: none;
   letter-spacing: 0px;
+  box-shadow: none;
 }
 tr.visible_row.wpt_row td a.wpt_woo_add_cart_button.disabled{
   opacity: 1;
@@ -284,6 +285,7 @@ div.wpt-wrap.wpt-wrap tr.stock_status_outofstock input[type=checkbox]+label{
     line-height: 18px;
     background: transparent;
     margin-bottom: 5px;
+    box-shadow: none;
   }
   
   /* product description  */

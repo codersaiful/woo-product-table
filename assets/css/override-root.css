@@ -1,6 +1,7 @@
 .wpt-wrap .woocommerce-mini-cart__buttons.buttons a {
     background: var(--wpt_primary);
     color: var(--wpt_white);
+    border-color: var(--wpt_primary);
 }
 
 .wpt-wrap .woocommerce-mini-cart__buttons.buttons a:hover {
