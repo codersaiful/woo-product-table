@@ -12,6 +12,7 @@ class Checkbox_Box{
         <div class='all_check_header_footer all_check_<?php echo esc_attr( $position ); ?> check_<?php echo esc_attr( $position ); ?>_<?php echo esc_attr( $shortcode->table_id ); ?>'>
 
         <span>
+            <?php if( 'header' == $position ){ ?>
             <input data-type='universal_checkbox' 
             data-temp_number='<?php echo esc_attr( $shortcode->table_id ); ?>' 
             class='wpt_check_universal wpt_check_universal_header' 
@@ -19,7 +20,9 @@ class Checkbox_Box{
             <label for='wpt_check_uncheck_button_<?php echo esc_attr( $shortcode->table_id ); ?>'>
             <?php echo wp_kses_post( $check_uncheck_text ) ?>
             </lable>
+            <?php } ?>
         </span>
+        
             <a data-add_to_cart='<?php echo esc_attr( $text ); ?>' 
             data-temp_number='<?php echo esc_attr( $shortcode->table_id ); ?>' 
             class='button add_to_cart_all_selected add2c_selected'>
