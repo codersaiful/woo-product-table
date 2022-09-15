@@ -46,7 +46,7 @@ jQuery(function($) {
                             }
                         });
                     }
-
+                    $(document.body).trigger('wc_fragments_refreshed');
                     TableTagWrap.removeClass('wpt-ajax-loading');
 
                 },

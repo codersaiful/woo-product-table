@@ -544,13 +544,11 @@ div.wpt_column_sort table#wpt_table.wpt_product_table tr>th.this_column_sorted[d
     background-image: url(../images/arrow_top.png) !important;
 }
 div.wpt_column_sort table#wpt_table.wpt_product_table tr>th.wpt_Message,
-div.wpt_column_sort table#wpt_table.wpt_product_table tr>th.wpt_serial_number,
 div.wpt_column_sort table#wpt_table.wpt_product_table tr>th.wpt_quoterequest,
 div.wpt_column_sort table#wpt_table.wpt_product_table tr>th.wpt_check,
 div.wpt_column_sort table#wpt_table.wpt_product_table tr>th.wpt_quantity,
 div.wpt_column_sort table#wpt_table.wpt_product_table tr>th.wpt_quick,
-div.wpt_column_sort table#wpt_table.wpt_product_table tr>th.wpt_thumbnails,
-div.wpt_column_sort table#wpt_table.wpt_product_table tr>th.wpt_action{
+div.wpt_column_sort table#wpt_table.wpt_product_table tr>th.wpt_thumbnails{
     background-image: none !important;
 }
 

@@ -11,6 +11,7 @@ class Table_Attr{
             "detected_device_" . $shortcode->_device . '_wrapper',
             " wpt_temporary_wrapper_" . $shortcode->table_id,
             " wpt_id_" . $shortcode->table_id,
+            " wpt_column_sort",
             "wpt_product_table_wrapper",
             "wpt-wrap",
             $shortcode->template . "_wrapper woocommerce",

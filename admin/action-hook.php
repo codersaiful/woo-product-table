@@ -766,12 +766,12 @@ if( !function_exists( 'wpto_admin_configuration_form_top_free' ) ){
                         <label class="wpt_label wpt_column_sorting_on_off" for="wpt_column_sorting_on_off"><?php esc_html_e( 'Table Column Sorting', 'wpt_pro' );?></label>
                     </th>
                     <td>
-                        <label class="switch">
+                        <!-- <label class="switch">
                             <input  name="data[column_sort]" type="checkbox" id="wpt_column_sorting_on_off" <?php echo isset( $current_config_value['column_sort'] ) ? 'checked="checked"' : ''; ?>>
-                            <div class="slider round"><!--ADDED HTML -->
-                                <span class="on">On</span><span class="off">Off</span><!--END-->
+                            <div class="slider round">
+                                <span class="on">On</span><span class="off">Off</span>
                             </div>
-                        </label>
+                        </label> -->
                         <p><?php echo esc_html( 'Column sorting for visible product Column.', 'wpt_pro' ); ?></p>
                         <p class="warning">
                             <b>Tips:</b>

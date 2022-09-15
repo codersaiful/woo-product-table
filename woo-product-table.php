@@ -182,7 +182,7 @@ WPT_Product_Table::$shortCode = $shortCodeText;
  */
 $default = array(
     'custom_message_on_single_page'=>  true,
-    'column_sort'=>  'on',
+    // 'column_sort'=>  'on',
     'disable_plugin_noti'=>  'on',
     'footer_cart'           =>  'always_show', //hide_for_zerro
     'footer_cart_size'      =>  '74',

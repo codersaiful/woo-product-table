@@ -156,11 +156,10 @@ tr.wpt-row.wpt-added-to-cart>td:first-child:before {
   content: "";
   position: absolute;
   height: 22px;
-  /* display: block; */
   width: 4px;
-  top: 0;
+  top: 5%;
   left: 0;
-  height: 100%;
+  height: 90%;
 }
 tr.wpt-row.wpt-added-to-cart>td:last-child::after {
   left: unset;

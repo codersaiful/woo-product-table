@@ -1,6 +1,7 @@
 :root {
     --wpt_primary: #5BB318;
     --wpt_primary_deep: #2B7A0B;
+    --wpt_primary_deepest: #1b6000;
     --wpt_primary_light: #7DCE13;
 
     --wpt_secondary: #edf7f8;
@@ -22,40 +23,9 @@
     --wpt_green_signal: #00b17a;
     --wpt_danger: rgb(247, 24, 24);
     --wpt_warning: rgb(247, 243, 24);
+
+    --wpt_off_white: #14141414;
+    --wpt_white: #ffffff;
+    --wpt_black: #000000;
   }
-
-
-
-
-
-
-
-
-
-
-
-
-/* Footer Cart */
-.wpt-new-footer-cart {
-    background: var(--wpt_primary);
-}
-.wpt-lister {
-    border-top: 3px solid var(--wpt_primary);
-}
-.wpt-lister .lister-ins {
-    color: var(--wpt_primary_light);
-}
-.wpt-new-footer-cart span.wpt-fcart-coll-expand {
-    background: var(--wpt_primary_deep);
-}
-.lister-ins li .wpt-cart-remove:hover{
-    color: var(--wpt_extra_deep);
-}
-.wpt-cart-contents {
-    background: #00000014;
-}
-.wpt-cart-contents span.wpt_empty_cart_btn:hover {
-    color: var(--wpt_extra_light);
-}
-
 

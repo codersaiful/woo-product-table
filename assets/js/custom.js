@@ -75,8 +75,9 @@ jQuery(function($) {
          * Pagination
          * @type Objectt
          */
-        changeSpanToAPagi();
+        // changeSpanToAPagi();
         function changeSpanToAPagi(){
+            return;
             $('div.wpt_table_pagination span.page-numbers.current').each(function(){
                 var _number = $(this).html();
                 $('div.wpt_table_pagination span.page-numbers.current').replaceWith('<a class="page-numbers current">' + _number + '</a>');
@@ -2245,9 +2246,10 @@ jQuery(function($) {
             var content_type = 'normal';
             if(target_class.search('.wpt_price') != -1){
                 content_type = 'price';
-            }else if(number_class.length > 0 || target_class.search('.wpt_product_id') != -1 ){
+            }else if(number_class.length > 0 || target_class.search('.wpt_serial_number') != -1 || target_class.search('.wpt_product_id') != -1 ){
                 content_type = 'number';
             }
+            //wpt_serial_number
                         
             var sort_type = $(this).attr('data-sort_type');
                 
