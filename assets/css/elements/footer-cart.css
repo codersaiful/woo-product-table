@@ -63,9 +63,12 @@ body.wpt-footer-cart-expand .wpt-lister{
 .wpt-lister ul, .wpt-lister li{
     list-style: none;
 }
+.wpt-lister ul {
+    max-height: 400px;
+    overflow: auto;
+}
 .wpt-new-footer-cart span.wpt-fcart-coll-expand {
     position: absolute;
-    background: #007694;
     color: #ffffff73;
     height: 5px;
     top: -5px;
