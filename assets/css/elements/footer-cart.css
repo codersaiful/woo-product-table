@@ -13,6 +13,8 @@
     display: flex;
     align-items: center;
     z-index: 999;
+    font-size: 16px;
+    font-weight: normal;
 }
 .wpt-new-footer-cart-inside {
     display: flex;
