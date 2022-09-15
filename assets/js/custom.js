@@ -1425,6 +1425,35 @@ jQuery(function($) {
         });
         
 
+        var paginated_val = 0;
+
+        $( window ).scroll(function() {
+            var scrollTop = $(window).scrollTop();
+            var myTable = $('.normal_table_wrapper');
+            var myTableHeight = myTable.height();
+            myTableHeight = myTableHeight - 900;
+            if(scrollTop > myTableHeight && paginated_val == 0){
+                // alert(33);
+                $('button.wpt_load_more').trigger('click');
+                paginated_val++;
+                setTimeout(function(){
+                    paginated_val = 0;
+                },20000);
+            }
+            
+            /**
+             * 
+            var body = $('html, body');
+                    var thisTableTop = $('#table_id_' + temp_number).offset();
+                    body.animate({scrollTop:thisTableTop.top}, 500, 'swing');
+             * 
+             */
+          });
+
+          $(document.body).on('wpt_query_done',function( $aaa,$bbb ){
+            paginated_val = 0; 
+          });
+
         
         /**
          * Search Box Query and Scripting Here
@@ -1648,7 +1677,7 @@ jQuery(function($) {
                         }else{
                             $('#wpt_load_more_wrapper_' + temp_number).remove();
                             targetTable.removeClass('wpt_overflow_hiddent');
-                            showAlert(config_json.no_more_query_message);//"There is no more products based on current Query."
+                            // showAlert(config_json.no_more_query_message);//"There is no more products based on current Query."
                         }
                         
                     }

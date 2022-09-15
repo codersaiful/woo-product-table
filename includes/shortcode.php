@@ -630,7 +630,7 @@ if( ! function_exists( 'wpt_shortcode_generator' ) ){
         $table_class_arr = apply_filters( 'wpto_table_tag_class_arr', $table_class_arr, $table_ID, $args, $column_settings, $enabled_column_array, $column_array);
         $table_class_arr = implode( " ", $table_class_arr );
 
-        $html .= "<table "
+        $html .= "<table onscroll='myScrollFunc()'"
                 . "data-page_number='" . esc_attr( $page_number_1plugs ) . "' "
                 . "data-temp_number='" . esc_attr( $temp_number ) . "' "
                 . "data-config_json='" . esc_attr( wp_json_encode( $config_value ) ) . "' "
