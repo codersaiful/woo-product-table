@@ -24,9 +24,10 @@ div.tables_cart_message_box a.wpt_empty_cart_btn.button {
     line-height: 15px;
     border-radius: 3px;
     color: #fff;
-    padding: 6px;
+    padding: 9px;
     margin-right: 5px;
     box-shadow: none;
+    white-space: nowrap;
 }
 
 .wpt-wrap .woocommerce-mini-cart__buttons.buttons a:hover {

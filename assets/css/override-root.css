@@ -1,11 +1,11 @@
 .wpt-wrap .woocommerce-mini-cart__buttons.buttons a {
-    background: var(--wpt_primary);
+    background: var(--wpt_primary)!important;
     color: var(--wpt_white);
     border-color: var(--wpt_primary);
 }
 
 .wpt-wrap .woocommerce-mini-cart__buttons.buttons a:hover {
-    background: var(--wpt_primary_deepest);
+    background: var(--wpt_primary_deepest)!important;
     color: var(--wpt_white);
 }
 
