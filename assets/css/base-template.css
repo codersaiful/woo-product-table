@@ -193,14 +193,17 @@ tr.wpt-row.wpt-added-to-cart>td:last-child::after {
   letter-spacing: 2px;
 }
 /*Checkbox*/
-
+.all_check_header_footer.all_check_header>span label {
+  display: flex;
+  column-gap: 10px;
+}
 div.wpt-wrap.wpt-wrap input[type=checkbox]+label:before {
   content: '';
   display: inline-block;
   vertical-align: text-top;
   width: 22px;
   height: 22px;
-  border-radius: 2px;
+  border-radius: 1px;
   font-size: 18px;
   line-height: 18px;
 }
@@ -216,13 +219,17 @@ div.wpt-wrap.wpt-wrap input[type=checkbox]:checked+label:after {
   width: 18px;
   height: 18px;
 }
-div.wpt-wrap.wpt-wrap div.wpt_check_universal input[type=checkbox]:checked+label:after {
-  top: 6px;
+div.wpt-wrap.wpt-wrap tr th input[type=checkbox]:checked+label:after,
+div.wpt-wrap.wpt-wrap span input[type=checkbox]:checked+label:after{
   left: 5px;
 }
 div.wpt-wrap.wpt-wrap tr th input[type=checkbox]+label:after {
   font-size: 19px !important;
   line-height: 19px !important;
+}
+
+div.wpt-wrap.wpt-wrap tr.stock_status_outofstock input[type=checkbox]+label{
+  opacity: .4;
 }
 .wpt-wrap th.wpt_check label {
     margin-left: -1px;

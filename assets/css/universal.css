@@ -792,17 +792,10 @@ div.wpt-footer-cart-wrapper>a:after, div.wpt-footer-cart-wrapper>a {
 }
 /*------new for per product End-- a.button.wpt_woo_add_cart_button>span.wpt_ccount:empty{display: none;}------*/
 
-
-table.wpt_product_table tr.wpt_selected_tr>td{
-    background: #0000000d;
-}
-table.wpt_product_table tr.wpt_selected_tr{
+table.wpt_product_table tr.wpt_selected_tr .wpt_product_title_in_td
+{
     font-style: italic;
 }
-table.wpt_product_table tr.wpt_selected_tr .wpt_quantity{
-    font-style: initial;
-}
-
 
 /*Responsive Version is here*/
 @media only screen and (min-width: 768px) and (max-width: 991px){

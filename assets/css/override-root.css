@@ -109,8 +109,8 @@ tr.wpt-row.wpt-added-to-cart>td:first-child:before {
 
 
 div.wpt-wrap.wpt-wrap input[type=checkbox]+label:before {
-    background: var(--wpt_secondary_deep);
-    border: 1px solid var(--wpt_primary);
+    background: var(--wpt_off_white);
+    border: 1px solid var(--wpt_primary_light);
 }
 div.wpt-wrap.wpt-wrap input[type=checkbox]:checked+label:before {
     background: var(--wpt_primary);
