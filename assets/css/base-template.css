@@ -272,16 +272,17 @@ div.wpt-wrap.wpt-wrap tr.stock_status_outofstock input[type=checkbox]+label{
   font-weight: bold;
   font-size: 14px;
 }
-.wpt-wrap .wpt_table_pagination a.page-numbers,
+.wpt-wrap .wpt_table_pagination a.page-numbers, 
 .wpt-wrap .wpt_table_pagination span.page-numbers {
   padding: 8px 16px;
   text-decoration: none;
-  transition: background-color .3s;
+  transition: background-color .1s;
   margin: 0px;
   display: inline-block;
   cursor: pointer;
   font-size: 14px;
-  border-radius: 3px;
+  border-radius: 2px;
+  line-height: 15px;
 }
 
 /*Checkbox*/
