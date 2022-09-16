@@ -396,8 +396,7 @@ button.button.wpt_search_button {
     display: none;
 }
 /* problem solved */
-.wpt_load_more,
-.add_to_cart_all_selected{
+.wpt_load_more{
     border-color: #eeeeee;
     color: #fff;
     border-radius: 3px;
@@ -636,25 +635,43 @@ body.wpt_pro_table #yith-quick-view-content div.summary {
 button.single_add_to_cart_button{
     position: relative;
 }
-button.single_add_to_cart_button >span.wpt_ccount,
-a.button.wpt_woo_add_cart_button>span.wpt_ccount {
+button.single_add_to_cart_button >span.wpt_ccount i.animate-spin, a.button.wpt_woo_add_cart_button>span.wpt_ccount  i.animate-spin {
+    font-size: 13px;
+    line-height: 13px;
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+button.single_add_to_cart_button >span.wpt_ccount i.animate-spin::before,
+a.button.wpt_woo_add_cart_button>span.wpt_ccount  i.animate-spin::before{
+    margin: 0;
+    padding: 0;
+}
+button.single_add_to_cart_button >span.wpt_ccount, a.button.wpt_woo_add_cart_button>span.wpt_ccount {
     position: absolute;
-    background: white !important;
-    color: black;
-    min-width: 30px;
-    height: 30px;
-    border: 1px solid #e6e6e6;
+    min-width: 23px;
+    height: 23px;
+    border: none 0;
     top: -15px;
     right: -17px;
     z-index: 1;
-    text-align: center;
-    line-height: 30px;
-    font-size: 13px;
     clear: both;
     border-radius: 20px;
-    box-shadow: -1px 0px 6px rgba(0, 0, 0, 0.04);
-    padding-left: 4px;
-    padding-right: 4px;
+    box-shadow: -1px 0px 4px 1px #0000001c;
+    font-size: 13px;
+    line-height: 14px;
+    text-align: center;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    z-index: 99;
 }
 /* a.button.wpt_woo_add_cart_button.button.loading>span.wpt_ccount{display: none;} */
 @keyframes spin{100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}
@@ -1771,23 +1788,23 @@ p.wpt-stats-page-count {
 .add_to_cart_button.added{
     float: left;
 }
+
 span.wpt-cart-remove {
     background: #00000000 no-repeat;
-    color: red;
     padding: 4px;
     font-size: 11px;
     line-height: 11px;
-    display: block;
-    width: 20px;
-    height: 20px;
-    float: left;
-    margin-top: 11px;
+    width: 16px;
+    height: 16px;
+    margin-top: 8px;
     margin-left: 5px;
     cursor: pointer;
-    background-size: 20px 20px;
-    /* background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADEAAAAxCAYAAABznEEcAAAAAXNSR0IArs4c6QAAAtRJREFUaEPt2M9rE0EUB/DvS01EiKIVqpikWqS96EGhgqJIpKDUm560Uq21/gP6D/Qv0IM3D7YiqLB/QGwLpvUiCPoH6MFIK7b4m6LbGDcjW7NhbbO7b34Elrq9dnZmPvPezLwJYQP80QYwIEHEJYpJJJJIGFyB/zed5s9c68xPFb4RxusGFxQfj49uXdqzXD1oWb9k+pWOxOLp4S6nuumpSNVf5Mo9Y6YgnwcvbbPtzBSArzWI8z2zkytciBSiCSAcWB2A6hMmID7A0cbESzIQNmIdwFsmTUgLgNdzyd6SPddbulONiggLEQjQhIQApCAsxEJx9BEgLoStiBC4l5/be527R1zATzvzhIBjoStN4ma+PHkrrA0L8bY4sj0DMSOQ6g8fkLdHGBFoDENWDt1DNDv+WxvhdmAKYhqwer5EbRr//3Uh7QBII3Qi0i6AEsKDpEHTAI5w9siXwTfZxkXm3QMBn/H2wNqPpdLJ//HCwOWdwumYIeBwGKQO3CegL/IUAj3OoXs4ahO3GksZIRWRyI2nFoHmNRXZf0QDd7OzUiuwHz2A8p5YOx91iD7AGEIttcwAjCLczj4UR/Y5wGuA0hFZWFlcTvf1v7xb001nowj+PeBVFLwShYPUOp28AaQBzWPFDEQboQwwCNFCaAMMQZQR7PcAyBIQvQQcCstv2feIvy8lBD8Cf4/RCipZk+8R7dpJFuDVQrplfFgUpSKhCvAm0C4IG6ELaCeEhTAF8ENYRSPz5yAWYv7UlYckUhfDb0+59wD3PQKBG/m5idvae+L9yasFQSiDsL91Z2rFXFT1S0I869jsnN09/eCHNsLtIBiiBohKLS5AugBcD9EDBEFkANKIfyNCrzg/bHGqUP97hISwOSmkfWMvDYzt6ur8/oksy+FOktPu3YmhHSmntlJ4btmc9s3SS6ZxXNuyjti4Tj6JRNwik6RTXCKSRCIukfgDBOLGQXOKlZIAAAAASUVORK5CYII=); */
+    background-size: 16px 16px;
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADEAAAAxCAYAAABznEEcAAAAAXNSR0IArs4c6QAABk9JREFUaEPtmXtsU3UUx7/n1z3sYCJvt96Ol4RoTBSm8b21ICLKRIERxBDagQNJwCgxQRLN/jAxGKMYkchg68UIBAjKS9SA9BbQ+QDRhIQYlLC1G48JhOfco79j7m07urKuvbRTQnb/2nZ/9/zO53zP+f3O7zfCLfDQLcCAHoibRcUeJXqUSGMEetIpXjAZFaL2iYbBmRS8ky3IJxlsIc4IoI+ozd9ReTWNIhim0qaE/5FSK7JynwZ4EohLCDSwU2eZGyRhO4i2nrmYufeBQ5WtqUKlDMGOiox61M0F5NsA5Zl06BiApTbNs4UANvlt+/CUIOrHusfIIK8nolEdHaDzEnxAMPlJ8GnJJIg5j4gKJMsiIsqJcfhHC/jFPE09cSMgNwwRcJZNZyk9EYcYYAI2EWjNyUsZvnhp0lBSnsOXW8fLIC0kweMiTjO40cKYmu9T95sFuSGIeqdrgWRaQeGaYqCGQYsKtOqDZhyoc7onkOSP2pVktECIKYq36iszdkxD1Be7xkviXQSRoU/E4KoLA68suHfz5hYzE0fGNj5WltuUyesEUBK2d4lhebRAqzqSrD1TELXjyoZbgjgIcN/w2vau4vUs1X9ucJQPyNMqzyZboEdKS7Os5/taR+ypvMClpZb6xtzPAZ5h2GX8Zc1pGdP/63UXkwExBRFwlG0CuDQ80Rc2n2ea7nTDk7MKZKvFC9Aem88zPxHIwcLyzMG5bbqtIcgWT9q/rTqnL9GU3dsH4MGw4+8omuettEL4ne6HwKgx6oC5IYtyRg3SVl5uByAaHoar7AokAkDg50NBx2GyBMcr33129qTDNTQIOgrgNmZcCcrMkUP3V55MBJK0En7H7B0EMcmYmLnc7lNX6z8Hiss+AfGC6ImI6ON8b/WrsYroKdSnMXdjBODaQs+LFa/6gf673+l6j5jeCKWr/FDxrn09LRBnJ750e9PVzDMgymbmWoWG3kVaRZtuPDay7RMyOigSdxywyqZ5XokA1z4+s68lI7shpAbXKj51WKL0TEqJeodrBoM2xItOIpBDheUZeg1cp0AMQCQAgSLXTgh6NiSGGGPbV3W4KzWSgggUu1eBUB5eAp12TdVijRqpcrr3JhKYHP2OgRUAKbEA8VLOSKli18tEVBmeb4ldU5elDhEVGViCA/Qi7MxoFykTO7xDCsW+DDjL7gPzb/rfJbC2QPO4UobwO9y/EjAazM02n2rtKkeTAOkSQHc2XBfnjHQCfWPTqiemAcJ1nEDD9KVV8am2RKvFqadm9WptzjhOhEEdxjL/bvOpoxMV6rGJC7OtTZf/MSCY99l8anHKEAGHuwbAw2lRImbV6sy5blEiUOzeBsJzxoTpqIkEINE1AbCqaKo7HUp8CmCeYYhprOKr9nbr6uR0lxNjVXpXJ2fZdDBvDDnOyxVNfS0aItFGpu8TebmtGxl4oWONdNwQI+8CDvcuAOFi5tGKphorVbwnqX1Cb5ebM2RjaMdGnUJDRiTcsWM2Mh00GRD/hDn9qFnWp33H1iNQ53Bvb+/5CfPsXo+xGaW7dwo43O8DWGxEPZ29k26vwTm7MMjil9Bpjk9mt4pRA7+vvnRdFxunlYikQmddbKQdP1U0d1gbtR0N92hXOUuMLNhdrfdRXT5JpdO1XC3bEDm4MGirohVMJVTIKJDd0c1cvJn/t/OE7pDR7zMOgaifoTZomU2rXmIoleLJzn+m93pBmB4Cl39arW2F3XKyM2pj7JwiEZS7QcgyQBjrZcvlufaazU2JZO/s/X9+xo5Kq/kMXhm57QDzzyxokd3r+ckMiN/peoaYlgMYaXzH3MwCU+xeVV9ik35M1US01YDDPY0ZKhF6GfMb905yixCW1ef6X9Li3X7o907Bi20TiHghAGfEJgGnIDDVttfzQ9LehwfeMIT+fcDhup8Z64jong4TM19gJg0CxwD+GxBEkINJ0t0sUATA2tFReYCkmGnb5/GbBQjVZoqPfhcb4BNuAipAlG/GHDP/AYg37b7qL818Fzs2ZYiIQf3KxZLda4IEJjNTCRH6x3FMv2/dRqCd+SjQIjv/TQER7YT+/4nTRYEhbSSHMnCHECyDJM4LSccVbU0gFYc7+zZtSqTbMTP2eiDMRKs7x/Yo0Z3RNWO7Rwkz0erOsbeEEv8Cb/clXzpENTAAAAAASUVORK5CYII=);
-    
+    opacity: .5;
+}
+.wpt_action:hover span.wpt-cart-remove{
+    opacity: 1;
 }
 
 

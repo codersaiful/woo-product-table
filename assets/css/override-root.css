@@ -57,6 +57,14 @@ body.wpt_table_body .wpt-wrap table tbody tr a.button.add_to_cart_button:hover.a
     color: var(--wpt_primary) !important;
     border: 1px solid var(--wpt_primary);
 }
+button.single_add_to_cart_button >span.wpt_ccount i.animate-spin, a.button.wpt_woo_add_cart_button>span.wpt_ccount  i.animate-spin{
+    background: var(--wpt_white);
+    color: var(--wpt_primary);
+}
+button.single_add_to_cart_button >span.wpt_ccount, a.button.wpt_woo_add_cart_button>span.wpt_ccount {
+    background: var(--wpt_white);
+    color: var(--wpt_black);
+}
 
 .wpt-wrap tr.wpt_table_header_row.wpt_table_head th {
     color: var(--wpt_white);
@@ -184,7 +192,13 @@ body.wpt_table_body .wpt-wrap table tbody tr.wpt_row>td .product_description {
     background: var(--white);
     color: var(--wpt_primary);
 }
-
+span.wpt_product_price .amount {
+    color: var(--wpt_black);
+  }
+  
+  .wpt_product_price del .amount {
+    color: var(--wpt_gray);
+  }
 /*=========Search Box==========*/
 .wpt-wrap .search_single .query_box_direct_value,
 .wpt-wrap .instance_search_input {

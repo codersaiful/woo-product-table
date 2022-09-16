@@ -60,9 +60,7 @@ tr.wpt-row>td>*{
     padding: 6px 10px;
     margin: 0;
 }
-table.wpt-tbl tbody tr:first-child td {
-  padding-top: 10px;
-}
+
 body.wpt_table_body .wpt-wrap table thead tr,
 body.wpt_table_body .wpt-wrap table thead th {
   color: #fff;
@@ -88,8 +86,24 @@ body.wpt_table_body .wpt-wrap table thead th {
     color: #fff !important; 
 }
 
+/*Pricing*/
+span.wpt_product_price ins {
+  font-size: 14px;
+  line-height: 16px;
+}
 
-/*************Add to Cart Customizing****************/
+span.wpt_product_price .amount {
+  color: black;
+  font-weight: normal;
+}
+
+.wpt_product_price del .amount {
+  color: var(--wpt_gray);
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 18px;
+}
+/*Add to Cart*/
 tr.product_type_simple .item_inside_cell.wpt_action,
 tr.product_type_simple .td_or_cell.wpt_action>div{
   display: flex;
@@ -124,6 +138,7 @@ tr.visible_row.wpt_row .col_inside_tag.action a
   text-transform: none;
   letter-spacing: 0px;
   box-shadow: none;
+  opacity: 1 !important;
 }
 tr.visible_row.wpt_row td a.wpt_woo_add_cart_button.disabled{
   opacity: 1;
@@ -296,14 +311,15 @@ div.wpt-wrap.wpt-wrap tr.stock_status_outofstock input[type=checkbox]+label{
   
   /* product title  */
   body.wpt_table_body .wpt-wrap table tbody tr.wpt_row>td a.wpt_product_title_in_td {
-    font-weight: 700;
+    font-weight: 400;
     text-decoration: none;
     font-size: 16px;
     line-height: 18px;
     background: transparent;
     margin-bottom: 5px;
     box-shadow: none;
-  }
+    white-space: nowrap;
+}
   
   /* product description  */
   body.wpt_table_body .wpt-wrap table tbody tr.wpt_row>td .product_description {
