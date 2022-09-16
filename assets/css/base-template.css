@@ -1,18 +1,31 @@
+.wpt-wrap .wpt_table_tag_wrapper {
+  box-shadow: 0 10px 15px 0 #00000017;
+  margin-bottom: 25px;
+  background: white;
+}
+.wpt-wrap .wpt_table_tag_wrapper table,
+.wpt-wrap .wpt_table_tag_wrapper table.wpt-tbl{
+  margin: 0;
+}
 /**TEMPLATE**/
 .wpt-wrap a,
 .wpt-wrap a:hover {
   text-decoration: none !important;
 }
-.wpt-wrap .wpt_table_tag_wrapper {
-    box-shadow: rgba(0, 0, 0, 0.041) 0px 4px 12px;
-}
 .wpt-wrap table {
     font-size: 15px;
-    margin-bottom: 20px;
 }
-.wpt-wrap table tbody th,
+.wpt-wrap,
+.wpt-wrap>div,
+.wpt-wrap>div>div,
+.wpt-wrap table,
+.wpt-wrap table thead th,
+.wpt-wrap table tbody td div,
+.wpt-wrap table tbody tr,
 .wpt-wrap table tbody td {
   font-weight: 400;
+  font-size: 15px;
+  line-height: 17px;
 }
 .wpt-wrap .wpt_table_head, .wpt-wrap .wpt_table_head th {
     padding: 11px 10px;
@@ -203,8 +216,8 @@ div.wpt-wrap.wpt-wrap input[type=checkbox]+label:before {
   content: '';
   display: inline-block;
   vertical-align: text-top;
-  width: 22px;
-  height: 22px;
+  width: 20px;
+  height: 20px;
   border-radius: 1px;
   font-size: 18px;
   line-height: 18px;
@@ -213,7 +226,7 @@ div.wpt-wrap.wpt-wrap input[type=checkbox]+label:before {
 div.wpt-wrap.wpt-wrap input[type=checkbox]:checked+label:after {
   content: '\2713';
   top: 3px;
-  font-size: 18px;
+  font-size: 15px;
   font-weight: bold;
   left: 5px;
   position: absolute;
@@ -226,8 +239,8 @@ div.wpt-wrap.wpt-wrap span input[type=checkbox]:checked+label:after{
   left: 5px;
 } */
 div.wpt-wrap.wpt-wrap tr th input[type=checkbox]+label:after {
-  font-size: 19px !important;
-  line-height: 19px !important;
+  font-size: 17px !important;
+  line-height: 17px !important;
 }
 
 div.wpt-wrap.wpt-wrap tr.disabled input[type=checkbox]+label,

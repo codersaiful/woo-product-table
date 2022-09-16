@@ -259,6 +259,10 @@ span#wpt_popup_close:hover{
 }
 
 /* For Rating Star of Table */
+.wpt-wrap table tr .star-rating::before {
+    opacity: .15;
+    float: left;
+}
 .wpt_product_table tbody tr .star-rating {
     font-size: 0.65em;
 }
@@ -397,7 +401,7 @@ button.button.wpt_search_button {
     border-color: #eeeeee;
     color: #fff;
     border-radius: 3px;
-    transition: all .5s;
+    transition: all .1s;
 }
 .wpt_load_more{
     float: none;

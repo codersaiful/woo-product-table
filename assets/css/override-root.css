@@ -1,3 +1,6 @@
+.wpt-wrap .wpt_table_tag_wrapper {
+    background: var(--wpt_white);
+}
 .wpt-wrap .woocommerce-mini-cart__buttons.buttons a {
     background: var(--wpt_primary)!important;
     color: var(--wpt_white);
@@ -96,7 +99,7 @@ tr.wpt-row.wpt-added-to-cart>td:first-child:before {
 
 /*Checkbox*/
 div.wpt-wrap.wpt-wrap input[type=checkbox]+label:before {
-    background: var(--wpt_off_white);
+    background: var(--wpt_white);
     border: 1px solid var(--wpt_gray);
 }
 

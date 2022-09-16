@@ -13,8 +13,9 @@
     display: flex;
     align-items: center;
     z-index: 999;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: normal;
+    line-height: 16px;
 }
 .wpt-new-footer-cart-inside {
     display: flex;
@@ -44,16 +45,23 @@
     border-bottom-right-radius: 7px;
     display: none;
 }
+.wpt-new-footer-cart,.wpt-new-footer-cart-inside,.wpt-lister,.wpt-lister .lister-ins,
+.wpt-lister ul, .wpt-lister li, .wpt-lister li a,
+.lister-ins dl.variation,
+.lister-ins dl.variation>*,
+.sss{
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 16px;
+}
 body.wpt-footer-cart-expand .wpt-lister{
     display: block;
 }
 .wpt-lister .lister-ins {
-    padding: 10px;
-    background: #e5e5e563;
+    padding: 0;
+    background: transparent;
     margin: 2px 6px 6px 6px;
     border-radius: 0;
-    color: #0a7f9c;
-    padding-bottom: 5px;
 }
 .wpt-lister ul, .wpt-lister li, .wpt-lister li a{
     padding: 0;
@@ -127,11 +135,12 @@ body.wpt-footer-cart-expand span.wpt-fcart-coll-expand {
     font-size: 90%;
     font-weight: 400;
     font-style: oblique;
-    background: #0000000f;
-    padding: 0 5px;
+    background: transparent;
+    padding: 0;
     white-space: nowrap;
-    border-radius: 3px;
+    border-radius: 1px;
     float: none;
+    line-height: 90%;
 }
 .lister-ins li {
     border-bottom: 1px solid #0000000f;
@@ -213,9 +222,9 @@ body.wpt-footer-cart-expand .wpt-cart-contents span.count {
     color: #ffeb3b;
 }
 .wpt-cart-contents span.wpt_empty_cart_btn>i {
-    font-size: 16px;
+    font-size: 14px;
+    line-height: 14px;
 }
-
 .wpt-fcart-anim::after {
     content: "";
     position: absolute;
@@ -260,7 +269,10 @@ body.wpt-footer-cart-expand .wpt-cart-contents span.count {
     }
 }
 
-
+.lister-ins>ul>li {
+    font-size: 13px;
+    line-height: 19px;
+}
 
 
 
