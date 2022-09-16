@@ -567,3 +567,11 @@ div.wpt_notice_board>div:after {
   line-height: 8px;
   padding: 7px;
 }
+
+@media all and (max-width: 600px) {
+
+}
+
+@media all and (max-width: 800px) {
+
+}
