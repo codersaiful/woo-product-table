@@ -1,0 +1,78 @@
+.search_box_fixer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.search_box_fixer>*{
+    flex: 1 100%;
+}
+.search_box_fixer>.search_box_label{
+    order: 1;
+}
+.wpt_search_box .search_box_wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: start;
+    order: 2;
+    position: relative;
+}
+.wpt_search_box .search_box_wrapper>*,
+.wpt_search_box .search_box_wrapper .search_single {
+    flex-grow: 3;
+    min-width: 320px;
+}
+.wpt_search_box .search_box_wrapper .search_single.search_single_direct{
+    flex: 1 100%;
+}
+.wpt_search_box .search_box_wrapper .search_single{
+    /* border: 1px solid gray; */
+}
+.wpt_search_box .search_box_wrapper .search_single select{
+    width: 100%;
+}
+
+
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+
+}
+
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (max-width: 767px) {
+    .wpt-wrap div.tables_cart_message_box div.widget_shopping_cart_content>*{
+        flex: 1 100%;
+    }
+
+    .tables_cart_message_box .widget_shopping_cart_content>p.total {
+        justify-content: center;
+        text-align: center;
+    }
+    .wpt-wrap div.tables_cart_message_box div.widget_shopping_cart_content .buttons {
+        justify-content: center;
+    }
+}

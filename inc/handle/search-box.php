@@ -23,10 +23,8 @@ class Search_Box{
             $search_keyword = isset( $_GET['search_key'] ) ? sanitize_text_field( $_GET['search_key'] ) : '';
             $single_keyword = $config_value['search_keyword_text'];//__( 'Search keyword', 'wpt_pro' );
             $search_order_placeholder = $config_value['search_box_searchkeyword'];//__( 'Search keyword', 'wpt_pro' );
-            $html_inputBox .= "<div class='search_single_column'>";
             $html_inputBox .= '<label class="search_keyword_label single_keyword" for="single_keyword_' . $shortcode->table_id . '">' . $single_keyword . '</label>';
             $html_inputBox .= '<input data-key="s" value="' . $search_keyword . '" class="query-keyword-input-box query_box_direct_value" id="single_keyword_' . $shortcode->table_id . '" value="" placeholder="' . $search_order_placeholder . '"/>';
-            $html_inputBox .= "</div>";// End of .search_single_column
         }
         
         ob_start();
