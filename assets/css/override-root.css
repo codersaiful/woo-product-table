@@ -26,7 +26,7 @@
 
 body.wpt_table_body .wpt-wrap table thead tr,
 body.wpt_table_body .wpt-wrap table thead th {
-    background-color: var(--wpt_primary);
+    background-color: var(--wpt_thead_bg);
 }
 
 .wpt-wrap table.wpt-tbl tbody td .wpt_product_title_in_td {
@@ -72,7 +72,7 @@ button.single_add_to_cart_button >span.wpt_ccount, a.button.wpt_woo_add_cart_but
 }
 
 .wpt-wrap table tbody td {
-    color: var(--wpt_thead_bg);
+    color: var(--wpt_text);
 }
 
 .wpt-wrap tbody tr td .music_title {

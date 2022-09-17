@@ -31,7 +31,7 @@
   --wpt_thead_bg: var(--wpt_primary);
   --wpt_thead_text: var(--wpt_white);
 
-  --wpt_table_bg: var(--wpt_white);
+  --wpt_table_bg: red;
   --wpt_table_tr_odd: #00000005;
   --wpt_table_tr_even: transparent;
 
