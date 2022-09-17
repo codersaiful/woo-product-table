@@ -151,7 +151,7 @@ div.wpt-wrap.wpt-wrap input[type=checkbox]:checked+label:after{
 /*Checkbox Header*/
 .all_check_header_footer.all_check_header>span {
     border: 1px solid var(--wpt_secondary_deep);
-    color: var(--wpt_white);
+    color: var(--wpt_primary);
     background: var(--wpt_secondary);
 }
 
@@ -193,7 +193,7 @@ body.wpt_table_body .wpt-wrap table tbody tr.wpt_row>td .product_description {
     color: var(--wpt_primary);
 }
 span.wpt_product_price .amount {
-    color: var(--wpt_text);
+    color: var(--wpt_black);
   }
   
   .wpt_product_price del .amount {
