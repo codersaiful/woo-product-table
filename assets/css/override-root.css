@@ -151,7 +151,7 @@ div.wpt-wrap.wpt-wrap input[type=checkbox]:checked+label:after{
 /*Checkbox Header*/
 .all_check_header_footer.all_check_header>span {
     border: 1px solid var(--wpt_secondary_deep);
-    color: var(--wpt_primary);
+    color: var(--wpt_white);
     background: var(--wpt_secondary);
 }
 
