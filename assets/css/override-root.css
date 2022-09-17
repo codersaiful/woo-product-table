@@ -186,7 +186,10 @@ span.wpt_product_price .amount {
     color: var(--wpt_gray);
   }
 /*=========Search Box==========*/
-
+.search_box_fixer>.search_box_label{
+    /* background: var(--wpt_secondary); */
+    color: var(--wpt_text_deep);
+}
 .search_box_wrapper span.select2-selection__clear {
     background: var(--wpt_off_white);
     color: var(--wpt_danger);

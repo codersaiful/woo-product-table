@@ -325,32 +325,6 @@ a.remove_cart_icon:hover{
     width: 100%;
 }
 
-.wpt_search_box .wpt_search_button {
-    width: 50%;
-    margin-top: 10px;
-}
-.search_single label.search_keyword_label {
-    display: block;
-}
-
-
-h3.search_box_label {
-    line-height: 16px;
-    font-size: 16px;
-    padding: 0;
-    margin: 0;
-}
-.search_single .query_box_direct_value,.instance_search_input{
-    width: 100%;
-    border-radius: 5px;
-    padding: 6px 5px 5px 5px;
-    border: 1px solid #a9a1a1;
-}
-.instance_search_input {
-    width: 100%;
-    padding-left: 10px;
-}
-
 
 button.button.wpt_search_button {
     visibility: hidden;

@@ -359,10 +359,7 @@ div.wpt-wrap.wpt-wrap tr.stock_status_outofstock input[type=checkbox]+label{
 .wpt-wrap .select2-container--default .select2-selection--single .select2-selection__rendered {
   font-size: 15px;
 }
-.wpt-wrap .search_single label.search_keyword_label {
-  display: block;
-  margin-bottom: 5px;
-}
+
 /*Search bar*/
   
   .wpt-wrap .all_check_header_footer.all_check_header>span>* {
@@ -401,8 +398,11 @@ div.wpt-wrap.wpt-wrap tr.stock_status_outofstock input[type=checkbox]+label{
 }
 
 .wpt-wrap .qib-button.qib-button-wrapper {
-  display: inline-flex;
+  display: flex !important;
   height: 33px;
+  float: unset;
+  margin: 0;
+  flex-wrap: nowrap;
 }
 .wpt-wrap .qib-button-wrapper div.quantity.wqpmb_quantity{
   height: 33px;
