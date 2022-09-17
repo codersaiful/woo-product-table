@@ -50,7 +50,10 @@ body.wpt_table_body .wpt-wrap table tbody tr td {
   border-top-right-radius: 0px;
   border-bottom-right-radius: 0px;
 }
-
+.wpt-wrap th.wpt_description, .wpt-wrap td.wpt_description {
+  min-width: 350px;
+  white-space: inherit;
+}
 .wpt-wrap tr.wpt-row,
 tr.wpt-row>td>*{
     padding: 0;
