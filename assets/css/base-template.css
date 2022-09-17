@@ -451,8 +451,8 @@ body.wpt_table_body .wpt-wrap .instance_search_input:focus-visible {
   text-align: center;
   width: 55px;
   border-radius: 2px;
-  font-size: 20px;
-  line-height: 20px;
+  font-size: 14px;
+  line-height: 16px;
   height: 33px;
   margin: 0;
   box-shadow: unset;
@@ -462,8 +462,8 @@ body.wpt_table_body .wpt-wrap .instance_search_input:focus-visible {
 }
 body.wpt_table_body .wpt-wrap .qib-button.qib-button-wrapper .minus.qib-button,
 body.wpt_table_body .wpt-wrap .qib-button.qib-button-wrapper .plus.qib-button {
-  font-size: 23px;
-  line-height:23px;
+  font-size: 18px;
+  line-height:18px;
   height: 33px;
   font-weight: normal;
 }
