@@ -17,7 +17,7 @@
 }
 
 .wpt-wrap table {
-    color: var(--wpt-default-text-color);
+    color: var(--wpt_text);
 }
 
 .wp-block-button__link {
@@ -75,19 +75,9 @@ button.single_add_to_cart_button >span.wpt_ccount, a.button.wpt_woo_add_cart_but
 }
 
 .wpt-wrap tbody tr td .music_title {
-    color: var(--wpt-default-text-color);
+    color: var(--wpt_off_white);
 }
 
-.wpt-wrap table tbody tr:not(.spacer) {
-    border-bottom: 1px solid var(--wpt-default-border);
-}
-
-
-
-body.wpt_table_body .wpt-wrap table tbody tr th,
-body.wpt_table_body .wpt-wrap table tbody tr td {
-    background: var(--wpt-default-secondary);
-}
 
 .wpt-wrap table tbody tr td a {
     color: var(--wpt_primary);
@@ -167,10 +157,6 @@ tr.visible_row.wpt_row td a.wpt_woo_add_cart_button.disabled {
 }
 
 
-body.wpt_table_body .wpt-wrap table:not(.has-background) tbody tr:nth-child(2n) td {
-    background-color: var(--wpt-default-hover);
-}
-
 .wpt-wrap table td,
 .wpt-wrap table:not(.has-background) th {
     background-color: var(--wpt_primary);
@@ -200,11 +186,6 @@ span.wpt_product_price .amount {
     color: var(--wpt_gray);
   }
 /*=========Search Box==========*/
-.wpt-wrap .search_single .query_box_direct_value,
-.wpt-wrap .instance_search_input {
-    border: 1px solid var(--wpt-default-border);
-    color: var(--wpt_black);
-}
 
 .search_box_wrapper span.select2-selection__clear {
     background: var(--wpt_off_white);
