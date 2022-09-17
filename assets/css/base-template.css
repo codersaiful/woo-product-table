@@ -13,7 +13,7 @@
   text-decoration: none !important;
 }
 .wpt-wrap table {
-    font-size: 15px;
+    font-size: 16px;
 }
 .wpt-wrap,
 .wpt-wrap>div,
@@ -24,8 +24,8 @@
 .wpt-wrap table tbody tr,
 .wpt-wrap table tbody td {
   font-weight: 400;
-  font-size: 15px;
-  line-height: 17px;
+  font-size: 16px;
+  line-height: 18px;
 }
 .wpt-wrap .wpt_table_head, .wpt-wrap .wpt_table_head th {
     padding: 11px 10px;
@@ -71,9 +71,10 @@ body.wpt_table_body .wpt-wrap table thead th {
   border-bottom: none !important;
 }
 .wpt-wrap table thead th {
-    border: none;
-    font-size: 18px;
-    font-weight: 500;
+  border: none;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 20px;
 }
 .wpt-wrap table.wpt-tbl thead {
     border-bottom: 1px solid #ffffff;
@@ -91,8 +92,8 @@ body.wpt_table_body .wpt-wrap table thead th {
 
 /*Pricing*/
 span.wpt_product_price ins {
-  font-size: 14px;
-  line-height: 16px;
+  font-size: 16px;
+  line-height: 18px;
 }
 
 span.wpt_product_price .amount {
@@ -132,11 +133,11 @@ tr.visible_row.wpt_row .col_inside_tag.action a
 .wpt-wrap table tbody tr a.button.add_to_cart_button.adding.wc-variation-selection-needed{
   padding: 8px 11px;
   color: #fff;
-  font-size: 14px;
+  font-size: 16px;
   border-radius: 2px;
   font-weight: 400;
   white-space: nowrap;
-  line-height: 14px;
+  line-height: 16px;
   cursor: pointer;
   text-transform: none;
   letter-spacing: 0px;
@@ -273,7 +274,8 @@ div.wpt-wrap.wpt-wrap tr.stock_status_outofstock input[type=checkbox]+label{
 .wpt-wrap .wpt_table_pagination a.page-numbers.current {
   color: #ffff;
   font-weight: bold;
-  font-size: 14px;
+  font-size: 16px;
+  line-height: 17px;
 }
 .wpt-wrap .wpt_table_pagination a.page-numbers, 
 .wpt-wrap .wpt_table_pagination span.page-numbers {
@@ -283,19 +285,19 @@ div.wpt-wrap.wpt-wrap tr.stock_status_outofstock input[type=checkbox]+label{
   margin: 0px;
   display: inline-block;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 16px;
   border-radius: 2px;
-  line-height: 15px;
+  line-height: 17px;
 }
 
 /*Checkbox*/
 .wpt-wrap .all_check_header_footer {
   background-color: transparent;
   padding: 0;
-  font-size: 14px;
+  font-size: 16px;
   font-family: inherit;
   text-transform: uppercase;
-  height: 35px;
+  height: 38px;
   margin: 15px 0;
 }
 .wpt-wrap .td_or_cell.wpt_check {
@@ -317,8 +319,8 @@ div.wpt-wrap.wpt-wrap tr.stock_status_outofstock input[type=checkbox]+label{
   body.wpt_table_body .wpt-wrap table tbody tr.wpt_row>td a.wpt_product_title_in_td {
     font-weight: 400;
     text-decoration: none;
-    font-size: 16px;
-    line-height: 18px;
+    font-size: 17px;
+    line-height: 19px;
     background: transparent;
     margin-bottom: 5px;
     box-shadow: none;
@@ -412,13 +414,14 @@ div.wpt-wrap.wpt-wrap tr.stock_status_outofstock input[type=checkbox]+label{
 .wpt-wrap .wpt_quick_qty input.input-text.qty.text{
   padding: 0;
   text-align: center;
-  width: 55px;
+  min-width: 25px;
   border-radius: 2px;
-  font-size: 14px;
-  line-height: 16px;
+  font-size: 16px;
+  line-height: 18px;
   height: 33px;
   margin: 0;
   box-shadow: unset;
+  max-width: 55px;
 }
 .wpt-wrap .qib-button-wrapper .quantity input.input-text.qty.text{
   border-radius: 0;

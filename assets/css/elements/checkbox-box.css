@@ -14,15 +14,15 @@
 }
 .all_check_header_footer.all_check_header>span {
     display: flex;
-    padding: 7px;
+    padding: 9px;
     justify-content: center;
     align-items: center;
     border-radius: 2px;
     line-height: 24px;
 }
 .all_check_header_footer .button.add_to_cart_all_selected {
-    padding: 7px 30px;
-    font-size: 14px;
+    padding: 9px 30px;
+    font-size: 16px;
     line-height: 21px;
     font-weight: 400;
     border: 0;

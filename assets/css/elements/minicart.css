@@ -148,15 +148,7 @@ div.tables_cart_message_box div.widget_shopping_cart_content li.woocommerce-mini
 }
 
 @media only screen and (max-width: 760px) {
-    .wpt-wrap div.tables_cart_message_box div.widget_shopping_cart_content .buttons {
-        bottom: 2px;
-        right: 0;
-        top: unset;
-    }
 
-    .wpt-wrap div.tables_cart_message_box div.widget_shopping_cart_content ul.woocommerce-mini-cart.cart_list.product_list_widget {
-        margin: 2px 0 15px 0;
-    }
 }
 .wpt-wrap div.tables_cart_message_box div.widget_shopping_cart_content li.woocommerce-mini-cart-item.mini_cart_item {
     position: relative;

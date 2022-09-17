@@ -1,5 +1,5 @@
 .wpt-wrap .wpt_table_tag_wrapper {
-    background: var(--wpt_white);
+    background: var(--wpt_table_bg);
 }
 .wpt-wrap .woocommerce-mini-cart__buttons.buttons a {
     background: var(--wpt_primary)!important;
@@ -45,6 +45,7 @@ body.wpt_table_body .wpt-wrap table tbody tr a.button.add_to_cart_button.alt.wc-
 body.wpt_table_body .wpt-wrap table tbody tr a.button.add_to_cart_button.adding.wc-variation-selection-needed {
     background: var(--wpt_primary);
     border: 1px solid var(--wpt_primary);
+    color: var(--wpt_btn_color);
 
 }
 
@@ -54,7 +55,7 @@ body.wpt_table_body .wpt-wrap table tbody tr a.button.add_to_cart_button:hover.a
 body.wpt_table_body .wpt-wrap table tbody tr a.button.add_to_cart_button:hover.alt.wc-variation-selection-needed,
 body.wpt_table_body .wpt-wrap table tbody tr a.button.add_to_cart_button:hover.adding.wc-variation-selection-needed {
     background: transparent;
-    color: var(--wpt_primary);
+    color: var(--wpt_btn_color_hover);
     border: 1px solid var(--wpt_primary);
 }
 button.single_add_to_cart_button >span.wpt_ccount i.animate-spin, a.button.wpt_woo_add_cart_button>span.wpt_ccount  i.animate-spin{
@@ -67,11 +68,11 @@ button.single_add_to_cart_button >span.wpt_ccount, a.button.wpt_woo_add_cart_but
 }
 
 .wpt-wrap tr.wpt_table_header_row.wpt_table_head th {
-    color: var(--wpt_white);
+    color: var(--wpt_thead_text);
 }
 
 .wpt-wrap table tbody td {
-    color: var(--wpt_text);
+    color: var(--wpt_thead_bg);
 }
 
 .wpt-wrap tbody tr td .music_title {
@@ -300,7 +301,7 @@ p.stars a:hover:after,
 p.stars a:after,
 .star-rating span:before,
 #payment .payment_methods li input[type=radio]:first-child:checked+label:before {
-    color: var(--wpt_primary);
+    color: var(--wpt_review);
 }
 
 

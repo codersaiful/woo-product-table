@@ -755,9 +755,8 @@ div.wpt-footer-cart-wrapper>a:after, div.wpt-footer-cart-wrapper>a {
 }
 /*------new for per product End-- a.button.wpt_woo_add_cart_button>span.wpt_ccount:empty{display: none;}------*/
 
-table.wpt_product_table tr.wpt_selected_tr .wpt_product_title_in_td
-{
-    font-style: italic;
+table.wpt_product_table tr.wpt_selected_tr .wpt_product_title_in_td {
+    font-weight: 600 !important;
 }
 
 /*Responsive Version is here*/
@@ -1556,12 +1555,6 @@ select.search_select.cascade-filtering {
         display: none;
     }
 
-    tr.wpt_table_header_row.wpt_table_head th {
-        position: sticky;
-        top: 0; /* Don't forget this, required for the stickiness */
-        /* box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4); */
-        z-index: 2;
-      }
 
 th.wpt_price {
     text-align: left; 
