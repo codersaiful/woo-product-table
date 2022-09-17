@@ -43,7 +43,7 @@ body.wpt_table_body .wpt-wrap table tbody tr a.button.single_add_to_cart_button 
 body.wpt_table_body .wpt-wrap table tbody tr a.button.add_to_cart_button.adding,
 body.wpt_table_body .wpt-wrap table tbody tr a.button.add_to_cart_button.alt.wc-variation-selection-needed,
 body.wpt_table_body .wpt-wrap table tbody tr a.button.add_to_cart_button.adding.wc-variation-selection-needed {
-    background: var(--wpt_primary) !important;
+    background: var(--wpt_primary);
     border: 1px solid var(--wpt_primary);
 
 }
@@ -53,8 +53,8 @@ body.wpt_table_body .wpt-wrap table tbody tr a.button.single_add_to_cart_button:
 body.wpt_table_body .wpt-wrap table tbody tr a.button.add_to_cart_button:hover.adding,
 body.wpt_table_body .wpt-wrap table tbody tr a.button.add_to_cart_button:hover.alt.wc-variation-selection-needed,
 body.wpt_table_body .wpt-wrap table tbody tr a.button.add_to_cart_button:hover.adding.wc-variation-selection-needed {
-    background: transparent !important;
-    color: var(--wpt_primary) !important;
+    background: transparent;
+    color: var(--wpt_primary);
     border: 1px solid var(--wpt_primary);
 }
 button.single_add_to_cart_button >span.wpt_ccount i.animate-spin, a.button.wpt_woo_add_cart_button>span.wpt_ccount  i.animate-spin{
