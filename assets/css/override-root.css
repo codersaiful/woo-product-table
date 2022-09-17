@@ -252,7 +252,7 @@ body.wpt_table_body .wpt-wrap button:focus {
 /*----- Quantity ---------*/
 .wpt-wrap .qib-button-wrapper button.qib-button {
     color: var(--wpt_primary);
-    border: 1px solid var(--wpt-default-dark-border);
+    border: 1px solid var(--wpt_secondary_light);
 
 }
 
@@ -288,7 +288,7 @@ body.wpt_table_body .wpt-wrap .qib-button.qib-button-wrapper .plus.qib-button:ho
 }
 .wpt-wrap select,
 .wpt_varition_section select {
-    border: 1px solid var(--wpt-default-dark-border);
+    border: 1px solid var(--wpt_secondary_light);
 }
 
 .wpt-wrap .wpt_load_more {

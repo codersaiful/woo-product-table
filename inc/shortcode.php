@@ -448,6 +448,10 @@ class Shortcode extends Shortcode_Base{
             $this->load_css_element( 'footer-cart' );
         }
         
+        if( $this->search_box ){
+            $this->load_css_element( 'searchbox' );
+        }
+        
         if( $this->checkbox_validation ){
             $this->load_css_element( 'checkbox-box' );
         }

@@ -318,21 +318,13 @@ a.remove_cart_icon:hover{
 
 /************ Style for Search Box, New added at Version: 1.9 */
 .wpt_search_box {
-    padding: 5px 0;
-    font-size: 12px;
-    margin-bottom: 5px;
-    text-align: center;
+    display: block;
+    font-size: 16;
+    line-height: 17px;
+    font-weight: normal;
+    width: 100%;
 }
-.search_box_fixer{padding: 3px;}
-.wpt_search_box{overflow: hidden;}
-.wpt_search_box .search_box_wrapper {
-    display: flex;
-    align-items: end;
-}
-.wpt_device_mobile .wpt_search_box .search_box_wrapper {
-    display: flex;
-    flex-direction: column;
-}
+
 .wpt_search_box .wpt_search_button {
     width: 50%;
     margin-top: 10px;
@@ -340,15 +332,8 @@ a.remove_cart_icon:hover{
 .search_single label.search_keyword_label {
     display: block;
 }
-.wpt_search_box .search_single {
-    width: 100%;
-    box-sizing: border-box;
-    margin-top: 10px;
-}
 
-.wpt_search_box select.search_select {
-    width: 98%;
-}
+
 h3.search_box_label {
     line-height: 16px;
     font-size: 16px;
@@ -366,19 +351,7 @@ h3.search_box_label {
     padding-left: 10px;
 }
 
-.search_single.search_single_direct {
-    clear: both;
-    box-sizing: border-box;
-    display: flex;
-    width: 100%;
-    margin: auto;
-    min-height: 48px;
-    margin-top: 10px;
-}
-.search_single_column {
-    display: block;
-    width: 100%;
-}
+
 button.button.wpt_search_button {
     visibility: hidden;
     padding: 0;
@@ -1616,18 +1589,7 @@ select.search_select.cascade-filtering {
         z-index: 2;
       }
 
-
-      .search_box_wrapper select {
-        font-size: 14px;
-        line-height: 2;
-        box-shadow: none;
-        -webkit-appearance: none;
-        background: #fff url(data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M5%206l5%205%205-5%202%201-7%207-7-7%202-1z%22%20fill%3D%22%23555%22%2F%3E%3C%2Fsvg%3E) no-repeat right 10px top 55%;
-        background-size: 16px 16px;
-        cursor: pointer;
-        vertical-align: middle;
-    }
-    th.wpt_price {
+th.wpt_price {
     text-align: left; 
 }  
 
