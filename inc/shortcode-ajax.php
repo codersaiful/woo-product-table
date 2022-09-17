@@ -22,11 +22,13 @@ class Shortcode_Ajax extends Shortcode{
 
         $args = $_POST['args'] ?? [];
         $args = $this->arrayFilter( $args );
+        $temp_args = $args;
+        unset($temp_args['base_link']);
 
         //It's need to the beginning of this process.
         $this->assing_property($atts); 
         
-        if( is_array( $args ) && ! empty( $args ) ){
+        if( is_array( $temp_args ) && ! empty( $temp_args ) ){
 
             if( $this->whole_search ){
 
@@ -37,7 +39,7 @@ class Shortcode_Ajax extends Shortcode{
                 unset($this->args['meta_query']);
             }
             
-            $this->args = array_merge( $this->args, $args );
+            $this->args = array_merge( $this->args, $temp_args );
         }
 
 
