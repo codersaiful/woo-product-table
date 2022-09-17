@@ -60,8 +60,10 @@ class Fragment extends Shortcode_Base{
      * @return void
      */
     public function run(){
+        if($this->footer_cart){
+            add_filter( 'woocommerce_add_to_cart_fragments',[$this, 'fragments'] );
+        }
         
-        add_filter( 'woocommerce_add_to_cart_fragments',[$this, 'fragments'] );
     }
 
 

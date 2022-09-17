@@ -182,9 +182,9 @@ p.wpt-product-notfound-cart {
     padding-left: 2px;
     overflow: hidden;
     align-items: center;
-    /* gap: 3px; */
-    font-size: 14px;
-    line-height: 14px;
+    gap: 0;
+    font-size: 16px;
+    line-height: 17px;
 }
 .wpt-cart-contents span.woocommerce-Price-amount.amount,
 .wpt-cart-contents span.count,
@@ -221,9 +221,11 @@ body.wpt-footer-cart-expand .wpt-cart-contents span.count {
 .wpt-cart-contents span.wpt_empty_cart_btn:hover {
     color: #ffeb3b;
 }
-.wpt-cart-contents span.wpt_empty_cart_btn>i {
-    font-size: 14px;
-    line-height: 14px;
+.lister-ins>ul>li {
+    font-size: 15px;
+    line-height: 19px;
+    padding-bottom: 3px;
+    padding-top: 3px;
 }
 .wpt-fcart-anim::after {
     content: "";
