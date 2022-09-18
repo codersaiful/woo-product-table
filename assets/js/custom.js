@@ -1157,6 +1157,7 @@ jQuery(function($) {
          * all selected product add to cart from here
          */
         $('div.normal_table_wrapper a.button.add_to_cart_all_selected').click(function() {
+            footerCartAnimation();
             var temp_number = $(this).data('temp_number');
             config_json = getConfig_json( temp_number ); 
             var checkoutURL = WPT_DATA.checkout_url;
