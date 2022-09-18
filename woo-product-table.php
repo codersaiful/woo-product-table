@@ -9,9 +9,9 @@
  * 
  * Version: 3.2.5
  * Requires at least:    4.0.0
- * Tested up to:         6.0.1
+ * Tested up to:         6.0.2
  * WC requires at least: 3.0.0
- * WC tested up to: 	 6.8.2
+ * WC tested up to: 	 6.9.2
  * 
  * 
  * Text Domain: wpt_pro
