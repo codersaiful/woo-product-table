@@ -166,8 +166,9 @@ jQuery(function($) {
 
 
         $(document.body).on('click','.wpt-query-reset-button',function(){
-            $(this).closest('.wpt-search-full-wrapper').find('.query_box_direct_value').val('').change();
+            $(this).closest('.wpt-search-full-wrapper').find('.query_box_direct_value').val('');
             $(this).closest('.wpt-search-full-wrapper').find('select').val('').change();
+            $(this).closest('.wpt-search-full-wrapper').find('.wpt-search-products').trigger('click');
         });
 
         $(document).on('wc_fragments_refreshed',function(){
