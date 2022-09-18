@@ -201,9 +201,20 @@ span.wpt_product_price .amount {
     color: var(--wpt_black);
   }
   
-  .wpt_product_price del .amount {
+.wpt_product_price del .amount {
     color: var(--wpt_gray);
-  }
+}
+.wpt-wrap div.tables_cart_message_box div.widget_shopping_cart_content .total * {
+    color: var(--wpt_text);
+}
+
+.tables_cart_message_box .widget_shopping_cart_content>p.total span.woocommerce-Price-amount.amount {
+    color: var(--wpt_primary);
+}
+
+.tables_cart_message_box .widget_shopping_cart_content>p.total span.woocommerce-Price-currencySymbol {
+    color: var(--wpt_primary_deepest);
+}
 /*=========Search Box==========*/
 .search_box_fixer>.search_box_label{
     /* background: var(--wpt_secondary); */

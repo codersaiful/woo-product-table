@@ -371,6 +371,9 @@ div.wpt-wrap.wpt-wrap tr.stock_status_outofstock input[type=checkbox]+label{
 .wpt-wrap .select2-container--default .select2-selection--single .select2-selection__rendered {
   font-size: 15px;
 }
+.wpt-wrap .select2-container--default .select2-selection--single {
+  border-radius: 2px;
+}
 
 /*Search bar*/
   
