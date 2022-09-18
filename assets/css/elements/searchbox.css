@@ -26,20 +26,31 @@
 }
 .wpt_search_box .search_box_wrapper>*,
 .wpt_search_box .search_box_wrapper .search_single {
-    flex-grow: 3;
-    min-width: 320px;
+    flex-grow: 4;
+    min-width: 250px;
+    flex-basis: 0;
 }
-.wpt_search_box .search_box_wrapper .search_single.search_single_direct{
+.wpt_search_box .search_box_wrapper .keyword-s-wrapper.search_single_direct {
     flex: 1 100%;
+    display: flex;
+    align-items: self-end;
+    gap: 10px;
 }
-.wpt_search_box .search_box_wrapper .search_single{
-    /* border: 1px solid gray; */
-}
+
 .wpt_search_box .search_box_wrapper .search_single select{
     width: 100%;
 }
 
-
+button.wpt-query-reset-button {
+    width: 53px !important;
+    text-align: center !important;
+    padding: 9px 15px;
+    height: 40px !important;
+    line-height: 20px;
+    float: unset;
+    border-radius: 2px;
+    margin: 0;
+}
 
 
 /* Extra small devices (phones, 600px and down) */

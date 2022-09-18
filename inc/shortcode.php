@@ -626,7 +626,9 @@ class Shortcode extends Shortcode_Base{
      * @author Saiful Islam <codersaiful@gmail.com>
      */
     public function search_box_render(){
-        
+        ?>
+        <div class="wpt-search-full-wrapper">
+        <?php
         if( $this->search_box ){
             Search_Box::render($this);
         }else{
@@ -645,6 +647,11 @@ class Shortcode extends Shortcode_Base{
          * @author Saiful Islam <codersaiful@gmail.com>
          */
         $this->do_action( 'wpt_after_searchbox' );
+        
+        ?>
+        </div>
+        <?php
+        
     }
 
     /**

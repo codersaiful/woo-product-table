@@ -225,7 +225,14 @@ span.wpt_product_price .amount {
 .wpt-wrap .instance_search_input {
     border: 1px solid #ccd2d3;
 }
-
+button.wpt-query-reset-button {
+    background: var(--wpt_off_white);
+    color: var(--wpt_danger);
+}
+button.wpt-query-reset-button:hover {
+    background: var(--wpt_danger);
+    color: var(--wpt_white);
+}
 
 
 body.wpt_table_body .wpt-wrap a:focus,
