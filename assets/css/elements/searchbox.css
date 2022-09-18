@@ -93,3 +93,10 @@ button.wpt-query-reset-button {
         justify-content: center;
     }
 }
+
+.search_single.search_single_texonomy span.selection span.select2-selection.select2-selection--single,
+.search_single_column span.selection span.select2-selection.select2-selection--single {
+    height: 38px;
+    margin: 0;
+    padding: 4px;
+}
