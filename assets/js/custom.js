@@ -16,15 +16,13 @@ jQuery(function($) {
         //Select2
         if(typeof $('.wpt-wrap .search_select').select2 === 'function' && $('.wpt-wrap .search_select').length > 0 && WPT_DATA.select2 !== 'disable' ){
             var select2Object = {};
-            if( WPT_DATA.search_select_placeholder !== '' ){
+            var multiple = $('.wpt-wrap .search_select').attr('multiple');
+            if( WPT_DATA.search_select_placeholder !== '' && multiple == 'multiple' ){
                 select2Object = {
-                    placeholder: WPT_DATA.search_select_placeholder
+                    placeholder: WPT_DATA.search_select_placeholder,
+                    allowClear: true,
                 };
             }
-
-            Object.assign(select2Object,{
-                allowClear: true,
-            });
             
             $('.wpt-wrap .search_select.query').select2(select2Object);
 
