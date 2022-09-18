@@ -151,7 +151,22 @@ foreach($terms as $term){
 
                 //WooCommerce Product Category Object as Array
                 $tax_object = get_terms( $per_keyword, $args );
+                // var_dump($meta_search_n_filter[$per_keyword] ?? 'ss');
                 if( !isset( $tax_object->errors ) ){
+                    $my_tax_obj = [];
+                    foreach($tax_object as $key => $value){
+                        $my_tax_obj[$value->term_id] = $value;
+                    }
+                    $tax_object = $my_tax_obj;
+                    $selected = $meta_search_n_filter[$per_keyword] ?? false;
+                    $newArrs = [];
+                    if( is_array( $selected ) && is_array( $tax_object ) ){
+                        foreach( $selected as $ky ){
+                            $newArrs[$ky] = $tax_object[$ky];
+                        }
+                        
+                        $tax_object = $newArrs + $tax_object;
+                    }
     ?>
         <table class="ultraaddons-table wpt_snf_on_off ">
             <tr>
