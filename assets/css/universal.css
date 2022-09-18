@@ -1169,7 +1169,14 @@ div.wpt-wrap .elementor-menu-cart__product-image img {
 }
 .wpt_filter_wrapper {
     display: flex;
-    padding: 10px 0;
+    padding: 0;
+    gap: 10px 10px;
+    justify-content: start;
+    flex-wrap: wrap;
+}
+.wpt_filter_wrapper .search_single_column {
+    flex-grow: 3;
+    min-width: 320px;
 }
 
 .wpt_filter_wrapper label, .wpt_filter_wrapper a, .wpt_filter_wrapper select {

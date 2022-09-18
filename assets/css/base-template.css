@@ -336,7 +336,8 @@ div.wpt-wrap.wpt-wrap tr.stock_status_outofstock input[type=checkbox]+label{
 
   
 /*Search Box*/
-.wpt_search_box .search_box_wrapper .search_single>label {
+.wpt_search_box .search_box_wrapper .search_single>label,
+.wpt_filter_wrapper .search_single_column>label{
   margin-bottom: 8px;
   color: black;
 }
@@ -351,6 +352,7 @@ div.wpt-wrap.wpt-wrap tr.stock_status_outofstock input[type=checkbox]+label{
   font-weight: 400;
   line-height: 14px;
 }
+.wpt_filter_wrapper .search_single_column>*,
 .wpt-wrap .search_box_wrapper .search_single>* {
   display: block;
   width: 100%;
