@@ -319,10 +319,11 @@ a.remove_cart_icon:hover{
 /************ Style for Search Box, New added at Version: 1.9 */
 .wpt_search_box {
     display: block;
-    font-size: 16;
+    font-size: 16px;
     line-height: 17px;
     font-weight: normal;
     width: 100%;
+    margin-bottom: 15px;
 }
 
 

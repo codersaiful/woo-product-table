@@ -336,6 +336,10 @@ div.wpt-wrap.wpt-wrap tr.stock_status_outofstock input[type=checkbox]+label{
 
   
 /*Search Box*/
+.wpt_search_box .search_box_wrapper .search_single>label {
+  margin-bottom: 8px;
+  color: black;
+}
 .wpt-wrap .search_single .query_box_direct_value,
 .wpt-wrap .instance_search_input {
   width: 100%;
@@ -347,11 +351,14 @@ div.wpt-wrap.wpt-wrap tr.stock_status_outofstock input[type=checkbox]+label{
   font-weight: 400;
   line-height: 14px;
 }
-.wpt-wrap .wpt_search_box .search_box_wrapper .search_single.search_single_direct {
-    display: flex;
-    justify-content: center;
-    align-items: end;
-  }
+.wpt-wrap .search_box_wrapper .search_single>* {
+  display: block;
+  width: 100%;
+}
+.wpt-wrap .wpt_search_box .select2-container {
+  width: 100% !important;
+}
+
 
 .wpt-wrap .select2-container .select2-selection--multiple {
   min-height: 42px;
@@ -454,8 +461,8 @@ body.wpt_table_body .wpt-wrap .qib-button.qib-button-wrapper .plus.qib-button{
   transition: all .5s;
 }
 .search_box_wrapper span.select2-selection__clear {
-  padding: 0px 5px;
-  transition: all .3s;
+  padding: 0px 12px;
+  transition: all .2s;
 }
 .search_box_wrapper span.select2-selection__clear:hover {
   color: white;

@@ -67,7 +67,7 @@ if( ! function_exists( 'wpt_texonomy_search_generator' ) ){
         $html .= "<div class='search_single search_single_texonomy search_single_{$texonomy_keyword}'>";
         $html .= "<label class='search_keyword_label {$texonomy_keyword}' for='{$texonomy_keyword}_{$temp_number}'>{$label}</label>";
 
-        $multiple_selectable = apply_filters( 'wpto_is_multiple_selectable', true, $texonomy_keyword, $temp_number ) ? 'multiple' : '';
+        $multiple_selectable = apply_filters( 'wpto_is_multiple_selectable', false, $texonomy_keyword, $temp_number ) ? 'multiple' : '';
 
         $defaults = array(
 		'show_option_all'   => '',
