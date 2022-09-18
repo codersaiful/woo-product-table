@@ -3,7 +3,7 @@ Contributors: codersaiful,codeastrology
 Donate link: https://wooproducttable.com/pricing/?ref=CodeAstrology&utm_source=WPT_Installed_DonateLink
 Tags: wc product table, wooproducttable, woo product table,woocommerce product table, product table, wc table, quick order table, wholesale table, restaurants table
 Requires at least: 4.0.0
-Tested up to: 6.0.1
+Tested up to: 6.0.2
 Stable tag: 3.2.4
 Requires PHP: 5.6
 License: GPLv2 or later
