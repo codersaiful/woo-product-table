@@ -151,11 +151,13 @@ jQuery(function($) {
             
 
             var s= $('#search_box_' + table_id + ' .search_single_direct .query-keyword-input-box').val();
+            var orderby= $('#search_box_' + table_id + ' .search_single_order_by select').val();
             
             
             var args = {
                 s: s,
                 tax_query: tax_query,
+                orderby: orderby,
                 meta_query: meta_query,
                 base_link:base_link,
             };
@@ -335,51 +337,3 @@ jQuery(function($) {
 
     });
 });
-(function( $ ) {
-
-    $.TableLoadAjax = function(table_id,args,page_number,ajax_url) {
-        console.log(table_id,args,page_number);
-        
-        var thisTable = $('#table_id_' + table_id);
-        if( thisTable.length < 1 ){
-            console.log("Error on: loadTablePagi. Table not founded!");
-            return;
-        }
-        var data = {
-            action: 'wpt_load_both',
-            table_id: table_id,
-            page_number: page_number,
-            args: args,
-        };
-        thisTable.addClass('wpt-ajax-loading'); //.wpt-wrap.wpt-ajax-loading
-        $.ajax({
-            type: 'POST',
-            url: ajax_url,
-            data: data,
-            success:function(result){
-                $('.wpt_edit_table').html(result);
-                // if ( result === 5) {
-                //     $.each( result, function( key, value ) {
-                //         if('string' === typeof key){
-                //             let selectedElement = $('#table_id_' + table_id + ' ' + key);
-                //             if(typeof selectedElement === 'object'){
-                //                 selectedElement.html( value );
-                //             }
-                //         }
-                //     });
-                // }
-
-                thisTable.removeClass('wpt-ajax-loading');
-
-            },
-            complete:function(){
-                thisTable.removeClass('wpt-ajax-loading');
-            },
-            error:function(){
-                thisTable.removeClass('wpt-ajax-loading');
-                console.log("Error on: loadTablePagi. Error on Ajax load!");
-            }
-        });
-    };
- 
-}( jQuery ));
