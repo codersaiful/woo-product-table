@@ -27,6 +27,7 @@ jQuery(function($) {
             $('.wpt-wrap .search_select.query').select2(select2Object);
 
             $('select.filter_select').select2();
+            $('.keyword-s-wrapper select').select2();
 
         }
         var windowWidth = $(window).width();

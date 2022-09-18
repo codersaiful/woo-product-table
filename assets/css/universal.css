@@ -323,9 +323,8 @@ a.remove_cart_icon:hover{
     line-height: 17px;
     font-weight: normal;
     width: 100%;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
-
 
 button.button.wpt_search_button {
     visibility: hidden;

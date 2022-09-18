@@ -45,7 +45,7 @@ class Search_Box{
             $html .= "<div class='search_single search_single_direct keyword-s-wrapper'>";
             $html .= $html_inputBox;
             $html .= $extra_html;
-            $html .= "<button class='wpt-query-reset-button' title='" . __('Reset','wpt_pro') . "'> <i class='wpt-spin6'></i></button>"; //end of .search_single
+            $html .= "<button class='wpt-query-reset-button' title='" . __('Reset','wpt_pro') . "'> <i class='wpt-spin3'></i></button>"; //end of .search_single
             $html .= "</div>"; //end of .search_single
             
         }
