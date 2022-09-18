@@ -107,12 +107,20 @@ foreach($terms as $term){
                     if( is_string( $taxonomy_keywords ) && ! empty( $taxonomy_keywords ) ){
                         $taxonomy_keywords = wpt_explode_string_to_array( $taxonomy_keywords );
                     }
+
+                    $newArrs = [];
+                    if( is_array( $taxonomy_keywords ) && is_array( $allTerms ) ){
+                        foreach( $taxonomy_keywords as $ky ){
+                            $newArrs[$ky] = $allTerms[$ky];
+                        }
+                        $newArrs = array_merge($newArrs, $allTerms);
+                    }
                     
                     
                     ?>
                     <select name="search_n_filter[taxonomy_keywords][]" class="wpt_fullwidth wpt_data_filed_atts wpt_select2 ua_input" multiple>
                         <?php
-                        foreach($allTerms as $eTerms){
+                        foreach($newArrs as $eTerms){
                             $taxonomy_details = get_taxonomy( $eTerms );
                             $label = $taxonomy_details->labels->menu_name ?? '';
                             if(empty($label)) continue;
@@ -132,7 +140,7 @@ foreach($terms as $term){
             // $snf_keywords = $meta_search_n_filter['taxonomy_keywords'];
             $snf_keywords = $taxonomy_keywords;//explode( ',', $snf_keywords );
 
-
+            
             foreach( $snf_keywords as $per_keyword ){
 
                 $args = array(
@@ -209,10 +217,21 @@ foreach($terms as $term){
                     
                     $mini_filter_keywords = $meta_search_n_filter['filter'] ?? $default_tax;
                     
+                    if( is_string( $mini_filter_keywords ) && ! empty( $mini_filter_keywords ) ){
+                        $mini_filter_keywords = wpt_explode_string_to_array( $mini_filter_keywords );
+                    }
+
+                    $newArrs = [];
+                    if( is_array( $mini_filter_keywords ) && is_array( $allTerms ) ){
+                        foreach( $mini_filter_keywords as $ky ){
+                            $newArrs[$ky] = $allTerms[$ky];
+                        }
+                        $newArrs = array_merge($newArrs, $allTerms);
+                    }
                     ?>
                     <select name="search_n_filter[filter][]" multiple class="wpt_fullwidth wpt_data_filed_atts wpt_select2 ua_input">
                         <?php
-                        foreach($allTerms as $eTerms){
+                        foreach($newArrs as $eTerms){
                             $taxonomy_details = get_taxonomy( $eTerms );
                             $label = $taxonomy_details->labels->menu_name ?? '';
                             if(empty($label)) continue;
