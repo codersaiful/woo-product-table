@@ -159,9 +159,7 @@ tr.visible_row.wpt_row td a.wpt_woo_add_cart_button.disabled{
   padding-top: 15px;
 }
 
-.wpt-wrap table.wpt-tbl tr.wpt-row{
-  box-shadow: 0px -1px 0px 0px #0000000d;
-}
+
 .wpt-wrap table tbody tr:not(.spacer) {
     border-radius: 0;
     overflow: hidden;

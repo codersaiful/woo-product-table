@@ -1,5 +1,13 @@
-.wpt-wrap .wpt_table_tag_wrapper {
+.wpt-wrap .wpt_table_tag_wrapper table.wpt-tbl {
     background: var(--wpt_table_bg);
+}
+.wpt-wrap table.wpt-tbl tr:nth-child(2n+2) {
+  background: var(--wpt_table_tr_odd);
+}
+
+
+.wpt-wrap table.wpt-tbl tr.wpt-row{
+    box-shadow: 0px -1px 0px 0px var(--wpt_table_tr_boder);
 }
 .wpt-wrap .woocommerce-mini-cart__buttons.buttons a {
     background: var(--wpt_primary)!important;
@@ -30,7 +38,10 @@ body.wpt_table_body .wpt-wrap table thead th {
 }
 
 .wpt-wrap table.wpt-tbl tbody td .wpt_product_title_in_td {
-    color: var(--wpt_primary_deepest);
+    color: var(--wpt_product_title);
+}
+.wpt-wrap table.wpt-tbl tbody td:hover .wpt_product_title_in_td {
+    color: var(--wpt_product_title_hover);
 }
 
 .wpt-wrap table span.wpt-pro-tag-on-sale {
@@ -81,12 +92,15 @@ button.single_add_to_cart_button >span.wpt_ccount, a.button.wpt_woo_add_cart_but
 
 
 .wpt-wrap table tbody tr td a {
-    color: var(--wpt_primary);
+    color: var(--wpt_link);
+}
+.wpt-wrap table tbody tr td a:hover {
+    color: var(--wpt_link_hover);
 }
 
 /* tr.wpt-row.wpt-added-to-cart>td:last-child::after, */
 tr.wpt-row.wpt-added-to-cart>td:first-child:before {
-    background: var(--wpt_green_signal);
+    background: var(--wpt_cart_highliter);
 }
 
 
@@ -158,11 +172,7 @@ tr.visible_row.wpt_row td a.wpt_woo_add_cart_button.disabled {
 }
 
 
-.wpt-wrap table td,
-.wpt-wrap table:not(.has-background) th {
-    background-color: var(--wpt_primary);
 
-}
 
 /* product description fatima  */
 body.wpt_table_body .wpt-wrap table tbody tr.wpt_row>td .product_description {

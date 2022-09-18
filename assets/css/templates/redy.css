@@ -9,6 +9,7 @@
     --wpt_secondary_light: #fff4f4;
 
     --wpt_link: #df0206;
+    --wpt_link_hover: #ff2626;
     --wpt_link_deep: #7c0002;
     --wpt_link_light: #ff2b2f;
     
@@ -20,7 +21,7 @@
 
     --wpt_warning: #ffeb3b;
   --wpt_danger: #9C27B0;
-  --wpt_green_signal: #8bc34a;
+  --wpt_cart_highliter: #8bc34a;
 
   --wpt_off_white: #14141414;
   --wpt_deep_off_white: #cbcbcb;
@@ -28,14 +29,16 @@
   --wpt_gray: gray;
   --wpt_black: #000000;
 
-  
   --wpt_review: #ffc107;
   --wpt_thead_bg: var(--wpt_primary);
   --wpt_thead_text: var(--wpt_white);
 
+  --wpt_product_title: var(--wpt_primary_deepest);
+  --wpt_product_title_hover: var(--wpt_primary);
+  
   --wpt_table_bg: var(--wpt_white);
-  --wpt_table_tr_odd: #00000005;
-  --wpt_table_tr_even: transparent;
+  --wpt_table_tr_odd: #dd000005;
+  --wpt_table_tr_boder: #0000000d;
 
   --wpt_btn_color: var(--wpt_white);
   --wpt_btn_color_hover: var(--wpt_primary);
