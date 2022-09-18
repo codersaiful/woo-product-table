@@ -152,12 +152,14 @@ jQuery(function($) {
 
             var s= $('#search_box_' + table_id + ' .search_single_direct .query-keyword-input-box').val();
             var orderby= $('#search_box_' + table_id + ' .search_single_order_by select').val();
+            var on_sale= $('#search_box_' + table_id + ' .search_single_order select').val();
             
             
             var args = {
                 s: s,
                 tax_query: tax_query,
                 orderby: orderby,
+                on_sale: on_sale,
                 meta_query: meta_query,
                 base_link:base_link,
             };

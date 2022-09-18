@@ -24,12 +24,10 @@ class Shortcode_Ajax extends Shortcode{
         $args = $this->arrayFilter( $args );
         $temp_args = $args;
         unset($temp_args['base_link']);
-
+        
         //It's need to the beginning of this process.
         $this->assing_property($atts); 
-        
         if( is_array( $temp_args ) && ! empty( $temp_args ) ){
-
             if( $this->whole_search ){
 
                 unset($this->args['post__in']);
