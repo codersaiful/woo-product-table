@@ -1694,7 +1694,7 @@ table.add_cart_right_icon tr .wpt_action a.button:after {
     top: 0;
     left: 0;
     z-index: 999;
-    border-radius: 10px;
+    border-radius: 2px;
 }
 .button.wpt-search-products{display: none;}
 
@@ -1704,7 +1704,7 @@ div.wpt-ajax-loading {
     /* opacity: 0.9; */
 }
 div.tables_cart_message_box.wpt-ajax-loading{
-    padding: 10px;
+    padding: 0;
 }
 div.wpt-wrap.woocommerce.wpt-ajax-loading:before{display: none;}
 
