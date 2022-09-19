@@ -316,6 +316,7 @@ body.wpt_table_body .wpt-wrap .qib-button.qib-button-wrapper .plus.qib-button:ho
     color: var(--wpt_danger);
     border: 1px solid var(--wpt_off_white);
     background-color: var(--wpt_table_bg);
+    display: none;
 }
 /*Message*/
 .wpt-wrap td.wpt_message div>input.message, 
