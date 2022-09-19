@@ -323,7 +323,6 @@ a.remove_cart_icon:hover{
     line-height: 17px;
     font-weight: normal;
     width: 100%;
-    margin-bottom: 10px;
 }
 
 button.button.wpt_search_button {
@@ -550,9 +549,13 @@ body.wpt_pro_table #yith-quick-view-content div.summary {
 /*CSS Style for Attribute End*/
 /*Pagination Style page-numbers current */
 .wpt_table_pagination {
-    display: block;
-    margin: 15px 0;
+    display: flex;
+    margin: 0;
     text-align: center;
+    align-items: center;
+    justify-content: center;
+    column-count: 2;
+    column-gap: 5px;
 }
 
 .wpt_table_pagination a.page-numbers,.wpt_table_pagination span.page-numbers {
@@ -1224,9 +1227,11 @@ div.wpt-wrap .elementor-menu-cart__product-image img {
     background: #dddddd2b;
     padding: 10px;
     display: inline-block;
-    margin: 10px 0;
+    margin: 0;
 }
-
+.wpt_edit_table > a:hover {
+    background: rgb(0, 0, 0);
+}
 .wpt_search_box .search_box_wrapper {
     position: relative;
 }
@@ -1710,20 +1715,13 @@ div.wpt-wrap.woocommerce.wpt-ajax-loading:before{display: none;}
 
 .wpt-stats-report {
     display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    gap: 10px;
 }
-
 .wpt-stats-report>p {
     padding: 0;
     margin: 0;
-    width: 50%;
-}
-
-p.wpt-stats-page-count {
-    text-align: right;
-}
-
-.add_to_cart_button.added{
-    float: left;
 }
 
 span.wpt-cart-remove {

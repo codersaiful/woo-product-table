@@ -1,6 +1,7 @@
+
 .wpt-wrap .wpt_table_tag_wrapper {
   box-shadow: 0 10px 15px 0 #00000017;
-  margin-bottom: 25px;
+  margin-bottom: 15px; /*25px*/
   background: white;
 }
 .wpt-wrap .wpt_table_tag_wrapper table,
@@ -210,12 +211,7 @@ tr.wpt-row.wpt-added-to-cart>td:last-child::after {
   .wpt-wrap .custom_table .wpt_row td img {
     border-radius: 3px;
   }
-  .wpt-wrap .wpt_edit_table>a {
-    font-size: 18px;
-    color: #25252b;
-    background: #ffffff;
-    border: 1px solid #ddd;
-  }
+
 .wpt-wrap table#wpt_table.wpt_product_table a.added_to_cart.wc-forward {
   font-size: 12px;
   padding: 2px 5px;
@@ -294,9 +290,8 @@ div.wpt-wrap.wpt-wrap tr.stock_status_outofstock input[type=checkbox]+label{
   padding: 0;
   font-size: 16px;
   font-family: inherit;
-  text-transform: uppercase;
   height: 38px;
-  margin: 15px 0;
+  margin:0;
 }
 .wpt-wrap .td_or_cell.wpt_check {
   display: table-cell !important

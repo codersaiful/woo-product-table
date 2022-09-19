@@ -40,10 +40,10 @@ class Basics extends Shortcode_Base{
         if( ! current_user_can( WPT_CAPABILITY ) ) return;
 
         ?>
-        <div class="wpt_edit_table">
+        <div title="<?php echo esc_attr( 'ONLY FOR ADMIN USER', 'wpt_pro' ); ?>" class="wpt_edit_table">
             <a href="<?php echo esc_attr( admin_url( 'post.php?post=' . $shortcode->table_id . '&action=edit&classic-editor' ) ); ?>" 
                             target="_blank"
-                            title="<?php echo esc_attr( 'Edit your table. It will open on new tab.', 'wpt_pro' ); ?>"
+                            title="<?php echo esc_attr( '[ONLY FOR ADMIN USER]Edit your table. It will open on new tab.', 'wpt_pro' ); ?>"
                             >
             <?php echo esc_html__( 'Edit Table - ', 'wpt_pro' ); ?>
             <?php echo esc_html( get_the_title( $shortcode->table_id ) ); ?>

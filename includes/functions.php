@@ -1255,7 +1255,7 @@ if( ! function_exists( 'wpt_add_div_at_top' ) ){
     <?php
     }
 }
-add_action( 'wpto_action_before_table', 'wpt_add_div_at_top' );
+// add_action( 'wpto_action_before_table', 'wpt_add_div_at_top' );
 
 if( ! function_exists( 'wpt_item_manage_from_theme' ) ){
 
