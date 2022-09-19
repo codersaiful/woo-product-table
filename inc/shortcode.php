@@ -179,7 +179,7 @@ class Shortcode extends Shortcode_Base{
         class="<?php echo esc_attr( Table_Attr::wrapper_class( $this ) ); ?>">
             <?php
 
-            if( 'top' == $this->minicart_position ){
+            if( 'top' == $this->minicart_position || 'both' == $this->minicart_position ){
                 $this->minicart_render();
             }
 
@@ -239,7 +239,7 @@ class Shortcode extends Shortcode_Base{
             
 
 
-            if( 'bottom' == $this->minicart_position ){
+            if( 'bottom' == $this->minicart_position || 'both' == $this->minicart_position ){
                 $this->minicart_render();
             }
 

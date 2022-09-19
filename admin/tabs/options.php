@@ -52,6 +52,7 @@ $data = isset( $meta_basics['data'] ) ? $meta_basics['data'] : false;
                         <option value="top" <?php echo isset( $meta_basics['minicart_position'] ) && $meta_basics['minicart_position'] == 'top' ? 'selected' : false; ?>><?php esc_html_e( 'Top (Default)', 'wpt_pro' );?></option>
                         <option value="bottom" <?php echo isset( $meta_basics['minicart_position'] ) && $meta_basics['minicart_position'] == 'bottom' ? 'selected' : false; ?>><?php esc_html_e( 'Bottom', 'wpt_pro');?></option>
                         <option value="none" <?php echo isset( $meta_basics['minicart_position'] ) && $meta_basics['minicart_position'] == 'none' ? 'selected' : false; ?>><?php esc_html_e( 'None', 'wpt_pro' );?></option>
+                        <option value="both" <?php echo isset( $meta_basics['minicart_position'] ) && $meta_basics['minicart_position'] == 'both' ? 'selected' : false; ?>><?php esc_html_e( 'Both', 'wpt_pro' );?></option>
                     </select>
                 </td>
             </tr>

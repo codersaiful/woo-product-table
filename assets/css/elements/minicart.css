@@ -165,6 +165,10 @@ div.tables_cart_message_box div.widget_shopping_cart_content li.woocommerce-mini
 .wpt-wrap div.tables_cart_message_box div.widget_shopping_cart_content li.woocommerce-mini-cart-item.mini_cart_item a {
     display: flex;
     column-gap: 5px;
+    white-space: initial;
+}
+.wpt-wrap div.tables_cart_message_box div.widget_shopping_cart_content li.woocommerce-mini-cart-item.mini_cart_item a.remove_from_cart_button{
+    white-space: inherit;
 }
 .wpt-wrap div.tables_cart_message_box li.woocommerce-mini-cart-item.mini_cart_item  dl.variation * {
     display: inline;
