@@ -488,12 +488,6 @@ body.wpt_table_body .wpt-wrap .qib-button.qib-button-wrapper .plus.qib-button{
   box-shadow: unset;
 }
 /*NoticeBoard*/
-div.wpt-wrap.woocommerce {
-  position: relative;
-  box-sizing: border-box;
-  display: block;
-}
-div.wpt-wrap.woocommerce:before,div.wpt-wrap.woocommerce:after{content: "";height:1px;width:100%;clear:both;}
 
 div.wpt_notice_board {
   
