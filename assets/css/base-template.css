@@ -297,8 +297,8 @@ div.wpt-wrap.wpt-wrap tr.stock_status_outofstock input[type=checkbox]+label{
   padding: 0;
   font-size: 16px;
   font-family: inherit;
-  height: 38px;
-  margin:0;
+  margin: 0;
+  flex-wrap: wrap;
 }
 .wpt-wrap .td_or_cell.wpt_check {
   display: table-cell !important

@@ -2749,9 +2749,11 @@ jQuery(function($) {
             $(".wpt_table_tag_wrapper").scrollLeft($(".wpt_second_wrapper").scrollLeft());
         });
         
-        arrangingTDContentForMobile();
+        // arrangingTDContentForMobile();
         function arrangingTDContentForMobile(){
+            return;
             $('table.mobile_responsive tr.wpt_row').each(function(){
+                return;
                 var already_updated = $(this).attr('already');
                 if((typeof already_updated === 'undefined')){
                     $(this).attr('already','yes');
