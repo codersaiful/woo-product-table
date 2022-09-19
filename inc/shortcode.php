@@ -179,9 +179,8 @@ class Shortcode extends Shortcode_Base{
         class="<?php echo esc_attr( Table_Attr::wrapper_class( $this ) ); ?>">
             <?php
 
-            if( 'top' == $this->minicart_position || 'both' == $this->minicart_position ){
-                $this->minicart_render();
-            }
+            //Render Top Minicart here, Condition applied inside method/function
+            $this->minicart_render( 'top' );
 
             $this->search_box_render();
             //Actually this action hook is no need here, because it should called $this->search_box_render() but still we didnt' call over there.
@@ -236,12 +235,9 @@ class Shortcode extends Shortcode_Base{
             }else{
                 Element::loadMore( $this );
             }
-            
 
-
-            if( 'bottom' == $this->minicart_position || 'both' == $this->minicart_position ){
-                $this->minicart_render();
-            }
+            //Render Bottom Minicart here, Condition applied inside method/function
+            $this->minicart_render( 'bottom' );
 
             do_action( 'wpto_table_wrapper_bottom', $this->table_id, $this->args, $this->column_settings, $this->_enable_cols, $this->_config, $this->atts );
             $this->do_action( 'wpt_bottom' );
@@ -664,15 +660,20 @@ class Shortcode extends Shortcode_Base{
      * IT'S FUNCTIONALITY, autoloading will handle from Fragements Class
      * see at inc/handle/fragment 
      *
+     * @param string $position Required, It's can be top,bottom. it will depend on databased set value
      * @return void
      * @author Saiful Islam <codersaiful@gmail.com>
      */
-    public function minicart_render(){
-        ?>
-        <div class='tables_cart_message_box tables_cart_message_box_<?php echo esc_attr( $this->table_id ); ?>' data-type='load'>
-            <div class="widget_shopping_cart_content"></div>
-        </div>
-        <?php   
+    public function minicart_render( $position ){
+        if( 'none' == $this->minicart_position ) return;
+        if( $position == $this->minicart_position || 'both' == $this->minicart_position ){
+            ?>
+            <div class='tables_cart_message_box tables_cart_message_box_<?php echo esc_attr( $this->table_id ); ?>' data-type='load'>
+                <div class="widget_shopping_cart_content"></div>
+            </div>
+            <?php  
+        }
+         
     }
 
     public function __destruct()

@@ -322,7 +322,8 @@ div.wpt-wrap.wpt-wrap tr.stock_status_outofstock input[type=checkbox]+label{
     background: transparent;
     margin-bottom: 5px;
     box-shadow: none;
-    white-space: nowrap;
+    min-width: 200px;
+    display: block;
 }
   
   /* product description  */
