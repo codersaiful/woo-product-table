@@ -1710,7 +1710,7 @@ jQuery(function($) {
             window.history.pushState('data', null, link.replace(/(^&)|(&$)/g, ""));
         }
         
-        $(document.body).on('click','h1.entry-title',function(){
+        $(document.body).on('click','h1.entry-title-BACKUP',function(){
             var temp_number = '19541';
             var newjsonData = $('#table_id_' + temp_number + ' mypagi').attr('myjson');
             var thisNewPagiWrappers = $('#table_id_' + temp_number + ' .wpt_table_pagination').attr('data-whole_data');

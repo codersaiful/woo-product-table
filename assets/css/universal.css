@@ -1483,3 +1483,41 @@ span.wpt-cart-remove {
 body:not('.wpt_table_body') .wpt-new-footer-cart{
     display: none;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+td.wpt-replace-td-in-tr {
+    display: flex;
+    width: 100%;
+    /* flex-direction: column; */
+    /* flex: 1 100%; */
+    gap: 10px;
+    flex-flow: column wrap;
+}
+
+td.wpt-replace-td-in-tr>div {
+    flex: 1 100%;
+    width: 100%;
+    /* background: #ff00000a; */
+}
+td.wpt-replace-td-in-tr:before{
+    display: none;
+}
+
+td.wpt-replace-td-in-tr>div>div {
+    /* background: #ff000021; */
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}

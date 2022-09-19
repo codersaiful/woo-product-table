@@ -312,7 +312,67 @@ jQuery(function($) {
 
         });
 
-        
+        console.clear();
+        var isMob,isDesk,current_width = $(document).width();
+        if(current_width <= 500){
+            isMob = true;
+            isDesk = false;
+            genDestToMobTable();
+        }else{
+            isMob = false;
+            isDesk = true;
+        }
+        console.log('HHHHHHHHHHHHHHHHH');
+        console.log('isDesk',isDesk);
+        console.log('isMobi',isMob);
+        $(window).on('resize',function(){
+            current_width = $(document).width();
+
+            
+            // console.log(!called,current_width);
+            if(!isMob && current_width <= 500){
+                isMob = true;
+                isDesk = false;
+                console.log('isDesk',isDesk);
+                console.log('isMobi',isMob);
+                console.log("Called Mobile");
+
+                genDestToMobTable();
+            }
+
+            if(!isDesk && current_width > 500){
+                isMob = false;
+                isDesk = true;
+                console.log("Called Desktop");
+                genMobToDeskTable();
+            }
+        });
+        function genDestToMobTable(){
+            var Table = $('.wpt-tbl');
+            // Table.css({display:'none'});
+            Table.find('thead').hide();
+
+            var TableBody = Table.find('tbody');
+            TableBody.find('tr').each(function(){
+                var TableRow = $(this);
+                var RowData = TableRow.html();
+                var reslt = RowData.replaceAll('<td','<saiful');
+                var reslt = reslt.replaceAll('</td>','</saiful>');
+                reslt = "<td class='wpt-replace-td-in-tr'>" + reslt + "</td>";
+                TableRow.html(reslt);
+                console.log(reslt);
+
+                // console.log(TableRow[0].attributes);
+            });
+        }
+        function genMobToDeskTable(){
+            var Table = $('.wpt-tbl');
+            Table.find('thead').fadeIn();
+            var TableRow = $(this);
+            var RowData = TableRow.html();
+            
+        }
+
 
         /**
          * Footer Mini cart New Version
