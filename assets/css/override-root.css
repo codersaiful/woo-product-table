@@ -242,8 +242,8 @@ span.wpt_product_price .amount {
     border: 1px solid #ccd2d3;
 }
 button.wpt-query-reset-button {
-    background: var(--wpt_off_white);
-    color: var(--wpt_danger);
+    background: var(--wpt_primary);
+    color: var(--wpt_white);
 }
 button.wpt-query-reset-button:hover {
     background: var(--wpt_danger);
@@ -312,7 +312,11 @@ body.wpt_table_body .wpt-wrap .qib-button.qib-button-wrapper .plus.qib-button:ho
     border: 1px solid var(--wpt_primary);
     color: var(--wpt_primary);
 }
-
+.wpt-wrap div.tables_cart_message_box p.woocommerce-mini-cart__empty-message {
+    color: var(--wpt_danger);
+    border: 1px solid var(--wpt_off_white);
+    background-color: var(--wpt_table_bg);
+}
 /*Message*/
 .wpt-wrap td.wpt_message div>input.message, 
 .wpt-wrap .item_inside_cell.wpt_message>input.message {

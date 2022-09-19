@@ -137,9 +137,7 @@ div.tables_cart_message_box div.widget_shopping_cart_content li.woocommerce-mini
 }
 
 
-@media only screen and (max-width: 760px) {
 
-}
 .wpt-wrap div.tables_cart_message_box div.widget_shopping_cart_content li.woocommerce-mini-cart-item.mini_cart_item {
     position: relative;
     border-radius: 2px;
@@ -203,7 +201,13 @@ div.tables_cart_message_box .widget_shopping_cart_content {
     font-size: 18px;
     line-height: 20px;
 }
-
+.wpt-wrap div.tables_cart_message_box p.woocommerce-mini-cart__empty-message {
+    padding: 10px;
+    text-align: center;
+    margin: 0 !important;
+    font-size: 18px !important;
+    line-height: 20px !important;
+}
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
