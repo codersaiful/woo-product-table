@@ -117,7 +117,12 @@ tr.wpt-row.wpt-added-to-cart>td:first-child:before {
 .wpt_table_body .select2-container--default .select2-results__option--highlighted[data-selected] {
   background-color: var(--wpt_primary) !important;
 }
-
+.wpt-wrap .select2-container--default .select2-selection--single .select2-selection__arrow b {
+    border-color: var(--wpt_primary) transparent transparent transparent;
+}
+.wpt-wrap .select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b {
+    border-color: transparent transparent var(--wpt_primary_deepest) transparent;
+}
 /*Checkbox*/
 div.wpt-wrap.wpt-wrap input[type=checkbox]+label:before {
     background: var(--wpt_white);

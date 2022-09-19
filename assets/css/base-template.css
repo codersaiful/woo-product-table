@@ -1,4 +1,9 @@
-
+div.wpt-wrap {
+  display: flex;
+  gap: 15px;
+  flex-direction: column;
+  flex: 1 100%;
+}
 .wpt-wrap .wpt_table_tag_wrapper {
   box-shadow: 0 10px 15px 0 #00000017;
   margin-bottom: 15px; /*25px*/
@@ -109,11 +114,13 @@ span.wpt_product_price .amount {
   line-height: 18px;
 }
 /*Add to Cart*/
-tr.product_type_simple .item_inside_cell.wpt_action,
-tr.product_type_simple .td_or_cell.wpt_action>div{
+tr.product_type_simple .item_inside_cell.wpt_action, tr.product_type_simple .td_or_cell.wpt_action>div {
   display: flex;
   flex-direction: row;
-  white-space: nowrap;
+  flex-wrap: initial;
+  align-items: center;
+  justify-content: start;
+  gap: 4px;
 }
 .item_inside_cell.wpt_action, .td_or_cell.wpt_action>div {
   background: transparent;
@@ -359,7 +366,10 @@ div.wpt-wrap.wpt-wrap tr.stock_status_outofstock input[type=checkbox]+label{
   width: 100% !important;
   margin-top: 8px;
 }
-
+.wpt-wrap .select2-container--default .select2-selection--single .select2-selection__arrow {
+  top: 6px;
+  right: 6px;
+}
 
 .wpt-wrap .select2-container .select2-selection--multiple {
   min-height: 42px;
@@ -536,11 +546,41 @@ div.wpt_notice_board>div:after {
   line-height: 8px;
   padding: 7px;
 }
+.wpt_edit_table {
+  display: flex;
+  justify-content: start;
+  flex: 1 100%;
+}
 
-@media all and (max-width: 600px) {
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
 
 }
 
-@media all and (max-width: 800px) {
+
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (max-width: 1200px) {
+
+}
+
+@media only screen and (max-width: 1024px) {
+
+}
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (max-width: 991px) {
+    
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (max-width: 767px) {
+  .wpt_edit_table {
+    justify-content: center;
+  }
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
 
 }
