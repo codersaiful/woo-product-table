@@ -329,6 +329,7 @@ jQuery(function($) {
         }else{
             isMob = false;
             isDesk = true;
+            genMobToDeskTable();
         }
 
         $(window).on('resize', deviceWiseResize);
@@ -380,7 +381,11 @@ jQuery(function($) {
             var TableBody = Table.find('tbody');
             TableBody.find('tr').each(function(){
                 var TableRow = $(this);
+                var genreatedData = TableRow.find('td.wpt-replace-td-in-tr');
+                if(genreatedData.length < 1) return;
                 var RowData = TableRow.find('td.wpt-replace-td-in-tr').html();
+                
+
                 var reslt = RowData.replaceAll('<div class="td_or_cell','<td class="td_or_cell');
                     reslt = reslt.replaceAll('</div><!--EndTd-->','</td><!--EndTd-->');
                 TableRow.html(reslt);

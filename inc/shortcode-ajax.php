@@ -74,6 +74,9 @@ class Shortcode_Ajax extends Shortcode{
         if($isMob == 'true'){
             $this->generated_row = true;
         }
+        if($isMob == 'false'){
+            $this->generated_row = false;
+        }
 
         /**
          * Why make this propety.
@@ -92,7 +95,7 @@ class Shortcode_Ajax extends Shortcode{
         $output = [];
         
         ob_start();
-
+        // var_dump($others);
         $this->argsOrganize()->table_body();
         $output['table tbody'] = ob_get_clean();
 
