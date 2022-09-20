@@ -300,7 +300,7 @@ jQuery(function($) {
                 url: ajax_url,
                 data: data,
                 success:function(result){
-                    
+                    // $('.wpt_edit_table').html(result);
                     if(result == 'removed'){
                         
                     }
