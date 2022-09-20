@@ -34,14 +34,15 @@
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
-
+    .all_check_header_footer.all_check_header>* {
+        flex-grow: 1;
+        flex-basis: 250px;
+    }
 }
+
 /* Extra small devices (phones, 400px and down) */
 @media only screen and (max-width: 400px) {
-    .all_check_header_footer.all_check_header>* {
-      flex-grow: 1;
-      min-width: 250px;
-    }
+    
     .all_check_header_footer .button.add_to_cart_all_selected {
         flex: 1 100%;
     }

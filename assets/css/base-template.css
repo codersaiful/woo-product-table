@@ -386,9 +386,7 @@ div.wpt-wrap.wpt-wrap tr.stock_status_outofstock input[type=checkbox]+label{
   
   .wpt-wrap .all_check_header_footer.all_check_header>span>* {
     padding: 0 !important;
-    margin-bottom: 2px;
-    margin-top: 2px;
-    margin-left: 0;
+    margin: 0;
   }
   
   .wpt-wrap .wpt-wrap.wpt-wrap input[type=checkbox]+label:before {

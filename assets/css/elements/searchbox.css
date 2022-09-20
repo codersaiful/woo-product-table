@@ -28,7 +28,7 @@
 .wpt_search_box .search_box_wrapper>*,
 .wpt_search_box .search_box_wrapper .search_single {
     flex-grow: 4;
-    min-width: 250px;
+    min-width: 180px;
     flex-basis: 0;
 }
 .wpt_search_box .search_box_wrapper .keyword-s-wrapper.search_single_direct {
@@ -87,7 +87,7 @@ button.wpt-query-reset-button {
 }
 @media only screen and (max-width: 992px) {
     .search_single_search_by_keyword {
-        min-width: 80%;
+        flex-basis: 80%;
     }
 }
 
@@ -122,6 +122,6 @@ button.wpt-query-reset-button {
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
     .search_single_search_by_keyword {
-        min-width: 75%;
+        flex-basis: 75%;
     }
 }
