@@ -61,6 +61,21 @@ class Shortcode_Ajax extends Shortcode{
         $this->args['paged'] = $this->page_number = $page_number;
 
         /**
+         * Ajax wise and current screensize wise,
+         * is mobile device checked
+         * 
+         * if actually mobile and screensize like mobile.
+         * We actually detect it as scren size.
+         * Even on detected mobile
+         * 
+         * @since 3.2.5.4.final7
+         */
+        $isMob = $others['isMob'] ?? false;
+        if($isMob == 'true'){
+            $this->generated_row = true;
+        }
+
+        /**
          * Why make this propety.
          * Actualy any any user need do something on $args after called ajax
          * user can check using $this->args_ajax_called
@@ -77,6 +92,7 @@ class Shortcode_Ajax extends Shortcode{
         $output = [];
         
         ob_start();
+
         $this->argsOrganize()->table_body();
         $output['table tbody'] = ob_get_clean();
 

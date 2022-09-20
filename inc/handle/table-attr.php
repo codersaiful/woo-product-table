@@ -6,6 +6,7 @@ use WOO_PRODUCT_TABLE\Inc\Table\Row;
 class Table_Attr{
 
     public static function wrapper_class( Shortcode $shortcode ){
+
         $shortcode->wrapper_class = [
             $shortcode->table_type . "_wrapper",
             "detected_device_" . $shortcode->_device . '_wrapper',
@@ -18,6 +19,9 @@ class Table_Attr{
             $shortcode->checkbox,
             "wpt_" . $shortcode->pagination_ajax,
         ];
+        if($shortcode->auto_responsive){
+            $shortcode->wrapper_class[] = 'wpt-auto-responsive';
+        }
 
         //In Future Update version, this filter will removed
         $shortcode->wrapper_class = apply_filters( 'wpto_wrapper_tag_class_arr', $shortcode->wrapper_class, $shortcode->table_id, $shortcode->args, $shortcode->column_settings, $shortcode->_enable_cols, $shortcode->column_array );

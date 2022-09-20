@@ -5,6 +5,7 @@ jQuery(function($) {
         own_fragment_load = 0,
         wc_fragment_load = 0,
         fragment_handle_load = 0,
+        isMob,isDesk,current_width = $(window).width(),
         plugin_url = WPT_DATA.plugin_url,
         include_url = WPT_DATA.include_url,
         content_url = WPT_DATA.content_url,
@@ -72,6 +73,7 @@ jQuery(function($) {
             var page_number = $(thisButton).text();
             var others = {
                 page_number: page_number,
+                isMob: isMob,
             };
             
             var table_id = thisPagination.data('table_id');
@@ -89,6 +91,7 @@ jQuery(function($) {
             var page_number = 1;
             var others = {
                 page_number: page_number,
+                isMob: isMob,
             };
             ajaxTableLoad(table_id, args, others );
             
@@ -317,19 +320,17 @@ jQuery(function($) {
 
         });
 
-        console.clear();
-        var isMob,isDesk,current_width = $(window).width();
+        
+        
         if(current_width <= 500){
             isMob = true;
             isDesk = false;
-            // genDestToMobTable();
+            genDestToMobTable();
         }else{
             isMob = false;
             isDesk = true;
         }
-        console.log('HHHHHHHHHHHHHHHHH');
-        console.log('isDesk',isDesk);
-        console.log('isMobi',isMob);
+
         $(window).on('resize', deviceWiseResize);
         function deviceWiseResize(){
             
@@ -353,13 +354,16 @@ jQuery(function($) {
             }
         }
         function genDestToMobTable(){
-            var Table = $('.wpt-tbl');
+            
+            var Table = $('.wpt-auto-responsive .wpt-tbl');
             // Table.css({display:'none'});
             Table.find('thead').hide();
 
             var TableBody = Table.find('tbody');
             TableBody.find('tr').each(function(){
                 var TableRow = $(this);
+                var alreadyGen = TableRow.find('.wpt-replace-td-in-tr').length;
+                if(alreadyGen > 0) return;
                 var RowData = TableRow.html();
                 var reslt = RowData.replaceAll('<td class="td_or_cell','<div class="td_or_cell');
                     reslt = reslt.replaceAll('</td><!--EndTd-->','</div><!--EndTd-->');
@@ -371,14 +375,14 @@ jQuery(function($) {
             });
         }
         function genMobToDeskTable(){
-            var Table = $('.wpt-tbl');
+            var Table = $('.wpt-auto-responsive .wpt-tbl');
             Table.find('thead').fadeIn();
             var TableBody = Table.find('tbody');
             TableBody.find('tr').each(function(){
                 var TableRow = $(this);
                 var RowData = TableRow.find('td.wpt-replace-td-in-tr').html();
                 var reslt = RowData.replaceAll('<div class="td_or_cell','<td class="td_or_cell');
-                reslt = reslt.replaceAll('</div><!--EndTd-->','</td><!--EndTd-->');
+                    reslt = reslt.replaceAll('</div><!--EndTd-->','</td><!--EndTd-->');
                 TableRow.html(reslt);
                 // console.log(reslt);
 
