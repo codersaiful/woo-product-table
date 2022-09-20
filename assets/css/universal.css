@@ -932,7 +932,7 @@ div.wpt-wrap .elementor-menu-cart__product-image img {
 
 .wpt_edit_table > a {
     font-size: 19px;
-    color: #07abd4;
+    color: var(--wpt_primary);
     background: #dddddd2b;
     padding: 10px;
     display: inline-block;

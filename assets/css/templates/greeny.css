@@ -30,30 +30,31 @@
 
     
     --wpt_review: #ffc107;
-    --wpt_thead_bg: var(--wpt_primary);
-    --wpt_thead_text: var(--wpt_white);
+    --wpt_thead_bg: #efefef;
+    --wpt_thead_text: black;
   
-    --wpt_product_title: var(--wpt_primary_deepest);
-    --wpt_product_title_hover: var(--wpt_primary);
+    --wpt_product_title: #5bb318;
+    --wpt_product_title_hover: black;
     
     --wpt_table_bg: var(--wpt_white);
-    --wpt_table_tr_odd: #dd000005;
+    --wpt_table_tr_odd: #efefef27;
     --wpt_table_tr_boder: #0000000d;
   
     --wpt_btn_color: var(--wpt_white);
     --wpt_btn_color_hover: var(--wpt_primary);
   }
-
-.wpt-wrap table.wpt-tbl tr:nth-child(2n+2) {
-  background: #00000003
+.wpt-wrap.greeny_wrapper table.wpt-tbl tr th {
+    border-bottom: 1px solid #040404 !important;
 }
-
-
-.wpt-wrap table.wpt-tbl tr:nth-child(4n+2) {
-  background: #00000005
+.all_check_header_footer.all_check_header>span {
+  border: 1px solid #efefef !important;
+  color: #000000 !important;
+  background: #ffffff59 !important;
 }
-
-.wpt-wraps table.wpt-tbl tr.wpt-row {
-  /* box-shadow: 0px -1px 0px 0px #0000000d; */
-  box-shadow: 0px -1px 0px 0px #00000007;
+/* Extra small devices (phones, 500px and down) */
+@media only screen and (max-width: 500px) {
+  .wpt-stats-report {
+    background: #727272 !important;
+    color: white !important;
+  }
 }
