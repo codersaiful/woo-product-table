@@ -1,6 +1,6 @@
 div.wpt-wrap {
   display: flex;
-  gap: 15px;
+  gap: 10px;
   flex-direction: column;
   flex: 1 100%;
 }
@@ -660,4 +660,12 @@ tr:last-child td.wpt-replace-td-in-tr {
   tr.product_type_simple .item_inside_cell.wpt_action, tr.product_type_simple .td_or_cell.wpt_action>div {
     gap: 20px;
   }
+  .wpt-stats-report {
+    background: var(--wpt_thead_bg);
+    padding: 15px 10px;
+    color: var(--wpt_thead_text);
+    flex-shrink: 0;
+    margin: 0;
+    margin-bottom: -10px;
+}
 }

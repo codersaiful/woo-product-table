@@ -94,6 +94,7 @@ div.tables_cart_message_box div.widget_shopping_cart_content li.woocommerce-mini
     vertical-align: middle;
     border: none;
     height: 20px;
+    min-width: 20px;
 }
 
 .wpt-wrap div.tables_cart_message_box div.widget_shopping_cart_content li a.remove::before {
