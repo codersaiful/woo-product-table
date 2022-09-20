@@ -585,3 +585,10 @@ div.wpt_notice_board>div:after {
 @media only screen and (max-width: 600px) {
 
 }
+
+/* Extra small devices (phones, 500px and down) */
+@media only screen and (max-width: 500px) {
+  tr.product_type_simple .item_inside_cell.wpt_action, tr.product_type_simple .td_or_cell.wpt_action>div {
+    gap: 20px;
+  }
+}

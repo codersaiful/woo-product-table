@@ -13,8 +13,8 @@ jQuery(function($) {
 
         
         //Search Box related code all start here
-        var ajaxTableLoad = function(table_id,args,page_number){
-            console.clear();
+        var ajaxTableLoad = function(table_id,args,others){
+            
             var thisTable = $('#table_id_' + table_id);
             var TableTagWrap = $('#table_id_' + table_id + ' .wpt_table_tag_wrapper');
             var SearchWrap = $('#table_id_' + table_id + ' .wpt-search-full-wrapper');
@@ -26,7 +26,7 @@ jQuery(function($) {
             var data = {
                 action: 'wpt_load_both',
                 table_id: table_id,
-                page_number: page_number,
+                others: others,
                 args: args,
             };
             
@@ -70,11 +70,14 @@ jQuery(function($) {
             var thisButton = $(this);
             var thisPagination = thisButton.closest('.wpt_my_pagination');
             var page_number = $(thisButton).text();
+            var others = {
+                page_number: page_number,
+            };
             
             var table_id = thisPagination.data('table_id');
             var args = getSearchQueriedArgs( table_id );
             
-            ajaxTableLoad(table_id, args, page_number );
+            ajaxTableLoad(table_id, args, others );
             
         });
 
@@ -84,8 +87,10 @@ jQuery(function($) {
             var args = getSearchQueriedArgs( table_id );
             
             var page_number = 1;
-            
-            ajaxTableLoad(table_id, args, page_number );
+            var others = {
+                page_number: page_number,
+            };
+            ajaxTableLoad(table_id, args, others );
             
         });
 
@@ -317,7 +322,7 @@ jQuery(function($) {
         if(current_width <= 500){
             isMob = true;
             isDesk = false;
-            genDestToMobTable();
+            // genDestToMobTable();
         }else{
             isMob = false;
             isDesk = true;
@@ -329,9 +334,7 @@ jQuery(function($) {
         function deviceWiseResize(){
             
             current_width = $(window).width();
-            // console.log(!isMob,current_width);
-            
-            // console.log(!called,current_width);
+
             if(!isMob && current_width <= 500){
                 isMob = true;
                 isDesk = false;
@@ -359,7 +362,7 @@ jQuery(function($) {
                 var TableRow = $(this);
                 var RowData = TableRow.html();
                 var reslt = RowData.replaceAll('<td class="td_or_cell','<div class="td_or_cell');
-                    reslt = reslt.replaceAll('</td>','</div><!--EndTd-->');
+                    reslt = reslt.replaceAll('</td><!--EndTd-->','</div><!--EndTd-->');
                 reslt = "<td class='wpt-replace-td-in-tr'>" + reslt + "</td>";
                 TableRow.html(reslt);
                 // console.log(reslt);
@@ -375,7 +378,7 @@ jQuery(function($) {
                 var TableRow = $(this);
                 var RowData = TableRow.find('td.wpt-replace-td-in-tr').html();
                 var reslt = RowData.replaceAll('<div class="td_or_cell','<td class="td_or_cell');
-                reslt = reslt.replaceAll('</div><!--EndTd-->','</td>');
+                reslt = reslt.replaceAll('</div><!--EndTd-->','</td><!--EndTd-->');
                 TableRow.html(reslt);
                 // console.log(reslt);
 

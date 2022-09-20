@@ -55,7 +55,37 @@ class Shortcode extends Shortcode_Base{
      */
     public $is_table_head = true;
     public $is_table_column = true;
-    public $_device;
+
+    /**
+     * It has used on column name array 
+     * It's not the output of Device actually
+     * It's column based
+     *
+     * @var [type]
+     */
+    public $_device; 
+
+    /**
+     * It will return current device name.
+    * such: mobile,tablet,desktop.
+     *
+     * @var string
+     */
+    public $device;
+
+    /**
+     * What is Generated row:
+     * Actually when Mobile responsive and and current device is mobile,
+     * that time, we will input all td inside a single td and 
+     * current td will convert to div tag.
+     * 
+     * for Desktop or tablet, it will not show generated td. in
+     * this class inside assigin_property() method,
+     * I have findout the value of generated_row. 
+     *
+     * @var boolean
+     */
+    public $generated_row = false;
     public $args;
 
     public $_enable_cols;
@@ -64,6 +94,7 @@ class Shortcode extends Shortcode_Base{
     public $column_settings;
 
     public $basics;
+    public $auto_responsive;
     public $basics_args;
 
     public $search_n_filter;
@@ -346,7 +377,9 @@ class Shortcode extends Shortcode_Base{
 
 
         $this->_config = wpt_get_config_value( $this->table_id );
-        $this->_device = wpt_col_settingwise_device( $this->table_id );
+        //Here need detected current device actually.
+        $this->_device = wpt_col_settingwise_device( $this->table_id );//wpt_detect_current_device();//
+        
         $this->_enable_cols = get_post_meta( $this->table_id, 'enabled_column_array' . $this->_device, true );
         $this->column_array = get_post_meta( $this->table_id, 'column_array' . $this->_device, true );
         $this->column_settings = get_post_meta( $this->table_id, 'column_settings' . $this->_device, true);
@@ -372,6 +405,23 @@ class Shortcode extends Shortcode_Base{
 
 
         $this->basics = $this->get_meta( 'basics' );
+        $responsive = $this->basics['responsive'] ?? false;
+
+        /**
+         * Authoresponsive value is come from database inside $this->basics
+         * Actually in basics meta data, anyhow saved data when saving product table. 
+         * Actually if not set any column for Tablet and Mobile device,
+         * then it will come 'mobile_responsive' which actually 'autoresponsive'
+         *    
+         */
+        $this->auto_responsive =  $responsive == 'mobile_responsive';
+
+        /**
+         * It will return current device name.
+         * such: mobile,tablet,desktop.
+         */
+        $this->device = wpt_detect_current_device();
+        $this->generated_row = $this->auto_responsive && $this->device == 'mobile';
         
         $this->basics_args = $this->basics['args'] ?? [];
         $this->req_product_type = $this->basics['product_type'] ?? 'product';
@@ -585,9 +635,9 @@ class Shortcode extends Shortcode_Base{
     protected function table_head(){
         if( ! $this->table_head ) return;
         if( ! $this->is_table_head ) return; //Check column available or not, if empty array of _enable_cols, it will return false.
-        
+        $show_stats = $this->generated_row ? 'display: none;' : '';
         ?>
-        <thead>
+        <thead style="<?php echo esc_attr( $show_stats ); ?>">
             <tr data-temp_number="<?php echo esc_attr( $this->table_id ); ?>" class="wpt_table_header_row wpt_table_head">
             <?php 
             foreach( $this->_enable_cols as $key => $col ){

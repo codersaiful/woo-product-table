@@ -21,6 +21,7 @@ class Shortcode_Ajax extends Shortcode{
         $atts = $this->set_atts();
 
         $args = $_POST['args'] ?? [];
+        $others = $_POST['others'] ?? [];
         $args = $this->arrayFilter( $args );
         $temp_args = $args;
         unset($temp_args['base_link']);
@@ -43,7 +44,7 @@ class Shortcode_Ajax extends Shortcode{
 
 
 
-        $page_number = $_POST['page_number'] ?? $this->page_number;
+        $page_number = $others['page_number'] ?? $this->page_number;
         
         /**
          * Actually base link is not part of Args. but we take it

@@ -62,6 +62,9 @@ class Row extends Table_Base{
      * @var string
      */
     public $row_class = '';
+    public $td_tag = 'td';
+    public $generated_td_start;
+    public $generated_td_end;
     public $wp_force;
     public $checkbox;
     public $default_quantity;
@@ -96,6 +99,11 @@ class Row extends Table_Base{
         $this->product_data = $product->get_data();
         $this->filter = $shortcode->filter;
 
+        if($shortcode->generated_row){
+            $this->td_tag = 'div';
+            $this->generated_td_start = '<td class="wpt-replace-td-in-tr">';
+            $this->generated_td_end = '</td>';
+        }
 
         if($this->filter){
             $this->generate_taxo_n_data_tax( $this->filter );
@@ -181,6 +189,7 @@ class Row extends Table_Base{
         role="row">
         <?php
 
+        echo $this->generated_td_start;
 
         foreach( $this->_enable_cols as $keyword => $col ){
             
@@ -210,7 +219,7 @@ class Row extends Table_Base{
             }
             $td_class = Table_Attr::td_class($keyword, $this);
             ?>
-            <td class="<?php echo esc_attr( $td_class ); ?>"
+            <<?php echo $this->td_tag; ?> class="<?php echo esc_attr( $td_class ); ?>"
             data-keyword="<?php echo esc_attr( $keyword ); ?>" 
             data-temp_number="<?php echo esc_attr( $this->table_id ); ?>" 
             data-sku="<?php echo esc_attr( $this->product_sku ); ?>"
@@ -262,9 +271,11 @@ class Row extends Table_Base{
             do_action( 'wpto_column_bottom', $keyword, $this->table_id, $settings, $this->column_settings, $product );
             do_action( 'wpt_column_bottom', $keyword, $this );
             ?>
-            </td>
+            </<?php echo $this->td_tag; ?>><!--EndTd-->
             <?php
+            
         }
+        echo $this->generated_td_end;
         ?>
         </tr>
         <?php
