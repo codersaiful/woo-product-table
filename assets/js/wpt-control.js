@@ -355,6 +355,7 @@ jQuery(function($) {
             }
         }
         function genDestToMobTable(){
+            return;
             
             var Table = $('.wpt-auto-responsive .wpt-tbl');
             // Table.css({display:'none'});
@@ -376,6 +377,7 @@ jQuery(function($) {
             });
         }
         function genMobToDeskTable(){
+            return;
             var Table = $('.wpt-auto-responsive .wpt-tbl');
             Table.find('thead').fadeIn();
             var TableBody = Table.find('tbody');

@@ -71,10 +71,10 @@ class Shortcode_Ajax extends Shortcode{
          * @since 3.2.5.4.final7
          */
         $isMob = $others['isMob'] ?? false;
-        if($isMob == 'true'){
+        if($this->auto_responsive && $isMob == 'true'){
             $this->generated_row = true;
         }
-        if($isMob == 'false'){
+        if($this->auto_responsive && $isMob == 'false'){
             $this->generated_row = false;
         }
 
