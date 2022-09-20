@@ -95,9 +95,22 @@ class Table_Attr{
         return $row->tr_class_string;
     }
 
+    /**
+     * Class generate for table TD
+     * Available also 
+     * 
+     * 
+     * ***********************
+     *  IMPORTANT NOTICE:
+     * ***********************
+     * as td_or_cell class is must and it's should not be customizeable, thats why,
+     * I have transferred it to row
+     * 
+     * @author Saiful Islam <codersaiful@gmail.com>
+     */
     public static function td_class( string $keyword, Row $row ){
+        
         $td_class_arr = array(
-            "td_or_cell",
             "wpt_" . $keyword,
             "wpt_temp_" . $row->table_id,
         );

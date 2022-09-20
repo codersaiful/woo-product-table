@@ -577,6 +577,11 @@ jQuery(function($) {
             $('.wpt-new-footer-cart').addClass('wpt-fcart-anim');
             $('.wpt-fcart-coll-expand').addClass('animated');
         }
+        function footerCartAnimationStop(){
+            $('a.wpt-view-n .wpt-bag').removeClass('wpt-spin4 animate-spin');
+            $('.wpt-new-footer-cart').removeClass('wpt-fcart-anim');
+            $('.wpt-fcart-coll-expand').removeClass('animated');
+        }
 
         /**
          * Add to cart button Action 
@@ -1227,6 +1232,7 @@ jQuery(function($) {
                 currentAllSelectedButtonSelector.removeClass('disabled');
                 currentAllSelectedButtonSelector.removeClass('loading');
                 tableWrapperTag.removeClass('wpt-ajax-loading');
+                footerCartAnimationStop();
                 showAlert(config_json.please_choose_items);
                 return false;
             }
@@ -2246,7 +2252,7 @@ jQuery(function($) {
             var content_type = 'normal';
             if(target_class.search('.wpt_price') != -1){
                 content_type = 'price';
-            }else if(number_class.length > 0 || target_class.search('.wpt_serial_number') != -1 || target_class.search('.wpt_product_id') != -1 ){
+            }else if(number_class.length > 0 || target_class.search('.wpt_serial_number') != -1 || target_class.search('.wpt_product_id') != -1 || target_class.search('.wpt_total') != -1 ){
                 content_type = 'number';
             }
             //wpt_serial_number

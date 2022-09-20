@@ -195,6 +195,8 @@ class Row extends Table_Base{
             
             
             $settings = $this->column_settings[$keyword] ?? false;
+            $items = $settings['items'] ?? false;
+            $class_iner_avail = ! empty( $items ) ? 'inner-available' : 'no-inner';
             
             $type = isset( $settings['type'] ) && !empty( $settings['type'] ) ? $settings['type'] : 'default';
             $file_name = $type !== 'default' ? $type : $keyword;
@@ -217,9 +219,22 @@ class Row extends Table_Base{
             if( $keyword == 'check' ){
                 $column_title = '';
             }
+
+            /**
+             * ***********************
+             *  IMPORTANT NOTICE:
+             * ***********************
+             * Remembered: in class name, 
+             * obvously need td_or_cell class at the beggining of class list
+             * because we have managed responsive mater using javascript and 
+             * we repalce it with '<td class="td_or_cell'
+             * So we unable to change, need td_or_cell at the beggining
+             * 
+             * @author Saiful Islam <codersaiful@gmail.com>
+             */
             $td_class = Table_Attr::td_class($keyword, $this);
             ?>
-            <<?php echo $this->td_tag; ?> class="<?php echo esc_attr( $td_class ); ?>"
+            <<?php echo $this->td_tag; ?> class="td_or_cell <?php echo esc_attr($class_iner_avail . ' ' .$td_class ); ?>"
             data-keyword="<?php echo esc_attr( $keyword ); ?>" 
             data-temp_number="<?php echo esc_attr( $this->table_id ); ?>" 
             data-sku="<?php echo esc_attr( $this->product_sku ); ?>"
@@ -241,6 +256,7 @@ class Row extends Table_Base{
             $tag = $settings['tag'] ?? 'div';
             $tag_class = $settings['tag_class'] ?? '';
             if( $this->is_column_label ){
+                $tag_class .= ' item_inside_cell wpt_' . $keyword;
                 $tag_class .= ' autoresponsive-label-show';
             }
 
@@ -259,7 +275,7 @@ class Row extends Table_Base{
             
             <?php
 
-            $items = $settings['items'] ?? false;
+            
             $this->handle_items( $items );
 
             /**

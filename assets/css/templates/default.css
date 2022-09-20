@@ -36,7 +36,7 @@
   --wpt_product_title_hover: var(--wpt_primary);
   
   --wpt_table_bg: var(--wpt_white);
-  --wpt_table_tr_odd: #dd000005;
+  --wpt_table_tr_odd: transparent;
   --wpt_table_tr_boder: #0000000d;
 
   --wpt_btn_color: var(--wpt_white);

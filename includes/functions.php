@@ -308,6 +308,15 @@ if( ! function_exists( 'wpt_column_add_extra_items' ) ){
 
     function wpt_column_add_extra_items( $keyword, $_device_name, $column_settings, $columns_array, $updated_columns_array, $post, $additional_data ){
         
+        // if( $keyword == 'check' || $keyword == 'product_id' ) return;
+        switch( $keyword ){
+            case 'check': return;
+            case 'serial_number': return;
+            case 'total': return;
+            case 'product_id': return;
+
+        }
+
         unset( $columns_array[$keyword] ); //Unset this column. if in action, here $keyword - action
         
         unset( $columns_array['blank'] );
