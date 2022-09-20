@@ -559,6 +559,22 @@ td.wpt-replace-td-in-tr {
   flex-flow: column wrap;
   position: relative;
 }
+/* td.td_or_cell .item_inside_cell {
+  flex: 0 100%;
+}
+td.td_or_cell .item_inside_cell.wpt_thumbnails,
+td.td_or_cell .item_inside_cell.wpt_quantity,
+td.td_or_cell .item_inside_cell.wpt_price,
+td.td_or_cell .item_inside_cell.wpt_total,
+td.td_or_cell .item_inside_cell.wpt_serial{
+  flex-grow: 1;
+} */
+td.td_or_cell .item_inside_cell.wpt_product_title,
+td.td_or_cell .item_inside_cell.wpt_action,
+td.td_or_cell .item_inside_cell.wpt_description{
+  flex: 1 100%;
+}
+
 
 div.inner-available.td_or_cell,
 td.inner-available.td_or_cell {
