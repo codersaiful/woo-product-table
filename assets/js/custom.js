@@ -301,6 +301,7 @@ jQuery(function($) {
          * @returns {undefined}
          */
         function WPT_NoticeBoard(){
+            
             var noticeBoard = $('div.wpt_notice_board');
             $.ajax({
                 type: 'POST',
@@ -309,6 +310,7 @@ jQuery(function($) {
                     action: 'wpt_print_notice'
                 },
                 success: function(response){
+                    if( config_json.popup_notice !== '1' ) return;
                     var eachNoticeInnter = $(response);
                     eachNoticeInnter.css('display','none');
                     if(response !== ''){
@@ -707,9 +709,8 @@ jQuery(function($) {
                         thisButton.attr('data-quantity',min_quantity);
                     }
                     
-                    if(config_json.popup_notice === '1'){
-                        WPT_NoticeBoard();//Gettince Notice
-                    }
+                    WPT_NoticeBoard();
+
                     //Quick Button Active here and it will go Directly to checkout Page
                     if(config_json.product_direct_checkout === 'yes'){
                         window.location.href = checkoutURL;
@@ -1280,9 +1281,7 @@ jQuery(function($) {
                     $( document.body ).trigger( 'wc_fragment_refresh' );
                     
                     currentAllSelectedButtonSelector.html(add_cart_text + ' [ ' + itemAmount + ' ' + config_json.add2cart_all_added_text + ' ]');
-                    if(config_json.popup_notice === '1'){
-                        WPT_NoticeBoard();//Loading Notice Board
-                    } 
+                    WPT_NoticeBoard();
                      
                     //Added at v4.0.11
                     $('#table_id_' + temp_number + ' input.enabled.wpt_tabel_checkbox.wpt_td_checkbox:checked').each(function() {
@@ -2594,9 +2593,8 @@ jQuery(function($) {
                     $( document.body ).trigger( 'wc_fragment_refresh' );
 
                     currentAllSelectedButtonSelector.html(add_cart_text + ' [ ' + itemAmount + ' ' + config_json.add2cart_all_added_text + ' ]');
-                    if(config_json.popup_notice === '1'){
-                        WPT_NoticeBoard();//Loading Notice Board
-                    }
+                    WPT_NoticeBoard();
+                    
                     if(config_json.all_selected_direct_checkout === 'yes'){
                         window.location.href = checkoutURL;
                         return;

@@ -50,21 +50,21 @@ body.wpt_table_body .wpt-wrap table thead th {
 }
 
 body.wpt_table_body .wpt-wrap table tbody tr a.button.add_to_cart_button,
-body.wpt_table_body .wpt-wrap table tbody tr a.button.single_add_to_cart_button ,
-body.wpt_table_body .wpt-wrap table tbody tr a.button.add_to_cart_button.adding,
-body.wpt_table_body .wpt-wrap table tbody tr a.button.add_to_cart_button.alt.wc-variation-selection-needed,
-body.wpt_table_body .wpt-wrap table tbody tr a.button.add_to_cart_button.adding.wc-variation-selection-needed {
+body.wpt_table_body .wpt-wrap table tbody tr .button.single_add_to_cart_button ,
+body.wpt_table_body .wpt-wrap table tbody tr .button.add_to_cart_button.adding,
+body.wpt_table_body .wpt-wrap table tbody tr .button.add_to_cart_button.alt.wc-variation-selection-needed,
+body.wpt_table_body .wpt-wrap table tbody tr .button.add_to_cart_button.adding.wc-variation-selection-needed {
     background: var(--wpt_btn_bg);
     border: 1px solid var(--wpt_primary);
     color: var(--wpt_btn_color);
 
 }
 
-body.wpt_table_body .wpt-wrap table tbody tr a.button.add_to_cart_button:hover,
-body.wpt_table_body .wpt-wrap table tbody tr a.button.single_add_to_cart_button:hover,
-body.wpt_table_body .wpt-wrap table tbody tr a.button.add_to_cart_button:hover.adding,
-body.wpt_table_body .wpt-wrap table tbody tr a.button.add_to_cart_button:hover.alt.wc-variation-selection-needed,
-body.wpt_table_body .wpt-wrap table tbody tr a.button.add_to_cart_button:hover.adding.wc-variation-selection-needed {
+body.wpt_table_body .wpt-wrap table tbody tr .button.add_to_cart_button:hover,
+body.wpt_table_body .wpt-wrap table tbody tr .button.single_add_to_cart_button:hover,
+body.wpt_table_body .wpt-wrap table tbody tr .button.add_to_cart_button:hover.adding,
+body.wpt_table_body .wpt-wrap table tbody tr .button.add_to_cart_button:hover.alt.wc-variation-selection-needed,
+body.wpt_table_body .wpt-wrap table tbody tr .button.add_to_cart_button:hover.adding.wc-variation-selection-needed {
     background: var(--wpt_btn_bg_hover);
     color: var(--wpt_btn_color_hover);
     border: 1px solid var(--wpt_primary);

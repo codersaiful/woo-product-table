@@ -134,11 +134,12 @@ a.button.wpt_woo_add_cart_button{
 tr.visible_row.wpt_row td a.button,
 tr.visible_row.wpt_row td a.wpt_woo_add_cart_button,
 tr.visible_row.wpt_row .col_inside_tag.action a
-.wpt-wrap table tbody tr a.button.add_to_cart_button,
-.wpt-wrap table tbody tr a.button.single_add_to_cart_button,
-.wpt-wrap table tbody tr a.button.add_to_cart_button.adding,
-.wpt-wrap table tbody tr a.button.add_to_cart_button.alt.wc-variation-selection-needed,
-.wpt-wrap table tbody tr a.button.add_to_cart_button.adding.wc-variation-selection-needed{
+.wpt-wrap table tbody tr .button.add_to_cart_button,
+.wpt-wrap table tbody tr .button.single_add_to_cart_button,
+/* button.single_add_to_cart_button.button.alt, */
+.wpt-wrap table tbody tr .button.add_to_cart_button.adding,
+.wpt-wrap table tbody tr .button.add_to_cart_button.alt.wc-variation-selection-needed,
+.wpt-wrap table tbody tr .button.add_to_cart_button.adding.wc-variation-selection-needed{
   padding: 10px 11px;
   color: #fff;
   font-size: 16px;
