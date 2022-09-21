@@ -33,7 +33,7 @@ div.wpt-wrap {
   font-size: 16px;
   line-height: 18px;
 }
-.wpt-wrap .wpt_table_head, .wpt-wrap .wpt_table_head th {
+.wpt-wrap .wpt_table_head, .wpt-wrap .wpt_table_head>th {
     padding: 11px 10px;
     margin: 0;
 }
