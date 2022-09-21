@@ -160,6 +160,7 @@ tr.visible_row.wpt_row .col_inside_tag.action a
   letter-spacing: 0px;
   box-shadow: none;
   opacity: 1 !important;
+  position: relative;
 }
 tr.visible_row.wpt_row td a.wpt_woo_add_cart_button.disabled{
   opacity: 1;

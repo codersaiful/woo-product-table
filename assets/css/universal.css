@@ -540,7 +540,9 @@ a.button.wpt_woo_add_cart_button>span.wpt_ccount  i.animate-spin::before{
     margin: 0;
     padding: 0;
 }
-button.single_add_to_cart_button >span.wpt_ccount, a.button.wpt_woo_add_cart_button>span.wpt_ccount {
+a.product_type_variation>span.wpt_ccount, 
+button.single_add_to_cart_button>span.wpt_ccount, 
+a.button.wpt_woo_add_cart_button>span.wpt_ccount {
     position: absolute;
     min-width: 23px;
     height: 23px;

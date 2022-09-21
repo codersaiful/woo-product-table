@@ -77,6 +77,7 @@ button.single_add_to_cart_button >span.wpt_ccount i.animate-spin, a.button.wpt_w
     background: var(--wpt_white);
     color: var(--wpt_primary);
 }
+a.product_type_variation>span.wpt_ccount,
 button.single_add_to_cart_button >span.wpt_ccount, a.button.wpt_woo_add_cart_button>span.wpt_ccount {
     background: var(--wpt_white);
     color: var(--wpt_black);
