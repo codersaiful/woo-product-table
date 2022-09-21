@@ -50,7 +50,7 @@
     --wpt_sorted_head_text: white;
     --wpt_sorted_td_bg: rgba(0, 0, 0, 0.03);
   }
-.wpt-wrap.greeny_wrapper table.wpt-tbl tr th {
+.wpt-wrap.greeny_wrapper table.wpt-tbl tr.wpt_table_head th {
     border-bottom: 1px solid #040404 !important;
 }
 .all_check_header_footer.all_check_header>span {

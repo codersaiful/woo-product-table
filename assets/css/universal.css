@@ -413,7 +413,7 @@ div.wpt_column_sort table#wpt_table.wpt_product_table tr>td.this_column_sorted {
 div.wpt_column_sort table#wpt_table.wpt_product_table tr>th.this_column_sorted {
     background-color: rgba(0, 0, 0, 0.18);
 }
-div.wpt_column_sort table#wpt_table.wpt_product_table tr>th {
+div.wpt_column_sort table#wpt_table.wpt_product_table tr.wpt_table_head>th {
     background-image: url(../images/arrow.png);
     background-repeat: no-repeat;
     background-repeat: no-repeat;

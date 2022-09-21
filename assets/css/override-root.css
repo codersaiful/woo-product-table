@@ -32,8 +32,8 @@
     background: var(--wpt_primary) !important;
 }
 
-body.wpt_table_body .wpt-wrap table thead tr,
-body.wpt_table_body .wpt-wrap table thead th {
+body.wpt_table_body .wpt-wrap table thead tr.wpt_table_header_row,
+body.wpt_table_body .wpt-wrap table thead tr.wpt_table_header_row th {
     background-color: var(--wpt_thead_bg);
 }
 
