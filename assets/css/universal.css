@@ -1369,7 +1369,7 @@ div.wpt-wrap.woocommerce.wpt-ajax-loading:before{display: none;}
 
 span.wpt-cart-remove {
     background: #00000000 no-repeat;
-    padding: 4px;
+    padding: 0 10px 10px 10px;
     font-size: 11px;
     line-height: 11px;
     width: 19px;

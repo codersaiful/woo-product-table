@@ -271,7 +271,7 @@ body.wpt_table_body .wpt-wrap button:focus {
 
 }
 
-
+.wpt_action input.input-text.qty.text,
 .wpt-wrap .qib-button-wrapper .quantity input.input-text.qty.text, 
 .wpt-wrap .wpt_quantity input.input-text.qty.text, 
 .wpt-wrap .wpt_quick_qty input.input-text.qty.text {
