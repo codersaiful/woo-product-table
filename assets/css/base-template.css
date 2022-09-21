@@ -452,7 +452,7 @@ body.wpt_table_body .wpt-wrap table tbody tr.wpt_row>td a.wpt_product_title_in_t
 
 .wpt-wrap .qib-button.qib-button-wrapper {
   display: flex !important;
-  height: 33px;
+  height: 37px;
   float: unset;
   margin: 0;
   flex-wrap: nowrap;
@@ -470,7 +470,7 @@ body.wpt_table_body .wpt-wrap table tbody tr.wpt_row>td a.wpt_product_title_in_t
   border-radius: 2px;
   font-size: 16px;
   line-height: 18px;
-  height: 33px;
+  height: 37px;
   margin: 0;
   box-shadow: unset;
   max-width: 55px;
@@ -482,7 +482,7 @@ body.wpt_table_body .wpt-wrap .qib-button.qib-button-wrapper .minus.qib-button,
 body.wpt_table_body .wpt-wrap .qib-button.qib-button-wrapper .plus.qib-button {
   font-size: 18px;
   line-height:18px;
-  height: 33px;
+  height: 37px;
   font-weight: normal;
 }
 body.wpt_table_body .wpt-wrap .qib-button.qib-button-wrapper .minus.qib-button{
