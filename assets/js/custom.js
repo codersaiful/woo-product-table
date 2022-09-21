@@ -525,7 +525,7 @@ jQuery(function($) {
                 //Setting style of height width
                 wrapper_style = "style='width: " + image_width + "px; height:" + image_height + "px'";
             }
-            product_title = $(thisImg).closest('tr').data('title');
+            product_title = 'Hello World';// $(thisImg).closest('tr').data('title');
             var html = '<div id="wpt_thumbs_popup" class="wpt_thumbs_popup"><div class="wpt_popup_image_wrapper" ' + wrapper_style + '><span title="Close" id="wpt_popup_close">&times;</span><h2 class="wpt_wrapper_title">' + product_title + '</h2><div class="wpt_thums_inside">';
             html += '<img class="wpt_popup_image" src="' + final_image_url + '">';
 

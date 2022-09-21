@@ -342,6 +342,7 @@ div.wpt-wrap.wpt-wrap tr.stock_status_outofstock input[type=checkbox]+label{
   flex-direction: column;
   gap: 10px;
   width: 100%;
+  order: 3;
 }
 .wpt_action form.variations_form.cart .single_variation_wrap .woocommerce-variation-add-to-cart.variations_button {
   display: flex;
@@ -350,6 +351,7 @@ div.wpt-wrap.wpt-wrap tr.stock_status_outofstock input[type=checkbox]+label{
   gap: 10px;
   align-items: center;
   justify-content: start;
+  order: 1;
 }
 .wpt_action form.variations_form.cart table.variations, 
 .wpt_action form.variations_form.cart table.variations tr, 
