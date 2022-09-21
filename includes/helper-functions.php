@@ -367,27 +367,6 @@ add_action( 'wp_ajax_wpt_fragment_empty_cart', 'wpt_fragment_empty_cart' );
 add_action( 'wp_ajax_nopriv_wpt_fragment_empty_cart', 'wpt_fragment_empty_cart' );
 
 
-
-if( ! function_exists( 'wpt_variation_image_load' ) ){
-
-    /**
-     * Getting Image URL and with info for variation images
-     * 
-     * @Since 3.7
-     */
-    function wpt_variation_image_load(){
-        $variation_id = isset( $_POST['variation_id'] ) ? absint( $_POST['variation_id'] ) : false;
-        if( $variation_id ){
-            $img_src = wp_get_attachment_image_src( get_post_thumbnail_id( $variation_id ), 'full', false );   
-            echo esc_url( $img_src[0] ) . ' ' . esc_html( $img_src[1] );
-        }
-
-        die();
-    }
-}
-add_action( 'wp_ajax_wpt_variation_image_load', 'wpt_variation_image_load' );
-add_action( 'wp_ajax_nopriv_wpt_variation_image_load', 'wpt_variation_image_load' );
-
 if( ! function_exists( 'wpt_ajax_multiple_add_to_cart' ) ){
 
     /**

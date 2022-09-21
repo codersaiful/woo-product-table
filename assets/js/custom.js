@@ -355,68 +355,6 @@ jQuery(function($) {
         function WPT_MiniCart(){
 
         }
-        /**
-         * Mini cart Minicart Manage
-         * Loading our plugin's minicart
-         * 
-         * @since 3.7.11
-         * @Added a new added function.
-         * @returns {Boolean}
-         */
-        function WPT_MiniCart_BACKUP(){
-            var minicart_type = $('div.tables_cart_message_box').attr('data-type');
-                      
-            $.ajax({
-                type: 'POST',
-                url: ajax_url,
-                data: {
-                    action: 'wpt_fragment_refresh'
-                },
-                success: function(response){
-
-                    setFragmentsRefresh( response );
-                    
-                    if(typeof minicart_type === 'undefined'){
-                        return;
-                    }
-                    if(typeof minicart_type !== 'undefined'){
-                        var cart_hash = response.cart_hash;
-                        var fragments = response.fragments;
-                        var html = '';
-                        var supportedElement = ['div.widget_shopping_cart_content','a.cart-contents','a.footer-cart-contents'];
-                        if ( fragments && cart_hash !== '' ) {
-                            if(minicart_type === 'load'){
-                                $.each( fragments, function( key, value ) {
-                                    if('string' === typeof key && $.inArray(key, supportedElement) != -1 && typeof $( key ) === 'object') {
-                                        html += value;
-                                    }
-
-                                });
-                                $('div.tables_cart_message_box').attr('data-type','refresh');//Set
-                                $('div.tables_cart_message_box').html(html);
-                            }
-
-                        }
-                        
-
-                        if( fragments.hasOwnProperty('wpt_per_product') && fragments.wpt_per_product !== "false" && config_json.empty_cart_text ){
-                            var emty_cart_btn = '<a class="wpt_empty_cart_btn button button-empty-cart">' + config_json.empty_cart_text + '</a>';
-                            $('.wpt-wrap div.tables_cart_message_box p.woocommerce-mini-cart__buttons.buttons').prepend(emty_cart_btn);
-                        }else{
-                            // $('.wpt_empty_cart_btn').remove();
-                        }
-                        
-                        var argStats = {};
-                        argStats['status'] = true;
-                        $(document.body).trigger('wpt_minicart_load',argStats, fragments);
-                    }
-                },
-                error: function(){
-                    console.log("Unable to Load Minicart");
-                    return false;
-                }
-            });
-        }
         
         
         //.wpt-wrap div.tables_cart_message_box.message-box-loading
@@ -464,32 +402,32 @@ jQuery(function($) {
          * Popup Image 
          */
         $('body').on('click', '.wpt-wrap .wpt_thumbnails_popup img', function() {
+            
+            // return;
             var thisImg = $(this);
             var image_width, final_image_url, variation_id,imgSize;
             //For vatiation management
             variation_id = $(this).attr('data-variation_id');
 
             if('undefined' !== typeof variation_id){
-                $.ajax({
-                    type: 'POST',
-                    url: ajax_url,
-                    data: {
-                        action: 'wpt_variation_image_load',
-                        variation_id: variation_id,
-                    },
-                    success: function(result){
-                        if(" " === result || "" === result){
-                            image_width = thisImg.parent().data('width');
-                            final_image_url = thisImg.parent().data('url');
-                            IMG_Generator(thisImg,final_image_url, image_width);
-                        }else{
-                            imgSize = result.split(" ");
-                            final_image_url = imgSize[0];
-                            image_width = imgSize[1];
-                            IMG_Generator(thisImg,final_image_url, image_width);
-                        }                            
+
+                var data_objec = $(this).closest('tr.wpt-row').data('product_variations');
+                var finalImgObject,fullObject;
+                
+                $.each(data_objec,function(index,eachObj){
+                    if( variation_id == eachObj['variation_id'] ){
+                        fullObject = eachObj;
+                        finalImgObject = eachObj['image'];
                     }
+                    
                 });
+
+                if('undefined' !== typeof finalImgObject){
+                    console.log(fullObject);
+                    final_image_url = finalImgObject.full_src;
+                    image_width = finalImgObject.full_src_w;
+                    IMG_Generator(thisImg,final_image_url, image_width);
+                }
 
             }else{
                 image_width = $(this).parent().data('width');
@@ -525,7 +463,10 @@ jQuery(function($) {
                 //Setting style of height width
                 wrapper_style = "style='width: " + image_width + "px; height:" + image_height + "px'";
             }
-            product_title = 'Hello World';// $(thisImg).closest('tr').data('title');
+            product_title = $(thisImg).closest('tr.wpt-row').find('.wpt_product_title_in_td').text();
+            if(!product_title){
+                product_title = '';
+            }
             var html = '<div id="wpt_thumbs_popup" class="wpt_thumbs_popup"><div class="wpt_popup_image_wrapper" ' + wrapper_style + '><span title="Close" id="wpt_popup_close">&times;</span><h2 class="wpt_wrapper_title">' + product_title + '</h2><div class="wpt_thums_inside">';
             html += '<img class="wpt_popup_image" src="' + final_image_url + '">';
 
