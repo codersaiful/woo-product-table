@@ -30,7 +30,7 @@
 
     
     --wpt_review: #ffc107;
-    --wpt_thead_bg: #efefef;
+    --wpt_thead_bg: #efefef57;
     --wpt_thead_text: black;
   
     --wpt_product_title: #5bb318;
@@ -45,6 +45,10 @@
 
     --wpt_btn_bg: var(--wpt_primary);
     --wpt_btn_bg_hover: transparent;
+
+    --wpt_sorted_head_bg: var(--wpt_primary_deepest);
+    --wpt_sorted_head_text: white;
+    --wpt_sorted_td_bg: rgba(0, 0, 0, 0.03);
   }
 .wpt-wrap.greeny_wrapper table.wpt-tbl tr th {
     border-bottom: 1px solid #040404 !important;

@@ -378,3 +378,11 @@ div.wpt_notice_board>div:after {
 div.wpt_notice_board>div:hover:after {
     background: var(--wpt_primary_deepest)
 }
+
+div.wpt_column_sort table#wpt_table.wpt_product_table tr>th.this_column_sorted {
+    background-color: var(--wpt_sorted_head_bg);
+    color: var(--wpt_sorted_head_text);
+}
+div.wpt_column_sort table#wpt_table.wpt_product_table tr>td.this_column_sorted {
+    background: var(--wpt_sorted_td_bg);;
+}
