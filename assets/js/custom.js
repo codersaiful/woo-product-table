@@ -257,13 +257,19 @@ jQuery(function($) {
             $.getScript(plugin_url + "/woocommerce/assets/js/frontend/woocommerce.js");
             $.getScript(plugin_url + "/woocommerce/assets/js/frontend/add-to-cart-variation.min.js");
         }
-        $(document.body).on('wc_fragments_refreshed',function(){
-            // alert(22222222);
-            // $.getScript(include_url + "/js/mediaelement/wp-mediaelement.min.js");
-            $.getScript(plugin_url + "/woocommerce/assets/js/frontend/add-to-cart.js");
-            $.getScript(plugin_url + "/woocommerce/assets/js/frontend/woocommerce.js");
-            $.getScript(plugin_url + "/woocommerce/assets/js/frontend/add-to-cart-variation.min.js");
-            // $.getScript(plugin_url + "/woocommerce/assets/js/frontend/add-to-cart-variation.js");
+        
+        $(document.body).on('wpt_ajax_loaded',function(){
+            var variableProducts;
+            setTimeout(function(){
+                variableProducts = $('tr.product_type_variable').length;
+                if(variableProducts > 0){
+                    $.getScript(include_url + "/js/mediaelement/wp-mediaelement.min.js");
+                    $.getScript(plugin_url + "/woocommerce/assets/js/frontend/add-to-cart.js");
+                    $.getScript(plugin_url + "/woocommerce/assets/js/frontend/woocommerce.js");
+                    $.getScript(plugin_url + "/woocommerce/assets/js/frontend/add-to-cart-variation.min.js");
+                }
+            },500);
+
         });
     
     
