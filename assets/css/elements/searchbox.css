@@ -1,3 +1,11 @@
+.wpt-search-full-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.wpt-search-full-wrapper>div{
+    flex: 1 100%;
+}
 .search_box_fixer {
     display: flex;
     align-items: center;
