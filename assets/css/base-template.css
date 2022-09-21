@@ -1,3 +1,9 @@
+.wpt_table_tag_wrapper, .wpt_table_tag_wrapper table,
+.wpt-wrap .wpt_table_tag_wrapper table, .wpt-wrap .wpt_table_tag_wrapper table.wpt-tbl {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
 div.wpt-wrap {
   display: flex;
   gap: 10px;
@@ -311,15 +317,38 @@ div.wpt-wrap.wpt-wrap tr.stock_status_outofstock input[type=checkbox]+label{
 .wpt-wrap input[type=checkbox]+label, .wpt-wrap input[type=radio]+label {
   margin: 0 0 0 0;
 }
-  /* cart fatima */
-.wpt_table_body .wpt-wrap .cart {
+
+.wpt_table_body .wpt-wrap .wpt_action form.cart {
     display: flex;
-    justify-content: center;
     align-items: center;
     gap: 10px;
     margin-bottom: 0;
-  }
-  
+    flex-wrap: nowrap;
+    flex-direction: row;
+    flex-basis: 100%;
+    justify-content: start;
+}
+.wpt_table_body .wpt-wrap .wpt_action form.variations_form.cart {
+
+    flex-wrap: nowrap;
+    flex-direction: column;
+    flex-basis: 100%;
+}
+.wpt_action form.variations_form.cart .single_variation_wrap,
+.wpt_action form.variations_form.cart .single_variation_wrap .woocommerce-variation.single_variation{
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  gap: 10px;
+}
+.wpt_action form.variations_form.cart .single_variation_wrap .woocommerce-variation-add-to-cart.variations_button {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  justify-content: start;
+}
   /* product title  */
 body.wpt_table_body .wpt-wrap table tbody tr.wpt_row>td a.wpt_product_title_in_td {
     font-weight: 400;
