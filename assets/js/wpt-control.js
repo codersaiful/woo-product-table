@@ -255,12 +255,14 @@ jQuery(function($) {
                     var Bubble = thisRow.find('.wpt_ccount');
                     if(Bubble.length == 0){
                         thisRow.find('a.add_to_cart_button').append('<span class="wpt_ccount wpt_ccount_' + product_id + '">' + quantity + '</span>');
+                        thisRow.find('.single_add_to_cart_button').append('<span class="wpt_ccount wpt_ccount_' + product_id + '">' + quantity + '</span>');
                     }else{
                         Bubble.html(quantity);
                     }
                     var crossButton = thisRow.find('.wpt-cart-remove');
                     if(crossButton.length == 0){
                         thisRow.find('a.add_to_cart_button').after('<span data-cart_item_key="' + cart_item_key + '" data-product_id="' + product_id + '" class="wpt-cart-remove wpt-cart-remove-' + product_id + '"></span>');
+                        thisRow.find('.single_add_to_cart_button').after('<span data-cart_item_key="' + cart_item_key + '" data-product_id="' + product_id + '" class="wpt-cart-remove wpt-cart-remove-' + product_id + '"></span>');
                     }
                     
                 }else{
