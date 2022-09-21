@@ -188,6 +188,9 @@ tr.visible_row.wpt_row td a.wpt_woo_add_cart_button.disabled{
   border-bottom: none !important;
   box-shadow: unset;
 }
+div.td_or_cell.no-inner.wpt_message input.message {
+  width: 100%;
+}
 
 /*This green signal, when added to cart*/
 /* tr.wpt-row.wpt-added-to-cart>td:last-child::after, */
@@ -262,7 +265,7 @@ div.wpt-wrap.wpt-wrap tr th input[type=checkbox]+label:after {
 
 div.wpt-wrap.wpt-wrap tr.disabled input[type=checkbox]+label,
 div.wpt-wrap.wpt-wrap tr.stock_status_outofstock input[type=checkbox]+label{
-  opacity: .4;
+  opacity: .25;
 }
 .wpt-wrap th.wpt_check label {
     margin-left: -1px;
