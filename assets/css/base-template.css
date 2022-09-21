@@ -131,6 +131,8 @@ a.button.wpt_woo_add_cart_button{
   display: inline-block;
 }
 
+.wpt-wrap .wpt_add-request-quote-button,
+.wpt-wrap .wpt_quick_view .caqv-open-modal,
 tr.visible_row.wpt_row td a.button,
 tr.visible_row.wpt_row td a.wpt_woo_add_cart_button,
 tr.visible_row.wpt_row .col_inside_tag.action a

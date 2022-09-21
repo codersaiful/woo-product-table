@@ -49,6 +49,8 @@ body.wpt_table_body .wpt-wrap table thead tr.wpt_table_header_row th {
     background: var(--wpt_primary);
 }
 
+body.wpt_table_body .wpt-wrap .wpt_add-request-quote-button,
+body.wpt_table_body .wpt-wrap .wpt_quick_view .caqv-open-modal,
 body.wpt_table_body .wpt-wrap table tbody tr a.button.add_to_cart_button,
 body.wpt_table_body .wpt-wrap table tbody tr .button.single_add_to_cart_button ,
 body.wpt_table_body .wpt-wrap table tbody tr .button.add_to_cart_button.adding,
@@ -60,6 +62,8 @@ body.wpt_table_body .wpt-wrap table tbody tr .button.add_to_cart_button.adding.w
 
 }
 
+body.wpt_table_body .wpt-wrap .wpt_add-request-quote-button:hover,
+body.wpt_table_body .wpt-wrap .wpt_quick_view .caqv-open-modal:hover,
 body.wpt_table_body .wpt-wrap table tbody tr .button.add_to_cart_button:hover,
 body.wpt_table_body .wpt-wrap table tbody tr .button.single_add_to_cart_button:hover,
 body.wpt_table_body .wpt-wrap table tbody tr .button.add_to_cart_button:hover.adding,
