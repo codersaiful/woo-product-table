@@ -42,4 +42,12 @@
 
   --wpt_btn_color: var(--wpt_white);
   --wpt_btn_color_hover: var(--wpt_primary);
+
+  --wpt_btn_bg: var(--wpt_primary);
+  --wpt_btn_bg_hover: transparent;
+  
+  --wpt_sorted_head_bg: rgba(0, 0, 0, 0.18);
+  --wpt_sorted_head_text: inherit;
+  --wpt_sorted_td_bg: rgba(0, 0, 0, 0.03);
+  
   }
