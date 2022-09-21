@@ -42,6 +42,9 @@
   
     --wpt_btn_color: var(--wpt_white);
     --wpt_btn_color_hover: var(--wpt_primary);
+
+    --wpt_btn_bg: var(--wpt_primary);
+    --wpt_btn_bg_hover: transparent;
   }
 .wpt-wrap.greeny_wrapper table.wpt-tbl tr th {
     border-bottom: 1px solid #040404 !important;

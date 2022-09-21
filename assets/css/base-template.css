@@ -5,7 +5,7 @@ div.wpt-wrap {
   flex: 1 100%;
 }
 .wpt-wrap .wpt_table_tag_wrapper {
-  box-shadow: 0 10px 15px 0 #00000017;
+  box-shadow: 0 10px 15px 0 #00000010;
   margin-bottom: 15px; /*25px*/
   background: white;
 }
