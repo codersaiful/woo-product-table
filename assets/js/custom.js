@@ -250,13 +250,21 @@ jQuery(function($) {
         
         $('table.wpt_product_table td select').trigger('change');
         function fixAfterAjaxLoad() {
-        $('table.wpt_product_table td select').trigger('change');
+            $('table.wpt_product_table td select').trigger('change');
             //$.getScript(include_url + "/js/mediaelement/mediaelement-and-player.min.js");
-            //$.getScript(include_url + "/js/mediaelement/mediaelement-migrate.min.js");
             $.getScript(include_url + "/js/mediaelement/wp-mediaelement.min.js");
+            $.getScript(plugin_url + "/woocommerce/assets/js/frontend/add-to-cart.js");
+            $.getScript(plugin_url + "/woocommerce/assets/js/frontend/woocommerce.js");
             $.getScript(plugin_url + "/woocommerce/assets/js/frontend/add-to-cart-variation.min.js");
-            $.getScript(plugin_url + "/woocommerce/assets/js/frontend/add-to-cart-variation.js");
         }
+        $(document.body).on('wc_fragments_refreshed',function(){
+            // alert(22222222);
+            // $.getScript(include_url + "/js/mediaelement/wp-mediaelement.min.js");
+            $.getScript(plugin_url + "/woocommerce/assets/js/frontend/add-to-cart.js");
+            $.getScript(plugin_url + "/woocommerce/assets/js/frontend/woocommerce.js");
+            $.getScript(plugin_url + "/woocommerce/assets/js/frontend/add-to-cart-variation.min.js");
+            // $.getScript(plugin_url + "/woocommerce/assets/js/frontend/add-to-cart-variation.js");
+        });
     
     
         /**

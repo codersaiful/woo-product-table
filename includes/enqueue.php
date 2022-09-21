@@ -23,7 +23,7 @@ if( !function_exists( 'wpt_enqueue' ) ){
        wp_enqueue_script( 'jquery' );
 
        ///custom JavaScript for Woo Product Table pro plugin
-       wp_enqueue_script( 'wpt-custom-js', WPT_Product_Table::getPath('BASE_URL') . 'assets/js/custom.js', array( 'jquery' ), WPT_DEV_VERSION, true );
+       wp_enqueue_script( 'wpt-custom-js', WPT_Product_Table::getPath('BASE_URL') . 'assets/js/custom.js', array( 'jquery','wc-cart-fragments','wc-add-to-cart-variation' ), WPT_DEV_VERSION, true );
 
        /**
         * Select2 CSS file including. 
