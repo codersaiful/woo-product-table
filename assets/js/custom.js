@@ -1175,7 +1175,7 @@ jQuery(function($) {
             currentAllSelectedButtonSelector.addClass('loading');
             tableWrapperTag.addClass('wpt-ajax-loading');
 
-            var add_cart_text = $('#table_id_' + temp_number).data('add_to_cart');
+            var add_cart_text = $('#table_id_' + temp_number).data('basic_settings').add_to_cart;
 
             //Getting Data from all selected checkbox
             var products_data = {};
@@ -1904,7 +1904,7 @@ jQuery(function($) {
         
         function updateCheckBoxCount(temp_number){
             config_json = getConfig_json( temp_number ); //Added vat V5.0
-            var add_cart_text = $('#table_id_' + temp_number).data('add_to_cart');
+            var add_cart_text = $('#table_id_' + temp_number).data('basic_settings').add_to_cart;
             var currentAllSelectedButtonSelector = $('#table_id_' + temp_number + ' a.button.add_to_cart_all_selected');
             var itemAmount = 0;
             var itemCountSystem = config_json.item_count;
@@ -2403,7 +2403,8 @@ jQuery(function($) {
     }
    
     $(document).on('submit','div.advance_table_wrapper table.advance_table.wpt_product_table form',function(e){
-
+            e.preventDefault();
+            
             WPT_BlankNotice();
             var product_id = $(this).parents('tr').data('product_id');
             var thisButton = $('tr#product_id_' + product_id + ' .wpt_action button.single_add_to_cart_button');
@@ -2413,6 +2414,7 @@ jQuery(function($) {
             var data_json = $('#' + table_id + ' table.advance_table').data( 'data_json' );
             var ajax_action = data_json.ajax_action;
 
+            console.log(data_json);
            
             thisTable.addClass('loading');
             thisButton.removeClass('added');
@@ -2489,7 +2491,7 @@ jQuery(function($) {
 
 
             
-            var add_cart_text = $('#table_id_' + temp_number).data('add_to_cart');
+            var add_cart_text = $('#table_id_' + temp_number).data('basic_settings').add_to_cart;
             
             var itemAmount = 0;
 

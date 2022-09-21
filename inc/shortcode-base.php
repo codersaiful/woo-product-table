@@ -6,6 +6,21 @@ class Shortcode_Base extends Base{
     public $_root = __CLASS__;
     public $shortcde_text = 'Product_Table';
 
+    /**
+     * For Table's basics Settings such as:
+     * ajax_action,checkout_url, site_url
+     * Actually in custom.js file, 
+     * ajax_action data need on Add to cart botton when third party plugin support enabled.
+     * 
+     * It has shown as attribute on main div tag of table. 
+     * Available at inc/shortcode.php file.
+     * 
+     * Value assing at shartup loader of Shortcode Class/Object 
+     *
+     * @var array
+     */
+    public $basic_settings;
+
     public $base_config;
     public $table_on_archive;
     public $table_on_variable;

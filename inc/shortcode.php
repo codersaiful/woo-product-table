@@ -202,12 +202,10 @@ class Shortcode extends Shortcode_Base{
         ob_start();
 
         ?>
-        <div data-checkout_url="<?php echo esc_url( wc_get_checkout_url() ); ?>" 
+        <div id="table_id_<?php echo esc_attr( $this->table_id ); ?>" 
+        class="<?php echo esc_attr( Table_Attr::wrapper_class( $this ) ); ?>"
         data-temp_number="<?php echo esc_attr( $this->table_id ); ?>" 
-        data-add_to_cart="<?php echo esc_attr( $this->add_to_cart_text ); ?>" 
-        data-site_url="<?php echo esc_url( site_url() ); ?>" 
-        id="table_id_<?php echo esc_attr( $this->table_id ); ?>" 
-        class="<?php echo esc_attr( Table_Attr::wrapper_class( $this ) ); ?>">
+        data-basic_settings="<?php echo esc_attr( wp_json_encode( $this->basic_settings ) ); ?>" >
             <?php
 
             //Render Top Minicart here, Condition applied inside method/function
@@ -302,6 +300,15 @@ class Shortcode extends Shortcode_Base{
         if( ! $this->assing_property ){
             $this->assing_property( $atts );
         }
+
+        //Assigning value for basics setting. it's used at shortcode($atts) method. It's actually need for thirdparty supported Add to cart button. there need ajax_action data before trigger.
+        $this->basic_settings = [
+            'checkout_url'  => wc_get_checkout_url(),
+            'add_to_cart'   => $this->add_to_cart_text,
+            'site_url'      => site_url(),
+            'ajax_action'   => $this->basics['ajax_action'] ?? '',
+
+        ];
 
         $this->checkbox_validation = apply_filters( 'wpto_checkbox_validation', false, $this->column_array,$this->column_settings, $this->table_id );
 
