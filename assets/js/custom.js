@@ -272,7 +272,7 @@ jQuery(function($) {
                 if(musicProducts > 0){
                     
                     $.getScript(include_url + "/js/mediaelement/wp-mediaelement.min.js");
-                    // $( window.wp.mediaelement.initialize );
+                    $( window.wp.mediaelement.initialize );
                 }
             },100);
 
