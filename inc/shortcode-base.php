@@ -74,7 +74,14 @@ class Shortcode_Base extends Base{
         $table_on_archive = $this->base_config['table_on_archive'] ?? false;
         $this->table_on_archive = ! empty( $table_on_archive );
         $table_on_variable = $this->base_config['variation_table_id'] ?? false;
-        $this->table_on_variable = ! empty( $table_on_variable );
+
+        /**
+         * Variation table on of  now easy using filter.
+         * If enable from filter and return a ID of Table, that will show in Variable Product. 
+         */
+        $table_on_variable = apply_filters( 'wpt_variation_table_id', $table_on_variable );
+        
+        $this->table_on_variable = ! empty( $table_on_variable ) ? $table_on_variable : false;
 
         $footer_cart_template = $this->base_config['footer_cart_template'] ?? 'none';
         $this->footer_cart_template = $this->apply_filter( 'wpt_footer_cart_template', $footer_cart_template );

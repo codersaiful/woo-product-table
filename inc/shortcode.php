@@ -277,6 +277,7 @@ class Shortcode extends Shortcode_Base{
         </div><!-- /.main wrapper -->
         
         <?php 
+        // var_dump($this);
         // do_action( 'wpt_loaded', $this->table_id );
 
         /**
