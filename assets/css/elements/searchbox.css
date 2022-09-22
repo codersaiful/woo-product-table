@@ -47,6 +47,9 @@
     justify-content: flex-start;
     flex-wrap: wrap;
 }
+button.button.wpt-search-products {
+    order: 8;
+}
 /* .search_single_search_by_keyword {
     flex-basis: 50%;
 } */

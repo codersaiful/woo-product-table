@@ -311,7 +311,7 @@ jQuery(function($) {
         var footer_bg_color = config_json.footer_bg_color;
         //Adding Noticeboard and Footer CartBox Div tag at the bottom of page
         $('body').append("<div class='wpt_notice_board'></div>");
-        $('body').append('<div style="height: ' + footer_cart_size + 'px;width: ' + footer_cart_size + 'px;" class="wpt-footer-cart-wrapper '+ footer_possition +' '+ footer_cart +'"><a target="_blank" href="#"></a></div>');
+        // $('body').append('<div style="height: ' + footer_cart_size + 'px;width: ' + footer_cart_size + 'px;" class="wpt-footer-cart-wrapper '+ footer_possition +' '+ footer_cart +'"><a target="_blank" href="#"></a></div>');
         
         /**
          * NoticeBoard Notice

@@ -707,6 +707,10 @@ class Shortcode extends Shortcode_Base{
         
     }
 
+    public function mini_filter_render(){
+        if( $this->filter_box ) return;
+    }
+
     /**
      * RENDER MINICART MARKUP:
      * Our personal Minicart where product will add after added to cart actually

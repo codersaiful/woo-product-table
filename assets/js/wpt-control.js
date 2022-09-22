@@ -344,19 +344,17 @@ jQuery(function($) {
             if(!isMob && current_width <= 500){
                 isMob = true;
                 isDesk = false;
-                // console.log('isDesk',isDesk);
-                // console.log('isMobi',isMob);
-                // console.log("Called Mobile");
-
                 genDestToMobTable();
+                // $('.wpt-search-products').trigger('click'); //this is causing a problem, when resize, it's going to page one always.
             }
 
             if(!isDesk && current_width > 500){
                 isMob = false;
                 isDesk = true;
-                // console.log("Called Desktop");
                 genMobToDeskTable();
+                // $('.wpt-search-products').trigger('click');
             }
+            
         }
         function genDestToMobTable(){
             

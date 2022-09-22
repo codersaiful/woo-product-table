@@ -77,6 +77,8 @@ div.tables_cart_message_box div.widget_shopping_cart_content li.woocommerce-mini
     flex-wrap: wrap;
     order: 1;
     flex: 1 100%;
+    margin: 0;
+    padding: 0;
 }
 .tables_cart_message_box .widget_shopping_cart_content>p {
     flex: 2;

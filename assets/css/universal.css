@@ -1365,8 +1365,8 @@ div.wpt-wrap.woocommerce.wpt-ajax-loading:before{display: none;}
     gap: 10px;
 }
 .wpt-stats-report>p {
-    padding: 0;
-    margin: 0;
+    padding: 0 !important;
+    margin: 0 !important;
 }
 
 span.wpt-cart-remove {
