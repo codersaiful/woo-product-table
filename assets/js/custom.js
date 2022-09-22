@@ -259,16 +259,22 @@ jQuery(function($) {
         }
         
         $(document.body).on('wpt_ajax_loaded',function(){
-            var variableProducts;
+            var variableProducts,musicProducts;
             setTimeout(function(){
                 variableProducts = $('tr.product_type_variable').length;
+                musicProducts = $('audio,.wp-audio-shortcode').length;
                 if(variableProducts > 0){
-                    $.getScript(include_url + "/js/mediaelement/wp-mediaelement.min.js");
-                    $.getScript(plugin_url + "/woocommerce/assets/js/frontend/add-to-cart.js");
-                    $.getScript(plugin_url + "/woocommerce/assets/js/frontend/woocommerce.js");
+                    // $.getScript(include_url + "/js/mediaelement/wp-mediaelement.min.js");
+                    // $.getScript(plugin_url + "/woocommerce/assets/js/frontend/add-to-cart.js");
+                    // $.getScript(plugin_url + "/woocommerce/assets/js/frontend/woocommerce.js");
                     $.getScript(plugin_url + "/woocommerce/assets/js/frontend/add-to-cart-variation.min.js");
                 }
-            },500);
+                if(musicProducts > 0){
+                    
+                    $.getScript(include_url + "/js/mediaelement/wp-mediaelement.min.js");
+                    $( window.wp.mediaelement.initialize );
+                }
+            },100);
 
         });
     

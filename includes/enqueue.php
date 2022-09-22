@@ -39,7 +39,9 @@ if( !function_exists( 'wpt_enqueue' ) ){
         * @since 1.9
         */
        wp_enqueue_script( 'select2', WPT_Product_Table::getPath('BASE_URL') . 'assets/select2/js/select2.min.js', array( 'jquery' ), '4.0.5', true );
-
+       
+    //    wp_enqueue_script( 'wp-mediaelement' );
+       wp_enqueue_style( 'wp-mediaelement' );
        /**
         * jQuery floatThead
         * for making sticky head of table
