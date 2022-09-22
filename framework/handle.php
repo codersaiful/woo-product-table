@@ -85,7 +85,7 @@ if( ! class_exists( 'WPT_Required' ) ){
                 if( method_exists($offerNc, 'set_location') ){
                     $offerNc->set_location('wpt_offer_here'); //wpt_premium_image_bottom
                 }
-                $offerNc->show();
+                // $offerNc->show();
                 
                 
 

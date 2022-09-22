@@ -14,6 +14,7 @@ use WOO_PRODUCT_TABLE\Inc\Handle\Add_To_Cart;
 
 use WOO_PRODUCT_TABLE\Inc\Table\Row;
 use WOO_PRODUCT_TABLE\Inc\Features\Basics;
+use WOO_PRODUCT_TABLE\Inc\Handle\Mini_Filter;
 
 class Shortcode extends Shortcode_Base{
 
@@ -208,6 +209,7 @@ class Shortcode extends Shortcode_Base{
         data-basic_settings="<?php echo esc_attr( wp_json_encode( $this->basic_settings ) ); ?>" >
             <?php
 
+
             //Render Top Minicart here, Condition applied inside method/function
             $this->minicart_render( 'top' );
 
@@ -218,7 +220,7 @@ class Shortcode extends Shortcode_Base{
     
     
             do_action( 'wpto_action_before_table', $this->table_id, $this->args, $this->column_settings, $this->_enable_cols, $this->_config, $this->atts );
-            
+            $this->mini_filter_render();
             if($this->checkbox_validation){
                 Checkbox_Box::render($this);
             }
@@ -708,7 +710,8 @@ class Shortcode extends Shortcode_Base{
     }
 
     public function mini_filter_render(){
-        if( $this->filter_box ) return;
+        if( ! $this->filter_box ) return;
+        Mini_Filter::render($this);
     }
 
     /**

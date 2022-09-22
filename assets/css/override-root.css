@@ -57,7 +57,7 @@ body.wpt_table_body .wpt-wrap table tbody tr .button.add_to_cart_button.adding,
 body.wpt_table_body .wpt-wrap table tbody tr .button.add_to_cart_button.alt.wc-variation-selection-needed,
 body.wpt_table_body .wpt-wrap table tbody tr .button.add_to_cart_button.adding.wc-variation-selection-needed {
     background: var(--wpt_btn_bg);
-    border: 1px solid var(--wpt_primary);
+    border: 1px solid var(--wpt_btn_bg);
     color: var(--wpt_btn_color);
 
 }

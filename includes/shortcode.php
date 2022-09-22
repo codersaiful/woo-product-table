@@ -291,11 +291,13 @@ if( ! function_exists( 'wpt_filter_box' ) ){
 
         $html = $html_select = false;
         
+        
         if( is_string( $filter_keywords ) && ! empty( $filter_keywords ) ){
             $filter_keywords = wpt_explode_string_to_array( $filter_keywords );
         }
-        
+        var_dump($filter_keywords);
         $config_value = wpt_get_config_value( $temp_number ); //V5.0 temp number is post_ID , $table_ID
+        var_dump($config_value);
         /**
          * Texonomies Handle based on $search_box_texonomiy_keyword
          * Default cat and tag for product
