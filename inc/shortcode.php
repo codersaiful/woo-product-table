@@ -197,6 +197,8 @@ class Shortcode extends Shortcode_Base{
         //Obviously should load on after starup. Even already checked on overr there
         $this->startup_loader($atts);
         
+
+        $this->do_action('wpt_load');
         
         // var_dump($this->product_loop);
         //wpto_action_table_wrapper_top
