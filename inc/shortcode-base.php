@@ -4,7 +4,17 @@ namespace WOO_PRODUCT_TABLE\Inc;
 use WOO_PRODUCT_TABLE\Core\Base;
 class Shortcode_Base extends Base{
     public $_root = __CLASS__;
-    public $shortcde_text = 'Product_Table';
+    public string $shortcde_text = 'Product_Table';
+
+    /**
+     * Very important Property, 
+     * Default is true, But somethime, we need to disable table. 
+     * Then we can set property value false,
+     * Table will be hide.
+     *
+     * @var boolean
+     */
+    public bool $table_display = true;
 
     /**
      * For Table's basics Settings such as:

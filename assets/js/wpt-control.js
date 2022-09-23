@@ -408,7 +408,7 @@ jQuery(function($) {
          * has adding here.
          * @since 3.2.5.2
          */
-        $(document.body).append('<div class="wpt-new-footer-cart"></div>');
+        $(document.body).append('<div class="wpt-new-footer-cart footer-cart-empty"></div>');
 
         
         $(document.body).on('click','.wpt-fcart-coll-expand,.wpt-cart-contents span.count',function(){

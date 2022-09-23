@@ -145,6 +145,7 @@ if( $this->cart_lists && $this->cart_stats ){
     public function render_cart_list(){
         ?>
         <div class="wpt-lister">
+
             <div class="lister-ins">
                 <ul>
             <?php
