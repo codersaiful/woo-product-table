@@ -9,6 +9,8 @@ div.wpt-wrap {
   gap: 10px;
   flex-direction: column;
   flex: 1 100%;
+  clear: both;
+  width: 100%;
 }
 .wpt-wrap .wpt_table_tag_wrapper {
   box-shadow: 0 10px 15px 0 #00000010;
