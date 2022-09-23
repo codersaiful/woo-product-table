@@ -100,9 +100,10 @@ class Fragment extends Shortcode_Base{
     public function getFooterCart(){
         $template = 'footer-cart-temp-' . $this->footer_cart_template;
         $this->cart_stats = ! WC()->cart->is_empty()  ? true : false;
+        $class_status = $this->cart_stats ? 'on' : 'empty';
         ob_start();
         ?>
-<div class="wpt-new-footer-cart <?php echo esc_attr( $template ); ?> wpt-foooter-cart-stats-<?php echo esc_attr( $this->cart_stats ); ?>">
+<div class="wpt-new-footer-cart <?php echo esc_attr( $template ); ?> wpt-foooter-cart-stats-<?php echo esc_attr( $class_status ); ?>">
 <?php
 if( $this->cart_lists && $this->cart_stats ){
     $this->render_cart_list();

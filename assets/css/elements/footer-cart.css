@@ -17,6 +17,9 @@
     font-weight: normal;
     line-height: 18px;
 }
+.wpt-foooter-cart-stats-empty {
+    display: none;
+}
 .wpt-new-footer-cart-inside {
     display: flex;
     align-items: center;
