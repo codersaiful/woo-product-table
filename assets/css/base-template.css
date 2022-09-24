@@ -705,9 +705,9 @@ tr:last-child td.wpt-replace-td-in-tr {
   .wpt_edit_table {
     justify-content: center;
   }
-  .wpt_product_table *, .wpt_product_table tr>td, .wpt_product_table td {
+  /* .wpt_product_table *, .wpt_product_table tr>td, .wpt_product_table td {
     vertical-align: top;
-  }
+  } */
 }
 
 /* Extra small devices (phones, 600px and down) */
@@ -727,7 +727,7 @@ tr:last-child td.wpt-replace-td-in-tr {
     order: 2;
   }
   tr.product_type_simple .item_inside_cell.wpt_action, tr.product_type_simple .td_or_cell.wpt_action>div {
-    gap: 20px;
+    gap: 45px;
   }
   .wpt-auto-responsive .wpt-stats-report {
     background: var(--wpt_thead_bg);
