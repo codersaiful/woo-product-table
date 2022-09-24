@@ -642,7 +642,8 @@ class Shortcode extends Shortcode_Base{
         Msg::not_found_product_tr($this);
         endif;
 
-
+        wp_reset_query();
+        wp_reset_postdata();
     }
     protected function table_head(){
         if( ! $this->table_head ) return;
