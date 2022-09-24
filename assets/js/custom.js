@@ -1863,8 +1863,56 @@ jQuery(function($) {
             updateCheckBoxCount(temp_number);
         }
 
-        
+        upateGlobalCheckboxCount();
+        function upateGlobalCheckboxCount(){
+            console.log('KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK');
+            console.log(config_json);
+            
+            
+            var add_cart_text = $('.wpt-wrap').data('basic_settings').add_to_cart;
+            var currentAllSelectedButtonSelector = $('body a.wpt-global-added-to-cart>span');
+            var itemAmount = 0;
+            var itemCountSystem = config_json.item_count;
+            
+            
+            $('.wpt-wrap input.enabled.wpt_tabel_checkbox:checked').each(function() { //wpt_td_checkbox
+                var product_id = $(this).data('product_id');
+                var items = $('tr#product_id_' + product_id).attr('data-quantity');
+                items = parseFloat(items);
+                if(items <= 0){
+                    return;
+                }
+                if(typeof itemCountSystem !== 'undefined' && itemCountSystem === 'all'){
+                    
+
+                    
+                    itemAmount += items;
+                }else{
+                    itemAmount++;//To get Item Amount
+                }
+                
+            });
+            var checkBoxWrapper = $('a.wpt-global-added-to-cart');
+            if(itemAmount > 0){
+                checkBoxWrapper.fadeIn();
+                checkBoxWrapper.removeClass('wpt-added-to-cart-empty');
+            }else{
+                checkBoxWrapper.fadeOut();
+                checkBoxWrapper.addClass('wpt-added-to-cart-empty');
+            }
+            var itemText = config_json.items;//'Items';
+
+            if (itemAmount === 1 || itemAmount === 0) {
+                itemText = config_json.item;//'Item';
+            }
+            if ( itemAmount > 0 || currentAllSelectedButtonSelector.hasClass('already_counted') ) {
+                currentAllSelectedButtonSelector.addClass('already_counted');
+                currentAllSelectedButtonSelector.html( add_cart_text + ' [ ' + itemAmount + ' ' + itemText + ' ]');
+            }
+
+        }
         function updateCheckBoxCount(temp_number){
+            upateGlobalCheckboxCount();
             config_json = getConfig_json( temp_number ); //Added vat V5.0
             var add_cart_text = $('#table_id_' + temp_number).data('basic_settings').add_to_cart;
             var currentAllSelectedButtonSelector = $('#table_id_' + temp_number + ' a.button.add_to_cart_all_selected');

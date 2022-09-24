@@ -1405,3 +1405,33 @@ tr.stock_status_outofstock.backorders_no .wpt_action .button {
     opacity: 0.7 !important;
 }
 tr.product_type_simple .td_or_cell.wpt_action>div p.stock.out-of-stock{}
+/*Global Added to cart*/
+.wpt-global-added-to-cart {
+    background: #5bb318;
+    color: white;
+    position: fixed;
+    top: unset;
+    right: unset;
+    bottom: 115px;
+    left: calc(50% - 162px);
+    width: 324px;
+    height: auto;
+    border-radius: 2px;
+    box-shadow: 0 10px 30px 0 #0000004d;
+    align-items: center;
+    z-index: 999;
+    font-size: 22px;
+    font-weight: normal;
+    line-height: 20px;
+    padding: 10px 6px;
+    text-transform: uppercase;
+    cursor: cell;
+    gap: 10px;
+    display: block;
+    text-align: center;
+    white-space: nowrap;
+}
+.wpt-global-added-to-cart>i{margin-right: 8px;}
+.wpt-global-added-to-cart.wpt-added-to-cart-empty{
+    display: none;
+}

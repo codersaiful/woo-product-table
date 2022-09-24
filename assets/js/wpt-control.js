@@ -399,6 +399,9 @@ jQuery(function($) {
         }
 
 
+
+        let addToCartText = $('a.button.add_to_cart_all_selected').data('add_to_cart');
+        $(document.body).append('<a href="#" class="wpt-global-added-to-cart wpt-added-to-cart-empty"><i class=" wpt-gift"></i><span>Add to Cart</span></a>');
         /**
          * Footer Mini cart New Version
          * 
