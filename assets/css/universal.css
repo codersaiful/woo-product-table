@@ -990,20 +990,7 @@ a.search_box_reset:focus,
   width: 7px;
 }
 
-/* Track */
-.wpt-wrap ::-webkit-scrollbar-track {
-  background: #f1f1f1; 
-}
- 
-/* Handle */
-.wpt-wrap ::-webkit-scrollbar-thumb {
-  background: #0a7f9c; 
-}
 
-/* Handle on hover */
-.wpt-wrap ::-webkit-scrollbar-thumb:hover {
-  background: #555; 
-}
 /*Audio Player Style*/
 /*Audio Player Style */
 /*.mejs-container {

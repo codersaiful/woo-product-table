@@ -391,3 +391,18 @@ div.wpt_column_sort table#wpt_table.wpt_product_table tr>th.this_column_sorted {
 div.wpt_column_sort table#wpt_table.wpt_product_table tr>td.this_column_sorted {
     background: var(--wpt_sorted_td_bg);;
 }
+/*Progressbar*/
+/* Track */
+.wpt-wrap ::-webkit-scrollbar-track {
+    background: var(--wpt_off_white); 
+  }
+   
+  /* Handle */
+  .wpt-wrap ::-webkit-scrollbar-thumb {
+    background: var(--wpt_primary); 
+  }
+  
+  /* Handle on hover */
+  .wpt-wrap ::-webkit-scrollbar-thumb:hover {
+    background: var(--wpt_text_deep); 
+  }
