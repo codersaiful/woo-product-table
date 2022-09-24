@@ -1866,8 +1866,6 @@ jQuery(function($) {
         upateGlobalCheckboxCount();
         function upateGlobalCheckboxCount(){
             console.log('KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK');
-            console.log(config_json);
-            
             
             var add_cart_text = $('.wpt-wrap').data('basic_settings').add_to_cart;
             var currentAllSelectedButtonSelector = $('body a.wpt-global-added-to-cart>span');

@@ -365,6 +365,15 @@ p.stars a:after,
 .wpt-cart-contents span.wpt_empty_cart_btn:hover {
     color: var(--wpt_warning);
 }
+/*globalAdd2c*/
+.wpt-global-added-to-cart {
+    background: var(--wpt_btn_bg);
+    color: var(--wpt_btn_color);
+}
+.wpt-global-added-to-cart:hover {
+    background: var(--wpt_primary_deepest);
+    color: var(--wpt_white);
+}
 /*NoticeBoard*/
 div.wpt_notice_board>div,
 div.wpt_notice_board>div.woocommerce-message {

@@ -1430,6 +1430,9 @@ tr.product_type_simple .td_or_cell.wpt_action>div p.stock.out-of-stock{}
     display: block;
     text-align: center;
     white-space: nowrap;
+    outline: 0 none;
+    border: 0 none;
+    text-decoration: none !important;
 }
 .wpt-global-added-to-cart>i{margin-right: 8px;}
 .wpt-global-added-to-cart.wpt-added-to-cart-empty{
