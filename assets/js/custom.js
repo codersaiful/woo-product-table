@@ -1224,12 +1224,6 @@ jQuery(function($) {
                     currentAllSelectedButtonSelector.removeClass('loading');
                     tableWrapperTag.removeClass('wpt-ajax-loading');
 
-                    //$('div.primary-navigation').html(response);
-                    //setFragmentsRefresh( response );                    
-                    //WPT_MiniCart();
-                    
-                    //The following code was here, we have changed in if statement
-                    //$( document.body ).trigger( 'added_to_cart', [ response.fragments, response.cart_hash, $('added_to_cart') ] );
                     if(WPT_DATA.add_to_cart_view){
                         $( document.body ).trigger( 'added_to_cart', [ response.fragments, response.cart_hash, $('added_to_cart') ] );
                     }else{
@@ -1271,23 +1265,7 @@ jQuery(function($) {
             });
         });
         
-        /******************/
-        //wc_fragments_refreshed,wc_fragments_refresh,wc_fragment_refresh,removed_from_cart
-        $(document).on('wc_fragments_refreshed',function(){
-            WPT_MiniCart();
-        });
-        $(document).on('wc_fragments_refresh',function(){
-            WPT_MiniCart();
-        });
-        
-        $(document).on('wc_fragment_refresh',function(){
-            WPT_MiniCart();
-        });
-        
-        $(document).on('removed_from_cart',function(){
-            WPT_MiniCart();
-        });
-        //**************************/
+
         $('body').append('<style>div.wpt-footer-cart-wrapper>a:after,div.wpt-footer-cart-wrapper>a{background-color: ' + footer_bg_color + ';}</style>');
         
         /**
