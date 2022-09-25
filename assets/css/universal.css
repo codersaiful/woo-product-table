@@ -1436,7 +1436,7 @@ tr.product_type_simple .td_or_cell.wpt_action>div p.stock.out-of-stock{}
     /* background: linear-gradient(90deg, #ee7752 30%, #e73c7e 30%, #23a6d5 70%, #23d5ab 70%); */
     background: linear-gradient(90deg, var(--wpt_primary), var(--wpt_product_title), var(--wpt_btn_bg), var(--wpt_primary_light));
 	background-size: 400% 400%;
-	animation: gradient 3s ease infinite;
+	animation: gradient 5s ease infinite;
 }
 @keyframes gradient {
 	0% {
