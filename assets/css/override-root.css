@@ -367,7 +367,8 @@ p.stars a:after,
 }
 /*globalAdd2c*/
 .wpt-global-added-to-cart {
-    background: var(--wpt_btn_bg);
+    /* background: var(--wpt_btn_bg); */
+    
     color: var(--wpt_btn_color);
 }
 .wpt-global-added-to-cart:hover {
