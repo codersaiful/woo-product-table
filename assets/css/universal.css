@@ -1433,6 +1433,7 @@ tr.product_type_simple .td_or_cell.wpt_action>div p.stock.out-of-stock{}
     outline: 0 none;
     border: 0 none;
     text-decoration: none !important;
+    /* background: linear-gradient(90deg, rgb(238, 119, 82) 30%, rgb(231, 60, 126) 30%, rgb(35, 166, 213) 70%, rgb(35, 213, 171) 70%) 0% 0% / 400% 400%; */ /*color ta sundor*/
     /* background: linear-gradient(90deg, #ee7752 30%, #e73c7e 30%, #23a6d5 70%, #23d5ab 70%); */
     background: linear-gradient(90deg, var(--wpt_primary),var(--wpt_thead_bg), var(--wpt_product_title), var(--wpt_btn_bg), var(--wpt_thead_bg));
 	background-size: 400% 400%;
