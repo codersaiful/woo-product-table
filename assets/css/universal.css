@@ -1454,3 +1454,6 @@ tr.product_type_simple .td_or_cell.wpt_action>div p.stock.out-of-stock{}
 .wpt-global-added-to-cart.wpt-added-to-cart-empty{
     display: none;
 }
+body.single.single-wpt_product_table div.wpt-wrap {
+    margin-bottom: 150px;
+}
