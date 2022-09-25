@@ -1434,7 +1434,7 @@ tr.product_type_simple .td_or_cell.wpt_action>div p.stock.out-of-stock{}
     border: 0 none;
     text-decoration: none !important;
     /* background: linear-gradient(90deg, #ee7752 30%, #e73c7e 30%, #23a6d5 70%, #23d5ab 70%); */
-    background: linear-gradient(90deg, var(--wpt_primary), var(--wpt_product_title), var(--wpt_btn_bg), var(--wpt_primary_light));
+    background: linear-gradient(90deg, var(--wpt_primary),var(--wpt_thead_bg), var(--wpt_product_title), var(--wpt_btn_bg), var(--wpt_thead_bg));
 	background-size: 400% 400%;
 	animation: gradient 5s ease infinite;
 }
