@@ -259,14 +259,18 @@ class Shortcode extends Shortcode_Base{
             if($this->checkbox_validation){
                 Checkbox_Box::render($this, 'footer');
             }
+            
 
-            if( $this->pagination ){
-                $big = 99999999;
-                $this->pagination_base_url = str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) );
+            switch($this->pagination){
+                case 'on':
+                    $big = 99999999;
+                    $this->pagination_base_url = str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) );
         
-                Pagination::render( $this );
-            }else{
-                Element::loadMore( $this );
+                    Pagination::render( $this );
+                    break;
+                case 'load_more':
+                    Element::loadMore( $this );
+                    break;
             }
 
             //Render Bottom Minicart here, Condition applied inside method/function
@@ -443,8 +447,6 @@ class Shortcode extends Shortcode_Base{
         $this->table_style = $this->get_meta( 'table_style' );
         
         $this->search_n_filter = $this->get_meta( 'search_n_filter' );
-        $pagi_data = $this->get_meta( 'pagination' );
-        $this->pagination = isset( $pagi_data['start'] ) && $pagi_data['start']==1;
         
 
         $this->posts_per_page = $this->conditions['posts_per_page'] ?? $this->posts_per_page;
@@ -455,6 +457,7 @@ class Shortcode extends Shortcode_Base{
         $this->minicart_position = $this->basics['minicart_position'] ?? '';
         $this->ajax_action = $this->basics['ajax_action'] ?? '';
         $this->add_to_cart_text = $this->basics['add_to_cart_text'] ?? '';//$basics['add_to_cart_text'] ?? ''
+        $this->pagination = $this->basics['pagination'] ?? 'on';
         $this->pagination_ajax = $this->basics['pagination_ajax'] ?? '';
         $this->checkbox = $this->basics['checkbox'] ?? 'wpt_no_checked_table'; //$checkbox = isset( $basics['checkbox'] ) && !empty( $basics['checkbox'] ) ? $basics['checkbox'] : 'wpt_no_checked_table';
 

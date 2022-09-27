@@ -4,7 +4,7 @@ use WOO_PRODUCT_TABLE\Inc\Shortcode;
 
 class Element{
     public static function loadMore( Shortcode $shortcode ){
-        return;
+        // var_dump($shortcode);
         $config = $shortcode->_config;
         $text_btn = $config['load_more_text'] ?? '';
         $text_loading = $config['loading_more_text'] ?? '';
