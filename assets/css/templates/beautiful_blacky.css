@@ -55,9 +55,9 @@ base class beautiful_beautiful_blacky_wrapper
   --wpt_btn_bg: #37aee9;
   --wpt_btn_bg_hover:#2A303A;
   
-  --wpt_sorted_head_bg: rgba(0, 0, 0, 0.18);
+  --wpt_sorted_head_bg: #0585c56c;
   --wpt_sorted_head_text: inherit;
-  --wpt_sorted_td_bg: rgba(0, 0, 0, 0.03);
+  --wpt_sorted_td_bg: #199ddf49;
 }
 
 .wpt-wrap span.wpt_product_price .amount{
@@ -73,6 +73,6 @@ body.wpt_table_body .wpt-wrap table tbody tr.wpt_row>td .product_description {
   color: var(--wpt_white)!important;
 }
 
-.wpt-wrap table.wpt-tbl tr.wpt-row:hover {
+/* .wpt-wrap table.wpt-tbl tr.wpt-row:hover {
   background: #43494E!important;
-}
+} */
