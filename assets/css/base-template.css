@@ -132,7 +132,6 @@ tr.product_type_simple .item_inside_cell.wpt_action, tr.product_type_simple .td_
 }
 tr.stock_status_outofstock.backorders_no.product_type_simple .item_inside_cell.wpt_action, 
 tr.stock_status_outofstock.backorders_no.product_type_simple .td_or_cell.wpt_action>div {
-
   flex-wrap: wrap;
   gap: 10px;
 }
