@@ -15,7 +15,7 @@ jQuery(function($) {
         
         //Search Box related code all start here
         var ajaxTableLoad = function(table_id,args,others){
-            
+            var load_type = others.type;
             var thisTable = $('#table_id_' + table_id);
             var TableTagWrap = $('#table_id_' + table_id + ' .wpt_table_tag_wrapper');
             var SearchWrap = $('#table_id_' + table_id + ' .wpt-search-full-wrapper');
@@ -38,12 +38,30 @@ jQuery(function($) {
                 url: ajax_url,
                 data: data,
                 success:function(result){
+                    console.log(load_type);
                     // $('.wpt_edit_table').html(result);
-                    if ( result ) {
+                    if ( result && load_type !== 'load_more') {
                         $.each( result, function( key, value ) {
                             if('string' === typeof key){
                                 let selectedElement = $('#table_id_' + table_id + ' ' + key);
                                 if(typeof selectedElement === 'object'){
+                                    selectedElement.html( value );
+                                }
+                            }
+                        });
+                    }else if ( result && load_type === 'load_more') {
+                        var thisButton = $('#wpt_load_more_wrapper_' + table_id  + '>button');
+                        var text_btn = thisButton.data('text_btn');
+                        var page_number = thisButton.attr('data-page_number');
+                        page_number++;
+                        thisButton.attr('data-page_number', page_number);
+                        thisButton.html(text_btn);
+                        $.each( result, function( key, value ) {
+                            if('string' === typeof key){
+                                let selectedElement = $('#table_id_' + table_id + ' ' + key);
+                                if( typeof selectedElement === 'object' && key === 'table tbody'){
+                                    $('#table_id_' + table_id + ' table.wpt-tbl>tbody').append( value );
+                                }else if( typeof selectedElement === 'object'){
                                     selectedElement.html( value );
                                 }
                             }
@@ -79,6 +97,25 @@ jQuery(function($) {
             };
             
             var table_id = thisPagination.data('table_id');
+            var args = getSearchQueriedArgs( table_id );
+            
+            ajaxTableLoad(table_id, args, others );
+            
+        });
+        $(document.body).on('click','button.button.wpt_load_more',function(e){
+            e.preventDefault();
+            var thisButton = $(this);
+            var table_id = thisButton.data('table_id');
+            
+            var text_loading = thisButton.data('text_loading');
+            thisButton.html(text_loading);
+            var page_number = thisButton.attr('data-page_number');
+            var others = {
+                page_number: page_number,
+                isMob: isMob,
+                type: 'load_more',
+            };
+            
             var args = getSearchQueriedArgs( table_id );
             
             ajaxTableLoad(table_id, args, others );

@@ -4,16 +4,18 @@ use WOO_PRODUCT_TABLE\Inc\Shortcode;
 
 class Element{
     public static function loadMore( Shortcode $shortcode ){
-        // var_dump($shortcode);
+        
         $config = $shortcode->_config;
         $text_btn = $config['load_more_text'] ?? '';
         $text_loading = $config['loading_more_text'] ?? '';
         ?>
-    <div id="wpt_load_more_wrapper_'<?php echo esc_attr( $shortcode->table_id ); ?>" 
+    <div id="wpt_load_more_wrapper_<?php echo esc_attr( $shortcode->table_id ); ?>" 
     class="wpt_load_more_wrapper">
 
-        <button data-temp_number="<?php echo esc_attr( $shortcode->table_id ); ?>" 
-        data-load_type="current_page" data-type="load_more" 
+        <button data-table_id="<?php echo esc_attr( $shortcode->table_id ); ?>" 
+        data-page_number="2"
+        data-text_btn="<?php echo esc_attr( $text_btn ); ?>"
+        data-text_loading="<?php echo esc_attr( $text_loading ); ?>"
         class="button wpt_load_more">
             <?php echo esc_html( $text_btn ); ?>
         </button>

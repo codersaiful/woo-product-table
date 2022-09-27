@@ -1385,7 +1385,7 @@ jQuery(function($) {
          * @date 9.6.2018 d.m.y
          */
         
-        $( 'body' ).on('click','button.wpt_query_search_button,button.wpt_load_more', function(){
+        $( 'body' ).on('click','button.wpt_query_search_button,button.wpt_load_mores', function(){
             
             var temp_number = $(this).data('temp_number');
             config_json = getConfig_json( temp_number ); //Added vat V5.0

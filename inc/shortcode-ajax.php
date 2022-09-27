@@ -93,9 +93,7 @@ class Shortcode_Ajax extends Shortcode{
          */
         $this->set_product_loop();
         $output = [];
-        
         ob_start();
-        // var_dump($others);
         $this->argsOrganize()->table_body();
         $output['table tbody'] = ob_get_clean();
 

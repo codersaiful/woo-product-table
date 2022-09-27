@@ -16,6 +16,8 @@ class Shortcode_Base extends Base{
      */
     public bool $table_display = true;
 
+    public bool $product_notfound = false;
+
     /**
      * For Table's basics Settings such as:
      * ajax_action,checkout_url, site_url
