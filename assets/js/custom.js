@@ -2344,6 +2344,7 @@ jQuery(function($) {
             argStats['table_id'] = temp_number;
             argStats['this_object'] = thisColObject;
             $(document.body).trigger('wpt_column_sorted',argStats);
+            $(document.body).trigger('wpt_ajax_loaded');
             
             
         });
