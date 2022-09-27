@@ -68,7 +68,14 @@ class Shortcode_Base extends Base{
     public $footer_cart;
     public $footer_cart_template;
 
-    public $footer_cart_selected;
+    /**
+     * Website used and activated theme.
+     * Actually sometime, we need to check compatblitity with theme
+     *
+     * @var string
+     */
+    public string $site_theme;
+
 
     
     protected function unsetArrayItem( Array $arr, $unset_item ){
@@ -96,13 +103,11 @@ class Shortcode_Base extends Base{
         $footer_cart_template = $this->base_config['footer_cart_template'] ?? 'none';
         $this->footer_cart_template = $this->apply_filter( 'wpt_footer_cart_template', $footer_cart_template );
 
-        //uddesso: footer cart a extra btn add korbo future a, jetate all selected item of checkbox cart a add korta jabe
-        //set button er text ob on off er jonno nicher line ta kora hoyeche.
-        // $footer_cart_selected = $this->base_config['footer_cart_selected'] ?? __( 'Carting' );
 
         $this->footer_cart = isset($this->base_config['footer_cart_on_of']) ? false : true ;
         
         
+        $this->site_theme =  get_template();
     }
     
 
