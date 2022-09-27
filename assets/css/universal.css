@@ -1404,7 +1404,8 @@ td.wpt-replace-td-in-tr:before{
 tr.stock_status_outofstock.backorders_no .wpt_action .button {
     opacity: 0.7 !important;
 }
-tr.product_type_simple .td_or_cell.wpt_action>div p.stock.out-of-stock{}
+tr .td_or_cell.wpt_action>div p.stock.out-of-stock {
+}
 /*Global Added to cart*/
 .wpt-global-added-to-cart {
     /* background: #5bb318; */
