@@ -7,6 +7,7 @@
 jQuery(function($) {
     'use strict';
     $(document).ready(function() {
+
         var notice_timeout = 3000; //In mili second
         if(WPT_DATA.notice_timeout){
             notice_timeout = WPT_DATA.notice_timeout;
@@ -26,7 +27,7 @@ jQuery(function($) {
             
             $('.wpt-wrap .search_select.query').select2(select2Object);
 
-            $('select.filter_select').select2();
+            // $('select.filter_select').select2();
             $('.keyword-s-wrapper select').select2();
 
         }
@@ -2148,7 +2149,7 @@ jQuery(function($) {
          */
         function loadMiniFilter(){
             $('.wpt-wrap .wpt_filter_wrapper select.filter_select').each(function(){
-                
+                console.log( 33333333 );
                 var id = $(this).attr('id');
                 var temp_number = $(this).data('temp_number');
                 var config_json = getConfig_json( temp_number );
