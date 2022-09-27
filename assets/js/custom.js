@@ -1715,7 +1715,7 @@ jQuery(function($) {
             uncheckAllCheck(temp_number);
             
             //Checking FilterBox
-            var filterBoxYesNo = $('#table_id_' + temp_number + ' .wpt_filter_wrapper').html();
+            var filterBoxYesNo = $('#table_id_' + temp_number + ' .wpt-mini-filter').html();
 
             /**
              * Uncheck All, If any change on filter button
@@ -1724,7 +1724,7 @@ jQuery(function($) {
             
             var ClassArray =[];
             var serial = 0;
-            $('#table_id_' + temp_number + ' .wpt_filter_wrapper select.filter_select').each(function(){
+            $('#table_id_' + temp_number + ' .wpt-mini-filter select.filter_select').each(function(){
                 var currentClass = $(this).val();
                 
                 if(currentClass !==''){
@@ -2141,6 +2141,9 @@ jQuery(function($) {
         });
         
         loadMiniFilter();
+        $(document.body).on('wpt_ajax_loaded',function(){
+            loadMiniFilter();
+        });
         /**
          * Loading MiniFilter 's option based on loaded products
          * @since 4.8
@@ -2148,8 +2151,8 @@ jQuery(function($) {
          * @returns {void}
          */
         function loadMiniFilter(){
-            $('.wpt-wrap .wpt_filter_wrapper select.filter_select').each(function(){
-                console.log( 33333333 );
+            $('.wpt-wrap .wpt-mini-filter select.filter_select').each(function(){
+
                 var id = $(this).attr('id');
                 var temp_number = $(this).data('temp_number');
                 var config_json = getConfig_json( temp_number );
