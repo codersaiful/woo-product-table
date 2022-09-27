@@ -533,6 +533,27 @@ class Shortcode extends Shortcode_Base{
         if( $this->footer_cart_template !== 'none' ){
             $this->load_css_element( 'footer-cart-templates' );
         }
+
+        $this->theme_compatible();
+    }
+
+    /**
+     * It's Universal Theme compatibility with our plugin
+     * If some custom css file need here. 
+     * We have to add a CSS file to the directory (css/compatible/theme_name.css) based on theme name 
+     * 
+     *  
+     * @author Saiful Islam <codersaiful@gmail.com>
+     * @return void
+     */
+    private function theme_compatible(){
+        $comp_file  = $this->base_dir . "assets/css/compatible/{$this->site_theme}.css";
+        if( ! is_file( $comp_file ) ) return;
+
+        $style_name =  'wpt-compt-' . $this->site_theme;
+        $css_url = $this->assets_url . 'css/compatible/' . $this->site_theme . '.css';
+        wp_register_style($style_name, $css_url, $this->css_dependency, $this->dev_version, 'all');
+        wp_enqueue_style($style_name);
     }
 
     private function load_css_element( string $elements_file_name ){
