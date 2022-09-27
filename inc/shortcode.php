@@ -458,6 +458,12 @@ class Shortcode extends Shortcode_Base{
         $this->pagination_ajax = $this->basics['pagination_ajax'] ?? '';
         $this->checkbox = $this->basics['checkbox'] ?? 'wpt_no_checked_table'; //$checkbox = isset( $basics['checkbox'] ) && !empty( $basics['checkbox'] ) ? $basics['checkbox'] : 'wpt_no_checked_table';
 
+        if($this->wpml_bool){
+            $lang = '_'. $this->wpml_lang;
+            $this->add_to_cart_text = $this->basics['add_to_cart_text' . $lang] ?? '';
+        }
+
+
         //Some others from other meta
         $this->template = $this->table_style['template'] ?? '';
         $filter_box = $this->search_n_filter['filter_box'] ?? '';

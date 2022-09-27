@@ -4,10 +4,17 @@ namespace WOO_PRODUCT_TABLE\Inc\Handle;
 use WOO_PRODUCT_TABLE\Inc\Shortcode;
 
 class Checkbox_Box{
+    
     public static function render( Shortcode $shortcode, string $position = 'header' ){
+        
         $text = $shortcode->add_to_cart_text;
         $selected_text = $shortcode->basics['add_to_cart_selected_text'] ?? '';
         $check_uncheck_text = $shortcode->basics['check_uncheck_text'] ?? '';
+        if( $shortcode->wpml_bool ){
+            $lang = '_'. $shortcode->wpml_lang;
+            $selected_text = $shortcode->basics['add_to_cart_selected_text' . $lang] ?? '';
+            $check_uncheck_text = $shortcode->basics['check_uncheck_text' . $lang] ?? '';
+        }
         ?>
         <div class='all_check_header_footer all_check_<?php echo esc_attr( $position ); ?> check_<?php echo esc_attr( $position ); ?>_<?php echo esc_attr( $shortcode->table_id ); ?>'>
 

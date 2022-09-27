@@ -31,7 +31,18 @@ class Shortcode_Base extends Base{
      */
     public $basic_settings;
 
+    /**
+     * Configuration Page Setting, It's not based on Each Table Setting.
+     * It's come from Configuration page
+     *
+     * @var array
+     */
     public $base_config;
+
+    public $wpml_bool;
+    public $wpml_lang;
+    public $wpml_default_lang;
+
     public $table_on_archive;
     public $table_on_variable;
 
@@ -108,6 +119,10 @@ class Shortcode_Base extends Base{
         
         
         $this->site_theme =  get_template();
+
+        $this->wpml_lang = apply_filters( 'wpml_current_language', NULL );
+        $this->wpml_default_lang = apply_filters('wpml_default_language', NULL );
+        $this->wpml_bool = $this->wpml_lang == $this->wpml_default_lang ? false : true;
     }
     
 
