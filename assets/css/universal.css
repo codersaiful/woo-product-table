@@ -1409,6 +1409,13 @@ tr.stock_status_outofstock.backorders_no .wpt_action .button {
 }
 tr .td_or_cell.wpt_action>div p.stock.out-of-stock {
 }
+.wpt-wrap table.variations, .wpt-wrap table.variations tr, .wpt-wrap table.variations td, .wpt-wrap table.variations th {
+    /* padding: 0; */
+    /* margin: 0; */
+}
+.wpt-wrap table.variations td, .wpt-wrap table.variations th {
+    /* vertical-align: middle; */
+}
 /*Global Added to cart*/
 .wpt-global-added-to-cart {
     /* background: #5bb318; */
