@@ -742,5 +742,9 @@ tr:last-child td.wpt-replace-td-in-tr {
     flex-shrink: 0;
     margin: 0;
     margin-bottom: -10px;
-}
+  }
+  .wpt-mini-filter>* {
+    flex-grow: 1;
+    flex-basis: 200px;
+  }
 }

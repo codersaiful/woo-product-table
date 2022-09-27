@@ -907,6 +907,15 @@ div.wpt-wrap .elementor-menu-cart__product-image img {
     justify-content: start;
     flex-wrap: wrap;
 }
+.wpt-mini-filter {
+    display: flex;
+    padding: 0;
+    gap: 10px 10px;
+    justify-content: start;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+}
 .wpt_filter_wrapper .search_single_column {
     flex-grow: 4;
     min-width: 250px;
