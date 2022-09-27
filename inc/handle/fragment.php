@@ -113,8 +113,6 @@ if( $this->cart_lists && $this->cart_stats ){
 }
 ?>
 <div class="wpt-new-footer-cart-inside">
-    <?php //echo $this->FC_selected_cart_render();
-     ?>
 <div class="wpt-cart-contents">
     <?php echo wp_kses_post( WC()->cart->get_cart_subtotal() ); ?> 
     <span class="count">
@@ -135,12 +133,6 @@ if( $this->cart_lists && $this->cart_stats ){
         return $output;
     }
 
-    public function FC_selected_cart_render(){
-        if( ! $this->footer_cart_selected ) return;
-        ?>
-        <span class="fc-add-to-cart-selected"><i class="wpt-basket-alt"></i><?php echo esc_html( $this->footer_cart_selected ); ?></span>
-        <?php
-    }
 
     public function render_cart_list(){
         ?>

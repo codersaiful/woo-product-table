@@ -125,7 +125,7 @@ span.wpt_product_price .amount {
 tr.product_type_simple .item_inside_cell.wpt_action, tr.product_type_simple .td_or_cell.wpt_action>div {
   display: flex;
   flex-direction: row;
-  flex-wrap: initial;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: start;
   gap: 4px;
