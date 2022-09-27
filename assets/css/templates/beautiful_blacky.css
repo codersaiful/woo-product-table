@@ -24,7 +24,7 @@ base class beautiful_beautiful_blacky_wrapper
   --wpt_link_light: #047c9b;
   
 
-  --wpt_text: var(--wpt_white);
+  --wpt_text: #666464;
   --wpt_text_deep: #000000;
   --wpt_text_light: #404040;  
 
@@ -79,4 +79,19 @@ body.wpt_table_body .wpt-wrap table tbody tr.wpt_row>td .product_description {
 
 body .wpt-new-footer-cart {
   background: #626366;
+}
+
+/* div.wpt-wrap.beautiful_blacky_wrapper div.tables_cart_message_box div.widget_shopping_cart_content li.woocommerce-mini-cart-item.mini_cart_item a {
+  color: #ffffffbd;
+}
+div.wpt-wrap.beautiful_blacky_wrapper div.tables_cart_message_box div.widget_shopping_cart_content li.woocommerce-mini-cart-item.mini_cart_item {
+  border: 1px solid #000000;
+  background: #414a54;
+  color: #ffffffbd;
+} */
+
+.all_check_header_footer .button.add_to_cart_all_selected, 
+div.wpt-wrap.beautiful_blacky_wrapper tr.visible_row.wpt_row td a.wpt_woo_add_cart_button.disabled {
+  background: #dddddd;
+  color: #7c7c7c;
 }

@@ -204,7 +204,7 @@ body.wpt_table_body .wpt-wrap table tbody tr.wpt_row>td .product_description {
 
 .wpt-wrap div.tables_cart_message_box div.widget_shopping_cart_content li.woocommerce-mini-cart-item.mini_cart_item {
     border: 1px solid var(--wpt_secondary_light);
-    background: var(--white);
+    background: var(--wpt_white);
     color: var(--wpt_primary);
 }
 span.wpt_product_price .amount {
