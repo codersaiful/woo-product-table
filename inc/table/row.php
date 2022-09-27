@@ -216,6 +216,16 @@ class Row extends Table_Base{
 
 
             /**
+             * Only @Hook wpt_template_loc Added for new 
+             * Organized Plugin.
+             * 
+             * Why we keept old filter hook
+             * Actually we did lot of custom work for many user,
+             * So we need to kept it. But in future, We will delete old filter hook
+             */
+            $file = $this->apply_filter( 'wpt_template_loc', $file );
+
+            /**
              * File Template Final Filter 
              * We have created this to make a new features, Where user will able to load template from Theme's Directory
              * 
