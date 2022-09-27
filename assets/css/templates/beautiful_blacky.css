@@ -10,13 +10,13 @@ base class beautiful_beautiful_blacky_wrapper
 
 :root {
   --wpt_primary: #1F2739;
-  --wpt_primary_deep: #007694;
-  --wpt_primary_deepest: #02485a;
-  --wpt_primary_light: #0a7f9c;
+  --wpt_primary_deep: #141a25;
+  --wpt_primary_deepest: #080a0e;
+  --wpt_primary_light: #4f5155;
 
-  --wpt_secondary: #edf7f8;
-  --wpt_secondary_deep: #ceeaed;
-  --wpt_secondary_light: #d0d1d1;
+  --wpt_secondary: #4f525a;
+  --wpt_secondary_deep: #3c3e42;
+  --wpt_secondary_light: #8e9096;
 
   --wpt_link: var(--wpt_primary);
   --wpt_link_hover: var(--wpt_primary_deepest);
@@ -24,7 +24,7 @@ base class beautiful_beautiful_blacky_wrapper
   --wpt_link_light: #047c9b;
   
 
-  --wpt_text: #646464;
+  --wpt_text: var(--wpt_white);
   --wpt_text_deep: #000000;
   --wpt_text_light: #404040;  
 
@@ -39,23 +39,40 @@ base class beautiful_beautiful_blacky_wrapper
   --wpt_black: #000000;
 
   --wpt_review: #ffc107;
-  --wpt_thead_bg: var(--wpt_primary);
+  --wpt_thead_bg: #323c50;
   --wpt_thead_text: var(--wpt_white);
 
-  --wpt_product_title: var(--wpt_primary_deepest);
-  --wpt_product_title_hover: var(--wpt_primary);
+  --wpt_product_title: var(--wpt_white);
+  --wpt_product_title_hover: var(--wpt_white);
   
   --wpt_table_bg: var(--wpt_primary);
   --wpt_table_tr_odd: #323c50;
   --wpt_table_tr_boder: #0000000d;
 
   --wpt_btn_color: var(--wpt_white);
-  --wpt_btn_color_hover: var(--wpt_primary);
+  --wpt_btn_color_hover: var(--wpt_white);
 
-  --wpt_btn_bg: var(--wpt_primary);
-  --wpt_btn_bg_hover: transparent;
+  --wpt_btn_bg: #37aee9;
+  --wpt_btn_bg_hover:#2A303A;
   
   --wpt_sorted_head_bg: rgba(0, 0, 0, 0.18);
   --wpt_sorted_head_text: inherit;
   --wpt_sorted_td_bg: rgba(0, 0, 0, 0.03);
+}
+
+.wpt-wrap span.wpt_product_price .amount{
+  color: var(--wpt_white)!important;
+}
+body.wpt_table_body .wpt-wrap table tbody tr .button.single_add_to_cart_button:hover,
+body.wpt_table_body .wpt-wrap table tbody tr a.button.add_to_cart_button:hover{
+  border: 1px solid #37aee9!important;
+  color: var(--wpt_white)!important;
+}
+
+body.wpt_table_body .wpt-wrap table tbody tr.wpt_row>td .product_description {
+  color: var(--wpt_white)!important;
+}
+
+.wpt-wrap table.wpt-tbl tr.wpt-row:hover {
+  background: #43494E!important;
 }
