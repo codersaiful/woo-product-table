@@ -376,7 +376,7 @@ class Shortcode extends Shortcode_Base{
      * @return void
      */
     public function stats_render(){
-        // var_dump($this->paginated_load);
+        
         if( ! $this->product_loop ){
             $this->set_product_loop();
         };
@@ -400,6 +400,9 @@ class Shortcode extends Shortcode_Base{
             $display_count = ( $prev_post + 1 ) . " - $current_total_post";
         }
 
+        $tt = $this->basics['abc-test'] ?? '';
+        $tt2 = $this->basics['abc-test2'] ?? '';
+        // var_dump( $tt, $tt2 );
         
         ?>
         <p class="wpt-stats-post-count">

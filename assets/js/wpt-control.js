@@ -38,7 +38,7 @@ jQuery(function($) {
                 url: ajax_url,
                 data: data,
                 success:function(result){
-                    console.log(load_type);
+                    // console.log(load_type);
                     // $('.wpt_edit_table').html(result);
                     if ( result && load_type !== 'load_more') {
                         $.each( result, function( key, value ) {
