@@ -159,6 +159,33 @@ $data = isset( $meta_basics['data'] ) ? $meta_basics['data'] : false;
             </tr>
         </table>
     </div>
+
+    <div class="wpt_column">
+        <table class="ultraaddons-table">
+            <tr>
+                <th>
+                    <label class="wpt_label" for="wpt_table_stats_post_count"><?php esc_html_e( 'Stats Post Count Text', 'wpt_pro' );?></label>
+                </th>
+                <td>
+                    <input name="basics[stats_post_count]" class="wpt_stats_post_count ua_input" data-name="stats_post_count" type="text" value="<?php echo isset( $meta_basics['stats_post_count'] ) ? $meta_basics['stats_post_count'] : __( 'Showing %s out of %s', 'wpt_pro' ); ?>" placeholder="<?php esc_attr_e( 'Example: Showing %s out of %s', 'wpt_pro' ); ?>" id="wpt_table_stats_post_count">
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="wpt_column">
+        <table class="ultraaddons-table">
+            <tr>
+                <th>
+                    <label class="wpt_label" for="wpt_table_stats_page_count"><?php esc_html_e( 'Stats Page Count Text', 'wpt_pro' );?></label>
+                </th>
+                <td>
+                    <input name="basics[stats_page_count]" class="wpt_stats_page_count ua_input" data-name="stats_page_count" type="text" value="<?php echo isset( $meta_basics['stats_page_count'] ) ? $meta_basics['stats_page_count'] : __( 'Page %s out of %s', 'wpt_pro' ); ?>" placeholder="<?php esc_attr_e( 'Example: Page %s out of %s', 'wpt_pro' ); ?>" id="wpt_table_stats_page_count">
+                </td>
+            </tr>
+        </table>
+    </div>
+
     <?php do_action( 'wpo_pro_feature_message', 'pf_bulk_add_to_cart' ); ?>
     <?php do_action( 'wpto_admin_option_tab_bottom', $meta_basics, $tab, $post, $tab_array ); ?>
 </div>
