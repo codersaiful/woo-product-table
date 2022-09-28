@@ -400,9 +400,9 @@ class Shortcode extends Shortcode_Base{
             $display_count = ( $prev_post + 1 ) . " - $current_total_post";
         }
 
-        $tt = $this->basics['abc-test'] ?? '';
-        $tt2 = $this->basics['abc-test2'] ?? '';
-        // var_dump( $tt, $tt2 );
+        $stats_post_count = $this->basics['stats_post_count'] ?? '';
+        $stats_page_count = $this->basics['stats_page_count'] ?? '';
+        // var_dump( $stats_post_count, $stats_page_count );
         
         ?>
         <p class="wpt-stats-post-count">
