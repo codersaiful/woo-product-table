@@ -107,9 +107,19 @@ class Shortcode_Ajax extends Shortcode{
         $this->argsOrganize()->table_body();
         $output['table tbody'] = ob_get_clean();
 
+        /**
+         * The $max_page Defining should here after call $this->argsOrganize()->table_body();
+         * Otherwise, Real page number and Max page number will not be ouptput actually
+         * 
+         * So I called here.
+         */
+        $max_page = (int) $this->max_num_pages;
+        $page_number = (int) $page_number;
+        
         /******Development Perpos************
         ob_start();
-        var_dump($others,$this->pagination,$this->max_num_pages, $this->page_number);
+        
+        // var_dump($max_page, $page_number);
         $output['.all_check_header_footer'] = ob_get_clean();
         //****************************/
         if( $this->found_posts > 0 ){
@@ -118,7 +128,7 @@ class Shortcode_Ajax extends Shortcode{
             $output['.wpt-stats-report'] = ob_get_clean();
         }
         
-        if( $this->max_num_pages == $this->page_number){
+        if( $max_page == $page_number){
             $output['.wpt_load_more_wrapper'] = '';
         }
         
