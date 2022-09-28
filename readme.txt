@@ -256,6 +256,7 @@ You can easily show specific category products. While creating new table click o
 == Changelog ==
 
 = 3.2.5 =
+* Added: Table Statsbar message customizeable/Translateable from Option Tab.
 * Fixed: Variable Table showing poistion issue has been fixed.
 * Column Sorting for each column
 * Atractive and Modern responsive
