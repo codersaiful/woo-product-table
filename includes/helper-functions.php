@@ -509,13 +509,16 @@ if( ! function_exists( 'wpt_add_custom_message_field' ) ){
      * @date 7.6.2018 d.m.y
      */
     function wpt_add_custom_message_field() {
+        $status = apply_filters( 'wpt_message_box_in_single_product', true );
+        if( ! $status ) return;
+        $message = apply_filters( 'wpt_message_box_label_product_page', esc_html__( 'Message', 'wpt_pro' )  );
 
         echo '<table class="variations" cellspacing="0">
               <tbody>
                   <tr>
-                  <td class="label"><label for="custom_message">'.esc_html__( 'Message', 'wpt_pro' ).'</label></td>
+                  <td class="label"><label for="custom_message">'. $message .'</label></td>
                   <td class="value">
-                      <input id="custom_message" type="text" name="wpt_custom_message" placeholder="'.esc_attr__( 'Short Message for Order', 'wpt_pro' ).'" />                      
+                      <input id="custom_message" type="text" name="wpt_custom_message" placeholder="'. esc_attr( $message ) .'" />                      
                   </td>
               </tr>                               
               </tbody>
