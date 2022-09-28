@@ -168,6 +168,7 @@ $data = isset( $meta_basics['data'] ) ? $meta_basics['data'] : false;
                 </th>
                 <td>
                     <input name="basics[stats_post_count]" class="wpt_stats_post_count ua_input" data-name="stats_post_count" type="text" value="<?php echo isset( $meta_basics['stats_post_count'] ) ? $meta_basics['stats_post_count'] : __( 'Showing %s out of %s', 'wpt_pro' ); ?>" placeholder="<?php esc_attr_e( 'Example: Showing %s out of %s', 'wpt_pro' ); ?>" id="wpt_table_stats_post_count">
+                    <p><?php echo sprintf( esc_html__( 'First %s will replace by showing number and second % will replace by total product number', 'wpt_pro' ), '<b>', '</b>' );?></p>
                 </td>
             </tr>
         </table>
@@ -181,6 +182,7 @@ $data = isset( $meta_basics['data'] ) ? $meta_basics['data'] : false;
                 </th>
                 <td>
                     <input name="basics[stats_page_count]" class="wpt_stats_page_count ua_input" data-name="stats_page_count" type="text" value="<?php echo isset( $meta_basics['stats_page_count'] ) ? $meta_basics['stats_page_count'] : __( 'Page %s out of %s', 'wpt_pro' ); ?>" placeholder="<?php esc_attr_e( 'Example: Page %s out of %s', 'wpt_pro' ); ?>" id="wpt_table_stats_page_count">
+                    <p><?php echo sprintf( esc_html__( 'First %s will replace by showing number and second % will replace by total product number', 'wpt_pro' ), '<b>', '</b>' );?></p>
                 </td>
             </tr>
         </table>
