@@ -370,38 +370,6 @@ jQuery(function($) {
         }
         
         
-        //.wpt-wrap div.tables_cart_message_box.message-box-loading
-        $(document.body).on('click','.wpt_empty_cart_btn',function(e){
-            footerCartAnimation();
-            e.preventDefault();
-            var cart_message_box = $( '.wpt-wrap div.tables_cart_message_box' );
-            cart_message_box.addClass('wpt-ajax-loading'); //message-box-loading
-                $.ajax({
-                type: 'POST',
-                url: ajax_url,
-                data: {
-                    action: 'wpt_fragment_empty_cart'
-                },
-                complete:function(){
-                    cart_message_box.removeClass('wpt-ajax-loading');
-                },
-                success: function( response ){
-                    $('.wpt-wrap a.added_to_cart.wc-forward').remove();
-                    $( document.body ).trigger( 'updated_cart_totals' );
-                    $( document.body ).trigger( 'wc_fragments_refreshed' );
-                    $( document.body ).trigger( 'wc_fragments_refresh' );
-                    $( document.body ).trigger( 'wc_fragment_refresh' );
-                    $( document.body ).trigger( 'removed_from_cart' );
-                    
-                },
-                error: function(){
-                    $( document.body ).trigger( 'removed_from_cart' );
-                    console.log("Unable to empty your cart.");
-                    return false;
-                }
-            });
-        });
-        
         //wc_fragments_refreshed,wc_fragments_refresh,wc_fragment_refresh,removed_from_cart
         $( document.body ).trigger( 'updated_cart_totals' );
         $( document.body ).trigger( 'wc_fragments_refreshed' );

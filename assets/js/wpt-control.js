@@ -348,6 +348,11 @@ jQuery(function($) {
                     $('.wpt-cart-remove.wpt-cart-remove-' + product_id).remove();
                     $('#product_id_' + product_id + ' a.added_to_cart.wc-forward').remove();
 
+
+                    $(document.body).trigger('wpt_ajax_loaded'); 
+                    // $( document.body ).trigger( 'wc_fragment_refresh' );
+                    // $( document.body ).trigger( 'removed_from_cart' );
+
                     $( document.body ).trigger( 'removed_from_cart' );
                     $( document.body ).trigger( 'added_to_cart' );
                     $( document.body ).trigger( 'updated_cart_totals' );
@@ -449,6 +454,38 @@ jQuery(function($) {
          * @since 3.2.5.2
          */
         $(document.body).append('<div class="wpt-new-footer-cart footer-cart-empty"></div>');
+        $(document.body).on('click','.wpt_empty_cart_btn',function(e){
+            footerCartAnimation();
+            e.preventDefault();
+            var cart_message_box = $( '.wpt-wrap div.tables_cart_message_box' );
+            cart_message_box.addClass('wpt-ajax-loading'); //message-box-loading
+            $.ajax({
+                type: 'POST',
+                url: ajax_url,
+                data: {
+                    action: 'wpt_fragment_empty_cart'
+                },
+                complete:function(){
+                    cart_message_box.removeClass('wpt-ajax-loading');
+                },
+                success: function( response ){
+                    
+                    $(document.body).trigger('wpt_ajax_loaded');      
+                    
+                    // $( document.body ).trigger( 'updated_cart_totals' );
+                    // $( document.body ).trigger( 'wc_fragments_refreshed' );
+                    // $( document.body ).trigger( 'wc_fragments_refresh' );
+                    $( document.body ).trigger( 'wc_fragment_refresh' );
+                    $( document.body ).trigger( 'removed_from_cart' );
+                },
+                error: function(){
+                    $( document.body ).trigger( 'wc_fragment_refresh' );
+                    $(document.body).trigger('wpt_ajax_loaded'); 
+                    console.log("Unable to empty your cart.");
+                    return false;
+                }
+            });
+        });
 
         
         $(document.body).on('click','.wpt-fcart-coll-expand,.wpt-cart-contents span.count',function(){
