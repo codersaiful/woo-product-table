@@ -152,9 +152,10 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
                         <td>
                             <select name="<?php echo esc_attr( $field_name ); ?>[footer_cart]" id="wpt_table_footer_cart" class="wpt_fullwidth ua_input" >
                                 <?php wpt_default_option( $page ) ?>
+                                <option value="always_hide" <?php wpt_selected( 'footer_cart', 'always_hide', $current_config_value ); ?>><?php esc_html_e( 'Always Hide', 'wpt_pro' ); ?></option>
                                 <option value="hide_for_zerro" <?php wpt_selected( 'footer_cart', 'hide_for_zerro', $current_config_value ); ?>><?php esc_html_e( 'Hide for Zero', 'wpt_pro' ); ?></option>
                                 <option value="always_show" <?php wpt_selected( 'footer_cart', 'always_show', $current_config_value ); ?>><?php esc_html_e( 'Always Show', 'wpt_pro' ); ?></option>
-                                <option value="always_hide" <?php wpt_selected( 'footer_cart', 'always_hide', $current_config_value ); ?>><?php esc_html_e( 'Always Hide', 'wpt_pro' ); ?></option>
+                                
                             </select>
 
                         </td>

@@ -60,8 +60,11 @@ class Fragment extends Shortcode_Base{
      * @return void
      */
     public function run(){
-        if($this->footer_cart){
+
+        if( $this->footer_cart ){
             add_filter( 'woocommerce_add_to_cart_fragments',[$this, 'fragments'] );
+        }else{
+            add_filter( 'woocommerce_add_to_cart_fragments',[$this, 'fragment_floating_cart'] );
         }
         
     }
@@ -75,6 +78,9 @@ class Fragment extends Shortcode_Base{
      * 
      * Specially for Footer AND Table minicart
      * 
+     * 1* Floating Cart / Circle Footer Cart added Here
+     * 2* Most Importang/ Our Real Floating Cart.
+     * 
      * @author Saiful Islam <codersaiful@gmail.com>
      *
      * @param array $fragments
@@ -85,10 +91,29 @@ class Fragment extends Shortcode_Base{
         $output = $this->getFooterCart();
         $fragments['.wpt-new-footer-cart'] = $output;
 
+        $float_cart = $this->getFloatingCart();
+        $fragments['.wpt-footer-cart-wrapper > a'] = $float_cart;
+
         return $fragments;
     }
     
+    public function fragment_floating_cart( $fragments ){
+        $float_cart = $this->getFloatingCart();
+        $fragments['.wpt-footer-cart-wrapper > a'] = $float_cart;
 
+        return $fragments;
+    }
+
+    protected function getFloatingCart(){
+        ob_start();
+        ?>
+        <a target="_blank" href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="wpt-floating-cart-link">
+        <?php echo wp_kses_post( WC()->cart->get_cart_subtotal() ); ?> 
+        </a>
+        
+        <?php
+        return ob_get_clean();
+    }
     /**
      * We will use this method inside 
      * woocommerce fragments, that's why, we will not 

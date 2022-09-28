@@ -1342,7 +1342,6 @@ table.add_cart_right_icon tr .wpt_action a.button:after {
     z-index: 999;
     border-radius: 2px;
 }
-.button.wpt-search-products{display: none;}
 
 div.wpt-wrap.wpt-ajax-loading,
 div.wpt-ajax-loading {
