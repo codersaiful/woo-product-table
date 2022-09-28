@@ -87,6 +87,16 @@ class Shortcode_Ajax extends Shortcode{
          */
         $this->args_ajax_called = true;
 
+        $ajax_type = $others['type'] ?? '';
+
+        /**
+         * Paginated_load will be true, when user will call over the 
+         * load_more button or using inifinite_scroll
+         */
+        if( $ajax_type ==  'load_more' || $ajax_type ==  'infinite_scroll'  ){
+            $this->paginated_load = true;
+        }
+
         /**
          * set_product_loop() is importants obviously
          * for ajax also
@@ -97,12 +107,24 @@ class Shortcode_Ajax extends Shortcode{
         $this->argsOrganize()->table_body();
         $output['table tbody'] = ob_get_clean();
 
+        /******Development Perpos************
         ob_start();
-        $this->argsOrganize()->stats_render();
-        $output['.wpt-stats-report'] = ob_get_clean();
+        var_dump($others,$this->pagination,$this->max_num_pages, $this->page_number);
+        $output['.all_check_header_footer'] = ob_get_clean();
+        //****************************/
+        if( $this->found_posts > 0 ){
+            ob_start();
+            $this->argsOrganize()->stats_render();
+            $output['.wpt-stats-report'] = ob_get_clean();
+        }
+        
+        if( $this->max_num_pages == $this->page_number){
+            $output['.wpt_load_more_wrapper'] = '';
+        }
+        
 
         
-        $output['.wpt_my_pagination.wpt_table_pagination'] = Pagination::get_paginate_links($this);
+        $output['.wpt_my_pagination.wpt_table_pagination'] = Pagination::get_paginate_links( $this );
         wp_send_json( $output );
         
         die();

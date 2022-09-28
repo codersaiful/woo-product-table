@@ -48,6 +48,19 @@ class Shortcode extends Shortcode_Base{
     public $is_table;
     public $page_number = 1;
 
+    /**
+     * Load More/Infinite_Scroll paginated Actually
+     * 
+     * Mainly used for handle Table Statsbar primarily at Shortcode_Ajax class.
+     * getting data from $others variable inside this class and we made it true when get load_more or infinite_scroll
+     * 
+     * Specially for Paginaion using Ajax from Frontend
+     * We need to calculate paginated_stats to show TableStats
+     *
+     * @var boolean true|false Default value is false, if paginated with Load More or Initinte Scroll, that it will true.
+     */
+    public bool $paginated_load = false;
+
 
     /**
      * Check column available or not, if empty array of _enable_cols, it will return false.
@@ -100,6 +113,17 @@ class Shortcode extends Shortcode_Base{
 
     public $search_n_filter;
     public $conditions;
+
+    /**
+     * It's not a bool only, Actually we take here pagination type.
+     * Such: Pagination 
+     * on
+     * off
+     * load_more
+     * infinite_scroll
+     *
+     * @var string|bool|mixed
+     */
     public $pagination;
 
 
@@ -352,7 +376,7 @@ class Shortcode extends Shortcode_Base{
      * @return void
      */
     public function stats_render(){
-        
+        // var_dump($this->paginated_load);
         if( ! $this->product_loop ){
             $this->set_product_loop();
         };
@@ -360,12 +384,29 @@ class Shortcode extends Shortcode_Base{
         $this->found_posts = (int) $this->product_loop->found_posts;
         $this->max_num_pages = (int) $this->product_loop->max_num_pages;
         $page_number = $this->max_num_pages > 0 ? $this->page_number : 0; 
+        $display_count = "1 - $this->product_count";
+
+        $display_pagN = $page_number;
+        if( $this->paginated_load && $page_number > 1 ){
+            $prev_ttl_post = ( $page_number - 1 ) * $this->posts_per_page;
+            $display_count = $this->product_count + $prev_ttl_post;
+            $display_count = "1 - $display_count";
+            // var_dump($this->posts_per_page,$this->page_number);
+
+            $display_pagN = "(1 - $page_number)";
+        }else if( $page_number > 1 ){
+            $prev_post = ( ($page_number-1) * $this->posts_per_page );
+            $current_total_post = $prev_post + $this->product_count;
+            $display_count = ( $prev_post + 1 ) . " - $current_total_post";
+        }
+
+        
         ?>
         <p class="wpt-stats-post-count">
-            <?php printf( esc_html__( "%s out of %s", "wpt_pro" ), $this->product_count, $this->found_posts  ); ?>
+            <?php printf( esc_html__( "Showing %s out of %s", "wpt_pro" ), $display_count, $this->found_posts  ); ?>
         </p>
         <p class="wpt-stats-page-count">
-        <?php printf( esc_html__( "Page %s out of %s" ), $page_number, $this->max_num_pages  ); ?>
+        <?php printf( esc_html__( "Page %s out of %s" ), $display_pagN, $this->max_num_pages  ); ?>
         </p>
         <?php 
 
