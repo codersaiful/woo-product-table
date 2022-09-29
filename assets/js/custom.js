@@ -537,9 +537,9 @@ jQuery(function($) {
             // Trigger event.
             $( document ).trigger( 'adding_to_cart', [ thisButton, data ] );
             
-            var product_id = $(this).data('product_id');
-            var thisRow = $(this).closest('.wpt_row');
             
+            var thisRow = $(this).closest('.wpt_row');
+            var product_id = thisRow.data('product_id');
 
             var temp_number = $(this).closest('#product_id_' + product_id).data('temp_number');
             config_json = getConfig_json( temp_number ); //Added at V5.0
@@ -603,7 +603,7 @@ jQuery(function($) {
                     $('.wpt_row_product_id_' + product_id + ' .input-text').trigger('change');
                 },
                 success: function(response) {
-
+                    // $('.wpt_edit_table').html(response); return;
                     thisButton.removeClass('disabled');
                     
                     thisButton.addClass('added');
