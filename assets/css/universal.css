@@ -1563,11 +1563,13 @@ div.wpt-wrap {
     line-height: 8px;
     padding: 7px;
   }
-  .wpt_edit_table {
+.wpt_edit_table {
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     flex: 1 100%;
-  }
+    flex-wrap: wrap;
+    align-items: center;
+}
   
   
   /*Mobile Responsive Handle*/
