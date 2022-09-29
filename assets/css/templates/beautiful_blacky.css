@@ -103,3 +103,7 @@ div.wpt-wrap.wpt-wrap input[type=checkbox]:checked+label:after{
 div.wpt-wrap .all_check_header_footer.all_check_header input[type=checkbox]:checked+label:after{
   left: 0px !important;
 }
+
+body.wpt_table_body .wpt-wrap table tbody tr.wpt_row > td .product_description {
+  color: #a7a7a7 !important;
+}
