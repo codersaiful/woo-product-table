@@ -1,8 +1,9 @@
 <?php 
 namespace WOO_PRODUCT_TABLE\Inc;
 
-use WOO_PRODUCT_TABLE\Inc\Handle\Message as Msg;
 use WOO_PRODUCT_TABLE\Inc\Handle\Args;
+use WOO_PRODUCT_TABLE\Inc\Handle\Enable_Column;
+use WOO_PRODUCT_TABLE\Inc\Handle\Message as Msg;
 use WOO_PRODUCT_TABLE\Inc\Handle\Element;
 use WOO_PRODUCT_TABLE\Inc\Handle\Pagination;
 use WOO_PRODUCT_TABLE\Inc\Handle\Search_Box;
@@ -61,6 +62,21 @@ class Shortcode extends Shortcode_Base{
      */
     public bool $paginated_load = false;
 
+    /**
+     * Based on $error_name property, We will handle Display Message before Table Display
+     * Suppost: column not found, Befor Table,
+     * It will display Table Not found Error Message
+     * 
+     * If not found Table, than it will show another error of table not found
+     * 
+     * IMPORTANT:
+     * --------------
+     * WE will not return before the table load when assining property
+     * 
+     *
+     * @var null|bool|string
+     */
+    public $error_name;
 
     /**
      * Check column available or not, if empty array of _enable_cols, it will return false.
@@ -223,6 +239,8 @@ class Shortcode extends Shortcode_Base{
         
 
         $this->do_action('wpt_load');
+
+        if( $this->error_name ) return Msg::handle($this);
         if( ! $this->table_display ) return;
         // var_dump($this->product_loop);
         //wpto_action_table_wrapper_top
@@ -438,31 +456,13 @@ class Shortcode extends Shortcode_Base{
         //Here need detected current device actually.
         $this->_device = wpt_col_settingwise_device( $this->table_id );//wpt_detect_current_device();//
         
+        $this->basics = $this->get_meta( 'basics' );
+        $this->req_product_type = $this->basics['product_type'] ?? 'product';
         $this->_enable_cols = get_post_meta( $this->table_id, 'enabled_column_array' . $this->_device, true );
         $this->column_array = get_post_meta( $this->table_id, 'column_array' . $this->_device, true );
         $this->column_settings = get_post_meta( $this->table_id, 'column_settings' . $this->_device, true);
         
-
-        //we will removed this filter after few version. 
-        $this->_enable_cols = apply_filters( 'wpto_enabled_column_array', $this->_enable_cols, $this->table_id, $this->atts, $this->column_settings, $this->column_array );
-        /**
-         * @Hook Filter wpto_enabled_column_array to change or modify column amount, we can use it.
-         */
-        $this->_enable_cols = apply_filters('wpt_enabled_column', $this->_enable_cols, $this);
-
-
-
-        if( empty( $this->_enable_cols ) || ! is_array( $this->_enable_cols ) ){
-            $this->is_table_head = false;
-            $this->is_table_column = false;
-            $this->_enable_cols = [];
-            return Msg::not_found_cols($this);
-        }
-
-        $this->col_count = count( $this->_enable_cols );
-
-
-        $this->basics = $this->get_meta( 'basics' );
+        
         $responsive = $this->basics['responsive'] ?? false;
 
         /**
@@ -482,7 +482,7 @@ class Shortcode extends Shortcode_Base{
         $this->generated_row = $this->auto_responsive && $this->device == 'mobile';
         
         $this->basics_args = $this->basics['args'] ?? [];
-        $this->req_product_type = $this->basics['product_type'] ?? 'product';
+        
         
         
         $this->conditions = $this->get_meta( 'conditions' );
@@ -523,7 +523,45 @@ class Shortcode extends Shortcode_Base{
             $this->filter = $this->search_n_filter['filter'] ?? [];
         }
         
-        $this->args = Args::manage($this);
+
+        //we will removed this filter after few version. 
+        $this->_enable_cols = apply_filters( 'wpto_enabled_column_array', $this->_enable_cols, $this->table_id, $this->atts, $this->column_settings, $this->column_array );
+        /**
+         * @Hook Filter wpto_enabled_column_array to change or modify column amount, we can use it.
+         */
+        $this->_enable_cols = apply_filters('wpt_enabled_column', $this->_enable_cols, $this);
+
+        /**
+         * Column Management Here
+         */
+        Enable_Column::manage($this);
+        
+
+        if( empty( $this->_enable_cols ) || ! is_array( $this->_enable_cols ) ){
+            $this->is_table_head = false;
+            $this->is_table_column = false;
+            $this->_enable_cols = [];
+            $this->error_name = 'not_found_cols';
+            
+        }
+
+        $this->col_count = count( $this->_enable_cols );
+
+        
+        // $this->args = Args::manage($this); //It was previs
+        /**
+         * $this->args is handle by Args::manage($this)
+         * Actually there was return self::$args inside that Class
+         * But I(Saiful)  has removed that return and Assign args value inside that Class
+         * at manage method at the bottom 
+         * 
+         * NO NEED ASSAIGN HERE AGAINN
+         * -----------------
+         * 
+         * @since 3.2.5.5.final8
+         * @date 29.9.2022
+         */
+        Args::manage($this); 
 
         $this->items_permanent_dir = WPT_DIR_BASE . 'includes/items/';
         $this->items_permanent_dir = apply_filters('wpto_item_permanent_dir', $this->items_permanent_dir, $this->table_id, null );
@@ -725,6 +763,7 @@ class Shortcode extends Shortcode_Base{
 
         endwhile;
         else:
+        $this->error_name = 'not_found_product_tr';
         Msg::not_found_product_tr($this);
         endif;
 

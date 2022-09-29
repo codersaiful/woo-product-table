@@ -5,6 +5,14 @@ use WOO_PRODUCT_TABLE\Inc\Shortcode;
 
 class Message{
 
+    public static function handle( Shortcode $shortcode ){
+        switch( $shortcode->error_name ){
+            case 'not_found_cols':
+                self::not_found_cols( $shortcode );
+            break;
+        }
+
+    }
     /**
      * Only for Table not found Message
      * Even for Not Publish Table Type Post

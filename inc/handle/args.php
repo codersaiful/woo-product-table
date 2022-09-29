@@ -12,6 +12,21 @@ class Args{
     public static $post_include;
     public static $table_id;
 
+    /**
+     * Args Management Method, args related any type customizaion/ handling will happen here
+     * 
+     * ARGS Manipulation
+     * -----------------
+     * 
+     * First time, This method was a return value and I assinged that to shortcode.php file
+     * but now I have removed return, I assign $shortcode->args which will add to the main object.
+     *
+     * @param Shortcode $shortcode It's our main Class of Product Table, where all are indicated.
+     * @return void
+     * 
+     * @package WooProductTable
+     * @author Saiful Islam <codersaiful@gmail.com>
+     */
     public static function manage( Shortcode $shortcode ){
         $shortcode->post_include = $shortcode->basics['post_include'] ?? [];
         $shortcode->post_exclude = $shortcode->basics['post_exclude'] ?? [];
@@ -114,7 +129,8 @@ class Args{
             self::args_for_variable();
         }
 
-        return self::$args;
+        $shortcode->args = self::$args;
+        // return self::$args;
     }
 
     /**
