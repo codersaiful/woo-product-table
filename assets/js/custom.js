@@ -523,7 +523,7 @@ jQuery(function($) {
         $('body').on('click', 'a.ajax_active.wpt_variation_product.single_add_to_cart_button.button.enabled, a.add_to_cart_button.ajax_add_to_cart, a.ajax_active.add_to_cart_button.wpt_woo_add_cart_button', function(e) {
             
             e.preventDefault();
-            footerCartAnimation();
+            
             var thisButton = $(this);
             //Adding disable and Loading class
             thisButton.addClass('disabled');
@@ -539,12 +539,7 @@ jQuery(function($) {
             
             var product_id = $(this).data('product_id');
             var thisRow = $(this).closest('.wpt_row');
-            var Bubble = thisRow.find('.wpt_ccount');
-            if(Bubble.length == 0){
-                thisRow.find('a.add_to_cart_button').append('<span class="wpt_ccount wpt_ccount_' + product_id + '"><i class="wpt-spin5 animate-spin"></span>');
-            }else{
-                Bubble.html('<i class="wpt-spin5 animate-spin">');
-            }
+            
 
             var temp_number = $(this).closest('#product_id_' + product_id).data('temp_number');
             config_json = getConfig_json( temp_number ); //Added at V5.0
@@ -568,15 +563,19 @@ jQuery(function($) {
             if(variation){
                 variation = JSON.parse(variation);
             }
-            if(!quantity || quantity === '0'){
-                
+            if(! quantity || quantity === '0'){
                 thisButton.removeClass('disabled');
-                // thisButton.removeClass('loading');
                 alert("Sorry! 0 Quantity");
-                return false;
-                quantity = 1;
+                
+                return;
             }
-            
+            footerCartAnimation();
+            var Bubble = thisRow.find('.wpt_ccount');
+            if(Bubble.length == 0){
+                thisRow.find('a.add_to_cart_button').append('<span class="wpt_ccount wpt_ccount_' + product_id + '"><i class="wpt-spin5 animate-spin"></span>');
+            }else{
+                Bubble.html('<i class="wpt-spin5 animate-spin">');
+            }
             var get_data = $(this).attr('href') + '&quantity=' + quantity;
             
             var additional_json = $('#table_id_' + temp_number + ' table#wpt_table tr.wpt_row_product_id_' + product_id).attr('additional_json');
