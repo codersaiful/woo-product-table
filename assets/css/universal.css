@@ -1499,6 +1499,7 @@ div.wpt-wrap {
   }
   
   /*Message*/
+  .wpt-wrap .wpt_action #custom_message,
   .wpt-wrap td.wpt_message div>input.message, .wpt-wrap .item_inside_cell.wpt_message>input.message {
     padding: 7px 11px;
     margin: 0;

@@ -336,6 +336,7 @@ body.wpt_table_body .wpt-wrap .qib-button.qib-button-wrapper .plus.qib-button:ho
     display: none;
 }
 /*Message*/
+.wpt-wrap .wpt_action #custom_message,
 .wpt-wrap td.wpt_message div>input.message, 
 .wpt-wrap .item_inside_cell.wpt_message>input.message {
     border: 1px solid var(--wpt_off_white);
