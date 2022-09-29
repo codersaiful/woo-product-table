@@ -391,8 +391,7 @@ class Shortcode extends Shortcode_Base{
             $prev_ttl_post = ( $page_number - 1 ) * $this->posts_per_page;
             $display_count = $this->product_count + $prev_ttl_post;
             $display_count = "1 - $display_count";
-            // var_dump($this->posts_per_page,$this->page_number);
-
+            
             $display_pagN = "(1 - $page_number)";
         }else if( $page_number > 1 ){
             $prev_post = ( ($page_number-1) * $this->posts_per_page );
@@ -545,10 +544,8 @@ class Shortcode extends Shortcode_Base{
         $this->css_dependency = [
             'wpt-universal',
         ];
-
-        if('none' !== $this->template){
-            $this->load_css_base_template();
-        }
+        //Already checked baded on none template.
+        $this->load_css_base_template();
 
         if( 'none' !== $this->minicart_position){
 
@@ -617,7 +614,9 @@ class Shortcode extends Shortcode_Base{
     }
 
     /**
-     * It's Actually Base Template file.
+     * It's Actually Base Template file. it should work only if a template 
+     * chosen. Otherwise, we should not call this file.
+     * 
      * ROOT OF ALL TEMPLATE
      * --------------------
      * All template's base style and property will stay here and
@@ -628,6 +627,7 @@ class Shortcode extends Shortcode_Base{
      * @return void
      */
     private function load_css_base_template(){
+        if('none' == $this->template) return;
         //wp_enqueue_style( 'wpt-template-table', WPT_Product_Table::getPath('BASE_URL') . 'assets/css/template.css', array('wpt-universal'), WPT_DEV_VERSION, 'all' );
         $style_name = 'wpt-template';
         $css_url = $this->assets_url . 'css/base-template.css';
@@ -635,7 +635,20 @@ class Shortcode extends Shortcode_Base{
         wp_enqueue_style($style_name);
     }
 
+    /**
+     * Calling css root color over there.
+     * Actually all color root will stau at specific template, and that will override here.
+     * 
+     * Override CSS color
+     * -----------------
+     * 
+     * Free and pro, alwasy overrride fiel is same
+     *
+     * @param string $base_template_name Which template is selected, that to be in dependency.
+     * @return void
+     */
     private function load_css_override_root( string $base_template_name){
+        if('none' == $this->template) return;
         $style_name = 'wpt-override-template';
         $css_dependency = array_push( $this->css_dependency, $base_template_name );
         $css_url = $this->assets_url . 'css/override-root.css';
