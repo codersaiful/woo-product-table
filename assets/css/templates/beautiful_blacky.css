@@ -30,7 +30,8 @@ base class beautiful_beautiful_blacky_wrapper
 
   --wpt_warning: #ffeb3b;
   --wpt_danger: #d00;
-  --wpt_cart_highliter: var(--wpt_primary);
+  --wpt_cart_highliter:var(--wpt_white);
+  --wpt_cart_highliter: #00b17a;
 
   --wpt_off_white: #14141414;
   --wpt_deep_off_white: #cbcbcb;
@@ -61,16 +62,16 @@ base class beautiful_beautiful_blacky_wrapper
 }
 
 .wpt-wrap span.wpt_product_price .amount{
-  color: var(--wpt_white)!important;
+  color: var(--wpt_white) !important;
 }
 body.wpt_table_body .wpt-wrap table tbody tr .button.single_add_to_cart_button:hover,
 body.wpt_table_body .wpt-wrap table tbody tr a.button.add_to_cart_button:hover{
   border: 1px solid #37aee9!important;
-  color: var(--wpt_white)!important;
+  color: var(--wpt_white) !important;
 }
 
 body.wpt_table_body .wpt-wrap table tbody tr.wpt_row>td .product_description {
-  color: var(--wpt_white)!important;
+  color: var(--wpt_white) !important;
 }
 
 .wpt-wrap table.wpt-tbl tr.wpt-row:hover td {
@@ -81,17 +82,24 @@ body .wpt-new-footer-cart {
   background: #626366;
 }
 
-/* div.wpt-wrap.beautiful_blacky_wrapper div.tables_cart_message_box div.widget_shopping_cart_content li.woocommerce-mini-cart-item.mini_cart_item a {
-  color: #ffffffbd;
-}
-div.wpt-wrap.beautiful_blacky_wrapper div.tables_cart_message_box div.widget_shopping_cart_content li.woocommerce-mini-cart-item.mini_cart_item {
-  border: 1px solid #000000;
-  background: #414a54;
-  color: #ffffffbd;
-} */
 
-.all_check_header_footer .button.add_to_cart_all_selected, 
-div.wpt-wrap.beautiful_blacky_wrapper tr.visible_row.wpt_row td a.wpt_woo_add_cart_button.disabled {
-  background: #dddddd;
-  color: #7c7c7c;
+.all_check_header_footer.all_check_header>span{
+  color: var(--wpt_white) !important;
+}
+
+a.ajax_active.wpt_variation_product.single_add_to_cart_button.button.alt.disabled.wc-variation-selection-needed.wpt_woo_add_cart_button,
+a.ajax_active.button.wpt_woo_add_cart_button.add_to_cart_button{
+  background: var(--wpt_btn_bg) !important;
+}
+
+div.wpt-wrap.wpt-wrap input[type=checkbox]:checked+label:before{
+  background:var(--wpt_white) !important;
+}
+
+div.wpt-wrap.wpt-wrap input[type=checkbox]:checked+label:after{
+  color: black !important;
+}
+
+div.wpt-wrap .all_check_header_footer.all_check_header input[type=checkbox]:checked+label:after{
+  left: 0px !important;
 }
