@@ -580,19 +580,21 @@ jQuery(function($) {
             
             var additional_json = $('#table_id_' + temp_number + ' table#wpt_table tr.wpt_row_product_id_' + product_id).attr('additional_json');
 
+            var data = {
+                action:     'wpt_ajax_add_to_cart',
+                variation:  variation, 
+                variation_id:   variation_id,
+                product_id: product_id,
+                quantity:   quantity,
+                custom_message: custom_message,
+                additional_json: additional_json,
+            };
+            console.log(data,ajax_url);
 
             $.ajax({
                 type: 'POST',
                 url: ajax_url,// + get_data,
-                data: {
-                    action:     'wpt_ajax_add_to_cart',
-                    variation:  variation, 
-                    variation_id:   variation_id,
-                    product_id: product_id,
-                    quantity:   quantity,
-                    custom_message: custom_message,
-                    additional_json: additional_json,
-                },
+                data: data,
                 complete: function(){
                     $( document ).trigger( 'wc_fragment_refresh' );
                     $( document ).trigger( 'cart_page_refreshed' );
