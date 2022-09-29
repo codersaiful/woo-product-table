@@ -405,7 +405,7 @@ jQuery(function($) {
             Table.find('thead').hide();
 
             var TableBody = Table.find('tbody');
-            TableBody.find('tr').each(function(){
+            TableBody.find('tr.wpt-row').each(function(){
                 var TableRow = $(this);
                 var alreadyGen = TableRow.find('.wpt-replace-td-in-tr').length;
                 if(alreadyGen > 0) return;
@@ -423,7 +423,7 @@ jQuery(function($) {
             var Table = $('.wpt-auto-responsive .wpt-tbl');
             Table.find('thead').fadeIn();
             var TableBody = Table.find('tbody');
-            TableBody.find('tr').each(function(){
+            TableBody.find('tr.wpt-row').each(function(){
                 var TableRow = $(this);
                 var genreatedData = TableRow.find('td.wpt-replace-td-in-tr');
                 if(genreatedData.length < 1) return;
