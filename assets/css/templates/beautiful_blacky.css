@@ -107,3 +107,38 @@ div.wpt-wrap .all_check_header_footer.all_check_header input[type=checkbox]:chec
 body.wpt_table_body .wpt-wrap table tbody tr.wpt_row > td .product_description {
   color: #a7a7a7 !important;
 }
+body.wpt_table_body div.beautiful_blacky_wrapper.wpt-wrap tr>td .qib-button.qib-button-wrapper .minus.qib-button, 
+body.wpt_table_body div.beautiful_blacky_wrapper.wpt-wrap tr>td .qib-button.qib-button-wrapper .plus.qib-button {
+  background: #252f3a;
+  border: 1px solid #141414;
+  color: #ffffff;
+}
+div.beautiful_blacky_wrapper.wpt-wrap .wpt_action input.input-text.qty.text, 
+div.beautiful_blacky_wrapper.wpt-wrap .qib-button-wrapper .quantity input.input-text.qty.text, 
+div.beautiful_blacky_wrapper.wpt-wrap .wpt_quantity input.input-text.qty.text, 
+div.beautiful_blacky_wrapper.wpt-wrap .wpt_quick_qty input.input-text.qty.text {
+  border: 1px solid #000000;
+  background: #00000059;
+  color: white;
+}
+div.beautiful_blacky_wrapper.wpt-wrap table>tr>td select,
+div.beautiful_blacky_wrapper.wpt-wrap .wpt_action #custom_message, 
+div.beautiful_blacky_wrapper.wpt-wrap td.wpt_message div>input.message, 
+div.beautiful_blacky_wrapper.wpt-wrap .item_inside_cell.wpt_message>input.message {
+  border: 1px solid #000000;
+  background-color: #1b232a;
+  color: #ffffff99;
+}
+div.beautiful_blacky_wrapper.wpt-wrap .tag_or_div {
+  background: #37aee900;
+}
+/* element.style {
+  background: black;
+  color: gray;
+  border: 1px solid black;
+} */
+
+div.beautiful_blacky_wrapper.wpt-wrap.wpt_column_sort table#wpt_table.wpt_product_table tr>th.this_column_sorted {
+  background-color: #000000 !important;
+  color: var(--wpt_sorted_head_text);
+}
