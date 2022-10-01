@@ -142,3 +142,6 @@ div.beautiful_blacky_wrapper.wpt-wrap.wpt_column_sort table#wpt_table.wpt_produc
   background-color: #000000 !important;
   color: var(--wpt_sorted_head_text);
 }
+.wpt_edit_table > a:hover {
+  color: #37aee9;
+}
