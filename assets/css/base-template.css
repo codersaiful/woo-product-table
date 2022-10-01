@@ -257,6 +257,28 @@ tr.visible_row.wpt_row td a.wpt_woo_add_cart_button.disabled{
 div.td_or_cell.no-inner.wpt_message input.message {
   width: 100%;
 }
+table.wpt-message-box-table {
+  width: 295px;
+}
+table.wpt-message-box-table, table.wpt-message-box-table tr, table.wpt-message-box-table td, table.wpt-message-box-table th {
+  padding: 0;
+  margin: 0;
+}
+
+table.wpt-message-box-table td input {
+  padding: 10px;
+  min-width: 150px;
+  border-radius: 2px;
+  font-size: 16px;
+  line-height: 18px;
+  height: 37px;
+  margin: 0;
+  box-shadow: unset;
+  max-width: 225px;
+  background-color: var(--wpt_white);
+  border: 1px solid var(--wpt_off_white);
+  text-align: left;
+}
 
 /*This green signal, when added to cart*/
 /* tr.wpt-row.wpt-added-to-cart>td:last-child::after, */

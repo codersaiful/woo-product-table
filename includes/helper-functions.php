@@ -513,17 +513,21 @@ if( ! function_exists( 'wpt_add_custom_message_field' ) ){
         $status = apply_filters( 'wpt_message_box_in_single_product', true );
         if( ! $status ) return;
         $message = apply_filters( 'wpt_message_box_label_product_page', esc_html__( 'Message', 'wpt_pro' )  );
-
-        echo '<table class="variations" cellspacing="0">
+        global $product;
+        $product_id = $product->get_id();
+        // var_dump($product->get_id());
+        ?>
+        <table class="variations wpt-message-box-table" cellspacing="0">
               <tbody>
                   <tr>
-                  <td class="label"><label for="custom_message">'. $message .'</label></td>
+                  <td class="label"><label for="custom_message_for<?php echo esc_attr( $product_id ); ?>"><?php echo esc_attr( $message ); ?></label></td>
                   <td class="value">
-                      <input id="custom_message" type="text" name="wpt_custom_message" placeholder="'. esc_attr( $message ) .'" />                      
+                      <input id="custom_message_for<?php echo esc_attr( $product_id ); ?>" type="text" name="wpt_custom_message" placeholder="<?php echo esc_attr( $message ); ?>" />                      
                   </td>
               </tr>                               
               </tbody>
-          </table>';
+          </table>
+        <?php
     }
 }
 /**
