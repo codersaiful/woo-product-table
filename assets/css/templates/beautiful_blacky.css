@@ -121,7 +121,7 @@ div.beautiful_blacky_wrapper.wpt-wrap .wpt_quick_qty input.input-text.qty.text {
   background: #00000059;
   color: white;
 }
-div.beautiful_blacky_wrapper.wpt-wrap table>tr>td select,
+div.beautiful_blacky_wrapper.wpt-wrap table td select,
 div.beautiful_blacky_wrapper.wpt-wrap .wpt_action #custom_message, 
 div.beautiful_blacky_wrapper.wpt-wrap td.wpt_message div>input.message, 
 div.beautiful_blacky_wrapper.wpt-wrap .item_inside_cell.wpt_message>input.message {
