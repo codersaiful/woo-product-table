@@ -119,7 +119,7 @@ class Shortcode_Ajax extends Shortcode{
         /******Development Perpos************
         ob_start();
         
-        // var_dump($max_page, $page_number);
+        var_dump($_POST,$this->args,$max_page, $page_number);
         $output['.all_check_header_footer'] = ob_get_clean();
         //****************************/
         if( $this->found_posts > 0 ){
