@@ -4,8 +4,25 @@ namespace WOO_PRODUCT_TABLE\Inc\Handle;
 use WOO_PRODUCT_TABLE\Inc\Shortcode;
 
 class Search_Box{
+    public static $reset_button;
+    public static $cf_search_box;
+    public static $taxonomy_keywords;
+
+    /**
+     * Extra Field on Search box
+     * Such: 
+     * 1. On Sale 
+     * 2. Order By
+     *
+     * @var [type]
+     */
+    public static $fields;
     public static function render( Shortcode $shortcode ){
-        
+        self::$reset_button = "<button class='wpt-query-reset-button' title='" . __('Reset','wpt_pro') . "'> <i class='wpt-spin3'></i></button>"; //end of .search_single
+        self::$cf_search_box = $shortcode->search_n_filter['cf_search_box'] ?? '';
+        self::$taxonomy_keywords = $shortcode->search_n_filter['taxonomy_keywords'] ?? [];
+        self::$fields = $shortcode->search_n_filter['fields'] ?? [];
+
         $taxonomy_keywords = $shortcode->search_n_filter['taxonomy_keywords'] ?? [];
         
         $config_value = $shortcode->_config;
@@ -39,13 +56,16 @@ class Search_Box{
          */
         $shortcode->do_action('wpt_search_box');
         $extra_html = ob_get_clean();
-        // var_dump($extra_html);
+
+        if( self::$cf_search_box !== 'yes' && empty( self::$fields ) && empty( self::$taxonomy_keywords ) ){
+            self::$reset_button = '';
+        }
         if( ! empty( $extra_html ) || $html_inputBox){
 
             $html .= "<div class='search_single search_single_direct keyword-s-wrapper'>";
             $html .= $html_inputBox;
             $html .= $extra_html;
-            $html .= "<button class='wpt-query-reset-button' title='" . __('Reset','wpt_pro') . "'> <i class='wpt-spin3'></i></button>"; //end of .search_single
+            $html .= self::$reset_button;
             $html .= "</div>"; //end of .search_single
             
         }
