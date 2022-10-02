@@ -130,6 +130,13 @@ foreach($terms as $term){
                         ?>
                     </select>
                     <!-- <input name="search_n_filter[taxonomy_keywords]" data-name='taxonomy_keywords' id="wpt_taxonomy_keywords" value="<?php echo isset( $meta_search_n_filter['taxonomy_keywords'] ) ?$meta_search_n_filter['taxonomy_keywords'] : 'product_cat,product_tag'; ?>" class="wpt_fullwidth wpt_data_filed_atts ua_input" type="text" placeholder="<?php esc_attr_e( 'eg: product_cat,product_tag,color,size', 'wpt_pro' ); ?>"> -->
+                    <p class="warning">
+                        <b>IMPORTANT Tips:</b>
+                        <span>To CHOOSE selected Taxonomy(Category,Tag), PLEASE Save & RELOAD,
+                        <br>After Chosen Taxonomy (Category/Tag) Save and Reload, User will able to set/fix/choose selected Taxonomy.
+                        <br> Need Reload to get perform full of this feature.
+                        .</span>
+                    </p>
                     
                 </td>
             </tr>
