@@ -119,7 +119,8 @@ class Shortcode_Ajax extends Shortcode{
         /******Development Perpos************
         ob_start();
         
-        var_dump($_POST,$this->args,$max_page, $page_number);
+        var_dump($this->pagination, $this->paginated_load);
+        // var_dump($_POST,$this->args,$max_page, $page_number);
         $output['.all_check_header_footer'] = ob_get_clean();
         //****************************/
         if( $this->found_posts > 0 ){
@@ -133,8 +134,10 @@ class Shortcode_Ajax extends Shortcode{
         }
         
 
+        if( 'on' !== $this->pagination ){
+            $output['.wpt_my_pagination.wpt_table_pagination'] = Pagination::get_paginate_links( $this );
+        }
         
-        $output['.wpt_my_pagination.wpt_table_pagination'] = Pagination::get_paginate_links( $this );
         wp_send_json( $output );
         
         die();

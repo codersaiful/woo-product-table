@@ -4,8 +4,10 @@ namespace WOO_PRODUCT_TABLE\Inc\Handle;
 use WOO_PRODUCT_TABLE\Inc\Shortcode;
 
 class Pagination{
+    public static $bool = true;
     public static function render( Shortcode $shortcode ){
-        
+        // self::$bool = 'on' == $shortcode->pagination;
+        // if( 'on' !== $shortcode->pagination ) return;
         ?>
         <div data-base_link="<?php echo esc_attr( $shortcode->pagination_base_url ); ?>" class='wpt_my_pagination wpt-my-pagination-<?php echo $shortcode->table_id; ?> wpt_table_pagination' data-table_id='<?php echo $shortcode->table_id; ?>'>
         <?php 
