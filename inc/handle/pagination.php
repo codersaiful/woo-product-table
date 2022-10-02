@@ -5,6 +5,16 @@ use WOO_PRODUCT_TABLE\Inc\Shortcode;
 
 class Pagination{
     public static $bool = true;
+
+    /**
+     * I didn't check yet here.
+     * Actually I called this method inside checking
+     * 
+     * Otherwise, need indivisual check on both method.
+     *
+     * @param Shortcode $shortcode
+     * @return void
+     */
     public static function render( Shortcode $shortcode ){
         // self::$bool = 'on' == $shortcode->pagination;
         // if( 'on' !== $shortcode->pagination ) return;
@@ -18,6 +28,13 @@ class Pagination{
     }
 
 
+    /**
+     * Generate Page link inside pagination's wrapper
+     * It will not echo directly. It will return an String, You have to Echo.
+     *
+     * @param Shortcode $shortcode
+     * @return void
+     */
     public static function get_paginate_links( Shortcode $shortcode ){
         $args = $shortcode->args;
         $product_loop = new \WP_Query($args);
