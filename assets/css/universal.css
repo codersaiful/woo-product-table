@@ -1606,15 +1606,7 @@ td.td_or_cell .item_inside_cell.wpt_action,
 td.td_or_cell .item_inside_cell.wpt_description {
     flex: 1 100%;
 }
-  /* td.inner-available.td_or_cell, */
-div.inner-available.td_or_cell {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-}
+
 .wpt_product_title .item_inside_cell {
     display: flex;
     flex-direction: column;

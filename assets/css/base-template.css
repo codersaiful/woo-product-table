@@ -89,6 +89,15 @@ div.wpt-wrap input[type=radio]:checked+label:after {
   font-size: 16px;
   line-height: 18px;
 }
+  /* td.inner-available.td_or_cell, */
+  div.inner-available.td_or_cell {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
 .wpt-wrap .wpt_table_head, .wpt-wrap .wpt_table_head>th {
     padding: 11px 10px;
     margin: 0;
