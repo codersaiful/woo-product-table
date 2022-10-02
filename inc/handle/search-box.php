@@ -22,8 +22,6 @@ class Search_Box{
         self::$cf_search_box = $shortcode->search_n_filter['cf_search_box'] ?? '';
         self::$taxonomy_keywords = $shortcode->search_n_filter['taxonomy_keywords'] ?? [];
         self::$fields = $shortcode->search_n_filter['fields'] ?? [];
-
-        $taxonomy_keywords = $shortcode->search_n_filter['taxonomy_keywords'] ?? [];
         
         $config_value = $shortcode->_config;
         $html = false;
@@ -71,8 +69,8 @@ class Search_Box{
         }
         
 
-        if( is_string( $taxonomy_keywords ) && ! empty( $taxonomy_keywords ) ){
-            $taxonomy_keywords = wpt_explode_string_to_array( $taxonomy_keywords );
+        if( is_string( self::$taxonomy_keywords ) && ! empty( self::$taxonomy_keywords ) ){
+            self::$taxonomy_keywords = wpt_explode_string_to_array( self::$taxonomy_keywords );
         }
 
         /**
@@ -82,8 +80,8 @@ class Search_Box{
          * @since 1.9
          * @date 10.6.2018 d.m.y
          */
-        if( is_array( $taxonomy_keywords ) && count( $taxonomy_keywords ) > 0 ){
-            foreach( $taxonomy_keywords as $texonomy_name ){
+        if( is_array( self::$taxonomy_keywords ) && count( self::$taxonomy_keywords ) > 0 ){
+            foreach( self::$taxonomy_keywords as $texonomy_name ){
                $html .= wpt_texonomy_search_generator( $texonomy_name,$shortcode->table_id, $shortcode->search_n_filter ); 
             }
         }

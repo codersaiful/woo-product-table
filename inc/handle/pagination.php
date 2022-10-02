@@ -4,7 +4,6 @@ namespace WOO_PRODUCT_TABLE\Inc\Handle;
 use WOO_PRODUCT_TABLE\Inc\Shortcode;
 
 class Pagination{
-    public static $bool = true;
 
     /**
      * I didn't check yet here.
@@ -16,7 +15,7 @@ class Pagination{
      * @return void
      */
     public static function render( Shortcode $shortcode ){
-        // self::$bool = 'on' == $shortcode->pagination;
+
         // if( 'on' !== $shortcode->pagination ) return;
         ?>
         <div data-base_link="<?php echo esc_attr( $shortcode->pagination_base_url ); ?>" class='wpt_my_pagination wpt-my-pagination-<?php echo $shortcode->table_id; ?> wpt_table_pagination' data-table_id='<?php echo $shortcode->table_id; ?>'>
@@ -36,6 +35,7 @@ class Pagination{
      * @return void
      */
     public static function get_paginate_links( Shortcode $shortcode ){
+        // if( 'on' !== $shortcode->pagination ) return;
         $args = $shortcode->args;
         $product_loop = new \WP_Query($args);
 
