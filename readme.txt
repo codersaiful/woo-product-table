@@ -264,6 +264,7 @@ You can easily show specific category products. While creating new table click o
 * `text_with_number` sorting issue has been solved
 * Added: Search from whole site option added for Advance Search Box.
 * Added: Hide input of Advance search box option added.
+* Fixed: Description column added using shortcode of wp.
 
 = 3.2.4 =
 * Bug Fixed: Icon/Font-Icon confliction issue has been solved.

@@ -82,7 +82,7 @@ div.wpt-wrap input[type=radio]:checked+label:after {
 .wpt-wrap>div>div,
 .wpt-wrap table,
 .wpt-wrap table thead th,
-.wpt-wrap table tbody td div,
+/* .wpt-wrap table tbody td div:not('.wp-audio-shortcode *'), */
 .wpt-wrap table tbody tr,
 .wpt-wrap table tbody td {
   font-weight: 400;

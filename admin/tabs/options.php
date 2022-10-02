@@ -44,8 +44,8 @@ $data = isset( $meta_basics['data'] ) ? $meta_basics['data'] : false;
                 </th>
                 <td>
                     <select name="basics[pagination]" data-name='pagination_ajax' id="wpt_table_ajax_pagination" class="wpt_fullwidth wpt_data_filed_atts ua_input" >
-                        <option value="on" <?php echo isset( $meta_basics['pagination'] ) && $meta_basics['pagination'] == 'on' ? 'selected' : false; ?>><?php esc_html_e('On','wpt_pro');?></option>
-                        <option value="off" <?php echo isset( $meta_basics['pagination'] ) && $meta_basics['pagination'] == 'off' ? 'selected' : false; ?>><?php esc_html_e('Off','wpt_pro');?></option>
+                        <option value="on" <?php echo isset( $meta_basics['pagination'] ) && $meta_basics['pagination'] == 'on' ? 'selected' : false; ?>><?php esc_html_e('Number/Paging','wpt_pro');?></option>
+                        <option value="off" <?php echo isset( $meta_basics['pagination'] ) && $meta_basics['pagination'] == 'off' ? 'selected' : false; ?>><?php esc_html_e('Off/Disabled','wpt_pro');?></option>
                         <option value="load_more" <?php echo isset( $meta_basics['pagination'] ) && $meta_basics['pagination'] == 'load_more' ? 'selected' : false; ?>><?php esc_html_e('Load More Button','wpt_pro');?></option>
                         <!-- <option value="infinit_scroll" <?php echo isset( $meta_basics['pagination'] ) && $meta_basics['pagination'] == 'infinit_scroll' ? 'selected' : false; ?>><?php esc_html_e('Infinit Scroll','wpt_pro');?></option> -->
                     </select>   
