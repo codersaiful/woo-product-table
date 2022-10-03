@@ -12,6 +12,11 @@ jQuery(function($) {
         ajax_url = WPT_DATA.ajax_url,
         site_url = WPT_DATA.site_url;
 
+        var config_json = $('#wpt_table').data('config_json');
+        if ( typeof config_json === 'undefined' ){
+            return false;
+        }
+
         
         //Search Box related code all start here
         var ajaxTableLoad = function(table_id,args,others){
@@ -85,6 +90,10 @@ jQuery(function($) {
                 }
             });
         };
+
+        $('div.wpt-wrap table#wpt_table').each(function(){
+            console.log(config_json);
+        });
 
         $(document.body).on('click','.wpt_pagination_ajax .wpt_my_pagination a',function(e){
             e.preventDefault();
