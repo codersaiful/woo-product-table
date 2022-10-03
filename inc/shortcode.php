@@ -401,16 +401,18 @@ class Shortcode extends Shortcode_Base{
         $this->product_count = (int) $this->product_loop->post_count;
         $this->found_posts = (int) $this->product_loop->found_posts;
         $this->max_num_pages = (int) $this->product_loop->max_num_pages;
+        $min_one = $this->found_posts < 1 ? 0 : 1;
         $page_number = $this->max_num_pages > 0 ? $this->page_number : 0; 
-        $display_count = "1 - $this->product_count";
+        $display_count = "$min_one - $this->product_count";
 
+        // var_dump($this->found_posts);
         $display_pagN = $page_number;
         if( $this->paginated_load && $page_number > 1 ){
             $prev_ttl_post = ( $page_number - 1 ) * $this->posts_per_page;
             $display_count = $this->product_count + $prev_ttl_post;
-            $display_count = "1 - $display_count";
+            $display_count = "$min_one - $display_count";
             
-            $display_pagN = "(1 - $page_number)";
+            $display_pagN = "($min_one - $page_number)";
         }else if( $page_number > 1 ){
             $prev_post = ( ($page_number-1) * $this->posts_per_page );
             $current_total_post = $prev_post + $this->product_count;

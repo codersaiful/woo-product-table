@@ -123,11 +123,9 @@ class Shortcode_Ajax extends Shortcode{
         // var_dump($_POST,$this->args,$max_page, $page_number);
         $output['.all_check_header_footer'] = ob_get_clean();
         //****************************/
-        if( $this->found_posts > 0 ){
-            ob_start();
-            $this->argsOrganize()->stats_render();
-            $output['.wpt-stats-report'] = ob_get_clean();
-        }
+        ob_start();
+        $this->argsOrganize()->stats_render();
+        $output['.wpt-stats-report'] = ob_get_clean();
         
         if( $max_page == $page_number){
             $output['.wpt_load_more_wrapper'] = '';
