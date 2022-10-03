@@ -1806,6 +1806,7 @@ jQuery(function($) {
 
             $('.yith_request_temp_' + temp_number + '_id_' + product_id).attr('data-quantity', Qty_Val);
             $('#table_id_' + temp_number + ' .product_id_' + product_id + ' .wpt_total_item.total_general strong').html(newPrice);
+            $('tr.stock_status_outofstock .wpt_total_item.total_general strong').html("00");
             //$(target_row_id + ' a.add_to_cart_button').attr('data-quantity', Qty_Val); //wpt_total_item total_general
             
             updateCheckBoxCount(temp_number);
@@ -1813,7 +1814,7 @@ jQuery(function($) {
 
         upateGlobalCheckboxCount();
         function upateGlobalCheckboxCount(){
-            console.log('KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK');
+            console.log('upateGlobalCheckboxCount()');
             
             var add_cart_text = $('.wpt-wrap').data('basic_settings').add_to_cart;
             var currentAllSelectedButtonSelector = $('body a.wpt-global-added-to-cart>span');
