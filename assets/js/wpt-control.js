@@ -75,6 +75,7 @@ jQuery(function($) {
 
                     $(document.body).trigger('wc_fragments_refreshed');
                     $(document.body).trigger('wpt_ajax_loaded');
+                    $(document.body).trigger('wpt_ajax_load_data', data);
                     TableTagWrap.removeClass('wpt-ajax-loading');
                     SearchWrap.removeClass('wpt-ajax-loading');
 
