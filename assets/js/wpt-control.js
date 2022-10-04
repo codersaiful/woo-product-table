@@ -64,7 +64,7 @@ jQuery(function($) {
                         $.each( result, function( key, value ) {
                             if('string' === typeof key){
                                 let selectedElement = $('#table_id_' + table_id + ' ' + key);
-                                if( typeof selectedElement === 'object' && key === 'table tbody'){
+                                if( typeof selectedElement === 'object' && key === 'table.wpt-tbl>tbody'){
                                     $('#table_id_' + table_id + ' table.wpt-tbl>tbody').append( value );
                                 }else if( typeof selectedElement === 'object'){
                                     selectedElement.html( value );

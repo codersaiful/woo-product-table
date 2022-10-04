@@ -105,7 +105,7 @@ class Shortcode_Ajax extends Shortcode{
         $output = [];
         ob_start();
         $this->argsOrganize()->table_body();
-        $output['table.wpt-tbl tbody'] = ob_get_clean();
+        $output['table.wpt-tbl>tbody'] = ob_get_clean();
 
         /**
          * The $max_page Defining should here after call $this->argsOrganize()->table_body();
