@@ -129,7 +129,7 @@ $data = isset( $meta_basics['data'] ) ? $meta_basics['data'] : false;
     
     
 
-    <div class="wpt_column">
+    <div class="wpt_column wpt-table-separator">
         <table class="ultraaddons-table">
             <tr>
                 <th>
@@ -188,6 +188,24 @@ $data = isset( $meta_basics['data'] ) ? $meta_basics['data'] : false;
         </table>
     </div>
 
+    <table class="ultraaddons-table wpt-table-separator">
+                <tr>
+                    <th>
+                        <label class="wpt_label" for="wpt_table_add_to_cart_selected_text"><?php esc_html_e( '(Add to cart(Selected]) Text', 'wpt_pro' );?></label>
+                    </th>
+                    <td>
+                        <input name="basics[add_to_cart_selected_text]"  class="wpt_data_filed_atts ua_input" data-name="add_to_cart_selected_text" type="text" value="<?php echo isset( $meta_basics['add_to_cart_selected_text'] ) ? $meta_basics['add_to_cart_selected_text'] : __( 'Add to Cart (Selected)', 'wpt_pro' ); ?>" placeholder="<?php esc_attr_e( 'Example: Add to cart Selected', 'wpt_pro' ); ?>" id="wpt_table_add_to_cart_selected_text">
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <label class="wpt_label" for="wpt_table_check_uncheck_text"><?php esc_html_e( '(All Check/Uncheck) Text', 'wpt_pro' );?></label>
+                    </th>
+                    <td>
+                        <input name="basics[check_uncheck_text]"  class="wpt_data_filed_atts ua_input" data-name="check_uncheck_text" type="text" value="<?php echo isset( $meta_basics['check_uncheck_text'] ) ? $meta_basics['check_uncheck_text'] : __( 'All Check/Uncheck','wpt_pro' ); ?>" placeholder="<?php esc_attr_e( 'Example: All Check/Uncheck', 'wpt_pro' );?>" id="wpt_table_check_uncheck_text">
+                    </td>
+                </tr>
+    </table>
     <?php do_action( 'wpo_pro_feature_message', 'pf_bulk_add_to_cart' ); ?>
     <?php do_action( 'wpto_admin_option_tab_bottom', $meta_basics, $tab, $post, $tab_array ); ?>
 </div>
