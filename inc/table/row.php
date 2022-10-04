@@ -164,7 +164,9 @@ class Row extends Table_Base{
     }
     public function render(){
         global $product;
-        
+        if($this->wp_force){
+            wp('p=' . $this->product_id . '&post_type=product');
+        }
         extract($this->data_for_extract());
 
         $tr_classs = Table_Attr::tr_class( $this );
