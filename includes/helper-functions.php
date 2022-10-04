@@ -388,6 +388,8 @@ if( ! function_exists( 'wpt_ajax_multiple_add_to_cart' ) ){
         if ( isset( $data['products'] ) && is_array( $data['products'] ) ) {
             $products = $data['products'];
         }
+        var_dump($products);
+        
         wpt_adding_to_cart_multiple_items( $products );
 
         die();
@@ -486,7 +488,7 @@ if( ! function_exists( 'wpt_adding_to_cart_multiple_items' ) ){
                 }
 
                 $cart_item_data = apply_filters('wpto_cart_meta_by_additional_json', $cart_item_data, $additinal_json, $product_id, $product);
-
+                var_dump($cart_item_data,$custom_message);
                 wpt_adding_to_cart( $product_id, $quantity, $variation_id, $variation, $cart_item_data );
                 $serial++;
             }
