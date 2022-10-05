@@ -472,6 +472,18 @@ class Shortcode extends Shortcode_Base{
          * Actually in basics meta data, anyhow saved data when saving product table. 
          * Actually if not set any column for Tablet and Mobile device,
          * then it will come 'mobile_responsive' which actually 'autoresponsive'
+         * 
+         * ***************
+         * Auto Responsive detect has done from admin.js file
+         * ***************
+         * 
+         * In backend, there is a problem.
+         * problem: If set any column for mobile/tablet then if remove, It's not work. I mean: it's not back to auto Responsive.
+         * @todo Need to solve this issue.
+         * Auto Responsive issue, what was a critical error, Has been solved
+         * 
+         * @todo We have to add new feature for on/off Auto Responsive 
+         * @author Saiful Islam <codersaiful@gmail.com>
          *    
          */
         $this->auto_responsive =  $responsive == 'mobile_responsive';

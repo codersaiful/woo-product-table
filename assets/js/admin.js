@@ -515,7 +515,9 @@ jQuery.fn.extend({
             //Detect and set Responsive Stats
             ///detect_responsive_stats();
             $(this).closest('.tab-content').find('.wpt_column_sortable li.wpt_sortable_peritem input.checkbox_handle_input[data-column_keyword="' + keyword + '"]').trigger('click');
-            
+            setTimeout(function(){
+                detect_responsive_stats();
+            }, 1000);
         });
         /**
          * Column Section Managing
