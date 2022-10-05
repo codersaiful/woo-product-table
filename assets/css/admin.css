@@ -1959,3 +1959,19 @@ li#menu-posts-wpt_product_table ul.wp-submenu.wp-submenu-wrap:hover li>a>i {
     background: #000000;
     padding-left: 18px;
 }
+
+label.switch.switch-big {
+    width: 200px !important;
+}
+
+label.switch.switch-big {}
+
+label.switch.switch-big span.off {
+    left: unset;
+    right: 0;
+}
+
+span.on {}
+label.switch.switch-big .on, label.switch.switch-big .off {
+    left: 40%;
+}

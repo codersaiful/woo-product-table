@@ -468,6 +468,29 @@ class Shortcode extends Shortcode_Base{
         $responsive = $this->basics['responsive'] ?? false;
 
         /**
+         * ******************
+         * MANUAL RESPONSIVE SWITCH
+         * ******************
+         * If Dissable off Off from Admin panel,
+         * then Auto Responsive Device detect will not work.
+         * Option will be then that, Auto REsponsive off
+         * ******************
+         * Newly Added (V 3.2.5.6) in Column Setting tab at BackEnd/Admin Panel. 
+         * Why added this?
+         * Actually: some thime, User don't want Auto Responsive and dont' want to add column for Mobile or Table,
+         * Then we can handle by this feature.
+         * 
+         * Option added at column_settings.php file.
+         * 
+         * It's actually Manual Swtich for Auto Responsive Detect. If handle by this, than auto responsive device detect option
+         * will not work.
+         */
+        $responsive_switch = $this->basics['responsive_switch'] ?? false;
+        if( $responsive_switch ){ //If vvalue, meant: switch off from admin panel
+            $responsive = 'no_responsive';
+        }
+        
+        /**
          * Authoresponsive value is come from database inside $this->basics
          * Actually in basics meta data, anyhow saved data when saving product table. 
          * Actually if not set any column for Tablet and Mobile device,
