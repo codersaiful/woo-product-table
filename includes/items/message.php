@@ -5,7 +5,7 @@ if($message_type == 'input'){
 ?>
     
 <input type='text' 
-       class='message message_<?php echo esc_attr( $id ); ?>' 
+       class='wpt_custom_message message message_<?php echo esc_attr( $id ); ?>' 
        value='' 
        id='message_<?php echo esc_attr( $id ); ?>' 
        placeholder='<?php echo esc_attr( $config_value['type_your_message'] ); ?>'>   
@@ -13,7 +13,7 @@ if($message_type == 'input'){
 }else{
 ?>
 <textarea
-    class='message message_<?php echo esc_attr( $id ); ?>' 
+    class='wpt_custom_message message message_<?php echo esc_attr( $id ); ?>' 
        value='' 
        id='message_<?php echo esc_attr( $id ); ?>' 
        placeholder='<?php echo esc_attr( $config_value['type_your_message'] ); ?>'

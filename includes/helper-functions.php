@@ -302,7 +302,7 @@ if( ! function_exists( 'wpt_ajax_add_to_cart' ) ){
         $quantity       = ( isset($data['quantity']) && !empty( $data['quantity']) && is_numeric($data['quantity']) ? sanitize_text_field( $data['quantity'] ) : 1 );
         $variation_id   = ( isset($data['variation_id']) && !empty( $data['variation_id']) ? absint( $data['variation_id'] ) : false );
         $variation      = ( isset($data['variation']) && !empty( $data['variation']) ? sanitize_text_field( $data['variation'] ) : false );
-        $custom_message = ( isset($data['custom_message']) && !empty( $data['custom_message']) ? sanitize_text_field( $data['custom_message'] ) : false );
+        $custom_message = ( isset($data['wpt_custom_message']) && !empty( $data['wpt_custom_message']) ? sanitize_text_field( $data['wpt_custom_message'] ) : false );
         $additinal_json = ( isset($data['additional_json']) && !empty( $data['additional_json']) ? $data['additional_json'] : false );
 
         $cart_item_data = array(); //Set default value array
@@ -388,7 +388,6 @@ if( ! function_exists( 'wpt_ajax_multiple_add_to_cart' ) ){
         if ( isset( $data['products'] ) && is_array( $data['products'] ) ) {
             $products = $data['products'];
         }
-        var_dump($products);
         
         wpt_adding_to_cart_multiple_items( $products );
 
@@ -465,7 +464,7 @@ if( ! function_exists( 'wpt_adding_to_cart_multiple_items' ) ){
                 $variation = ( isset($product['variation']) && !empty( $product['variation'] ) ? $product['variation'] : false );
 
                 //Added at @Since 1.9
-                $custom_message = ( isset($product['custom_message']) && !empty( $product['custom_message'] ) ? $product['custom_message'] : false );
+                $custom_message = ( isset($product['wpt_custom_message']) && !empty( $product['wpt_custom_message'] ) ? $product['wpt_custom_message'] : false );
                 $additinal_json = ( isset($product['additional_json']) && !empty( $product['additional_json']) ? $product['additional_json'] : false );
 
                 //Added at @Since 1.9
@@ -488,7 +487,7 @@ if( ! function_exists( 'wpt_adding_to_cart_multiple_items' ) ){
                 }
 
                 $cart_item_data = apply_filters('wpto_cart_meta_by_additional_json', $cart_item_data, $additinal_json, $product_id, $product);
-                var_dump($cart_item_data,$custom_message);
+
                 wpt_adding_to_cart( $product_id, $quantity, $variation_id, $variation, $cart_item_data );
                 $serial++;
             }
@@ -524,7 +523,10 @@ if( ! function_exists( 'wpt_add_custom_message_field' ) ){
                   <tr>
                   <td class="label"><label for="custom_message_for<?php echo esc_attr( $product_id ); ?>"><?php echo esc_attr( $message ); ?></label></td>
                   <td class="value">
-                      <input id="custom_message_for<?php echo esc_attr( $product_id ); ?>" type="text" name="wpt_custom_message" placeholder="<?php echo esc_attr( $message ); ?>" />                      
+                      <input id="custom_message_for<?php echo esc_attr( $product_id ); ?>" 
+                      class='wpt_custom_message message message_<?php echo esc_attr( $product_id ); ?>'
+                      type="text" name="wpt_custom_message" 
+                      placeholder="<?php echo esc_attr( $message ); ?>" />                      
                   </td>
               </tr>                               
               </tbody>
@@ -576,7 +578,7 @@ if( ! function_exists( 'wpt_save_custom_message_field' ) ){
      */
     function wpt_save_custom_message_field( $cart_item_data, $product_id ) {
         
-        if( isset( $_REQUEST['wpt_custom_message'] ) ) {
+        if( isset( $_REQUEST['wpt_custom_message'] ) && ! empty( $_REQUEST['wpt_custom_message'] ) ) {
             $generated_message = isset( $_REQUEST['wpt_custom_message'] ) ? sanitize_text_field( $_REQUEST['wpt_custom_message'] ) : '';
             $cart_item_data[ 'wpt_custom_message' ] =  $generated_message;
             /* below statement make sure every add to cart action as unique line item */

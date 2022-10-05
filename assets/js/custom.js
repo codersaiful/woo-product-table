@@ -539,6 +539,7 @@ jQuery(function($) {
             
             
             var thisRow = $(this).closest('.wpt_row');
+            var messageBox = thisRow.find('.wpt_custom_message');
             var product_id = thisRow.data('product_id');
 
             var temp_number = $(this).closest('#product_id_' + product_id).data('temp_number');
@@ -557,7 +558,7 @@ jQuery(function($) {
 
             //Changed at2.9
             var quantity = $(this).attr('data-quantity');
-            var custom_message = $('#table_id_' + temp_number + ' table#wpt_table .wpt_row_product_id_' + product_id + ' .wpt_message .message').val();
+            var wpt_custom_message = $('#table_id_' + temp_number + ' table#wpt_table .wpt_row_product_id_' + product_id + ' .wpt_message .message').val();
             var variation_id = $(this).attr('data-variation_id');
             var variation = $(this).attr('data-variation');
             if(variation){
@@ -586,7 +587,7 @@ jQuery(function($) {
                 variation_id:   variation_id,
                 product_id: product_id,
                 quantity:   quantity,
-                custom_message: custom_message,
+                wpt_custom_message: wpt_custom_message,
                 additional_json: additional_json,
             };
             console.log(data,ajax_url);
@@ -607,7 +608,7 @@ jQuery(function($) {
                     thisButton.removeClass('disabled');
                     
                     thisButton.addClass('added');
-
+                    messageBox.val('');
                     /**
                      * Adding Trigger for WPT
                      * At the Beggining of Success Adding to cart
@@ -1096,6 +1097,7 @@ jQuery(function($) {
         $('div.normal_table_wrapper a.button.add_to_cart_all_selected').click(function() {
             footerCartAnimation();
             var temp_number = $(this).data('temp_number');
+            var allMessageBox = $('#table_id_' + temp_number + ' .wpt_custom_message');
             config_json = getConfig_json( temp_number ); 
             var checkoutURL = WPT_DATA.checkout_url;
             var cartURL = WPT_DATA.cart_url;
@@ -1155,7 +1157,7 @@ jQuery(function($) {
                     quantity: currentQantity, 
                     variation_id: currentVariaionId, 
                     variation: currentVariaion,
-                    custom_message: currentCustomMessage,
+                    wpt_custom_message: currentCustomMessage,
                 };
                 itemAmount++;
             });
@@ -1224,9 +1226,12 @@ jQuery(function($) {
                         if(min_quantity === '0' || typeof min_quantity === 'undefined'){
                             min_quantity = 1;
                         }
-                        //qtyElement.val(min_quantity);//Added at v4
+                        qtyElement.val(min_quantity);//Added at v4
+                        var messageBox = $(this).closest('.wpt-row').find('.wpt_custom_message');
+                        messageBox.val('');
                     });
                     uncheckAllCheck(temp_number);
+                    // allMessageBox.val('');
                     
                 },
                 error: function() {
@@ -2375,6 +2380,7 @@ jQuery(function($) {
             var ajax_action = data_json.ajax_action;
 
             var thisRow = $(this).closest('tr.wpt-row');
+            var messageBox = thisRow.find('input.wpt_custom_message');
             var Bubble = thisRow.find('.wpt_ccount');
             if(Bubble.length == 0){
                 thisRow.find('.single_add_to_cart_button').append('<span class="wpt_ccount wpt_ccount_' + product_id + '"><i class="wpt-spin5 animate-spin"></span>');
@@ -2410,7 +2416,7 @@ jQuery(function($) {
                     // thisButton.removeClass('loading');
                     thisButton.addClass('added');
             }).done(function(){
-                
+                messageBox.val('');
                 $( document.body ).trigger( 'added_to_cart' );
                 $( document.body ).trigger( 'updated_cart_totals' );
                 $( document.body ).trigger( 'wc_fragments_refreshed' );
@@ -2445,6 +2451,7 @@ jQuery(function($) {
         $('div.advance_table_wrapper a.button.add_to_cart_all_selected').click(function() {
             WPT_BlankNotice();
             var temp_number = $(this).data('temp_number');
+            var allMessageBox = $('#table_id_' + temp_number + ' .wpt_custom_message');
             
             var checkoutURL = WPT_DATA.checkout_url;//$('#table_id_' + temp_number).data('checkout_url');
             var cartURL = WPT_DATA.cart_url;//$('#table_id_' + temp_number).data('cart_url');
@@ -2469,9 +2476,9 @@ jQuery(function($) {
                 var thisButton = $('#table_id_' + temp_number + ' #product_id_' + product_id + ' .wpt_action form button.single_add_to_cart_button');
                 
 
-                thisButton.removeClass('added');
+                // thisButton.removeClass('added');
                 thisButton.addClass( 'disabled' );
-                thisButton.addClass( 'loading' );
+                // thisButton.addClass( 'loading' );
                 
                 var form = $(fullSelcetor);
                 var title = $(this).parents('tr').data('title');
@@ -2485,33 +2492,8 @@ jQuery(function($) {
                 });
 
 
-
-
-
-                var method = form.attr('method');
-
-
                 products_data[product_id] = obj;
 
-                if( 'post' === method){
-
-                //     $.post(url, form.serialize() + '&add-to-cart=' + product_id + '&_wp_http_referer=' + url, function(data,status,xh){
-
-                //         var notice = $('.woocommerce-message,.woocommerce-error', data); //.woocommerce-error
-                //         if(config_json.popup_notice === '1'){
-                //             Advance_NoticeBoard(notice);//Gettince Notice
-                //         }
-                //         $( document.body ).trigger( 'added_to_cart' ); //Trigger and sent added_to_cart event
-                        
-                //         thisButton.removeClass('disabled');
-                //         thisButton.removeClass('loading');
-                //         thisButton.addClass('added');
-                //     }).done(function(){
-                //         console.log("Success Product: - " + title);
-                //     }).fail(function(){
-                //         console.log("ERROR to Add CArt. Fail Product: - " + title);
-                //     });
-                }
                 
                 var items = $('#table_id_' + temp_number + ' tr#product_id_' + product_id).attr('data-quantity');
                 items = parseFloat(items);
@@ -2548,12 +2530,6 @@ jQuery(function($) {
                     $( document.body ).trigger( 'wc_fragments_refresh' );
                     $( document.body ).trigger( 'wc_fragment_refresh' );
                     WPT_NoticeBoard();
-                    $('header.entry-header').html(response);
-                    
-                    return;
-
-                    setFragmentsRefresh( response );
-                    WPT_MiniCart();
 
                     // //The following code was here, we have changed in if statement
                     // //$( document.body ).trigger( 'added_to_cart', [ response.fragments, response.cart_hash, $('added_to_cart') ] );
@@ -2570,7 +2546,6 @@ jQuery(function($) {
                     $( document.body ).trigger( 'wc_fragment_refresh' );
 
                     currentAllSelectedButtonSelector.html(add_cart_text + ' [ ' + itemAmount + ' ' + config_json.add2cart_all_added_text + ' ]');
-                    WPT_NoticeBoard();
                     
                     if(config_json.all_selected_direct_checkout === 'yes'){
                         window.location.href = checkoutURL;
@@ -2589,9 +2564,10 @@ jQuery(function($) {
                         var product_id = $(this).data('product_id');
                         var thisButton = $(this).find('.wpt_action button.button');
                         thisButton.removeClass('disabled');
-                        thisButton.removeClass('loading');
-                        thisButton.addClass('added');
+                        // thisButton.removeClass('loading');
+                        // thisButton.addClass('added');
                     });
+                    allMessageBox.val('');//3.2.5.5.final10
                 },
                 error: function() {
                     alert('Failed');
