@@ -1,5 +1,5 @@
 === Product Table for WooCommerce by CodeAstrology ===
-Contributors: codersaiful,codeastrology,ultraaddons,unikforce,rafiul17,phpcoderhannan
+Contributors: codersaiful,codeastrology,ultraaddons,unikforce,rafiul17,fazlebari,phpcoderhannan,fatimakhatungit
 Donate link: https://wooproducttable.com/pricing/?ref=CodeAstrology&utm_source=WPT_Installed_DonateLink
 Tags: wc product table, wooproducttable, woo product table,woocommerce product table, product table, wc table, quick order table, wholesale table, restaurants table
 Requires at least: 4.0.0
