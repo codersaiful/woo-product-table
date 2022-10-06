@@ -183,8 +183,17 @@ There are over 16 different pre-made Product Table templates available, each of 
 **FAST, SECURE AND EASY**<br>
 With a Product Table Plugin, you can feel confident that your business processes will go quickly and easily. User-friendly and adaptable to all popular themes.<br>
 
-**👷 CONTRIBUTE 👷**<br>
-You are welcome to contribute  to this project. We ask that you join the [Github repository.](https://github.com/codersaiful/woo-product-table)
+**👷 HONORABLE CONTRIBUTOR - [GitHub](https://github.com/codersaiful/woo-product-table/graphs/contributors) 👷**<br>
+* [codersaiful](https://github.com/codersaiful)
+* [unikforceit](https://github.com/unikforceit)
+* [fatimakhatungit](https://github.com/fatimakhatungit)
+* [fazlebarisn](https://github.com/fazlebarisn)
+* [rafiul](https://github.com/rafiul)
+* [tanyabouman](https://github.com/tanyabouman)
+
+**🥇 CONTRIBUTE 🥇**<br>
+You are welcome to contribute  to this project. We ask that you join the [Github repository](https://github.com/codersaiful/woo-product-table).
+
 
 == Installation ==
 
