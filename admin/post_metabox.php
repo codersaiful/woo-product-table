@@ -110,7 +110,10 @@ if( ! function_exists( 'wpt_shortcode_metabox_render' ) ){
             | 
             <?php echo esc_html__( 'Any Ideas? Please ', 'wpt_pro' ); ?>
             <a target="_blank" href="https://github.com/codersaiful/woo-product-table/discussions/new"><?php echo esc_html__( 'Send your Suggestion or Idea', 'wpt_pro' ); ?></a>
-            
+            |
+            <a  target="_blank" href="https://wordpress.org/plugins/woo-product-table/#:~:text=Contributors%20%26%20Developers">Contributor at WP.org</a>
+            |
+            <a target="_blank" href="https://github.com/codersaiful/woo-product-table/graphs/contributors">Contributor at Github</a>
         </span>
     </p>
 </div>
