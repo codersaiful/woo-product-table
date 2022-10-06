@@ -18,7 +18,9 @@ This file CSS, generally for all template Table
     text-decoration: none;
     white-space: nowrap;
 }
-
+a.wpt_empty_cart_btn.button {
+    display: none;
+}
 /*******For All Table*********/
 
 tr.wpt-row.wpt-added-to-cart {
