@@ -38,7 +38,7 @@
             <span><?php echo esc_html__( 'Facebook:', 'wpt_pro' ); ?> <a href="https://www.facebook.com/messages/t/codersaiful" target="_blank"><?php echo esc_html__( 'Message to Author', 'wpt_pro' ); ?></a></span>
             <span><?php echo esc_html__( 'Facebook:', 'wpt_pro' ); ?> <a href="https://www.facebook.com/codersaiful" target="_blank"><?php echo esc_html__( 'Author Profile', 'wpt_pro' ); ?></a></span>
             
-            <span><?php echo esc_html__( 'Youtube:', 'wpt_pro' ); ?> <a href="https://www.youtube.com/playlist?list=PL__UrUIHRxdzupiUk2KKJloistwDMP28t" target="_blank"><?php echo esc_html__( 'Youtube Playlist - Video Tutorial', 'wpt_pro' ); ?></a></span>
+            <span><?php echo esc_html__( 'Youtube:', 'wpt_pro' ); ?> <a href="https://www.youtube.com/watch?v=yPjFmCHn36Y&list=PLV1ooYxywkSXcsxJV_l9I9uf-2o8NoDly&index=8&ab_channel=CodeAstrology" target="_blank"><?php echo esc_html__( 'Youtube Playlist - Video Tutorial', 'wpt_pro' ); ?></a></span>
         </div>
     </div>
     
