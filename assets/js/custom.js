@@ -1161,19 +1161,19 @@ jQuery(function($) {
                 };
                 var items = $('#table_id_' + temp_number + ' tr#product_id_' + product_id).attr('data-quantity');
                 items = parseFloat(items);
-
-                if(items > 0){
-                    var itemCountSystem = config_json.item_count;
-                    console.log(itemCountSystem);
-                    if(typeof itemCountSystem !== 'undefined' && itemCountSystem === 'all'){
-                        
-
-                        
-                        itemAmount += items;
-                    }else{
-                        itemAmount++;//To get Item Amount
-                    }
+                if(items <= 0){
+                    return;
                 }
+                
+                var itemCountSystem = config_json.item_count;
+                if(typeof itemCountSystem !== 'undefined' && itemCountSystem === 'all'){
+                    
+
+                    
+                    itemAmount += items;
+                }else{
+                    itemAmount++;//To get Item Amount
+                } 
 
             });
 
@@ -1187,7 +1187,8 @@ jQuery(function($) {
                 return false;
             }
             
-            
+            uncheckAllCheck(temp_number);
+            currentAllSelectedButtonSelector.html(add_cart_text + ' [ ' + config_json.loading_more_text + ' ]');
             $.ajax({
                 type: 'POST',
                 url: ajax_url,
@@ -1199,7 +1200,10 @@ jQuery(function($) {
                     $( document ).trigger( 'wc_fragments_refreshed' );
                 },
                 success: function( response ) {
-                    uncheckAllCheck(temp_number);
+                    $( document.body ).trigger( 'updated_cart_totals' );
+                    $( document.body ).trigger( 'wc_fragments_refreshed' );
+                    $( document.body ).trigger( 'wc_fragments_refresh' );
+                    $( document.body ).trigger( 'wc_fragment_refresh' );
                     currentAllSelectedButtonSelector.html(add_cart_text + ' [ ' + itemAmount + ' ' + config_json.add2cart_all_added_text + ' ]');
                     if(config_json.all_selected_direct_checkout === 'yes'){
                         window.location.href = checkoutURL;
@@ -1212,13 +1216,6 @@ jQuery(function($) {
                     currentAllSelectedButtonSelector.removeClass('disabled');
                     currentAllSelectedButtonSelector.removeClass('loading');
                     tableWrapperTag.removeClass('wpt-ajax-loading');
-
-                    //$( document.body ).trigger( 'added_to_cart' ); //Trigger and sent added_to_cart event
-                    $( document.body ).trigger( 'updated_cart_totals' );
-                    $( document.body ).trigger( 'wc_fragments_refreshed' );
-                    $( document.body ).trigger( 'wc_fragments_refresh' );
-                    $( document.body ).trigger( 'wc_fragment_refresh' );
-                    
                     
                     WPT_NoticeBoard();
                      
@@ -2520,6 +2517,15 @@ jQuery(function($) {
                 } 
             });
 
+            //Return false for if no data
+            if (itemAmount < 1) {
+                currentAllSelectedButtonSelector.removeClass('disabled');
+                currentAllSelectedButtonSelector.removeClass('loading');
+                showAlert(config_json.please_choose_items);
+                return false;
+            }
+            uncheckAllCheck(temp_number);
+            currentAllSelectedButtonSelector.html(add_cart_text + ' [ ' + config_json.loading_more_text + ' ]');
 
             $.ajax({
                 type: 'POST',
@@ -2532,7 +2538,7 @@ jQuery(function($) {
                     $( document ).trigger( 'wc_fragments_refreshed' );
                 },
                 success: function( response ) {
-                    
+
                     $( document.body ).trigger( 'added_to_cart' ); //Trigger and sent added_to_cart event
                     $( document.body ).trigger( 'updated_cart_totals' );
                     $( document.body ).trigger( 'wc_fragments_refreshed' );
@@ -2540,7 +2546,7 @@ jQuery(function($) {
                     $( document.body ).trigger( 'wc_fragment_refresh' );
                     
                     currentAllSelectedButtonSelector.html(add_cart_text + ' [ ' + itemAmount + ' ' + config_json.add2cart_all_added_text + ' ]');
-                    tableWrapperTag.removeClass('wpt-ajax-loading');
+                    
                     WPT_NoticeBoard();
                     if(config_json.all_selected_direct_checkout === 'yes'){
                         window.location.href = checkoutURL;
@@ -2548,13 +2554,13 @@ jQuery(function($) {
                     }else if(config_json.all_selected_direct_checkout === 'cart'){
                         window.location.href = cartURL;
                         return;
-                    }else{
-                        currentAllSelectedButtonSelector.removeClass('disabled');
-                        currentAllSelectedButtonSelector.removeClass('loading');
                     }
-
-                    
+                    currentAllSelectedButtonSelector.removeClass('disabled');
+                    currentAllSelectedButtonSelector.removeClass('loading');
                     allMessageBox.val('');//3.2.5.5.final10
+                    tableWrapperTag.removeClass('wpt-ajax-loading');
+                    
+                    
                     
                 },
                 error: function() {
@@ -2563,13 +2569,7 @@ jQuery(function($) {
             });
 
 
-            //Return false for if no data
-            if (itemAmount < 1) {
-                currentAllSelectedButtonSelector.removeClass('disabled');
-                currentAllSelectedButtonSelector.removeClass('loading');
-                showAlert(config_json.please_choose_items);
-                return false;
-            }
+            
             currentAllSelectedButtonSelector.removeClass('disabled');
             currentAllSelectedButtonSelector.removeClass('loading');
             $( document ).trigger( 'wc_fragments_refreshed' );
@@ -2582,9 +2582,7 @@ jQuery(function($) {
                 window.location.href = cartURL;
                 return;
             }
-            currentAllSelectedButtonSelector.html(add_cart_text + ' [ ' + itemAmount + ' ' + config_json.add2cart_all_added_text + ' ]');
-            uncheckAllCheck(temp_number);
-            
+
         });
         
        
