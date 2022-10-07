@@ -1159,7 +1159,22 @@ jQuery(function($) {
                     variation: currentVariaion,
                     wpt_custom_message: currentCustomMessage,
                 };
-                itemAmount++;
+                var items = $('#table_id_' + temp_number + ' tr#product_id_' + product_id).attr('data-quantity');
+                items = parseFloat(items);
+
+                if(items > 0){
+                    var itemCountSystem = config_json.item_count;
+                    console.log(itemCountSystem);
+                    if(typeof itemCountSystem !== 'undefined' && itemCountSystem === 'all'){
+                        
+
+                        
+                        itemAmount += items;
+                    }else{
+                        itemAmount++;//To get Item Amount
+                    }
+                }
+
             });
 
             //Return false for if no data
@@ -1171,7 +1186,8 @@ jQuery(function($) {
                 showAlert(config_json.please_choose_items);
                 return false;
             }
-
+            
+            
             $.ajax({
                 type: 'POST',
                 url: ajax_url,
@@ -1183,7 +1199,8 @@ jQuery(function($) {
                     $( document ).trigger( 'wc_fragments_refreshed' );
                 },
                 success: function( response ) {
-
+                    uncheckAllCheck(temp_number);
+                    currentAllSelectedButtonSelector.html(add_cart_text + ' [ ' + itemAmount + ' ' + config_json.add2cart_all_added_text + ' ]');
                     if(config_json.all_selected_direct_checkout === 'yes'){
                         window.location.href = checkoutURL;
                         return;
@@ -1196,30 +1213,19 @@ jQuery(function($) {
                     currentAllSelectedButtonSelector.removeClass('loading');
                     tableWrapperTag.removeClass('wpt-ajax-loading');
 
-                    if(WPT_DATA.add_to_cart_view){
-                        $( document.body ).trigger( 'added_to_cart', [ response.fragments, response.cart_hash, $('added_to_cart') ] );
-                    }else{
-                        $( document.body ).trigger( 'added_to_cart' ); //This will solved for fast added to cart but it will no show view cart link.
-                    }
-                    
                     //$( document.body ).trigger( 'added_to_cart' ); //Trigger and sent added_to_cart event
                     $( document.body ).trigger( 'updated_cart_totals' );
                     $( document.body ).trigger( 'wc_fragments_refreshed' );
                     $( document.body ).trigger( 'wc_fragments_refresh' );
                     $( document.body ).trigger( 'wc_fragment_refresh' );
                     
-                    currentAllSelectedButtonSelector.html(add_cart_text + ' [ ' + itemAmount + ' ' + config_json.add2cart_all_added_text + ' ]');
+                    
                     WPT_NoticeBoard();
                      
                     //Added at v4.0.11
                     $('#table_id_' + temp_number + ' input.enabled.wpt_tabel_checkbox.wpt_td_checkbox:checked').each(function() {
                         var product_id = $(this).data('product_id');
-                        
-                        var thisButton = $('tr.wpt_row_product_id_' + product_id + ' wpt_action a.button.wpt_woo_add_cart_button');
-                        thisButton.removeClass('disabled');
-                        thisButton.removeClass('loading');
-                        thisButton.addClass('added');
-                        
+
                         var qtyElement,min_quantity;
                         qtyElement = $('#table_id_' + temp_number + ' #product_id_' + product_id + ' input.input-text.qty.text');
                         min_quantity = qtyElement.attr('min');
@@ -1230,7 +1236,8 @@ jQuery(function($) {
                         var messageBox = $(this).closest('.wpt-row').find('.wpt_custom_message');
                         messageBox.val('');
                     });
-                    uncheckAllCheck(temp_number);
+                    
+                    
                     // allMessageBox.val('');
                     
                 },
@@ -2455,7 +2462,8 @@ jQuery(function($) {
             
             var checkoutURL = WPT_DATA.checkout_url;//$('#table_id_' + temp_number).data('checkout_url');
             var cartURL = WPT_DATA.cart_url;//$('#table_id_' + temp_number).data('cart_url');
-            
+            var tableWrapperTag = $('#table_id_' + temp_number + ' .wpt_table_tag_wrapper');
+            tableWrapperTag.addClass('wpt-ajax-loading');
             //Add Looading and Disable class 
             var currentAllSelectedButtonSelector = $('#table_id_' + temp_number + ' a.button.add_to_cart_all_selected');
             currentAllSelectedButtonSelector.addClass('disabled');
@@ -2477,7 +2485,7 @@ jQuery(function($) {
                 
 
                 // thisButton.removeClass('added');
-                thisButton.addClass( 'disabled' );
+                // thisButton.addClass( 'disabled' );
                 // thisButton.addClass( 'loading' );
                 
                 var form = $(fullSelcetor);
@@ -2524,29 +2532,16 @@ jQuery(function($) {
                     $( document ).trigger( 'wc_fragments_refreshed' );
                 },
                 success: function( response ) {
-                    $( document.body ).trigger( 'added_to_cart' ); //Trigger and sent added_to_cart event
-                    $( document.body ).trigger( 'updated_cart_totals' );
-                    $( document.body ).trigger( 'wc_fragments_refreshed' );
-                    $( document.body ).trigger( 'wc_fragments_refresh' );
-                    $( document.body ).trigger( 'wc_fragment_refresh' );
-                    WPT_NoticeBoard();
-
-                    // //The following code was here, we have changed in if statement
-                    // //$( document.body ).trigger( 'added_to_cart', [ response.fragments, response.cart_hash, $('added_to_cart') ] );
-                    // if(WPT_DATA.add_to_cart_view){
-                    //     $( document.body ).trigger( 'added_to_cart', [ response.fragments, response.cart_hash, $('added_to_cart') ] );
-                    // }else{
-                    //     $( document.body ).trigger( 'added_to_cart' ); //This will solved for fast added to cart but it will no show view cart link.
-                    // }
-
-                    $( document.body ).trigger( 'added_to_cart' ); //Trigger and sent added_to_cart event
-                    $( document.body ).trigger( 'updated_cart_totals' );
-                    $( document.body ).trigger( 'wc_fragments_refreshed' );
-                    $( document.body ).trigger( 'wc_fragments_refresh' );
-                    $( document.body ).trigger( 'wc_fragment_refresh' );
-
-                    currentAllSelectedButtonSelector.html(add_cart_text + ' [ ' + itemAmount + ' ' + config_json.add2cart_all_added_text + ' ]');
                     
+                    $( document.body ).trigger( 'added_to_cart' ); //Trigger and sent added_to_cart event
+                    $( document.body ).trigger( 'updated_cart_totals' );
+                    $( document.body ).trigger( 'wc_fragments_refreshed' );
+                    $( document.body ).trigger( 'wc_fragments_refresh' );
+                    $( document.body ).trigger( 'wc_fragment_refresh' );
+                    
+                    currentAllSelectedButtonSelector.html(add_cart_text + ' [ ' + itemAmount + ' ' + config_json.add2cart_all_added_text + ' ]');
+                    tableWrapperTag.removeClass('wpt-ajax-loading');
+                    WPT_NoticeBoard();
                     if(config_json.all_selected_direct_checkout === 'yes'){
                         window.location.href = checkoutURL;
                         return;
@@ -2556,18 +2551,11 @@ jQuery(function($) {
                     }else{
                         currentAllSelectedButtonSelector.removeClass('disabled');
                         currentAllSelectedButtonSelector.removeClass('loading');
-                        //tableWrapperTag.removeClass('wpt-ajax-loading');
                     }
 
-                    // //Added at v4.0.11
-                    $('tr.wpt_row').each(function() {
-                        var product_id = $(this).data('product_id');
-                        var thisButton = $(this).find('.wpt_action button.button');
-                        thisButton.removeClass('disabled');
-                        // thisButton.removeClass('loading');
-                        // thisButton.addClass('added');
-                    });
+                    
                     allMessageBox.val('');//3.2.5.5.final10
+                    
                 },
                 error: function() {
                     alert('Failed');
