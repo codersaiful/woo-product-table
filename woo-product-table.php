@@ -430,6 +430,9 @@ class WPT_Product_Table{
 
             WOO_Product_Table\Framework\Recommeded::check();
 
+            new WOO_PRODUCT_TABLE\Admin\Admin_Loader();
+            
+
             include_once $this->path('BASE_DIR','admin/post_metabox.php');
             include_once $this->path('BASE_DIR','admin/duplicate.php');
             include_once $this->path('BASE_DIR','admin/functions.php'); //Added at V7.0.0 @date 

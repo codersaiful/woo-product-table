@@ -1,0 +1,145 @@
+
+#wpt-survey-form-wrap {
+    display:  nones;
+    position:  absolute;
+    top:  0px;
+    bottom:  0px;
+    left:  0px;
+    right:  0px;
+    z-index:  10000;
+    background: rgb(0 0 0 / 73%);
+}
+#wpt-survey-form {
+    display: nones;
+    /* margin-top: 15px; */
+    position: fixed;
+    text-align: left;
+    width: 40%;
+    max-width: 600px;
+    z-index: 100;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,  -50%);
+    background: #fdfffb;
+    padding: 30px;
+    border-radius: 0;
+    border: 0 none;
+    font-size: 14px;
+    line-height: 24px;
+    outline: none;
+    box-shadow: 0 10px 30px 0 #0000005c;
+    border-top: 2px solid #4caf50;
+}
+
+div#wpt-survey-form p.motivational-speek {
+    font-size: 19px;
+    color: #105b6e;
+    font-weight: normal;
+    line-height: initial;
+    margin: 0 0 15px 0;
+}
+.wpt-msg-button-wrapper {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+#wpt-survey-form .wpt_button {
+    margin: 0;
+    border-radius: 0;
+    background-color: #0093b8;
+    border: none;
+    padding: 7px 10px;
+    color: #fff;
+    outline: none;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.1px;
+    color: #ffffff;
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    line-height: 17px;
+}
+
+.wpt_button#wpt_deactivate:disabled {
+   opacity:  .5;
+    cursor:  not-allowed;
+}
+.wpt-msg-button-wrapper>* {
+    float: left;
+}
+#wpt-survey-form .wpt_button#wpt_skip {
+    background: transparent;
+    border: none;
+    color: #c7c7c7;
+    float: right;
+    font-weight: normal;
+    padding-right: 0;
+}
+#wpt-survey-form .wpt_button#wpt_skip:hover {
+    color: #000;
+}
+#wpt-survey-form .wpt-comments {
+    position: relative;
+    margin-top: 20px;
+}
+#wpt-survey-form .wpt-comments p {
+    position: absolute;
+    top: -16px;
+    right: 0px;
+    font-size: 14px;
+    padding: 0px;
+    margin: 0px;
+}
+#wpt-survey-form input[type="radio"] {
+    border-radius: 0px;
+    margin-right: 5px;
+    line-height: 0;
+}
+#wpt-survey-form input[type="radio"]:checked::before {
+    content: "";
+    border-radius: 0;
+    width: 0.5rem;
+    height: 0.5rem;
+    margin: 0.1875rem;
+    background-color: #0093b8;
+    line-height: 1.14285714;
+}
+#wpt-survey-form .wpt-comments p a {
+   text-decoration: none;
+}
+#wpt-survey-form .wpt-comments textarea {
+    background: #fff;
+    border: solid 1px #0093b8;
+    width: 100%;
+    line-height: 30px;
+    resize: none;
+    margin: 10px 0 0 0;
+}
+.wpt-msg-field-wrapper {
+    background-color: white;
+    padding: 10px;
+    border: 1px solid #8bc34a4f;
+}
+#wpt-survey-form p#wpt-error {
+   margin-top:  10px;
+   padding:  0px;
+   font-size:  13px;
+   color:  #ea6464;
+}
+#wpt-survey-form button.wpt_button.wpt-deactive {
+    background: #e91e63;
+}
+#wpt-survey-form a#wpt_cancel {
+    background: #4caf50;
+}
+#wpt-survey-form a#wpt_cancel:hover {
+    background: black;
+}
+#wpt-survey-form:hover button.wpt_button.wpt-deactive {
+    background: #0093b8;
+}
+#wpt-survey-form button.wpt_button.wpt-deactive:hover {
+    background: #bf0c49;
+}
