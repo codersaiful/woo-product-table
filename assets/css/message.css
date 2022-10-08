@@ -1,6 +1,6 @@
 
 .ca-survey-form-wrap {
-    display:  nones;
+    display:  none;
     position:  absolute;
     top:  0px;
     bottom:  0px;
@@ -10,7 +10,7 @@
     background: rgb(0 0 0 / 73%);
 }
 .ca-survey-form {
-    display: nones;
+    /* display: nones; */
     /* margin-top: 15px; */
     position: fixed;
     text-align: left;

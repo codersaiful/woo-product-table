@@ -28,7 +28,7 @@ class Deactive_Form extends Base
      *
      * @var string
      */
-    protected $required_screen_id = 'edit-wpt_product_table'; // 'plugins';
+    protected $required_screen_id = 'plugins'; // 'plugins';
 
     protected $support_url = 'https://codeastrology.com/support/submit-ticket/';
 
@@ -67,7 +67,7 @@ class Deactive_Form extends Base
         if (!$this->assignScreen) $this->assignScreen();
         if ($this->screenID !== $this->required_screen_id) return;
         $date = date(" m/d/Y");
-        $token = 'Saiful';
+        $token = 'sKSdls)kdKd_-s-dls(Sld)';
         $site_url = get_site_url();
         $blog_name = get_bloginfo( 'name' );
 ?>
@@ -77,8 +77,8 @@ class Deactive_Form extends Base
                     If you have a moment, please let us know why you are deactivating.
                      <!-- All submissions are anonymous and we only use this feedback for improving our plugin. -->
                     </p>
-                <form method="POST">
-                    <input name="Plugin" type="hidden" placeholder="Plugin" value="<?php echo esc_attr( $token ); ?>" required>
+                <form method="POST" class="ca-deactive-form">
+                    <input name="Plugin" type="hidden" class="token_number" placeholder="Plugin" value="<?php echo esc_attr( $token ); ?>" required>
                     <input name="Version" type="hidden" placeholder="Version" value="<?php echo esc_attr( $this->dev_version ); ?>" required>
                     <input name="Date" type="hidden" placeholder="Date" value="<?php echo esc_attr( $date ); ?>" required>
                     <input name="Website" type="hidden" placeholder="Website" value="<?php echo esc_attr( $site_url ); ?>" required>
@@ -131,9 +131,9 @@ class Deactive_Form extends Base
                         <p>For support queries <a href="<?php echo esc_url( $this->support_url ); ?>" target="_blank">Submit Ticket</a></p>
                     </div>
                     <div class="ca-msg-button-wrapper">
-                        <button type="submit" class="ca_button ca-deactive" id="ca_deactivate">Submit & Deactivate</button>
-                        <a href="#" class="ca_button" id="ca_cancel">Keep</a>
-                        <a href="#" class="ca_button" id="ca_skip">Skip & Deactivate</a>
+                        <button type="submit" class="ca_button ca-deactive ca-submit-form" id="ca_deactivate">Submit & Deactivate</button>
+                        <a href="#" class="ca_button ca_cancel" id="ca_cancel">Keep</a>
+                        <a href="#" class="ca_button ca_skip" id="ca_skip">Skip & Deactivate</a>
                     </div>
                 </form>
             </div>
