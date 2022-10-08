@@ -1,5 +1,5 @@
 
-#wpt-survey-form-wrap {
+.ca-survey-form-wrap {
     display:  nones;
     position:  absolute;
     top:  0px;
@@ -9,7 +9,7 @@
     z-index:  10000;
     background: rgb(0 0 0 / 73%);
 }
-#wpt-survey-form {
+.ca-survey-form {
     display: nones;
     /* margin-top: 15px; */
     position: fixed;
@@ -31,19 +31,19 @@
     border-top: 2px solid #4caf50;
 }
 
-div#wpt-survey-form p.motivational-speek {
+div.ca-survey-form p.motivational-speek {
     font-size: 19px;
     color: #105b6e;
     font-weight: normal;
     line-height: initial;
     margin: 0 0 15px 0;
 }
-.wpt-msg-button-wrapper {
+.ca-msg-button-wrapper {
     display: flex;
     gap: 10px;
     align-items: center;
 }
-#wpt-survey-form .wpt_button {
+.ca-survey-form .ca_button {
     margin: 0;
     border-radius: 0;
     background-color: #0093b8;
@@ -62,14 +62,14 @@ div#wpt-survey-form p.motivational-speek {
     line-height: 17px;
 }
 
-.wpt_button#wpt_deactivate:disabled {
+.ca_button#ca_deactivate:disabled {
    opacity:  .5;
     cursor:  not-allowed;
 }
-.wpt-msg-button-wrapper>* {
+.ca-msg-button-wrapper>* {
     float: left;
 }
-#wpt-survey-form .wpt_button#wpt_skip {
+.ca-survey-form .ca_button#ca_skip {
     background: transparent;
     border: none;
     color: #c7c7c7;
@@ -77,14 +77,14 @@ div#wpt-survey-form p.motivational-speek {
     font-weight: normal;
     padding-right: 0;
 }
-#wpt-survey-form .wpt_button#wpt_skip:hover {
+.ca-survey-form .ca_button#ca_skip:hover {
     color: #000;
 }
-#wpt-survey-form .wpt-comments {
+.ca-survey-form .ca-comments {
     position: relative;
     margin-top: 20px;
 }
-#wpt-survey-form .wpt-comments p {
+.ca-survey-form .ca-comments p {
     position: absolute;
     top: -16px;
     right: 0px;
@@ -92,12 +92,12 @@ div#wpt-survey-form p.motivational-speek {
     padding: 0px;
     margin: 0px;
 }
-#wpt-survey-form input[type="radio"] {
+.ca-survey-form input[type="radio"] {
     border-radius: 0px;
     margin-right: 5px;
     line-height: 0;
 }
-#wpt-survey-form input[type="radio"]:checked::before {
+.ca-survey-form input[type="radio"]:checked::before {
     content: "";
     border-radius: 0;
     width: 0.5rem;
@@ -106,10 +106,10 @@ div#wpt-survey-form p.motivational-speek {
     background-color: #0093b8;
     line-height: 1.14285714;
 }
-#wpt-survey-form .wpt-comments p a {
+.ca-survey-form .ca-comments p a {
    text-decoration: none;
 }
-#wpt-survey-form .wpt-comments textarea {
+.ca-survey-form .ca-comments textarea {
     background: #fff;
     border: solid 1px #0093b8;
     width: 100%;
@@ -117,29 +117,29 @@ div#wpt-survey-form p.motivational-speek {
     resize: none;
     margin: 10px 0 0 0;
 }
-.wpt-msg-field-wrapper {
+.ca-msg-field-wrapper {
     background-color: white;
     padding: 10px;
     border: 1px solid #8bc34a4f;
 }
-#wpt-survey-form p#wpt-error {
+.ca-survey-form p#ca-error {
    margin-top:  10px;
    padding:  0px;
    font-size:  13px;
    color:  #ea6464;
 }
-#wpt-survey-form button.wpt_button.wpt-deactive {
+.ca-survey-form button.ca_button.ca-deactive {
     background: #e91e63;
 }
-#wpt-survey-form a#wpt_cancel {
+.ca-survey-form a#ca_cancel {
     background: #4caf50;
 }
-#wpt-survey-form a#wpt_cancel:hover {
+.ca-survey-form a#ca_cancel:hover {
     background: black;
 }
-#wpt-survey-form:hover button.wpt_button.wpt-deactive {
+.ca-survey-form:hover button.ca_button.ca-deactive {
     background: #0093b8;
 }
-#wpt-survey-form button.wpt_button.wpt-deactive:hover {
+.ca-survey-form button.ca_button.ca-deactive:hover {
     background: #bf0c49;
 }
