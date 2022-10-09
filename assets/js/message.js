@@ -38,7 +38,6 @@ jQuery(function($) {
                     url: ajax_url,
                     data: data,
                     success:function(result){
-                        // $('.tablenav.bottom').html(result);
                         deactiveNow();
                     },
                     complete:function(){
@@ -106,7 +105,6 @@ jQuery(function($) {
             formReset();
         }
         function deactiveNow(){
-            // return;
             formHide();
             window.location = deactiveURL;
         }
