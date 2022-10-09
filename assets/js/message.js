@@ -54,7 +54,7 @@ jQuery(function($) {
         $(document.body).on('change',wrapper_id_selector + " .ca-msg-field-wrapper input[type='radio']",function(){
 
             var target = $(this).data('target_display');
-            
+            wrapperElement.find('.common-target').hide();
             if(typeof target !== 'undefined' && target !== ''){
                 wrapperElement.find('.' + target).fadeIn();
             }else{
