@@ -14,7 +14,7 @@ jQuery(function($) {
         var FormElementWrapper = wrapperElement.find('ca-survey-form');
         var deactiveBtn = $(deactive_btn_selector);
         var deactiveURL = deactiveBtn.attr('href');
-        let ourServer = 'http://edm.ultraaddons.com';//'http://wpp.cm';//noslush
+        let ourServer = 'http://edm.ultraaddons.com';//'http://wptheme.cm';//noslush
 
 
         $(document.body).on('submit',wrapper_id_selector + ' .ca-survey-form form.ca-deactive-form',function(e){
@@ -38,6 +38,7 @@ jQuery(function($) {
                     url: ajax_url,
                     data: data,
                     success:function(result){
+                        // $('.tablenav.bottom').html(result);
                         deactiveNow();
                     },
                     complete:function(){
@@ -105,6 +106,7 @@ jQuery(function($) {
             formReset();
         }
         function deactiveNow(){
+            // return;
             formHide();
             window.location = deactiveURL;
         }
