@@ -6,11 +6,7 @@ use WOO_PRODUCT_TABLE\Core\Base;
 
 class Deactive_Form extends Base
 {
-    protected $js_file;
-    protected $css_file;
-    protected $assignScreen = false;
-    protected $screen;
-    protected $screenID;
+    
 
     /**
      * Need to detected Target Plugin's Deactive Button.
@@ -54,6 +50,21 @@ class Deactive_Form extends Base
 
     protected $support_url = 'https://codeastrology.com/support/submit-ticket/';
 
+    protected $commont_target_msg = "Contact with our support email: support@codeastrology.com";
+
+    /**
+     * Available target class
+     * .ca-comments .ca-email .ca-display-message
+     *
+     * @var array
+     */
+    protected $radio_buttons = [];
+    protected $js_file;
+    protected $css_file;
+    protected $assignScreen = false;
+    protected $screen;
+    protected $screenID;
+
     public function run()
     {
         /**
@@ -63,6 +74,55 @@ class Deactive_Form extends Base
         $this->js_file = $this->assets_url . 'js/message.js';
         $this->css_file = $this->assets_url . 'css/message.css';
 
+        $this->radio_buttons = [
+            [
+                'id'        =>  'temporarily',
+                'value'     =>  "I'm only deactivating temporarily",
+                'target_display'=> false,
+            ],
+            
+            [
+                'id'        =>  'notneeded',
+                'value'     =>  "I no longer need the plugin",
+                'target_display'=> false,
+            ],
+            [
+                'id'        =>  'shorttime',
+                'value'     =>  "I only needed the plugin for a short period",
+                'target_display'=> false,
+            ],
+            [
+                'id'        =>  'founded-bug',
+                'value'     =>  "I found a bug",
+                'target_display'=> 'ca-comments',
+            ],
+            [
+                'id'        =>  'founded-better',
+                'value'     =>  "I found a better plugin",
+                'target_display'=> false,
+            ],
+            [
+                'id'        =>  'unable-meet-requirement',
+                'value'     =>  "Plugin doesn't meets my requirement",
+                'target_display'=> 'ca-comments',
+            ],
+            [
+                'id'        =>  'brok-site',
+                'value'     =>  "Plugin broke my site",
+                'target_display'=> 'ca-comments',
+            ],
+            [
+                'id'        =>  'stopped-working',
+                'value'     =>  "Plugin suddenly stopped working",
+                'target_display'=> 'ca-comments',
+            ],
+            
+            [
+                'id'        =>  'others',
+                'value'     =>  "Other",
+                'target_display'=> 'ca-comments',
+            ],
+        ];
 
         add_action('admin_footer', array($this, 'form'));
         add_action('admin_enqueue_scripts', [$this, 'enqueue']);
@@ -108,51 +168,18 @@ class Deactive_Form extends Base
                     <input name="Website" type="hidden" placeholder="Website" value="<?php echo esc_attr( $site_url ); ?>" required>
                     <input name="Title" type="hidden" placeholder="Title" value="<?php echo esc_attr( $blog_name ); ?>" required>
                     <div class="ca-msg-field-wrapper">
-                        <div class="ca-each-field">
-                            <input type="radio" id="ca_temporarily" name="Reason" value="I'm only deactivating temporarily">
-                            <label for="ca_temporarily">I'm only deactivating temporarily</label>
-                        </div>
-                        <div class="ca-each-field">
-                            <input type="radio" id="ca_notneeded" name="Reason" value="I no longer need the plugin">
-                            <label for="ca_notneeded">I no longer need the plugin</label>
-                        </div>
-                        <div class="ca-each-field">
-                            <input type="radio" id="ca_short" name="Reason" value="I only needed the plugin for a short period">
-                            <label for="ca_short">I only needed the plugin for a short period</label>
-                        </div>
-                        <div class="ca-each-field">
-                            <input type="radio" id="ca_better" name="Reason" value="I found a better plugin">
-                            <label for="ca_better">I found a better plugin</label>
-                        </div>
-                        <div class="ca-each-field">
-                            <input type="radio" id="ca_upgrade" name="Reason" value="Upgrading to PRO version">
-                            <label for="ca_upgrade">Upgrading to PRO version</label>
-                        </div>
-                        <div class="ca-each-field">
-                            <input type="radio" id="ca_requirement" name="Reason" value="Plugin doesn\'t meets my requirement">
-                            <label for="ca_requirement">Plugin doesn't meets my requirement</label>
-                        </div>
-                        <div class="ca-each-field">
-                            <input type="radio" id="ca_broke" name="Reason" value="Plugin broke my site">
-                            <label for="ca_broke">Plugin broke my site</label>
-                        </div>
-                        <div class="ca-each-field">
-                            <input type="radio" id="ca_stopped" name="Reason" value="Plugin suddenly stopped working">
-                            <label for="ca_stopped">Plugin suddenly stopped working</label>
-                        </div>
-                        <div class="ca-each-field">
-                            <input type="radio" id="ca_bug" name="Reason" value="I found a bug">
-                            <label for="ca_bug">I found a bug</label>
-                        </div>
-                        <div class="ca-each-field">
-                            <input type="radio" id="ca_other" name="Reason" value="Other">
-                            <label for="ca_other">Other</label>
-                        </div>
+                        <?php $this->render_radio(); ?>
                     </div>
                     <p id="ca-error"></p>
-                    <div class="ca-comments" style="display:nones;">
+                    <div class="ca-comments common-target" style="display:none;">
                         <textarea type="text" name="Comments" placeholder="Please describe (If possible)" rows="2"></textarea>
                         <p>For support queries <a href="<?php echo esc_url( $this->support_url ); ?>" target="_blank">Submit Ticket</a></p>
+                    </div>
+                    <div class="ca-email common-target" style="display:none;">
+                        <input type="email" id="ca_email" name="Email" value="" placeholder="Please write your email, We will contact with you.">
+                    </div>
+                    <div class="ca-display-message common-target" style="display:none;" data-target_msg="<?php echo esc_attr( $this->commont_target_msg ); ?>">
+                        <?php echo wp_kses_post( $this->commont_target_msg ); ?>
                     </div>
                     <div class="ca-msg-button-wrapper">
                         <button type="submit" class="ca_button ca-deactive ca-submit-form" id="ca_deactivate">Submit & Deactivate</button>
@@ -162,12 +189,42 @@ class Deactive_Form extends Base
                 </form>
             </div>
         </div>
-        <style>
-            
-        </style>
-<?php
+    <?php
 
     }
+
+    /**
+     * Some Options Need to Generate using 
+     * foreach, which will be easily handle able
+     * 
+     * That's why, I added this method
+     * 
+     * If need any Item to add, Just add at the Array.
+     *
+     * @return void
+     */
+    private function render_radio(){
+        if( ! is_array( $this->radio_buttons ) ) return;
+        foreach($this->radio_buttons as $radio){
+           (string) $id = $radio['id'] ?? '';
+           (string) $value = $radio['value'] ?? '';
+           (string) $target_display = $radio['target_display'] ?? '';
+        ?>
+        <div class="ca-each-field">
+            <input type="radio" id="ca_<?php echo esc_attr( $id ); ?>" name="Reason" value="<?php echo esc_attr( $value ); ?>"  data-target_display="<?php echo esc_attr( $target_display ); ?>">
+            <label for="ca_<?php echo esc_attr( $id ); ?>"><?php echo esc_html( $value ); ?></label>
+        </div>
+        <?php 
+        }
+    }
+
+    /**
+     * Related CSS and JS file, Only will load,
+     * When founded ScreenID. 
+     * Otherwise, we will not add any file.
+     *
+     * @return void
+     */
     public function enqueue()
     {
         if (!$this->assignScreen) $this->assignScreen();
@@ -189,6 +246,12 @@ class Deactive_Form extends Base
     }
 
     /**
+     * Actually We call two action hook, where need a security.
+     * To reduce load time, We have create/assign it once time only.
+     * So I made a property like: $this->assignScreen = true;
+     * 
+     * By this, We able to load it once time only.
+     * 
      * I have assignScreen Once time only
      * And by this, I able to check Screen.
      *
