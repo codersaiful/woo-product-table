@@ -104,7 +104,6 @@ jQuery(function($) {
             formReset();
         }
         function deactiveNow(){
-            // return;
             formHide();
             window.location = deactiveURL;
         }

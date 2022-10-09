@@ -1,6 +1,6 @@
 
 .ca-survey-form-wrap {
-    display:  nones;
+    display:  none;
     position:  absolute;
     top:  0px;
     bottom:  0px;
@@ -97,6 +97,7 @@ div.ca-survey-form p.motivational-speek {
     margin-right: 5px;
     line-height: 0;
 }
+
 .ca-survey-form input[type="radio"]:checked::before {
     content: "";
     border-radius: 0;
@@ -105,6 +106,10 @@ div.ca-survey-form p.motivational-speek {
     margin: 0.1875rem;
     background-color: #0093b8;
     line-height: 1.14285714;
+}
+.ca-email.common-target input {
+    width: 100%;
+    margin-bottom: 10px;
 }
 .ca-survey-form .ca-comments p a {
    text-decoration: none;
