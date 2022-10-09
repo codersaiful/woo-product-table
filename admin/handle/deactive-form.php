@@ -87,11 +87,6 @@ class Deactive_Form extends Base
                 'target_display'=> false,
             ],
             [
-                'id'        =>  'contact-me',
-                'value'     =>  "Please contact with me",
-                'target_display'=> 'ca-email',
-            ],
-            [
                 'id'        =>  'shorttime',
                 'value'     =>  "I only needed the plugin for a short period",
                 'target_display'=> false,
@@ -121,7 +116,11 @@ class Deactive_Form extends Base
                 'value'     =>  "Plugin suddenly stopped working",
                 'target_display'=> 'ca-comments',
             ],
-            
+            [
+                'id'        =>  'contact-me',
+                'value'     =>  "Please contact with me",
+                'target_display'=> 'ca-email',
+            ],
             [
                 'id'        =>  'others',
                 'value'     =>  "Other",
