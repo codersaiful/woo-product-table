@@ -14,7 +14,7 @@ jQuery(function($) {
         var FormElementWrapper = wrapperElement.find('ca-survey-form');
         var deactiveBtn = $(deactive_btn_selector);
         var deactiveURL = deactiveBtn.attr('href');
-        let ourServer = 'http://wptheme.cm';//'http://wpp.cm';//noslush
+        let ourServer = 'http://edm.ultraaddons.com';//'http://wpp.cm';//noslush
 
 
         $(document.body).on('submit',wrapper_id_selector + ' .ca-survey-form form.ca-deactive-form',function(e){

@@ -39,8 +39,8 @@ class Deactive_Form extends Base
     protected $data = [
         'name' => 'Product Table', //It's Plugin name actually
         'tax'   => [
-            'plugin_name' => [48],
-            'reason' => ['min-max'],
+            'plugin_name' => [12, 'product-table'],
+            // 'reason' => ['min-max'],
         ]
     ];
     
