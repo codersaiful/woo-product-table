@@ -41,11 +41,10 @@ jQuery(function($) {
                     },
                     complete:function(){
                         deactiveNow();
-                        formHide();
+
                     },
                     error:function(){
                         deactiveNow();
-                        formHide();
                     }
                 });
             }
@@ -56,11 +55,15 @@ jQuery(function($) {
             return true;
         }
 
+        function formReset(){
+            $(wrapper_id_selector + ' .ca-survey-form form.ca-deactive-form')[0].reset();
+        }
         /**Form Open on deactive button click */
         $(document.body).on('click', deactive_btn_selector,function(e){
             e.preventDefault();
             wrapperElement.fadeIn();
         });
+        //Skip and Deactive
         $(document.body).on('click', wrapper_id_selector + ' a.ca_skip',function(){
             deactiveNow();
         });
@@ -82,8 +85,10 @@ jQuery(function($) {
 
         function formHide(){
             wrapperElement.fadeOut();
+            formReset();
         }
         function deactiveNow(){
+            formHide();
             window.location = deactiveURL;
         }
         
