@@ -73,6 +73,7 @@ jQuery(function($) {
             var form = $(wrapper_id_selector + ' .ca-survey-form form.ca-deactive-form');
             form[0].reset();
             form.find('button.ca-submit-form').html('Submit & Deactivate');
+            wrapperElement.find('.common-target').fadeOut();
         }
         /**Form Open on deactive button click */
         $(document.body).on('click', deactive_btn_selector,function(e){
