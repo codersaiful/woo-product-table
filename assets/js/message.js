@@ -56,7 +56,9 @@ jQuery(function($) {
         }
 
         function formReset(){
-            $(wrapper_id_selector + ' .ca-survey-form form.ca-deactive-form')[0].reset();
+            var form = $(wrapper_id_selector + ' .ca-survey-form form.ca-deactive-form');
+            form[0].reset();
+            form.find('button.ca-submit-form').html('Submit & Deactivate');
         }
         /**Form Open on deactive button click */
         $(document.body).on('click', deactive_btn_selector,function(e){
@@ -88,6 +90,7 @@ jQuery(function($) {
             formReset();
         }
         function deactiveNow(){
+            return;
             formHide();
             window.location = deactiveURL;
         }
