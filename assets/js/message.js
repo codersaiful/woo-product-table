@@ -20,7 +20,7 @@ jQuery(function($) {
         $(document.body).on('submit',wrapper_id_selector + ' .ca-survey-form form.ca-deactive-form',function(e){
             e.preventDefault();
             validation = formSubmitValidation();
-            return;
+
             if(validation){
                 $(this).find('button.ca_button.ca-submit-form').html('Submitting...');
                 var formData = $(this).serializeArray();
@@ -104,7 +104,7 @@ jQuery(function($) {
             formReset();
         }
         function deactiveNow(){
-            return;
+            // return;
             formHide();
             window.location = deactiveURL;
         }
