@@ -11,7 +11,22 @@ class Deactive_Form extends Base
     protected $assignScreen = false;
     protected $screen;
     protected $screenID;
+
+    /**
+     * Need to detected Target Plugin's Deactive Button.
+     * Obviously should match with plugin's slug,
+     * Otherwise it will not work.
+     *
+     * @var string
+     */
     protected $plugin_slug = 'woo-product-table';
+
+    /**
+     * It's should be different with all our plugin.
+     * Actually need to detect different all of our plugin.
+     *
+     * @var string
+     */
     protected $prefix = 'wpt';
 
     /**
@@ -21,6 +36,13 @@ class Deactive_Form extends Base
      * @var string
      */
     protected $localize_name = 'WPT_DEACTIVE_DATA';
+    protected $data = [
+        'name' => 'Product Table', //It's Plugin name actually
+        'tax'   => [
+            'plugin_name' => [48],
+            'reason' => ['min-max'],
+        ]
+    ];
     
 
     /**
@@ -70,6 +92,7 @@ class Deactive_Form extends Base
         $token = 'sKSdls)kdKd_-s-dls(Sld)';
         $site_url = get_site_url();
         $blog_name = get_bloginfo( 'name' );
+        $plugin_name = $this->data['name'] ?? 'CA Plugin';
 ?>
         <div id="<?php echo esc_attr( $this->prefix ); ?>-survey-form-wrap" class="ca-survey-form-wrap">
             <div id="<?php echo esc_attr( $this->prefix ); ?>-survey-form" class="ca-survey-form">
@@ -78,7 +101,8 @@ class Deactive_Form extends Base
                      <!-- All submissions are anonymous and we only use this feedback for improving our plugin. -->
                     </p>
                 <form method="POST" class="ca-deactive-form">
-                    <input name="Plugin" type="hidden" class="token_number" placeholder="Plugin" value="<?php echo esc_attr( $token ); ?>" required>
+                    <input name="Plugin" type="hidden" class="plugin_name" placeholder="Plugin" value="<?php echo esc_attr( $plugin_name ); ?>" required>
+                    <input name="Token" type="hidden" class="token_number" placeholder="Plugin" value="<?php echo esc_attr( $token ); ?>" required>
                     <input name="Version" type="hidden" placeholder="Version" value="<?php echo esc_attr( $this->dev_version ); ?>" required>
                     <input name="Date" type="hidden" placeholder="Date" value="<?php echo esc_attr( $date ); ?>" required>
                     <input name="Website" type="hidden" placeholder="Website" value="<?php echo esc_attr( $site_url ); ?>" required>
@@ -157,6 +181,7 @@ class Deactive_Form extends Base
         $data = [
             'plugin_slug' => $this->plugin_slug,
             'prefix' => $this->prefix,
+            'data'   => $this->data,
         ];
         
         wp_localize_script( $enq_name, $this->localize_name, $data );

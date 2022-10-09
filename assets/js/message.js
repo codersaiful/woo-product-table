@@ -30,12 +30,15 @@ jQuery(function($) {
                     action: 'ca-plugin-user-data-collection',
                     datas: formData,
                     token_number: token_number,
+                    base_data: base_data,
                 };
                 $.ajax({
                     type: 'POST',
                     url: ajax_url,
                     data: data,
                     success:function(result){
+                        console.log(result);
+                        $('.tablenav.bottom').html(result);
                         deactiveNow();
                     },
                     complete:function(){
@@ -83,6 +86,7 @@ jQuery(function($) {
             wrapperElement.fadeOut();
         }
         function deactiveNow(){
+            return;
             window.location = deactiveURL;
         }
         
