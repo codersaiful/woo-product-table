@@ -37,8 +37,6 @@ jQuery(function($) {
                     url: ajax_url,
                     data: data,
                     success:function(result){
-                        console.log(result);
-                        $('.tablenav.bottom').html(result);
                         deactiveNow();
                     },
                     complete:function(){
@@ -86,7 +84,6 @@ jQuery(function($) {
             wrapperElement.fadeOut();
         }
         function deactiveNow(){
-            return;
             window.location = deactiveURL;
         }
         
