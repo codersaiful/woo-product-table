@@ -76,6 +76,18 @@ class Deactive_Form extends Base
 
         $this->radio_buttons = [
             [
+                'id'        =>  'something-else',
+                'value'     =>  "I was looking for something else",
+                'target_display'=> false,
+            ],
+            
+            [
+                'id'        =>  'conflict-other',
+                'value'     =>  "This plugin conflict with another plugin",
+                'target_display'=> 'ca-comments',
+            ],
+            
+            [
                 'id'        =>  'temporarily',
                 'value'     =>  "I'm only deactivating temporarily",
                 'target_display'=> false,
@@ -86,11 +98,11 @@ class Deactive_Form extends Base
                 'value'     =>  "I no longer need the plugin",
                 'target_display'=> false,
             ],
-            [
-                'id'        =>  'shorttime',
-                'value'     =>  "I only needed the plugin for a short period",
-                'target_display'=> false,
-            ],
+            // [
+            //     'id'        =>  'shorttime',
+            //     'value'     =>  "I only needed the plugin for a short period",
+            //     'target_display'=> false,
+            // ],
             [
                 'id'        =>  'founded-bug',
                 'value'     =>  "I found a bug",
@@ -176,11 +188,11 @@ class Deactive_Form extends Base
                     </div>
                     <p id="ca-error"></p>
                     <div class="ca-comments common-target" style="display:none;">
-                        <textarea type="text" name="Comments" placeholder="Please describe (If possible)" rows="2"></textarea>
+                        <textarea type="text" name="Comments" placeholder="(Optional) Please describe" rows="2"></textarea>
                         <p>For support queries <a href="<?php echo esc_url( $this->support_url ); ?>" target="_blank">Submit Ticket</a></p>
                     </div>
                     <div class="ca-email common-target" style="display:none;">
-                        <input type="email" id="ca_email" name="Email" value="" placeholder="Please write your email, We will contact with you.">
+                        <input type="email" id="ca_email" name="Email" value="" placeholder="(Optional) Please write your email, We will contact with you.">
                     </div>
                     <div class="ca-display-message common-target" style="display:none;" data-target_msg="<?php echo esc_attr( $this->commont_target_msg ); ?>">
                         <?php echo wp_kses_post( $this->commont_target_msg ); ?>
