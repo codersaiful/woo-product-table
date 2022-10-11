@@ -155,7 +155,7 @@ div.wpt-wrap.wpt-wrap input[type=checkbox]:checked+label:before {
 
 div.wpt-wrap.wpt-wrap tr th input[type=checkbox]:checked+label:before,
 div.wpt-wrap.wpt-wrap tr th input[type=checkbox]+label:before{
-    background: var(--wpt_primary_deep);
+    /* background: var(--wpt_primary_deep); */
     border: 1px solid var(--wpt_primary_deepest);
 }
 
