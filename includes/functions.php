@@ -1146,6 +1146,7 @@ if( ! function_exists( 'wpt_args_manage_by_get_args' ) ){
      * @return Array
      */
     function wpt_args_manage_by_get_args( $args, $table_ID ){
+        if( ! is_array( $args ) ) return $args;
         /**
          * Check WooCommerce Archive Page, such product taxonomy
          * show page, search page. etc
