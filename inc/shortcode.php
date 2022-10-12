@@ -782,9 +782,9 @@ class Shortcode extends Shortcode_Base{
             ?>
             <p class="wpt-error-wrapper">
                 <span class="wpt-error wpt-error-assing_property"><?php echo esc_html__( "Error: on assing_property on the table_body!!", 'wpt_pro' ); ?></span>
-                <a href="#" class="wpt-get-tutorial"><?php echo esc_html__( "Get Tutorial for this issue from wpOrg", 'wpt_pro' ); ?>.</a>
+                <a href="https://wordpress.org/support/topic/error-on-assing_property-on-the-table_body-2/" class="wpt-get-tutorial" target="_blank"><?php echo esc_html__( "Get Tutorial for this issue from wpOrg", 'wpt_pro' ); ?>.</a>
                 OR
-                <a href="https://wooproducttable.com/doc/troubleshoots/error-on-assing_property-on-the-table_body/" class="wpt-get-tutorial"><?php echo esc_html__( "Tutorial from website", 'wpt_pro' ); ?>.</a>
+                <a href="https://wooproducttable.com/doc/troubleshoots/error-on-assing_property-on-the-table_body/" class="wpt-get-tutorial" target="_blank"><?php echo esc_html__( "Tutorial from website with Screenshot", 'wpt_pro' ); ?>.</a>
             </p>
             <?php
             return;
