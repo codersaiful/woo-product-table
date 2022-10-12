@@ -47,7 +47,7 @@ if( $table_type == 'advance_table'){
     $target = '_self';
     if( $ajax_action !== 'ajax_active ' ){
         $add_to_cart_url = get_the_permalink( $id ) . '?from=wpt';
-        $target = '_blank';
+        // $target = '_blank';
     }
     /*else{
         $add_to_cart_url =  $product->add_to_cart_url();//'?add-to-cart=' .  $data['id'];//( $ajax_action == 'no_ajax_action' ? '?add-to-cart=' .  $data['id'] : '?add-to-cart=' .  $data['id'] );// '?add-to-cart=' .  $data['id'];
