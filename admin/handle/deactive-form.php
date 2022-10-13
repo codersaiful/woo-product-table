@@ -115,7 +115,7 @@ class Deactive_Form extends Base
             ],
             [
                 'id'        =>  'unable-meet-requirement',
-                'value'     =>  "Plugin doesn't meets my requirement",
+                'value'     =>  "Plugin doesn't meet my requirement",
                 'target_display'=> 'ca-comments',
             ],
             [
