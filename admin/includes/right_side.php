@@ -11,6 +11,7 @@
                     <li><a href="https://github.com/fazlebarisn" rel="nofollow ugc">fazlebarisn</a> (35 commits And Pro: 50+ commits)</li>
                     <li><a href="https://github.com/rafiul" rel="nofollow ugc">rafiul</a> (29 commits )</li>
                     <li><a href="https://github.com/tanyabouman" rel="nofollow ugc">tanyabouman</a> (3 commits )</li>
+                    <li><a href="https://github.com/zbandhan" rel="nofollow ugc">zbandhan</a> (1 commit )</li>
                     <li>🥇 <a href="https://github.com/codersaiful/woo-product-table/fork" rel="nofollow ugc">You can join here</a></li>
                 </ul>
                 <strong>👷<a href='https://github.com/codersaiful/woo-product-table/graphs/contributors' target="_blank">Contributor List on GitHub</a></strong>
