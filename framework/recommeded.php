@@ -26,6 +26,23 @@ class Recommeded
         
         
 
+        $mmp_req_slug = 'woo-min-max-quantity-step-control-single/wcmmq.php';
+        $mmp_tar_slug = WPT_PLUGIN_BASE_FILE;
+        $req_mmp = new Require_Control($mmp_req_slug,$mmp_tar_slug);
+        $req_mmp->set_args( ['Name' => 'Min Max Quantity & Step Control for WooCommerce'] )
+        ->set_download_link('https://wordpress.org/plugins/woo-min-max-quantity-step-control-single/')
+        ->set_this_download_link('https://wordpress.org/plugins/woo-product-table/');
+        $mmp_message = __('If you want to set CONDITION for minimum and maximum limit and want to control step, then you can install it. Otherwise ignore it.','wpt_pro');
+        $req_mmp->set_message($mmp_message);
+        $req_mmp->get_full_this_plugin_name("This Plugin");
+        // var_dump(method_exists($req_mmp, 'set_location'),$req_mmp);
+        // ->set_required();
+        if( method_exists($req_mmp, 'set_location') ){
+            $req_mmp->set_location('wpto_column_setting_form_quantity'); //wpt_premium_image_bottom
+            // $req_mmp->set_location('wpto_column_setting_form_inside_quantity'); //wpt_premium_image_bottom
+            $req_mmp->run();
+        }
+
 
         $pmb_req_slug = 'wc-quantity-plus-minus-button/init.php';
         $pmb_tar_slug = WPT_PLUGIN_BASE_FILE;
@@ -35,6 +52,7 @@ class Recommeded
         ->set_this_download_link('https://wordpress.org/plugins/woo-product-table/');
         $pmb_message = __('If you want to set plus minus button for your Quantity Box, you can Install this plugin. If already by your theme, ignore it.','wpt_pro');
         $req_pmb->set_message($pmb_message);
+        $req_pmb->get_full_this_plugin_name("This Plugin");
         // ->set_required();
         if( method_exists($req_pmb, 'set_location') ){
             // $req_pmb->set_location('wpto_column_setting_form_quantity'); //wpt_premium_image_bottom
