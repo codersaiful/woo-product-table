@@ -147,3 +147,9 @@ p.ca-require-plugin-msg strong, p.ca-require-plugin-msg b, p.ca-require-plugin-m
     justify-content: left;
     gap: 10px;
 }
+.ca-reuire-plugin-notice.anwwhere-notice {
+    border: 1px solid #03495a29;
+    margin: 5px 0;
+    padding: 10px;
+    background: rgb(0 118 148 / 3%);
+}

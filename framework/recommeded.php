@@ -10,14 +10,15 @@ class Recommeded
 {
     public static function check()
     {
-        
+        $this_plugin = __( 'It\'s', 'wpt_pro' );
         $qv_req_slug = 'ca-quick-view/init.php';
         $qv_tar_slug = WPT_PLUGIN_BASE_FILE;
         $req_qv = new Require_Control($qv_req_slug,$qv_tar_slug);
         $req_qv->set_args( ['Name' => 'Quick View vy CodeAstrology'] )
         ->set_download_link('https://wordpress.org/plugins/ca-quick-view/')
-        ->set_this_download_link('https://wordpress.org/plugins/woo-product-table/')
-        ->set_required();
+        ->set_this_download_link('https://wordpress.org/plugins/woo-product-table/');
+        $req_qv->set_required();
+        $req_qv->get_full_this_plugin_name($this_plugin);
         if( method_exists($req_qv, 'set_location') ){
             $req_qv->set_location('wpto_column_setting_form_quick_view'); //wpt_premium_image_bottom
             // $req_qv->set_location('wpto_column_setting_form_inside_quick_view'); //wpt_premium_image_bottom
@@ -34,7 +35,7 @@ class Recommeded
         ->set_this_download_link('https://wordpress.org/plugins/woo-product-table/');
         $mmp_message = __('If you want to set CONDITION for minimum and maximum limit and want to control step, then you can install it. Otherwise ignore it.','wpt_pro');
         $req_mmp->set_message($mmp_message);
-        $req_mmp->get_full_this_plugin_name(__( 'This Plugin', 'wpt_pro' ));
+        $req_mmp->get_full_this_plugin_name($this_plugin);
         // var_dump(method_exists($req_mmp, 'set_location'),$req_mmp);
         // ->set_required();
         if( method_exists($req_mmp, 'set_location') ){
@@ -52,7 +53,7 @@ class Recommeded
         ->set_this_download_link('https://wordpress.org/plugins/woo-product-table/');
         $pmb_message = __('If you want to set plus minus button for your Quantity Box, you can Install this plugin. If already by your theme, ignore it.','wpt_pro');
         $req_pmb->set_message($pmb_message);
-        $req_pmb->get_full_this_plugin_name(__( 'This Plugin', 'wpt_pro' ));
+        $req_pmb->get_full_this_plugin_name($this_plugin);
         // ->set_required();
         if( method_exists($req_pmb, 'set_location') ){
             // $req_pmb->set_location('wpto_column_setting_form_quantity'); //wpt_premium_image_bottom
