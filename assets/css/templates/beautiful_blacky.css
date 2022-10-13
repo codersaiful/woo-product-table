@@ -159,3 +159,6 @@ div.beautiful_blacky_wrapper.wpt-wrap.wpt_column_sort table#wpt_table.wpt_produc
 .wpt-wrap div.tables_cart_message_box div.widget_shopping_cart_content .total * {
   color: var(--wpt_black) !important;
 }
+.wpt-new-footer-cart {
+  background: #707070;
+}
