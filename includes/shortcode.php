@@ -69,6 +69,12 @@ if( ! function_exists( 'wpt_texonomy_search_generator' ) ){
 
         $multiple_selectable = apply_filters( 'wpto_is_multiple_selectable', false, $texonomy_keyword, $temp_number ) ? 'multiple' : '';
 
+        // $taxonomy_sorting = $config_value['sort_searchbox_filter'] ?? '0';
+        // if($taxonomy_sorting == '0'){
+            // $defaults['orderby'] = '';
+            // $defaults['order'] = '';
+        // }
+
         $defaults = array(
 		'show_option_all'   => '',
 		'show_option_none'  => '',

@@ -205,10 +205,14 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
                         <td>
                             <select name="<?php echo esc_attr( $field_name ); ?>[sort_searchbox_filter]" id="wpt_table_sort_searchbox_filter" class="wpt_fullwidth ua_input" >
                                 <?php wpt_default_option( $page ) ?>
-                                <option value="0" <?php wpt_selected( 'sort_searchbox_filter', '0', $current_config_value ); ?>><?php esc_html_e( 'None', 'wpt_pro' ); ?></option>
+                                <option value="0" <?php wpt_selected( 'sort_searchbox_filter', '0', $current_config_value ); ?>><?php esc_html_e( 'Default Sorting', 'wpt_pro' ); ?></option>
                                 <option value="ASC" <?php wpt_selected( 'sort_searchbox_filter', 'ASC', $current_config_value ); ?>><?php esc_html_e( 'Ascending', 'wpt_pro' ); ?></option>
                                 <option value="DESC" <?php wpt_selected( 'sort_searchbox_filter', 'DESC', $current_config_value ); ?>><?php esc_html_e( 'Descending', 'wpt_pro' ); ?></option>
                             </select>
+                            <p class="warning">
+                                <b>Tips:</b>
+                                <span>If set Default Sorting, Taxonomy (Category/Tag) sorting will be like Default Taxonomy list.</span>
+                            </p>
                         </td>
                     </tr>
                     <tr>
