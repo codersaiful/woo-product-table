@@ -34,7 +34,7 @@ class Recommeded
         ->set_this_download_link('https://wordpress.org/plugins/woo-product-table/');
         $mmp_message = __('If you want to set CONDITION for minimum and maximum limit and want to control step, then you can install it. Otherwise ignore it.','wpt_pro');
         $req_mmp->set_message($mmp_message);
-        $req_mmp->get_full_this_plugin_name("This Plugin");
+        $req_mmp->get_full_this_plugin_name(__( 'This Plugin', 'wpt_pro' ));
         // var_dump(method_exists($req_mmp, 'set_location'),$req_mmp);
         // ->set_required();
         if( method_exists($req_mmp, 'set_location') ){
@@ -52,7 +52,7 @@ class Recommeded
         ->set_this_download_link('https://wordpress.org/plugins/woo-product-table/');
         $pmb_message = __('If you want to set plus minus button for your Quantity Box, you can Install this plugin. If already by your theme, ignore it.','wpt_pro');
         $req_pmb->set_message($pmb_message);
-        $req_pmb->get_full_this_plugin_name("This Plugin");
+        $req_pmb->get_full_this_plugin_name(__( 'This Plugin', 'wpt_pro' ));
         // ->set_required();
         if( method_exists($req_pmb, 'set_location') ){
             // $req_pmb->set_location('wpto_column_setting_form_quantity'); //wpt_premium_image_bottom
