@@ -24,5 +24,22 @@ class Recommeded
             $req_qv->run();
         }
         
+        
+
+
+        $pmb_req_slug = 'wc-quantity-plus-minus-button/init.php';
+        $pmb_tar_slug = WPT_PLUGIN_BASE_FILE;
+        $req_pmb = new Require_Control($pmb_req_slug,$pmb_tar_slug);
+        $req_pmb->set_args( ['Name' => 'Quantity Plus Minus Button for WooCommerce'] )
+        ->set_download_link('https://wordpress.org/plugins/wc-quantity-plus-minus-button/')
+        ->set_this_download_link('https://wordpress.org/plugins/woo-product-table/');
+        $pmb_message = __('If you want to set plus minus button for your Quantity Box, you can Install this plugin. If already by your theme, ignore it.','wpt_pro');
+        $req_pmb->set_message($pmb_message);
+        // ->set_required();
+        if( method_exists($req_pmb, 'set_location') ){
+            // $req_pmb->set_location('wpto_column_setting_form_quantity'); //wpt_premium_image_bottom
+            $req_pmb->set_location('wpto_column_setting_form_inside_quantity'); //wpt_premium_image_bottom
+            $req_pmb->run();
+        }
     }
 }
