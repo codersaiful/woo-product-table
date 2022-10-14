@@ -1,8 +1,8 @@
 :root {
     --wpt_primary: #5BB318;
-    --wpt_primary_deep: #2B7A0B;
-    --wpt_primary_deepest: #1b6000;
-    --wpt_primary_light: #3d8905;
+    --wpt_primary_deep: #5b7452;
+    --wpt_primary_deepest: #6e9761;
+    --wpt_primary_light: #3b522b;
 
     --wpt_secondary: #edf7f8;
     --wpt_secondary_deep: #ceeaed;
@@ -14,15 +14,15 @@
     --wpt_link_light: #047c9b;
     
 
-    --wpt_text: #0e0d0d;
+    --wpt_text: var(--wpt_primary);
     --wpt_text_deep: #000000;
-    --wpt_text_light: #404040;  
+    --wpt_text_light: #5BB318;  
 
     --wpt_cart_highliter: #00b17a;
     --wpt_danger: rgb(247, 24, 24);
     --wpt_warning: rgb(247, 243, 24);
 
-    --wpt_off_white: #14141414;
+    --wpt_off_white: #edf7f8;
     --wpt_deep_off_white: #cbcbcb;
     --wpt_white: #ffffff;
     --wpt_gray: gray;
@@ -30,11 +30,11 @@
 
     
     --wpt_review: #ffc107;
-    --wpt_thead_bg: #efefef57;
-    --wpt_thead_text: black;
+    --wpt_thead_bg: #6c8b54;
+    --wpt_thead_text: var(--wpt_white);
   
     --wpt_product_title: #5bb318;
-    --wpt_product_title_hover: black;
+    --wpt_product_title_hover: #6c8b54;
     
     --wpt_table_bg: var(--wpt_white);
     --wpt_table_tr_odd: #efefef27;
@@ -50,14 +50,7 @@
     --wpt_sorted_head_text: white;
     --wpt_sorted_td_bg: rgba(0, 0, 0, 0.03);
   }
-.wpt-wrap.greeny_wrapper table.wpt-tbl tr.wpt_table_head th {
-    border-bottom: 1px solid #040404 !important;
-}
-.all_check_header_footer.all_check_header>span {
-  border: 1px solid #efefef !important;
-  color: #000000 !important;
-  background: #ffffff59 !important;
-}
+
 /* Extra small devices (phones, 500px and down) */
 @media only screen and (max-width: 500px) {
   .wpt-stats-report {
