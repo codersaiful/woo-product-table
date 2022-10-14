@@ -153,3 +153,6 @@ p.ca-require-plugin-msg strong, p.ca-require-plugin-msg b, p.ca-require-plugin-m
     padding: 10px;
     background: rgb(0 118 148 / 3%);
 }
+span.ca-notice-custom-msg {
+    display: block;
+}

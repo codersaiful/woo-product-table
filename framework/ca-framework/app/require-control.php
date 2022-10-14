@@ -360,7 +360,7 @@ if( ! class_exists( 'CA_Framework\Require_Control' ) ){
             
             $message = "$this_p_name $recommend $p_name $order_message";
             if($this->message){
-                $message .= "<br>" . $this->message;
+                $message .= "<span class='ca-notice-custom-msg'>" . $this->message . "</span>";
             }
             $notice_class = 'notice notice-error';
             if($this->location){
