@@ -287,7 +287,7 @@ class Deactive_Form extends Base
         ];
         
         wp_localize_script( $enq_name, $this->localize_name, $data );
-        wp_enqueue_style( $enq_name, $this->css_file, array('wpt-admin'), $this->dev_version, 'all' );
+        wp_enqueue_style( $enq_name, $this->css_file, [], $this->dev_version, 'all' );
     }
 
     /**

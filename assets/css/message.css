@@ -17,9 +17,9 @@
     width: 40%;
     max-width: 600px;
     z-index: 100;
-    top: 50%;
+    top: 10%;
     left: 50%;
-    transform: translate(-50%,  -50%);
+    transform: translate(-50%,  -10%);
     background: #ffffff;/*#fdfffb;*/
     padding: 30px;
     border-radius: 0;
@@ -146,4 +146,27 @@ div.ca-survey-form p.motivational-speek {
 }
 .ca-survey-form button.ca_button.ca-deactive:hover {
     background: #bf0c49;
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (max-width: 767px) {
+    .ca-survey-form {
+        width: calc(100% - 20px);
+        max-width: 100%;
+        top: 10%;
+        left: 0;
+        transform: translate(0,  0);
+        padding: 10px;
+    }
+    div.ca-survey-form p.motivational-speek {
+        font-size: 20px;
+        text-align: center;
+    }
+    .ca-survey-form input[type="radio"]:checked::before {
+        width: 1rem;
+        height: 1rem;
+    }
+    .ca-survey-form .ca_button {
+        padding: 7px 8px;
+    }
 }
