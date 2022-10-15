@@ -610,6 +610,8 @@ class WPT_Product_Table{
             update_option( WPT_OPTION_KEY, $updated );
             return;
         }
+
+        // wp_redirect(admin_url( 'edit.php?post_type=wpt_product_table&page=wpt-getting-start' ));
    }
    
     /**

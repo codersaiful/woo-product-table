@@ -49,9 +49,27 @@ if( !function_exists( 'wpt_admin_menu' ) ){
         if( ! defined( 'WPT_PRO_DEV_VERSION' ) ){
             add_submenu_page( 'edit.php?post_type=wpt_product_table', esc_html__( 'GET PRO VERSION', 'wpt_pro' ),  __( '<i>Get <strong>Pro</strong></i>', 'wpt_pro' ), WPT_CAPABILITY, 'https://wooproducttable.com/pricing/' );
         }
+
+        // add_submenu_page( 'edit.php?post_type=wpt_product_table', 'How to Start Product Table', "How to", WPT_CAPABILITY, 'wpt-getting-start', 'wpt_getting_start' );
     }
 }
 add_action( 'admin_menu', 'wpt_admin_menu' );
+
+if( !function_exists( 'wpt_getting_start' ) ){
+    
+    /**
+     * Displaying/Present Pro Features
+     * in HTML file
+     */
+    function wpt_getting_start(){
+
+        ?>
+        <h2>Getting Start</h2>
+        <h2>CodeAstrology</h2>
+        
+        <?php 
+    }
+}
 
 if( !function_exists( 'wpt_pro_features_content' ) ){
     
