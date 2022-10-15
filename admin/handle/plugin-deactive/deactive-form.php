@@ -129,7 +129,7 @@ class Deactive_Form
             
             [
                 'id'        =>  'temporarily',
-                'value'     =>  "I'm only deactivating temporarily",
+                'value'     =>  "I m only deactivating temporarily",
                 'target_display'=> false,
             ],
             
