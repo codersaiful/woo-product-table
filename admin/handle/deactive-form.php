@@ -4,6 +4,19 @@ namespace WOO_PRODUCT_TABLE\Admin\Handle;
 
 use WOO_PRODUCT_TABLE\Core\Base;
 
+/**
+ * Plugin Deactivation form
+ * REMEMBER:
+ * ----------------------
+ * 1. JS/CSS file stored at assets/cssOrjs folder
+ * so, jodiKopi korteChai, tahole taSei folder a kopiKore rakhoteHobe
+ * and moneRakhte hobeJe: localizeNameTo be obviously replaceWith WPT_DEACTIVE_DATA
+ * etaHobe PluginOnu SareDifferent.
+ * 
+ * It's called version 1.0.0 of DeactivationForm
+ * 
+ * @author Saiful Islam <codersaiful@gmail.com>
+ */
 class Deactive_Form extends Base
 {
     
@@ -24,6 +37,7 @@ class Deactive_Form extends Base
      * @var string
      */
     protected $prefix = 'wpt';
+    protected $text_domain = 'wpt_pro';
 
     /**
      * Change also it to message.js file.
@@ -50,7 +64,7 @@ class Deactive_Form extends Base
 
     protected $support_url = 'https://codeastrology.com/support/submit-ticket/';
 
-    protected $commont_target_msg = "Contact with our support email: support@codeastrology.com";
+    protected $common_target_msg = "Contact with our support email: support@codeastrology.com";
 
     /**
      * Available target class
@@ -64,6 +78,22 @@ class Deactive_Form extends Base
     protected $assignScreen = false;
     protected $screen;
     protected $screenID;
+
+    protected $form_top_message;
+
+    /**
+     * To set any Property Value, We can use this method.
+     * It's public. 
+     * Currnetly it's not used Yet. But if want to use it, he can use.
+     *
+     * 
+     * @param string $property_name It will be property name. Because, All property has set private, So user will not be able to use directly.
+     * @param mixed $proverty_value It's can be any type. such: string, bool, array etc. Actually able to set any type actually
+     * @return void
+     */
+    public function set( $property_name, $proverty_value ){
+        $this->$property_name = $proverty_value;
+    }
 
     public function run()
     {
@@ -140,6 +170,8 @@ class Deactive_Form extends Base
             ],
         ];
 
+
+        $this->form_top_message = __('Please let us know why you are deactivating. (All Optional)', $this->text_domain);
         add_action('admin_footer', array($this, 'form'));
         add_action('admin_enqueue_scripts', [$this, 'enqueue']);
     }
@@ -172,10 +204,7 @@ class Deactive_Form extends Base
 ?>
         <div id="<?php echo esc_attr( $this->prefix ); ?>-survey-form-wrap" class="ca-survey-form-wrap">
             <div id="<?php echo esc_attr( $this->prefix ); ?>-survey-form" class="ca-survey-form">
-                <p class="motivational-speek">
-                    If you have a moment, please let us know why you are deactivating.
-                     <!-- All submissions are anonymous and we only use this feedback for improving our plugin. -->
-                    </p>
+                <p class="motivational-speek"><?php echo esc_html( $this->form_top_message ); ?></p>
                 <form method="POST" class="ca-deactive-form">
                     <input name="Plugin" type="hidden" class="plugin_name" placeholder="Plugin" value="<?php echo esc_attr( $plugin_name ); ?>" required>
                     <input name="Token" type="hidden" class="token_number" placeholder="Plugin" value="<?php echo esc_attr( $token ); ?>" required>
@@ -194,8 +223,8 @@ class Deactive_Form extends Base
                     <div class="ca-email common-target" style="display:none;">
                         <input type="email" id="ca_email" name="Email" value="" placeholder="(Optional) Please write your email, We will contact with you.">
                     </div>
-                    <div class="ca-display-message common-target" style="display:none;" data-target_msg="<?php echo esc_attr( $this->commont_target_msg ); ?>">
-                        <?php echo wp_kses_post( $this->commont_target_msg ); ?>
+                    <div class="ca-display-message common-target" style="display:none;" data-target_msg="<?php echo esc_attr( $this->common_target_msg ); ?>">
+                        <?php echo wp_kses_post( $this->common_target_msg ); ?>
                     </div>
                     <div class="ca-msg-button-wrapper">
                         <button type="submit" class="ca_button ca-deactive ca-submit-form" id="ca_deactivate">Submit & Deactivate</button>
@@ -222,7 +251,7 @@ class Deactive_Form extends Base
     private function render_radio(){
         if( ! is_array( $this->radio_buttons ) ) return;
         foreach($this->radio_buttons as $radio){
-           (string) $id = $radio['id'] ?? '';
+           (string) $id = $this->prefix . '-'. $radio['id'] ?? '';
            (string) $value = $radio['value'] ?? '';
            (string) $target_display = $radio['target_display'] ?? '';
         ?>
