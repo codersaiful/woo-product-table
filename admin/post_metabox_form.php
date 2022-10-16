@@ -138,6 +138,9 @@
     </div>
 
     <?php do_action( 'wpt_offer_here' ); ?>
+    <div class="wpt-plugin-recommend-area wpt-plugin-recommend-tab-page">
+        <?php do_action( 'wpt_plugin_recommend_here' ); ?>
+    </div>
 </div>
 
 <style>

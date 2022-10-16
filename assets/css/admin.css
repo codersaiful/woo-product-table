@@ -1418,6 +1418,31 @@ tr.user_can_not_edit:before {
     top: 0;
     z-index: 1;
 }
+.wpt-plugin-recommend-area .ca-notice.anwwhere-notice.anywhere-required-plugin {
+    background: white;
+    padding: 19px;
+}
+.wpt_product_table_page_woo-product-table-config .ca-notice.anwwhere-notice.anywhere-required-plugin[data-notice_id="ultraaddons-elementor-lite"] {
+    background: #fff2de !important;
+}
+
+.wpt_product_table_page_woo-product-table-config .ca-notice.anwwhere-notice.anywhere-required-plugin[data-notice_id="woo-min-max-quantity-step-control-single"] {
+    background: #a8fff7 !important;
+}
+/* .wpt-plugin-recommend-config-page */
+.wpt-plugin-recommend-area {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 3px;
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (max-width: 900px) {
+    .wpt-plugin-recommend-area {
+        flex-wrap: wrap;
+    }
+}
+
 .wpt-user-rating-notice p.do-rating-area a{cursor: pointer;}
 
 .select2-container .select2-selection--multiple .select2-selection__rendered:after,

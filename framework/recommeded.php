@@ -11,6 +11,8 @@ class Recommeded
     public static function check()
     {
         $this_plugin = __( 'It\'s', 'wpt_pro' );
+        $this_plugin2 = __( 'Woo Product Table', 'wpt_pro' );
+
         $qv_req_slug = 'ca-quick-view/init.php';
         $qv_tar_slug = WPT_PLUGIN_BASE_FILE;
         $req_qv = new Require_Control($qv_req_slug,$qv_tar_slug);
@@ -21,7 +23,6 @@ class Recommeded
         $req_qv->get_full_this_plugin_name($this_plugin);
         if( method_exists($req_qv, 'set_location') ){
             $req_qv->set_location('wpto_column_setting_form_quick_view'); //wpt_premium_image_bottom
-            // $req_qv->set_location('wpto_column_setting_form_inside_quick_view'); //wpt_premium_image_bottom
             $req_qv->run();
         }
         
@@ -42,6 +43,10 @@ class Recommeded
             $req_mmp->set_location('wpto_column_setting_form_quantity'); //wpt_premium_image_bottom
             // $req_mmp->set_location('wpto_column_setting_form_inside_quantity'); //wpt_premium_image_bottom
             $req_mmp->run();
+
+            $req_mmp->get_full_this_plugin_name($this_plugin2);
+            $req_mmp->set_location('wpt_plugin_recommend_here');
+            $req_mmp->run();
         }
 
 
@@ -59,6 +64,42 @@ class Recommeded
             // $req_pmb->set_location('wpto_column_setting_form_quantity'); //wpt_premium_image_bottom
             $req_pmb->set_location('wpto_column_setting_form_inside_quantity'); //wpt_premium_image_bottom
             $req_pmb->run();
+            
+            $req_pmb->get_full_this_plugin_name($this_plugin2);
+            $req_pmb->set_location('wpt_plugin_recommend_here'); //wpt_premium_image_bottom
+            $req_pmb->run();
         }
+
+        $pmb_req_slug = 'ultraaddons-elementor-lite/init.php';
+        $pmb_tar_slug = WPT_PLUGIN_BASE_FILE;
+        $req_pmb = new Require_Control($pmb_req_slug,$pmb_tar_slug);
+        $req_pmb->set_args( ['Name' => 'UltraAddons - Elementor Addons'] )
+        ->set_download_link('https://wordpress.org/plugins/ultraaddons-elementor-lite/')
+        ->set_this_download_link('https://wordpress.org/plugins/woo-product-table/');
+        $pmb_message = __('There are many WooCommerce Widget available at UltraAddons. You can Try it. Just Recommended','wpt_pro');
+        $req_pmb->set_message($pmb_message);
+        $req_pmb->get_full_this_plugin_name($this_plugin);
+        // ->set_required();
+        if( method_exists($req_pmb, 'set_location') && did_action( 'elementor/loaded' ) ){
+
+            $req_pmb->get_full_this_plugin_name($this_plugin2);
+            $req_pmb->set_location('wpt_plugin_recommend_here'); //wpt_premium_image_bottom
+            $req_pmb->run();
+        }
+
+
+
+        //Quick View Recommended
+        if( method_exists($req_qv, 'set_location') ){
+            $req_qv->set_location('wpto_column_setting_form_inside_quick_view'); //wpt_premium_image_bottom
+            $req_qv->required = false;
+            $req_message = __('To Display Quick View at Shop Page or Anywhere. There are many customizing option to this plugin.','wpt_pro');
+            $req_qv->set_message($req_message);
+            $req_qv->get_full_this_plugin_name($this_plugin2);
+            $req_qv->set_location('wpt_plugin_recommend_here');
+            $req_qv->run();
+        }
+
+
     }
 }
