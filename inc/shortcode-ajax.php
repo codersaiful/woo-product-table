@@ -118,7 +118,7 @@ class Shortcode_Ajax extends Shortcode{
         
         /******Development Perpos************
         ob_start();
-        
+        var_dump('DOING_AJAX',DOING_AJAX);
         var_dump($this->pagination, $this->paginated_load);
         // var_dump($_POST,$this->args,$max_page, $page_number);
         $output['.all_check_header_footer'] = ob_get_clean();
