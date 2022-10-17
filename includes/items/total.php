@@ -29,6 +29,7 @@ $user_role = wpt_user_roles_by_id( get_current_user_id() );
 $wholesale_meta_key = ! empty( $user_role[0] ) ?  $user_role[0] . '_wholesale_price' : '_wholesale_price'; //It's only for Wholesale plugin
 $total_price = !empty( get_post_meta($product->get_id(), $wholesale_meta_key, true) ) ? get_post_meta($product->get_id(), $wholesale_meta_key, true) : $product->get_price();
 
+$stock = $product->get_stock_quantity();
 $product_type = $product->get_type();
 if( is_numeric( $stock ) && $stock == 0 && ($product_type == 'variation' || $product_type == 'simple')){ // 
     $newPrice = "00";
