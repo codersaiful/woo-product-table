@@ -1768,11 +1768,7 @@ p.lang-area-title {margin: 0;}
     border-top: 3px solid #607d8b;
     box-shadow: 0 0 20px 0 #0000001a;
 }
-.border-with-shadow{
-    background: #ffffff;
-    border-top: 3px solid #607d8b;
-    box-shadow: 0 0 20px 0 #0000001a;
-}
+
 .wpml-lang-input-area.basic-tab-wpml-area>div {min-width: 400px;}
 
 .wpt-each-injjput {min-width: 400px;}
@@ -2026,6 +2022,7 @@ label.switch.switch-big span.off {
     right: 0;
 }
 
+
 span.on {}
 label.switch.switch-big .on, label.switch.switch-big .off {
     left: 40%;
@@ -2076,6 +2073,33 @@ label.switch.switch-big .on, label.switch.switch-big .off {
     background-position: center right !important;
     background-size: auto 35px;
 }
+h1.ca-main-header-branding {
+    color: #39c2cb;
+    background: #02142a url('../images/brand/animated-logo.gif') no-repeat center right;
+    width: calc(100% - 50px);
+    display: flex;
+    padding: 15px;
+    /* margin: 0; */
+    line-height: 25px;
+    font-size: 24px;
+    font-weight: 400;
+    margin-top: 20px;
+    background-size: auto 40px;
+}
 div#wpt_shortcode_configuration_metabox_id .ultraaddons .with-background.slim-title, div#wpt_shortcode_configuration_metabox_id .ultraaddons-panel .with-background.slim-title {
     padding-top: 34px;
+}
+.wpt-config-header-area .ultraaddons-panel h1 {
+    margin-bottom: 0px;
+    color: white;
+    font-size: 23px;
+    line-height: 25px;
+    text-transform: none;
+}
+.wpt-config-header-area .ultraaddons-panel.border-with-shadow{
+    background: #02142a url('../images/brand/animated-logo.gif') no-repeat center right;
+}
+.border-with-shadow{
+    border-top: 0 none;
+    box-shadow: 0 0 20px 0 #0000001a;
 }

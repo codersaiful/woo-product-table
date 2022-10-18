@@ -60,11 +60,11 @@ if( ! class_exists( 'WPT_Required' ) ){
 
                 $small_notc = new Notice('small5');
                 $small_notc->set_message(sprintf( __( 'Are you enjoying <b>Product Table for Woocommerce (WooProductTable)</b>: and LOOKING MORE FEATURE? %s.', 'wpt_pro' ), "<a href='https://wooproducttable.com/pricing/?campaign=55Offer&utm_source=Default_Offer_LINK' target='_blank'>GET DISCOUNT HERE</a>" ));
-                $small_notc->set_diff_limit(7);
+                $small_notc->set_diff_limit(55);
                 if( method_exists($small_notc, 'set_location') ){
                     $small_notc->set_location('wpt_premium_image_top'); //wpt_premium_image_bottom
                 }
-                $small_notc->show();
+                // $small_notc->show();
 
 
                 $target = 'https://wooproducttable.com/pricing/?campaign=Normal&utm_source=Offer_LINK';
