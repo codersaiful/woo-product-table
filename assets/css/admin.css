@@ -2051,7 +2051,7 @@ label.switch.switch-big .on, label.switch.switch-big .off {
 }
 .codeastrogy-social-area-wrapper a.ca-social-link.ca-title-available {
     background: #fff;
-    border: 1px solid transparent;
+    border: 1px solid #4a4a4a17;
     transition: .2s all;
 }
 .codeastrogy-social-area-wrapper a.ca-social-link.ca-title-available:hover {

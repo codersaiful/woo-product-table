@@ -17,6 +17,11 @@
                 <strong>👷<a href='https://github.com/codersaiful/woo-product-table/graphs/contributors' target="_blank">Contributor List on GitHub</a></strong>
             </div>
         </div>
+
+        <div class="social_title_wrapper">
+            <h3 class="social_title">🥇Important Links (Follow Us)</h3>
+            <?php wpt_social_links(); ?>
+        </div>
     </div>
     
     <div class="wpt_right_side_in_wrapper" style="padding: 10px;">

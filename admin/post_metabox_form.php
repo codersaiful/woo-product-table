@@ -141,6 +141,7 @@
     <div class="wpt-plugin-recommend-area wpt-plugin-recommend-tab-page">
         <?php do_action( 'wpt_plugin_recommend_here' ); ?>
     </div>
+    <?php wpt_social_links(); ?>
 </div>
 
 <style>
