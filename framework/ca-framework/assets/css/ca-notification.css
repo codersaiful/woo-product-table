@@ -134,6 +134,7 @@ p.ca-require-plugin-msg strong, p.ca-require-plugin-msg b, p.ca-require-plugin-m
 }
 .anwwhere-notice.anywhere-required-plugin a.ca-button {
     padding: 3px 5px;
+    text-transform: capitalize;
 }
 .anwwhere-notice.anywhere-required-plugin>p {
     padding: 0;
