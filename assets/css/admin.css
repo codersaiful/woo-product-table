@@ -2103,3 +2103,10 @@ div#wpt_shortcode_configuration_metabox_id .ultraaddons .with-background.slim-ti
     border-top: 0 none;
     box-shadow: 0 0 20px 0 #0000001a;
 }
+.wpt-config-header-area .ultraaddons-panel{
+    padding: 20px 15px;
+    margin-bottom: 15px;
+}
+.wpt-config-header-area .ultraaddons .plugin-version, .wpt-config-header-area .ultraaddons-panel .plugin-version {
+    color: #1fedff;
+}
