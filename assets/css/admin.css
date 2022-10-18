@@ -2007,3 +2007,52 @@ span.on {}
 label.switch.switch-big .on, label.switch.switch-big .off {
     left: 40%;
 }
+
+/**Social AREA **/
+.codeastrogy-social-area-wrapper {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+}
+
+.codeastrogy-social-area-wrapper a.ca-social-link {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    text-decoration: none;
+    border-radius: 7px;
+    padding: 0;
+    box-shadow: -3px 2px 3px #00000006;
+}
+.codeastrogy-social-area-wrapper a.ca-social-link.ca-title-available {
+    background: #fff;
+    border: 1px solid transparent;
+    transition: .2s all;
+}
+.codeastrogy-social-area-wrapper a.ca-social-link.ca-title-available:hover {
+    background: #02142a;
+    border: 1px solid transparent;
+    color: white;
+}
+
+.codeastrogy-social-area-wrapper a.ca-social-link img {
+    height: 30px;
+    width: auto;
+}
+.codeastrogy-social-area-wrapper a.ca-title-available span{padding-right: 10px;}
+/**Social AREA **/
+.ultraaddons .with-background, .ultraaddons-panel .with-background {
+    width: unset;
+    background-image: url('../images/brand/header-logo-white-x.png') !important;
+    background-repeat: no-repeat !important;
+    background-position: center right !important;
+    background-size: auto 35px;
+}
+div#wpt_shortcode_configuration_metabox_id .ultraaddons .with-background.slim-title, div#wpt_shortcode_configuration_metabox_id .ultraaddons-panel .with-background.slim-title {
+    padding-top: 34px;
+}

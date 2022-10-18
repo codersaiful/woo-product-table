@@ -58,7 +58,10 @@ if( !function_exists( 'wpt_configuration_page' ) ){
             <div class="clear"></div>
             <?php wpt_get_pro_discount_message(); ?>
             <div id="wpt_configuration_form" class="wpt_leftside ">
-                <?php do_action( 'wpto_admin_configuration_head' ); ?>
+                <?php 
+                do_action( 'wpto_admin_configuration_head' );
+                wpt_social_links();
+                 ?>
                 
                 <div class="fieldwrap">
                 <?php 
@@ -105,10 +108,14 @@ if( !function_exists( 'wpt_configuration_page' ) ){
                         </div>
                     </form>
                     
-                    <?php do_action( 'wpt_offer_here' ); ?>
+                    <?php 
+                    do_action( 'wpt_offer_here' );
+                    
+                    ?>
                     <div class="wpt-plugin-recommend-area wpt-plugin-recommend-config-page">
                         <?php do_action( 'wpt_plugin_recommend_here' ); ?>
                     </div>
+                    <?php wpt_social_links(); ?>
                 </div>
 
             </div>

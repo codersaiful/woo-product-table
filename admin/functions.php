@@ -400,6 +400,45 @@ if( ! function_exists( 'wpt_add_tabs' ) ){
 }
 add_action( 'current_screen', 'wpt_add_tabs', 50 );
 
+function wpt_social_links(){
+    ?>
+    <div class="codeastrogy-social-area-wrapper">
+        <?php
+        $img_folder = WPT_BASE_URL . 'assets/images/brand/social/';
+        $codeastrology = [
+            'doc'   => ['url' => 'https://wooproducttable.com/documentation/?utm=Plugin_Social', 'title' => 'Online Doc'],
+            'web'   => ['url' => 'https://codeastrology.com/?utm=Plugin_Social', 'title' => 'CodeAstrology'],
+            'wpt'   => ['url' => 'https://wooproducttable.com/?utm=Plugin_Social', 'title' => 'Woo Product Table'],
+            'min-max'   => ['url' => 'https://codeastrology.com/min-max-quantity/?utm=Plugin_Social', 'title' => 'CodeAstrology Min Max Step'],
+            'linkedin'   => ['url' => 'https://www.linkedin.com/company/codeastrology'],
+            'youtube'   => ['url' => 'https://www.youtube.com/c/codeastrology'],
+            'facebook'   => ['url' => 'https://www.facebook.com/codeAstrology'],
+            'twitter'   => ['url' => 'https://www.twitter.com/codeAstrology'],
+            'skype'   => ['url' => '#codersaiful', 'title' => 'codersaiful'],
+        ];
+        foreach($codeastrology as $key=>$cLogy){
+            $image_name = $key . '.png';
+            $image_file = $img_folder . $image_name;
+            $url = $cLogy['url'] ?? '#';
+            $title = $cLogy['title'] ?? false;
+            $alt = ! empty( $title ) ? $title : $key;
+            $title_available = ! empty( $title ) ? 'title-available' : '';
+            
+        ?>
+        <a class="ca-social-link ca-social-<?php echo esc_attr( $key ); ?> ca-<?php echo esc_attr( $title_available ); ?>" href="<?php echo esc_url( $url ); ?>" target="_blank">
+            <img src="<?php echo esc_url( $image_file ); ?>" alt="<?php echo esc_attr( $alt ); ?>"> 
+            <span><?php echo esc_html( $title ); ?></span>
+        </a>
+        <?php 
+            
+    
+        }
+        ?>
+
+    </div>
+    
+    <?php
+}
 
 function wpt_get_free_templates(){
     $templates_default = array(
