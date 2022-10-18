@@ -1,4 +1,4 @@
-=== Product Table for WooCommerce (WooCommerce Product Variation Table, Advance Search Filter, Ajax Pagination, WooCommerce Shop table layout) ===
+=== Product Table for WooCommerce by CodeAstrology (WooCommerce Product Variation Table, Advance Search Filter, Ajax Pagination, WooCommerce Shop table layout) ===
 Contributors: codersaiful,codeastrology,ultraaddons,unikforce,rafiul17,fazlebari,phpcoderhannan,fatimakhatungit
 Donate link: https://wooproducttable.com/pricing/?ref=CodeAstrology&utm_source=Donate_Link
 Tags: wc product table, wooproducttable, woo product table,woocommerce product table, product table, wc table, quick order table, wholesale table, restaurants table
@@ -206,6 +206,10 @@ You are welcome to contribute  to this project. Join with us [Fork Github reposi
 
 
 == Frequently Asked Questions ==
+
+= Menu Location =
+
+Dashboard -> Product Table -> Add New (Product Table or Shortcode). And paste your shortcode to desired page.
 
 = Why Product Table for WooCommerce? =
 
