@@ -67,11 +67,19 @@ add_action( 'wpto_form_top', 'wpt_ctrl_s_text_at_top' );
 
 if( !function_exists( 'wpt_configuration_page_head' ) ){
     function wpt_configuration_page_head(){
-
+        $brand_logo = WPT_ASSETS_URL . 'images/brand/social/wpt.png';
         ?>
         <div class="fieldwrap ultraaddons-head wpt-config-header-area">
             <div class="ultraaddons-panel border-with-shadow">
-                <h1 class="wp-heading-inline plugin_name plugin-name">Woo Product Table <span class="plugin-version">v <?php echo WPT_Product_Table::getVersion(); ?></span></h1>
+                <h1 class="wp-heading-inline plugin_name plugin-name">
+                    <img src="<?php echo esc_url( $brand_logo ); ?>" class="wpt-brand-logo">
+                    Woo Product Table 
+                    
+                    <span class="plugin-version">v <?php echo WPT_Product_Table::getVersion(); ?></span>
+                    <?php if(method_exists('WOO_Product_Table', 'getVersion')){ ?>
+                        <span class="plugin-version" title="Pro Version">v <?php echo WOO_Product_Table::getVersion(); ?></span></h1>
+                    <?php } ?>
+                </h1>
 
             </div>
         </div>    
