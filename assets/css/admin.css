@@ -2071,7 +2071,6 @@ label.switch.switch-big .on, label.switch.switch-big .off {
 .codeastrogy-social-area-wrapper a.ca-title-available span{padding-right: 10px;}
 /**Social AREA **/
 .ultraaddons .with-background, .ultraaddons-panel .with-background {
-    width: unset;
     background-image: url('../images/brand/header-logo-white-x.png') !important;
     background-repeat: no-repeat !important;
     background-position: center right !important;
