@@ -2049,6 +2049,10 @@ label.switch.switch-big .on, label.switch.switch-big .off {
     padding: 0;
     box-shadow: -3px 2px 3px #00000006;
 }
+.codeastrogy-social-area-wrapper a.ca-social-link>img {
+    background: white;
+    border-radius: 5px;
+}
 .codeastrogy-social-area-wrapper a.ca-social-link.ca-title-available {
     background: #fff;
     border: 1px solid #4a4a4a17;
@@ -2073,18 +2077,18 @@ label.switch.switch-big .on, label.switch.switch-big .off {
     background-position: center right !important;
     background-size: auto 35px;
 }
-h1.ca-main-header-branding {
-    color: #39c2cb;
-    background: #02142a url('../images/brand/animated-logo.gif') no-repeat center right;
-    width: calc(100% - 50px);
-    display: flex;
-    padding: 15px;
-    /* margin: 0; */
-    line-height: 25px;
-    font-size: 24px;
-    font-weight: 400;
-    margin-top: 20px;
-    background-size: auto 40px;
+h1.wp-heading-inline.plugin_name.plugin-name {
+    display: flex !important;
+    gap: 10px;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+div#wpt_configuration_form img.wpt-brand-logo {
+    height: 32px;
+    box-shadow: none;
+    background: white;
+    border-radius: 4px;
 }
 div#wpt_shortcode_configuration_metabox_id .ultraaddons .with-background.slim-title, div#wpt_shortcode_configuration_metabox_id .ultraaddons-panel .with-background.slim-title {
     padding-top: 34px;
