@@ -872,6 +872,7 @@ div.wpt-wrap .elementor-menu-cart__product-image img {
 }
 .wpt_edit_table > a:hover {
     background: rgb(0, 0, 0);
+    color: #ffffff;
 }
 .wpt_search_box .search_box_wrapper {
     position: relative;
