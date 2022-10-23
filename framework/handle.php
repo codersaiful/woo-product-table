@@ -98,6 +98,7 @@ if( ! class_exists( 'WPT_Required' ) ){
          */
         private static function display_common_notice()
         {
+            return;
 
             /**
              * Notice for UltraAddons
