@@ -2099,8 +2099,9 @@ div#wpt_shortcode_configuration_metabox_id .ultraaddons .with-background.slim-ti
     line-height: 25px;
     text-transform: none;
 }
-.wpt-config-header-area .ultraaddons-panel.border-with-shadow{
+.wpt-config-header-area .ultraaddons-panel.border-with-shadow {
     background: #02142a url('../images/brand/animated-logo.gif') no-repeat center right;
+    background-size: auto 45px;
 }
 .border-with-shadow{
     border-top: 0 none;
