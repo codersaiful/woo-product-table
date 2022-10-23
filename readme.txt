@@ -274,6 +274,7 @@ You can easily show specific category products. While creating new table click o
 * Added: Auto Responsive Handle/switch added from Edit Product Table -> Column Setting -> On/Off Switch
 * Added: Table Statsbar message customizeable/Translateable from Option Tab.
 * Fixed: Variable Table showing poistion issue has been fixed.
+* Bug Fixed: tag or markup display on table issue fixed
 * Column Sorting for each column
 * Atractive and Modern responsive
 * `New Minicart` added for Table.
