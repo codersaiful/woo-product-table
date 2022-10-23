@@ -280,7 +280,7 @@ class Row extends Table_Base{
             do_action( 'wpto_column_top', $keyword, $this->table_id, $settings, $this->column_settings, $product );
             do_action( 'wpt_column_top', $keyword, $this );
             
-            $tag = $settings['tag'] ?? 'div';
+            $tag = ! empty( $settings['tag'] ) ? $settings['tag'] : 'div';
             $tag_class = $settings['tag_class'] ?? '';
             if( $this->is_column_label ){
                 $tag_class .= ' item_inside_cell wpt_' . $keyword;
