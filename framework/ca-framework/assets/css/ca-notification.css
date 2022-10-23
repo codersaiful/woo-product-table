@@ -128,7 +128,35 @@ p.ca-require-plugin-msg strong, p.ca-require-plugin-msg b, p.ca-require-plugin-m
     background: #ff584c;
     border-color: #E91E63;
 }
-.ca-reuire-plugin-notice.activate a.ca-button{
-    background: #4caf50;
-    border-color: #359339;
+.ca-reuire-plugin-notice.activate a.ca-button {
+    background: #179ec1;
+    border-color: #007694;
+}
+.anwwhere-notice.anywhere-required-plugin a.ca-button {
+    padding: 3px 5px;
+    text-transform: capitalize;
+}
+.anwwhere-notice.anywhere-required-plugin>p {
+    padding: 0;
+    margin: 0;
+}
+.anwwhere-notice.anywhere-required-plugin {
+    display: flex;
+    align-items:flex-end;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: left;
+    gap: 10px;
+}
+.ca-reuire-plugin-notice.anwwhere-notice button.ca-notice-dismiss {
+    display: none;
+}
+.ca-reuire-plugin-notice.anwwhere-notice {
+    border: 1px solid #03495a29;
+    margin: 5px 0;
+    padding: 10px;
+    background: rgb(0 118 148 / 3%);
+}
+span.ca-notice-custom-msg {
+    display: block;
 }

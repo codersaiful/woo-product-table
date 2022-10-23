@@ -1,0 +1,52 @@
+/*****For All/Multiple checkbox Selector add to cart button*****/
+
+.all_check_header_footer {
+    background-color: transparent;
+    padding: 15px 0;
+    font-size: 14px;
+    font-family: inherit;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: space-between;
+}
+.all_check_header_footer.all_check_header>span {
+    display: flex;
+    padding: 9px;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 2px;
+    line-height: 24px;
+}
+.all_check_header_footer .button.add_to_cart_all_selected {
+    padding: 9px 25px;
+    font-size: 16px;
+    line-height: 21px;
+    font-weight: 400;
+    border: 0;
+    cursor: pointer;
+    text-shadow: none;
+    display: inline-block;
+    -webkit-appearance: none;
+    box-shadow: none;
+    display: flex;
+    align-items: center;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .wpt-wrap .all_check_header_footer {
+        justify-content: center;
+    }
+    .all_check_header_footer.all_check_header>* {
+        flex-grow: 1;
+        flex-basis: 250px;
+    }
+}
+
+/* Extra small devices (phones, 400px and down) */
+@media only screen and (max-width: 400px) {
+    
+    .all_check_header_footer .button.add_to_cart_all_selected {
+        flex: 1 100%;
+    }
+}

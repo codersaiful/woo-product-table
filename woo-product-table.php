@@ -3,15 +3,15 @@
  * Plugin Name: Product Table for WooCommerce by codeAstrology (WooproductTable)
  * Plugin URI: https://wooproducttable.com/pricing/?utm_source=WPT+Plugin+Dashboard&utm_medium=Free+Version
  * Description: (WooproductTable) WooCommerce product table plugin helps you to display your products in a searchable table layout with filters. Boost conversions & sales. Woo Product Table is best for Wholesale.
- * Author: CodeAstrology.com
+ * Author: CodeAstrology Team
  * Author URI: https://wooproducttable.com/?utm_source=WPT+Plugin+Dashboard&utm_medium=Free+Version
  * Tags: woocommerce product list,woocommerce product table, wc product table, product grid view, inventory, shop product table
  * 
- * Version: 3.2.5
+ * Version: 3.2.4
  * Requires at least:    4.0.0
- * Tested up to:         6.0.1
+ * Tested up to:         6.0.3
  * WC requires at least: 3.0.0
- * WC tested up to: 	 6.8.2
+ * WC tested up to: 	 7.0.0
  * 
  * 
  * Text Domain: wpt_pro
@@ -33,7 +33,7 @@ if( ! defined( 'WPT_PLUGIN_BASE_FOLDER' ) ){
 }
 
 if( ! defined( 'WPT_DEV_VERSION' ) ){
-    define( 'WPT_DEV_VERSION', '3.2.5.1' );
+    define( 'WPT_DEV_VERSION', '3.2.5.9' );
 }
 
 if( ! defined( 'WPT_CAPABILITY' ) ){
@@ -181,17 +181,18 @@ WPT_Product_Table::$shortCode = $shortCodeText;
  * @since 1.9
  */
 $default = array(
-    'custom_message_on_single_page'=>  true, //Set true to get form in Single Product page for Custom Message
+    'custom_message_on_single_page'=>  true,
+    // 'column_sort'=>  'on',
     'disable_plugin_noti'=>  'on',
-    'footer_cart'           =>  'always_show', //hide_for_zerro
+    'footer_cart'           =>  'always_hide', //always_show
     'footer_cart_size'      =>  '74',
     'footer_bg_color'       =>  '#0a7f9c',
     'footer_possition'      =>  'footer_possition',
     'item_count'            =>  'all',
     'sort_mini_filter'      =>  'ASC',
-    'sort_searchbox_filter' =>  'ASC',
+    'sort_searchbox_filter' =>  '0', //'ASC',
     'custom_add_to_cart'    =>  'add_cart_left_icon',
-    'thumbs_image_size'     =>  60,
+    'thumbs_image_size'     =>  80,
     'thumbs_lightbox'       => '1',
     'popup_notice'          => '1',
     'disable_cat_tag_link'  =>  '0',
@@ -429,6 +430,9 @@ class WPT_Product_Table{
 
             WOO_Product_Table\Framework\Recommeded::check();
 
+            new WOO_PRODUCT_TABLE\Admin\Admin_Loader();
+            
+
             include_once $this->path('BASE_DIR','admin/post_metabox.php');
             include_once $this->path('BASE_DIR','admin/duplicate.php');
             include_once $this->path('BASE_DIR','admin/functions.php'); //Added at V7.0.0 @date 
@@ -469,6 +473,9 @@ class WPT_Product_Table{
     include_once $this->path('BASE_DIR','includes/functions.php');
     include_once $this->path('BASE_DIR','includes/helper-functions.php'); 
     include_once $this->path('BASE_DIR','includes/shortcode.php');
+
+    $shortcode = new WOO_PRODUCT_TABLE\Inc\Shortcode();
+    $shortcode->run();
        
     /**
      * Include WPML Integration
@@ -484,12 +491,12 @@ class WPT_Product_Table{
         include_once $this->path('BASE_DIR','wpml/init.php');
     }
 
-    // update_option('wpt_oop_enble', true);
-    $wpt_oop = get_option('wpt_oop_enble');
-    if($wpt_oop){
-        $shortcode = new WOO_PRODUCT_TABLE\Inc\Shortcode();
-        $shortcode->run();
-    }
+    // // update_option('wpt_oop_enble', true);
+    // $wpt_oop = get_option('wpt_oop_enble');
+    // if($wpt_oop){
+    //     $shortcode = new WOO_PRODUCT_TABLE\Inc\Shortcode();
+    //     $shortcode->run();
+    // }
     
     
    }
@@ -603,6 +610,8 @@ class WPT_Product_Table{
             update_option( WPT_OPTION_KEY, $updated );
             return;
         }
+
+        // wp_redirect(admin_url( 'edit.php?post_type=wpt_product_table&page=wpt-getting-start' ));
    }
    
     /**

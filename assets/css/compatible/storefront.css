@@ -1,0 +1,14 @@
+div.wpt-wrap.beautiful_blacky_wrapper.wpt-wrap table.wpt-tbl tr.wpt-row td{
+    background: #28333bb7 !important;
+}
+div.wpt-wrap.beautiful_blacky_wrapper.wpt-wrap table.wpt-tbl tr:nth-child(2n+2) td {
+background: var(--wpt_table_tr_odd);
+}
+
+div.wpt-wrap.beautiful_blacky_wrapper.wpt_column_sort table#wpt_table.wpt_product_table tr>td.this_column_sorted {
+    background: var(--wpt_sorted_td_bg) !important;
+}
+
+wpt_column_sort.wpt_column_sort table#wpt_table.wpt_product_table tr>td.this_column_sorted {
+    background: rgba(20, 89, 153, 0.03) !important;
+}

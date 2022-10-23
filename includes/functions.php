@@ -308,6 +308,15 @@ if( ! function_exists( 'wpt_column_add_extra_items' ) ){
 
     function wpt_column_add_extra_items( $keyword, $_device_name, $column_settings, $columns_array, $updated_columns_array, $post, $additional_data ){
         
+        // if( $keyword == 'check' || $keyword == 'product_id' ) return;
+        switch( $keyword ){
+            case 'check': return;
+            case 'serial_number': return;
+            case 'total': return;
+            case 'product_id': return;
+
+        }
+
         unset( $columns_array[$keyword] ); //Unset this column. if in action, here $keyword - action
         
         unset( $columns_array['blank'] );
@@ -464,46 +473,6 @@ if( ! function_exists( 'wpt_get_config_value' ) ){
         return is_array( $config_value ) ? $config_value : array();
     }
 }
-// Hook into Woocommerce when adding a product to the cart
-add_filter( 'woocommerce_add_to_cart_fragments', 'wpt_per_item_fragment', 999 , 1 );
-
-if( ! function_exists( 'wpt_per_item_fragment' ) ) {
-	function wpt_per_item_fragment($fragments) {
-
-		ob_start();
-                $Cart = WC()->cart->cart_contents;
-                $product_response = false;
-                if( is_array( $Cart ) && count( $Cart ) > 0 ){
-                    foreach($Cart as $perItem){
-                        
-                        $pr_id = (String) $perItem['product_id'];
-                        $vr_id = (String) $perItem['variation_id'];
-                        $pr_id = apply_filters( 'wpto_id_of_item', $pr_id, $perItem );
-                        $pr_value = (String) $perItem['quantity'];
-                        $product_response[$pr_id] = (String)  (isset( $product_response[$pr_id] ) ? $product_response[$pr_id] + $pr_value : $pr_value);
-                        $product_response[$vr_id] = (String)  (isset( $product_response[$vr_id] ) ? $product_response[$vr_id] + $pr_value : $pr_value);
-                    }
-                }
-
-                if( is_array( $product_response ) && count( $product_response ) > 0 ){
-                    foreach( $product_response as $key=>$value ){
-                        $pr_id = (String) $key;
-                        $pr_value = (String) $value;
-                        $fragments["span.wpt_ccount.wpt_ccount_$pr_id"] = "<span class='wpt_ccount product_id wpt_ccount_$pr_id'>$pr_value</span>";
-                        $fragments["span.wpt_ccount.wpt_ccount_$vr_id"] = "<span class='wpt_ccount variation_id wpt_ccount_$vr_id'>$pr_value</span>";
-                    }
-                }
-                $footer_cart_link = apply_filters( 'wpto_footer_cart_link', wc_get_cart_url() );
-                $fragments['.wpt-footer-cart-wrapper>a'] = '<a href="' . $footer_cart_link . '">' . WC()->cart->get_cart_subtotal() . '</a>';
-		echo wp_json_encode($product_response);
-		
-		$fragments["wpt_per_product"] = ob_get_clean();
-
-		return $fragments;
-	}
-}
-
-
 
 /**
  * Displays or retrieves the HTML dropdown list of categories.
@@ -1096,64 +1065,6 @@ if( ! function_exists( 'wpt_get_value_with_woocommerce_unit' ) ){
     }
 }
 
-if( ! function_exists( 'wpt_adding_body_class' ) ){
-
-    /**
-     * Adding wpt_'s class at body tag, when Table will show.
-     * Only for frontEnd
-     * 
-     * @global type $post
-     * @global type $shortCodeText
-     * @param type $class
-     * @return string
-     */
-    function wpt_adding_body_class( $class ) {
-
-        global $post,$shortCodeText;
-        if( ! isset($post->post_content) ) return $class;
-        
-        if(  has_shortcode( $post->post_content, $shortCodeText ) || $post->post_type == 'wpt_product_table' ) {
-            $class[] = 'wpt_table_body';
-            $class[] = 'woocommerce';
-        }
-        return $class;
-    }
-}
-add_filter( 'body_class', 'wpt_adding_body_class' );
-
-
-if( ! function_exists( 'wpt_table_edit_link' ) ){
-    
-    /**
-     * Adding Edit Table link at the bottom of Table
-     * Using Action:
-     * do_action( 'wpto_table_wrapper_bottom', $table_ID, $args, $config_value, $atts )
-     * 
-     * @global type $post
-     * @global type $shortCodeText
-     * @param type $table_ID
-     * @return string
-     */
-    function wpt_table_edit_link( $table_ID ) {
-
-        if( !current_user_can( WPT_CAPABILITY ) ) return null;
-        $table_ID = (int) $table_ID;
-        ?>
-        <div class="wpt_edit_table">
-            <a href="<?php echo esc_attr( admin_url( 'post.php?post=' . $table_ID . '&action=edit&classic-editor' ) ); ?>" 
-                            target="_blank"
-                            title="<?php echo esc_attr( 'Edit your table. It will open on new tab.', 'wpt_pro' ); ?>"
-                            >
-            <?php echo esc_html__( 'Edit Table - ', 'wpt_pro' ); ?>
-            <?php echo esc_html( get_the_title( $table_ID ) ); ?>
-            </a>   
-        </div>
-
-        <?php
-    }
-}
-add_action( 'wpto_table_wrapper_bottom', 'wpt_table_edit_link', 99 );
-
 if( ! function_exists( 'wpt_args_manipulation_frontend' ) ){
 
     /**
@@ -1235,6 +1146,7 @@ if( ! function_exists( 'wpt_args_manage_by_get_args' ) ){
      * @return Array
      */
     function wpt_args_manage_by_get_args( $args, $table_ID ){
+        if( ! is_array( $args ) ) return $args;
         /**
          * Check WooCommerce Archive Page, such product taxonomy
          * show page, search page. etc
@@ -1313,7 +1225,7 @@ if( ! function_exists( 'wpt_add_div_at_top' ) ){
     <?php
     }
 }
-add_action( 'wpto_action_before_table', 'wpt_add_div_at_top' );
+// add_action( 'wpto_action_before_table', 'wpt_add_div_at_top' );
 
 if( ! function_exists( 'wpt_item_manage_from_theme' ) ){
 
@@ -1389,36 +1301,6 @@ if( ! function_exists( 'wpt_search_box_validation_on_off' ) ){
 }
 add_filter( 'wpto_searchbox_show', 'wpt_search_box_validation_on_off' );
 
-if( ! function_exists( 'wpt_table_preview_template_manager' ) ){
-
-    /**
-     * Not Activated Yet. Will Enable Asap
-     * 
-     * Normally Content show from page.php file of theme.
-     * We have set Custom Template File for our Table.
-     * If anybody click on Preview for Table
-     * 
-     * @param type $template_file Default Template , provided by WordPress Script
-     * 
-     * @since 2.7.8.1
-     * 
-     * @return type Manage Template Function
-     */
-    function wpt_table_preview_template_manager( $template_file ){
-        if( ! is_singular() ){
-            return $template_file;
-        }
-        $type = get_post_type();
-        if( $type == 'wpt_product_table' ){
-            $template = WPT_BASE_DIR . 'includes/preview_table.php';
-            var_dump($template);
-            return is_file( $template ) ? $template : $template_file;
-        }
-
-        return $template_file;
-    }
-}
-//add_filter( 'template_include', 'wpt_table_preview_template_manager' );
 
 if( ! function_exists( 'wpt_user_roles_by_id' ) ){
     
@@ -1484,6 +1366,7 @@ if( ! function_exists( 'wpt_shop_archive_sorting_args' ) ){
     }
 }
 add_filter( 'wpto_table_query_args_in_row', 'wpt_shop_archive_sorting_args', 10 );
+add_filter( 'wpto_table_query_args', 'wpt_shop_archive_sorting_args', 10 );//New added bcz old filter has removed
 
 /**
  * Astra Theme Compatibility
@@ -1556,6 +1439,15 @@ add_filter( 'template_include', 'wpt_product_table_preview_template' );
 
 
 /**
+ * **IMPORTANT** FOR OLD AND NEW VERSION
+ * USED AT includes/imtems/action.php
+ * 
+ * WHY THIS FUNCTION:
+ * actually some product has indivisual sold enabled
+ * and for these product, user will not able to add after added onece.
+ * So we checked it if for indivisual product 
+ * that product already available or not in cart
+ * 
  * for action.php inside items 
  * 
  * comment by saiful
@@ -1585,83 +1477,6 @@ function wpt_matched_cart_items( $search_products ) {
     return $count; // returning matched items count 
 }
 
-if( ! function_exists( 'wpt_get_variation_parent_ids_from_term' ) ){
-
-    function wpt_get_variation_parent_ids_from_term( $args_tax_query ){
-
-        global $wpdb;
-        $type = 'term_id';
-        $prepare = array();
-        $results = $terms = [];
-        foreach( $args_tax_query as $tax_details){
-            if( !is_array($tax_details) ) continue;
-
-            $terms = is_array( $tax_details['terms'] ) ? $tax_details['terms'] : array();
-            $taxonomy = $tax_details['taxonomy'];
-            foreach($terms as $term){
-                $s_result = $wpdb->get_col( "
-                SELECT DISTINCT p.ID
-                FROM {$wpdb->prefix}posts as p
-                INNER JOIN {$wpdb->prefix}posts as p2 ON p2.post_parent = p.ID
-                INNER JOIN {$wpdb->prefix}term_relationships as tr ON p.ID = tr.object_id
-                INNER JOIN {$wpdb->prefix}term_taxonomy as tt ON tr.term_taxonomy_id = tt.term_taxonomy_id
-                INNER JOIN {$wpdb->prefix}terms as t ON tt.term_id = t.term_id
-                WHERE p.post_type = 'product'
-                AND p.post_status = 'publish'
-                AND p2.post_status = 'publish'
-                AND tt.taxonomy = '$taxonomy'
-                AND t.$type = '$term'
-                " );
-                if( !is_array($s_result) ) continue;
-                $results = array_merge($results, $s_result );
-            }
-            
-        }
-
-        return $results;
-    }
-    
-}
-
-if( ! function_exists( 'wpt_get_agrs_for_variable' ) ){
-    /**
-     * Getting args with generated when customer will choose product
-     * from category, taxonomy or any other Attribute 
-     * 
-     * we have set $args['post_parent__in']
-     * 
-     * @param type $args
-     * @param type $post_include
-     * @return Array 
-     */
-    function wpt_get_agrs_for_variable( $args, $post_include = false ){
-        $args['post_parent__in'] = array();
-        $args['post_type'] = 'product_variation';
-        if( isset( $args['tax_query'] ) && is_array( $args['tax_query'] ) && count( $args['tax_query'] ) > 0 ){
-            $args['post_parent__in'] = wpt_get_variation_parent_ids_from_term( $args['tax_query']);
-
-        }
-
-        if( ! empty( $post_include ) ){
-            $post_parent__in = $args['post_parent__in'];
-            $post_parent__in = array_merge( $post_parent__in, $post_include );
-            $args['post_parent__in'] = array_unique( $post_parent__in );
-        }
-
-        if( ! empty( $args['post_parent__in'] ) ){
-            unset($args['post__in']);
-            unset($args['tax_query']);
-            // unset($args['tax_query']['product_cat_IN']);
-            // unset($args['tax_query']['product_cat_AND']);
-            // unset($args['tax_query']['product_tag_IN']);
-            // unset($args['tax_query']['product_tag_AND']);
-
-        }
-
-        return $args;
-    }
-    
-}
 
 if( defined('B2BKING_DIR') && ! function_exists( 'wpt_b2bking_plugin_integration' ) ){
     
@@ -1719,5 +1534,5 @@ function wpt_default_css_template( $tbl_id ){
     $template_file = WPT_Product_Table::getPath('BASE_URL') . 'assets/css/templates/' . $template . '.css';
     wp_enqueue_style( 'wpt-template-' . $template , $template_file, array(), WPT_DEV_VERSION, 'all' );
 }
-add_action( 'wpt_loaded','wpt_default_css_template', 999 );
+// add_action( 'wpt_loaded','wpt_default_css_template', 999 );
 // add_action( 'wpto_action_start_table','wpt_default_css_template', 999 );

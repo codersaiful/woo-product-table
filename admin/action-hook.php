@@ -67,11 +67,20 @@ add_action( 'wpto_form_top', 'wpt_ctrl_s_text_at_top' );
 
 if( !function_exists( 'wpt_configuration_page_head' ) ){
     function wpt_configuration_page_head(){
+        $brand_logo = WPT_ASSETS_URL . 'images/brand/social/wpt.png';
         ?>
-        <div class="fieldwrap ultraaddons-head">
+        <div class="fieldwrap ultraaddons-head wpt-config-header-area">
             <div class="ultraaddons-panel border-with-shadow">
-                <h1 class="wp-heading-inline plugin_name plugin-name"><?php echo WPT_Product_Table::getName(); ?> <span class="plugin-version">v <?php echo WPT_Product_Table::getVersion(); ?></span></h1>
-                
+                <h1 class="wp-heading-inline plugin_name plugin-name">
+                    <img src="<?php echo esc_url( $brand_logo ); ?>" class="wpt-brand-logo">
+                    Woo Product Table 
+                    
+                    <span class="plugin-version">v <?php echo WPT_Product_Table::getVersion(); ?></span>
+                    <?php if(method_exists('WOO_Product_Table', 'getVersion')){ ?>
+                        <span class="plugin-version" title="Pro Version">v <?php echo WOO_Product_Table::getVersion(); ?></span></h1>
+                    <?php } ?>
+                </h1>
+
             </div>
         </div>    
             
@@ -152,9 +161,10 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
                         <td>
                             <select name="<?php echo esc_attr( $field_name ); ?>[footer_cart]" id="wpt_table_footer_cart" class="wpt_fullwidth ua_input" >
                                 <?php wpt_default_option( $page ) ?>
+                                <option value="always_hide" <?php wpt_selected( 'footer_cart', 'always_hide', $current_config_value ); ?>><?php esc_html_e( 'Always Hide', 'wpt_pro' ); ?></option>
                                 <option value="hide_for_zerro" <?php wpt_selected( 'footer_cart', 'hide_for_zerro', $current_config_value ); ?>><?php esc_html_e( 'Hide for Zero', 'wpt_pro' ); ?></option>
                                 <option value="always_show" <?php wpt_selected( 'footer_cart', 'always_show', $current_config_value ); ?>><?php esc_html_e( 'Always Show', 'wpt_pro' ); ?></option>
-                                <option value="always_hide" <?php wpt_selected( 'footer_cart', 'always_hide', $current_config_value ); ?>><?php esc_html_e( 'Always Hide', 'wpt_pro' ); ?></option>
+                                
                             </select>
 
                         </td>
@@ -204,10 +214,14 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
                         <td>
                             <select name="<?php echo esc_attr( $field_name ); ?>[sort_searchbox_filter]" id="wpt_table_sort_searchbox_filter" class="wpt_fullwidth ua_input" >
                                 <?php wpt_default_option( $page ) ?>
-                                <option value="0" <?php wpt_selected( 'sort_searchbox_filter', '0', $current_config_value ); ?>><?php esc_html_e( 'None', 'wpt_pro' ); ?></option>
+                                <option value="0" <?php wpt_selected( 'sort_searchbox_filter', '0', $current_config_value ); ?>><?php esc_html_e( 'Default Sorting', 'wpt_pro' ); ?></option>
                                 <option value="ASC" <?php wpt_selected( 'sort_searchbox_filter', 'ASC', $current_config_value ); ?>><?php esc_html_e( 'Ascending', 'wpt_pro' ); ?></option>
                                 <option value="DESC" <?php wpt_selected( 'sort_searchbox_filter', 'DESC', $current_config_value ); ?>><?php esc_html_e( 'Descending', 'wpt_pro' ); ?></option>
                             </select>
+                            <p class="warning">
+                                <b>Tips:</b>
+                                <span>If set Default Sorting, Taxonomy (Category/Tag) sorting will be like Default Taxonomy list.</span>
+                            </p>
                         </td>
                     </tr>
                     <tr>
@@ -746,3 +760,78 @@ s0.parentNode.insertBefore(s1,s0);
     }
 }
 add_filter( 'admin_head', 'wpt_tawkto_code_header', 999 );
+
+/**
+ * "Table Column Sorting" option was in pro version, we move that into free version
+ * @since 3.2.5.4
+ * @author Fazle Bari 
+ */
+if( !function_exists( 'wpto_admin_configuration_form_top_free' ) ){
+    function wpto_admin_configuration_form_top_free($settings,$current_config_value){
+        if( !isset( $settings['page'] ) || isset( $settings['page'] ) && $settings['page'] != 'configuration_page' ){
+            return;
+        }
+        
+        ?>
+        
+            <table class="ultraaddons-table">
+                <tr>
+                    <th>
+                        <label class="wpt_label wpt_column_sorting_on_off" for="wpt_column_sorting_on_off"><?php esc_html_e( 'Table Column Sorting', 'wpt_pro' );?></label>
+                    </th>
+                    <td>
+                        <!-- <label class="switch">
+                            <input  name="data[column_sort]" type="checkbox" id="wpt_column_sorting_on_off" <?php echo isset( $current_config_value['column_sort'] ) ? 'checked="checked"' : ''; ?>>
+                            <div class="slider round">
+                                <span class="on">On</span><span class="off">Off</span>
+                            </div>
+                        </label> -->
+                        <p><?php echo esc_html( 'Column sorting for visible product Column.', 'wpt_pro' ); ?></p>
+                        <p class="warning">
+                            <b>Tips:</b>
+                            <span>If you want to sort any column like number where text like: 1st,2nd,3rd,4th. To this situation, add a custom tag className <code>text_with_number</code> for column. <a href="https://wooproducttable.com/doc/advance-uses/sort-table-column/" target="_blank">Helper doc</a> </span>
+                        </p>
+                                        
+                    </td>
+                </tr>
+                <tr id="wpt_footer_cart_on">
+                    <th>
+                        <label class="wpt_label wpt_footer_cart_on_of" for="wpt_footer_cart_on_of"><?php esc_html_e( 'Hide Footer Cart', 'wpt_pro' );?></label>
+                    </th>
+                    <td>
+                        <label class="switch">
+                            <input name="data[footer_cart_on_of]" type="checkbox" id="wpt_footer_cart_on_of" <?php echo isset( $current_config_value['footer_cart_on_of'] ) ? 'checked="checked"' : ''; ?>>
+                            <div class="slider round"><!--ADDED HTML -->
+                                <span class="on">Hide</span><span class="off">Show</span><!--END-->
+                            </div>
+                        </label>
+                        <p><?php echo esc_html( 'Turn on or off footer cart', 'wpt_pro' ); ?></p>
+
+                    </td>
+                </tr>
+                <tr id="wpt_footer_cart_template">
+                    <th>
+                        <label class="wpt_label wpt_footer_template " for="wpt_table_footer_cart_template"><?php esc_html_e( 'Footer Cart Template', 'wpt_pro' );?></label>
+                    </th>
+                    <td>
+                        <select name="data[footer_cart_template]" class="wpt_fullwidth ua_input wpt_table_footer_cart_template">
+                            <option value="none">Default Template</option>
+                            <?php 
+                                $footer_cart_templates = [1,2,3,4,5,6,7,7,9,10,11,12,13,14,15,16,17,18,19,20,21,22];
+                                foreach($footer_cart_templates as $template){
+                                    $selected = isset( $current_config_value['footer_cart_template'] ) && $current_config_value['footer_cart_template'] == $template? 'selected' : '';
+                                    echo '<option value="'. $template .'" ' . $selected . '>'."Template No " . $template . '</option>'; 
+                                } 
+                            ?>
+                        </select>
+                        <br>
+                        <p><?php echo esc_html__( 'Select a template to change footer cart design', 'wpt_pro' ); ?></p>
+                    </td>
+                </tr>
+            </table>
+            
+
+         <?php
+    }
+}
+add_action('wpto_admin_configuration_form_top', 'wpto_admin_configuration_form_top_free',60,2);

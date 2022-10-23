@@ -107,12 +107,20 @@ foreach($terms as $term){
                     if( is_string( $taxonomy_keywords ) && ! empty( $taxonomy_keywords ) ){
                         $taxonomy_keywords = wpt_explode_string_to_array( $taxonomy_keywords );
                     }
+
+                    $newArrs = [];
+                    if( is_array( $taxonomy_keywords ) && is_array( $allTerms ) ){
+                        foreach( $taxonomy_keywords as $ky ){
+                            $newArrs[$ky] = $allTerms[$ky];
+                        }
+                        $newArrs = array_merge($newArrs, $allTerms);
+                    }
                     
                     
                     ?>
                     <select name="search_n_filter[taxonomy_keywords][]" class="wpt_fullwidth wpt_data_filed_atts wpt_select2 ua_input" multiple>
                         <?php
-                        foreach($allTerms as $eTerms){
+                        foreach($newArrs as $eTerms){
                             $taxonomy_details = get_taxonomy( $eTerms );
                             $label = $taxonomy_details->labels->menu_name ?? '';
                             if(empty($label)) continue;
@@ -122,6 +130,13 @@ foreach($terms as $term){
                         ?>
                     </select>
                     <!-- <input name="search_n_filter[taxonomy_keywords]" data-name='taxonomy_keywords' id="wpt_taxonomy_keywords" value="<?php echo isset( $meta_search_n_filter['taxonomy_keywords'] ) ?$meta_search_n_filter['taxonomy_keywords'] : 'product_cat,product_tag'; ?>" class="wpt_fullwidth wpt_data_filed_atts ua_input" type="text" placeholder="<?php esc_attr_e( 'eg: product_cat,product_tag,color,size', 'wpt_pro' ); ?>"> -->
+                    <p class="warning">
+                        <b>IMPORTANT Tips:</b>
+                        <span>To CHOOSE selected Taxonomy(Category,Tag), PLEASE Save & RELOAD,
+                        <br>After Chosen Taxonomy (Category/Tag) Save and Reload, User will able to set/fix/choose selected Taxonomy.
+                        <br> Need Reload to get perform full of this feature.
+                        .</span>
+                    </p>
                     
                 </td>
             </tr>
@@ -132,7 +147,7 @@ foreach($terms as $term){
             // $snf_keywords = $meta_search_n_filter['taxonomy_keywords'];
             $snf_keywords = $taxonomy_keywords;//explode( ',', $snf_keywords );
 
-
+            
             foreach( $snf_keywords as $per_keyword ){
 
                 $args = array(
@@ -143,7 +158,22 @@ foreach($terms as $term){
 
                 //WooCommerce Product Category Object as Array
                 $tax_object = get_terms( $per_keyword, $args );
+                // var_dump($meta_search_n_filter[$per_keyword] ?? 'ss');
                 if( !isset( $tax_object->errors ) ){
+                    $my_tax_obj = [];
+                    foreach($tax_object as $key => $value){
+                        $my_tax_obj[$value->term_id] = $value;
+                    }
+                    $tax_object = $my_tax_obj;
+                    $selected = $meta_search_n_filter[$per_keyword] ?? false;
+                    $newArrs = [];
+                    if( is_array( $selected ) && is_array( $tax_object ) ){
+                        foreach( $selected as $ky ){
+                            $newArrs[$ky] = $tax_object[$ky];
+                        }
+                        
+                        $tax_object = $newArrs + $tax_object;
+                    }
     ?>
         <table class="ultraaddons-table wpt_snf_on_off ">
             <tr>
@@ -209,10 +239,21 @@ foreach($terms as $term){
                     
                     $mini_filter_keywords = $meta_search_n_filter['filter'] ?? $default_tax;
                     
+                    if( is_string( $mini_filter_keywords ) && ! empty( $mini_filter_keywords ) ){
+                        $mini_filter_keywords = wpt_explode_string_to_array( $mini_filter_keywords );
+                    }
+
+                    $newArrs = [];
+                    if( is_array( $mini_filter_keywords ) && is_array( $allTerms ) ){
+                        foreach( $mini_filter_keywords as $ky ){
+                            $newArrs[$ky] = $allTerms[$ky];
+                        }
+                        $newArrs = array_merge($newArrs, $allTerms);
+                    }
                     ?>
                     <select name="search_n_filter[filter][]" multiple class="wpt_fullwidth wpt_data_filed_atts wpt_select2 ua_input">
                         <?php
-                        foreach($allTerms as $eTerms){
+                        foreach($newArrs as $eTerms){
                             $taxonomy_details = get_taxonomy( $eTerms );
                             $label = $taxonomy_details->labels->menu_name ?? '';
                             if(empty($label)) continue;

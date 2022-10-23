@@ -1,2 +1,2 @@
 <?php
-echo $product->get_description();
+echo do_shortcode( $product->get_description(), true );

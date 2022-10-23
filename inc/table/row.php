@@ -7,13 +7,16 @@ use WOO_PRODUCT_TABLE\Inc\Handle\Table_Attr;
 class Row extends Table_Base{
     
     
-    
+    public $serial_number;
+    public $page_number;
+    public $posts_per_page;
     
     public $product_id;
     public $product_parent_id;
     public $product_type;
     public $product_sku;
     public $data_tax = null;
+    public $_device;
 
     /**
      * We have some Variable Available inside 
@@ -29,6 +32,7 @@ class Row extends Table_Base{
     
     public $attributes = [];
     public $available_variations = [];
+    public $variable_for_total = false;
 
     public $args;
     public $_enable_cols;
@@ -58,6 +62,9 @@ class Row extends Table_Base{
      * @var string
      */
     public $row_class = '';
+    public $td_tag = 'td';
+    public $generated_td_start;
+    public $generated_td_end;
     public $wp_force;
     public $checkbox;
     public $default_quantity;
@@ -78,6 +85,11 @@ class Row extends Table_Base{
 
     public function __construct( Shortcode $shortcode ){
         global $product;
+        $shortcode->row_serial = $shortcode->row_serial+1;
+        $this->serial_number = $shortcode->row_serial;
+        $this->page_number = $shortcode->page_number;
+        $this->posts_per_page = $shortcode->posts_per_page;
+
         $this->table_id = $shortcode->table_id;
         $this->table_type = $shortcode->table_type;
         $this->product_id = $product->get_id();
@@ -87,6 +99,11 @@ class Row extends Table_Base{
         $this->product_data = $product->get_data();
         $this->filter = $shortcode->filter;
 
+        if($shortcode->generated_row){
+            $this->td_tag = 'div';
+            $this->generated_td_start = '<td class="wpt-replace-td-in-tr">';
+            $this->generated_td_end = '</td>';
+        }
 
         if($this->filter){
             $this->generate_taxo_n_data_tax( $this->filter );
@@ -94,8 +111,10 @@ class Row extends Table_Base{
         
 
         if( $this->product_type == 'variable' ){
+            $this->variable_for_total = true;
             $variable = new \WC_Product_Variable( $this->product_id );
             $this->available_variations = $variable->get_available_variations();
+            
             $this->attributes = $variable->get_variation_attributes();
             $this->row_class = 'data_product_variations woocommerce-variation-add-to-cart variations_button woocommerce-variation-add-to-cart-disabled';
         }
@@ -119,12 +138,7 @@ class Row extends Table_Base{
 
         $this->wp_force = $shortcode->conditions['wp_force'] ?? false;
 
-        // var_dump($shortcode);
-        
-        // $this->base = $shortcode;
-        // $this->protduct = $product;
 
-        // $this->table_style = $shortcode->table_style;
         $this->is_column_label = $shortcode->is_column_label;
         
         $this->items_directory = $shortcode->items_directory;
@@ -150,17 +164,14 @@ class Row extends Table_Base{
     }
     public function render(){
         global $product;
-        
+        if($this->wp_force){
+            wp('p=' . $this->product_id . '&post_type=product');
+        }
         extract($this->data_for_extract());
 
         $tr_classs = Table_Attr::tr_class( $this );
 
-        
 
-        //New Added
-        $row = $table_row = $this;
-        
-        // var_dump($this);
         $this->data_tax = apply_filters( 'wpto_table_row_attr', $this->data_tax, $product, false, $this->column_settings, $this->table_id );
         $this->data_tax = $this->apply_filter( 'wpt_table_row_attr', $this->data_tax );
         ?>
@@ -180,26 +191,52 @@ class Row extends Table_Base{
         role="row">
         <?php
 
+        echo $this->generated_td_start;
 
         foreach( $this->_enable_cols as $keyword => $col ){
             
+            
             $settings = $this->column_settings[$keyword] ?? false;
+            $items = $settings['items'] ?? false;
+            $class_iner_avail = ! empty( $items ) ? 'inner-available' : 'no-inner';
             
             $type = isset( $settings['type'] ) && !empty( $settings['type'] ) ? $settings['type'] : 'default';
             $file_name = $type !== 'default' ? $type : $keyword;
+            
+            $items_directory = $this->apply_filter( 'wpt_template_folder', $this->items_directory );
 
             //This will be removed in future update actually
-            $this->items_directory = apply_filters('wpto_template_folder', $this->items_directory,$keyword, $type, $this->table_id, $product, $settings, $this->column_settings );
+            $items_directory = apply_filters('wpto_template_folder', $items_directory,$keyword, $type, $this->table_id, $product, $settings, $this->column_settings );
             
-            $this->items_directory = $this->apply_filter( 'wpt_template_folder', $this->items_directory );
+            
 
-            $file = $this->items_directory. $file_name . '.php';
+            $file = $items_directory. $file_name . '.php';
 
-            $file = apply_filters( 'wpto_template_loc', $file, $keyword, $type, $this->table_id, $product, $file_name, $this->column_settings, $settings ); //@Filter Added 
+            $file = apply_filters( 'wpto_template_loc', $file, $keyword, $type, $this->table_id, $product, $file_name, $this->column_settings, $settings ); 
+            $file = apply_filters( 'wpto_template_loc_type_' . $type, $file, $keyword, $this->table_id, $product, $file_name, $this->column_settings, $settings ); 
+            $file = apply_filters( 'wpto_template_loc_item_' . $keyword, $file, $this->table_id, $product, $file_name, $this->column_settings, $settings ); 
+
+
+            /**
+             * Only @Hook wpt_template_loc Added for new 
+             * Organized Plugin.
+             * 
+             * Why we keept old filter hook
+             * Actually we did lot of custom work for many user,
+             * So we need to kept it. But in future, We will delete old filter hook
+             */
             $file = $this->apply_filter( 'wpt_template_loc', $file );
-            if( ! file_exists( $file ) ){
-                $file = $this->items_directory. 'default.php';
-            }
+
+            /**
+             * File Template Final Filter 
+             * We have created this to make a new features, Where user will able to load template from Theme's Directory
+             * 
+             * To Load a new template of item from Theme, Use following location
+             * [YourTheme]/woo-product-table/items/[YourItemFileName].php
+             * 
+             * Functionality Added at includes/functions.php file.
+             */
+            $file = apply_filters( 'wpto_item_final_loc', $file, $file_name, $items_directory, $keyword, $this->table_id, $settings, $this->items_permanent_dir );
 
 
             $style_str = $this->column_settings[$keyword]['style_str'] ?? '';
@@ -209,9 +246,22 @@ class Row extends Table_Base{
             if( $keyword == 'check' ){
                 $column_title = '';
             }
+
+            /**
+             * ***********************
+             *  IMPORTANT NOTICE:
+             * ***********************
+             * Remembered: in class name, 
+             * obvously need td_or_cell class at the beggining of class list
+             * because we have managed responsive mater using javascript and 
+             * we repalce it with '<td class="td_or_cell'
+             * So we unable to change, need td_or_cell at the beggining
+             * 
+             * @author Saiful Islam <codersaiful@gmail.com>
+             */
             $td_class = Table_Attr::td_class($keyword, $this);
             ?>
-            <td class="<?php echo esc_attr( $td_class ); ?>"
+            <<?php echo $this->td_tag; ?> class="td_or_cell <?php echo esc_attr($class_iner_avail . ' ' .$td_class ); ?>"
             data-keyword="<?php echo esc_attr( $keyword ); ?>" 
             data-temp_number="<?php echo esc_attr( $this->table_id ); ?>" 
             data-sku="<?php echo esc_attr( $this->product_sku ); ?>"
@@ -230,23 +280,29 @@ class Row extends Table_Base{
             do_action( 'wpto_column_top', $keyword, $this->table_id, $settings, $this->column_settings, $product );
             do_action( 'wpt_column_top', $keyword, $this );
             
-            $tag = $settings['tag'] ?? 'div';
+            $tag = ! empty( $settings['tag'] ) ? $settings['tag'] : 'div';
             $tag_class = $settings['tag_class'] ?? '';
             if( $this->is_column_label ){
+                $tag_class .= ' item_inside_cell wpt_' . $keyword;
                 $tag_class .= ' autoresponsive-label-show';
             }
+
             ?>
             <<?php echo esc_html( $tag ); ?> 
             data-keyword="<?php echo esc_attr( $keyword ) ; ?>"
             data-title="<?php echo esc_attr( $column_title ); ?>"
             data-sku="<?php echo esc_attr( $this->product_sku ); ?>"
             class="<?php echo esc_attr( $tag_class ); ?>">
-                <?php include $file; ?>
+                <?php 
+                if( is_file( $file ) ){
+                    include $file;
+                }
+                ?>
             </<?php echo esc_html( $tag ); ?>>
             
             <?php
 
-            $items = $settings['items'] ?? false;
+            
             $this->handle_items( $items );
 
             /**
@@ -258,9 +314,11 @@ class Row extends Table_Base{
             do_action( 'wpto_column_bottom', $keyword, $this->table_id, $settings, $this->column_settings, $product );
             do_action( 'wpt_column_bottom', $keyword, $this );
             ?>
-            </td>
+            </<?php echo $this->td_tag; ?>><!--EndTd-->
             <?php
+            
         }
+        echo $this->generated_td_end;
         ?>
         </tr>
         <?php
@@ -284,20 +342,78 @@ class Row extends Table_Base{
         $settings = $this->column_settings[$keyword] ?? false;
             
         $type = isset( $settings['type'] ) && !empty( $settings['type'] ) ? $settings['type'] : 'default';
+
+
         $file_name = $type !== 'default' ? $type : $keyword;
-        $file = $this->items_directory. $file_name . '.php';
+            
+        $items_directory = $this->apply_filter( 'wpt_template_folder', $this->items_directory );
+
+        //This will be removed in future update actually
+        $items_directory = apply_filters('wpto_template_folder', $items_directory,$keyword, $type, $this->table_id, $product, $settings, $this->column_settings );
         
-        if( !file_exists( $file ) ){
-            $file = $this->items_directory. 'default.php';
+        
+
+        $file = $items_directory. $file_name . '.php';
+        $file = apply_filters( 'wpto_template_loc', $file, $keyword, $type, $this->table_id, $product, $file_name, $this->column_settings, $settings ); 
+        $file = apply_filters( 'wpto_template_loc_type_' . $type, $file, $keyword, $this->table_id, $product, $file_name, $this->column_settings, $settings ); 
+        $file = apply_filters( 'wpto_template_loc_item_' . $keyword, $file, $this->table_id, $product, $file_name, $this->column_settings, $settings ); 
+
+
+        /**
+         * Only @Hook wpt_template_loc Added for new 
+         * Organized Plugin.
+         * 
+         * Why we keept old filter hook
+         * Actually we did lot of custom work for many user,
+         * So we need to kept it. But in future, We will delete old filter hook
+         */
+        $file = $this->apply_filter( 'wpt_template_loc', $file );
+
+        /**
+         * File Template Final Filter 
+         * We have created this to make a new features, Where user will able to load template from Theme's Directory
+         * 
+         * To Load a new template of item from Theme, Use following location
+         * [YourTheme]/woo-product-table/items/[YourItemFileName].php
+         * 
+         * Functionality Added at includes/functions.php file.
+         */
+        $file = apply_filters( 'wpto_item_final_loc', $file, $file_name, $items_directory, $keyword, $this->table_id, $settings, $this->items_permanent_dir );
+
+
+        $tag = ! empty( $settings['tag'] ) ? $settings['tag'] : 'div';;
+        $tag_class = $settings['tag_class'] ?? '';
+        $style_str = $this->column_settings[$keyword]['style_str'] ?? '';
+        $style_str = ! empty( $style_str ) ? preg_replace('/(;|!important;)/i',' !important;',$style_str) : '';
+            
+        echo $tag ? "<" . esc_html( $tag ) . " "
+                . "class='item_inside_cell wpt_" . esc_attr( $keyword ) . " " . esc_attr( $tag_class ) . "' "
+                . "data-keyword='" . esc_attr( $keyword ) . "' "
+                . "data-sku='" . esc_attr( $product->get_sku() ) . "' "
+                . "style='" . esc_attr( $style_str ) . "' "
+                . ">" : '';
+        
+        
+        /**
+         * Adding Content at the top of Each Table
+         * 
+         * @Hooked: wpt_pro_add_toggle_content -10, at includes/functions.php file of Pro Version
+         * 
+         * This wpto_ hook will be removed in future update
+         */
+        do_action( 'wpto_column_top', $keyword, $this->table_id, $settings, $this->column_settings, $product );
+        do_action( 'wpt_column_top', $keyword, $this );
+                
+
+        if( is_file( $file ) ){
+            include $file;
         }
-        ?>
-        <div class="saiful-islam">
-        <?php
+
+        do_action( 'wpto_column_top', $keyword, $this->table_id, $settings, $this->column_settings, $product );
+        do_action( 'wpt_column_top', $keyword, $this );
         
-        include $file;
-        ?>
-        </div>
-        <?php
+        echo $tag ? "</" . esc_html( $tag ) . ">" : '';
+
     }
 
     /**
@@ -314,8 +430,11 @@ class Row extends Table_Base{
      * @return Array a set of collection for Inner Item or for any TD. I need to extract it actually
      */
     private function data_for_extract(){
+        $serial = ( ($this->page_number - 1) * $this->posts_per_page ) + $this->serial_number;
+        
         $this->avialable_variables = [
             'id' => $this->product_id,
+            'args' => $this->args,
             'table_type' => $this->table_type,
             'product_type' => $this->product_type,
             'temp_number' => $this->table_id,
@@ -332,12 +451,15 @@ class Row extends Table_Base{
             'stock_status_class' => $this->product_stock_status_class,
     
             'description_type' => $this->description_type,
+            '_device' => $this->_device,
             //For Variable Product
             'attributes' => $this->attributes,
             'available_variations' => $this->available_variations,
+            'variable_for_total' => $this->variable_for_total,
     
     
             'row_class' => $this->row_class,
+            'wpt_table_row_serial' => $serial,
         ];
 
         return $this->apply_filter( 'wpt_avialable_variables', $this->avialable_variables );

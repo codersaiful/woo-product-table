@@ -302,7 +302,7 @@ if( ! function_exists( 'wpt_ajax_add_to_cart' ) ){
         $quantity       = ( isset($data['quantity']) && !empty( $data['quantity']) && is_numeric($data['quantity']) ? sanitize_text_field( $data['quantity'] ) : 1 );
         $variation_id   = ( isset($data['variation_id']) && !empty( $data['variation_id']) ? absint( $data['variation_id'] ) : false );
         $variation      = ( isset($data['variation']) && !empty( $data['variation']) ? sanitize_text_field( $data['variation'] ) : false );
-        $custom_message = ( isset($data['custom_message']) && !empty( $data['custom_message']) ? sanitize_text_field( $data['custom_message'] ) : false );
+        $custom_message = ( isset($data['wpt_custom_message']) && !empty( $data['wpt_custom_message']) ? sanitize_text_field( $data['wpt_custom_message'] ) : false );
         $additinal_json = ( isset($data['additional_json']) && !empty( $data['additional_json']) ? $data['additional_json'] : false );
 
         $cart_item_data = array(); //Set default value array
@@ -323,7 +323,8 @@ if( ! function_exists( 'wpt_ajax_add_to_cart' ) ){
         $cart_item_data = apply_filters('wpto_cart_meta_by_additional_json', $cart_item_data, $additinal_json, $product_id, $data);
 
         wpt_adding_to_cart( $product_id, $quantity, $variation_id, $variation, $cart_item_data );
-        wpt_fragment_refresh();
+        // var_dump( $product_id, $quantity, $variation_id, $variation, $cart_item_data );
+        
         die();
     }
 }
@@ -333,6 +334,7 @@ add_action( 'wp_ajax_nopriv_wpt_ajax_add_to_cart', 'wpt_ajax_add_to_cart' );
 if( ! function_exists( 'wpt_fragment_refresh' ) ){
 
     /**
+     * NEED TO DELETE IT AFTER CHECK FROM CUSTOM JS
      * Getting refresh for fragments
      * 
      * @Since 3.7
@@ -366,27 +368,6 @@ add_action( 'wp_ajax_wpt_fragment_empty_cart', 'wpt_fragment_empty_cart' );
 add_action( 'wp_ajax_nopriv_wpt_fragment_empty_cart', 'wpt_fragment_empty_cart' );
 
 
-
-if( ! function_exists( 'wpt_variation_image_load' ) ){
-
-    /**
-     * Getting Image URL and with info for variation images
-     * 
-     * @Since 3.7
-     */
-    function wpt_variation_image_load(){
-        $variation_id = isset( $_POST['variation_id'] ) ? absint( $_POST['variation_id'] ) : false;
-        if( $variation_id ){
-            $img_src = wp_get_attachment_image_src( get_post_thumbnail_id( $variation_id ), 'full', false );   
-            echo esc_url( $img_src[0] ) . ' ' . esc_html( $img_src[1] );
-        }
-
-        die();
-    }
-}
-add_action( 'wp_ajax_wpt_variation_image_load', 'wpt_variation_image_load' );
-add_action( 'wp_ajax_nopriv_wpt_variation_image_load', 'wpt_variation_image_load' );
-
 if( ! function_exists( 'wpt_ajax_multiple_add_to_cart' ) ){
 
     /**
@@ -407,6 +388,7 @@ if( ! function_exists( 'wpt_ajax_multiple_add_to_cart' ) ){
         if ( isset( $data['products'] ) && is_array( $data['products'] ) ) {
             $products = $data['products'];
         }
+        
         wpt_adding_to_cart_multiple_items( $products );
 
         die();
@@ -482,7 +464,7 @@ if( ! function_exists( 'wpt_adding_to_cart_multiple_items' ) ){
                 $variation = ( isset($product['variation']) && !empty( $product['variation'] ) ? $product['variation'] : false );
 
                 //Added at @Since 1.9
-                $custom_message = ( isset($product['custom_message']) && !empty( $product['custom_message'] ) ? $product['custom_message'] : false );
+                $custom_message = ( isset($product['wpt_custom_message']) && !empty( $product['wpt_custom_message'] ) ? $product['wpt_custom_message'] : false );
                 $additinal_json = ( isset($product['additional_json']) && !empty( $product['additional_json']) ? $product['additional_json'] : false );
 
                 //Added at @Since 1.9
@@ -509,7 +491,7 @@ if( ! function_exists( 'wpt_adding_to_cart_multiple_items' ) ){
                 wpt_adding_to_cart( $product_id, $quantity, $variation_id, $variation, $cart_item_data );
                 $serial++;
             }
-            wpt_fragment_refresh(); 
+            
             if( $serial > 0 ){
 
                 return null;
@@ -529,17 +511,27 @@ if( ! function_exists( 'wpt_add_custom_message_field' ) ){
      * @date 7.6.2018 d.m.y
      */
     function wpt_add_custom_message_field() {
-
-        echo '<table class="variations" cellspacing="0">
+        $status = apply_filters( 'wpt_message_box_in_single_product', true );
+        if( ! $status ) return;
+        $message = apply_filters( 'wpt_message_box_label_product_page', esc_html__( 'Message', 'wpt_pro' )  );
+        global $product;
+        $product_id = $product->get_id();
+        // var_dump($product->get_id());
+        ?>
+        <table class="variations wpt-message-box-table" cellspacing="0">
               <tbody>
                   <tr>
-                  <td class="label"><label for="custom_message">'.esc_html__( 'Message', 'wpt_pro' ).'</label></td>
+                  <td class="label"><label for="custom_message_for<?php echo esc_attr( $product_id ); ?>"><?php echo esc_attr( $message ); ?></label></td>
                   <td class="value">
-                      <input id="custom_message" type="text" name="wpt_custom_message" placeholder="'.esc_attr__( 'Short Message for Order', 'wpt_pro' ).'" />                      
+                      <input id="custom_message_for<?php echo esc_attr( $product_id ); ?>" 
+                      class='wpt_custom_message message message_<?php echo esc_attr( $product_id ); ?>'
+                      type="text" name="wpt_custom_message" 
+                      placeholder="<?php echo esc_attr( $message ); ?>" />                      
                   </td>
               </tr>                               
               </tbody>
-          </table>';
+          </table>
+        <?php
     }
 }
 /**
@@ -586,7 +578,7 @@ if( ! function_exists( 'wpt_save_custom_message_field' ) ){
      */
     function wpt_save_custom_message_field( $cart_item_data, $product_id ) {
         
-        if( isset( $_REQUEST['wpt_custom_message'] ) ) {
+        if( isset( $_REQUEST['wpt_custom_message'] ) && ! empty( $_REQUEST['wpt_custom_message'] ) ) {
             $generated_message = isset( $_REQUEST['wpt_custom_message'] ) ? sanitize_text_field( $_REQUEST['wpt_custom_message'] ) : '';
             $cart_item_data[ 'wpt_custom_message' ] =  $generated_message;
             /* below statement make sure every add to cart action as unique line item */

@@ -19,7 +19,7 @@ jQuery.fn.extend({
         if(! $('body').hasClass('wpt_admin_body')){
             return false;
         }
-        
+       
         $('body').on('keyup','.str_str_each_value',function(){
 
             wptUpdateStyleData(this);
@@ -413,7 +413,7 @@ jQuery.fn.extend({
             selectTabContent.removeClass('tab-content-active');
             return false;
         }
-
+        
         /**************Admin Panel's Setting Tab End Here****************/
         
         /*********Columns , meta sorting orders and mobile checkbox controlling start here************/
@@ -438,6 +438,27 @@ jQuery.fn.extend({
         if(wpt_table_sort_order_by === 'meta_value' || wpt_table_sort_order_by === 'meta_value_num'){
             $("#wpt_meta_value_wrapper").fadeIn();
         }
+        
+        
+        /**
+         * Footer cart switcher template show/hide
+         * 
+         * @author Saiful
+         */
+         var $fc_on_off = $('#wpt_footer_cart_on_of').is(':checked');
+         
+         if($fc_on_off){
+            $('#wpt_footer_cart_template').hide();
+         }
+         
+         $(document.body).on('change','#wpt_footer_cart_on_of',function(){
+            var $fc_on_off = $(this).is(':checked');
+            if($fc_on_off){
+                $('#wpt_footer_cart_template').fadeOut();
+             }else{
+                $('#wpt_footer_cart_template').fadeIn();
+             }
+        });
 
         /**
          * On of Element based on Selected Value for Select Tag
@@ -494,7 +515,9 @@ jQuery.fn.extend({
             //Detect and set Responsive Stats
             ///detect_responsive_stats();
             $(this).closest('.tab-content').find('.wpt_column_sortable li.wpt_sortable_peritem input.checkbox_handle_input[data-column_keyword="' + keyword + '"]').trigger('click');
-            
+            setTimeout(function(){
+                detect_responsive_stats();
+            }, 1000);
         });
         /**
          * Column Section Managing

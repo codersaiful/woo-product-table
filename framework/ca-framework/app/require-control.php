@@ -310,8 +310,11 @@ if( ! class_exists( 'CA_Framework\Require_Control' ) ){
          *
          * @return String
          */
-        public function get_full_this_plugin_name()
+        public function get_full_this_plugin_name( $custom_name = false )
         {
+            if(!empty( $custom_name )){
+                $this->this_plugin_name = $custom_name;
+            }
             $p_name = $this->this_plugin_name;
             if( $this->this_download_link ){
                 $plugin_link = "<a href='{$this->this_download_link}' target='_blank'>{$p_name}</a>";
@@ -357,7 +360,7 @@ if( ! class_exists( 'CA_Framework\Require_Control' ) ){
             
             $message = "$this_p_name $recommend $p_name $order_message";
             if($this->message){
-                $message .= "<br>" . $this->message;
+                $message .= "<span class='ca-notice-custom-msg'>" . $this->message . "</span>";
             }
             $notice_class = 'notice notice-error';
             if($this->location){

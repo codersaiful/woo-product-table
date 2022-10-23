@@ -55,10 +55,11 @@ if( !function_exists( 'wpt_configuration_page' ) ){
         ?>
         <div class="wrap wpt_wrap wpt_configure_page ultraaddons <?php echo esc_attr( $wrapper_class ); ?>">
             <h1 class="wp-heading-inline plugin_name"></h1>
-            <div class="clear"></div>
-            <?php wpt_get_pro_discount_message(); ?>
             <div id="wpt_configuration_form" class="wpt_leftside ">
-                <?php do_action( 'wpto_admin_configuration_head' ); ?>
+                <?php 
+                do_action( 'wpto_admin_configuration_head' );
+                wpt_social_links();
+                 ?>
                 
                 <div class="fieldwrap">
                 <?php 
@@ -75,10 +76,20 @@ if( !function_exists( 'wpt_configuration_page' ) ){
                     do_action( 'wpto_admin_configuration_form_version_data', $settings,$current_config_value );
                     
                     if( $default_lang_bool ){
+                ?>
+                    <div class="section ultraaddons-panel top_secion configuration_page">
+                <?php
                         /**
                          * To add something and Anything at the top of Form Of Configuratin Page
                          */
                         do_action( 'wpto_admin_configuration_form_top', $settings,$current_config_value ); 
+
+                ?>
+                        <div class="ultraaddons-button-wrapper">
+                            <button name="configure_submit" class="button-primary primary button">Save All</button>
+                        </div>
+                    </div>
+                <?php
                     }
                     
                     do_action( 'wpto_admin_configuration_form', $settings,$current_config_value,'data' ); //'data' It's Forms Field Name Such: <input name='data[search_box]'>
@@ -95,7 +106,14 @@ if( !function_exists( 'wpt_configuration_page' ) ){
                         </div>
                     </form>
                     
-                    <?php do_action( 'wpt_offer_here' ); ?>
+                    <?php 
+                    do_action( 'wpt_offer_here' );
+                    
+                    ?>
+                    <div class="wpt-plugin-recommend-area wpt-plugin-recommend-config-page">
+                        <?php do_action( 'wpt_plugin_recommend_here' ); ?>
+                    </div>
+                    <?php wpt_social_links(); ?>
                 </div>
 
             </div>

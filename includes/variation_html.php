@@ -39,7 +39,15 @@ $variations_attr = function_exists( 'wc_esc_json' ) ? wc_esc_json( $variations_j
                                 'product'   => $product,
                                 'id'        => esc_attr( $attribute_name . '_' . $product->get_id() ),
                                 'name'        => esc_attr( $attribute_name . '_' . $product->get_id() ),
-                                'show_option_none' => wc_attribute_label( $attribute_name ),
+
+                                /**
+                                 * @Hook wpt_variation_label Filter
+                                 * Adding content or text berore Variation Label,
+                                 * When not enabled third-parti plugin Support
+                                 * 
+                                 * @since 3.2.5.5
+                                 */
+                                'show_option_none' => apply_filters( 'wpt_variation_label', wc_attribute_label( $attribute_name ), $attribute_name, $product->get_id() ),
                         )
                 );
                 echo $show_label ? '</div>' : '';

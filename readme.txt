@@ -1,9 +1,9 @@
-=== Product Table for WooCommerce by CodeAstrology ===
-Contributors: codersaiful,codeastrology
-Donate link: https://wooproducttable.com/pricing/?ref=CodeAstrology&utm_source=WPT_Installed_DonateLink
+=== Product Table for WooCommerce by CodeAstrology (WooCommerce Product Variation Table, Advance Search Filter, Ajax Pagination, WooCommerce Shop table layout) ===
+Contributors: codersaiful,codeastrology,ultraaddons,unikforce,rafiul17,fazlebari,phpcoderhannan,fatimakhatungit
+Donate link: https://wooproducttable.com/pricing/?ref=CodeAstrology&utm_source=Donate_Link
 Tags: wc product table, wooproducttable, woo product table,woocommerce product table, product table, wc table, quick order table, wholesale table, restaurants table
 Requires at least: 4.0.0
-Tested up to: 6.0.1
+Tested up to: 6.0.2
 Stable tag: 3.2.4
 Requires PHP: 5.6
 License: GPLv2 or later
@@ -183,8 +183,19 @@ There are over 16 different pre-made Product Table templates available, each of 
 **FAST, SECURE AND EASY**<br>
 With a Product Table Plugin, you can feel confident that your business processes will go quickly and easily. User-friendly and adaptable to all popular themes.<br>
 
-**👷 CONTRIBUTE 👷**<br>
-You are welcome to contribute  to this project. We ask that you join the [Github repository.](https://github.com/codersaiful/woo-product-table)
+**👷 HONORABLE CONTRIBUTOR - [GitHub](https://github.com/codersaiful/woo-product-table/graphs/contributors) 👷**<br>
+
+* [codersaiful](https://github.com/codersaiful) (1,000+ commits And Pro: 1000+ commits )
+* [unikforceit](https://github.com/unikforceit) (42 commits )
+* [fatimakhatungit](https://github.com/fatimakhatungit) (38 commits )
+* [fazlebarisn](https://github.com/fazlebarisn) (35 commits And Pro: 50+ commits)
+* [rafiul](https://github.com/rafiul) (29 commits )
+* [tanyabouman](https://github.com/tanyabouman) (3 commits )
+* 👉 [You can join here](https://github.com/codersaiful/woo-product-table/fork)
+
+**🥇 CONTRIBUTE 🥇**<br>
+You are welcome to contribute  to this project. Join with us [Fork Github repository](https://github.com/codersaiful/woo-product-table/fork).
+
 
 == Installation ==
 
@@ -195,6 +206,10 @@ You are welcome to contribute  to this project. We ask that you join the [Github
 
 
 == Frequently Asked Questions ==
+
+= Menu Location =
+
+Dashboard -> Product Table -> Add New (Product Table or Shortcode). And paste your shortcode to desired page.
 
 = Why Product Table for WooCommerce? =
 
@@ -256,9 +271,16 @@ You can easily show specific category products. While creating new table click o
 == Changelog ==
 
 = 3.2.5 =
+* Added: Auto Responsive Handle/switch added from Edit Product Table -> Column Setting -> On/Off Switch
+* Added: Table Statsbar message customizeable/Translateable from Option Tab.
+* Fixed: Variable Table showing poistion issue has been fixed.
+* Column Sorting for each column
+* Atractive and Modern responsive
+* `New Minicart` added for Table.
 * `text_with_number` sorting issue has been solved
 * Added: Search from whole site option added for Advance Search Box.
 * Added: Hide input of Advance search box option added.
+* Fixed: Description column added using shortcode of wp.
 
 = 3.2.4 =
 * Bug Fixed: Icon/Font-Icon confliction issue has been solved.

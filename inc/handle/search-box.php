@@ -4,9 +4,24 @@ namespace WOO_PRODUCT_TABLE\Inc\Handle;
 use WOO_PRODUCT_TABLE\Inc\Shortcode;
 
 class Search_Box{
+    public static $reset_button;
+    public static $cf_search_box;
+    public static $taxonomy_keywords;
+
+    /**
+     * Extra Field on Search box
+     * Such: 
+     * 1. On Sale 
+     * 2. Order By
+     *
+     * @var [type]
+     */
+    public static $fields;
     public static function render( Shortcode $shortcode ){
-        
-        $taxonomy_keywords = $shortcode->search_n_filter['taxonomy_keywords'] ?? [];
+        self::$reset_button = "<button class='wpt-query-reset-button' title='" . __('Reset','wpt_pro') . "'> <i class='wpt-spin3'></i></button>"; //end of .search_single
+        self::$cf_search_box = $shortcode->search_n_filter['cf_search_box'] ?? '';
+        self::$taxonomy_keywords = $shortcode->search_n_filter['taxonomy_keywords'] ?? [];
+        self::$fields = $shortcode->search_n_filter['fields'] ?? [];
         
         $config_value = $shortcode->_config;
         $html = false;
@@ -23,10 +38,10 @@ class Search_Box{
             $search_keyword = isset( $_GET['search_key'] ) ? sanitize_text_field( $_GET['search_key'] ) : '';
             $single_keyword = $config_value['search_keyword_text'];//__( 'Search keyword', 'wpt_pro' );
             $search_order_placeholder = $config_value['search_box_searchkeyword'];//__( 'Search keyword', 'wpt_pro' );
-            $html_inputBox .= "<div class='search_single_column'>";
+            $html_inputBox .= '<div class="search_single_search_by_keyword">';// /.search_single_column 
             $html_inputBox .= '<label class="search_keyword_label single_keyword" for="single_keyword_' . $shortcode->table_id . '">' . $single_keyword . '</label>';
             $html_inputBox .= '<input data-key="s" value="' . $search_keyword . '" class="query-keyword-input-box query_box_direct_value" id="single_keyword_' . $shortcode->table_id . '" value="" placeholder="' . $search_order_placeholder . '"/>';
-            $html_inputBox .= "</div>";// End of .search_single_column
+            $html_inputBox .= '</div>';// /.search_single_column  
         }
         
         ob_start();
@@ -39,19 +54,23 @@ class Search_Box{
          */
         $shortcode->do_action('wpt_search_box');
         $extra_html = ob_get_clean();
-        // var_dump($extra_html);
+
+        if( self::$cf_search_box !== 'yes' && empty( self::$fields ) && empty( self::$taxonomy_keywords ) ){
+            self::$reset_button = '';
+        }
         if( ! empty( $extra_html ) || $html_inputBox){
 
-            $html .= "<div class='search_single search_single_direct'>";
+            $html .= "<div class='search_single search_single_direct keyword-s-wrapper'>";
             $html .= $html_inputBox;
             $html .= $extra_html;
+            $html .= self::$reset_button;
             $html .= "</div>"; //end of .search_single
             
         }
         
 
-        if( is_string( $taxonomy_keywords ) && ! empty( $taxonomy_keywords ) ){
-            $taxonomy_keywords = wpt_explode_string_to_array( $taxonomy_keywords );
+        if( is_string( self::$taxonomy_keywords ) && ! empty( self::$taxonomy_keywords ) ){
+            self::$taxonomy_keywords = wpt_explode_string_to_array( self::$taxonomy_keywords );
         }
 
         /**
@@ -61,8 +80,8 @@ class Search_Box{
          * @since 1.9
          * @date 10.6.2018 d.m.y
          */
-        if( is_array( $taxonomy_keywords ) && count( $taxonomy_keywords ) > 0 ){
-            foreach( $taxonomy_keywords as $texonomy_name ){
+        if( is_array( self::$taxonomy_keywords ) && count( self::$taxonomy_keywords ) > 0 ){
+            foreach( self::$taxonomy_keywords as $texonomy_name ){
                $html .= wpt_texonomy_search_generator( $texonomy_name,$shortcode->table_id, $shortcode->search_n_filter ); 
             }
         }

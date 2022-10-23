@@ -187,11 +187,11 @@ if (!function_exists('wpt_live_support')) {
                 <div class="wpt-widget-wrap wpt-element-populated">
                 <div class="wpt-element wpt-element-727a4d7a wpt-widget wpt-widget-heading" data-id="727a4d7a" data-element_type="widget" data-widget_type="heading.default">
                             <div class="wpt-widget-container">
-                                
                                 <h2 class="wpt-heading-title wpt-size-default">Documentation</h2>
                                 <a target="_blank"  href="https://wooproducttable.com/documentation/" class="doc_border_btn all_doc_btn wow fadeinUp">
                                         View Online<i class="arrow_right"></i>
                                 </a>
+                                <?php wpt_social_links(); ?>
                                 <br>
                                 <br>
                             </div>
@@ -502,6 +502,10 @@ if (!function_exists('wpt_live_support')) {
                                     <a target="_blank"  href="https://wooproducttable.com/doc/" class="doc_border_btn all_doc_btn wow fadeinUp">
                                         View All<i class="arrow_right"></i>
                                     </a>
+                                    <?php wpt_social_links(); ?>
+                                    <div class="wpt-plugin-recommend-area">
+                                        <?php do_action('wpt_plugin_recommend_here'); ?>
+                                    </div>
                                 </div>
                             </div>
                         </div>

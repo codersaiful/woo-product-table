@@ -6,16 +6,22 @@ use WOO_PRODUCT_TABLE\Inc\Table\Row;
 class Table_Attr{
 
     public static function wrapper_class( Shortcode $shortcode ){
+
         $shortcode->wrapper_class = [
             $shortcode->table_type . "_wrapper",
             "detected_device_" . $shortcode->_device . '_wrapper',
             " wpt_temporary_wrapper_" . $shortcode->table_id,
             " wpt_id_" . $shortcode->table_id,
+            " wpt_column_sort",
             "wpt_product_table_wrapper",
+            "wpt-wrap",
             $shortcode->template . "_wrapper woocommerce",
             $shortcode->checkbox,
             "wpt_" . $shortcode->pagination_ajax,
         ];
+        if($shortcode->auto_responsive){
+            $shortcode->wrapper_class[] = 'wpt-auto-responsive';
+        }
 
         //In Future Update version, this filter will removed
         $shortcode->wrapper_class = apply_filters( 'wpto_wrapper_tag_class_arr', $shortcode->wrapper_class, $shortcode->table_id, $shortcode->args, $shortcode->column_settings, $shortcode->_enable_cols, $shortcode->column_array );
@@ -38,6 +44,7 @@ class Table_Attr{
             'device_for_colum' . $shortcode->_device,
             'wpt_temporary_table_' . $shortcode->table_id,
             'wpt_product_table',
+            'wpt-tbl',
             $shortcode->template. '_table',
             // "{$custom_table}_table",
             $table_class,
@@ -60,6 +67,7 @@ class Table_Attr{
         $row->tr_class = [
             "visible_row",
             "wpt_row",
+            "wpt-row",
             "wpt_row_" . $row->table_id,
             "wpt_row_serial_",
             "wpt_row_product_id_" . get_the_ID(),
@@ -87,9 +95,22 @@ class Table_Attr{
         return $row->tr_class_string;
     }
 
+    /**
+     * Class generate for table TD
+     * Available also 
+     * 
+     * 
+     * ***********************
+     *  IMPORTANT NOTICE:
+     * ***********************
+     * as td_or_cell class is must and it's should not be customizeable, thats why,
+     * I have transferred it to row
+     * 
+     * @author Saiful Islam <codersaiful@gmail.com>
+     */
     public static function td_class( string $keyword, Row $row ){
+        
         $td_class_arr = array(
-            "td_or_cell",
             "wpt_" . $keyword,
             "wpt_temp_" . $row->table_id,
         );
