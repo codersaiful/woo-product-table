@@ -329,6 +329,11 @@ class Shortcode extends Shortcode_Base{
         // do_action( 'wpt_loaded', $this->table_id );
 
         /**
+         * Dev version for Get Vardump to get Object Details Var Dump
+         * Only avialble visible Object Details.
+         */
+        $this->get_var_for_Dev();
+        /**
          * It's important to make new table always
          * Actually we have created it based on already created condition actually
          * 

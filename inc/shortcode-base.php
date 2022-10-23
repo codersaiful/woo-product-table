@@ -89,6 +89,8 @@ class Shortcode_Base extends Base{
      */
     public string $site_theme;
 
+    public bool $is_pro = false;
+
 
     
     protected function unsetArrayItem( Array $arr, $unset_item ){
@@ -125,6 +127,8 @@ class Shortcode_Base extends Base{
         $this->wpml_lang = apply_filters( 'wpml_current_language', NULL );
         $this->wpml_default_lang = apply_filters('wpml_default_language', NULL );
         $this->wpml_bool = $this->wpml_lang == $this->wpml_default_lang ? false : true;
+
+        $this->is_pro = class_exists( 'WOO_Product_Table' );
     }
     
 
@@ -182,4 +186,20 @@ class Shortcode_Base extends Base{
         // return;
     }
 
+    /**
+     * To check Table's Object VAR dump
+     * with Security key 
+     * keyWill = var_dump_table
+     * and value will be sAiFul-CoDeAsTrOlOGy
+     *
+     * @return void
+     */
+    protected function get_var_for_Dev(){
+        if( ! isset( $_GET['var_dump_table'] ) ) return;
+        $var = $_GET['var_dump_table'] ?? '';
+        if( 'sAiFul-CoDeAsTrOlOGy' !== $var ) return;
+        echo '<pre>';
+        var_dump($this);
+        echo '</pre>';
+    }
 }
