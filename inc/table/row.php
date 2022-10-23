@@ -354,10 +354,34 @@ class Row extends Table_Base{
         
 
         $file = $items_directory. $file_name . '.php';
+        $file = apply_filters( 'wpto_template_loc', $file, $keyword, $type, $this->table_id, $product, $file_name, $this->column_settings, $settings ); 
+        $file = apply_filters( 'wpto_template_loc_type_' . $type, $file, $keyword, $this->table_id, $product, $file_name, $this->column_settings, $settings ); 
+        $file = apply_filters( 'wpto_template_loc_item_' . $keyword, $file, $this->table_id, $product, $file_name, $this->column_settings, $settings ); 
+
+
+        /**
+         * Only @Hook wpt_template_loc Added for new 
+         * Organized Plugin.
+         * 
+         * Why we keept old filter hook
+         * Actually we did lot of custom work for many user,
+         * So we need to kept it. But in future, We will delete old filter hook
+         */
+        $file = $this->apply_filter( 'wpt_template_loc', $file );
+
+        /**
+         * File Template Final Filter 
+         * We have created this to make a new features, Where user will able to load template from Theme's Directory
+         * 
+         * To Load a new template of item from Theme, Use following location
+         * [YourTheme]/woo-product-table/items/[YourItemFileName].php
+         * 
+         * Functionality Added at includes/functions.php file.
+         */
         $file = apply_filters( 'wpto_item_final_loc', $file, $file_name, $items_directory, $keyword, $this->table_id, $settings, $this->items_permanent_dir );
 
 
-        $tag = $settings['tag'] ?? 'div';;
+        $tag = ! empty( $settings['tag'] ) ? $settings['tag'] : 'div';;
         $tag_class = $settings['tag_class'] ?? '';
         $style_str = $this->column_settings[$keyword]['style_str'] ?? '';
         $style_str = ! empty( $style_str ) ? preg_replace('/(;|!important;)/i',' !important;',$style_str) : '';
