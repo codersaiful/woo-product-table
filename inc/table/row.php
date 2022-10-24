@@ -383,9 +383,10 @@ class Row extends Table_Base{
 
         $tag = ! empty( $settings['tag'] ) ? $settings['tag'] : 'div';;
         $tag_class = $settings['tag_class'] ?? '';
+        // $tag_class .= Table_Attr::td_class($keyword, $this);
         $style_str = $this->column_settings[$keyword]['style_str'] ?? '';
         $style_str = ! empty( $style_str ) ? preg_replace('/(;|!important;)/i',' !important;',$style_str) : '';
-            
+
         echo $tag ? "<" . esc_html( $tag ) . " "
                 . "class='item_inside_cell wpt_" . esc_attr( $keyword ) . " " . esc_attr( $tag_class ) . "' "
                 . "data-keyword='" . esc_attr( $keyword ) . "' "
