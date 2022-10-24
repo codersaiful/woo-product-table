@@ -22,6 +22,14 @@ And there are lot's of Action and Filter hooks available in our Plugin by these 
 Check following steps:
 - Install WordPress to your localhost. It can be [WAMP](https://www.wampserver.com/en/), [XAMP](https://www.apachefriends.org/) etc. Although I prefer **XAMP**. You can use any one.
 - Install [WooCommerce](https://wordpress.org/plugins/woocommerce/) Plugin to your WordPress Site.
+- Activate WooCommerce Plugin and import some product. Sample Product available in "WooCommerce" Plugins folder. sample directory `C:\wamp64\www\{wordpress-site}\wp-content\plugins\woocommerce\sample-data\sample_products.csv`. Check [How to import](https://woocommerce.com/document/product-csv-importer-exporter/).
+- Clone `woo-product-table` repository to your Plugins directory. Repository [Clone Tutorial](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository).
+  - Go to `plugins` like `C:\wamp64\www\{wordpress-site}\wp-content\plugins` 
+  - open comand tool. such as Git Bash. A screenshot:<br>
+  ![image](https://user-images.githubusercontent.com/6463919/197454363-660a92ee-d9f1-45f3-8869-21546fd30084.png)
+  - write `git clone https://github.com/codersaiful/woo-product-table.git` And press ENTER.
+- 
+
 
 ### Available Filter and Action Hooks List
 https://docs.google.com/spreadsheets/d/1RwnzuupIYC-ao2R3_P3hZU__R-8nA3p7o2XoWWntNig/edit?usp=sharing
