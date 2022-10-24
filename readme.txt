@@ -113,6 +113,9 @@ We have integrated our plugin with the necessary plugins. By default, it support
 **Export & Import**<br>
 This is an important feature of our table. You can easily create a table as it is shown on our demo site by importing that table’s encoded code. Also can export your table data as well. 
 
+**Export & Import**<br>
+Graphical Stock Status showing. Enable by on off button easily.
+
 **Developer Friendly**<br>
 We provide our plugin’s complete control to the developers. You can pass query arguments by shortcode attributes. We have tons of action and filter hooks, so you have the power to customize any of our plugin functionality.
 
