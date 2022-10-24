@@ -34,22 +34,7 @@ div.wpt-wrap table#wpt_table tr.wpt_row td .wpt_varition_section div.wpt_message
     color: #4caf50;
     font-weight: bold;
 }
-tr.stock_status_outofstock td.td_or_cell.no-inner.wpt_stock.color_stock_on:before {
-    color: #ff5722;
-}
 
-td.td_or_cell.no-inner.wpt_stock.color_stock_on:before {
-    content: "•••";
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    color: #4caf50;
-    font-size: 33px;
-}
-
-td.td_or_cell.no-inner.wpt_stock.color_stock_on>* {
-    display: none;
-}
 td.wpt_action {
     text-align: right !important;
 }
