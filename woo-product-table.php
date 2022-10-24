@@ -8,9 +8,9 @@
  * Tags: woocommerce product list,woocommerce product table, wc product table, product grid view, inventory, shop product table
  * 
  * Version: 3.2.4
- * Requires at least:    4.0.0
+ * Requires at least:    5.0.0
  * Tested up to:         6.0.3
- * WC requires at least: 3.0.0
+ * WC requires at least: 5.0.0
  * WC tested up to: 	 7.0.0
  * 
  * 
