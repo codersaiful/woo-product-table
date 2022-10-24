@@ -1,6 +1,6 @@
 ![Product Table for WooCommerce](https://raw.githubusercontent.com/codersaiful/woo-product-table/master/assets/images/wpt-logo.png)
 
-# Product Table for WooCommerce - A WooCommerce Product Table Plugin
+# Product Table for WooCommerce by [CodeAstrology](https://codeastrology.com/)
 Product Table for WooCommerce has Tiny Shortcode. Easy to use and No need programming knowledge to use. Easily able to handle by Graphical User Interface. Just like following:
 ```[Product_Table id='123']```
 
@@ -12,10 +12,7 @@ Product Table for WooCommerce has Tiny Shortcode. Easy to use and No need progra
 - Displaying product list as table within a minute.
 - So many lots of features [Read More](https://wooproducttable.com/)
 
-## Plugin in WordPress.org
-https://wordpress.org/plugins/woo-product-table/
-
-## How to Contribute?
+# How to Contribute?
 As **[Woo Product Table](https://wordpress.org/plugins/woo-product-table/)**(Product Table for WooCommerce by CodeAstrology) Plugin is a WooCommerce Plugin of WordPress. So Need first WordPress then WooCommerce. 
 And there are lot's of Action and Filter hooks available in our Plugin by these hooks, Use able to make Addon of **Woo Product Table**. You also can create custom Hooks, when you will contribute to our plugin.  Now I will explain step, how can contribute to our plugin. 
 
@@ -38,6 +35,8 @@ Check following steps:
 ![image](https://user-images.githubusercontent.com/6463919/197455840-0e78c4f2-ad2e-4e48-aba7-a9ae76f231fc.png)
 
 
+## Plugin in WordPress.org
+https://wordpress.org/plugins/woo-product-table/
 
 
 ### Available Filter and Action Hooks List
