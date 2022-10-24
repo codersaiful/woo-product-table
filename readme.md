@@ -5,7 +5,7 @@ Product Table for WooCommerce has Tiny Shortcode. Easy to use and No need progra
 ```[Product_Table id='123']```
 
 ## Features
-- Withing a minute, User able to make a table and using shortcode, able to display anywhere
+- Within a minute, User able to make a table and using shortcode, able to display anywhere
 - Most popular and Fastest
 - Developer Friendly - Available lots of Filter and Action Hook
 - Support all theme and plugin
@@ -14,6 +14,14 @@ Product Table for WooCommerce has Tiny Shortcode. Easy to use and No need progra
 
 ## Plugin in WordPress.org
 https://wordpress.org/plugins/woo-product-table/
+
+## How to Contribute?
+As **[Woo Product Table](https://wordpress.org/plugins/woo-product-table/)**(Product Table for WooCommerce by CodeAstrology) Plugin is a WooCommerce Plugin of WordPress. So Need first WordPress then WooCommerce. 
+And there are lot's of Action and Filter hooks available in our Plugin by these hooks, Use able to make Addon of **Woo Product Table**. You also can create custom Hooks, when you will contribute to our plugin.  Now I will explain step, how can contribute to our plugin. 
+
+Check following steps:
+- Install WordPress to your localhost. It can be [WAMP](https://www.wampserver.com/en/), [XAMP](https://www.apachefriends.org/) etc. Although I prefer **XAMP**. You can use any one.
+- Install [WooCommerce](https://wordpress.org/plugins/woocommerce/) Plugin to your WordPress Site.
 
 ### Available Filter and Action Hooks List
 https://docs.google.com/spreadsheets/d/1RwnzuupIYC-ao2R3_P3hZU__R-8nA3p7o2XoWWntNig/edit?usp=sharing
