@@ -1,6 +1,6 @@
 ![Product Table for WooCommerce](https://raw.githubusercontent.com/codersaiful/woo-product-table/master/assets/images/wpt-logo.png)
 
-# Product Table for WooCommerce - A WooCommerce Product Table Plugin
+# Product Table for WooCommerce by [CodeAstrology](https://codeastrology.com/)
 Product Table for WooCommerce has Tiny Shortcode. Easy to use and No need programming knowledge to use. Easily able to handle by Graphical User Interface. Just like following:
 ```[Product_Table id='123']```
 
@@ -12,16 +12,32 @@ Product Table for WooCommerce has Tiny Shortcode. Easy to use and No need progra
 - Displaying product list as table within a minute.
 - So many lots of features [Read More](https://wooproducttable.com/)
 
-## Plugin in WordPress.org
-https://wordpress.org/plugins/woo-product-table/
-
-## How to Contribute?
+# How to Contribute?
 As **[Woo Product Table](https://wordpress.org/plugins/woo-product-table/)**(Product Table for WooCommerce by CodeAstrology) Plugin is a WooCommerce Plugin of WordPress. So Need first WordPress then WooCommerce. 
 And there are lot's of Action and Filter hooks available in our Plugin by these hooks, Use able to make Addon of **Woo Product Table**. You also can create custom Hooks, when you will contribute to our plugin.  Now I will explain step, how can contribute to our plugin. 
 
 Check following steps:
 - Install WordPress to your localhost. It can be [WAMP](https://www.wampserver.com/en/), [XAMP](https://www.apachefriends.org/) etc. Although I prefer **XAMP**. You can use any one.
 - Install [WooCommerce](https://wordpress.org/plugins/woocommerce/) Plugin to your WordPress Site.
+- Activate WooCommerce Plugin and import some product. Sample Product available in "WooCommerce" Plugins folder. sample directory `C:\wamp64\www\{wordpress-site}\wp-content\plugins\woocommerce\sample-data\sample_products.csv`. Check [How to import](https://woocommerce.com/document/product-csv-importer-exporter/).
+- Clone `woo-product-table` repository to your Plugins directory. Repository [Clone Tutorial](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository).
+  - Go to `plugins` like `C:\wamp64\www\{wordpress-site}\wp-content\plugins` 
+  - open comand tool. such as Git Bash. A screenshot:<br>
+  ![image](https://user-images.githubusercontent.com/6463919/197454363-660a92ee-d9f1-45f3-8869-21546fd30084.png)
+  - write `git clone https://github.com/codersaiful/woo-product-table.git` And press ENTER.
+- Now open your Localhost WordPress site's code via any code Editor. like [VS Code](https://code.visualstudio.com/), [Netbeans](https://netbeans.apache.org/) etc.
+- I strongly recommend to open your main site via CODE EDITOR. Your site's probable directory is: `C:\wamp64\www\{wordpress-site}`.
+- **Woo Product Table** plugin directory is: `C:\wamp64\www\{wordpress-site}\wp-content\plugins\woo-product-table`
+- Go to Dashboard -> Plugins and Activate **Product Table Plugin for WooCommerce by CodeAstrology*
+- Check all functionality and Findout issue. Or Making a new **Features** for Product Table Plugins.
+- Creating a table: Dashboard -> Product Table -> Add New -> put name, set some columns and **Publish** Post. Then copy that shortcode and Paste to your desired page.
+- Finally You will get a Product table. Like following screenshot:<br>
+![image](https://user-images.githubusercontent.com/6463919/197455840-0e78c4f2-ad2e-4e48-aba7-a9ae76f231fc.png)
+
+
+## Plugin in WordPress.org
+https://wordpress.org/plugins/woo-product-table/
+
 
 ### Available Filter and Action Hooks List
 https://docs.google.com/spreadsheets/d/1RwnzuupIYC-ao2R3_P3hZU__R-8nA3p7o2XoWWntNig/edit?usp=sharing
