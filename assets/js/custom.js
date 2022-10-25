@@ -362,6 +362,7 @@ jQuery(function($) {
             var temp_number = $(this).data('temp_number');
             $('div.wpt_checked_table .all_check_header input.wpt_check_universal.wpt_check_universal_header').trigger('click');
             $('div.wpt_checked_table th input.wpt_check_universal').trigger('click');
+            $('body.wpt_table_body .wpt-wrap input.enabled.wpt_tabel_checkbox.wpt_td_checkbox').trigger('click');
             updateCheckBoxCount(temp_number);//
 
         });

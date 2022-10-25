@@ -107,6 +107,8 @@ class Table_Attr{
      * I have transferred it to row
      * 
      * @author Saiful Islam <codersaiful@gmail.com>
+     * 
+     * @return string
      */
     public static function td_class( string $keyword, Row $row ){
         
