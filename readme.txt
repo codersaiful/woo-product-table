@@ -205,7 +205,10 @@ You are welcome to contribute  to this project. Join with us [Fork Github reposi
 
 1. Upload the plugin files to the `/wp-content/plugins/woo-product-table` directory, or install the plugin through the WordPress plugins screen directly.
 2. Activate the plugin through the 'Plugins' screen in WordPress
-3. Use the PRODUCT TABLE -> Configure screen to configure the plugin's default setting.
+3. Go to Dashboard -> Product Table -> Add New -> Publsih Post 
+4. Copy the shortcode from Publsihed post and Paste to your desired Page or any where. AND Enjoy Woo Product Table.
+5. From Dashboard -> Product Table -> Edit Table - You will get lot's of setting. Such: Column setting, Query setting, Search Box Setting etc.
+6. Use the PRODUCT TABLE -> Configure screen to configure the plugin's default setting. There are lot's of feature and Setting available over there.
 
 
 == Frequently Asked Questions ==
