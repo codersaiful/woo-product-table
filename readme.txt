@@ -273,6 +273,9 @@ You can easily show specific category products. While creating new table click o
 
 == Changelog ==
 
+= 3.2.6 =
+* Fixed: Product Exlude not working issue has solved.
+
 = 3.2.5 =
 * Added: Auto Responsive Handle/switch added from Edit Product Table -> Column Setting -> On/Off Switch
 * Added: Table Statsbar message customizeable/Translateable from Option Tab.
