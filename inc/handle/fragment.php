@@ -151,9 +151,9 @@ if( $this->cart_lists && $this->cart_stats ){
 </div>
 <?php
     $view_cart_text = __('View Cart', 'wpt_pro');
-    $view_cart_text = apply_filters('wpt_view_cart_text_changer', $view_cart_text, $this->table_id );
+    $view_cart_text = apply_filters('wpt_view_cart_text', $view_cart_text, $this->table_id );
 ?>
-<a target="_blank" href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="wpt-view-n"><?php echo esc_html__( $view_cart_text ); ?> <i class="wpt-bag"></i></a>
+<a target="_blank" href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="wpt-view-n"><?php echo esc_html( $view_cart_text ); ?> <i class="wpt-bag"></i></a>
 
 </div>
 </div>
