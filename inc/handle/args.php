@@ -75,11 +75,15 @@ class Args{
             ];
         }
         
-        if($shortcode->post_include){
+        if( $shortcode->post_include ){
             $args['post__in'] = $shortcode->post_include;
             $shortcode->orderby = 'post__in';
             $args['orderby'] = $shortcode->orderby;
         }
+        if( ! empty( $shortcode->post_exclude ) ){
+            $args['post__not_in'] = $shortcode->post_exclude;
+        }
+
 
 
         $only_sale = $shortcode->conditions['only_sale'] ?? false;
