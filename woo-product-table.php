@@ -110,6 +110,7 @@ $column_array = array(
     'total'         => __( 'Total Price', 'wpt_pro' ),
     'message'       => __( 'Short Message', 'wpt_pro' ),
     'quick_view'    => __( 'Quick View', 'wpt_pro' ),
+    // 'quick'         => __( 'Xtra Quick View', 'wpt_pro' ), //Yith Quick View actually
     'date'          =>  __( 'Date', 'wpt_pro' ),
     'modified_date' =>  __( 'Modified Date', 'wpt_pro' ),
     'attribute'     =>  __( 'Attributes', 'wpt_pro' ),
