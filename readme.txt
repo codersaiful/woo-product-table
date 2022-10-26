@@ -3,7 +3,7 @@ Contributors: codersaiful,codeastrology,ultraaddons,unikforce,rafiul17,fazlebari
 Donate link: https://wooproducttable.com/pricing/?ref=CodeAstrology&utm_source=Donate_Link
 Tags: wc product table, wooproducttable, woo product table,woocommerce product table, product table, wc table, quick order table, wholesale table, restaurants table
 Requires at least: 5.0.0
-Tested up to: 6.0.2
+Tested up to: 6.1
 Stable tag: 3.2.4
 Requires PHP: 7.4
 License: GPLv2 or later
@@ -272,6 +272,9 @@ You can easily show specific category products. While creating new table click o
 25. Manually responsive for mobile devices
 
 == Changelog ==
+
+= 3.2.6 =
+* Fixed: Product Exlude not working issue has solved.
 
 = 3.2.5 =
 * Added: Auto Responsive Handle/switch added from Edit Product Table -> Column Setting -> On/Off Switch

@@ -4,7 +4,7 @@ namespace WOO_PRODUCT_TABLE\Inc;
 use WOO_PRODUCT_TABLE\Core\Base;
 class Shortcode_Base extends Base{
     public $_root = __CLASS__;
-    public string $shortcde_text = 'Product_Table';
+    public $shortcde_text = 'Product_Table';
 
     /**
      * Very important Property, 
@@ -14,9 +14,9 @@ class Shortcode_Base extends Base{
      *
      * @var boolean
      */
-    public bool $table_display = true;
+    public $table_display = true;
 
-    public bool $product_notfound = false;
+    public $product_notfound = false;
 
     /**
      * For Table's basics Settings such as:
@@ -87,9 +87,9 @@ class Shortcode_Base extends Base{
      *
      * @var string
      */
-    public string $site_theme;
+    public $site_theme;
 
-    public bool $is_pro = false;
+    public $is_pro = false;
 
 
     
@@ -198,8 +198,22 @@ class Shortcode_Base extends Base{
         if( ! isset( $_GET['var_dump_table'] ) ) return;
         $var = $_GET['var_dump_table'] ?? '';
         if( 'sAiFul-CoDeAsTrOlOGy' !== $var ) return;
+        
+        $property = $_GET['property'] ?? '';
+        $method = $_GET['method'] ?? '';
         echo '<pre>';
+        if( ! empty( $property ) ){
+            print_r( $this->$property );
+        }
+        if( ! empty( $method ) && method_exists($this, $method) ){
+            print_r( $this->$method() );
+        }
+
         var_dump($this);
+
+
         echo '</pre>';
     }
+
+    
 }
