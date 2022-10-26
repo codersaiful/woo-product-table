@@ -14,9 +14,9 @@ class Shortcode_Base extends Base{
      *
      * @var boolean
      */
-    public bool $table_display = true;
+    public $table_display = true;
 
-    public bool $product_notfound = false;
+    public $product_notfound = false;
 
     /**
      * For Table's basics Settings such as:
@@ -87,9 +87,9 @@ class Shortcode_Base extends Base{
      *
      * @var string
      */
-    public string $site_theme;
+    public $site_theme;
 
-    public bool $is_pro = false;
+    public $is_pro = false;
 
 
     

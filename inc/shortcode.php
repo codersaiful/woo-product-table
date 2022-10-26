@@ -60,7 +60,7 @@ class Shortcode extends Shortcode_Base{
      *
      * @var boolean true|false Default value is false, if paginated with Load More or Initinte Scroll, that it will true.
      */
-    public bool $paginated_load = false;
+    public $paginated_load = false;
 
     /**
      * Based on $error_name property, We will handle Display Message before Table Display
