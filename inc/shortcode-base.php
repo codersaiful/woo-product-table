@@ -198,8 +198,22 @@ class Shortcode_Base extends Base{
         if( ! isset( $_GET['var_dump_table'] ) ) return;
         $var = $_GET['var_dump_table'] ?? '';
         if( 'sAiFul-CoDeAsTrOlOGy' !== $var ) return;
+        
+        $property = $_GET['property'] ?? '';
+        $method = $_GET['method'] ?? '';
         echo '<pre>';
+        if( ! empty( $property ) ){
+            print_r( $this->$property );
+        }
+        if( ! empty( $method ) && method_exists($this, $method) ){
+            print_r( $this->$method() );
+        }
+
         var_dump($this);
+
+
         echo '</pre>';
     }
+
+    
 }
