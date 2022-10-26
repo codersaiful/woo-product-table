@@ -202,10 +202,11 @@ You are welcome to contribute  to this project. Join with us [Fork Github reposi
 
 == Installation ==
 
-
 1. Upload the plugin files to the `/wp-content/plugins/woo-product-table` directory, or install the plugin through the WordPress plugins screen directly.
 2. Activate the plugin through the 'Plugins' screen in WordPress
-3. Use the PRODUCT TABLE -> Configure screen to configure the plugin's default setting.
+3. Dashboard -> Product Table -> Add New (Product Table or Shortcode). There will show a shortcode for Copy and paste to your desired page or anywhere.
+4. Set your preferred column and update/change your Query from Query table, you also can other setting from other Tab.
+5. Use the PRODUCT TABLE -> Configure screen to configure the plugin's default setting.
 
 
 == Frequently Asked Questions ==
@@ -221,6 +222,10 @@ To see your all products as a table in a page by shortcode.User friendly interfa
 = What is default Shortcode? =
 
 Default Shortcode is [Product_Table id='123' name='Home Table'] as well as also able to change. Go to Product Table page from dashboard.
+
+= How can use table shortcode inside theme or inside PHP code? =
+
+It's simple. Nothing different. Like WordPress, use `echo do_shortcode( "[Product_Table id='123' name='Table Name']" )`. Remember: Here id will be your table/shortcode it and name: your Table Name.
 
 = Can I set product limitation to show in one table? =
 
