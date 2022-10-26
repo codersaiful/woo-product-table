@@ -31,6 +31,7 @@ Check following steps:
 - Go to Dashboard -> Plugins and Activate **Product Table Plugin for WooCommerce by CodeAstrology*
 - Check all functionality and Findout issue. Or Making a new **Features** for Product Table Plugins.
 - Creating a table: Dashboard -> Product Table -> Add New -> put name, set some columns and **Publish** Post. Then copy that shortcode and Paste to your desired page.
+- Create a new issue on this ripository and add Label `hacktoberfest`, `good first issue`, `hacktobarfest2022` and `codeastrology`
 - Finally You will get a Product table. Like following screenshot:<br>
 ![image](https://user-images.githubusercontent.com/6463919/197455840-0e78c4f2-ad2e-4e48-aba7-a9ae76f231fc.png)
 
