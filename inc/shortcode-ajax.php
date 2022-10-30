@@ -171,6 +171,14 @@ class Shortcode_Ajax extends Shortcode{
         die();
     }
 
+    /**
+     * This is for add data to WooCommerce Fragments
+     * Actually we have shown quantity at each add to cart button
+     * by this fragment, we have shown data to each add to art btton.
+     *
+     * And crossed check by me(Saiful) that for quantity buble of Add To Cart Button
+     * @return void
+     */
     public function wpt_wc_fragments(){
         
         $output = [];
@@ -202,8 +210,6 @@ class Shortcode_Ajax extends Shortcode{
         // var_dump($output);
         wp_send_json( $output );
         
-        die();
-
         die();
     }
 
