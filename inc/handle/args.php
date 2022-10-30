@@ -44,6 +44,7 @@ class Args{
 
         if( isset( $_GET['s'] ) && !empty( $_GET['s'] ) ){
             $args['s'] = sanitize_text_field( $_GET['s'] );
+            unset($args['suppress_filters']);
         }else{
             $args['suppress_filters'] = 1;
             unset( $args['s'] );

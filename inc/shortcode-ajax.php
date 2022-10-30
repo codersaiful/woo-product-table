@@ -87,6 +87,17 @@ class Shortcode_Ajax extends Shortcode{
          */
         $this->args_ajax_called = true;
 
+        /**
+         * Why make this
+         * --------------
+         * Actually when query will help over Ajax, We will transfer a value for 
+         * Ajax through our args
+         * 
+         * @since 3.2.6.0
+         * @author Saiful Islam <codersaiful@gmail.com>
+         */
+        $this->args['wpt_query_type'] = 'ajax';
+
         $ajax_type = $others['type'] ?? '';
 
         /**
@@ -95,6 +106,24 @@ class Shortcode_Ajax extends Shortcode{
          */
         if( $ajax_type ==  'load_more' || $ajax_type ==  'infinite_scroll'  ){
             $this->paginated_load = true;
+        }
+
+
+        /**
+         * Orgnized $q['suppress_filters'] When args will come 
+         * throw Ajax
+         * Otherwise posts_join,posts_where filter will not work.
+         * 
+         * @author Saiful Islam <codersaiful@gmail.com>
+         * 
+         * @since 3.2.6.0
+         * @link https://developer.wordpress.org/reference/classes/wp_query/#source 
+         * @link https://github.com/WordPress/wordpress-develop/blob/6.0.2/src/wp-includes/class-wp-query.php#L2617 This link can help
+         */
+        if( isset( $this->args['s'] ) ){
+
+            $this->args['wpt_query_type'] = 'search';
+            unset( $this->args['suppress_filters'] );
         }
 
         /**
@@ -118,8 +147,9 @@ class Shortcode_Ajax extends Shortcode{
         
         /******Development Perpos************
         ob_start();
-        var_dump('DOING_AJAX',DOING_AJAX);
-        var_dump($this->pagination, $this->paginated_load);
+        var_dump($this->args);
+        // var_dump('DOING_AJAX',DOING_AJAX);
+        // var_dump($this->pagination, $this->paginated_load);
         // var_dump($_POST,$this->args,$max_page, $page_number);
         $output['.all_check_header_footer'] = ob_get_clean();
         //****************************/
