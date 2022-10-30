@@ -150,7 +150,7 @@ class Shortcode_Ajax extends Shortcode{
         
         /******Development Perpos************
         ob_start();
-        var_dump($this->args);
+        var_dump($max_page,$page_number,$this->args);
         // var_dump('DOING_AJAX',DOING_AJAX);
         // var_dump($this->pagination, $this->paginated_load);
         // var_dump($_POST,$this->args,$max_page, $page_number);
@@ -160,16 +160,16 @@ class Shortcode_Ajax extends Shortcode{
         $this->argsOrganize()->stats_render();
         $output['.wpt-stats-report'] = ob_get_clean();
         
-        if( $max_page == $page_number){
-            $output['.wpt_load_more_wrapper'] = '';
-        }
+        
         
         //We are not agable to set condition page on pagination on.
         //karon: jodi condition ekhane dei, ar search onusare pagination na thake, seta faka hoya dorokar, kintu ta hobe na.
         $output['.wpt_my_pagination.wpt_table_pagination'] = Pagination::get_paginate_links( $this );
+        if( $max_page == $page_number || $max_page == 0){
+            $output['.wpt_load_more_wrapper'] = $output['.wpt_my_pagination.wpt_table_pagination'] = '';
+        }
 
 
-        /***************************/
         /**
          * Only for Development Perpose,
          * When user would like to debug of
@@ -184,7 +184,7 @@ class Shortcode_Ajax extends Shortcode{
          * In that time, I will go to wpt-control.js file and enable: $('table tbody').html(result); return;
          * AND In this php file, I will enable this part.
          * 
-         */
+         *************COMMENT ENABLE/DISALE HERE ********
         $this->argsOrganize()->table_body();
         die();
         //***************************/
