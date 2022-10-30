@@ -114,6 +114,9 @@ class Shortcode_Ajax extends Shortcode{
          * throw Ajax
          * Otherwise posts_join,posts_where filter will not work.
          * 
+         * mone rakhte hobe, $this->args['suppress_filters'] eta unset kore diye
+         * amra search er kaj korechi. tachara eta kaj korbe na.
+         * 
          * @author Saiful Islam <codersaiful@gmail.com>
          * 
          * @since 3.2.6.0
@@ -165,6 +168,26 @@ class Shortcode_Ajax extends Shortcode{
         //karon: jodi condition ekhane dei, ar search onusare pagination na thake, seta faka hoya dorokar, kintu ta hobe na.
         $output['.wpt_my_pagination.wpt_table_pagination'] = Pagination::get_paginate_links( $this );
 
+
+        /***************************/
+        /**
+         * Only for Development Perpose,
+         * When user would like to debug of
+         * Table content OR inside Table table content.
+         * Actually if u var_dump any thing, which will show inside table->body 
+         * it will not display, because, in wpt-control.js file and inside ajaxTableLoad() 
+         * function, we have replaced only 
+         * So other tag/content will not show
+         * *****************************************
+         * IMPORTANT
+         * *****************************************
+         * In that time, I will go to wpt-control.js file and enable: $('table tbody').html(result); return;
+         * AND In this php file, I will enable this part.
+         * 
+         */
+        $this->argsOrganize()->table_body();
+        die();
+        //***************************/
         
         wp_send_json( $output );
         
