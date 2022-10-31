@@ -87,6 +87,17 @@ class Shortcode_Ajax extends Shortcode{
          */
         $this->args_ajax_called = true;
 
+        /**
+         * Why make this
+         * --------------
+         * Actually when query will help over Ajax, We will transfer a value for 
+         * Ajax through our args
+         * 
+         * @since 3.2.6.0
+         * @author Saiful Islam <codersaiful@gmail.com>
+         */
+        $this->args['wpt_query_type'] = 'ajax';
+
         $ajax_type = $others['type'] ?? '';
 
         /**
@@ -95,6 +106,27 @@ class Shortcode_Ajax extends Shortcode{
          */
         if( $ajax_type ==  'load_more' || $ajax_type ==  'infinite_scroll'  ){
             $this->paginated_load = true;
+        }
+
+
+        /**
+         * Orgnized $q['suppress_filters'] When args will come 
+         * throw Ajax
+         * Otherwise posts_join,posts_where filter will not work.
+         * 
+         * mone rakhte hobe, $this->args['suppress_filters'] eta unset kore diye
+         * amra search er kaj korechi. tachara eta kaj korbe na.
+         * 
+         * @author Saiful Islam <codersaiful@gmail.com>
+         * 
+         * @since 3.2.6.0
+         * @link https://developer.wordpress.org/reference/classes/wp_query/#source 
+         * @link https://github.com/WordPress/wordpress-develop/blob/6.0.2/src/wp-includes/class-wp-query.php#L2617 This link can help
+         */
+        if( isset( $this->args['s'] ) ){
+
+            $this->args['wpt_query_type'] = 'search';
+            unset( $this->args['suppress_filters'] );
         }
 
         /**
@@ -118,8 +150,9 @@ class Shortcode_Ajax extends Shortcode{
         
         /******Development Perpos************
         ob_start();
-        var_dump('DOING_AJAX',DOING_AJAX);
-        var_dump($this->pagination, $this->paginated_load);
+        var_dump($max_page,$page_number,$this->args);
+        // var_dump('DOING_AJAX',DOING_AJAX);
+        // var_dump($this->pagination, $this->paginated_load);
         // var_dump($_POST,$this->args,$max_page, $page_number);
         $output['.all_check_header_footer'] = ob_get_clean();
         //****************************/
@@ -127,20 +160,48 @@ class Shortcode_Ajax extends Shortcode{
         $this->argsOrganize()->stats_render();
         $output['.wpt-stats-report'] = ob_get_clean();
         
-        if( $max_page == $page_number){
-            $output['.wpt_load_more_wrapper'] = '';
-        }
+        
         
         //We are not agable to set condition page on pagination on.
         //karon: jodi condition ekhane dei, ar search onusare pagination na thake, seta faka hoya dorokar, kintu ta hobe na.
         $output['.wpt_my_pagination.wpt_table_pagination'] = Pagination::get_paginate_links( $this );
+        if( $max_page == $page_number || $max_page == 0){
+            $output['.wpt_load_more_wrapper'] = $output['.wpt_my_pagination.wpt_table_pagination'] = '';
+        }
 
+
+        /**
+         * Only for Development Perpose,
+         * When user would like to debug of
+         * Table content OR inside Table table content.
+         * Actually if u var_dump any thing, which will show inside table->body 
+         * it will not display, because, in wpt-control.js file and inside ajaxTableLoad() 
+         * function, we have replaced only 
+         * So other tag/content will not show
+         * *****************************************
+         * IMPORTANT
+         * *****************************************
+         * In that time, I will go to wpt-control.js file and enable: $('table tbody').html(result); return;
+         * AND In this php file, I will enable this part.
+         * 
+         *************COMMENT ENABLE/DISALE HERE ********
+        $this->argsOrganize()->table_body();
+        die();
+        //***************************/
         
         wp_send_json( $output );
         
         die();
     }
 
+    /**
+     * This is for add data to WooCommerce Fragments
+     * Actually we have shown quantity at each add to cart button
+     * by this fragment, we have shown data to each add to art btton.
+     *
+     * And crossed check by me(Saiful) that for quantity buble of Add To Cart Button
+     * @return void
+     */
     public function wpt_wc_fragments(){
         
         $output = [];
@@ -172,8 +233,6 @@ class Shortcode_Ajax extends Shortcode{
         // var_dump($output);
         wp_send_json( $output );
         
-        die();
-
         die();
     }
 

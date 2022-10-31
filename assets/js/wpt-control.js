@@ -45,6 +45,8 @@ jQuery(function($) {
                 success:function(result){
                     // console.log(load_type);
                     // $('.wpt_edit_table').html(result);
+                    // $('table tbody').html(result); return; //This is Development perpose line. On Development time, Enable this line
+
                     if ( result && load_type !== 'load_more') {
                         $.each( result, function( key, value ) {
                             if('string' === typeof key){

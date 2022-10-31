@@ -740,7 +740,9 @@ jQuery.fn.extend({
             $('.button,button').removeClass('wpt_ajax_update');
         });
         
-        $(document).on('click','body.wpt_admin_body .form_bottom.form_bottom_submit_button button.button.wpt_ajax_update, body.wpt_admin_body input#publish[name=save]',function(e){
+        //I will remove ajax save button for now.
+        // $(document).on('click','body.wpt_admin_body .form_bottom.form_bottom_submit_button button.button.wpt_ajax_update, body.wpt_admin_body input#publish[name=save]',function(e){
+        $(document).on('click','body.wpt_admin_body .form_bottom.form_bottom_submit_button button.button.wpt_ajax_update',function(e){
             //Detect and set Responsive Stats
             detect_responsive_stats();
             

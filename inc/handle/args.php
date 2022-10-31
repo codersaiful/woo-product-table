@@ -40,10 +40,12 @@ class Args{
             'meta_query' => array(),
             'wpt_query_type' => 'default',
             'pagination'    => $shortcode->pagination['start'] ?? 0,
+            'table_ID'    => $shortcode->table_id,
         ];
 
         if( isset( $_GET['s'] ) && !empty( $_GET['s'] ) ){
             $args['s'] = sanitize_text_field( $_GET['s'] );
+            unset($args['suppress_filters']);
         }else{
             $args['suppress_filters'] = 1;
             unset( $args['s'] );
