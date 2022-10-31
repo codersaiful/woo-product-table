@@ -186,4 +186,20 @@ class Base{
     public function __set($name, $value){
         $this->data_packed[$name] = $value;
     }
+
+    /**
+     * If call and undefiend property 
+     * and check by isset, then if found, it will show output, oherwise it will return null.
+     * 
+     * Actually It's very important for big project
+     * 
+     * @author Saiful Islam <codersaiful@gmail.com>
+     *
+     * @param string $name
+     * @return mixed|null
+     */
+    public function __isset($name)
+    {
+        return $this->data_packed[$name] ?? null;
+    }
 }
