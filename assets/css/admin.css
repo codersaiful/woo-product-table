@@ -2114,3 +2114,8 @@ div#wpt_shortcode_configuration_metabox_id .ultraaddons .with-background.slim-ti
 .wpt-config-header-area .ultraaddons .plugin-version, .wpt-config-header-area .ultraaddons-panel .plugin-version {
     color: #1fedff;
 }
+.browse-all-plugin-ca {
+    display: block;
+    width: 100%;
+    clear: both;
+}
