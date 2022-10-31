@@ -277,6 +277,7 @@ You can easily show specific category products. While creating new table click o
 
 = 3.2.7 =
 * Ajax Save option fixed.
+* Ajax add to cart event trigger fix
 
 = 3.2.6 =
 * Fixed: Product Exlude not working issue has solved.
