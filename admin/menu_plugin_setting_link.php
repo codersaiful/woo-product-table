@@ -44,7 +44,7 @@ if( !function_exists( 'wpt_admin_menu' ) ){
         
         // add_submenu_page( 'edit.php?post_type=wpt_product_table', esc_html__( 'Pro Features', 'wpt_pro' ),  __( 'Pro Features', 'wpt_pro' ), 'manage_options', 'wpt-pro-features', 'wpt_pro_features_content' );
         
-        add_submenu_page( 'edit.php?post_type=wpt_product_table', esc_html__( 'ISSUE SUBMIT', 'wpt_pro' ),  __( 'ISSUE SUBMIT', 'wpt_pro' ), WPT_CAPABILITY, 'https://github.com/codersaiful/woo-product-table/issues/new' );
+        
         add_submenu_page( 'edit.php?post_type=wpt_product_table', esc_html__( 'Live Support', 'wpt_pro' ),  __( 'Live Support', 'wpt_pro' ), WPT_CAPABILITY, 'wpt-live-support', 'wpt_live_support' );
 
         if( ! defined( 'WPT_PRO_DEV_VERSION' ) ){
@@ -52,6 +52,8 @@ if( !function_exists( 'wpt_admin_menu' ) ){
             add_submenu_page( 'edit.php?post_type=wpt_product_table', esc_html__( 'GET PRO VERSION', 'wpt_pro' ),  __( '<i>Get <strong>Pro</strong></i>', 'wpt_pro' ), WPT_CAPABILITY, 'https://wooproducttable.com/pricing/' );
         }
         add_submenu_page( 'edit.php?post_type=wpt_product_table', esc_html__( 'Browse Plugins', 'wpt_pro' ),  __( 'Browse Plugins', 'wpt_pro' ), WPT_CAPABILITY, 'wpt-browse-plugins', 'wpt_browse_all_plugin_list' );
+        add_submenu_page( 'edit.php?post_type=wpt_product_table', esc_html__( 'ISSUE SUBMIT', 'wpt_pro' ),  __( 'ISSUE SUBMIT', 'wpt_pro' ), WPT_CAPABILITY, 'https://github.com/codersaiful/woo-product-table/issues/new' );
+        
         // add_submenu_page( 'edit.php?post_type=wpt_product_table', 'How to Start Product Table', "How to", WPT_CAPABILITY, 'wpt-getting-start', 'wpt_getting_start' );
     }
 }
