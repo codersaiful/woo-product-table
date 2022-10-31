@@ -47,6 +47,7 @@ if( !function_exists( 'wpt_admin_menu' ) ){
         add_submenu_page( 'edit.php?post_type=wpt_product_table', esc_html__( 'Live Support', 'wpt_pro' ),  __( 'Live Support', 'wpt_pro' ), WPT_CAPABILITY, 'wpt-live-support', 'wpt_live_support' );
 
         if( ! defined( 'WPT_PRO_DEV_VERSION' ) ){
+            add_submenu_page( 'edit.php?post_type=wpt_product_table', esc_html__( 'Try Pro Version', 'wpt_pro' ),  esc_html__( 'Try Pro Version', 'wpt_pro' ), WPT_CAPABILITY, 'https://try.wooproducttable.com/wp-admin/?utm=PluginDashboard' );
             add_submenu_page( 'edit.php?post_type=wpt_product_table', esc_html__( 'GET PRO VERSION', 'wpt_pro' ),  __( '<i>Get <strong>Pro</strong></i>', 'wpt_pro' ), WPT_CAPABILITY, 'https://wooproducttable.com/pricing/' );
         }
 
