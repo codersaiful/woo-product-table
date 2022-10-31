@@ -275,6 +275,9 @@ You can easily show specific category products. While creating new table click o
 
 == Changelog ==
 
+= 3.2.7 =
+* Ajax Save option fixed.
+
 = 3.2.6 =
 * Fixed: Product Exlude not working issue has solved.
 
