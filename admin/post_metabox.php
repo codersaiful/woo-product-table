@@ -115,6 +115,16 @@ if( ! function_exists( 'wpt_shortcode_metabox_render' ) ){
             |
             <a target="_blank" href="https://github.com/codersaiful/woo-product-table/graphs/contributors">Contributor at Github</a>
         </span>
+        
+    </p>
+    <p class="wpt-issue-submit">
+<?php
+$content_of_mail = __( 'I have found an issue with your WooProductTable plugin. I will explain here with screenshot.Issues And Screenshots:', 'wpt_pro' );
+?>
+        <b>ISSUE SUBMIT:</b> If you founded any issue, Please inform us. That will be very helpful for us to Fix.
+        <a href="https://github.com/codersaiful/woo-product-table/issues/new" target="_blank">SUBMIT ISSUE</a> or 
+        <a href="mailto:contact@codeastrology.com">contact@codeastrology.com</a> or 
+        <a href="https://mail.google.com/mail/u/0/?view=cm&fs=1&su=<?php echo urlencode("Found issue on your Woo Product Table, see screenshot of issue"); ?>&body=<?php echo esc_attr( $content_of_mail ); ?>&ui=2&tf=1&to=codersaiful@gmail.com,contact@codeastrology.com" target="_blank">Gmail Me</a>
     </p>
 </div>
         <?php

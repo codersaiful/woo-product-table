@@ -43,13 +43,15 @@ if( !function_exists( 'wpt_admin_menu' ) ){
         
         
         // add_submenu_page( 'edit.php?post_type=wpt_product_table', esc_html__( 'Pro Features', 'wpt_pro' ),  __( 'Pro Features', 'wpt_pro' ), 'manage_options', 'wpt-pro-features', 'wpt_pro_features_content' );
-        add_submenu_page( 'edit.php?post_type=wpt_product_table', esc_html__( 'Browse Plugins', 'wpt_pro' ),  __( 'Browse Plugins', 'wpt_pro' ), WPT_CAPABILITY, 'wpt-browse-plugins', 'wpt_browse_all_plugin_list' );
+        
+        add_submenu_page( 'edit.php?post_type=wpt_product_table', esc_html__( 'ISSUE SUBMIT', 'wpt_pro' ),  __( 'ISSUE SUBMIT', 'wpt_pro' ), WPT_CAPABILITY, 'https://github.com/codersaiful/woo-product-table/issues/new' );
         add_submenu_page( 'edit.php?post_type=wpt_product_table', esc_html__( 'Live Support', 'wpt_pro' ),  __( 'Live Support', 'wpt_pro' ), WPT_CAPABILITY, 'wpt-live-support', 'wpt_live_support' );
 
         if( ! defined( 'WPT_PRO_DEV_VERSION' ) ){
+            add_submenu_page( 'edit.php?post_type=wpt_product_table', esc_html__( 'Try Pro Version', 'wpt_pro' ),  esc_html__( 'Try Pro Version', 'wpt_pro' ), WPT_CAPABILITY, 'https://try.wooproducttable.com/wp-admin/?utm=PluginDashboard' );
             add_submenu_page( 'edit.php?post_type=wpt_product_table', esc_html__( 'GET PRO VERSION', 'wpt_pro' ),  __( '<i>Get <strong>Pro</strong></i>', 'wpt_pro' ), WPT_CAPABILITY, 'https://wooproducttable.com/pricing/' );
         }
-
+        add_submenu_page( 'edit.php?post_type=wpt_product_table', esc_html__( 'Browse Plugins', 'wpt_pro' ),  __( 'Browse Plugins', 'wpt_pro' ), WPT_CAPABILITY, 'wpt-browse-plugins', 'wpt_browse_all_plugin_list' );
         // add_submenu_page( 'edit.php?post_type=wpt_product_table', 'How to Start Product Table', "How to", WPT_CAPABILITY, 'wpt-getting-start', 'wpt_getting_start' );
     }
 }
@@ -98,6 +100,22 @@ if( !function_exists( 'wpt_browse_all_plugin_list' ) ){
 			wp_enqueue_script( 'updates' );
 			add_thickbox();
         echo '<h1>' . esc_html__( 'Browse our Plugins', 'wpt_pro' ) . '</h1>';
+        $brand_logo = WPT_ASSETS_URL . 'images/brand/header-logo.png';
+        ?>
+        <div class="fieldwrap ultraaddons-head wpt-config-header-area">
+            <div class="ultraaddons-panel border-with-shadow">
+                <h1 class="wp-heading-inline plugin_name plugin-name">
+                 <a href="https://codeastrology.com/" target="_blank">
+                 <img src="<?php echo esc_url( $brand_logo ); ?>" class="wpt-brand-logo">
+                 </a>: Browse all of CodeAstrology Plugins
+                </h1>
+
+            </div>
+        </div>  
+        <div class="browse-all-plugin-ca">
+            <?php wpt_social_links(); ?>
+        </div>
+        <?php 
         
         $wp_list_table = _get_list_table( 'WP_Plugin_Install_List_Table' );
         
@@ -106,6 +124,11 @@ if( !function_exists( 'wpt_browse_all_plugin_list' ) ){
         echo '<form id="plugin-filter" method="post">';
         $wp_list_table->display();
         echo '</form>';
+        ?>
+        <div class="browse-all-plugin-ca">
+            <?php wpt_social_links(); ?>
+        </div>
+        <?php 
     }
 }
 add_filter( 'plugins_api_result', 'wpt_browse_plugin_result', 1, 3 );

@@ -2114,3 +2114,34 @@ div#wpt_shortcode_configuration_metabox_id .ultraaddons .with-background.slim-ti
 .wpt-config-header-area .ultraaddons .plugin-version, .wpt-config-header-area .ultraaddons-panel .plugin-version {
     color: #1fedff;
 }
+.browse-all-plugin-ca {
+    display: block;
+    width: 100%;
+    clear: both;
+}
+p.wpt-issue-submit {
+    border-top: 1px solid #dddddd4a;
+    opacity: 1;
+    padding-top: 2px;
+    margin-top: 2px;
+}
+
+p.wpt-issue-submit>b {
+    background: #e91e63;
+    color: white;
+    padding: 1px 5px;
+    border-radius: 4px;
+}
+
+p.wpt-issue-submit a {
+    font-weight: 500;
+    letter-spacing: 0;
+    font-style: oblique;
+    background: #8080801c;
+    padding: 0 3px;
+}
+
+p.wpt-issue-submit a:hover {
+    background: black;
+    color: #4caf50;
+}

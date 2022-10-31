@@ -30,6 +30,7 @@ class Args{
     public static function manage( Shortcode $shortcode ){
         $shortcode->post_include = $shortcode->basics['post_include'] ?? [];
         $shortcode->post_exclude = $shortcode->basics['post_exclude'] ?? [];
+        $shortcode->cat_explude = $shortcode->basics['cat_explude'] ?? [];
         $shortcode->min_price = $shortcode->conditions['min_price'] ?? '';
         $shortcode->max_price = $shortcode->conditions['max_price'] ?? '';
         
@@ -86,6 +87,15 @@ class Args{
             $args['post__not_in'] = $shortcode->post_exclude;
         }
 
+        if( ! empty( $shortcode->cat_explude ) ){
+            $args['tax_query'][] = array(
+                'taxonomy' => 'product_cat',
+                'field' => 'id',
+                'terms' => $shortcode->cat_explude,
+                'operator' => 'NOT IN'
+            );
+        }
+
 
 
         $only_sale = $shortcode->conditions['only_sale'] ?? false;
@@ -116,7 +126,7 @@ class Args{
         $page_number = get_query_var( 'page' ) ? get_query_var( 'page' ) : 1;
         $shortcode->page_number = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : $page_number;
         $args['paged'] = (int) $shortcode->page_number;
-        
+
         /**
          * What is Basics Args:
          * Actually in database by query tab filed of different taxonomy

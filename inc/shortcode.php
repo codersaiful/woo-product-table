@@ -145,6 +145,7 @@ class Shortcode extends Shortcode_Base{
 
     public $post_include;
     public $post_exclude;
+    public $cat_explude;
     public $min_price;
     public $max_price;
     public $minicart_position;
