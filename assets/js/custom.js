@@ -2205,7 +2205,7 @@ jQuery(function($) {
          * @since 2.8
          * @date 26.7.2018
          */
-        $(document.body).on('click','div.wpt_column_sort table.wpt_product_table thead tr th',function(){
+        $(document.body).on('click','div.wpt_column_sort table.wpt_product_table thead tr th-bk',function(){
             console.clear();
 
             var class_for_sorted = 'this_column_sorted';

@@ -98,6 +98,43 @@ jQuery(function($) {
             console.log(config_json);
         });
 
+        $(document.body).on('click','div.wpt_column_sort table.wpt_product_table thead tr th',function(){
+            var tableHead = $(this).closest('tr');
+            var table_id = tableHead.data('temp_number');
+            var args = getSearchQueriedArgs( table_id );
+            // args.s = 'aaa';
+            
+            
+            var className = $(this).attr('class');
+            if(className == 'wpt_product_title'){
+                args.orderby = 'name';
+            }else if(className == 'wpt_price'){
+                args.orderby = 'meta_value';
+                args.meta_query = {
+                    'something': {
+                        key: '_price',
+                        compare: 'EXISTS',
+                    },
+                };
+            }
+
+            var stort = tableHead.attr('sort');
+            if( stort == 'DESC' ){
+                tableHead.attr('sort',"ASC");
+                args.order = 'DESC';
+            }else{
+                tableHead.attr('sort',"DESC");
+                args.order = 'ASC';
+            }
+            console.log(args);
+
+            var others = {
+                page_number: 1,
+                isMob: isMob,
+            };
+            ajaxTableLoad(table_id, args, others );
+        });
+
         $(document.body).on('click','.wpt_pagination_ajax .wpt_my_pagination a',function(e){
             e.preventDefault();
             var thisButton = $(this);

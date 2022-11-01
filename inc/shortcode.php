@@ -761,6 +761,7 @@ class Shortcode extends Shortcode_Base{
          * @Hook filter wpt_query_args manage wpt table query args using filter hook
          */
         $this->args = $this->apply_filter( 'wpt_query_args', $this->args );
+        // var_dump($this->args);
         $this->args_organized = true;
         return $this;
     }
