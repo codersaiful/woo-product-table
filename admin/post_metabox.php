@@ -346,7 +346,7 @@ if( ! function_exists( 'wpt_shortcode_configuration_metabox_save_meta' ) ){
                 'flags' => FILTER_REQUIRE_ARRAY,
             ),
         );
-        
+        $filtar_args = apply_filters('wpt_data_save_filter_arr', $filtar_args);
         $submitte_data = filter_input_array( INPUT_POST, $filtar_args );
 
         $submitte_data = wpt_remove_empty_value_from_array($submitte_data);
