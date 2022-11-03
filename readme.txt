@@ -275,6 +275,11 @@ You can easily show specific category products. While creating new table click o
 
 == Changelog ==
 
+= 3.3.0 =
+* Fixed: Error: `Uncaught Error: Call to a member function get_id() on null` issue has been fixed. Help us [signosis](https://github.com/signosis) to findout that issue by creating a Github issue [#254](https://github.com/codersaiful/woo-product-table/issues/254).
+* Fixed: Resave issue fixed.
+* Fixed: Mini-filter issue 
+
 = 3.2.7 =
 * Ajax Save option fixed.
 * Ajax add to cart event trigger fix
