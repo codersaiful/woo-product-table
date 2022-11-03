@@ -10,6 +10,30 @@ class Recommeded
 {
     public static function check()
     {
+        // $blackf22ID = 'black-friday-22-y';
+        // $blackf22 = new Notice($blackf22ID);
+        // $blackf22->set_message("");
+        // $blackf22->set_img( 'https://codeastrology.com/wp-content/uploads/2022/11/black-friday-notice.png');
+        // $blackf22->set_img_target('https://codeastrology.com/coupons/?coupons=BLACKFRIDAY22');
+        // $blackf22->set_diff_limit(55);
+        // $blackf22->add_button([
+        //     'text' => 'Claim Discount',
+        //     'type' => '',
+        //     'link' => '_blank',
+        // ]);
+        // if( method_exists($blackf22, 'set_location') ){
+        //     $blackf22->set_location('wpt_plugin_recommend_here'); //wpt_premium_image_bottom
+        // }
+        // $blackf22->set_type('offer');
+        // $blackf22->set_title('Woo Product Table.');
+        // $blacf_count = get_option($blackf22ID, 0);
+        // if($blacf_count < 2 ){
+        //     $blacf_count++;
+        //     update_option($blackf22ID, $blacf_count);
+        //     $blackf22->show();
+        // }
+        
+
         $this_plugin = __( 'It\'s', 'wpt_pro' );
         $this_plugin2 = __( 'Woo Product Table', 'wpt_pro' );
 

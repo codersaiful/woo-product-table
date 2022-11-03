@@ -2145,3 +2145,20 @@ p.wpt-issue-submit a:hover {
     background: black;
     color: #4caf50;
 }
+.wpt-plugin-recommend-area .anywhere-notice.ca-notice.notice-success[data-notice_id="black-friday-22"] {
+    background: black;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1 100%;
+}
+.wpt-plugin-recommend-area .anywhere-notice.ca-notice.notice-success[data-notice_id="black-friday-22"]:hover {
+    background: #007694;
+    
+}
+.wpt-plugin-recommend-area .anywhere-notice.ca-notice.notice-success[data-notice_id="black-friday-22"] .ca-msg-text{display: none !important;}
+.notice.ca-notice.notice-offer a.ca-logo-link img, .notice.ca-notice.notice-offer a.ca-logo-link img{
+    width: auto !important;
+    border-radius: 0 !important;
+}
