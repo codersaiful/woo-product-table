@@ -145,7 +145,19 @@ class Row extends Table_Base{
 
     }
 
+    /**
+     * This method is for Mini filter. Wich only work on Visible product.
+     * 
+     * Nothing Else
+     *
+     * @param Array $filter
+     * @return void
+     */
     protected function generate_taxo_n_data_tax( $filter ){
+        if( empty( $filter ) ) return;
+        if( is_string( $filter ) ){
+            $filter = $this->string_to_array( $filter );
+        }
         $this->taxonomy_class = 'filter_row ';
         foreach( $filter as $tax_keyword){
             $terms = wp_get_post_terms( $this->product_id, $tax_keyword  );
@@ -161,6 +173,25 @@ class Row extends Table_Base{
             $this->data_tax .= $attr . '"' . $attr_value . '" ';
         }
 
+    }
+
+    /**
+     * String with comma to Array, 
+     * I will use explode function and will convert to Array.
+     * 
+     * ******
+     * Specially maked for Old user, who has created his table many time ago.
+     *
+     * @param string $string_txt Required string but if anyone set any other content, it will fix.
+     * @return array
+     */
+    protected function string_to_array( $string_txt ){
+        if( empty( $string_txt ) ) return [];
+        if( is_array( $string_txt ) ) return $string_txt;
+        if( ! is_string( $string_txt ) ) return [];
+        $string_txt = rtrim( $string_txt, ', ' );
+        $string_txt = ltrim( $string_txt, ', ' );
+        return explode( ',', $string_txt );
     }
     public function render(){
         global $product;
