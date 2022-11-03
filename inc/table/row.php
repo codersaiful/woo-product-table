@@ -145,7 +145,19 @@ class Row extends Table_Base{
 
     }
 
+    /**
+     * This method is for Mini filter. Wich only work on Visible product.
+     * 
+     * Nothing Else
+     *
+     * @param Array $filter
+     * @return void
+     */
     protected function generate_taxo_n_data_tax( $filter ){
+        if( empty( $filter ) ) return;
+        if( is_string( $filter ) ){
+            $filter = $this->string_to_array( $filter );
+        }
         $this->taxonomy_class = 'filter_row ';
         foreach( $filter as $tax_keyword){
             $terms = wp_get_post_terms( $this->product_id, $tax_keyword  );
@@ -162,6 +174,8 @@ class Row extends Table_Base{
         }
 
     }
+
+    
     public function render(){
         global $product;
         if($this->wp_force){

@@ -142,6 +142,7 @@
         <?php do_action( 'wpt_plugin_recommend_here' ); ?>
     </div>
     <?php wpt_social_links(); ?>
+    <?php wpt_submit_issue_link(); ?>
 </div>
 
 <style>

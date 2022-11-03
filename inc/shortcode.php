@@ -34,6 +34,12 @@ class Shortcode extends Shortcode_Base{
     public $atts;
     public $table_id;
     public $status;
+
+    /**
+     * Temp and Post Type for 'woo-product-type' post. If found, we will continue, otherwise. we return null.
+     *
+     * @var null|string for Product table Post Type
+     */
     public $post_type;
     public $req_post_type = 'wpt_product_table';
     public $posts_per_page = 20;
@@ -465,7 +471,8 @@ class Shortcode extends Shortcode_Base{
         $this->_device = wpt_col_settingwise_device( $this->table_id );//wpt_detect_current_device();//
         
         $this->basics = $this->get_meta( 'basics' );
-        $this->req_product_type = $this->basics['product_type'] ?? 'product';
+        $product_type = $this->basics['product_type'] ?? null;
+        $this->req_product_type = ! empty( $product_type ) ? $product_type : 'product';
         $this->_enable_cols = get_post_meta( $this->table_id, 'enabled_column_array' . $this->_device, true );
         $this->column_array = get_post_meta( $this->table_id, 'column_array' . $this->_device, true );
         $this->column_settings = get_post_meta( $this->table_id, 'column_settings' . $this->_device, true);
@@ -553,7 +560,13 @@ class Shortcode extends Shortcode_Base{
 
 
         //Some others from other meta
-        $this->template = $this->table_style['template'] ?? '';
+
+        /**
+         * By default, we should found default template.
+         * 
+         * @since 3.2.8.0
+         */
+        $this->template = $this->table_style['template'] ?? 'default';
         $filter_box = $this->search_n_filter['filter_box'] ?? '';
         $this->filter_box = $filter_box == 'yes' ? true : false;
         

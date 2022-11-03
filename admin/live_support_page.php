@@ -192,6 +192,7 @@ if (!function_exists('wpt_live_support')) {
                                         View Online<i class="arrow_right"></i>
                                 </a>
                                 <?php wpt_social_links(); ?>
+                                <?php wpt_submit_issue_link(); ?>
                                 <br>
                                 <br>
                             </div>

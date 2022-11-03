@@ -113,7 +113,9 @@ if( !function_exists( 'wpt_configuration_page' ) ){
                     <div class="wpt-plugin-recommend-area wpt-plugin-recommend-config-page">
                         <?php do_action( 'wpt_plugin_recommend_here' ); ?>
                     </div>
+                    
                     <?php wpt_social_links(); ?>
+                    <?php wpt_submit_issue_link(); ?>
                 </div>
 
             </div>
