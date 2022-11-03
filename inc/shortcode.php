@@ -560,7 +560,13 @@ class Shortcode extends Shortcode_Base{
 
 
         //Some others from other meta
-        $this->template = $this->table_style['template'] ?? '';
+
+        /**
+         * By default, we should found default template.
+         * 
+         * @since 3.2.8.0
+         */
+        $this->template = $this->table_style['template'] ?? 'default';
         $filter_box = $this->search_n_filter['filter_box'] ?? '';
         $this->filter_box = $filter_box == 'yes' ? true : false;
         
