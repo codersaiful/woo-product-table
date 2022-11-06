@@ -473,9 +473,13 @@ class Shortcode extends Shortcode_Base{
         $this->basics = $this->get_meta( 'basics' );
         $product_type = $this->basics['product_type'] ?? null;
         $this->req_product_type = ! empty( $product_type ) ? $product_type : 'product';
-        $this->_enable_cols = get_post_meta( $this->table_id, 'enabled_column_array' . $this->_device, true );
-        $this->column_array = get_post_meta( $this->table_id, 'column_array' . $this->_device, true );
-        $this->column_settings = get_post_meta( $this->table_id, 'column_settings' . $this->_device, true);
+        $enabled_column_array = get_post_meta( $this->table_id, 'enabled_column_array' . $this->_device, true );
+        $column_array = get_post_meta( $this->table_id, 'column_array' . $this->_device, true );
+        $column_settings = get_post_meta( $this->table_id, 'column_settings' . $this->_device, true);
+
+        $this->column_array = apply_filters( 'wpto_column_arr', $column_array, $this->table_id, $atts, $column_settings, $enabled_column_array );
+        $this->_enable_cols = apply_filters( 'wpto_enabled_column_array', $enabled_column_array, $this->table_id, $atts, $column_settings, $this->column_array ); ;
+        $this->column_settings = apply_filters( 'wpto_column_settings', $column_settings, $this->table_id, $this->_enable_cols );
         
         
         $responsive = $this->basics['responsive'] ?? false;
