@@ -477,9 +477,6 @@ class Shortcode extends Shortcode_Base{
         $column_array = get_post_meta( $this->table_id, 'column_array' . $this->_device, true );
         $column_settings = get_post_meta( $this->table_id, 'column_settings' . $this->_device, true);
 
-        $this->column_array = apply_filters( 'wpto_column_arr', $column_array, $this->table_id, $atts, $column_settings, $enabled_column_array );
-        $this->_enable_cols = apply_filters( 'wpto_enabled_column_array', $enabled_column_array, $this->table_id, $atts, $column_settings, $this->column_array ); ;
-        $this->column_settings = apply_filters( 'wpto_column_settings', $column_settings, $this->table_id, $this->_enable_cols );
         
         
         $responsive = $this->basics['responsive'] ?? false;
@@ -584,13 +581,16 @@ class Shortcode extends Shortcode_Base{
         }
         
 
-        //we will removed this filter after few version. 
-        $this->_enable_cols = apply_filters( 'wpto_enabled_column_array', $this->_enable_cols, $this->table_id, $this->atts, $this->column_settings, $this->column_array );
+        $this->column_array = apply_filters( 'wpto_column_arr', $column_array, $this->table_id, $atts, $column_settings, $enabled_column_array );
+        //we will removed this filter after few version. Not really, there are some old user available.
+        $this->_enable_cols = apply_filters( 'wpto_enabled_column_array', $enabled_column_array, $this->table_id, $this->atts, $this->column_settings, $this->column_array );
         /**
          * @Hook Filter wpto_enabled_column_array to change or modify column amount, we can use it.
          */
         $this->_enable_cols = apply_filters('wpt_enabled_column', $this->_enable_cols, $this);
 
+        $this->column_settings = apply_filters( 'wpto_column_settings', $column_settings, $this->table_id, $this->_enable_cols );
+        
         /**
          * Column Management Here
          */
