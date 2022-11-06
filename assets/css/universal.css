@@ -34,7 +34,9 @@ div.wpt-wrap table#wpt_table tr.wpt_row td .wpt_varition_section div.wpt_message
     color: #4caf50;
     font-weight: bold;
 }
-
+tr .td_or_cell.wpt_action>div p.stock {
+    width: 100%;
+}
 td.wpt_action {
     text-align: right !important;
 }
