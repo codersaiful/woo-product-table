@@ -2337,6 +2337,7 @@ jQuery(function($) {
         
         //* Removeing link for cat and tag texonomy
         removeCatTagLings();
+        $(document.body).on('wpt_ajax_loaded',removeCatTagLings);
         /**
          * Removing Linkg for Categories link and from Tag's link.
          * We will remove link by JavaScript I mean: jQuery
@@ -2588,7 +2589,10 @@ jQuery(function($) {
 
         });
         
-       
+        $(document.body).on('wpt_ajax_load_data',function(e,data){
+            var temp_number = data.table_id;
+            uncheckAllCheck(temp_number);
+        });
         $(document).on( 'reset_data', 'div.advance_table_wrapper table.advance_table.wpt_product_table form.cart', function() {
             var thisRow = $(this).parents('tr.wpt_row');
 
