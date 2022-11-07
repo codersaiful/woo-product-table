@@ -2346,7 +2346,7 @@ jQuery(function($) {
          */
         function removeCatTagLings(){
            if(config_json.disable_cat_tag_link === '1'){
-                $('.wpt_category a,.wpt_tags a,.wpt_custom_tax a').contents().unwrap();
+                $('.wpt_category a,.wpt_tags a,.wpt_custom_tax a').removeAttr("href");
             } 
         }
         // Removing link feature End here  */
