@@ -106,7 +106,7 @@ button.single_add_to_cart_button >span.wpt_ccount, a.button.wpt_woo_add_cart_but
 }
 
 .wpt-wrap tbody tr td .music_title {
-    color: var(--wpt_off_white);
+    color: var(--wpt_primary);
 }
 
 
