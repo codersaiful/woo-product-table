@@ -548,8 +548,11 @@ jQuery(function($) {
             var qtyElement = $('#table_id_' + temp_number + ' #product_id_' + product_id + ' input.input-text.qty.text');
             var min_quantity = qtyElement.attr('min');//.val();
             
-            if( ( typeof min_quantity === 'undefined' || min_quantity === '0' ) && !WPT_DATA.return_zero ){
+            if( typeof min_quantity === 'undefined' && !WPT_DATA.return_zero ){
                 min_quantity = 1;
+            }
+            if(WPT_DATA.return_zero){
+                min_quantity = 0;
             }
             //For Direct Checkout page and Quick Button Features
             var checkoutURL = WPT_DATA.checkout_url;//$('#table_id_' + temp_number).data('checkout_url');
