@@ -188,6 +188,7 @@ class Shortcode extends Shortcode_Base{
 
 
     public $filter_box;
+    public $instance_search;
     public $filter;
 
     public $orderby;
@@ -271,6 +272,7 @@ class Shortcode extends Shortcode_Base{
     
     
             do_action( 'wpto_action_before_table', $this->table_id, $this->args, $this->column_settings, $this->_enable_cols, $this->_config, $this->atts );
+            $this->instance_search_render();
             $this->mini_filter_render();
             if($this->checkbox_validation){
                 Checkbox_Box::render($this);
@@ -568,9 +570,12 @@ class Shortcode extends Shortcode_Base{
          * @since 3.2.8.0
          */
         $this->template = $this->table_style['template'] ?? 'default';
+
         $filter_box = $this->search_n_filter['filter_box'] ?? '';
         $this->filter_box = $filter_box == 'yes' ? true : false;
-        
+        $instance_search =$this->_config['instant_search_filter'] ?? false;
+        $this->instance_search = $instance_search == '1' ? true : false;
+
         $search_box = $this->search_n_filter['search_box'] ?? '';
         $this->search_box = $search_box == 'yes' ? true : false;
         
@@ -909,6 +914,10 @@ class Shortcode extends Shortcode_Base{
     public function mini_filter_render(){
         if( ! $this->filter_box ) return;
         Mini_Filter::render($this);
+    }
+    public function instance_search_render(){
+        if( ! $this->instance_search ) return;
+        Element::instance_search($this);
     }
 
     /**

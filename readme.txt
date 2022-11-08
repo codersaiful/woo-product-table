@@ -276,6 +276,9 @@ You can easily show specific category products. While creating new table click o
 == Changelog ==
 
 = 3.3.0 =
+* Fixed: Instance Search Issue fixed on new version.
+
+= 3.3.0 =
 * Fixed: All selected checkbox issue on pagination - has been solved.
 * Fixed: Error: `Uncaught Error: Call to a member function get_id() on null` issue has been fixed. Help us [signosis](https://github.com/signosis) to findout that issue by creating a Github issue [#254](https://github.com/codersaiful/woo-product-table/issues/254).
 * Fixed: Resave issue fixed.

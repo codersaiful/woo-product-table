@@ -28,8 +28,8 @@ foreach($terms as $term){
                 </th>
                 <td>
                     <select name="search_n_filter[search_box]" data-name='search_box' id="wpt_search_box" class="wpt_fullwidth wpt_data_filed_atts ua_input wpt_toggle" data-on="yes|.wpt_snf_on_off" >
-                        <option value="no" <?php echo isset( $meta_search_n_filter['search_box'] ) && $meta_search_n_filter['search_box'] == 'no' ? 'selected' : ''; ?>><?php esc_html_e( 'Hide Search Box', 'wpt_pro' ); ?></option>
                         <option value="yes" <?php echo isset( $meta_search_n_filter['search_box'] ) && $meta_search_n_filter['search_box'] == 'yes' ? 'selected' : ''; ?>><?php esc_html_e( 'Show Search Box', 'wpt_pro' ); ?></option>
+                        <option value="no" <?php echo isset( $meta_search_n_filter['search_box'] ) && $meta_search_n_filter['search_box'] == 'no' ? 'selected' : ''; ?>><?php esc_html_e( 'Hide Search Box', 'wpt_pro' ); ?></option>
                     </select>
                     <p class="warning">
                         <b><?php echo esc_html__( 'Tips:', 'wpt_pro' ); ?></b>
