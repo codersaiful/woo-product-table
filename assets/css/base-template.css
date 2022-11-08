@@ -354,9 +354,8 @@ tr.wpt-row.wpt-added-to-cart>td:last-child::after {
   left: unset;
   right: 0;
 }
-
-.wpt-wrap .instance_search_wrapper {
-  margin-top: 20px;
+.instance_search_wrapper input.instance_search_input {
+  margin: 0;
 }
 /*Others*/
 .wpt-wrap tbody tr td .music_title {
