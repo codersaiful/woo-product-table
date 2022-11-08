@@ -594,7 +594,6 @@ jQuery(function($) {
                 wpt_custom_message: wpt_custom_message,
                 additional_json: additional_json,
             };
-            console.log(data,ajax_url);
 
             $.ajax({
                 type: 'POST',
@@ -1828,7 +1827,7 @@ jQuery(function($) {
 
         upateGlobalCheckboxCount();
         function upateGlobalCheckboxCount(){
-            console.log('upateGlobalCheckboxCount()');
+            // console.log('upateGlobalCheckboxCount()');
             
             var add_cart_text = $('.wpt-wrap').data('basic_settings').add_to_cart;
             var currentAllSelectedButtonSelector = $('body a.wpt-global-added-to-cart>span');
