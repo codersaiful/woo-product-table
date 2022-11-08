@@ -84,7 +84,7 @@ $data = isset( $meta_basics['data'] ) ? $meta_basics['data'] : false;
                     <label style="display: inline;width: inherit;" class="wpt_label wpt_column_hide_unhide_tab" for="wpt_table_head_enable"><?php esc_html_e( 'Table Head', 'wpt_pro' );?></label>
                 </th>
                 <td>
-                    <label class="switch">
+                    <label class="switch switch-reverse">
                         <input  name="basics[table_head]" type="checkbox" id="wpt_table_head_enable" <?php echo isset( $meta_basics['table_head'] ) ? 'checked="checked"' : ''; ?>>
                         <div class="slider round"><!--ADDED HTML -->
                             <span class="on">Hide</span><span class="off">Show</span><!--END-->

@@ -150,7 +150,7 @@ class Shortcode_Ajax extends Shortcode{
         
         /******Development Perpos************
         ob_start();
-        var_dump($max_page,$page_number,$this->args);
+        var_dump($max_page,$page_number,$this->pagination);
         // var_dump('DOING_AJAX',DOING_AJAX);
         // var_dump($this->pagination, $this->paginated_load);
         // var_dump($_POST,$this->args,$max_page, $page_number);
@@ -162,10 +162,16 @@ class Shortcode_Ajax extends Shortcode{
         
         
         
+        /**
+         * $this->pagination = 'on' mean: number pagination,
+         * otherwise, for load more, it's value
+         * 'load_more'
+         * for inifinite, it's value 'infinite_scrool'
+         */
         //We are not agable to set condition page on pagination on.
         //karon: jodi condition ekhane dei, ar search onusare pagination na thake, seta faka hoya dorokar, kintu ta hobe na.
         $output['.wpt_my_pagination.wpt_table_pagination'] = Pagination::get_paginate_links( $this );
-        if( $max_page == $page_number || $max_page == 0){
+        if( ( $this->pagination !== 'on' && $max_page == $page_number ) || $max_page == 0){
             $output['.wpt_load_more_wrapper'] = $output['.wpt_my_pagination.wpt_table_pagination'] = '';
         }
 

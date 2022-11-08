@@ -457,6 +457,7 @@ class Row extends Table_Base{
             'data' => $this->product_data,
             'config_value' => $this->table_config,
             'column_settings' => $this->column_settings,
+            'column_array' => $this->column_array,
             'checkbox' =>  $this->checkbox,
             'table_column_keywords' => $this->_enable_cols,
             'ajax_action' => $this->ajax_action,

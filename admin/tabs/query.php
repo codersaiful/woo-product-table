@@ -391,8 +391,12 @@ unset($catalog_orderby_options['menu_order']);
                     <label class="wpt_label" for="wpt_posts_per_page"><?php esc_html_e( 'Posts per page', 'wpt_pro' ); ?></label>
                 </th>
                 <td>
-                    <input name="conditions[posts_per_page]" data-name='posts_per_page' value="<?php echo isset( $meta_conditions['posts_per_page'] ) ?$meta_conditions['posts_per_page'] : '20'; ?>" id="wpt_posts_per_page" class="wpt_fullwidth wpt_data_filed_atts ua_input" type="number" pattern="[0-9]*" placeholder="<?php esc_attr_e( 'Eg: 50 (for display 20 products', 'wpt_pro' ); ?>" value="20">
-                    <p>Posts limit on each load. </p>
+                    <input name="conditions[posts_per_page]" data-name='posts_per_page' value="<?php echo isset( $meta_conditions['posts_per_page'] ) ?$meta_conditions['posts_per_page'] : '20'; ?>" id="wpt_posts_per_page" class="wpt_fullwidth wpt_data_filed_atts ua_input" type="number" pattern="[0-9]*" placeholder="<?php esc_attr_e( 'Eg: 50 (for display 50 products', 'wpt_pro' ); ?>" value="20">
+                    <p>Posts limit on each load.</p>
+                    <p class="warning">
+                        <b>Tips:</b>
+                        <span>Maximum should <code>200</code> and recommended maximum limit: 100.</span>
+                    </p>
                 </td>
             </tr>
 

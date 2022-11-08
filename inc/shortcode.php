@@ -188,6 +188,7 @@ class Shortcode extends Shortcode_Base{
 
 
     public $filter_box;
+    public $instance_search;
     public $filter;
 
     public $orderby;
@@ -271,6 +272,7 @@ class Shortcode extends Shortcode_Base{
     
     
             do_action( 'wpto_action_before_table', $this->table_id, $this->args, $this->column_settings, $this->_enable_cols, $this->_config, $this->atts );
+            $this->instance_search_render();
             $this->mini_filter_render();
             if($this->checkbox_validation){
                 Checkbox_Box::render($this);
@@ -473,9 +475,10 @@ class Shortcode extends Shortcode_Base{
         $this->basics = $this->get_meta( 'basics' );
         $product_type = $this->basics['product_type'] ?? null;
         $this->req_product_type = ! empty( $product_type ) ? $product_type : 'product';
-        $this->_enable_cols = get_post_meta( $this->table_id, 'enabled_column_array' . $this->_device, true );
-        $this->column_array = get_post_meta( $this->table_id, 'column_array' . $this->_device, true );
-        $this->column_settings = get_post_meta( $this->table_id, 'column_settings' . $this->_device, true);
+        $enabled_column_array = get_post_meta( $this->table_id, 'enabled_column_array' . $this->_device, true );
+        $column_array = get_post_meta( $this->table_id, 'column_array' . $this->_device, true );
+        $column_settings = get_post_meta( $this->table_id, 'column_settings' . $this->_device, true);
+
         
         
         $responsive = $this->basics['responsive'] ?? false;
@@ -567,9 +570,12 @@ class Shortcode extends Shortcode_Base{
          * @since 3.2.8.0
          */
         $this->template = $this->table_style['template'] ?? 'default';
+
         $filter_box = $this->search_n_filter['filter_box'] ?? '';
         $this->filter_box = $filter_box == 'yes' ? true : false;
-        
+        $instance_search =$this->_config['instant_search_filter'] ?? false;
+        $this->instance_search = $instance_search == '1' ? true : false;
+
         $search_box = $this->search_n_filter['search_box'] ?? '';
         $this->search_box = $search_box == 'yes' ? true : false;
         
@@ -580,13 +586,16 @@ class Shortcode extends Shortcode_Base{
         }
         
 
-        //we will removed this filter after few version. 
-        $this->_enable_cols = apply_filters( 'wpto_enabled_column_array', $this->_enable_cols, $this->table_id, $this->atts, $this->column_settings, $this->column_array );
+        $this->column_array = apply_filters( 'wpto_column_arr', $column_array, $this->table_id, $atts, $column_settings, $enabled_column_array );
+        //we will removed this filter after few version. Not really, there are some old user available.
+        $this->_enable_cols = apply_filters( 'wpto_enabled_column_array', $enabled_column_array, $this->table_id, $this->atts, $this->column_settings, $this->column_array );
         /**
          * @Hook Filter wpto_enabled_column_array to change or modify column amount, we can use it.
          */
         $this->_enable_cols = apply_filters('wpt_enabled_column', $this->_enable_cols, $this);
 
+        $this->column_settings = apply_filters( 'wpto_column_settings', $column_settings, $this->table_id, $this->_enable_cols );
+        
         /**
          * Column Management Here
          */
@@ -905,6 +914,10 @@ class Shortcode extends Shortcode_Base{
     public function mini_filter_render(){
         if( ! $this->filter_box ) return;
         Mini_Filter::render($this);
+    }
+    public function instance_search_render(){
+        if( ! $this->instance_search ) return;
+        Element::instance_search($this);
     }
 
     /**

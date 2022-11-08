@@ -22,4 +22,23 @@ class Element{
     </div>
         <?php
     }
+
+    /**
+     * Instance Search just before Mini Filter Box.
+     * need to enable from configuration page.
+     *
+     * @param Shortcode $shortcode
+     * @return void
+     */
+    public static function instance_search( Shortcode $shortcode ){
+        
+        $placeholder = $shortcode->_config[''] ?? '';
+        ?>
+        <div class='instance_search_wrapper'>
+        <input data-temp_number='<?php echo esc_attr( $shortcode->table_id ); ?>' 
+        placeholder='<?php echo esc_attr( $placeholder ); ?>' 
+        class='instance_search_input'>   
+        </div>
+        <?php 
+    }
 }

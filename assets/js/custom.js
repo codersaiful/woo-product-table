@@ -548,8 +548,11 @@ jQuery(function($) {
             var qtyElement = $('#table_id_' + temp_number + ' #product_id_' + product_id + ' input.input-text.qty.text');
             var min_quantity = qtyElement.attr('min');//.val();
             
-            if( ( typeof min_quantity === 'undefined' || min_quantity === '0' ) && !WPT_DATA.return_zero ){
+            if( typeof min_quantity === 'undefined' && !WPT_DATA.return_zero ){
                 min_quantity = 1;
+            }
+            if(WPT_DATA.return_zero){
+                min_quantity = 0;
             }
             //For Direct Checkout page and Quick Button Features
             var checkoutURL = WPT_DATA.checkout_url;//$('#table_id_' + temp_number).data('checkout_url');
@@ -591,7 +594,6 @@ jQuery(function($) {
                 wpt_custom_message: wpt_custom_message,
                 additional_json: additional_json,
             };
-            console.log(data,ajax_url);
 
             $.ajax({
                 type: 'POST',
@@ -1825,7 +1827,7 @@ jQuery(function($) {
 
         upateGlobalCheckboxCount();
         function upateGlobalCheckboxCount(){
-            console.log('upateGlobalCheckboxCount()');
+            // console.log('upateGlobalCheckboxCount()');
             
             var add_cart_text = $('.wpt-wrap').data('basic_settings').add_to_cart;
             var currentAllSelectedButtonSelector = $('body a.wpt-global-added-to-cart>span');
@@ -2337,6 +2339,7 @@ jQuery(function($) {
         
         //* Removeing link for cat and tag texonomy
         removeCatTagLings();
+        $(document.body).on('wpt_ajax_loaded',removeCatTagLings);
         /**
          * Removing Linkg for Categories link and from Tag's link.
          * We will remove link by JavaScript I mean: jQuery
@@ -2346,7 +2349,8 @@ jQuery(function($) {
          */
         function removeCatTagLings(){
            if(config_json.disable_cat_tag_link === '1'){
-                $('.wpt_category a,.wpt_tags a,.wpt_custom_tax a').contents().unwrap();
+                // $('.wpt_category a,.wpt_tags a,.wpt_custom_tax a').contents().unwrap();
+                $('.wpt_category a,.wpt_tags a,.wpt_custom_tax a').removeAttr("href");
             } 
         }
         // Removing link feature End here  */
@@ -2587,7 +2591,10 @@ jQuery(function($) {
 
         });
         
-       
+        $(document.body).on('wpt_ajax_load_data',function(e,data){
+            var temp_number = data.table_id;
+            uncheckAllCheck(temp_number);
+        });
         $(document).on( 'reset_data', 'div.advance_table_wrapper table.advance_table.wpt_product_table form.cart', function() {
             var thisRow = $(this).parents('tr.wpt_row');
 
