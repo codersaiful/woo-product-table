@@ -913,15 +913,15 @@ if( ! function_exists( 'wpt_explode_string_to_array' ) ){
      * @param Array $default_array Actually if not fount a real String, and if we want to return and default value, than we can set here. 
      * @return Array This function will generate comman string to Array
      */
-    function wpt_explode_string_to_array( $string,$default_array = false ) {
+    function wpt_explode_string_to_array( $string,$default_array = [] ) {
 
-        $final_array = false;
+        $final_array = [];
         if ( $string && is_string( $string ) ) {
             $string = rtrim( $string, ', ' );
             $final_array = explode( ',', $string );
         } else {
             if( is_array( $default_array ) ){
-            $final_array = $default_array;
+                $final_array = $default_array;
             }
         }
         return $final_array;
