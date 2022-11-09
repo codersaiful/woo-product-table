@@ -197,8 +197,10 @@ div.tables_cart_message_box .widget_shopping_cart_content {
 .wpt-wrap div.tables_cart_message_box a.remove.remove_from_cart_button {
     color: transparent !important;
 }
-.wpt-wrap div.tables_cart_message_box div.widget_shopping_cart_content li.woocommerce-mini-cart-item.mini_cart_item * {
-    display: contents;
+/* .wpt-wrap div.tables_cart_message_box div.widget_shopping_cart_content li.woocommerce-mini-cart-item.mini_cart_item * { */
+.wpt-wrap div.tables_cart_message_box div.widget_shopping_cart_content li.woocommerce-mini-cart-item.mini_cart_item a img {
+    /* display: contents; */
+    display: none;
 }
 .wpt-wrap div.tables_cart_message_box div.widget_shopping_cart_content .total * {
     font-size: 18px;

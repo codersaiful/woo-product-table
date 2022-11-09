@@ -276,7 +276,9 @@ You can easily show specific category products. While creating new table click o
 == Changelog ==
 
 = 3.3.0 =
+* Fixed: Minicart image's issue solved.
 * Fixed: Instance Search Issue fixed on new version.
+* Bug Fixed.
 
 = 3.3.0 =
 * Fixed: All selected checkbox issue on pagination - has been solved.

@@ -551,7 +551,7 @@ jQuery(function($) {
             if( typeof min_quantity === 'undefined' && !WPT_DATA.return_zero ){
                 min_quantity = 1;
             }
-            if(WPT_DATA.return_zero){
+            if(WPT_DATA.return_zero === '1'){
                 min_quantity = 0;
             }
             //For Direct Checkout page and Quick Button Features
