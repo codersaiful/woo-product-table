@@ -26,6 +26,9 @@ class Shortcode extends Shortcode_Base{
     /**
      * If not passed over filter hook 
      * the args Attribute.
+     * 
+     * Default value obviusly need null.
+     * Remember it.
      *
      * @var bool|null
      */
@@ -311,6 +314,14 @@ class Shortcode extends Shortcode_Base{
                 Checkbox_Box::render($this, 'footer');
             }
             
+            /**
+             * Pagination's this part/method, only need when pagination will number.
+             * and in our plugin, pagination value 'on' means number. for other,
+             * value will be different. like: load_more, infinite_scroll etc.
+             * 
+             * We will call Pagination::render() Only when pagination is number
+             * mean: pagination value is 'on'
+             */
 
             switch($this->pagination){
                 case 'on':
@@ -773,11 +784,20 @@ class Shortcode extends Shortcode_Base{
      * I have made two hook primarily
      * * wpto_table_query_args which is old, I will remove it in future update
      * * wpt_query_args It's final hook, where User will get Own Object as second Params.
+     * 
+     * ADDITIONAL:
+     * ***********************
+     * Condition has added to make more faster 
+     * not only fuster, It not add this, args value is changing inside ajax request.
+     * new added line is: 
+     * if( $this->args_organized ) return $this;
+     * at the begining of this method.
      *
-     * @return this|object|Shortcode
+     * @return null|object|Shortcode
      */
     protected function argsOrganize(){
-        
+        if( $this->args_organized ) return $this;
+
         $this->args = apply_filters( 'wpto_table_query_args', $this->args, $this->table_id, $this->atts, $this->column_settings, $this->_enable_cols, $this->column_array );
         /**
          * @Hook filter wpt_query_args manage wpt table query args using filter hook
@@ -787,11 +807,30 @@ class Shortcode extends Shortcode_Base{
         return $this;
     }
 
+    /**
+     * Getting product loop inside our main Shortcode Object/Class becuase 
+     * we need it before display table. 
+     * such: based on products count, we will show pagination or not show etc mater
+     * 
+     * 
+     *
+     * @return object|null|array return Query object and we can do anything based on this object. 
+     */
     protected function get_product_loop(){
         if( $this->product_loop ) return $this->product_loop;
-        if( ! $this->args_organized ){
-            $this->argsOrganize();
-        }
+
+        /**
+         * There was a condition like:
+         * if( ! $this->args_organized )
+         * But I have remove it, because, Now I checked condition
+         * inside argsOrganize() method
+         * 
+         * @since 3.3.1.0
+         */
+        $this->argsOrganize();
+        // if( ! $this->args_organized ){
+            
+        // }
         
         return new \WP_Query( $this->args );
     }

@@ -16,6 +16,14 @@ class Pagination{
      */
     public static function render( Shortcode $shortcode ){
 
+        /**
+         * Pagination's this part/method, only need when pagination will number.
+         * and in our plugin, pagination value 'on' means number. for other,
+         * value will be different. like: load_more, infinite_scroll etc.
+         */
+
+         //At this moment, I just disable it. but I think, I can enable it without any issue. 
+         //Actually I have to check.
         // if( 'on' !== $shortcode->pagination ) return;
         ?>
         <div data-base_link="<?php echo esc_attr( $shortcode->pagination_base_url ); ?>" class='wpt_my_pagination wpt-my-pagination-<?php echo $shortcode->table_id; ?> wpt_table_pagination' data-table_id='<?php echo $shortcode->table_id; ?>'>
@@ -35,12 +43,21 @@ class Pagination{
      * @return void
      */
     public static function get_paginate_links( Shortcode $shortcode ){
-        // if( 'on' !== $shortcode->pagination ) return;
-        $args = $shortcode->args;
-        $product_loop = new \WP_Query($args);
 
         /**
-         * @Hook Filter for pagination 
+         * Pagination's this part/method, only need when pagination will number.
+         * and in our plugin, pagination value 'on' means number. for other,
+         * value will be different. like: load_more, infinite_scroll etc.
+         */
+
+        if( 'on' !== $shortcode->pagination ) return;
+        $args = $shortcode->args;
+
+        /**
+         * @Hook Filter (wpt_paginate_args) for pagination 
+         * as a param, I added args
+         * Because no need more or full object here.
+         * If need, we able to add or assign
          */
         $paginate_args = apply_filters('wpt_paginate_args', array(
             'base' => $shortcode->pagination_base_url,
@@ -48,8 +65,8 @@ class Pagination{
             'mid_size'  =>  3,
             'prev_next' =>  false,
             'current' => max( 1, $args['paged'] ),
-            'total' => $product_loop->max_num_pages
-        ), $shortcode);
+            'total' => $shortcode->max_num_pages,
+        ), $args);
         $paginate = paginate_links( $paginate_args );
         return $paginate;
     }
