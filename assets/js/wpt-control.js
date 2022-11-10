@@ -43,23 +43,16 @@ jQuery(function($) {
                 url: ajax_url,
                 data: data,
                 success:function(result){
-                    /**
-                     * Development perpost,
-                     * Actually I have used wp_send_json( $output );
-                     * which return object. which is json object.
-                     * But If I want to work for development perpose, I need to 
-                     * send output to a table.
-                     */
-                    if( typeof result == 'string' ){
+
+                    if( typeof result === 'string' ){
                         $('#table_id_' + table_id + ' table#wpt_table tbody').html(result); 
                         return; 
                     }
-                    console.log(typeof result);
-                    // console.dir(result);
-                    // console.log(result);
-                    // console.log(load_type);
 
-                    
+                    if( typeof result !== 'object' ){
+                        return;
+                    }
+
 
                     if ( result && load_type !== 'load_more') {
                         $.each( result, function( key, value ) {

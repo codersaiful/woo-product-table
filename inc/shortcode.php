@@ -286,6 +286,7 @@ class Shortcode extends Shortcode_Base{
                 <?php $this->stats_render(); ?>
             </div>
             <div class="wpt_table_tag_wrapper">
+                <div class="wpt-ob_get_clean"></div>
                 <!-- data-config_json attr is important for custom.js-->
                 <table 
                 data-page_number="<?php echo esc_attr( $this->page_number + 1 ); ?>"

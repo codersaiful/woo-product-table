@@ -1657,7 +1657,9 @@ td.wpt-replace-td-in-tr div.td_or_cell.wpt_thumbnails{
 td.wpt-replace-td-in-tr div.td_or_cell.wpt_product_title {
     order: 2;
 }
-  
+.wpt_table_tag_wrapper div.wpt-ob_get_clean:empty {
+    display: none !important;
+}  
 
 
 /* Small devices (portrait tablets and large phones, 600px and up) */

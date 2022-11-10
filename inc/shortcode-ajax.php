@@ -134,11 +134,35 @@ class Shortcode_Ajax extends Shortcode{
          * for ajax also
          */
         $this->set_product_loop();
+
+        /**
+         * Why i have added this $ob_get_clean = ob_get_clean();
+         * Actually for product ajax load, we have used 
+         * wp_send_json() 
+         * and if found vardum or any worning, this function will not work
+         * and table will frezz, So I have clean here
+         * and now all other things will work.
+         * And assign $output['.wpt-ob_get_clean'] = $ob_get_clean; 
+         * into a class which is markuped inside table wrapper tag.
+         * file: inc/shortcode.php 
+         * 
+         * @since 3.3.1.0
+         * @author Saiful Islam <codersaiful@gmail.com>
+         */
+        $ob_get_clean = ob_get_clean();
         $output = [];
+        $output['.wpt-ob_get_clean'] = $ob_get_clean;
+
+        //Whole Table Body part here
         ob_start();
         $this->argsOrganize()->table_body();
         $output['table.wpt-tbl>tbody'] = ob_get_clean();
 
+        //Table stats mean: Showing 0 - 0 out of 0 Page 0 out of 0
+        ob_start();
+        $this->argsOrganize()->stats_render();
+        $output['.wpt-stats-report'] = ob_get_clean();
+        
         /**
          * The $max_page Defining should here after call $this->argsOrganize()->table_body();
          * Otherwise, Real page number and Max page number will not be ouptput actually
@@ -147,20 +171,6 @@ class Shortcode_Ajax extends Shortcode{
          */
         $max_page = (int) $this->max_num_pages;
         $page_number = (int) $page_number;
-        
-        /******Development Perpos************
-        ob_start();
-        var_dump($max_page,$page_number,$this->pagination);
-        // var_dump('DOING_AJAX',DOING_AJAX);
-        // var_dump($this->pagination, $this->paginated_load);
-        // var_dump($_POST,$this->args,$max_page, $page_number);
-        $output['.all_check_header_footer'] = ob_get_clean();
-        //****************************/
-        ob_start();
-        $this->argsOrganize()->stats_render();
-        $output['.wpt-stats-report'] = ob_get_clean();
-        
-        
         
         /**
          * $this->pagination = 'on' mean: number pagination,
@@ -177,6 +187,14 @@ class Shortcode_Ajax extends Shortcode{
 
 
         /**
+         * Added a new Variable: $ob_get_clean = ob_get_clean();
+         * which is fixed many issue and now no need this development part.
+         * No need to comment on off actually.
+         * We have shown our development part on ajax,
+         * location class is: wpt-ob_get_clean and html <div class="wpt-ob_get_clean"></div>
+         * which is inside inc/sortcode.php inside table wrpatter tag.
+         * 
+         * **************************
          * Only for Development Perpose,
          * When user would like to debug of
          * Table content OR inside Table table content.
