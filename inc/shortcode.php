@@ -648,6 +648,8 @@ class Shortcode extends Shortcode_Base{
         $this->is_column_label = $this->table_style['tr.wpt_table_head th']['auto-responsive-column-label'] ?? false;
 
         $this->assing_property = true;
+
+        return $this;
     }
 
     public function enqueue(){
