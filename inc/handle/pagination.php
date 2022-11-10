@@ -63,7 +63,7 @@ class Pagination{
             'base' => $shortcode->pagination_base_url,
             'format' => apply_filters( 'wpto_pagination_format', '?paged=%#%', $args ),
             'mid_size'  =>  3,
-            'prev_next' =>  false,
+            'prev_next' =>  false, //We can enable next prev but before enable, I have to work more in js. because, we taken page number from html of number
             'current' => max( 1, $args['paged'] ),
             'total' => $shortcode->max_num_pages,
         ), $args);
