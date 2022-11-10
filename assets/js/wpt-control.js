@@ -43,9 +43,23 @@ jQuery(function($) {
                 url: ajax_url,
                 data: data,
                 success:function(result){
+                    /**
+                     * Development perpost,
+                     * Actually I have used wp_send_json( $output );
+                     * which return object. which is json object.
+                     * But If I want to work for development perpose, I need to 
+                     * send output to a table.
+                     */
+                    if( typeof result == 'string' ){
+                        $('#table_id_' + table_id + ' table#wpt_table tbody').html(result); 
+                        return; 
+                    }
+                    console.log(typeof result);
+                    // console.dir(result);
+                    // console.log(result);
                     // console.log(load_type);
-                    // $('.wpt_edit_table').html(result);
-                    // $('table tbody').html(result); return; //This is Development perpose line. On Development time, Enable this line
+
+                    
 
                     if ( result && load_type !== 'load_more') {
                         $.each( result, function( key, value ) {
