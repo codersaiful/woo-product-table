@@ -275,6 +275,11 @@ You can easily show specific category products. While creating new table click o
 
 == Changelog ==
 
+= 3.3.1 =
+* Speed optimized.
+* Bug Fixed 
+* Search issue fixed.
+
 = 3.3.0 =
 * Fixed: Minicart image's issue solved.
 * Fixed: Instance Search Issue fixed on new version.
