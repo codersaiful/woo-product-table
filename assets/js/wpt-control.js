@@ -43,9 +43,16 @@ jQuery(function($) {
                 url: ajax_url,
                 data: data,
                 success:function(result){
-                    // console.log(load_type);
-                    // $('.wpt_edit_table').html(result);
-                    // $('table tbody').html(result); return; //This is Development perpose line. On Development time, Enable this line
+
+                    if( typeof result === 'string' ){
+                        $('#table_id_' + table_id + ' table#wpt_table tbody').html(result); 
+                        return; 
+                    }
+
+                    if( typeof result !== 'object' ){
+                        return;
+                    }
+
 
                     if ( result && load_type !== 'load_more') {
                         $.each( result, function( key, value ) {

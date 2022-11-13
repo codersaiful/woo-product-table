@@ -90,6 +90,9 @@ td.wpt_thumbnails_no_action img {
     top: 3px;
     left: 21%;
 }
+td.wpt_thumbnails img.lazyloaded + .lazyloaded,td.wpt_thumbnails img.ls-is-cached.lazyloaded + img.ls-is-cached.lazyloaded, td.wpt_thumbnails img.ls-is-cached + .ls-is-cached {
+    display: none;
+}
 th.wpt_total, td.wpt_total,
 th.wpt_price, td.wpt_price{
     text-align: center;
@@ -1654,7 +1657,9 @@ td.wpt-replace-td-in-tr div.td_or_cell.wpt_thumbnails{
 td.wpt-replace-td-in-tr div.td_or_cell.wpt_product_title {
     order: 2;
 }
-  
+.wpt_table_tag_wrapper div.wpt-ob_get_clean:empty {
+    display: none !important;
+}  
 
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
