@@ -38,7 +38,7 @@ class Shortcode_Ajax extends Shortcode{
                 unset($this->args['meta_query']);
             }
             
-            $this->args = array_merge( $this->args, $temp_args );
+            $this->args = array_merge_recursive($this->args, $temp_args);
         }
 
 
