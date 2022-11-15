@@ -550,9 +550,10 @@ body.wpt_table_body .wpt-wrap table tbody tr.wpt_row>td a.wpt_product_title_in_t
   float: unset;
   margin: 0;
   flex-wrap: nowrap;
+  gap: 0;
 }
 .wpt-wrap .qib-button-wrapper div.quantity.wqpmb_quantity{
-  height: 33px;
+  height: 37px;
 }
 .wpt_action input.input-text.qty.text,
 .wpt-wrap .qib-button-wrapper .quantity input.input-text.qty.text,
