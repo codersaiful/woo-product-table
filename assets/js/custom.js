@@ -1763,7 +1763,11 @@ jQuery(function($) {
             var product_id = $(this).parents('tr').data('product_id');
         
             var thisRow = '#table_id_' + temp_number + ' tr.product_id_' + product_id;
-            
+            var outofstockVal = $(thisRow).hasClass("stock_status_outofstock");
+            if(outofstockVal){
+                Qty_Val = 0;
+            }
+
             $( thisRow + ' input.input-text.qty.text').val(Qty_Val); // input.input-text.qty.text
             $( thisRow ).attr('data-quantity', Qty_Val);
             $( thisRow + ' a.wpt_woo_add_cart_button').attr('data-quantity', Qty_Val);
@@ -1819,7 +1823,7 @@ jQuery(function($) {
 
             $('.yith_request_temp_' + temp_number + '_id_' + product_id).attr('data-quantity', Qty_Val);
             $('#table_id_' + temp_number + ' .product_id_' + product_id + ' .wpt_total_item.total_general strong').html(newPrice);
-            $('tr.stock_status_outofstock .wpt_total_item.total_general strong').html("00");
+            // $('tr.stock_status_outofstock .wpt_total_item.total_general strong').html("00");
             //$(target_row_id + ' a.add_to_cart_button').attr('data-quantity', Qty_Val); //wpt_total_item total_general
             
             updateCheckBoxCount(temp_number);
