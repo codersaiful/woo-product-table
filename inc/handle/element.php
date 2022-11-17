@@ -31,8 +31,7 @@ class Element{
      * @return void
      */
     public static function instance_search( Shortcode $shortcode ){
-        
-        $placeholder = $shortcode->_config[''] ?? '';
+        $placeholder = $shortcode->_config['instant_search_text'] ?? '';
         ?>
         <div class='instance_search_wrapper'>
         <input data-temp_number='<?php echo esc_attr( $shortcode->table_id ); ?>' 

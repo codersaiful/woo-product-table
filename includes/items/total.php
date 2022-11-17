@@ -32,7 +32,7 @@ $total_price = !empty( get_post_meta($product->get_id(), $wholesale_meta_key, tr
 $stock = $product->get_stock_quantity();
 $product_type = $product->get_type();
 if( is_numeric( $stock ) && $stock == 0 && ($product_type == 'variation' || $product_type == 'simple')){ // 
-    $newPrice = "00";
+     $newPrice = "0.00" ;
 }
 /**
  * Filter for Getting original Flat price to calculate Total

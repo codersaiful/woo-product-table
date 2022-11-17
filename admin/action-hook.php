@@ -293,17 +293,6 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
                             </select>
                         </td>
                     </tr>
-                    <tr> 
-                        <th> <label class="wpt_label" for="wpt_table_disable_loading_more"><?php echo sprintf(esc_html__( '%sLoad More%s Button', 'wpt_pro' ), '<b>', '</b>' ); ?></label></th>
-                        <td>
-                            <select name="<?php echo esc_attr( $field_name ); ?>[disable_loading_more]" id="wpt_table_disable_loading_more" class="wpt_fullwidth ua_input" >
-                                <?php wpt_default_option( $page ) ?>
-                                <option value="load_more_hidden" <?php wpt_selected( 'disable_loading_more', 'load_more_hidden', $current_config_value ); ?>><?php esc_html_e( 'Hide', 'wpt_pro' ); ?></option>
-                                <option value="normal" <?php wpt_selected( 'disable_loading_more', 'normal', $current_config_value ); ?>><?php esc_html_e( 'Show', 'wpt_pro' ); ?></option>
-                            </select>
-                            <p class="warning"><?php echo sprintf(esc_html__( '%1$sLoad more will not work%2$s on WooCommerce shop, archive page or created shop archive page by any page builder. %1$sThis feature will only work on table page where table shortcode pasted.%2$s', 'wpt_pro' ), '<b>', '</b>'); ?></p>
-                        </td>
-                    </tr>
 
                     <tr> 
                         <th> <label class="wpt_label" for="wpt_table_instant_search_filter"><?php esc_html_e( 'Instance Search Filter', 'wpt_pro' ); ?></label></th>
