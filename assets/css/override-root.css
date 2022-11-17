@@ -40,7 +40,7 @@ td.wpt-replace-td-in-tr {
     color: var(--wpt_text);
 }
 
-.wp-block-button__link {
+body.wpt_table_body .wpt-wrap .wp-block-button__link {
     background: var(--wpt_primary) !important;
 }
 
