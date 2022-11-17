@@ -81,6 +81,7 @@ class Row extends Table_Base{
     public $protduct;
     public $product_data;
     public $base;
+    public $display = true;
 
 
     public function __construct( Shortcode $shortcode ){
@@ -177,20 +178,35 @@ class Row extends Table_Base{
 
     
     public function render(){
+        /**
+         * Row class assing at the before of 
+         * @Hook wpt_table_row
+         * 
+         * because, we can be need assinging something on class.
+         */
+        $this->tr_class = Table_Attr::tr_class( $this );
+
         global $product;
+        $this->data_tax = apply_filters( 'wpto_table_row_attr', $this->data_tax, $product, false, $this->column_settings, $this->table_id );
+        $this->data_tax = $this->apply_filter( 'wpt_table_row_attr', $this->data_tax );
+        
+        /**
+         * Total Row Handle from Here
+         * Using action hook.
+         * 
+         * @since 3.3.2.0
+         * @author Saiful Islam <codersaiful@gmail.com>
+         */
+        $this->do_action('wpt_table_row');
+        
         if($this->wp_force){
             wp('p=' . $this->product_id . '&post_type=product');
         }
         extract($this->data_for_extract());
 
-        $tr_classs = Table_Attr::tr_class( $this );
-
-
-        $this->data_tax = apply_filters( 'wpto_table_row_attr', $this->data_tax, $product, false, $this->column_settings, $this->table_id );
-        $this->data_tax = $this->apply_filter( 'wpt_table_row_attr', $this->data_tax );
         ?>
         <tr
-        class="<?php echo esc_attr( $tr_classs ); ?>"
+        class="<?php echo esc_attr( $this->tr_class ); ?>"
         
         id="product_id_<?php echo esc_attr( $this->product_id ); ?>"
         data-product_id="<?php echo esc_attr( $this->product_id ); ?>"
