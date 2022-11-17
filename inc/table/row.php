@@ -15,7 +15,7 @@ class Row extends Table_Base{
     public $product_parent_id;
     public $product_type;
     public $product_sku;
-    public $data_tax = null;
+    public $row_attr = null;
     public $_device;
 
     /**
@@ -75,6 +75,7 @@ class Row extends Table_Base{
     public $product_stock_status_class;
 
     public $table_id;
+    public $table_atts;
     public $table_type;
     public $is_column_label;
 
@@ -92,6 +93,7 @@ class Row extends Table_Base{
         $this->posts_per_page = $shortcode->posts_per_page;
 
         $this->table_id = $shortcode->table_id;
+        $this->table_atts = $shortcode->atts;
         $this->table_type = $shortcode->table_type;
         $this->product_id = $product->get_id();
         $this->product_type = $product->get_type();
@@ -107,7 +109,7 @@ class Row extends Table_Base{
         }
 
         if($this->filter){
-            $this->generate_taxo_n_data_tax( $this->filter );
+            $this->generate_taxo_n_row_attr( $this->filter );
         }
         
 
@@ -154,7 +156,7 @@ class Row extends Table_Base{
      * @param Array $filter
      * @return void
      */
-    protected function generate_taxo_n_data_tax( $filter ){
+    protected function generate_taxo_n_row_attr( $filter ){
         if( empty( $filter ) ) return;
         if( is_string( $filter ) ){
             $filter = $this->string_to_array( $filter );
@@ -171,7 +173,7 @@ class Row extends Table_Base{
                 $this->taxonomy_class .= $tax_keyword . '_' . $this->table_id . '_' . $term->term_id . ' ';
                 $attr_value .= $term->term_id . ':' . $term->name . ', ';
             }
-            $this->data_tax .= $attr . '"' . $attr_value . '" ';
+            $this->row_attr .= $attr . '"' . $attr_value . '" ';
         }
 
     }
@@ -187,8 +189,7 @@ class Row extends Table_Base{
         $this->tr_class = Table_Attr::tr_class( $this );
 
         global $product;
-        $this->data_tax = apply_filters( 'wpto_table_row_attr', $this->data_tax, $product, false, $this->column_settings, $this->table_id );
-        $this->data_tax = $this->apply_filter( 'wpt_table_row_attr', $this->data_tax );
+        $this->row_attr = $this->apply_filter( 'wpt_table_row_attr', $this->row_attr );
         
         /**
          * Total Row Handle from Here
@@ -198,6 +199,8 @@ class Row extends Table_Base{
          * @author Saiful Islam <codersaiful@gmail.com>
          */
         $this->do_action('wpt_table_row');
+
+        if( ! $this->display ) return;
         
         if($this->wp_force){
             wp('p=' . $this->product_id . '&post_type=product');
@@ -217,7 +220,7 @@ class Row extends Table_Base{
         data-href="<?php echo esc_url( $this->product_permalink ); ?>"
         data-product_variations="<?php echo esc_attr( htmlspecialchars( wp_json_encode( $this->available_variations ) ) ); ?>"
         additional_json=""
-        <?php echo $this->data_tax; ?>
+        <?php echo $this->row_attr; ?>
         role="row">
         <?php
 
