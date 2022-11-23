@@ -49,3 +49,9 @@
   --wpt_sorted_head_text: inherit;
   --wpt_sorted_td_bg: rgba(0, 0, 0, 0.03);
 }
+
+body.wpt_table_body .wpt-wrap table tbody tr a.button.add_to_cart_button,
+body.wpt_table_body .wpt-wrap table tbody tr .button.single_add_to_cart_button,
+body.wpt_table_body .wpt-wrap a.ajax_active.button.wpt_woo_add_cart_button.add_to_cart_button{
+  line-height: 16px !important;
+}
