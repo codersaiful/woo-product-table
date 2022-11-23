@@ -17,7 +17,7 @@ class Element{
         $config = $shortcode->_config;
         $text_btn = $config['load_more_text'] ?? '';
         $text_loading = $config['loading_more_text'] ?? '';
-        if( 'infinit_scroll' == $shortcode->pagination ){
+        if( 'infinite_scroll' == $shortcode->pagination ){
             $text_btn = $text_loading = '...';
         }
         ?>

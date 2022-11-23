@@ -141,7 +141,7 @@ jQuery(function($) {
 
         
         $( window ).scroll(function() {
-            var infinitScrollButton = $('button.button.wpt_load_more.wpt-load-pagination-infinit_scroll');
+            var infinitScrollButton = $('button.button.wpt_load_more.wpt-load-pagination-infinite_scroll');
             if(infinitScrollButton.length < 1){
                 return;
             }
