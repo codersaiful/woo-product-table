@@ -28,7 +28,7 @@ class Basics extends Shortcode_Base{
     public function body_class( $class ){
         if( $this->get_is_table() ){
             $class[] = 'wpt_table_body';
-            $class[] = 'woocommerce';
+            // $class[] = 'woocommerce';
             $class[] = 'wpt-body-' . $this->shortcde_text;
         }
 
