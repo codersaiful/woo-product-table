@@ -96,7 +96,7 @@ $_device_name = '';
             </label>
             <p class="warning">
                 <b>Tips:</b>
-                <span>If not set any column for Mobile and Tablet, Out Plugin will generate Mobile Responsive Table Automatically. If you don't want, Autocatic responsive. Switch off this option. </span>
+                <span>If not set any column for mobile and tablet, our Plugin will generate a mobile responsive Table automatically. Turn off 'Auto Responsive' If you don't want an auto-responsive table.</span>
             </p>
         </div>
         <br>
