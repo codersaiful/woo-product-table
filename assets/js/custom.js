@@ -2214,10 +2214,13 @@ jQuery(function($) {
         $(document.body).on('click','div.wpt_column_sort table.wpt_product_table thead tr th',function(){
             console.clear();
 
+            var unq_id = $(this).closest('div.wpt-wrap').data('unique_id');
+
             var class_for_sorted = 'this_column_sorted';
             var temp_number = $(this).parent().data('temp_number');
             var target_class = '.' + $(this).attr('class').split(' ').join('.');
             var target_table_wrapper_id = '#table_id_' + temp_number;
+            var target_table_wrapper_id = "div#table_id_" + temp_number + "[data-unique_id='" + unq_id + "']";
             var thisColObject = $(this);
             var status = false;
             var disableClass = [
