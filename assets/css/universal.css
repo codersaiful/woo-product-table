@@ -272,6 +272,12 @@ button.button.wpt_search_button {
 .wpt_load_more_wrapper.load_more_hidden {
     display: none !important;
 }
+.wpt_load_more_wrapper .wpt-load-pagination-infinit_scroll {
+    /* display: none; */
+    padding: 0px 15px 8px 15px;
+    line-height: 7px;
+    font-size: 15px;
+}
 p.search_select.query {
     padding: 0;
     margin: 0;

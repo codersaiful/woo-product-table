@@ -353,6 +353,10 @@ class Shortcode extends Shortcode_Base{
                     Pagination::render( $this );
                     break;
                 case 'load_more':
+                case 'infinite_scroll':
+                    Element::loadMore( $this );
+                    break;
+                    default:
                     Element::loadMore( $this );
                     break;
             }

@@ -4,24 +4,33 @@ use WOO_PRODUCT_TABLE\Inc\Shortcode;
 
 class Element{
     public static function loadMore( Shortcode $shortcode ){
-        
-        $config = $shortcode->_config;
-        $text_btn = $config['load_more_text'] ?? '';
-        $text_loading = $config['loading_more_text'] ?? '';
         ?>
     <div id="wpt_load_more_wrapper_<?php echo esc_attr( $shortcode->table_id ); ?>" 
-    class="wpt_load_more_wrapper">
-
-        <button data-table_id="<?php echo esc_attr( $shortcode->table_id ); ?>" 
-        data-page_number="2"
-        data-text_btn="<?php echo esc_attr( $text_btn ); ?>"
-        data-text_loading="<?php echo esc_attr( $text_loading ); ?>"
-        class="button wpt_load_more">
-            <?php echo esc_html( $text_btn ); ?>
-        </button>
+    class="wpt_load_more_wrapper wpt-type-pagination-<?php echo esc_attr( $shortcode->pagination ); ?>">
+        <?php echo self::loadMoreButton( $shortcode ); ?>
     </div>
         <?php
     }
+
+    public static function loadMoreButton(  Shortcode $shortcode ){
+        $page_number = $shortcode->page_number + 1;
+        $config = $shortcode->_config;
+        $text_btn = $config['load_more_text'] ?? '';
+        $text_loading = $config['loading_more_text'] ?? '';
+        if( 'infinit_scroll' == $shortcode->pagination ){
+            $text_btn = $text_loading = '...';
+        }
+        ?>
+        <button data-table_id="<?php echo esc_attr( $shortcode->table_id ); ?>" 
+        data-page_number="<?php echo esc_attr( $page_number ); ?>"
+        data-text_btn="<?php echo esc_attr( $text_btn ); ?>"
+        data-text_loading="<?php echo esc_attr( $text_loading ); ?>"
+        class="button wpt_load_more wpt-load-pagination-<?php echo esc_attr( $shortcode->pagination ); ?>">
+            <?php echo esc_html( $text_btn ); ?>
+        </button>
+        <?php
+    }
+
 
     /**
      * Instance Search just before Mini Filter Box.

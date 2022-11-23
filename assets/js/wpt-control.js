@@ -3,6 +3,7 @@ jQuery(function($) {
     $(document).ready(function() {
         var 
         own_fragment_load = 0,
+        paginated_val = 0,
         wc_fragment_load = 0,
         fragment_handle_load = 0,
         isMob,isDesk,current_width = $(window).width(),
@@ -101,10 +102,7 @@ jQuery(function($) {
             });
         };
 
-        $('div.wpt-wrap table#wpt_table').each(function(){
-            console.log(config_json);
-        });
-
+        
         $(document.body).on('click','.wpt_pagination_ajax .wpt_my_pagination a',function(e){
             e.preventDefault();
             var thisButton = $(this);
@@ -140,6 +138,32 @@ jQuery(function($) {
             ajaxTableLoad(table_id, args, others );
             
         });
+
+        
+        $( window ).scroll(function() {
+            var infinitScrollButton = $('button.button.wpt_load_more.wpt-load-pagination-infinit_scroll');
+            if(infinitScrollButton.length < 1){
+                return;
+            }
+            var scrollTop = $(window).scrollTop();
+            var myTable = $('.normal_table_wrapper');
+            var myTableHeight = myTable.height();
+            myTableHeight = myTableHeight - 500;
+            if(scrollTop > myTableHeight && paginated_val == 0){
+
+                infinitScrollButton.trigger('click');
+                paginated_val++;
+                setTimeout(function(){
+                    paginated_val = 0;
+                },20000);
+            }
+
+        });
+
+        $(document.body).on('wpt_ajax_loaded',function(){
+            paginated_val = 0; 
+        });
+
 
         $(document.body).on('click','.wpt-search-products',function(){
             

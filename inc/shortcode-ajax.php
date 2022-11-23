@@ -3,6 +3,7 @@ namespace WOO_PRODUCT_TABLE\Inc;
 
 use WC_AJAX;
 use WOO_PRODUCT_TABLE\Inc\Shortcode;
+use WOO_PRODUCT_TABLE\Inc\Handle\Element;
 use WOO_PRODUCT_TABLE\Inc\Handle\Pagination;
 
 class Shortcode_Ajax extends Shortcode{
@@ -181,6 +182,13 @@ class Shortcode_Ajax extends Shortcode{
         //We are not agable to set condition page on pagination on.
         //karon: jodi condition ekhane dei, ar search onusare pagination na thake, seta faka hoya dorokar, kintu ta hobe na.
         $output['.wpt_my_pagination.wpt_table_pagination'] = Pagination::get_paginate_links( $this );
+        
+        if( $this->pagination !== 'on' ){
+            ob_start();
+            Element::loadMoreButton( $this );
+            $output['.wpt_load_more_wrapper'] = ob_get_clean();
+        }
+        
         if( ( $this->pagination !== 'on' && $max_page == $page_number ) || $max_page == 0){
             $output['.wpt_load_more_wrapper'] = $output['.wpt_my_pagination.wpt_table_pagination'] = '';
         }
