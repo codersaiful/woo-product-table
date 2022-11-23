@@ -53,15 +53,23 @@
 .wpt-wrap.greeny_wrapper table.wpt-tbl tr.wpt_table_head th {
   border-bottom: 1px solid #040404 !important;
 }
-.all_check_header_footer.all_check_header>span {
-border: 1px solid #efefef !important;
-color: #000000 !important;
-background: #ffffff59 !important;
+
+body.wpt_table_body .wpt-wrap .all_check_header_footer.all_check_header>span {
+  border: 1px solid #efefef !important;
+  color: #000000 !important;
+  background: #ffffff59 !important;
 }
+
+body.wpt_table_body .wpt-wrap table tbody tr a.button.add_to_cart_button,
+body.wpt_table_body .wpt-wrap table tbody tr .button.single_add_to_cart_button,
+body.wpt_table_body .wpt-wrap a.ajax_active.button.wpt_woo_add_cart_button.add_to_cart_button{
+  line-height: 16px !important;
+}
+
 /* Extra small devices (phones, 500px and down) */
 @media only screen and (max-width: 500px) {
-.wpt-stats-report {
-  background: #727272 !important;
-  color: white !important;
-}
+  .wpt-stats-report {
+    background: #727272 !important;
+    color: white !important;
+  }
 }
