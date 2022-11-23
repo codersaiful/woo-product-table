@@ -49,7 +49,7 @@ $data = isset( $meta_basics['data'] ) ? $meta_basics['data'] : false;
                         <option value="off" <?php echo isset( $meta_basics['pagination'] ) && $meta_basics['pagination'] == 'off' ? 'selected' : false; ?>><?php esc_html_e('Off/Disabled','wpt_pro');?></option>
                         <option value="load_more" <?php echo isset( $meta_basics['pagination'] ) && $meta_basics['pagination'] == 'load_more' ? 'selected' : false; ?>><?php esc_html_e('Load More Button','wpt_pro');?></option>
                         <?php if(defined('WPT_PRO_DEV_VERSION')){ ?>
-                            <option value="infinite_scroll" <?php echo isset( $meta_basics['pagination'] ) && $meta_basics['pagination'] == 'infinite_scroll' ? 'selected' : false; ?>><?php esc_html_e('Infinit Scroll','wpt_pro');?></option>
+                            <option value="infinite_scroll" <?php echo isset( $meta_basics['pagination'] ) && $meta_basics['pagination'] == 'infinite_scroll' ? 'selected' : false; ?>><?php esc_html_e('Infinite Scroll','wpt_pro');?></option>
                         <?php } ?>
                     </select>   
                     
