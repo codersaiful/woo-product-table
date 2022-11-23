@@ -123,6 +123,7 @@ div.wpt-wrap.wpt-wrap input[type=checkbox]+label:before {
   border-radius: 1px;
   font-size: 18px;
   line-height: 18px;
+  border: 1px solid gray;
 }
   
 div.wpt-wrap.wpt-wrap input[type=checkbox]:checked+label:after {
