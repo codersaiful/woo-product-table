@@ -280,6 +280,7 @@ You can easily show specific category products. While creating new table click o
 * Infinite Scroll Added in Pro and Fixed issue.
 * Action/Add to cart column flex wrap issue fixed when action column as inside item.
 * Column Sorting issue when Audio player has been fixed.
+* Input Box min quantity was 0, currently set 1 by default.
 * Bug Fixed 
 * shortcode-ajax.php optimized and organized
 
