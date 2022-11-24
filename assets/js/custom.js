@@ -2212,14 +2212,13 @@ jQuery(function($) {
          * @date 26.7.2018
          */
         $(document.body).on('click','div.wpt_column_sort table.wpt_product_table thead tr th',function(){
-            console.clear();
 
             var unq_id = $(this).closest('div.wpt-wrap').data('unique_id');
 
             var class_for_sorted = 'this_column_sorted';
             var temp_number = $(this).parent().data('temp_number');
             var target_class = '.' + $(this).attr('class').split(' ').join('.');
-            var target_table_wrapper_id = '#table_id_' + temp_number;
+            // var target_table_wrapper_id = '#table_id_' + temp_number;
             var target_table_wrapper_id = "div#table_id_" + temp_number + "[data-unique_id='" + unq_id + "']";
             var thisColObject = $(this);
             var status = false;
@@ -2246,6 +2245,17 @@ jQuery(function($) {
                 $(this).attr('data-sort_type','ASC');
             }
 
+            /**
+             * Actually when Audio item in table, then we will not 
+             * support column sorting.
+             * 
+             * @since 3.3.2.2
+             */
+            var audioItems = $(target_table_wrapper_id).find('.mejs-container');
+            if(audioItems.length > 0){
+                return;
+            }
+            
             //for check box collumn //wpt_thumbnails //wpt_product_id
             if($.inArray(target_class,disableClass) == -1){
             

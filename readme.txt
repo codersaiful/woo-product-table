@@ -279,6 +279,7 @@ You can easily show specific category products. While creating new table click o
 * Advance Whole Search and normal search issue fixed.
 * Infinite Scroll Added in Pro and Fixed issue.
 * Action/Add to cart column flex wrap issue fixed when action column as inside item.
+* Column Sorting issue when Audio player has been fixed.
 * Bug Fixed 
 * shortcode-ajax.php optimized and organized
 
