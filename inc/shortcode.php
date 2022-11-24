@@ -344,13 +344,15 @@ class Shortcode extends Shortcode_Base{
              * We will call Pagination::render() Only when pagination is number
              * mean: pagination value is 'on'
              */
-
+            
             switch($this->pagination){
                 case 'on':
                     $big = 99999999;
                     $this->pagination_base_url = str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) );
         
                     Pagination::render( $this );
+                    break;
+                case 'off':
                     break;
                 case 'load_more':
                 case 'infinite_scroll':
