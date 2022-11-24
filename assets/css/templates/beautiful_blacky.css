@@ -65,6 +65,7 @@ body.wpt_table_body .wpt-wrap a.ajax_active.button.wpt_woo_add_cart_button.add_t
   border: 1px solid var(--wpt_btn_bg) !important;
   color: var(--wpt_white) !important;
   background-color: var(--wpt_btn_bg) !important;
+  line-height: 16px !important;
 }
 
 body.wpt_table_body .wpt-wrap table tbody tr a.button.add_to_cart_button:hover,

@@ -3,6 +3,7 @@ namespace WOO_PRODUCT_TABLE\Inc;
 
 use WC_AJAX;
 use WOO_PRODUCT_TABLE\Inc\Shortcode;
+use WOO_PRODUCT_TABLE\Inc\Handle\Element;
 use WOO_PRODUCT_TABLE\Inc\Handle\Pagination;
 
 class Shortcode_Ajax extends Shortcode{
@@ -28,6 +29,45 @@ class Shortcode_Ajax extends Shortcode{
         
         //It's need to the beginning of this process.
         $this->assing_property($atts); 
+
+
+        /**
+         * Actually if enable "Order By field" from 
+         * backend Search & Filer table,
+         * Then it's need to fix.
+         * Need to unset from $temp_args
+         * Otherwise, It's searching from full website product.
+         * 
+         * Obviously need under $this->assing_property($atts); 
+         * wehere we set $this->args property
+         * 
+         * @since 3.3.2.1
+         * @author Saiful Islam <codersaiful@gmail.com>
+         */
+        if( ! empty( $temp_args['orderby'] ) ){
+            $this->args['orderby'] = $temp_args['orderby'];
+            unset($temp_args['orderby']);
+        }
+
+        /**
+         * Actually if enable "On Sale" from 
+         * backend Search & Filer table,
+         * Then it's need to fix.
+         * Need to unset from $temp_args
+         * Otherwise, It's searching from full website product.
+         * 
+         * Obviously need under $this->assing_property($atts); 
+         * wehere we set $this->args property
+         * 
+         * @since 3.3.2.1
+         * @author Saiful Islam <codersaiful@gmail.com>
+         */
+        if( ! empty( $temp_args['on_sale'] ) ){
+            $this->args['on_sale'] = $temp_args['on_sale'];
+            unset($temp_args['on_sale']);
+        }
+
+
         if( is_array( $temp_args ) && ! empty( $temp_args ) ){
             if( $this->whole_search ){
 
@@ -36,13 +76,13 @@ class Shortcode_Ajax extends Shortcode{
 
                 unset($this->args['tax_query']);
                 unset($this->args['meta_query']);
+            }else if( ! empty( $this->args['tax_query'] ) && ! empty( $temp_args['tax_query'] ) ){
+                $merge_tax_query = array_merge( $this->args['tax_query'], $temp_args['tax_query'] );
+                $temp_args['tax_query'] = $merge_tax_query;
             }
             
-            $this->args = array_merge_recursive($this->args, $temp_args);
+            $this->args = array_merge($this->args, $temp_args);
         }
-
-
-
 
         $page_number = $others['page_number'] ?? $this->page_number;
         
@@ -181,6 +221,13 @@ class Shortcode_Ajax extends Shortcode{
         //We are not agable to set condition page on pagination on.
         //karon: jodi condition ekhane dei, ar search onusare pagination na thake, seta faka hoya dorokar, kintu ta hobe na.
         $output['.wpt_my_pagination.wpt_table_pagination'] = Pagination::get_paginate_links( $this );
+        
+        if( $this->pagination !== 'on' ){
+            ob_start();
+            Element::loadMoreButton( $this );
+            $output['.wpt_load_more_wrapper'] = ob_get_clean();
+        }
+        
         if( ( $this->pagination !== 'on' && $max_page == $page_number ) || $max_page == 0){
             $output['.wpt_load_more_wrapper'] = $output['.wpt_my_pagination.wpt_table_pagination'] = '';
         }

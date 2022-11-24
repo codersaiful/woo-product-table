@@ -35,7 +35,27 @@ class Shortcode extends Shortcode_Base{
     public $args_organized;
     public $args_ajax_called;
     public $atts;
+    /**
+     * It's actually not a unique number.
+     * It's a Unique POST_ID of woo_product_table
+     * 
+     * But If a user paste shortcode in a page two time, it's not a unique,
+     * So wee need another attribute for wrapper table.
+     * Which will store at public $unique_id;
+     *
+     * @var int
+     */
     public $table_id;
+
+    /**
+     * Absulate Unique ID/String for each table. Shuffle of CodeAstrology Saiful
+     * *******************
+     * IMPORTANT:
+     * It's a random string, Each time, it will change.
+     *
+     * @var string
+     */
+    public $unique_id;
     public $status;
 
     /**
@@ -256,10 +276,11 @@ class Shortcode extends Shortcode_Base{
         // var_dump($this->product_loop);
         //wpto_action_table_wrapper_top
         ob_start();
-
+        
         ?>
         <div id="table_id_<?php echo esc_attr( $this->table_id ); ?>" 
         class="<?php echo esc_attr( Table_Attr::wrapper_class( $this ) ); ?>"
+        data-unique_id="<?php echo esc_attr( $this->unique_id ); ?>"
         data-temp_number="<?php echo esc_attr( $this->table_id ); ?>" 
         data-basic_settings="<?php echo esc_attr( wp_json_encode( $this->basic_settings ) ); ?>" >
             <?php
@@ -332,6 +353,10 @@ class Shortcode extends Shortcode_Base{
                     Pagination::render( $this );
                     break;
                 case 'load_more':
+                case 'infinite_scroll':
+                    Element::loadMore( $this );
+                    break;
+                    default:
                     Element::loadMore( $this );
                     break;
             }
@@ -468,7 +493,7 @@ class Shortcode extends Shortcode_Base{
         $this->table_id = apply_filters( 'wpml_object_id', $this->table_id, $this->req_post_type, TRUE  );
         $this->status = get_post_status( $this->table_id );
         $this->post_type = get_post_type( $this->table_id );
-
+        $this->unique_id = str_shuffle("CodeAstrologySaifulIslam");
         // set_query_var( 'woo_product_table', $this->table_id );
         set_query_var( $this->req_post_type, $this->table_id );
 
