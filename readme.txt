@@ -4,7 +4,7 @@ Donate link: https://wooproducttable.com/pricing/?ref=CodeAstrology&utm_source=D
 Tags: wc product table, wooproducttable, woo product table,woocommerce product table, product table, wc table, quick order table, wholesale table, restaurants table
 Requires at least: 5.0.0
 Tested up to: 6.1
-Stable tag: 3.3.2
+Stable tag: 3.3.3
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -275,7 +275,8 @@ You can easily show specific category products. While creating new table click o
 
 == Changelog ==
 
-= 3.3.2 =
+= 3.3.2 and 3.3.3 =
+* Load More disable not working - issue fixed.
 * Advance Whole Search and normal search issue fixed.
 * Infinite Scroll Added in Pro and Fixed issue.
 * Action/Add to cart column flex wrap issue fixed when action column as inside item.
