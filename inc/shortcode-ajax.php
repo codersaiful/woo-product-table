@@ -37,13 +37,13 @@ class Shortcode_Ajax extends Shortcode{
 
                 unset($this->args['tax_query']);
                 unset($this->args['meta_query']);
+            }else if( ! empty( $this->args['tax_query'] ) && ! empty( $temp_args['tax_query'] ) ){
+                $merge_tax_query = array_merge( $this->args['tax_query'], $temp_args['tax_query'] );
+                $temp_args['tax_query'] = $merge_tax_query;
             }
             
-            $this->args = array_merge_recursive($this->args, $temp_args);
+            $this->args = array_merge($this->args, $temp_args);
         }
-
-
-
 
         $page_number = $others['page_number'] ?? $this->page_number;
         
