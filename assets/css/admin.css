@@ -2162,3 +2162,14 @@ p.wpt-issue-submit a:hover {
     width: auto !important;
     border-radius: 0 !important;
 }
+
+div#wpt_configuration_form #column_settings .add_new_col_wrapper .section.ultraaddons-panel.add_new_column {
+    background: #e7feff;
+    background: #f5eaff;
+    border: 1px solid #cebbdf;
+}
+.section.ultraaddons-panel.add_new_column h3 {
+    font-size: 18px;
+    line-height: 11px;
+    color: #f5eaff;
+}
