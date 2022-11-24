@@ -146,7 +146,7 @@ jQuery(function($) {
                 return;
             }
             var scrollTop = $(window).scrollTop();
-            var myTable = $('.normal_table_wrapper');
+            var myTable = $('.wpt-wrap');
             var myTableHeight = myTable.height();
             myTableHeight = myTableHeight - 500;
             if(scrollTop > myTableHeight && paginated_val == 0){

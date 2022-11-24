@@ -29,6 +29,45 @@ class Shortcode_Ajax extends Shortcode{
         
         //It's need to the beginning of this process.
         $this->assing_property($atts); 
+
+
+        /**
+         * Actually if enable "Order By field" from 
+         * backend Search & Filer table,
+         * Then it's need to fix.
+         * Need to unset from $temp_args
+         * Otherwise, It's searching from full website product.
+         * 
+         * Obviously need under $this->assing_property($atts); 
+         * wehere we set $this->args property
+         * 
+         * @since 3.3.2.1
+         * @author Saiful Islam <codersaiful@gmail.com>
+         */
+        if( ! empty( $temp_args['orderby'] ) ){
+            $this->args['orderby'] = $temp_args['orderby'];
+            unset($temp_args['orderby']);
+        }
+
+        /**
+         * Actually if enable "On Sale" from 
+         * backend Search & Filer table,
+         * Then it's need to fix.
+         * Need to unset from $temp_args
+         * Otherwise, It's searching from full website product.
+         * 
+         * Obviously need under $this->assing_property($atts); 
+         * wehere we set $this->args property
+         * 
+         * @since 3.3.2.1
+         * @author Saiful Islam <codersaiful@gmail.com>
+         */
+        if( ! empty( $temp_args['on_sale'] ) ){
+            $this->args['on_sale'] = $temp_args['on_sale'];
+            unset($temp_args['on_sale']);
+        }
+
+
         if( is_array( $temp_args ) && ! empty( $temp_args ) ){
             if( $this->whole_search ){
 

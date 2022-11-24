@@ -18,7 +18,7 @@ class Element{
         $text_btn = $config['load_more_text'] ?? '';
         $text_loading = $config['loading_more_text'] ?? '';
         if( 'infinite_scroll' == $shortcode->pagination ){
-            $text_btn = $text_loading = '...';
+            $text_btn = '...';
         }
         ?>
         <button data-table_id="<?php echo esc_attr( $shortcode->table_id ); ?>" 
