@@ -358,9 +358,6 @@ class Shortcode extends Shortcode_Base{
                 case 'infinite_scroll':
                     Element::loadMore( $this );
                     break;
-                    default:
-                    Element::loadMore( $this );
-                    break;
             }
 
             //Render Bottom Minicart here, Condition applied inside method/function
