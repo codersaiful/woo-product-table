@@ -2075,7 +2075,13 @@ label.switch.switch-big .on, label.switch.switch-big .off {
     background-repeat: no-repeat !important;
     background-position: center right !important;
     background-size: auto 35px;
+    background: #007694;
+    color: white;
+    padding: 15px 36px 12px 15px;
+    margin-top: -25px;
+    margin-left: -30px;
 }
+
 h1.wp-heading-inline.plugin_name.plugin-name {
     display: flex !important;
     gap: 10px;
@@ -2084,7 +2090,7 @@ h1.wp-heading-inline.plugin_name.plugin-name {
     flex-wrap: wrap;
 }
 div#wpt_configuration_form img.wpt-brand-logo {
-    height: 32px;
+    height: 25px;
     box-shadow: none;
     background: white;
     border-radius: 4px;
