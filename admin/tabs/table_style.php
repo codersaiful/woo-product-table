@@ -5,6 +5,8 @@ $templates_default = array(
     'beautiful_blacky'  =>  __( 'Beautiful Blacky', 'wpt_pro' ),
     'greeny'            =>  __( 'Greeny', 'wpt_pro' ),
     'redy'              =>  __( 'Redy', 'wpt_pro' ),
+    'argentina'         =>  __( 'Argentina', 'wpt_pro' ),
+    'brazil'            =>  __( 'Brazil', 'wpt_pro' ),
 );
 $pro_templates = array(
     'smart'             =>  __( 'Smart Thin', 'wpt_pro' ),
@@ -31,12 +33,14 @@ $additional_templates = apply_filters( 'wpto_table_template_arr', $pro_templates
 $pro_templates = array_merge($pro_templates,$additional_templates);
 
 $table_templates = array();
+
 foreach( $templates_default as $temp_key => $tempplate_name ){
     $table_templates[$temp_key] = array(
         'type' => 'free',
         'value' => $tempplate_name
     );
 }
+
 foreach( $pro_templates as $temp_key => $tempplate_name ){
     $table_templates[$temp_key] = array(
         'type' => class_exists( 'WOO_Product_Table' ) ? 'approved' : 'limited',
@@ -46,7 +50,6 @@ foreach( $pro_templates as $temp_key => $tempplate_name ){
 
 $meta_table_style_inPost = get_post_meta($post->ID, 'table_style', true);
 $current_template = $meta_table_style_inPost['template'] ?? '';
-
 ?>
 <div class="section ultraaddons-panel">
     <div class="wpt_column">
