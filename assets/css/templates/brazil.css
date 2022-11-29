@@ -80,7 +80,7 @@ body.wpt_table_body .wpt-wrap span.select2.select2-container.select2-container--
 .wpt-cart-contents span.count,
 .wpt-cart-contents span.woocommerce-Price-amount.amount,
 .wpt-new-footer-cart-inside a.wpt-view-n{
-    color: hsl(0deg 39% 41%) !important;  
+    color: #07276B!important;  
 }
 
 div.wpt-footer-cart-wrapper>a:after, 
