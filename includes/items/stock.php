@@ -10,3 +10,11 @@ if( $data['stock_status'] == 'instock' ){
  * //stock old style change and added wc_get_sthock
 echo "<span class='{$data['stock_status']}'>" . $stock_status_message . " </span>";
 */
+
+// 
+$data= $product->get_data();
+$stock = $data['stock_status'];
+
+if ( ! $product->managing_stock() && 'instock' == $stock){
+    echo "<p>In Stock</p>";
+}
