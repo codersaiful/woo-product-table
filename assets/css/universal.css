@@ -1735,3 +1735,6 @@ td.wpt-replace-td-in-tr div.td_or_cell.wpt_product_title {
         flex-basis: 200px;
     }
 }
+tr.wpt-row .button.loading:after {
+    display: none !important;
+}
