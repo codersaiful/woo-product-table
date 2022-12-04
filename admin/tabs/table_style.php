@@ -5,8 +5,8 @@ $templates_default = array(
     'beautiful_blacky'  =>  __( 'Beautiful Blacky', 'wpt_pro' ),
     'greeny'            =>  __( 'Greeny', 'wpt_pro' ),
     'redy'              =>  __( 'Redy', 'wpt_pro' ),
-    'argentina'         =>  __( 'Argentina', 'wpt_pro' ),
-    'brazil'            =>  __( 'Brazil', 'wpt_pro' ),
+    // 'argentina'         =>  __( 'Argentina', 'wpt_pro' ),
+    // 'brazil'            =>  __( 'Brazil', 'wpt_pro' ),
 );
 $pro_templates = array(
     'smart'             =>  __( 'Smart Thin', 'wpt_pro' ),
