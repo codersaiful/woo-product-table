@@ -41,11 +41,14 @@ if( $table_type == 'advance_table'){
 
     $ajax_action_final = ( $product_type == 'grouped' || $product_type == 'external' ? 'no_ajax_action ' : $ajax_action . ' ' );//$ajax_action;
     $add_to_cart_url =  $product->add_to_cart_url();
+    
     if( $product_type == 'variable' ){
         $add_to_cart_url = '?add-to-cart=' .  $data['id'];
     }
+    
     $target = '_self';
-    if( $ajax_action !== 'ajax_active ' ){
+    
+    if( $ajax_action !== 'ajax_active ' && !$product_type == 'external'){
         $add_to_cart_url = get_the_permalink( $id ) . '?from=wpt';
         // $target = '_blank';
     }
@@ -54,6 +57,7 @@ if( $table_type == 'advance_table'){
     }
      * 
      */
+
     $add_to_cart_url = apply_filters( 'wpto_add_to_cart_url', $add_to_cart_url, $settings, $column_settings, $table_ID, $product );
     
     

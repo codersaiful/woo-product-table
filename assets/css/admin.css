@@ -2075,7 +2075,10 @@ label.switch.switch-big .on, label.switch.switch-big .off {
     background-repeat: no-repeat !important;
     background-position: center right !important;
     background-size: auto 35px;
+    background: #007694;
+    color: white;
 }
+
 h1.wp-heading-inline.plugin_name.plugin-name {
     display: flex !important;
     gap: 10px;
@@ -2165,8 +2168,7 @@ p.wpt-issue-submit a:hover {
 
 div#wpt_configuration_form #column_settings .add_new_col_wrapper .section.ultraaddons-panel.add_new_column {
     background: #e7feff;
-    background: #f5eaff;
-    border: 1px solid #cebbdf;
+    border: 1px solid #ddd;
 }
 .section.ultraaddons-panel.add_new_column h3 {
     font-size: 18px;
