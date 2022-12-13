@@ -344,7 +344,7 @@ unset($catalog_orderby_options['menu_order']);
                     <label class="wpt_label" for="wpt_product_min_price"><?php esc_html_e( 'Minimum Price', 'wpt_pro' ); ?></label>
                 </th>
                 <td>
-                    <input name="conditions[min_price]" data-name='min_price' value="<?php echo isset( $meta_conditions['min_price'] ) ?$meta_conditions['min_price'] : ''; ?>" id="wpt_product_min_price" class="wpt_fullwidth wpt_data_filed_atts ua_input" type="number" pattern="[0-9]*">
+                    <input name="conditions[min_price]" data-name='min_price' value="<?php echo isset( $meta_conditions['min_price'] ) ?$meta_conditions['min_price'] : ''; ?>" id="wpt_product_min_price" class="wpt_fullwidth wpt_data_filed_atts ua_input" type="number" step="0.001" pattern="[0-9]+([\.,][0-9]+)?">
                 </td>
             </tr>
 
@@ -353,7 +353,7 @@ unset($catalog_orderby_options['menu_order']);
                     <label class="wpt_label" for="wpt_product_max_price"><?php esc_html_e( 'Maximum Price', 'wpt_pro' ); ?></label>
                 </th>
                 <td>
-                    <input name="conditions[max_price]" data-name='max_price' value="<?php echo isset( $meta_conditions['max_price'] ) ?$meta_conditions['max_price'] : ''; ?>" id="wpt_product_max_price" class="wpt_fullwidth wpt_data_filed_atts ua_input" type="number" pattern="[0-9]*">
+                    <input name="conditions[max_price]" data-name='max_price' value="<?php echo isset( $meta_conditions['max_price'] ) ?$meta_conditions['max_price'] : ''; ?>" id="wpt_product_max_price" class="wpt_fullwidth wpt_data_filed_atts ua_input" type="number" step="0.001" pattern="[0-9]+([\.,][0-9]+)?">
                 </td>
             </tr>
         </table>
