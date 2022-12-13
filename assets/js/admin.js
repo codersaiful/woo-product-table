@@ -58,6 +58,7 @@ jQuery.fn.extend({
         });
         
         function selectionWithEditLink(state, container){
+            if(undefined == state || undefined == container) return null;
             container.append($('<span class="selected-state"></span>').text(state.text));
             $('<a class="edit-my-column-easily" data-keyword="' + state.id + '"> Edit</i>')
                 .appendTo(container)
