@@ -956,7 +956,10 @@ class Shortcode extends Shortcode_Base{
             Search_Box::render($this);
         }else{
         ?>
-        <button data-type="query" data-temp_number="<?php echo esc_attr( $this->table_id ); ?>" id="wpt_query_search_button_<?php echo esc_attr( $this->table_id ); ?>" class="button wpt_search_button query_button wpt_query_search_button wpt_query_search_button_<?php echo esc_attr( $this->table_id ); ?>" style="visibility: hidden;height:1px;"></button>
+        <button data-table_id="<?php echo esc_attr( $this->table_id ); ?>" 
+        id="wpt_query_search_button_<?php echo esc_attr( $this->table_id ); ?>" 
+        class="button wpt-search-products wpt_query_search_button_<?php echo esc_attr( $this->table_id ); ?>"
+        style="visibility: hidden;height:0px;">Search</button>
         <?php
         }
 
