@@ -275,6 +275,14 @@ You can easily show specific category products. While creating new table click o
 
 == Changelog ==
 
+= 3.3.4 =
+* Fixed: Only custom field search box issue solved
+* New Filter Hook Added for footer cart.
+* Added: Checkout page auto update
+* Added: javascript event trigger: `update_checkout` of WooCommerce Added.
+* Bug Fixed 
+* Code Optimized 
+
 = 3.3.2 and 3.3.3 =
 * Load More disable not working - issue fixed.
 * Advance Whole Search and normal search issue fixed.
