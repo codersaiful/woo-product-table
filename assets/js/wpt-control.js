@@ -395,13 +395,15 @@ jQuery(function($) {
                     $(document.body).trigger('wpt_ajax_loaded'); 
                     // $( document.body ).trigger( 'wc_fragment_refresh' );
                     // $( document.body ).trigger( 'removed_from_cart' );
-
+                    
                     $( document.body ).trigger( 'removed_from_cart' );
                     $( document.body ).trigger( 'added_to_cart' );
                     $( document.body ).trigger( 'updated_cart_totals' );
                     $( document.body ).trigger( 'wc_fragments_refreshed' );
                     $( document.body ).trigger( 'wc_fragments_refresh' );
                     $( document.body ).trigger( 'wc_fragment_refresh' );
+                    //It's need to update checkout page Since 3.3.3.1
+                    $( document.body ).trigger( 'update_checkout' );
 
                 },
                 
