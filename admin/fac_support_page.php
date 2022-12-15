@@ -8,7 +8,7 @@ if( !function_exists( 'wpt_fac_support_page' ) ){
     function wpt_fac_support_page(){
     ?>
     <div class="wrap wpt_wrap wpt_configure_page">
-            <h2 class="plugin_name"><?php esc_html_e( 'Contact & Support', 'wpt_pro' );?></h2>
+            <h2 class="plugin_name"><?php esc_html_e( 'Contact & Support', 'woo-product-table' );?></h2>
             <div id="wpt_configuration_form" class="wpt_leftside">
 
 

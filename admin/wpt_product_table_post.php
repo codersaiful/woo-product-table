@@ -12,37 +12,37 @@ function wpt_product_table_post() {
 
         $icon = WPT_Product_Table::getPath( 'BASE_URL' ) . 'assets/images/table_icon.png';
 	$labels = array(
-		'name'                  => _x( 'Product Table', 'Product Table', 'wpt_pro' ),
-		'singular_name'         => _x( 'PRODUCT TABLE', 'PRODUCT TABLE', 'wpt_pro' ),
-		'menu_name'             => __( 'PRODUCT TABLE', 'wpt_pro' ),
-		'name_admin_bar'        => __( 'Product Table', 'wpt_pro' ),
-		'archives'              => __( 'Product Table Archives', 'wpt_pro' ),
-		'attributes'            => __( 'Product Table Attributes', 'wpt_pro' ),
-		'parent_item_colon'     => __( 'Parent Shortcode:', 'wpt_pro' ),
-		'all_items'             => __( 'Product Table', 'wpt_pro' ),
-		'add_new_item'          => __( 'Add New', 'wpt_pro' ),
-		'add_new'               => __( 'Add New', 'wpt_pro' ),
-		'new_item'              => __( 'New Product Table', 'wpt_pro' ),
-		'edit_item'             => __( 'Edit Product Table', 'wpt_pro' ),
-		'update_item'           => __( 'Update Product Table', 'wpt_pro' ),
-		'view_item'             => __( 'View Product Table', 'wpt_pro' ),
-		'view_items'            => __( 'View Product Tables', 'wpt_pro' ),
-		'search_items'          => __( 'Search Product Table', 'wpt_pro' ),
-		'not_found'             => __( 'Not found', 'wpt_pro' ),
-		'not_found_in_trash'    => __( 'Not found in Trash', 'wpt_pro' ),
-		'featured_image'        => __( 'Featured Image', 'wpt_pro' ),
-		'set_featured_image'    => __( 'Set featured image', 'wpt_pro' ),
-		'remove_featured_image' => __( 'Remove featured image', 'wpt_pro' ),
-		'use_featured_image'    => __( 'Use as featured image', 'wpt_pro' ),
-		'insert_into_item'      => __( 'Insert into Product Table', 'wpt_pro' ),
-		'uploaded_to_this_item' => __( 'Uploaded to this Product Table', 'wpt_pro' ),
-		'items_list'            => __( 'Product Table list', 'wpt_pro' ),
-		'items_list_navigation' => __( 'Product Table list navigation', 'wpt_pro' ),
-		'filter_items_list'     => __( 'Filter Product Table list', 'wpt_pro' ),
+		'name'                  => _x( 'Product Table', 'Product Table', 'woo-product-table' ),
+		'singular_name'         => _x( 'PRODUCT TABLE', 'PRODUCT TABLE', 'woo-product-table' ),
+		'menu_name'             => __( 'PRODUCT TABLE', 'woo-product-table' ),
+		'name_admin_bar'        => __( 'Product Table', 'woo-product-table' ),
+		'archives'              => __( 'Product Table Archives', 'woo-product-table' ),
+		'attributes'            => __( 'Product Table Attributes', 'woo-product-table' ),
+		'parent_item_colon'     => __( 'Parent Shortcode:', 'woo-product-table' ),
+		'all_items'             => __( 'Product Table', 'woo-product-table' ),
+		'add_new_item'          => __( 'Add New', 'woo-product-table' ),
+		'add_new'               => __( 'Add New', 'woo-product-table' ),
+		'new_item'              => __( 'New Product Table', 'woo-product-table' ),
+		'edit_item'             => __( 'Edit Product Table', 'woo-product-table' ),
+		'update_item'           => __( 'Update Product Table', 'woo-product-table' ),
+		'view_item'             => __( 'View Product Table', 'woo-product-table' ),
+		'view_items'            => __( 'View Product Tables', 'woo-product-table' ),
+		'search_items'          => __( 'Search Product Table', 'woo-product-table' ),
+		'not_found'             => __( 'Not found', 'woo-product-table' ),
+		'not_found_in_trash'    => __( 'Not found in Trash', 'woo-product-table' ),
+		'featured_image'        => __( 'Featured Image', 'woo-product-table' ),
+		'set_featured_image'    => __( 'Set featured image', 'woo-product-table' ),
+		'remove_featured_image' => __( 'Remove featured image', 'woo-product-table' ),
+		'use_featured_image'    => __( 'Use as featured image', 'woo-product-table' ),
+		'insert_into_item'      => __( 'Insert into Product Table', 'woo-product-table' ),
+		'uploaded_to_this_item' => __( 'Uploaded to this Product Table', 'woo-product-table' ),
+		'items_list'            => __( 'Product Table list', 'woo-product-table' ),
+		'items_list_navigation' => __( 'Product Table list navigation', 'woo-product-table' ),
+		'filter_items_list'     => __( 'Filter Product Table list', 'woo-product-table' ),
 	);
 	$args = array(
-		'label'                 => __( 'PRODUCT TABLE', 'wpt_pro' ),
-		'description'           => __( 'Generate your shortcode for Product Table.', 'wpt_pro' ),
+		'label'                 => __( 'PRODUCT TABLE', 'woo-product-table' ),
+		'description'           => __( 'Generate your shortcode for Product Table.', 'woo-product-table' ),
 		'labels'                => $labels,
 		'supports'              => array( 'title' ),
 		'hierarchical'          => false,
@@ -99,7 +99,7 @@ if( ! function_exists( 'wpt_shortcode_column_content' ) ){
             $post_title = get_the_title( $post_id );
             $post_title = preg_replace( '/[#$%^&*()+=\-\[\]\';,.\/{}|":<>?~\\\\]/',"$1", $post_title );
             echo "<input style='display: inline-block;width:300px;' class='wpt_auto_select_n_copy' type='text' value=\"[Product_Table id='{$post_id}' name='{$post_title}']\" id='wpt_shotcode_content_{$post_id}' readonly>";
-            echo '<a style="font-size: 12px !important;padding: 4px 13px !important" class="button button-primary wpt_copy_button_metabox" data-target_id="wpt_shotcode_content_' . $post_id . '">'. esc_html__( 'Copy','wpt_pro' ).'</a>';
+            echo '<a style="font-size: 12px !important;padding: 4px 13px !important" class="button button-primary wpt_copy_button_metabox" data-target_id="wpt_shotcode_content_' . $post_id . '">'. esc_html__( 'Copy','woo-product-table' ).'</a>';
             echo '<p style="color: green;font-weight:bold;display:none; padding-left: 12px;" class="wpt_shotcode_content_' . $post_id . '"></p>';
         }  
     }

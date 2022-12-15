@@ -38,7 +38,7 @@ class WPT_Elementor_Widget extends \Elementor\Widget_Base{
 	 * @return string Widget title.
 	 */
 	public function get_title() {
-		return __( 'Woo Product Table', 'wpt_pro' );
+		return __( 'Woo Product Table', 'woo-product-table' );
 	}
 
 	/**
@@ -115,7 +115,7 @@ class WPT_Elementor_Widget extends \Elementor\Widget_Base{
 		<?php
             }else{
                 echo '<h2 class="wpt_elmnt_select_note">';
-                echo esc_html__( 'Please select a Table.', 'wpt_pro' );
+                echo esc_html__( 'Please select a Table.', 'woo-product-table' );
                 echo '</h2>';
             }
 	}
@@ -124,7 +124,7 @@ class WPT_Elementor_Widget extends \Elementor\Widget_Base{
                 $this->start_controls_section(
 			'general',
 			[
-				'label' => __( 'General', 'wpt_pro' ),
+				'label' => __( 'General', 'woo-product-table' ),
 				'tab' => Controls_Manager::TAB_CONTENT,
 			]
 		);
@@ -144,7 +144,7 @@ class WPT_Elementor_Widget extends \Elementor\Widget_Base{
                     $id = get_the_id();
                     $table_options[$id] = get_the_title();
                     endwhile;
-                    //$table_options[''] = esc_html__( 'Please Choose a Table', 'wpt_pro' );
+                    //$table_options[''] = esc_html__( 'Please Choose a Table', 'woo-product-table' );
                 else:
                     $table_options = false;
                     //Controls_Manager::HEADING
@@ -157,7 +157,7 @@ class WPT_Elementor_Widget extends \Elementor\Widget_Base{
                     $this->add_control(
                             'table_id',
                             [
-                                    'label' => __( 'Table List', 'wpt_pro' ),
+                                    'label' => __( 'Table List', 'woo-product-table' ),
                                     'type' => Controls_Manager::SELECT,
                                     'options' => $table_options,
                                     //'default' => '',
@@ -167,10 +167,10 @@ class WPT_Elementor_Widget extends \Elementor\Widget_Base{
                     $this->add_control(
                             'table_edit',
                             [
-				'label' => __( 'Additional Info', 'wpt_pro' ),
+				'label' => __( 'Additional Info', 'woo-product-table' ),
 				'type' => Controls_Manager::RAW_HTML,
 				'raw' => sprintf( 
-                                        __( 'Edit your %sTable%s.', 'wpt_pro' ), 
+                                        __( 'Edit your %sTable%s.', 'woo-product-table' ), 
                                         '<a href="' . esc_attr( admin_url( 'post.php?post=' . $table_ID . '&action=edit&classic-editor' ) ) . '">',
                                         '</a>'
                                         ),
@@ -179,16 +179,16 @@ class WPT_Elementor_Widget extends \Elementor\Widget_Base{
                     );
                     //***************************************/
                 }else{
-                    $wpt_extra_msg = __( 'There is not founded any table to your. ', 'wpt_pro' );
+                    $wpt_extra_msg = __( 'There is not founded any table to your. ', 'woo-product-table' );
                 }
                 
                 $this->add_control(
                         'table_notification',
                         [
-                            'label' => __( 'Additional Information', 'wpt_pro' ),
+                            'label' => __( 'Additional Information', 'woo-product-table' ),
                             'type' => Controls_Manager::RAW_HTML,
                             'raw' => $wpt_extra_msg . sprintf( 
-                                    __( 'Create %sa new table%s.', 'wpt_pro' ), 
+                                    __( 'Create %sa new table%s.', 'woo-product-table' ), 
                                     '<a href="' . admin_url( 'post-new.php?post_type=wpt_product_table' ) . '">',
                                     '</a>'
                                     ),

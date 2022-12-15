@@ -14,7 +14,7 @@
  * WC tested up to: 	 7.2.0
  * 
  * 
- * Text Domain: wpt_pro
+ * Text Domain: woo-product-table
  * Domain Path: /languages/
  */
 
@@ -92,36 +92,36 @@ include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 WPT_Product_Table::getInstance();
 
 $column_array = array(
-    'check'         => __( 'Check', 'wpt_pro' ),
-    'thumbnails'    => __( 'Thumbnails', 'wpt_pro' ),
-    'product_title' => __( 'Products', 'wpt_pro' ),
-    'category'      => __( 'Category', 'wpt_pro' ),
-    'tags'          => __( 'Tags', 'wpt_pro' ),
-    'sku'           => __( 'SKU', 'wpt_pro' ),
-    'weight'        => __( 'Weight(kg)', 'wpt_pro' ),
-    'length'        => __( 'Length(cm)', 'wpt_pro' ),
-    'width'         => __( 'Width(cm)', 'wpt_pro' ),
-    'height'        => __( 'Height(cm)', 'wpt_pro' ),
-    'rating'        => __( 'Rating', 'wpt_pro' ),
-    'stock'         => __( 'Stock', 'wpt_pro' ),
-    'price'         => __( 'Price', 'wpt_pro' ),
-    'wishlist'      => __( 'Wish List', 'wpt_pro' ),
-    'quantity'      => __( 'Quantity', 'wpt_pro' ),
-    'total'         => __( 'Total Price', 'wpt_pro' ),
-    'message'       => __( 'Short Message', 'wpt_pro' ),
-    'quick_view'    => __( 'Quick View', 'wpt_pro' ),
-    'quick'         => __( 'Quick', 'wpt_pro' ), //Yith Quick View actually
-    'date'          =>  __( 'Date', 'wpt_pro' ),
-    'modified_date' =>  __( 'Modified Date', 'wpt_pro' ),
-    'attribute'     =>  __( 'Attributes', 'wpt_pro' ),
-    'variations'    =>  __( 'Variations', 'wpt_pro' ),
-    'quoterequest'  => __( 'Quote Request', 'wpt_pro' ),
-    'description'   =>  __( 'Description', 'wpt_pro' ), //has been removed at V5.2 //Again start at 6.0.25 //Again added
-    'short_description'   =>  __( 'Short Description', 'wpt_pro' ), //Added at v2.9.4
-    'blank'         => __( 'Blank', 'wpt_pro' ),
-    'product_id'    => __( 'ID', 'wpt_pro' ),
-    'serial_number' => __( 'SL', 'wpt_pro' ),
-    'action'        => __( 'Action', 'wpt_pro' ),
+    'check'         => __( 'Check', 'woo-product-table' ),
+    'thumbnails'    => __( 'Thumbnails', 'woo-product-table' ),
+    'product_title' => __( 'Products', 'woo-product-table' ),
+    'category'      => __( 'Category', 'woo-product-table' ),
+    'tags'          => __( 'Tags', 'woo-product-table' ),
+    'sku'           => __( 'SKU', 'woo-product-table' ),
+    'weight'        => __( 'Weight(kg)', 'woo-product-table' ),
+    'length'        => __( 'Length(cm)', 'woo-product-table' ),
+    'width'         => __( 'Width(cm)', 'woo-product-table' ),
+    'height'        => __( 'Height(cm)', 'woo-product-table' ),
+    'rating'        => __( 'Rating', 'woo-product-table' ),
+    'stock'         => __( 'Stock', 'woo-product-table' ),
+    'price'         => __( 'Price', 'woo-product-table' ),
+    'wishlist'      => __( 'Wish List', 'woo-product-table' ),
+    'quantity'      => __( 'Quantity', 'woo-product-table' ),
+    'total'         => __( 'Total Price', 'woo-product-table' ),
+    'message'       => __( 'Short Message', 'woo-product-table' ),
+    'quick_view'    => __( 'Quick View', 'woo-product-table' ),
+    'quick'         => __( 'Quick', 'woo-product-table' ), //Yith Quick View actually
+    'date'          =>  __( 'Date', 'woo-product-table' ),
+    'modified_date' =>  __( 'Modified Date', 'woo-product-table' ),
+    'attribute'     =>  __( 'Attributes', 'woo-product-table' ),
+    'variations'    =>  __( 'Variations', 'woo-product-table' ),
+    'quoterequest'  => __( 'Quote Request', 'woo-product-table' ),
+    'description'   =>  __( 'Description', 'woo-product-table' ), //has been removed at V5.2 //Again start at 6.0.25 //Again added
+    'short_description'   =>  __( 'Short Description', 'woo-product-table' ), //Added at v2.9.4
+    'blank'         => __( 'Blank', 'woo-product-table' ),
+    'product_id'    => __( 'ID', 'woo-product-table' ),
+    'serial_number' => __( 'SL', 'woo-product-table' ),
+    'action'        => __( 'Action', 'woo-product-table' ),
 );
 
 $column_array = apply_filters( 'wpto_default_column_arr', $column_array );
@@ -198,47 +198,47 @@ $default = array(
     'popup_notice'          => '1',
     'disable_cat_tag_link'  =>  '0',
     'product_link_target'   =>  '_blank',
-    'product_not_founded'   =>  __( 'Products Not founded!', 'wpt_pro' ),
-    'load_more_text'        =>  __( 'Load more', 'wpt_pro' ),
-    'quick_view_btn_text'   =>  __( 'Quick View', 'wpt_pro' ), 
-    'loading_more_text'     =>  __( 'Loading..', 'wpt_pro' ),
-    'search_button_text'    =>  __( 'Search', 'wpt_pro' ),
-    'search_keyword_text'   =>  __( 'Search Keyword', 'wpt_pro' ),
+    'product_not_founded'   =>  __( 'Products Not founded!', 'woo-product-table' ),
+    'load_more_text'        =>  __( 'Load more', 'woo-product-table' ),
+    'quick_view_btn_text'   =>  __( 'Quick View', 'woo-product-table' ), 
+    'loading_more_text'     =>  __( 'Loading..', 'woo-product-table' ),
+    'search_button_text'    =>  __( 'Search', 'woo-product-table' ),
+    'search_keyword_text'   =>  __( 'Search Keyword', 'woo-product-table' ),
     'disable_loading_more'  =>  'load_more_hidden',//'normal',//Load More
     'instant_search_filter' =>  '0',
     //Message Config
-    'empty_cart_text'       => __( 'Empty Cart', 'wpt_pro' ), //Added at 3.0.1.0
-    'filter_text'           =>  __( 'Filter:', 'wpt_pro' ),
-    'filter_reset_button'   =>  __( 'Reset', 'wpt_pro' ),
-    'instant_search_text'   =>  __( 'Instant Search..', 'wpt_pro' ),
-    'yith_browse_list'      =>  __( 'Browse the list', 'wpt_pro' ),
-    'yith_add_to_quote_text'=>  __( 'Add to Quote', 'wpt_pro' ),
-    'yith_add_to_quote_adding'=>  __( 'Adding..', 'wpt_pro' ),
-    'yith_add_to_quote_added' =>  __( 'Quoted', 'wpt_pro' ),
-    'item'                  =>  __( 'Item', 'wpt_pro' ), //It will use at custom.js file for Chinging
-    'items'                 =>  __( 'Items', 'wpt_pro' ), //It will use at custom.js file for Chinging
-    'add2cart_all_added_text'=>  __( 'Added', 'wpt_pro' ), //It will use at custom.js file for Chinging
-    'right_combination_message' => __( 'Not available', 'wpt_pro' ),
-    'right_combination_message_alt' => __( 'Product variations is not set Properly. May be: price is not inputted. may be: Out of Stock.', 'wpt_pro' ),
-    'no_more_query_message' => __( 'There is no more products based on current Query.', 'wpt_pro' ),
-    'select_all_items_message' => __( 'Please select all items.', 'wpt_pro' ),
-    'please_choose_items' => __( 'Please select some items.', 'wpt_pro' ),
-    'out_of_stock_message'  => __( 'Out of Stock', 'wpt_pro' ),
-    'adding_in_progress'    =>  __( 'Adding in Progress', 'wpt_pro' ),
-    'no_right_combination'  =>  __( 'No Right Combination', 'wpt_pro' ),
-    'sorry_out_of_stock'    =>  __( 'Sorry! Out of Stock!', 'wpt_pro' ),
-    'type_your_message'     =>  __( 'Type your Message.', 'wpt_pro' ),
-    'sorry_plz_right_combination' =>    __( 'Sorry, Please choose right combination.', 'wpt_pro' ),
+    'empty_cart_text'       => __( 'Empty Cart', 'woo-product-table' ), //Added at 3.0.1.0
+    'filter_text'           =>  __( 'Filter:', 'woo-product-table' ),
+    'filter_reset_button'   =>  __( 'Reset', 'woo-product-table' ),
+    'instant_search_text'   =>  __( 'Instant Search..', 'woo-product-table' ),
+    'yith_browse_list'      =>  __( 'Browse the list', 'woo-product-table' ),
+    'yith_add_to_quote_text'=>  __( 'Add to Quote', 'woo-product-table' ),
+    'yith_add_to_quote_adding'=>  __( 'Adding..', 'woo-product-table' ),
+    'yith_add_to_quote_added' =>  __( 'Quoted', 'woo-product-table' ),
+    'item'                  =>  __( 'Item', 'woo-product-table' ), //It will use at custom.js file for Chinging
+    'items'                 =>  __( 'Items', 'woo-product-table' ), //It will use at custom.js file for Chinging
+    'add2cart_all_added_text'=>  __( 'Added', 'woo-product-table' ), //It will use at custom.js file for Chinging
+    'right_combination_message' => __( 'Not available', 'woo-product-table' ),
+    'right_combination_message_alt' => __( 'Product variations is not set Properly. May be: price is not inputted. may be: Out of Stock.', 'woo-product-table' ),
+    'no_more_query_message' => __( 'There is no more products based on current Query.', 'woo-product-table' ),
+    'select_all_items_message' => __( 'Please select all items.', 'woo-product-table' ),
+    'please_choose_items' => __( 'Please select some items.', 'woo-product-table' ),
+    'out_of_stock_message'  => __( 'Out of Stock', 'woo-product-table' ),
+    'adding_in_progress'    =>  __( 'Adding in Progress', 'woo-product-table' ),
+    'no_right_combination'  =>  __( 'No Right Combination', 'woo-product-table' ),
+    'sorry_out_of_stock'    =>  __( 'Sorry! Out of Stock!', 'woo-product-table' ),
+    'type_your_message'     =>  __( 'Type your Message.', 'woo-product-table' ),
+    'sorry_plz_right_combination' =>    __( 'Sorry, Please choose right combination.', 'woo-product-table' ),
     
     'all_selected_direct_checkout' => 'no',
     'product_direct_checkout' => 'no',
     
     //Added Search Box Features @Since 3.3
-    'search_box_title' => sprintf( __( 'Search Box (%sAll Fields Optional%s)', 'wpt_pro' ),'<small>', '</small>'),
-    'search_box_searchkeyword' => __( 'Search Keyword', 'wpt_pro' ),
-    'search_box_orderby'    => __( 'Sort By', 'wpt_pro' ),
-    'search_box_order'      => __( 'Order', 'wpt_pro' ),
-    'search_order_placeholder'      => __( 'Select inner Item.', 'wpt_pro' ),
+    'search_box_title' => sprintf( __( 'Search Box (%sAll Fields Optional%s)', 'woo-product-table' ),'<small>', '</small>'),
+    'search_box_searchkeyword' => __( 'Search Keyword', 'woo-product-table' ),
+    'search_box_orderby'    => __( 'Sort By', 'woo-product-table' ),
+    'search_box_order'      => __( 'Order', 'woo-product-table' ),
+    'search_order_placeholder'      => __( 'Select inner Item.', 'woo-product-table' ),
 );
 $default = apply_filters( 'wpto_default_configure', $default );
 WPT_Product_Table::$default = $default;
@@ -519,9 +519,9 @@ class WPT_Product_Table{
 
            $message = sprintf(
                    /* translators: 1: Plugin name 2: PHP 3: Required PHP version */
-                   esc_html__( '"%1$s" requires "%2$s" version %3$s or greater.', 'wpt_pro' ),
-                   '<strong>' . esc_html__( 'Woo Product Table', 'wpt_pro' ) . '</strong>',
-                   '<strong>' . esc_html__( 'PHP', 'wpt_pro' ) . '</strong>',
+                   esc_html__( '"%1$s" requires "%2$s" version %3$s or greater.', 'woo-product-table' ),
+                   '<strong>' . esc_html__( 'Woo Product Table', 'woo-product-table' ) . '</strong>',
+                   '<strong>' . esc_html__( 'PHP', 'woo-product-table' ) . '</strong>',
                     self::MINIMUM_PHP_VERSION
            );
 

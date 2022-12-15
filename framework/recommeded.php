@@ -34,8 +34,8 @@ class Recommeded
         // }
         
 
-        $this_plugin = __( 'It\'s', 'wpt_pro' );
-        $this_plugin2 = __( 'Woo Product Table', 'wpt_pro' );
+        $this_plugin = __( 'It\'s', 'woo-product-table' );
+        $this_plugin2 = __( 'Woo Product Table', 'woo-product-table' );
 
         $qv_req_slug = 'ca-quick-view/init.php';
         $qv_tar_slug = WPT_PLUGIN_BASE_FILE;
@@ -58,7 +58,7 @@ class Recommeded
         $req_mmp->set_args( ['Name' => 'Min Max Quantity & Step Control for WooCommerce'] )
         ->set_download_link('https://wordpress.org/plugins/woo-min-max-quantity-step-control-single/')
         ->set_this_download_link('https://wordpress.org/plugins/woo-product-table/');
-        $mmp_message = __('If you want to set CONDITION for minimum and maximum limit and want to control step, then you can install it. Otherwise ignore it.','wpt_pro');
+        $mmp_message = __('If you want to set CONDITION for minimum and maximum limit and want to control step, then you can install it. Otherwise ignore it.','woo-product-table');
         $req_mmp->set_message($mmp_message);
         $req_mmp->get_full_this_plugin_name($this_plugin);
         // var_dump(method_exists($req_mmp, 'set_location'),$req_mmp);
@@ -80,7 +80,7 @@ class Recommeded
         $req_pmb->set_args( ['Name' => 'Quantity Plus Minus Button for WooCommerce'] )
         ->set_download_link('https://wordpress.org/plugins/wc-quantity-plus-minus-button/')
         ->set_this_download_link('https://wordpress.org/plugins/woo-product-table/');
-        $pmb_message = __('If you want to set plus minus button for your Quantity Box, you can Install this plugin. If already by your theme, ignore it.','wpt_pro');
+        $pmb_message = __('If you want to set plus minus button for your Quantity Box, you can Install this plugin. If already by your theme, ignore it.','woo-product-table');
         $req_pmb->set_message($pmb_message);
         $req_pmb->get_full_this_plugin_name($this_plugin);
         // ->set_required();
@@ -100,7 +100,7 @@ class Recommeded
         $req_pmb->set_args( ['Name' => 'UltraAddons - Elementor Addons'] )
         ->set_download_link('https://wordpress.org/plugins/ultraaddons-elementor-lite/')
         ->set_this_download_link('https://wordpress.org/plugins/woo-product-table/');
-        $pmb_message = __('There are many WooCommerce Widget available at UltraAddons. You can Try it. Just Recommended','wpt_pro');
+        $pmb_message = __('There are many WooCommerce Widget available at UltraAddons. You can Try it. Just Recommended','woo-product-table');
         $req_pmb->set_message($pmb_message);
         $req_pmb->get_full_this_plugin_name($this_plugin);
         // ->set_required();
@@ -117,7 +117,7 @@ class Recommeded
         if( method_exists($req_qv, 'set_location') ){
             $req_qv->set_location('wpto_column_setting_form_inside_quick_view'); //wpt_premium_image_bottom
             $req_qv->required = false;
-            $req_message = __('To Display Quick View at Shop Page or Anywhere. There are many customizing option to this plugin.','wpt_pro');
+            $req_message = __('To Display Quick View at Shop Page or Anywhere. There are many customizing option to this plugin.','woo-product-table');
             $req_qv->set_message($req_message);
             $req_qv->get_full_this_plugin_name($this_plugin2);
             $req_qv->set_location('wpt_plugin_recommend_here');

@@ -22,12 +22,12 @@ if( !function_exists( 'wpt_column_setting_for_tax_cf' ) ){
             foreach( $enabled_column_array as $enbl_col => $val ){
                 if( substr($enbl_col, 0,3) == 'cf_' ){
                     $column_settings[$enbl_col]['type'] = 'custom_field';
-                    $column_settings[$enbl_col]['type_name'] = __( 'Custom Field', 'wpt_pro' );
+                    $column_settings[$enbl_col]['type_name'] = __( 'Custom Field', 'woo-product-table' );
                     $column_settings[$enbl_col]['older'] = true;
                 }
                 if( substr($enbl_col, 0,4) == 'tax_' ){
                     $column_settings[$enbl_col]['type'] = 'taxonomy';
-                    $column_settings[$enbl_col]['type_name'] = __('Taxonomy', 'wpt_pro');
+                    $column_settings[$enbl_col]['type_name'] = __('Taxonomy', 'woo-product-table');
                     $column_settings[$enbl_col]['older'] = true;
                 }
                 
@@ -214,14 +214,14 @@ if( ! function_exists( 'wpt_product_title_column_add' ) ){
         $description_off = $description_off == 'off' ? 'checked="checked"' : '';
        ?>
         <div class="description_off_wrapper">
-            <label for="description_off<?php echo esc_attr( $_device_name ); ?>"><input id="description_off<?php echo esc_attr( $_device_name ); ?>" title="Disable Deactivate Description from Title Column" name="column_settings<?php echo esc_attr( $_device_name ); ?>[description_off]" id="description_off" class="description_off" type="checkbox" value="off" <?php echo esc_attr( $description_off ); ?>> <?php echo esc_html__( 'Disable Description', 'wpt_pro' ); ?></label>
-            <label for="variation_in_title<?php echo esc_attr( $_device_name ); ?>"><input id="variation_in_title<?php echo esc_attr( $_device_name ); ?>" title="Show variation names with title" name="column_settings<?php echo esc_attr( $_device_name ); ?>[product_title][variation_in_title]" id="variation_in_title" class="variation_in_title" type="checkbox" <?php echo esc_attr( $variation_in_title ); ?>> <?php echo esc_html__( 'Show Variation Name With Title', 'wpt_pro' ); ?></label>
+            <label for="description_off<?php echo esc_attr( $_device_name ); ?>"><input id="description_off<?php echo esc_attr( $_device_name ); ?>" title="Disable Deactivate Description from Title Column" name="column_settings<?php echo esc_attr( $_device_name ); ?>[description_off]" id="description_off" class="description_off" type="checkbox" value="off" <?php echo esc_attr( $description_off ); ?>> <?php echo esc_html__( 'Disable Description', 'woo-product-table' ); ?></label>
+            <label for="variation_in_title<?php echo esc_attr( $_device_name ); ?>"><input id="variation_in_title<?php echo esc_attr( $_device_name ); ?>" title="Show variation names with title" name="column_settings<?php echo esc_attr( $_device_name ); ?>[product_title][variation_in_title]" id="variation_in_title" class="variation_in_title" type="checkbox" <?php echo esc_attr( $variation_in_title ); ?>> <?php echo esc_html__( 'Show Variation Name With Title', 'woo-product-table' ); ?></label>
         </div>
         <div class="title_variation">
-            <label for="link<?php echo esc_attr( $_device_name ); ?>"><input type="radio" id="link<?php echo esc_attr( $_device_name ); ?>" name="column_settings<?php echo esc_attr( $_device_name ); ?>[title_variation]" value="link" <?php echo !$title_variation || $title_variation == 'link' ? 'checked' : ''; ?>> <?php echo esc_html__( 'Link Enable', 'wpt_pro' ); ?></label>
-            <label for="nolink<?php echo esc_attr( $_device_name ); ?>"><input type="radio" id="nolink<?php echo esc_attr( $_device_name ); ?>" name="column_settings<?php echo esc_attr( $_device_name ); ?>[title_variation]" value="nolink" <?php echo $title_variation == 'nolink' ? 'checked' : ''; ?>> <?php echo esc_html__( 'Link Disable', 'wpt_pro' ); ?></label>
-            <label for="ca_quick_view<?php echo esc_attr( $_device_name ); ?>" class="tooltip"><input type="radio" id="ca_quick_view<?php echo esc_attr( $_device_name ); ?>" name="column_settings<?php echo esc_attr( $_device_name ); ?>[title_variation]" value="ca_quick_view" <?php echo $title_variation == 'ca_quick_view' ? 'checked' : ''; ?>> <?php echo esc_html__( 'Link Disable + Quick View', 'wpt_pro' ); ?><span class="tooltip-hover down-arrow"><?php echo esc_html__( 'You have to install', 'wpt_pro' ); ?> <a href="https://wordpress.org/plugins/ca-quick-view/" target="_blank"><?php echo esc_html__( 'Quick View by Code Astrology', 'wpt_pro' ); ?></a></span></label>
-            <label for="yith<?php echo esc_attr( $_device_name ); ?>" style="opacity:0.4" class="tooltip"><input type="radio" id="yith<?php echo esc_attr( $_device_name ); ?>" name="column_settings<?php echo esc_attr( $_device_name ); ?>[title_variation]" value="yith" <?php echo $title_variation == 'yith' ? 'checked' : ''; ?>> <?php echo esc_html__( 'Link Disable + Quick View', 'wpt_pro' ); ?><span class="tooltip-hover down-arrow"><?php echo esc_html__( 'You have to install', 'wpt_pro' ); ?> <a href="https://wordpress.org/plugins/yith-woocommerce-quick-view/" target="_blank"><?php echo esc_html__( 'YITH WooCommerce Quick View', 'wpt_pro' ); ?></a></span></label>
+            <label for="link<?php echo esc_attr( $_device_name ); ?>"><input type="radio" id="link<?php echo esc_attr( $_device_name ); ?>" name="column_settings<?php echo esc_attr( $_device_name ); ?>[title_variation]" value="link" <?php echo !$title_variation || $title_variation == 'link' ? 'checked' : ''; ?>> <?php echo esc_html__( 'Link Enable', 'woo-product-table' ); ?></label>
+            <label for="nolink<?php echo esc_attr( $_device_name ); ?>"><input type="radio" id="nolink<?php echo esc_attr( $_device_name ); ?>" name="column_settings<?php echo esc_attr( $_device_name ); ?>[title_variation]" value="nolink" <?php echo $title_variation == 'nolink' ? 'checked' : ''; ?>> <?php echo esc_html__( 'Link Disable', 'woo-product-table' ); ?></label>
+            <label for="ca_quick_view<?php echo esc_attr( $_device_name ); ?>" class="tooltip"><input type="radio" id="ca_quick_view<?php echo esc_attr( $_device_name ); ?>" name="column_settings<?php echo esc_attr( $_device_name ); ?>[title_variation]" value="ca_quick_view" <?php echo $title_variation == 'ca_quick_view' ? 'checked' : ''; ?>> <?php echo esc_html__( 'Link Disable + Quick View', 'woo-product-table' ); ?><span class="tooltip-hover down-arrow"><?php echo esc_html__( 'You have to install', 'woo-product-table' ); ?> <a href="https://wordpress.org/plugins/ca-quick-view/" target="_blank"><?php echo esc_html__( 'Quick View by Code Astrology', 'woo-product-table' ); ?></a></span></label>
+            <label for="yith<?php echo esc_attr( $_device_name ); ?>" style="opacity:0.4" class="tooltip"><input type="radio" id="yith<?php echo esc_attr( $_device_name ); ?>" name="column_settings<?php echo esc_attr( $_device_name ); ?>[title_variation]" value="yith" <?php echo $title_variation == 'yith' ? 'checked' : ''; ?>> <?php echo esc_html__( 'Link Disable + Quick View', 'woo-product-table' ); ?><span class="tooltip-hover down-arrow"><?php echo esc_html__( 'You have to install', 'woo-product-table' ); ?> <a href="https://wordpress.org/plugins/yith-woocommerce-quick-view/" target="_blank"><?php echo esc_html__( 'YITH WooCommerce Quick View', 'woo-product-table' ); ?></a></span></label>
         </div>        
 
        <?php
@@ -239,12 +239,12 @@ if( ! function_exists( 'wpt_thumbnails_column_add' ) ){
        ?>
         <?php do_action('wpo_pro_feature_message', 'enable_gallery');?>
         <div class="thumb_variation">
-            <label for="popup<?php echo esc_attr( $_device_name ); ?>"><input type="radio" id="popup<?php echo esc_attr( $_device_name ); ?>" name="column_settings<?php echo esc_attr( $_device_name ); ?>[thumb_variation]" value="popup" <?php echo !$thumb_variation || $thumb_variation == 'popup' ? 'checked' : ''; ?>> <?php echo esc_html__( 'Default Popup', 'wpt_pro' ); ?></label>
-            <label for="no_action<?php echo esc_attr( $_device_name ); ?>"><input type="radio" id="no_action<?php echo esc_attr( $_device_name ); ?>" name="column_settings<?php echo esc_attr( $_device_name ); ?>[thumb_variation]" value="no_action" <?php echo $thumb_variation == 'no_action' ? 'checked' : ''; ?>> <?php echo esc_html__( 'No Action', 'wpt_pro' ); ?></label>
-            <label for="url<?php echo esc_attr( $_device_name ); ?>"><input type="radio" id="url<?php echo esc_attr( $_device_name ); ?>" name="column_settings<?php echo esc_attr( $_device_name ); ?>[thumb_variation]" value="url" <?php echo $thumb_variation == 'url' ? 'checked' : ''; ?>> <?php echo esc_html__( 'Product Link', 'wpt_pro' ); ?></label>
+            <label for="popup<?php echo esc_attr( $_device_name ); ?>"><input type="radio" id="popup<?php echo esc_attr( $_device_name ); ?>" name="column_settings<?php echo esc_attr( $_device_name ); ?>[thumb_variation]" value="popup" <?php echo !$thumb_variation || $thumb_variation == 'popup' ? 'checked' : ''; ?>> <?php echo esc_html__( 'Default Popup', 'woo-product-table' ); ?></label>
+            <label for="no_action<?php echo esc_attr( $_device_name ); ?>"><input type="radio" id="no_action<?php echo esc_attr( $_device_name ); ?>" name="column_settings<?php echo esc_attr( $_device_name ); ?>[thumb_variation]" value="no_action" <?php echo $thumb_variation == 'no_action' ? 'checked' : ''; ?>> <?php echo esc_html__( 'No Action', 'woo-product-table' ); ?></label>
+            <label for="url<?php echo esc_attr( $_device_name ); ?>"><input type="radio" id="url<?php echo esc_attr( $_device_name ); ?>" name="column_settings<?php echo esc_attr( $_device_name ); ?>[thumb_variation]" value="url" <?php echo $thumb_variation == 'url' ? 'checked' : ''; ?>> <?php echo esc_html__( 'Product Link', 'woo-product-table' ); ?></label>
             
-            <label for="ca_quick_view<?php echo esc_attr( $_device_name ); ?>" class="tooltip"><input type="radio" id="ca_quick_view<?php echo esc_attr( $_device_name ); ?>" name="column_settings<?php echo esc_attr( $_device_name ); ?>[thumb_variation]" value="ca_quick_view" <?php echo $thumb_variation == 'ca_quick_view' ? 'checked' : ''; ?>> <?php echo esc_html__( 'Quick View', 'wpt_pro' ); ?><span class="tooltip-hover down-arrow"><?php echo esc_html__( 'You have to install', 'wpt_pro' ); ?> <a href="https://wordpress.org/plugins/ca-quick-view/" target="_blank"><?php echo esc_html__( 'YITH WooCommerce Quick View', 'wpt_pro' ); ?></a></span></label>
-            <label for="quick_view<?php echo esc_attr( $_device_name ); ?>" style="opacity:.1;" class="tooltip"><input type="radio" id="quick_view<?php echo esc_attr( $_device_name ); ?>" name="column_settings<?php echo esc_attr( $_device_name ); ?>[thumb_variation]" value="quick_view" <?php echo $thumb_variation == 'quick_view' ? 'checked' : ''; ?>> <?php echo esc_html__( 'Quick View', 'wpt_pro' ); ?><span class="tooltip-hover down-arrow"><?php echo esc_html__( 'You have to install', 'wpt_pro' ); ?> <a href="https://wordpress.org/plugins/yith-woocommerce-quick-view/" target="_blank"><?php echo esc_html__( 'YITH WooCommerce Quick View', 'wpt_pro' ); ?></a></span></label>
+            <label for="ca_quick_view<?php echo esc_attr( $_device_name ); ?>" class="tooltip"><input type="radio" id="ca_quick_view<?php echo esc_attr( $_device_name ); ?>" name="column_settings<?php echo esc_attr( $_device_name ); ?>[thumb_variation]" value="ca_quick_view" <?php echo $thumb_variation == 'ca_quick_view' ? 'checked' : ''; ?>> <?php echo esc_html__( 'Quick View', 'woo-product-table' ); ?><span class="tooltip-hover down-arrow"><?php echo esc_html__( 'You have to install', 'woo-product-table' ); ?> <a href="https://wordpress.org/plugins/ca-quick-view/" target="_blank"><?php echo esc_html__( 'YITH WooCommerce Quick View', 'woo-product-table' ); ?></a></span></label>
+            <label for="quick_view<?php echo esc_attr( $_device_name ); ?>" style="opacity:.1;" class="tooltip"><input type="radio" id="quick_view<?php echo esc_attr( $_device_name ); ?>" name="column_settings<?php echo esc_attr( $_device_name ); ?>[thumb_variation]" value="quick_view" <?php echo $thumb_variation == 'quick_view' ? 'checked' : ''; ?>> <?php echo esc_html__( 'Quick View', 'woo-product-table' ); ?><span class="tooltip-hover down-arrow"><?php echo esc_html__( 'You have to install', 'woo-product-table' ); ?> <a href="https://wordpress.org/plugins/yith-woocommerce-quick-view/" target="_blank"><?php echo esc_html__( 'YITH WooCommerce Quick View', 'woo-product-table' ); ?></a></span></label>
         </div>
         
        <?php
@@ -262,24 +262,24 @@ if( ! function_exists( 'wpt_column_tag_for_all' ) ){
         $tag_value = isset( $column_settings[$keyword]['tag'] ) ? $column_settings[$keyword]['tag'] : false;
 
         $tags = array(
-            '' => __('No Tag', 'wpt_pro'),
-            'section' => __('Section', 'wpt_pro'),
-            'h1' => __('Heading 1', 'wpt_pro'),
-            'h2' => __('Heading 2', 'wpt_pro'),
-            'h3' => __('Heading 3', 'wpt_pro'),
-            'h4' => __('Heading 4', 'wpt_pro'),
-            'h5' => __('Heading 5', 'wpt_pro'),
-            'h6' => __('Heading 6', 'wpt_pro'),
-            'p' => __('Paragraph', 'wpt_pro'),
-            'b' => __('Bold', 'wpt_pro'),
-            'strong' => __('Strong', 'wpt_pro'),
-            'span' => __('Span', 'wpt_pro'),
-            'div' => __('Div', 'wpt_pro'),
+            '' => __('No Tag', 'woo-product-table'),
+            'section' => __('Section', 'woo-product-table'),
+            'h1' => __('Heading 1', 'woo-product-table'),
+            'h2' => __('Heading 2', 'woo-product-table'),
+            'h3' => __('Heading 3', 'woo-product-table'),
+            'h4' => __('Heading 4', 'woo-product-table'),
+            'h5' => __('Heading 5', 'woo-product-table'),
+            'h6' => __('Heading 6', 'woo-product-table'),
+            'p' => __('Paragraph', 'woo-product-table'),
+            'b' => __('Bold', 'woo-product-table'),
+            'strong' => __('Strong', 'woo-product-table'),
+            'span' => __('Span', 'woo-product-table'),
+            'div' => __('Div', 'woo-product-table'),
         );
 
         ?>
         <div class="column_tag_for_all">
-            <label><?php echo esc_html__( 'Select wrapper tag', 'wpt_pro' ); ?></label>
+            <label><?php echo esc_html__( 'Select wrapper tag', 'woo-product-table' ); ?></label>
             <select class="ua_select" name="column_settings<?php echo esc_attr( $_device_name ); ?>[<?php echo esc_attr( $keyword ); ?>][tag]">    
             <?php
             foreach($tags as $tag => $tag_name){
@@ -344,7 +344,7 @@ if( ! function_exists( 'wpt_column_add_extra_items' ) ){
         }
         ?>
         <div class="column_add_extra_items extra-inner-item-wrapper">
-        <label for="<?php echo esc_attr( "column_settings{$_device_name}_{$keyword}" ); ?>"><?php echo esc_html__( 'Select multiple inner items:', 'wpt_pro' ); ?></label>
+        <label for="<?php echo esc_attr( "column_settings{$_device_name}_{$keyword}" ); ?>"><?php echo esc_html__( 'Select multiple inner items:', 'woo-product-table' ); ?></label>
 
         <?php
         $select = "";
@@ -405,7 +405,7 @@ if( ! function_exists( 'wpt_add_extra_inside_items' ) ){
 
     function wpt_add_extra_inside_items( $columns_array ){
 
-        $columns_array['menu_order'] = esc_html__( "Menu Order", 'wpt_pro' );
+        $columns_array['menu_order'] = esc_html__( "Menu Order", 'woo-product-table' );
 
         return $columns_array;
     }
@@ -986,7 +986,7 @@ if( ! function_exists( 'wpt_array_to_option_atrribute' ) ){
      */
     function wpt_array_to_option_atrribute( $current_single_attribute = false ){
 
-        $html = '<option value>'.esc_html__( 'None', 'wpt_pro' ).'</option>';
+        $html = '<option value>'.esc_html__( 'None', 'woo-product-table' ).'</option>';
         if( is_array( $current_single_attribute ) && count( $current_single_attribute ) ){
             foreach( $current_single_attribute as $wpt_pr_attributes ){
             $html .= "<option value='{$wpt_pr_attributes}'>" . ucwords( $wpt_pr_attributes ) . "</option>";

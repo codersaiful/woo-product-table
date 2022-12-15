@@ -24,16 +24,16 @@ foreach($terms as $term){
         <table class="ultraaddons-table">
             <tr>
                 <th>
-                    <label class="wpt_label" for="wpt_search_box"><?php esc_html_e( 'Advance Search Box', 'wpt_pro' ); ?></label>
+                    <label class="wpt_label" for="wpt_search_box"><?php esc_html_e( 'Advance Search Box', 'woo-product-table' ); ?></label>
                 </th>
                 <td>
                     <select name="search_n_filter[search_box]" data-name='search_box' id="wpt_search_box" class="wpt_fullwidth wpt_data_filed_atts ua_input wpt_toggle" data-on="yes|.wpt_snf_on_off" >
-                        <option value="yes" <?php echo isset( $meta_search_n_filter['search_box'] ) && $meta_search_n_filter['search_box'] == 'yes' ? 'selected' : ''; ?>><?php esc_html_e( 'Show Search Box', 'wpt_pro' ); ?></option>
-                        <option value="no" <?php echo isset( $meta_search_n_filter['search_box'] ) && $meta_search_n_filter['search_box'] == 'no' ? 'selected' : ''; ?>><?php esc_html_e( 'Hide Search Box', 'wpt_pro' ); ?></option>
+                        <option value="yes" <?php echo isset( $meta_search_n_filter['search_box'] ) && $meta_search_n_filter['search_box'] == 'yes' ? 'selected' : ''; ?>><?php esc_html_e( 'Show Search Box', 'woo-product-table' ); ?></option>
+                        <option value="no" <?php echo isset( $meta_search_n_filter['search_box'] ) && $meta_search_n_filter['search_box'] == 'no' ? 'selected' : ''; ?>><?php esc_html_e( 'Hide Search Box', 'woo-product-table' ); ?></option>
                     </select>
                     <p class="warning">
-                        <b><?php echo esc_html__( 'Tips:', 'wpt_pro' ); ?></b>
-                        <span><?php echo esc_html__( 'Not for WooCommerce Archive page. Such: shop page, product category page.','wpt_pro' ); ?></span>
+                        <b><?php echo esc_html__( 'Tips:', 'woo-product-table' ); ?></b>
+                        <span><?php echo esc_html__( 'Not for WooCommerce Archive page. Such: shop page, product category page.','woo-product-table' ); ?></span>
                     </p>
                 </td>
             </tr>
@@ -46,7 +46,7 @@ foreach($terms as $term){
         <table class="ultraaddons-table wpt_snf_on_off wpt-table-separator-light">
             <tr>
                 <th>
-                    <label for="wpt-search-form-order" class="wpt_label"><?php esc_html_e( 'Hide Search Input Box', 'wpt_pro' ); ?></label>
+                    <label for="wpt-search-form-order" class="wpt_label"><?php esc_html_e( 'Hide Search Input Box', 'woo-product-table' ); ?></label>
                 </th>
                 <td>
                     <?php
@@ -72,7 +72,7 @@ foreach($terms as $term){
             </tr>
             <tr>
                 <th>
-                    <label for="wpt-search-form-order" class="wpt_label"><?php esc_html_e( 'Search on Whole Site', 'wpt_pro' ); ?></label>
+                    <label for="wpt-search-form-order" class="wpt_label"><?php esc_html_e( 'Search on Whole Site', 'woo-product-table' ); ?></label>
                 </th>
                 <td>
                     <?php
@@ -98,7 +98,7 @@ foreach($terms as $term){
             </tr>
             <tr>
                 <th>
-                    <label class="wpt_label" for="wpt_taxonomy_keywords"><?php esc_html_e( 'Taxonomy Keywords for Advance Search Box (Separate with comma[,])', 'wpt_pro' ); ?></label>
+                    <label class="wpt_label" for="wpt_taxonomy_keywords"><?php esc_html_e( 'Taxonomy Keywords for Advance Search Box (Separate with comma[,])', 'woo-product-table' ); ?></label>
                 </th>
                 <td>
                     <?php
@@ -129,7 +129,7 @@ foreach($terms as $term){
                         }
                         ?>
                     </select>
-                    <!-- <input name="search_n_filter[taxonomy_keywords]" data-name='taxonomy_keywords' id="wpt_taxonomy_keywords" value="<?php echo isset( $meta_search_n_filter['taxonomy_keywords'] ) ?$meta_search_n_filter['taxonomy_keywords'] : 'product_cat,product_tag'; ?>" class="wpt_fullwidth wpt_data_filed_atts ua_input" type="text" placeholder="<?php esc_attr_e( 'eg: product_cat,product_tag,color,size', 'wpt_pro' ); ?>"> -->
+                    <!-- <input name="search_n_filter[taxonomy_keywords]" data-name='taxonomy_keywords' id="wpt_taxonomy_keywords" value="<?php echo isset( $meta_search_n_filter['taxonomy_keywords'] ) ?$meta_search_n_filter['taxonomy_keywords'] : 'product_cat,product_tag'; ?>" class="wpt_fullwidth wpt_data_filed_atts ua_input" type="text" placeholder="<?php esc_attr_e( 'eg: product_cat,product_tag,color,size', 'woo-product-table' ); ?>"> -->
                     <p class="warning">
                         <b>IMPORTANT Tips:</b>
                         <span>To CHOOSE selected Taxonomy(Category,Tag), PLEASE Save & RELOAD,
@@ -178,7 +178,7 @@ foreach($terms as $term){
         <table class="ultraaddons-table wpt_snf_on_off ">
             <tr>
                 <th>
-                    <label class="wpt_label" for="filter_for_<?php echo esc_attr( $per_keyword ); ?>"><?php echo sprintf( esc_html__('Choose [%s] %s (For Advanced Searchbox Filter) %s','wpt_pro'),$per_keyword,'<small>','</small>');?></label>
+                    <label class="wpt_label" for="filter_for_<?php echo esc_attr( $per_keyword ); ?>"><?php echo sprintf( esc_html__('Choose [%s] %s (For Advanced Searchbox Filter) %s','woo-product-table'),$per_keyword,'<small>','</small>');?></label>
                 </th>
                 <td>
                     <select name="search_n_filter[<?php echo esc_attr( $per_keyword ); ?>][]" data-name="<?php echo esc_attr( $per_keyword ); ?>" id="filter_for_<?php echo esc_attr( $per_keyword ); ?>" class="wpt_fullwidth wpt_data_filed_atts wpt_select2 ua_input" multiple>
@@ -197,7 +197,7 @@ foreach($terms as $term){
             }
         }else{
     ?>
-    <p class=" wpt_snf_on_off " style="background-color: #dd9933;padding: 8px;"><?php esc_html_e( 'To get Taxonomy customization, Please save/update this shortcode.', 'wpt_pro' ); ?></p>
+    <p class=" wpt_snf_on_off " style="background-color: #dd9933;padding: 8px;"><?php esc_html_e( 'To get Taxonomy customization, Please save/update this shortcode.', 'woo-product-table' ); ?></p>
     <?php
         }
     ?>
@@ -216,14 +216,14 @@ foreach($terms as $term){
         <table class="ultraaddons-table wpt-table-separator">
             <tr>
                 <th>
-                    <label class="wpt_label" for="wpt_filter_box"><?php esc_html_e( 'Mini Filter', 'wpt_pro' ); ?></label>
+                    <label class="wpt_label" for="wpt_filter_box"><?php esc_html_e( 'Mini Filter', 'woo-product-table' ); ?></label>
                 </th>
                 <td>
                     <select name="search_n_filter[filter_box]" data-name='filter_box' id="wpt_filter_box" class="wpt_fullwidth wpt_data_filed_atts ua_input wpt_toggle"  data-on="yes|.wpt_filtr_on_off">
-                        <option value="no" <?php echo isset( $meta_search_n_filter['filter_box'] ) && $meta_search_n_filter['filter_box'] == 'no' ? 'selected' : ''; ?>><?php esc_html_e( 'Hide Filter', 'wpt_pro' ); ?></option>
-                        <option value="yes" <?php echo isset( $meta_search_n_filter['filter_box'] ) && $meta_search_n_filter['filter_box'] == 'yes' ? 'selected' : ''; ?>><?php esc_html_e( 'Show Filter', 'wpt_pro' ); ?></option>
+                        <option value="no" <?php echo isset( $meta_search_n_filter['filter_box'] ) && $meta_search_n_filter['filter_box'] == 'no' ? 'selected' : ''; ?>><?php esc_html_e( 'Hide Filter', 'woo-product-table' ); ?></option>
+                        <option value="yes" <?php echo isset( $meta_search_n_filter['filter_box'] ) && $meta_search_n_filter['filter_box'] == 'yes' ? 'selected' : ''; ?>><?php esc_html_e( 'Show Filter', 'woo-product-table' ); ?></option>
                     </select>
-                    <p><?php echo esc_html__( 'Only for Visible products of current table.', 'wpt_pro' ) ?></p>
+                    <p><?php echo esc_html__( 'Only for Visible products of current table.', 'woo-product-table' ) ?></p>
                 </td>
             </tr>
         </table>
@@ -232,7 +232,7 @@ foreach($terms as $term){
         <table class="ultraaddons-table wpt_filtr_on_off ">
             <tr>
                 <th>
-                    <label class="wpt_label" for="wpt_filter"><?php esc_html_e( 'Taxonomy Keywords for Filter (Separate with comma[,])', 'wpt_pro' ); ?></label>
+                    <label class="wpt_label" for="wpt_filter"><?php esc_html_e( 'Taxonomy Keywords for Filter (Separate with comma[,])', 'woo-product-table' ); ?></label>
                 </th>
                 <td>
                 <?php

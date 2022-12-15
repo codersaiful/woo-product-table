@@ -59,7 +59,7 @@ if( ! class_exists( 'WPT_Required' ) ){
                  */
 
                 $small_notc = new Notice('small5');
-                $small_notc->set_message(sprintf( __( 'Are you enjoying <b>Product Table for Woocommerce (WooProductTable)</b>: and LOOKING MORE FEATURE? %s.', 'wpt_pro' ), "<a href='https://wooproducttable.com/pricing/?campaign=55Offer&utm_source=Default_Offer_LINK' target='_blank'>GET DISCOUNT HERE</a>" ));
+                $small_notc->set_message(sprintf( __( 'Are you enjoying <b>Product Table for Woocommerce (WooProductTable)</b>: and LOOKING MORE FEATURE? %s.', 'woo-product-table' ), "<a href='https://wooproducttable.com/pricing/?campaign=55Offer&utm_source=Default_Offer_LINK' target='_blank'>GET DISCOUNT HERE</a>" ));
                 $small_notc->set_diff_limit(55);
                 if( method_exists($small_notc, 'set_location') ){
                     $small_notc->set_location('wpt_premium_image_top'); //wpt_premium_image_bottom
@@ -106,10 +106,10 @@ if( ! class_exists( 'WPT_Required' ) ){
             if ( did_action( 'elementor/loaded' ) ) {
             
                 $notc_ua = new Notice('ultraaddons');
-                $notc_ua->set_message( sprintf( __( 'There is a special Widget for Product Table at %s. You can try it.', 'wpt_pro' ), "<a href='https://wordpress.org/plugins/ultraaddons-elementor-lite/'>UltraAddons</a>" ) );
+                $notc_ua->set_message( sprintf( __( 'There is a special Widget for Product Table at %s. You can try it.', 'woo-product-table' ), "<a href='https://wordpress.org/plugins/ultraaddons-elementor-lite/'>UltraAddons</a>" ) );
                 // ->add_button([
                 //     'type' => 'warning',
-                //     'text' => __( 'Download UltraAddons Elementor', 'wpt_pro' ),
+                //     'text' => __( 'Download UltraAddons Elementor', 'woo-product-table' ),
                 //     'link' => 'https://wordpress.org/plugins/ultraaddons-elementor-lite/'
                 // ])
                 // $notc_ua->show();    

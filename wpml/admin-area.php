@@ -25,7 +25,7 @@ if( ! function_exists( 'wpt_wpml_column_title' ) ){
         
        ?>
         <div class="language-area">
-            <p class="lang-area-title"><?php echo esc_html__( 'WPML Translate Area', 'wpt_pro' ); ?></p>
+            <p class="lang-area-title"><?php echo esc_html__( 'WPML Translate Area', 'woo-product-table' ); ?></p>
             <div class="wpml-lang-input-area">
                 <?php foreach( $active_langs as $active_lang ){
                     
@@ -88,7 +88,7 @@ if( ! function_exists( 'wpt_wpml_basic_tab' ) ){
         );
        ?>
         <div class="language-area wpt-table-separator">
-            <p class="lang-area-title"><?php echo esc_html__( 'WPML Translate Area', 'wpt_pro' ); ?></p>
+            <p class="lang-area-title"><?php echo esc_html__( 'WPML Translate Area', 'woo-product-table' ); ?></p>
             <div class="wpml-lang-input-area basic-tab-wpml-area">
                 <?php foreach( $active_langs as $active_lang ){
                     
@@ -144,7 +144,7 @@ if( ! function_exists( 'wpt_wpml_config_switch_notc' ) ){
         ?>
         <div class="fieldwrap ultraaddons-head wpml-config-page-notce-switch">
             <div class="ultraaddons-panel">
-            <?php echo esc_html__( 'TIPS for WPML USER: to change Message\'s value based on your language, First change language from admin bar and then change your message.', 'wpt_pro' ); ?>
+            <?php echo esc_html__( 'TIPS for WPML USER: to change Message\'s value based on your language, First change language from admin bar and then change your message.', 'woo-product-table' ); ?>
             </div>
         </div>
        <?php

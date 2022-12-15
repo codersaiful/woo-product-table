@@ -58,7 +58,7 @@ $_device_name = '';
 
 <div class="inside-column-settings-wrapper">
     <div class="inside-column-setting-header">
-        <h2><?php echo esc_html__( 'Device Wise Column Setting', 'wpt_pro' ); ?></h2>
+        <h2><?php echo esc_html__( 'Device Wise Column Setting', 'woo-product-table' ); ?></h2>
         
         <div class="auto-responsive-area-wrapper">
             <b for="responsive_switch-switcher">Auto Responsive</b>
@@ -103,9 +103,9 @@ $_device_name = '';
         <br>
     </div>
     <nav class="inside-nav-tab-wrapper">
-        <a data-target="inside-desktop" data-device="desktop" class="wpt_inside_nav_tab nav-tab nav-tab-active"><?php echo esc_html__( 'Desktop','wpt_pro' ); ?></a>
-        <a data-target="inside-tablet" data-device="tablet" class="wpt_inside_nav_tab nav-tab"><?php echo esc_html__( 'Tablet','wpt_pro' ); ?></a>
-        <a data-target="inside-mobile" data-device="mobile" class="wpt_inside_nav_tab nav-tab"><?php echo esc_html__( 'Mobile','wpt_pro' ); ?></a>
+        <a data-target="inside-desktop" data-device="desktop" class="wpt_inside_nav_tab nav-tab nav-tab-active"><?php echo esc_html__( 'Desktop','woo-product-table' ); ?></a>
+        <a data-target="inside-tablet" data-device="tablet" class="wpt_inside_nav_tab nav-tab"><?php echo esc_html__( 'Tablet','woo-product-table' ); ?></a>
+        <a data-target="inside-mobile" data-device="mobile" class="wpt_inside_nav_tab nav-tab"><?php echo esc_html__( 'Mobile','woo-product-table' ); ?></a>
     </nav>
     
     
@@ -138,7 +138,7 @@ $_device_name = '_tablet';
 $tablet_header_file = __DIR__ . '/inc-column/tablet-header.php';
 include $tablet_header_file;
 ?>
-<p class="device_wise_col_message"><?php echo esc_html__( 'Set columns for tablet, otherwise desktop columns will be shown on tablet.', 'wpt_pro' ); ?></p>
+<p class="device_wise_col_message"><?php echo esc_html__( 'Set columns for tablet, otherwise desktop columns will be shown on tablet.', 'woo-product-table' ); ?></p>
 <?php
 $availe_column_list_file = __DIR__ . '/inc-column/available-column-list.php';
 include $availe_column_list_file;
@@ -161,7 +161,7 @@ $_device_name = '_mobile';
 $tablet_header_file = __DIR__ . '/inc-column/mobile-header.php';
 include $tablet_header_file;
 ?>
-<p class="device_wise_col_message"><?php echo esc_html__( 'Set columns for mobile, otherwise tablet columns will be shown on mobile.', 'wpt_pro' ); ?></p>
+<p class="device_wise_col_message"><?php echo esc_html__( 'Set columns for mobile, otherwise tablet columns will be shown on mobile.', 'woo-product-table' ); ?></p>
 <?php
 $availe_column_list_file = __DIR__ . '/inc-column/available-column-list.php';
 include $availe_column_list_file;
