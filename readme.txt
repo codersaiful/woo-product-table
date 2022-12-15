@@ -3,8 +3,8 @@ Contributors: codersaiful,codeastrology,ultraaddons,unikforce,rafiul17,fazlebari
 Donate link: https://wooproducttable.com/pricing/?ref=CodeAstrology&utm_source=Donate_Link
 Tags: wc product table, wooproducttable, woo product table,woocommerce product table, product table, wc table, quick order table, wholesale table, restaurants table
 Requires at least: 5.0.0
-Tested up to: 6.1
-Stable tag: 3.3.3
+Tested up to: 6.1.1
+Stable tag: 3.3.4
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -282,6 +282,7 @@ You can easily show specific category products. While creating new table click o
 * Added: javascript event trigger: `update_checkout` of WooCommerce Added.
 * Bug Fixed 
 * Code Optimized 
+* Language File Upload
 
 = 3.3.2 and 3.3.3 =
 * Load More disable not working - issue fixed.
