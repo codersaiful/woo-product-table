@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Product Table for WooCommerce - (wooproducttable)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-11-02 08:26+0000\n"
-"PO-Revision-Date: 2022-12-15 06:39+0000\n"
+"PO-Revision-Date: 2022-12-15 09:04+0000\n"
 "Last-Translator: \n"
 "Language-Team: Bengali (Bangladesh)\n"
 "Language: bn_BD\n"
@@ -26,13 +26,13 @@ msgstr ""
 #: woo-product-table.php:667
 #, php-format
 msgid "\"%1$s\" requires \"%2$s\" to be installed and activated."
-msgstr ""
+msgstr "\"%1$s\" এর জন্য \"%2$s\" প্লাগিন টি ইন্সটল এবং একটিভ থাকা জুরুরি।"
 
 #. 1: Plugin name 2: PHP 3: Required PHP version
 #: woo-product-table.php:713
 #, php-format
 msgid "\"%1$s\" requires \"%2$s\" version %3$s or greater."
-msgstr ""
+msgstr "\"%1$s\" এর জন্য \"%2$s\" এর ভার্শন %3$s বা বেশি হওয়া দরকার। "
 
 #: admin/action-hook.php:327
 #, php-format
@@ -197,28 +197,28 @@ msgstr "[আপনার মেসেজ লিখুন] মেসেজ"
 
 #: admin/functions.php:391
 msgid "About Product Table"
-msgstr ""
+msgstr "প্রোডাক্ট টেবিলের বিস্তারিত"
 
 #: woo-product-table.php:113
 msgid "Action"
-msgstr ""
+msgstr "বিক্রি"
 
 #: admin/tabs/inc-column/add-new-column.php:39
 msgid "Action Hooks"
-msgstr ""
+msgstr "Action Hooks"
 
 #: woo-product-table.php:585
 msgid "Activate"
-msgstr ""
+msgstr "চালু"
 
 #: admin/tabs/basics.php:248
 msgid "Active Ajax (Default)"
-msgstr ""
+msgstr "এজাক্স চালু(ডিফল্ট)"
 
 #: admin/tabs/mobile.php:77 admin/tabs/responsive.php:93
 #: admin/tabs/inc-column/column-list.php:101
 msgid "Active Inactive Column"
-msgstr ""
+msgstr "Active Inactive কলাম"
 
 #: admin/wpt_product_table_post.php:22 admin/wpt_product_table_post.php:23
 msgid "Add New"
@@ -274,31 +274,31 @@ msgstr ""
 
 #: woo-product-table.php:215
 msgid "Adding.."
-msgstr ""
+msgstr "যোগ হচ্ছে"
 
 #: modules/elementor-widget.php:186
 msgid "Additional Information"
-msgstr ""
+msgstr "অতিরিক্ত তথ্য"
 
 #: admin/tabs/inc-column/add-new-column.php:38
 msgid "Advance Custom Field"
-msgstr ""
+msgstr "Advance Custom Field"
 
 #: admin/tabs/search_n_filter.php:10
 msgid "Advance Search Box"
-msgstr ""
+msgstr "Advance Search Box"
 
 #: admin/tabs/basics.php:244
 msgid "Ajax Action (Enable/Disable)"
-msgstr ""
+msgstr "এজাক্স (চালু/বন্ধ)"
 
 #: admin/tabs/basics.php:260
 msgid "Ajax for Pagination (Enable/Disable)"
-msgstr ""
+msgstr "পেজিনেশানের জন্য এজাক্স (চালু/বন্ধ)"
 
 #: admin/tabs/basics.php:264
 msgid "Ajax Pagination (Default)"
-msgstr ""
+msgstr "এজাক্স পেজিনেশান(ডিফল্ট)"
 
 #: admin/action-hook.php:452
 msgid "All Items"
