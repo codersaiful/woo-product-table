@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Product Table for WooCommerce - (wooproducttable)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-11-02 08:26+0000\n"
-"PO-Revision-Date: 2022-12-15 06:39+0000\n"
+"PO-Revision-Date: 2022-12-15 06:27+0000\n"
 "Last-Translator: \n"
 "Language-Team: Bengali (Bangladesh)\n"
 "Language: bn_BD\n"
@@ -135,7 +135,7 @@ msgstr ""
 #: admin/action-hook.php:320
 #, php-format
 msgid "%sLoad More%s Button"
-msgstr "%sবিস্তারিত দেখুন%s বাটন"
+msgstr ""
 
 #: admin/tabs/basics.php:363
 msgid "(Add to cart) Text"
@@ -234,11 +234,11 @@ msgstr ""
 
 #: admin/tabs/basics.php:366
 msgid "Add to cart"
-msgstr "কার্টে নিন"
+msgstr ""
 
 #: admin/action-hook.php:458
 msgid "Add to Cart all selected [Added] Text"
-msgstr "সিলেক্টেড গুলো কার্টে নেওয়া হয়েছে - টেক্সট"
+msgstr ""
 
 #: admin/action-hook.php:176
 msgid "Add to Cart Icon"
@@ -246,7 +246,7 @@ msgstr "এড টু কার্ট আইকোন"
 
 #: includes/shortcode.php:155
 msgid "Add to cart selected"
-msgstr "সিলেক্টেড গুলো কার্টে নিন"
+msgstr ""
 
 #: woo-product-table.php:214
 msgid "Add to Quote"
@@ -346,7 +346,7 @@ msgstr ""
 
 #: admin/action-hook.php:409
 msgid "attr"
-msgstr "attr"
+msgstr ""
 
 #: woo-product-table.php:105
 msgid "Attributes"
@@ -410,31 +410,31 @@ msgstr ""
 
 #: admin/action-hook.php:297
 msgid "Bundle Quick Buy "
-msgstr "বান্ডিল কুইক পারচেজ"
+msgstr ""
 
 #: admin/action-hook.php:290 admin/action-hook.php:302
 msgid "Cart Page"
-msgstr "কার্ট পেজ"
+msgstr ""
 
 #: woo-product-table.php:88
 msgid "Category"
-msgstr "ক্যাটাগরি"
+msgstr ""
 
 #: admin/tabs/basics.php:186
 msgid "Category Exclude"
-msgstr "বহির্ভুত ক্যাটাগরি"
+msgstr ""
 
 #: woo-product-table.php:85
 msgid "Check"
-msgstr "চেকবক্স"
+msgstr ""
 
 #: includes/shortcode.php:156
 msgid "Check/Uncheck"
-msgstr "চেক/আনচেক"
+msgstr ""
 
 #: admin/action-hook.php:291 admin/action-hook.php:303
 msgid "Checkout Page"
-msgstr "চেক-আউট পেজ"
+msgstr ""
 
 #: includes/shortcode.php:1093
 msgid "Choose "
@@ -607,7 +607,7 @@ msgstr ""
 
 #: admin/menu_plugin_setting_link.php:37
 msgid "Documentation"
-msgstr "ডকুমেন্টেশান"
+msgstr ""
 
 #: admin/wpt_product_table_post.php:25
 msgid "Edit Product Table"
@@ -643,7 +643,7 @@ msgstr ""
 
 #: woo-product-table.php:209
 msgid "Empty Cart"
-msgstr "কার্ট ফাকা"
+msgstr ""
 
 #: admin/action-hook.php:315 admin/tabs/conditions.php:168
 msgid "Enable"
@@ -729,7 +729,7 @@ msgstr ""
 
 #: admin/functions.php:390
 msgid "For more information:"
-msgstr "বিস্তারিত জানতে"
+msgstr ""
 
 #: woo-product-table.php:114
 msgid "Freeze Colum"
@@ -737,7 +737,7 @@ msgstr ""
 
 #: modules/elementor-widget.php:125
 msgid "General"
-msgstr "স্বাধারন"
+msgstr ""
 
 #: admin/wpt_product_table_post.php:44
 msgid "Generate your shortcode for Product Table."
@@ -745,7 +745,7 @@ msgstr ""
 
 #: admin/menu_plugin_setting_link.php:14 admin/menu_plugin_setting_link.php:40
 msgid "GET PRO VERSION"
-msgstr "প্রিমিয়াম ভার্শন নিন"
+msgstr ""
 
 #: admin/menu_plugin_setting_link.php:38
 #, php-format
@@ -840,15 +840,15 @@ msgstr ""
 
 #: woo-product-table.php:582
 msgid "Install Now"
-msgstr "ইন্সটল করুন"
+msgstr ""
 
 #: admin/action-hook.php:332
 msgid "Instant Search Filter"
-msgstr "ইন্সট্যান্স সার্চ ফিল্টার"
+msgstr ""
 
 #: woo-product-table.php:212
 msgid "Instant Search.."
-msgstr "ইন্সট্যান্স সার্চবক্স"
+msgstr ""
 
 #: admin/tabs/conditions.php:120
 msgid "instock"
@@ -856,7 +856,7 @@ msgstr ""
 
 #: woo-product-table.php:217
 msgid "Item"
-msgstr "আইটেম"
+msgstr ""
 
 #: admin/action-hook.php:441
 msgid "Item [for Plural]"
@@ -876,11 +876,11 @@ msgstr ""
 
 #: woo-product-table.php:218
 msgid "Items"
-msgstr "আইটেম সমুহ"
+msgstr ""
 
 #: admin/action-hook.php:369
 msgid "Label Text"
-msgstr "লেবেল টেক্সট"
+msgstr ""
 
 #: admin/action-hook.php:182
 msgid "Left Icon and Text"
@@ -892,23 +892,23 @@ msgstr ""
 
 #: woo-product-table.php:201
 msgid "Load more"
-msgstr "বিস্তারিত দেখুন"
+msgstr ""
 
 #: admin/action-hook.php:382
 msgid "Load More text write here"
-msgstr "বিস্তারিত দেখুন - টেক্সট এখানে"
+msgstr ""
 
 #: woo-product-table.php:203
 msgid "Loading.."
-msgstr "লোড হচ্ছে.."
+msgstr ""
 
 #: admin/action-hook.php:403
 msgid "Loading.. text write here"
-msgstr "Loading.. টেক্সট এখানে দিন"
+msgstr ""
 
 #: admin/tabs/conditions.php:103
 msgid "Long Description"
-msgstr "বড় ড্রেস্ক্রিপশন"
+msgstr ""
 
 #: admin/tabs/responsive.php:17
 msgid "Manual Responsive"
@@ -920,16 +920,16 @@ msgstr ""
 
 #: admin/tabs/conditions.php:86
 msgid "Maximum Price"
-msgstr "সর্বোচ্চ প্রাইস"
+msgstr ""
 
 #: includes/shortcode.php:1298 admin/tabs/conditions.php:32
 msgid "Menu Order"
-msgstr "মেনু অর্ডার"
+msgstr ""
 
 #: includes/helper-functions.php:584 includes/helper-functions.php:663
 #: includes/helper-functions.php:690
 msgid "Message"
-msgstr "মেসেজ"
+msgstr ""
 
 #: admin/tabs/conditions.php:60
 #, php-format
@@ -938,23 +938,23 @@ msgstr ""
 
 #: admin/tabs/basics.php:276
 msgid "Mini Cart Position"
-msgstr "মিনি কার্টের পজিশন"
+msgstr ""
 
 #: admin/tabs/search_n_filter.php:104
 msgid "Mini Filter"
-msgstr "মিনি ফিল্টার"
+msgstr ""
 
 #: admin/action-hook.php:228
 msgid "Mini Filter Sorting"
-msgstr "সর্টিং মিনি ফিল্টার"
+msgstr ""
 
 #: admin/tabs/conditions.php:74
 msgid "Minimum Price"
-msgstr "মিনিমাম প্রাইস"
+msgstr ""
 
 #: admin/functions.php:188
 msgid "Mobile"
-msgstr "মোবাইল"
+msgstr ""
 
 #: admin/tabs/mobile.php:8 admin/tabs/responsive.php:12
 msgid "Mobile Responsive"
@@ -976,23 +976,23 @@ msgstr ""
 
 #: includes/shortcode.php:1297
 msgid "Name"
-msgstr "নাম"
+msgstr ""
 
 #: admin/tabs/conditions.php:31
 msgid "Name (Default)"
-msgstr "নাম (Default)"
+msgstr ""
 
 #: admin/wpt_product_table_post.php:24
 msgid "New Product Table"
-msgstr "নতুন Product Table"
+msgstr ""
 
 #: admin/action-hook.php:273
 msgid "New Tab"
-msgstr "নতুন ট্যাব"
+msgstr ""
 
 #: admin/action-hook.php:180
 msgid "No Icon"
-msgstr "আইকোন বাদে"
+msgstr ""
 
 #: admin/tabs/mobile.php:13
 msgid "No Responsive"
@@ -1006,7 +1006,7 @@ msgstr ""
 #: includes/functions.php:921 admin/tabs/basics.php:282
 #: admin/tabs/conditions.php:49
 msgid "None"
-msgstr "None"
+msgstr ""
 
 #: admin/action-hook.php:610
 msgid "Not Available"
@@ -1035,23 +1035,23 @@ msgstr ""
 
 #: admin/action-hook.php:347
 msgid "Off"
-msgstr "বন্ধ"
+msgstr ""
 
 #: admin/functions.php:395
 msgid "Official theme"
-msgstr "অফিসিয়াল থীম"
+msgstr ""
 
 #: admin/action-hook.php:348
 msgid "On"
-msgstr "চালু"
+msgstr ""
 
 #: admin/action-hook.php:578
 msgid "On Back Order"
-msgstr "On Backorder"
+msgstr ""
 
 #: admin/tabs/conditions.php:121
 msgid "onbackorder"
-msgstr "onbackorder"
+msgstr ""
 
 #: admin/action-hook.php:513
 #, php-format
@@ -1101,7 +1101,7 @@ msgstr ""
 
 #: admin/tabs/conditions.php:122
 msgid "outofstock"
-msgstr "outofstock"
+msgstr ""
 
 #: admin/tabs/basics.php:320
 msgid "Pagination"
@@ -1117,7 +1117,7 @@ msgstr ""
 
 #: woo-product-table.php:715
 msgid "PHP"
-msgstr "পিএইচপি"
+msgstr ""
 
 #: admin/tabs/mobile.php:61 admin/tabs/responsive.php:77
 msgid ""
@@ -1135,7 +1135,7 @@ msgstr ""
 
 #: woo-product-table.php:223 admin/action-hook.php:622
 msgid "Please select all items."
-msgstr "দয়াকরে সক সকল প্রডাক্ট সিলেক্ট করুন"
+msgstr ""
 
 #: admin/action-hook.php:161
 msgid "Plugin Recommendation"
@@ -1151,7 +1151,7 @@ msgstr ""
 
 #: admin/functions.php:393
 msgid "Premium Plugin "
-msgstr "প্রমিয়াম প্লাগিন"
+msgstr ""
 
 #: woo-product-table.php:97
 msgid "Price"
