@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Product Table for WooCommerce - (wooproducttable)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-11-02 08:26+0000\n"
-"PO-Revision-Date: 2022-12-22 11:10+0000\n"
+"PO-Revision-Date: 2022-12-22 11:13+0000\n"
 "Last-Translator: \n"
 "Language-Team: বাংলা\n"
 "Language: bn_BD\n"
@@ -804,7 +804,7 @@ msgstr ""
 
 #: inc/features/basics.php:48
 msgid "Edit Table - "
-msgstr ""
+msgstr "টেবিল এডিট -"
 
 #: admin/tabs/query.php:394
 msgid "Eg: 50 (for display 50 products"
