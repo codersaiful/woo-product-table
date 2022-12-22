@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Product Table for WooCommerce - (wooproducttable)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-11-02 08:26+0000\n"
-"PO-Revision-Date: 2022-12-15 06:39+0000\n"
+"PO-Revision-Date: 2022-12-22 10:46+0000\n"
 "Last-Translator: \n"
 "Language-Team: German\n"
 "Language: de_DE\n"
@@ -150,6 +150,16 @@ msgstr ""
 msgid "<i>Get <strong>Pro</strong></i>"
 msgstr "<i>Holen Sie sich <strong>Pro</strong></i>"
 
+#: admin/fac_support_page.php:33
+msgid ""
+"<strong>Quick View by Code Astrology</strong> (WooCommerce Quick View) "
+"allows users to get a quick look at products without opening the product "
+"page. Users can navigate the product gallery from one to another using the "
+"next and previous slider buttons.\n"
+"                 <p>Users can live style quick view. Please go to the "
+"settings button to live customize.</p> "
+msgstr ""
+
 #: admin/action-hook.php:628
 msgid "[ Adding in Progress ] Message"
 msgstr "[ Wird hinzugefügt ] Nachricht"
@@ -263,6 +273,10 @@ msgstr "In den Warenkorb-Symbol"
 #: woo-product-table.php:215
 msgid "Add to Quote"
 msgstr "Zum Angebot hinzufügen"
+
+#: includes/items/quoterequest.php:12
+msgid "Add to quote"
+msgstr ""
 
 #: admin/action-hook.php:510
 msgid "Add to Quote text write here"
@@ -416,11 +430,18 @@ msgstr ""
 msgid "Auto Responsive (Not Recommended)"
 msgstr "Automatische Reaktion (nicht empfohlen)"
 
+#: admin/post_metabox.php:66
+msgid ""
+"Available columns for WOO Product Table. Add them in your table to enable "
+"column."
+msgstr ""
+
 #: admin/pro-features-html.php:20
 msgid "AWESOEM [PRO] SUPPORT"
 msgstr ""
 
-#: admin/post_metabox_form.php:23
+#: admin/post_metabox_form.php:23 modules/elementor-widget.php:243
+#: modules/elementor-widget.php:321
 msgid "Background Color"
 msgstr ""
 
@@ -542,6 +563,10 @@ msgstr ""
 msgid "Classic"
 msgstr ""
 
+#: includes/variation_html.php:57 includes/variation_html.php:59
+msgid "Clear"
+msgstr ""
+
 #: admin/tabs/inc-column/column-list.php:40
 msgid "Click for Expand/Collapse. Edit your Column Title here."
 msgstr "Klicke zum Erweitern/Reduzieren. Bearbeite hier deinen Spaltentitel."
@@ -588,6 +613,10 @@ msgstr "CodeAstrology.com-Unterstützung"
 
 #: admin/includes/right_side.php:39
 msgid "codersaiful"
+msgstr ""
+
+#: modules/elementor-widget.php:231
+msgid "Color"
 msgstr ""
 
 #: admin/post_metabox_form.php:10
@@ -705,6 +734,10 @@ msgstr "Standard Größe. zB: 70"
 msgid "Default Sorting"
 msgstr ""
 
+#: admin/tabs/query.php:245
+msgid "Default sorting (Menu Order)"
+msgstr ""
+
 #: admin/functions.php:460 admin/tabs/table_style.php:3
 msgid "Default Style"
 msgstr "Standardstil"
@@ -746,11 +779,11 @@ msgstr ""
 msgid "Design your Table"
 msgstr ""
 
-#: admin/tabs/column_settings.php:106
+#: admin/tabs/column_settings.php:109
 msgid "Desktop"
 msgstr ""
 
-#: admin/tabs/column_settings.php:61
+#: admin/tabs/column_settings.php:64
 #, fuzzy
 #| msgid "Devicewise Column Setting"
 msgid "Device Wise Column Setting"
@@ -1358,7 +1391,7 @@ msgstr "Mini-Filter-Sortierung"
 msgid "Minimum Price"
 msgstr "Minimaler Preis"
 
-#: admin/functions.php:187 admin/tabs/column_settings.php:108
+#: admin/functions.php:187 admin/tabs/column_settings.php:111
 msgid "Mobile"
 msgstr "Mobile"
 
@@ -1537,6 +1570,10 @@ msgstr "Bestelltext"
 msgid "Other Premium Plugins"
 msgstr "Andere Premium-Plugins"
 
+#: includes/items/rating.php:3
+msgid "out of 5"
+msgstr ""
+
 #: woo-product-table.php:226 admin/action-hook.php:555
 #: admin/action-hook.php:618
 msgid "Out of Stock"
@@ -1619,6 +1656,10 @@ msgstr "Preis"
 msgid "Pro"
 msgstr ""
 
+#: admin/post_metabox_form.php:31
+msgid "Product Categories"
+msgstr ""
+
 #: admin/pro-features-html.php:35
 msgid "Product ID"
 msgstr ""
@@ -1681,9 +1722,17 @@ msgstr "Produkttabellenliste"
 msgid "Product Table list navigation"
 msgstr "Navigation in der Produkttabellenliste"
 
+#: admin/post_metabox_form.php:32
+msgid "Product Tags"
+msgstr ""
+
 #: admin/pro-features-html.php:37 admin/tabs/query.php:284
 msgid "Product Title"
 msgstr "Produktname"
+
+#: modules/elementor-widget.php:308
+msgid "Product Title Color"
+msgstr ""
 
 #: woo-product-table.php:222 admin/action-hook.php:600
 msgid ""
@@ -1771,6 +1820,11 @@ msgstr "Zufällig"
 
 #: admin/includes/right_side.php:69
 msgid "Rate Us on WordPress.org"
+msgstr ""
+
+#: includes/items/rating.php:3
+#, php-format
+msgid "Rated %s out of 5"
 msgstr ""
 
 #: woo-product-table.php:105
@@ -1939,14 +1993,14 @@ msgstr "Sende deinen Vorschlag oder Ihre Idee"
 msgid "Set a Class name for Table"
 msgstr "Lege einen Klassennamen für die Tabelle fest"
 
-#: admin/tabs/column_settings.php:164
+#: admin/tabs/column_settings.php:167
 msgid ""
 "Set columns for mobile, otherwise tablet columns will be shown on mobile."
 msgstr ""
 "Lege Spalten für Mobilgeräte fest, andernfalls werden Tablet-Spalten auf "
 "Mobilgeräten angezeigt."
 
-#: admin/tabs/column_settings.php:141
+#: admin/tabs/column_settings.php:144
 msgid ""
 "Set columns for tablet, otherwise desktop columns will be shown on tablet."
 msgstr ""
@@ -2003,6 +2057,10 @@ msgstr "Suchfeld anzeigen"
 msgid "Show Variation Name With Title"
 msgstr ""
 
+#: templates/table-preview.php:32
+msgid "Skip to content"
+msgstr ""
+
 #: woo-product-table.php:100
 msgid "SKU"
 msgstr "Artikelnummer"
@@ -2037,6 +2095,26 @@ msgstr "Entschuldigung, bitte wähle die richtige Kombination."
 
 #: woo-product-table.php:239
 msgid "Sort By"
+msgstr ""
+
+#: admin/tabs/query.php:247
+msgid "Sort by average rating"
+msgstr ""
+
+#: admin/tabs/query.php:248
+msgid "Sort by latest"
+msgstr ""
+
+#: admin/tabs/query.php:246
+msgid "Sort by popularity"
+msgstr ""
+
+#: admin/tabs/query.php:250
+msgid "Sort by price: high to low"
+msgstr ""
+
+#: admin/tabs/query.php:249
+msgid "Sort by price: low to high"
 msgstr ""
 
 #: admin/tabs/query.php:263
@@ -2083,6 +2161,10 @@ msgstr ""
 msgid "Support"
 msgstr "Support"
 
+#: modules/elementor-widget.php:270
+msgid "Table Body"
+msgstr ""
+
 #: admin/action-hook.php:769
 msgid "Table Column Sorting"
 msgstr ""
@@ -2091,7 +2173,7 @@ msgstr ""
 msgid "Table Demo"
 msgstr ""
 
-#: admin/tabs/options.php:87
+#: modules/elementor-widget.php:212 admin/tabs/options.php:87
 msgid "Table Head"
 msgstr "Tabellenkopf"
 
@@ -2104,7 +2186,7 @@ msgstr "Tabellenliste"
 msgid "Table's Default Content %sSince 3.3%s"
 msgstr "Standardinhalt der Tabelle %sSeit 3.3%s"
 
-#: admin/tabs/column_settings.php:107
+#: admin/tabs/column_settings.php:110
 msgid "Tablet"
 msgstr ""
 
@@ -2141,7 +2223,7 @@ msgstr ""
 msgid "Text and Right Icon"
 msgstr "Text und rechtes Symbol"
 
-#: admin/post_metabox_form.php:22
+#: admin/post_metabox_form.php:22 modules/elementor-widget.php:294
 msgid "Text Color"
 msgstr ""
 
@@ -2167,6 +2249,10 @@ msgstr "Es gibt keine Tabelle für dich."
 #: admin/tabs/options.php:241
 msgid "Third Party Plugin Supporting "
 msgstr "Plugin-Unterstützung von Drittanbietern"
+
+#: includes/variation_html.php:13
+msgid "This product is currently out of stock and unavailable."
+msgstr ""
 
 #: admin/action-hook.php:230
 msgid "Thumbnail size. eg: 56"
