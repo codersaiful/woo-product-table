@@ -257,7 +257,7 @@ class Shortcode extends Shortcode_Base{
 
     }
     public function shortcode($atts){
-        
+        echo esc_html__('Hello World','woo-product-table');
         $this->atts = $atts;
 
         $pairs = array( 'exclude' => false );
