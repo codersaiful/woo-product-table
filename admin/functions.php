@@ -271,7 +271,7 @@ if( !function_exists( 'wpt_column_style_for_all' ) ){
                 }
                 ?>
                 </table>  
-                    <a href="javascript:void(0)" class="wpt-reset-style"><?php echo esc_html( 'Reset Style', 'wpt' ); ?></a>
+                    <a href="javascript:void(0)" class="wpt-reset-style"><?php echo esc_html( 'Reset Style', 'woo-product-table' ); ?></a>
             </div>
         </div>    
         

@@ -19,8 +19,8 @@ if( !function_exists( 'wpt_fac_support_page' ) ){
     <div class="ca-inner">
         <div class="ca-infobox">
             <div class="ca-header">
-                 <h1 class="ca-infobox-tilte"><?php echo esc_html( 'CA WOOCOMMERCE QUICK VIEW', 'cawqv' ); ?></h1>
-                 <small> <?php echo esc_html( 'A Perfect WooCommerce Quick View Plugin With Perfect Options.', 'cawqv' ); ?></small>
+                 <h1 class="ca-infobox-tilte"><?php echo esc_html( 'CA WOOCOMMERCE QUICK VIEW', 'woo-product-table' ); ?></h1>
+                 <small> <?php echo esc_html( 'A Perfect WooCommerce Quick View Plugin With Perfect Options.', 'woo-product-table' ); ?></small>
             </div>
 
             <div class="row">
@@ -31,7 +31,7 @@ if( !function_exists( 'wpt_fac_support_page' ) ){
                 </div>
                 <?php 
                 $message = __( '<strong>Quick View by Code Astrology</strong> (WooCommerce Quick View) allows users to get a quick look at products without opening the product page. Users can navigate the product gallery from one to another using the next and previous slider buttons.
-                 <p>Users can live style quick view. Please go to the settings button to live customize.</p> ', 'cawqv' );
+                 <p>Users can live style quick view. Please go to the settings button to live customize.</p> ', 'woo-product-table' );
  
                 printf( '<div class="%1$s"><p>%2$s</p></div>', '', wp_kses_post( $message ) );
                 ?>

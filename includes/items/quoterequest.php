@@ -9,7 +9,7 @@ if( defined( 'YITH_YWRAQ_PREMIUM' ) && function_exists( 'yith_ywraq_render_butto
     $args = shortcode_atts(
         array(
             'product' => false,
-            'label'   => get_option( 'ywraq_show_btn_link_text', __( 'Add to quote', 'yith-woocommerce-request-a-quote' ) ),
+            'label'   => get_option( 'ywraq_show_btn_link_text', __( 'Add to quote', 'woo-product-table' ) ),
             'style'   => ( get_option( 'ywraq_show_btn_link' ) === 'button' ) ? 'button' : 'ywraq-link',
             'colors'  => get_option(
                 'ywraq_add_to_quote_button_color',

@@ -29,7 +29,7 @@
 <body <?php body_class( 'wpt-table-preview-body' ); ?>>
 <?php wp_body_open(); ?>
 
-    <a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'medilac' ); ?></a>
+    <a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'woo-product-table' ); ?></a>
 <div id="page" class="hfeed site wpt-fullwidth">
 <?php
     if ( have_posts() ) : while ( have_posts() ) : the_post();

@@ -46,7 +46,7 @@ $data = isset( $meta_basics['data'] ) ? $meta_basics['data'] : false;
                 <td class="">
 
                     <?php
-                    $options_item = esc_html( 'None ', 'wpt' ) . $term_name;
+                    $options_item = esc_html( 'None ', 'woo-product-table' ) . $term_name;
                     $options_item = "<option value=''>{$options_item}</option>";
                     $options_item = ""; //REmoved Default None Value
                     $selecteds = isset( $data['terms'][$term_key] ) ? $data['terms'][$term_key] : false;
@@ -242,14 +242,14 @@ $access = defined( 'WPT_PRO_DEV_VERSION' );
 $catalog_orderby_options = apply_filters(
     'woocommerce_catalog_orderby',
     array(
-        'menu_order' => __( 'Default sorting (Menu Order)', 'woocommerce' ),
-        'popularity' => __( 'Sort by popularity', 'woocommerce' ),
-        'rating'     => __( 'Sort by average rating', 'woocommerce' ),
-        'date'       => __( 'Sort by latest', 'woocommerce' ),
-        'price'      => __( 'Sort by price: low to high', 'woocommerce' ),
-        'price-desc' => __( 'Sort by price: high to low', 'woocommerce' ),
+        'menu_order' => __( 'Default sorting (Menu Order)', 'woo-product-table' ),
+        'popularity' => __( 'Sort by popularity', 'woo-product-table' ),
+        'rating'     => __( 'Sort by average rating', 'woo-product-table' ),
+        'date'       => __( 'Sort by latest', 'woo-product-table' ),
+        'price'      => __( 'Sort by price: low to high', 'woo-product-table' ),
+        'price-desc' => __( 'Sort by price: high to low', 'woo-product-table' ),
         //New added @since 3.2.3.1
-        //'featured_products' => __( 'Sort by Featured Products', 'woocommerce' ),
+        //'featured_products' => __( 'Sort by Featured Products', 'woo-product-table' ),
     )
 );
 

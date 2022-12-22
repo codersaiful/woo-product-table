@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Product Table for WooCommerce - (wooproducttable)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-11-02 08:26+0000\n"
-"PO-Revision-Date: 2022-12-22 09:36+0000\n"
+"PO-Revision-Date: 2022-12-22 09:49+0000\n"
 "Last-Translator: \n"
 "Language-Team: বাংলা\n"
 "Language: bn_BD\n"
@@ -936,6 +936,7 @@ msgstr "বিস্তারিত জানতে"
 #: templates/table-preview.php:55
 msgid "For perfect view paste shortcode on a page."
 msgstr ""
+"সঠিক রেজাল্ট পেতে চাইলে shortcode টাকে কোন পেজে পেস্ট করে পাবলিস করে দেখুন।"
 
 #: admin/includes/right_side.php:56
 msgid "Fork and (Contribute)"

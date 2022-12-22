@@ -18,7 +18,7 @@ if( ! function_exists( 'wpt_shortcode_metabox' ) ){
 
         add_meta_box( 'wpt_shortcode_metabox_id', 'Shortcode', 'wpt_shortcode_metabox_render', 'wpt_product_table', 'normal' );
         add_meta_box( 'wpt_shortcode_configuration_metabox_id', 'Table Configuration', 'wpt_shortcode_configuration_metabox_render', 'wpt_product_table', 'normal' ); //Added at 4.1.4
-        //add_meta_box( 'wpt_column_panel_metabox_id', __( 'Available Columns', 'wpt' ), 'wpt_column_panel_metabox_render', 'wpt_product_table', 'side', 'low' ); //Added at 4.1.4
+        //add_meta_box( 'wpt_column_panel_metabox_id', __( 'Available Columns', 'woo-product-table' ), 'wpt_column_panel_metabox_render', 'wpt_product_table', 'side', 'low' ); //Added at 4.1.4
         
     }
 }
@@ -63,7 +63,7 @@ if( ! function_exists( 'wpt_column_panel_metabox_render' ) ){
 
         ?>
         <div class="section">
-            <p><?php echo esc_html__( 'Available columns for WOO Product Table. Add them in your table to enable column.', 'wpt' ); ?></p>
+            <p><?php echo esc_html__( 'Available columns for WOO Product Table. Add them in your table to enable column.', 'woo-product-table' ); ?></p>
             <ul id="wpt_column_sortable">
                 <?php foreach( $columns_array as $keyword => $title ){ ?>
                 <li data-column_key = "<?php echo esc_attr( $keyword ); ?>"><?php echo esc_html( $title ); ?></li>

@@ -190,7 +190,7 @@ if( $this->cart_lists && $this->cart_stats ){
 					// 	sprintf(
 					// 		'<a href="%s" class="remove remove_from_cart_button" aria-label="%s" data-product_id="%s" data-cart_item_key="%s" data-product_sku="%s">&times;</a>',
 					// 		esc_url( wc_get_cart_remove_url( $cart_item_key ) ),
-					// 		esc_attr__( 'Remove this item', 'woocommerce' ),
+					// 		esc_attr__( 'Remove this item', 'woo-product-table' ),
 					// 		esc_attr( $product_id ),
 					// 		esc_attr( $cart_item_key ),
 					// 		esc_attr( $_product->get_sku() )

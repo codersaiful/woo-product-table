@@ -209,7 +209,7 @@ class WPT_Elementor_Widget extends \Elementor\Widget_Base{
             $this->start_controls_section(
                 'thead',
                 [
-                    'label'     => esc_html__( 'Table Head', 'medilac' ),
+                    'label'     => esc_html__( 'Table Head', 'woo-product-table' ),
                     'tab'       => Controls_Manager::TAB_STYLE,
                 ]
             );
@@ -228,7 +228,7 @@ class WPT_Elementor_Widget extends \Elementor\Widget_Base{
             $this->add_control(
                 'thead-color',
                 [
-                    'label'     => __( 'Color', 'medilac' ),
+                    'label'     => __( 'Color', 'woo-product-table' ),
                     'type'      => Controls_Manager::COLOR,
                     'selectors' => [
                         '{{WRAPPER}} table.wpt_product_table thead tr th' => 'color: {{VALUE}}',
@@ -240,7 +240,7 @@ class WPT_Elementor_Widget extends \Elementor\Widget_Base{
             $this->add_control(
                 'thead-bg-color',
                 [
-                    'label'     => __( 'Background Color', 'medilac' ),
+                    'label'     => __( 'Background Color', 'woo-product-table' ),
                     'type'      => Controls_Manager::COLOR,
                     'selectors' => [
                         '{{WRAPPER}} table.wpt_product_table thead tr th' => 'background-color: {{VALUE}}',
@@ -267,7 +267,7 @@ class WPT_Elementor_Widget extends \Elementor\Widget_Base{
             $this->start_controls_section(
                 'tbody',
                 [
-                    'label'     => esc_html__( 'Table Body', 'medilac' ),
+                    'label'     => esc_html__( 'Table Body', 'woo-product-table' ),
                     'tab'       => Controls_Manager::TAB_STYLE,
                 ]
             );
@@ -291,7 +291,7 @@ class WPT_Elementor_Widget extends \Elementor\Widget_Base{
             $this->add_control(
                 'tbody-text-color',
                 [
-                    'label'     => __( 'Text Color', 'medilac' ),
+                    'label'     => __( 'Text Color', 'woo-product-table' ),
                     'type'      => Controls_Manager::COLOR,
                     'selectors' => [
                         '{{WRAPPER}} table.wpt_product_table tbody tr td' => 'color: {{VALUE}}',
@@ -305,7 +305,7 @@ class WPT_Elementor_Widget extends \Elementor\Widget_Base{
             $this->add_control(
                 'tbody-title-color',
                 [
-                    'label'     => __( 'Product Title Color', 'medilac' ),
+                    'label'     => __( 'Product Title Color', 'woo-product-table' ),
                     'type'      => Controls_Manager::COLOR,
                     'selectors' => [
                         '{{WRAPPER}} table.wpt_product_table tbody tr td .product_title a' => 'color: {{VALUE}}',
@@ -318,7 +318,7 @@ class WPT_Elementor_Widget extends \Elementor\Widget_Base{
             $this->add_control(
                 'tbody-bg-color',
                 [
-                    'label'     => __( 'Background Color', 'medilac' ),
+                    'label'     => __( 'Background Color', 'woo-product-table' ),
                     'type'      => Controls_Manager::COLOR,
                     'selectors' => [
                         '{{WRAPPER}} table.wpt_product_table tbody tr td' => 'background-color: {{VALUE}}',
