@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Product Table for WooCommerce - (wooproducttable)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-15 06:11+0000\n"
+"POT-Creation-Date: 2022-12-22 09:36+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -725,11 +725,11 @@ msgstr ""
 msgid "Design your Table"
 msgstr ""
 
-#: admin/tabs/column_settings.php:106
+#: admin/tabs/column_settings.php:109
 msgid "Desktop"
 msgstr ""
 
-#: admin/tabs/column_settings.php:61
+#: admin/tabs/column_settings.php:64
 msgid "Device Wise Column Setting"
 msgstr ""
 
@@ -1320,7 +1320,7 @@ msgstr ""
 msgid "Minimum Price"
 msgstr ""
 
-#: admin/functions.php:187 admin/tabs/column_settings.php:108
+#: admin/functions.php:187 admin/tabs/column_settings.php:111
 msgid "Mobile"
 msgstr ""
 
@@ -1893,12 +1893,12 @@ msgstr ""
 msgid "Set a Class name for Table"
 msgstr ""
 
-#: admin/tabs/column_settings.php:164
+#: admin/tabs/column_settings.php:167
 msgid ""
 "Set columns for mobile, otherwise tablet columns will be shown on mobile."
 msgstr ""
 
-#: admin/tabs/column_settings.php:141
+#: admin/tabs/column_settings.php:144
 msgid ""
 "Set columns for tablet, otherwise desktop columns will be shown on tablet."
 msgstr ""
@@ -2050,7 +2050,7 @@ msgstr ""
 msgid "Table's Default Content %sSince 3.3%s"
 msgstr ""
 
-#: admin/tabs/column_settings.php:107
+#: admin/tabs/column_settings.php:110
 msgid "Tablet"
 msgstr ""
 

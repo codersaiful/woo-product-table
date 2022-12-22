@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Product Table for WooCommerce - (wooproducttable)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-11-02 08:26+0000\n"
-"PO-Revision-Date: 2022-12-22 09:36+0000\n"
+"PO-Revision-Date: 2022-12-22 09:33+0000\n"
 "Last-Translator: \n"
 "Language-Team: বাংলা\n"
 "Language: bn_BD\n"
@@ -1048,6 +1048,10 @@ msgstr ""
 #: woo-product-table.php:104
 msgid "Height(cm)"
 msgstr ""
+
+#: inc/shortcode.php:260
+msgid "Hello World"
+msgstr "হ্যালো বাংলাদেশ"
 
 #: admin/functions.php:371 admin/functions.php:373
 msgid "Help &amp; Support"

@@ -257,6 +257,7 @@ class Shortcode extends Shortcode_Base{
 
     }
     public function shortcode($atts){
+
         $this->atts = $atts;
 
         $pairs = array( 'exclude' => false );
