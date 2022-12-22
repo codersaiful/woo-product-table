@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Product Table for WooCommerce - (wooproducttable)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-22 10:44+0000\n"
+"POT-Creation-Date: 2022-12-22 10:57+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -2337,6 +2337,7 @@ msgstr ""
 
 #: inc/handle/fragment.php:153 includes/items/action.php:74
 #: includes/items/action.php:75
+msgctxt "View Cart"
 msgid "View Cart"
 msgstr ""
 

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Product Table for WooCommerce - (wooproducttable)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-11-02 08:26+0000\n"
-"PO-Revision-Date: 2022-12-22 11:10+0000\n"
+"PO-Revision-Date: 2022-12-22 11:09+0000\n"
 "Last-Translator: \n"
 "Language-Team: বাংলা\n"
 "Language: bn_BD\n"
@@ -2236,7 +2236,7 @@ msgstr ""
 
 #: admin/tabs/options.php:56 admin/tabs/options.php:121
 msgid "To change style, go to Design tab"
-msgstr "CSS এর Style চেঞ্জ করার জন্য ডিজাইন ট্যাবে যান"
+msgstr ""
 
 #: framework/recommeded.php:120
 msgid ""
