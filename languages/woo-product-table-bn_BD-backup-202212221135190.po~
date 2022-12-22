@@ -3,9 +3,9 @@ msgstr ""
 "Project-Id-Version: Product Table for WooCommerce - (wooproducttable)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-11-02 08:26+0000\n"
-"PO-Revision-Date: 2022-12-22 11:10+0000\n"
+"PO-Revision-Date: 2022-12-22 11:32+0000\n"
 "Last-Translator: \n"
-"Language-Team: বাংলা\n"
+"Language-Team: Bengali (Bangladesh)\n"
 "Language: bn_BD\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "MIME-Version: 1.0\n"
@@ -247,7 +247,6 @@ msgid "Add to cart"
 msgstr "কার্টে নিন"
 
 #: admin/tabs/options.php:200 inc/handle/checkbox-box.php:11
-#, fuzzy
 #| msgid "Add to cart selected"
 msgid "Add to Cart (Selected)"
 msgstr "সিলেক্টেড গুলো কার্টে নিন"
@@ -804,7 +803,7 @@ msgstr ""
 
 #: inc/features/basics.php:48
 msgid "Edit Table - "
-msgstr ""
+msgstr "টেবিল এডিট -"
 
 #: admin/tabs/query.php:394
 msgid "Eg: 50 (for display 50 products"
@@ -1191,7 +1190,6 @@ msgid "Insert into Product Table"
 msgstr ""
 
 #: admin/action-hook.php:298
-#, fuzzy
 #| msgid "Instant Search Filter"
 msgid "Instance Search Filter"
 msgstr "ইন্সট্যান্স সার্চ ফিল্টার"
@@ -2434,7 +2432,7 @@ msgstr ""
 #: includes/functions.php:223 includes/functions.php:224
 #: includes/functions.php:246 includes/functions.php:247
 msgid "You have to install"
-msgstr ""
+msgstr "আপনাকে ইন্সটল করতে হবে"
 
 #: admin/includes/right_side.php:76
 msgid "Your one share can be best GIFT for me."
@@ -2450,8 +2448,8 @@ msgstr ""
 
 #: admin/includes/right_side.php:47
 msgid "Youtube Playlist - Video Tutorial"
-msgstr ""
+msgstr "ইউটিউবে ভিডিও প্লে-লিস্ট"
 
 #: admin/includes/right_side.php:47
 msgid "Youtube:"
-msgstr ""
+msgstr "ইউটিউবঃ"
