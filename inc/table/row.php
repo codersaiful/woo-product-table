@@ -437,6 +437,9 @@ class Row extends Table_Base{
          */
         do_action( 'wpto_column_top', $keyword, $this->table_id, $settings, $this->column_settings, $product );
         do_action( 'wpt_column_top', $keyword, $this );
+        
+        $parent_column_settings = $column_settings[$keyword];
+        do_action( 'wpto_item_top', $keyword, $table_ID, $settings, $column_settings, $parent_column_settings, $product );
                 
 
         if( is_file( $file ) ){
