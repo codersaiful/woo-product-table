@@ -4,8 +4,7 @@
 //     echo wc_get_stock_html( $product );
 // }
 $wpt_single_action = false;
-// $data= $product->get_data();
-// $stock = $data['stock_status'];
+
 
 if( $table_type == 'advance_table'){
     if ($product_type != 'variation') {
@@ -91,8 +90,12 @@ if( $table_type == 'advance_table'){
             ), $product,false,false);
         }
 
-        if ('outofstock' == $stock && in_array( 'waitlist-woocommerce/xoo-wl-main.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
-            xoo_wl_frontend()->get_waitlist_markup_for_product_page();
+        if( function_exists('xoo_wl_frontend') ){
+            $data= $product->get_data();
+            $stock = $data['stock_status'];
+            if( 'outofstock' == $stock  ){
+                xoo_wl_frontend()->get_waitlist_markup_for_product_page();
+            }
         }
 }
 
