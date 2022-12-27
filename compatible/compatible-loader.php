@@ -14,11 +14,11 @@ class Compatible_Loader{
                 'exits_func' => '',
                 'folder_dir'      => $this->folder_dir,
             ],
-            'loco-translate' => [
-                'file'  => 'loco.php',
-                'exits_func' => '',
-                'folder_dir'      => $this->folder_dir,
-            ],
+            // 'loco-translate' => [
+            //     'file'  => 'loco.php',
+            //     'exits_func' => '',
+            //     'folder_dir'      => $this->folder_dir,
+            // ],
         ];
         $this->plugins = apply_filters( 'wpt_compatible_plugins', $plugin_list );
 
