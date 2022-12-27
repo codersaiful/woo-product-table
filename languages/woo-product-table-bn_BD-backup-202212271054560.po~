@@ -3,9 +3,9 @@ msgstr ""
 "Project-Id-Version: Product Table for WooCommerce - (wooproducttable)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-11-02 08:26+0000\n"
-"PO-Revision-Date: 2022-12-27 04:21+0000\n"
+"PO-Revision-Date: 2022-12-27 07:13+0000\n"
 "Last-Translator: \n"
-"Language-Team: বাংলা\n"
+"Language-Team: Bengali (Bangladesh)\n"
 "Language: bn_BD\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "MIME-Version: 1.0\n"
@@ -1855,7 +1855,7 @@ msgstr "সার্চ বক্স এবং ফিল্টার বক্�
 #: woo-product-table.php:237
 #, php-format
 msgid "Search Box (%sAll Fields Optional%s)"
-msgstr ""
+msgstr "সার্চ বক্স (%s সবগুলো ফিল্ড ঐচ্ছিক %s)"
 
 #: admin/action-hook.php:213
 msgid "Search Box Taxonomy Sorting"

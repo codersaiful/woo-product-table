@@ -3,9 +3,9 @@ msgstr ""
 "Project-Id-Version: Product Table for WooCommerce - (wooproducttable)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-11-02 08:26+0000\n"
-"PO-Revision-Date: 2022-12-27 07:13+0000\n"
+"PO-Revision-Date: 2022-12-27 10:54+0000\n"
 "Last-Translator: \n"
-"Language-Team: Bengali (Bangladesh)\n"
+"Language-Team: বাংলা\n"
 "Language: bn_BD\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "MIME-Version: 1.0\n"
@@ -55,7 +55,7 @@ msgstr ""
 #: admin/action-hook.php:394
 #, php-format
 msgid "%s[Empty Cart]%s - Text of Empty Cart"
-msgstr "%s[ফাকা]%s - ফাকা লেখা"
+msgstr "%s[মুছুন]%s - মুছুন লেখা"
 
 #: admin/action-hook.php:401
 #, php-format
@@ -811,7 +811,7 @@ msgstr ""
 
 #: admin/action-hook.php:396
 msgid "eg: Empty Cart"
-msgstr "যেমনঃ কারট ফাকা"
+msgstr "যেমনঃ মুছুন"
 
 #: admin/action-hook.php:403
 msgid "eg: Filter"
@@ -835,11 +835,11 @@ msgstr ""
 
 #: woo-product-table.php:210 inc/features/basics.php:60
 msgid "Empty Cart"
-msgstr "ফাকা"
+msgstr "মুছুন"
 
 #: inc/handle/fragment.php:147
 msgid "Empty Cart."
-msgstr "ফাকা"
+msgstr "মুছুন"
 
 #: admin/action-hook.php:137 admin/action-hook.php:292
 #: admin/tabs/options.php:247
