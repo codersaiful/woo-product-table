@@ -3,9 +3,9 @@ msgstr ""
 "Project-Id-Version: Product Table for WooCommerce - (wooproducttable)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-11-02 08:26+0000\n"
-"PO-Revision-Date: 2022-12-22 11:35+0000\n"
+"PO-Revision-Date: 2022-12-27 04:21+0000\n"
 "Last-Translator: \n"
-"Language-Team: Bengali (Bangladesh)\n"
+"Language-Team: বাংলা\n"
 "Language: bn_BD\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "MIME-Version: 1.0\n"
@@ -39,8 +39,8 @@ msgstr ""
 #, php-format
 msgid "%d item"
 msgid_plural "%d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d আইটেম"
+msgstr[1] "%d আইটেম"
 
 #: admin/action-hook.php:508
 #, php-format
@@ -2344,9 +2344,8 @@ msgstr ""
 
 #: inc/handle/fragment.php:153 includes/items/action.php:74
 #: includes/items/action.php:75
-msgctxt "View Cart"
 msgid "View Cart"
-msgstr "কার্ট দেখুন"
+msgstr "কার্ট লিংক"
 
 #: admin/wpt_product_table_post.php:28
 msgid "View Product Table"

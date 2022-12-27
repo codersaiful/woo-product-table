@@ -155,7 +155,7 @@ if( $this->cart_lists && $this->cart_stats ){
     $view_cart_target = '_blank';
     $view_cart_target =  apply_filters('wpt_view_cart_target', $view_cart_target);
 ?>
-<a target="<?= $view_cart_target ?>" href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="wpt-view-n"><?php echo esc_html( $view_cart_text ); ?> <i class="wpt-bag"></i></a>
+<a target="<?php echo esc_attr( $view_cart_target ); ?>" href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="wpt-view-n"><?php echo esc_html( $view_cart_text ); ?> <i class="wpt-bag"></i></a>
 
 </div>
 </div>

@@ -3,9 +3,9 @@ msgstr ""
 "Project-Id-Version: Product Table for WooCommerce - (wooproducttable)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-11-02 08:26+0000\n"
-"PO-Revision-Date: 2022-12-22 11:32+0000\n"
+"PO-Revision-Date: 2022-12-27 04:20+0000\n"
 "Last-Translator: \n"
-"Language-Team: Bengali (Bangladesh)\n"
+"Language-Team: বাংলা\n"
 "Language: bn_BD\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "MIME-Version: 1.0\n"
@@ -39,8 +39,8 @@ msgstr ""
 #, php-format
 msgid "%d item"
 msgid_plural "%d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d আইটেম"
+msgstr[1] "%d আইটেম"
 
 #: admin/action-hook.php:508
 #, php-format
@@ -55,7 +55,7 @@ msgstr ""
 #: admin/action-hook.php:394
 #, php-format
 msgid "%s[Empty Cart]%s - Text of Empty Cart"
-msgstr ""
+msgstr "%s[ফাকা]%s - ফাকা লেখা"
 
 #: admin/action-hook.php:401
 #, php-format
@@ -811,7 +811,7 @@ msgstr ""
 
 #: admin/action-hook.php:396
 msgid "eg: Empty Cart"
-msgstr ""
+msgstr "যেমনঃ কারট ফাকা"
 
 #: admin/action-hook.php:403
 msgid "eg: Filter"
@@ -835,11 +835,11 @@ msgstr ""
 
 #: woo-product-table.php:210 inc/features/basics.php:60
 msgid "Empty Cart"
-msgstr "কার্ট ফাকা"
+msgstr "ফাকা"
 
 #: inc/handle/fragment.php:147
 msgid "Empty Cart."
-msgstr ""
+msgstr "ফাকা"
 
 #: admin/action-hook.php:137 admin/action-hook.php:292
 #: admin/tabs/options.php:247
@@ -1241,6 +1241,9 @@ msgstr ""
 #: woo-product-table.php:219
 msgid "Items"
 msgstr "আইটেম সমুহ"
+
+msgid "items"
+msgstr "আইটেম"
 
 #: admin/includes/right_side.php:38
 msgid "Join to CodeAstrology Group"
@@ -2344,9 +2347,8 @@ msgstr ""
 
 #: inc/handle/fragment.php:153 includes/items/action.php:74
 #: includes/items/action.php:75
-msgctxt "View Cart"
 msgid "View Cart"
-msgstr "কার্ট দেখুন"
+msgstr "কার্ট লিংক"
 
 #: admin/wpt_product_table_post.php:28
 msgid "View Product Table"
