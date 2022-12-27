@@ -618,6 +618,20 @@ class WPT_Product_Table{
         }
 
         // wp_redirect(admin_url( 'edit.php?post_type=wpt_product_table&page=wpt-getting-start' ));
+
+        /**
+         * Install timestamp save on database
+         * It's actually can be need Next time any where.
+         * 
+         * @author Saiful Islam <codersaiful@gmail.com>
+         * @since 3.3.4.6
+         */
+        $timestamp_key = 'wpt_install_timestamp';
+        $timestamp_get = get_option( $timestamp_key, false );
+        if( empty( $timestamp_get ) ){
+            update_option( $timestamp_key, time() );
+        }
+        
    }
    
     /**
