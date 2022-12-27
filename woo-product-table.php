@@ -11,7 +11,7 @@
  * Requires at least:    5.0.0
  * Tested up to:         6.1.1
  * WC requires at least: 5.0.0
- * WC tested up to: 	 7.2.1
+ * WC tested up to: 	 7.2.2
  * 
  * 
  * Text Domain: woo-product-table
@@ -33,7 +33,7 @@ if( ! defined( 'WPT_PLUGIN_BASE_FOLDER' ) ){
 }
 
 if( ! defined( 'WPT_DEV_VERSION' ) ){
-    define( 'WPT_DEV_VERSION', '3.3.4.1' );
+    define( 'WPT_DEV_VERSION', '3.3.4.6' );
 }
 
 if( ! defined( 'WPT_CAPABILITY' ) ){
