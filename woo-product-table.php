@@ -477,6 +477,9 @@ class WPT_Product_Table{
 
     $shortcode = new WOO_PRODUCT_TABLE\Inc\Shortcode();
     $shortcode->run();
+
+    $compatible = new WOO_PRODUCT_TABLE\Compatible\Compatible_Loader();
+    $compatible->run();
        
     /**
      * Include WPML Integration
