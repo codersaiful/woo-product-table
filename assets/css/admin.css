@@ -2175,3 +2175,11 @@ div#wpt_configuration_form #column_settings .add_new_col_wrapper .section.ultraa
     line-height: 11px;
     color: #f5eaff;
 }
+span.wpt-help-icon {
+    background: green;
+    width: 25px;
+    display: inline-block;
+    text-align: center;
+    color: wheat;
+    margin: 10px;
+}

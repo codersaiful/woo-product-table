@@ -202,10 +202,19 @@ $data = isset( $meta_basics['data'] ) ? $meta_basics['data'] : false;
                 </tr>
                 <tr>
                     <th>
-                        <label class="wpt_label" for="wpt_table_check_uncheck_text"><?php esc_html_e( '(All Check/Uncheck) Text', 'woo-product-table' );?></label>
+                        <label class="wpt_label" for="wpt_table_check_uncheck_text"><?php esc_html_e( '(All Check/Uncheck) Text', 'woo-product-table' );?></label><span class="wpt-help-icon" title="Don't change for auto translate.">?</span>
                     </th>
                     <td>
-                        <input name="basics[check_uncheck_text]"  class="wpt_data_filed_atts ua_input" data-name="check_uncheck_text" type="text" value="<?php echo isset( $meta_basics['check_uncheck_text'] ) ? $meta_basics['check_uncheck_text'] : __( 'All Check/Uncheck','woo-product-table' ); ?>" placeholder="<?php esc_attr_e( 'Example: All Check/Uncheck', 'woo-product-table' );?>" id="wpt_table_check_uncheck_text">
+                        <?php
+                        $check_uncheck_text = $meta_basics['check_uncheck_text'] ?? '';
+                        $check_uncheck_placeholder = __( 'All Check/Uncheck','woo-product-table' );
+                        ?>
+                        <input name="basics[check_uncheck_text]"  
+                        class="wpt_data_filed_atts ua_input" 
+                        data-name="check_uncheck_text" type="text" 
+                        value="<?php echo $check_uncheck_text; ?>" 
+                        placeholder="<?php echo esc_attr( $check_uncheck_placeholder );?>" 
+                        id="wpt_table_check_uncheck_text">
                     </td>
                 </tr>
     </table>
