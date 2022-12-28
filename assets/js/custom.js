@@ -605,6 +605,9 @@ jQuery(function($) {
                     $( document ).trigger( 'cart_totals_refreshed' );
                     $( document ).trigger( 'wc_fragments_refreshed' );
                     $('.wpt_row_product_id_' + product_id + ' .input-text').trigger('change');
+
+                    //It's need to update checkout page Since 3.3.3.1
+                    $( document.body ).trigger( 'update_checkout' );
                 },
                 success: function(response) {
                     // $('.wpt_edit_table').html(response); return;
@@ -1202,6 +1205,9 @@ jQuery(function($) {
                 },
                 complete: function(){
                     $( document ).trigger( 'wc_fragments_refreshed' );
+
+                    //It's need to update checkout page Since 3.3.3.1
+                    $( document.body ).trigger( 'update_checkout' );
                 },
                 success: function( response ) {
                     $( document.body ).trigger( 'updated_cart_totals' );

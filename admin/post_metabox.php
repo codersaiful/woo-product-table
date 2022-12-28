@@ -18,7 +18,7 @@ if( ! function_exists( 'wpt_shortcode_metabox' ) ){
 
         add_meta_box( 'wpt_shortcode_metabox_id', 'Shortcode', 'wpt_shortcode_metabox_render', 'wpt_product_table', 'normal' );
         add_meta_box( 'wpt_shortcode_configuration_metabox_id', 'Table Configuration', 'wpt_shortcode_configuration_metabox_render', 'wpt_product_table', 'normal' ); //Added at 4.1.4
-        //add_meta_box( 'wpt_column_panel_metabox_id', __( 'Available Columns', 'wpt' ), 'wpt_column_panel_metabox_render', 'wpt_product_table', 'side', 'low' ); //Added at 4.1.4
+        //add_meta_box( 'wpt_column_panel_metabox_id', __( 'Available Columns', 'woo-product-table' ), 'wpt_column_panel_metabox_render', 'wpt_product_table', 'side', 'low' ); //Added at 4.1.4
         
     }
 }
@@ -63,7 +63,7 @@ if( ! function_exists( 'wpt_column_panel_metabox_render' ) ){
 
         ?>
         <div class="section">
-            <p><?php echo esc_html__( 'Available columns for WOO Product Table. Add them in your table to enable column.', 'wpt' ); ?></p>
+            <p><?php echo esc_html__( 'Available columns for WOO Product Table. Add them in your table to enable column.', 'woo-product-table' ); ?></p>
             <ul id="wpt_column_sortable">
                 <?php foreach( $columns_array as $keyword => $title ){ ?>
                 <li data-column_key = "<?php echo esc_attr( $keyword ); ?>"><?php echo esc_html( $title ); ?></li>
@@ -102,14 +102,14 @@ if( ! function_exists( 'wpt_shortcode_metabox_render' ) ){
 <div class="wpt-tips-github">
         
     <p>
-        <b><?php echo esc_html__( 'Tips:', 'wpt_pro' ); ?></b>
+        <b><?php echo esc_html__( 'Tips:', 'woo-product-table' ); ?></b>
         
         <span>
-            <?php echo esc_html__( 'If you want to be a Contributor, Go to ', 'wpt_pro' ); ?>
-            <a target="_blank" href="https://github.com/codersaiful/woo-product-table"><?php echo esc_html__( 'Github Repo', 'wpt_pro' ); ?></a>.
+            <?php echo esc_html__( 'If you want to be a Contributor, Go to ', 'woo-product-table' ); ?>
+            <a target="_blank" href="https://github.com/codersaiful/woo-product-table"><?php echo esc_html__( 'Github Repo', 'woo-product-table' ); ?></a>.
             | 
-            <?php echo esc_html__( 'Any Ideas? Please ', 'wpt_pro' ); ?>
-            <a target="_blank" href="https://github.com/codersaiful/woo-product-table/discussions/new"><?php echo esc_html__( 'Send your Suggestion or Idea', 'wpt_pro' ); ?></a>
+            <?php echo esc_html__( 'Any Ideas? Please ', 'woo-product-table' ); ?>
+            <a target="_blank" href="https://github.com/codersaiful/woo-product-table/discussions/new"><?php echo esc_html__( 'Send your Suggestion or Idea', 'woo-product-table' ); ?></a>
             |
             <a  target="_blank" href="https://wordpress.org/plugins/woo-product-table/#:~:text=Contributors%20%26%20Developers">Contributor at WP.org</a>
             |

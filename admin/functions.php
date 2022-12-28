@@ -49,7 +49,7 @@ if( !function_exists( 'wpt_default_option' ) ){
     function wpt_default_option( $page ){
         $html = "";
         if( $page == 'wpt_configuration_tab' ){
-            $default = esc_html__( "Default", 'wpt_pro' );
+            $default = esc_html__( "Default", 'woo-product-table' );
             $html .= "<option value=''>$default</option>";
         }
         echo $html;
@@ -183,8 +183,8 @@ function wpt_is_pro(){
 if( !function_exists( 'wpt_admin_responsive_tab' ) ){
     function wpt_admin_responsive_tab( $tab_array ){
         unset($tab_array['mobile']);
-        $tab_array['responsive'] = __( 'Responsive <small>New</small>', 'wpt_pro' );
-        $tab_array['mobile'] = __( 'Mobile', 'wpt_pro' ); // <span>will remvoed</span>
+        $tab_array['responsive'] = __( 'Responsive <small>New</small>', 'woo-product-table' );
+        $tab_array['mobile'] = __( 'Mobile', 'woo-product-table' ); // <span>will remvoed</span>
         return $tab_array;
     }
 }
@@ -248,7 +248,7 @@ if( !function_exists( 'wpt_column_style_for_all' ) ){
                 type="hidden" 
                 class="str_str_value_string"
                 value="<?php echo esc_attr( $style_str ); ?>" name="<?php echo esc_attr( $item_name_style_str ); ?>">
-            <h3 class="style-heading"><?php echo esc_html( 'Style Area', 'wpt_pro' ); ?></h3>
+            <h3 class="style-heading"><?php echo esc_html( 'Style Area', 'woo-product-table' ); ?></h3>
             <div class="wpt-style-body">
                 <table class="ultraaddons-table <?php echo esc_attr( $class_name ); ?>_value_wrapper" style_str_value_wrapper>    
                 <?php
@@ -271,7 +271,7 @@ if( !function_exists( 'wpt_column_style_for_all' ) ){
                 }
                 ?>
                 </table>  
-                    <a href="javascript:void(0)" class="wpt-reset-style"><?php echo esc_html( 'Reset Style', 'wpt' ); ?></a>
+                    <a href="javascript:void(0)" class="wpt-reset-style"><?php echo esc_html( 'Reset Style', 'woo-product-table' ); ?></a>
             </div>
         </div>    
         
@@ -368,32 +368,32 @@ if( ! function_exists( 'wpt_add_tabs' ) ){
         $screen->add_help_tab(
 			array(
 				'id'      => 'wpt_support_tab',
-				'title'   => __( 'Help &amp; Support', 'wpt_pro' ),
+				'title'   => __( 'Help &amp; Support', 'woo-product-table' ),
 				'content' =>
-					'<h2>' . __( 'Help &amp; Support', 'wpt_pro' ) . '</h2>' .
+					'<h2>' . __( 'Help &amp; Support', 'woo-product-table' ) . '</h2>' .
 					'<p>' . sprintf(
 						/* translators: %s: Documentation URL */
-						__( 'Should you need help understanding, using, or extending Product Table for WooCommerce, <a href="%s">please read our documentation</a>. You will find all kinds of resources including snippets, tutorials and much more.', 'wpt_pro' ),
+						__( 'Should you need help understanding, using, or extending Product Table for WooCommerce, <a href="%s">please read our documentation</a>. You will find all kinds of resources including snippets, tutorials and much more.', 'woo-product-table' ),
 						'https://wooproducttable.com/documentation/?utm_source=helptab&utm_content=docs&utm_campaign=wptplugin'
 					) . '</p>' .
 					'<p>' . sprintf(
 						/* translators: %s: Forum URL */
-						__( 'For further assistance with Product Table for WooCommerce, use the <a href="%1$s">community forum</a>. For help with premium support, <a href="%2$s">open a support request at CodeAstrology.com</a>.', 'wpt_pro' ),
+						__( 'For further assistance with Product Table for WooCommerce, use the <a href="%1$s">community forum</a>. For help with premium support, <a href="%2$s">open a support request at CodeAstrology.com</a>.', 'woo-product-table' ),
 						'https://wordpress.org/support/plugin/woo-product-table/',
 						'https://codeastrology.com/support/submit-ticket/?utm_source=helptab&utm_content=tickets&utm_campaign=wptplugin'
 					) . '</p>' .
-					'<p><a href="https://wordpress.org/support/plugin/woo-product-table/" class="button">' . __( 'Community forum', 'wpt_pro' ) . '</a> <a href="https://codeastrology.com/support/submit-ticket/?utm_source=helptab&utm_content=tickets&utm_campaign=wptplugin" class="button">' . __( 'CodeAstrology.com support', 'wpt_pro' ) . '</a></p>',
+					'<p><a href="https://wordpress.org/support/plugin/woo-product-table/" class="button">' . __( 'Community forum', 'woo-product-table' ) . '</a> <a href="https://codeastrology.com/support/submit-ticket/?utm_source=helptab&utm_content=tickets&utm_campaign=wptplugin" class="button">' . __( 'CodeAstrology.com support', 'woo-product-table' ) . '</a></p>',
 			)
 		);
 
         $screen->set_help_sidebar(
-			'<p><strong>' . __( 'For more information:', 'wpt_pro' ) . '</strong></p>' .
-			'<p><a href="https://wooproducttable.com/?utm_source=helptab&utm_content=about&utm_campaign=wptplugin" target="_blank">' . __( 'About Product Table', 'wpt_pro' ) . '</a></p>' .
-			'<p><a href="https://wordpress.org/support/plugin/woo-product-table/" target="_blank">' . __( 'WordPress.org', 'wpt_pro' ) . '</a></p>' .
-			'<p><a href="https://wooproducttable.com/pricing" target="_blank">' . __( 'Premium Plugin ', 'wpt_pro' ) . '</a></p>' .
-			'<p><a href="https://github.com/codersaiful/woo-product-table/" target="_blank">' . __( 'Github project', 'wpt_pro' ) . '</a></p>' .
-			'<p><a href="https://wordpress.org/themes/astha/" target="_blank">' . __( 'Official theme', 'wpt_pro' ) . '</a></p>' .
-			'<p><a href="https://codecanyon.net/user/codeastrology/?utm_source=helptab&utm_content=wptotherplugins&utm_campaign=wptplugin" target="_blank">' . __( 'Other Premium Plugins', 'wpt_pro' ) . '</a></p>'
+			'<p><strong>' . __( 'For more information:', 'woo-product-table' ) . '</strong></p>' .
+			'<p><a href="https://wooproducttable.com/?utm_source=helptab&utm_content=about&utm_campaign=wptplugin" target="_blank">' . __( 'About Product Table', 'woo-product-table' ) . '</a></p>' .
+			'<p><a href="https://wordpress.org/support/plugin/woo-product-table/" target="_blank">' . __( 'WordPress.org', 'woo-product-table' ) . '</a></p>' .
+			'<p><a href="https://wooproducttable.com/pricing" target="_blank">' . __( 'Premium Plugin ', 'woo-product-table' ) . '</a></p>' .
+			'<p><a href="https://github.com/codersaiful/woo-product-table/" target="_blank">' . __( 'Github project', 'woo-product-table' ) . '</a></p>' .
+			'<p><a href="https://wordpress.org/themes/astha/" target="_blank">' . __( 'Official theme', 'woo-product-table' ) . '</a></p>' .
+			'<p><a href="https://codecanyon.net/user/codeastrology/?utm_source=helptab&utm_content=wptotherplugins&utm_campaign=wptplugin" target="_blank">' . __( 'Other Premium Plugins', 'woo-product-table' ) . '</a></p>'
 		);
 
     }
@@ -443,7 +443,7 @@ function wpt_submit_issue_link(){
     ?>
     <p class="wpt-issue-submit">
 <?php
-$content_of_mail = __( 'I have found an issue with your WooProductTable plugin. I will explain here with screenshot.Issues And Screenshots:', 'wpt_pro' );
+$content_of_mail = __( 'I have found an issue with your WooProductTable plugin. I will explain here with screenshot.Issues And Screenshots:', 'woo-product-table' );
 ?>
         <b>ISSUE SUBMIT:</b> If you founded any issue, Please inform us. That will be very helpful for us to Fix.
         <a href="https://github.com/codersaiful/woo-product-table/issues/new" target="_blank">SUBMIT ISSUE</a> or 
@@ -456,15 +456,15 @@ $content_of_mail = __( 'I have found an issue with your WooProductTable plugin. 
 
 function wpt_get_free_templates(){
     $templates_default = array(
-        'none'              =>  __( 'Select None', 'wpt_pro' ),
-        'default'           =>  __( 'Default Style', 'wpt_pro' ),
-        'beautiful_blacky'  =>  __( 'Beautiful Blacky', 'wpt_pro' ),
-        'classic'           =>  __( 'Classic', 'wpt_pro' ),    
-        'blue_border'       =>  __( 'Blue Border', 'wpt_pro' ),
-        'smart_border'      =>  __( 'Smart Border', 'wpt_pro' ), 
-        'pink'              =>  __( 'Pink Style', 'wpt_pro' ),  
-        'modern'            =>  __( 'Modern Style', 'wpt_pro' ),  
-        'orange'            =>  __( 'Orange Style', 'wpt_pro' ),   
+        'none'              =>  __( 'Select None', 'woo-product-table' ),
+        'default'           =>  __( 'Default Style', 'woo-product-table' ),
+        'beautiful_blacky'  =>  __( 'Beautiful Blacky', 'woo-product-table' ),
+        'classic'           =>  __( 'Classic', 'woo-product-table' ),    
+        'blue_border'       =>  __( 'Blue Border', 'woo-product-table' ),
+        'smart_border'      =>  __( 'Smart Border', 'woo-product-table' ), 
+        'pink'              =>  __( 'Pink Style', 'woo-product-table' ),  
+        'modern'            =>  __( 'Modern Style', 'woo-product-table' ),  
+        'orange'            =>  __( 'Orange Style', 'woo-product-table' ),   
     );
 
     return $templates_default;
@@ -472,12 +472,12 @@ function wpt_get_free_templates(){
 if( ! function_exists( 'wpt_get_pro_templates' ) ){
     function wpt_get_pro_templates(){
         $pro_templates = array(
-            'smart'         =>  __( 'Smart Thin', 'wpt_pro' ),
-            'green'         =>  __( 'Green Style', 'wpt_pro' ),
-            'blue'          =>  __( 'Blue Style', 'wpt_pro' ),
-            'dark'          =>  __( 'Dark Style', 'wpt_pro' ),
-            'smart_light'   =>  __( 'Smart Light', 'wpt_pro' ),
-            'custom'       =>  __( 'Customized Design', 'wpt_pro' ),
+            'smart'         =>  __( 'Smart Thin', 'woo-product-table' ),
+            'green'         =>  __( 'Green Style', 'woo-product-table' ),
+            'blue'          =>  __( 'Blue Style', 'woo-product-table' ),
+            'dark'          =>  __( 'Dark Style', 'woo-product-table' ),
+            'smart_light'   =>  __( 'Smart Light', 'woo-product-table' ),
+            'custom'       =>  __( 'Customized Design', 'woo-product-table' ),
         );
         return $pro_templates;
     }

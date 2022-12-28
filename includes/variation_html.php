@@ -10,7 +10,7 @@ $variations_attr = function_exists( 'wc_esc_json' ) ? wc_esc_json( $variations_j
 
 <form class="variations_form cart" action="" method="post" enctype='multipart/form-data' data-product_id="<?php echo absint( $product->get_id() ); ?>" data-product_variations="<?php echo esc_attr( $variations_attr ); ?>">
 <?php if ( empty( $available_variations ) && false !== $available_variations ) : ?>
-        <p class="stock out-of-stock"><?php echo esc_html( apply_filters( 'woocommerce_out_of_stock_message', __( 'This product is currently out of stock and unavailable.', 'woocommerce' ) ) ); ?></p>
+        <p class="stock out-of-stock"><?php echo esc_html( apply_filters( 'woocommerce_out_of_stock_message', __( 'This product is currently out of stock and unavailable.', 'woo-product-table' ) ) ); ?></p>
 <?php else : ?>
         
         <div class="wpt_varition_section variations" data-product_id="<?php echo esc_attr( $product->get_id() ); ?>" data-temp_number="<?php echo esc_attr( $temp_number ); ?>">
@@ -54,9 +54,9 @@ $variations_attr = function_exists( 'wc_esc_json' ) ? wc_esc_json( $variations_j
                 
                 if( end( $attribute_keys ) == $attribute_name ){
                     if( $show_label ){
-                        echo wp_kses_post( apply_filters( 'woocommerce_reset_variations_link', '<div class="variation-wrapper reset"><a class="reset_variations" href="#">' . esc_html__( 'Clear', 'woocommerce' ) . '</a></div>' ) );
+                        echo wp_kses_post( apply_filters( 'woocommerce_reset_variations_link', '<div class="variation-wrapper reset"><a class="reset_variations" href="#">' . esc_html__( 'Clear', 'woo-product-table' ) . '</a></div>' ) );
                     }else{
-                        echo wp_kses_post( apply_filters( 'woocommerce_reset_variations_link', '<a class="reset_variations" href="#">' . esc_html__( 'Clear', 'woocommerce' ) . '</a>' ) );
+                        echo wp_kses_post( apply_filters( 'woocommerce_reset_variations_link', '<a class="reset_variations" href="#">' . esc_html__( 'Clear', 'woo-product-table' ) . '</a>' ) );
                     }
                 }
                 ?>

@@ -29,22 +29,22 @@ $columns_array = apply_filters( 'wpto_final_column_arr', $columns_array );
         $readOnly = ( $keyword == 'check' ? 'readonly' : false );
     ?>
     <li class="wpt_sortable_peritem <?php echo esc_attr( $enabled_class ); ?> column_keyword_<?php echo esc_attr( $keyword ); ?>">
-        <span title="<?php esc_attr_e( 'Move Handle', 'wpt_pro' );?>" class="handle"></span>
+        <span title="<?php esc_attr_e( 'Move Handle', 'woo-product-table' );?>" class="handle"></span>
         <div class="wpt_shortable_data">
             <input placeholder="<?php echo esc_attr( $keyword ); ?>" 
                    name="column_array<?php echo esc_attr( $_device_name ); ?>[<?php echo esc_attr( $keyword ); ?>]"  
-                   data-column_title="<?php echo esc_attr__( $updated_title,'wpt_pro' ); ?>" 
+                   data-column_title="<?php echo esc_attr__( $updated_title,'woo-product-table' ); ?>" 
                    data-keyword="<?php echo esc_attr( $keyword ); ?>" 
                    class="colum_data_input <?php echo esc_attr( $keyword ); ?>" 
                    type="text" 
-                   title="<?php echo esc_attr__( 'Click for Expand/Collapse. Edit your Column Title here.', 'wpt_pro' ); ?>"
+                   title="<?php echo esc_attr__( 'Click for Expand/Collapse. Edit your Column Title here.', 'woo-product-table' ); ?>"
                    value="<?php echo htmlentities( $updated_title ); ?>" <?php echo esc_attr( $readOnly ); ?>> 
                    <span data-key="<?php echo esc_attr( $keyword ); ?>" class="wpt-expand"><i class="wpt-expand-collapse"></i>Expand</span>
             
             <?php
             //Type Maintenance
             $type = isset( $column_settings[$keyword]['type'] ) && !empty( $column_settings[$keyword]['type'] ) ? $column_settings[$keyword]['type'] : 'default';
-            $type_name = isset( $column_settings[$keyword]['type_name'] ) && !empty( $column_settings[$keyword]['type_name'] ) ? $column_settings[$keyword]['type_name'] : __( 'Default', 'wpt_pro' );
+            $type_name = isset( $column_settings[$keyword]['type_name'] ) && !empty( $column_settings[$keyword]['type_name'] ) ? $column_settings[$keyword]['type_name'] : __( 'Default', 'woo-product-table' );
             ?>
             <input type="hidden" name="column_settings<?php echo esc_attr( $_device_name ); ?>[<?php echo esc_attr( $keyword ); ?>][type]" value="<?php echo esc_attr( $type ); ?>">
             <input type="hidden" name="column_settings<?php echo esc_attr( $_device_name ); ?>[<?php echo esc_attr( $keyword ); ?>][type_name]" value="<?php echo esc_attr( $type_name ); ?>">
@@ -114,10 +114,10 @@ $columns_array = apply_filters( 'wpto_final_column_arr', $columns_array );
         </div>
         <span class="wpt_column_arrow wpt_arrow_top" data-target="prev" data-keyword="<?php echo esc_attr( $keyword ); ?>">&uArr;</span>
         <span class="wpt_column_arrow wpt_arrow_down" data-target="next" data-keyword="<?php echo esc_attr( $keyword ); ?>">&dArr;</span>
-        <span title="<?php esc_attr_e( 'Move Handle', 'wpt_pro' );?>" class="handle checkbox_handle">
+        <span title="<?php esc_attr_e( 'Move Handle', 'woo-product-table' );?>" class="handle checkbox_handle">
             <input name="enabled_column_array<?php echo esc_attr( $_device_name ); ?>[<?php echo esc_attr( $keyword ); ?>]" 
                    value="<?php echo esc_attr( $keyword ); ?>" 
-                   title="<?php echo esc_html__( 'Active Inactive Column', 'wpt_pro' );?>" 
+                   title="<?php echo esc_html__( 'Active Inactive Column', 'woo-product-table' );?>" 
                    class="checkbox_handle_input <?php echo esc_attr( $enabled_class ); ?>" 
                    type="checkbox" 
                    data-column_keyword="<?php echo esc_attr( $keyword ); ?>" <?php echo esc_attr( $checked_attribute ); ?>>

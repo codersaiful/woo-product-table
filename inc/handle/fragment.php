@@ -141,21 +141,21 @@ if( $this->cart_lists && $this->cart_stats ){
 <div class="wpt-cart-contents">
     <?php echo wp_kses_post( WC()->cart->get_cart_subtotal() ); ?> 
     <span class="count">
-        <?php echo wp_kses_data( sprintf( _n( '%d item', '%d items', WC()->cart->get_cart_contents_count(), 'wpt_pro' ), WC()->cart->get_cart_contents_count() ) ); ?>
+        <?php echo wp_kses_data( sprintf( _n( '%d item', '%d items', WC()->cart->get_cart_contents_count(), 'woo-product-table' ), WC()->cart->get_cart_contents_count() ) ); ?>
     </span>
 <?php if( $this->cart_stats ){ ?>
-    <span title="<?php echo esc_attr__( 'Empty Cart.', 'wpt_pro' ); ?>" class="wpt_empty_cart_btn">
+    <span title="<?php echo esc_attr__( 'Empty Cart.', 'woo-product-table' ); ?>" class="wpt_empty_cart_btn">
         <i class="wpt-trash-empty"></i>
     </span>
 <?php } ?>
 </div>
 <?php
-    $view_cart_text = __('View Cart', 'wpt_pro');
+    $view_cart_text = __('View Cart', 'woo-product-table');
     $view_cart_text = apply_filters('wpt_view_cart_text', $view_cart_text, $this->table_id );
     $view_cart_target = '_blank';
     $view_cart_target =  apply_filters('wpt_view_cart_target', $view_cart_target);
 ?>
-<a target="<?= $view_cart_target ?>" href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="wpt-view-n"><?php echo esc_html( $view_cart_text ); ?> <i class="wpt-bag"></i></a>
+<a target="<?php echo esc_attr( $view_cart_target ); ?>" href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="wpt-view-n"><?php echo esc_html( $view_cart_text ); ?> <i class="wpt-bag"></i></a>
 
 </div>
 </div>
@@ -190,7 +190,7 @@ if( $this->cart_lists && $this->cart_stats ){
 					// 	sprintf(
 					// 		'<a href="%s" class="remove remove_from_cart_button" aria-label="%s" data-product_id="%s" data-cart_item_key="%s" data-product_sku="%s">&times;</a>',
 					// 		esc_url( wc_get_cart_remove_url( $cart_item_key ) ),
-					// 		esc_attr__( 'Remove this item', 'woocommerce' ),
+					// 		esc_attr__( 'Remove this item', 'woo-product-table' ),
 					// 		esc_attr( $product_id ),
 					// 		esc_attr( $cart_item_key ),
 					// 		esc_attr( $_product->get_sku() )

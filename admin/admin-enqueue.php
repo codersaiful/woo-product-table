@@ -69,7 +69,7 @@ if( !function_exists( 'wpt_admin_js_fast_load' ) ){
         wp_enqueue_script( 'wpt-admin', WPT_Product_Table::getPath( 'BASE_URL' ) . 'assets/js/admin.js', array( 'jquery' ), '1.0.0', true );
         
         $ajax_url = admin_url( 'admin-ajax.php' );
-        $version = class_exists( 'WOO_Product_Table' ) && WOO_Product_Table::getVersion() ? __( 'WTP Pro: ', 'wpt_pro' ) . WOO_Product_Table::getVersion() : WPT_Product_Table::getVersion();
+        $version = class_exists( 'WOO_Product_Table' ) && WOO_Product_Table::getVersion() ? __( 'WTP Pro: ', 'woo-product-table' ) . WOO_Product_Table::getVersion() : WPT_Product_Table::getVersion();
         $is_pro = class_exists( 'WOO_Product_Table' ) ? 'yes' : 'no';
         $WPT_DATA = array( 
            'ajaxurl' => $ajax_url,

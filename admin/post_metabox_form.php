@@ -7,29 +7,29 @@
      * this $tab_arry will define, how much tab and tab content
      */
     $tab_array = array(
-        'column_settings'   => __( 'Column', 'wpt_pro' ),
-        'query'            => __( 'Query', 'wpt_pro' ),
-        // 'basics'            => __( 'Basics', 'wpt_pro' ), //Has removed @version 3.1.9.5
-        'table_style'       => sprintf(__( 'Design %sLimited%s', 'wpt_pro' ), '<i class="wpt_limited_badge">', '</i>' ),
-        'options'            => __( 'Options', 'wpt_pro' ),
-        // 'conditions'        => __( 'Extra Options', 'wpt_pro' ), //Has removed @version 3.1.9.5
-        'search_n_filter'   => __( 'Search & Filter','wpt_pro' ),
-        'config'            => sprintf(__( 'Configuration %sPro%s', 'wpt_pro' ), '<i class="wpt_pro_badge">', '</i>' ),
+        'column_settings'   => __( 'Column', 'woo-product-table' ),
+        'query'            => __( 'Query', 'woo-product-table' ),
+        // 'basics'            => __( 'Basics', 'woo-product-table' ), //Has removed @version 3.1.9.5
+        'table_style'       => sprintf(__( 'Design %sLimited%s', 'woo-product-table' ), '<i class="wpt_limited_badge">', '</i>' ),
+        'options'            => __( 'Options', 'woo-product-table' ),
+        // 'conditions'        => __( 'Extra Options', 'woo-product-table' ), //Has removed @version 3.1.9.5
+        'search_n_filter'   => __( 'Search & Filter','woo-product-table' ),
+        'config'            => sprintf(__( 'Configuration %sPro%s', 'woo-product-table' ), '<i class="wpt_pro_badge">', '</i>' ),
     );
     $tab_array = apply_filters( 'wpto_admin_tab_array', $tab_array, $post );
     
     $supported_css_property = array(
-        'color'        =>  __( 'Text Color', 'wpt_pro' ),
-        'background-color'=>__('Background Color' , 'wpt_pro' ),
-        'border'=>__('Border' , 'wpt_pro' ),
-        'text-align'=>__('Text Align' , 'wpt_pro' ),
-        'vertical-align'=>__('Vertical Align' , 'wpt_pro' ),
+        'color'        =>  __( 'Text Color', 'woo-product-table' ),
+        'background-color'=>__('Background Color' , 'woo-product-table' ),
+        'border'=>__('Border' , 'woo-product-table' ),
+        'text-align'=>__('Text Align' , 'woo-product-table' ),
+        'vertical-align'=>__('Vertical Align' , 'woo-product-table' ),
     );
     $supported_css_property = apply_filters( 'wpto_supported_css_property', $supported_css_property, $tab_array, $post );
 
     $supported_terms    = array(
-        'product_cat'       =>  __( 'Product Categories', 'wpt' ),
-        'product_tag'       =>  __( 'Product Tags', 'wpt' ),
+        'product_cat'       =>  __( 'Product Categories', 'woo-product-table' ),
+        'product_tag'       =>  __( 'Product Tags', 'woo-product-table' ),
     );
     $supported_terms    = apply_filters( 'wpt_supported_terms', $supported_terms, $tab_array, $post  );
 
@@ -80,7 +80,7 @@
             include $tab_file_of_admin; 
             do_action( 'wpto_admin_tab_bottom_' . $tab, $post, $tab_array );
         }elseif( $tab_validation ){
-            echo '<h2>' . $tab . '.php ' . esc_html__( 'file is not found in tabs folder','wpt_pro' ) . '</h2>';
+            echo '<h2>' . $tab . '.php ' . esc_html__( 'file is not found in tabs folder','woo-product-table' ) . '</h2>';
         }
         
         /**
@@ -134,7 +134,7 @@
                 name="wpt_post_submit" 
                 data-title="<?php echo esc_attr( $post_title ); ?>" 
                 class="button-primary button-primary primary button <?php echo esc_attr( $ajax_submit_btn ); ?>"
-                ><?php esc_html_e( 'Save Change', 'wpt_pro' );?></button>
+                ><?php esc_html_e( 'Save Change', 'woo-product-table' );?></button>
     </div>
 
     <?php do_action( 'wpt_offer_here' ); ?>

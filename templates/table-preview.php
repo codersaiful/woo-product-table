@@ -29,7 +29,7 @@
 <body <?php body_class( 'wpt-table-preview-body' ); ?>>
 <?php wp_body_open(); ?>
 
-    <a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'medilac' ); ?></a>
+    <a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'woo-product-table' ); ?></a>
 <div id="page" class="hfeed site wpt-fullwidth">
 <?php
     if ( have_posts() ) : while ( have_posts() ) : the_post();
@@ -42,7 +42,7 @@
         <h2 class="wpt-preview-heading"><?php the_title(); ?></h2>
 
         <?php if( is_user_logged_in() ){ ?>
-            <b><?php echo esc_html__( 'Shortcode', 'wpt_pro' ); ?></b><br>
+            <b><?php echo esc_html__( 'Shortcode', 'woo-product-table' ); ?></b><br>
             <input 
             class="wpt-preview-shortcode-input" 
             type="text" 
@@ -52,7 +52,7 @@
             
         <?php } ?>
         <span class="preview_info">
-            <?php echo esc_html__('For perfect view paste shortcode on a page.', 'wpt_pro');?>
+            <?php echo esc_html__('For perfect view paste shortcode on a page.', 'woo-product-table');?>
         </span>
         </div>  
 

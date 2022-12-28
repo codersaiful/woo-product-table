@@ -53,7 +53,7 @@ class Message{
     }
 
     public static function not_found_product(Shortcode $shortcode){
-        $msg = $shortcode->_config['product_not_founded'] ?? __( 'Product not found!', 'wpt_pro' );
+        $msg = $shortcode->_config['product_not_founded'] ?? __( 'Product not found!', 'woo-product-table' );
     ?>
         <div class='wpt_product_not_found'><?php echo wp_kses_post( $msg ); ?></div>
     <?php    

@@ -1,30 +1,30 @@
 <?php
 $templates_default = array(
-    'default'           =>  __( 'Default Style', 'wpt_pro' ),
-    'none'              =>  __( 'Template None', 'wpt_pro' ),
-    'beautiful_blacky'  =>  __( 'Beautiful Blacky', 'wpt_pro' ),
-    'greeny'            =>  __( 'Greeny', 'wpt_pro' ),
-    'redy'              =>  __( 'Redy', 'wpt_pro' ),
-    // 'argentina'         =>  __( 'Argentina', 'wpt_pro' ),
-    // 'brazil'            =>  __( 'Brazil', 'wpt_pro' ),
+    'default'           =>  __( 'Default Style', 'woo-product-table' ),
+    'none'              =>  __( 'Template None', 'woo-product-table' ),
+    'beautiful_blacky'  =>  __( 'Beautiful Blacky', 'woo-product-table' ),
+    'greeny'            =>  __( 'Greeny', 'woo-product-table' ),
+    'redy'              =>  __( 'Redy', 'woo-product-table' ),
+    // 'argentina'         =>  __( 'Argentina', 'woo-product-table' ),
+    // 'brazil'            =>  __( 'Brazil', 'woo-product-table' ),
 );
 $pro_templates = array(
-    'smart'             =>  __( 'Smart Thin', 'wpt_pro' ),
-    'green'             =>  __( 'Green Style', 'wpt_pro' ),
-    'blue'              =>  __( 'Blue Style', 'wpt_pro' ),
-    'dark'              =>  __( 'Dark Style', 'wpt_pro' ),
-    'smart_light'       =>  __( 'Smart Light', 'wpt_pro' ),
-    'classic'           =>  __( 'Classic', 'wpt_pro' ),    
-    'blue_border'       =>  __( 'Blue Border', 'wpt_pro' ),
-    'smart_border'      =>  __( 'Smart Border', 'wpt_pro' ), 
-    'pink'              =>  __( 'Pink Style', 'wpt_pro' ),  
-    // 'modern'            =>  __( 'Modern Style', 'wpt_pro' ),  
-    'orange'            =>  __( 'Orange Style', 'wpt_pro' ), 
-    'lightseagreen'     =>  __( 'Light Sea Green Style', 'wpt_pro' ), 
-    'red'               =>  __( 'Red Style', 'wpt_pro' ),  
-    'golden'            =>  __( 'Golden  Style', 'wpt_pro' ),
-    'yellow'            =>  __( 'Yellow  Style', 'wpt_pro' ), 
-    'black'            =>  __( 'Black Style', 'wpt_pro' ), 
+    'smart'             =>  __( 'Smart Thin', 'woo-product-table' ),
+    'green'             =>  __( 'Green Style', 'woo-product-table' ),
+    'blue'              =>  __( 'Blue Style', 'woo-product-table' ),
+    'dark'              =>  __( 'Dark Style', 'woo-product-table' ),
+    'smart_light'       =>  __( 'Smart Light', 'woo-product-table' ),
+    'classic'           =>  __( 'Classic', 'woo-product-table' ),    
+    'blue_border'       =>  __( 'Blue Border', 'woo-product-table' ),
+    'smart_border'      =>  __( 'Smart Border', 'woo-product-table' ), 
+    'pink'              =>  __( 'Pink Style', 'woo-product-table' ),  
+    // 'modern'            =>  __( 'Modern Style', 'woo-product-table' ),  
+    'orange'            =>  __( 'Orange Style', 'woo-product-table' ), 
+    'lightseagreen'     =>  __( 'Light Sea Green Style', 'woo-product-table' ), 
+    'red'               =>  __( 'Red Style', 'woo-product-table' ),  
+    'golden'            =>  __( 'Golden  Style', 'woo-product-table' ),
+    'yellow'            =>  __( 'Yellow  Style', 'woo-product-table' ), 
+    'black'            =>  __( 'Black Style', 'woo-product-table' ), 
     
 );
 
@@ -56,7 +56,7 @@ $current_template = $meta_table_style_inPost['template'] ?? '';
         <table class="ultraaddons-table">
             <tr>
                 <th>
-                    <label class="wpt_label" for="wpt_style_file_selection"><?php esc_html_e( 'Select Template', 'wpt_pro' ); ?></label>
+                    <label class="wpt_label" for="wpt_style_file_selection"><?php esc_html_e( 'Select Template', 'woo-product-table' ); ?></label>
                 </th>
                 <td>
                     <select name="table_style[template]" data-name="template" id="wpt_style_file_selection"  class="wpt_fullwidth wpt_data_filed_atts ua_input" >
@@ -72,7 +72,7 @@ $current_template = $meta_table_style_inPost['template'] ?? '';
                             }
                             
                             if( $type !== 'free' ){
-                                $value .= " " . __( '(Premium)', 'wpt_pro' );
+                                $value .= " " . __( '(Premium)', 'woo-product-table' );
                             }
 
                             

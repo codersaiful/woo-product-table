@@ -257,7 +257,7 @@ class Shortcode extends Shortcode_Base{
 
     }
     public function shortcode($atts){
-        
+
         $this->atts = $atts;
 
         $pairs = array( 'exclude' => false );
@@ -469,8 +469,8 @@ class Shortcode extends Shortcode_Base{
             $display_count = ( $prev_post + 1 ) . " - $current_total_post";
         }
 
-        $stats_post_count = $this->basics['stats_post_count'] ?? '';// __( "Showing %s out of %s", "wpt_pro" );
-        $stats_page_count = $this->basics['stats_page_count'] ?? '';// __( "Page %s out of %s", "wpt_pro" );
+        $stats_post_count = $this->basics['stats_post_count'] ?? '';// __( "Showing %s out of %s", "woo-product-table" );
+        $stats_page_count = $this->basics['stats_page_count'] ?? '';// __( "Page %s out of %s", "woo-product-table" );
         
         ?>
         <p class="wpt-stats-post-count">
@@ -875,10 +875,10 @@ class Shortcode extends Shortcode_Base{
             
             ?>
             <p class="wpt-error-wrapper">
-                <span class="wpt-error wpt-error-assing_property"><?php echo esc_html__( "Error: on assing_property on the table_body!!", 'wpt_pro' ); ?></span>
-                <a href="https://wordpress.org/support/topic/error-on-assing_property-on-the-table_body-2/" class="wpt-get-tutorial" target="_blank"><?php echo esc_html__( "Get Tutorial for this issue from wpOrg", 'wpt_pro' ); ?>.</a>
+                <span class="wpt-error wpt-error-assing_property"><?php echo esc_html__( "Error: on assing_property on the table_body!!", 'woo-product-table' ); ?></span>
+                <a href="https://wordpress.org/support/topic/error-on-assing_property-on-the-table_body-2/" class="wpt-get-tutorial" target="_blank"><?php echo esc_html__( "Get Tutorial for this issue from wpOrg", 'woo-product-table' ); ?>.</a>
                 OR
-                <a href="https://wooproducttable.com/doc/troubleshoots/error-on-assing_property-on-the-table_body/" class="wpt-get-tutorial" target="_blank"><?php echo esc_html__( "Tutorial from website with Screenshot", 'wpt_pro' ); ?>.</a>
+                <a href="https://wooproducttable.com/doc/troubleshoots/error-on-assing_property-on-the-table_body/" class="wpt-get-tutorial" target="_blank"><?php echo esc_html__( "Tutorial from website with Screenshot", 'woo-product-table' ); ?>.</a>
             </p>
             <?php
             return;

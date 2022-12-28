@@ -9,12 +9,12 @@ if( empty( $meta_mobile ) && ! is_array( $meta_mobile ) && ! isset( $meta_mobile
     <table class="ultraaddons-table">
         <tr>
             <th>
-                <label class="wpt_label" for="wpt_table_mobile_responsive"><?php esc_html_e( 'Mobile Responsive', 'wpt_pro' ); ?></label>
+                <label class="wpt_label" for="wpt_table_mobile_responsive"><?php esc_html_e( 'Mobile Responsive', 'woo-product-table' ); ?></label>
             </th>
             <td>
                 <select name="mobile[mobile_responsive]" data-name='mobile_responsive' id="wpt_table_mobile_responsive" class="wpt_fullwidth wpt_data_filed_atts ua_select" >
-                    <option value="mobile_responsive" <?php echo isset( $meta_mobile['mobile_responsive'] ) && $meta_mobile['mobile_responsive'] == 'mobile_responsive' ? 'selected' : ''; ?>><?php esc_html_e( 'Auto Responsive (Not Recommended)', 'wpt_pro' ); ?></option>
-                    <option value="no_responsive" <?php echo isset( $meta_mobile['mobile_responsive'] ) && $meta_mobile['mobile_responsive'] == 'no_responsive' ? 'selected' : ''; ?>><?php esc_html_e( 'Manual Responsive', 'wpt_pro' ); ?></option>
+                    <option value="mobile_responsive" <?php echo isset( $meta_mobile['mobile_responsive'] ) && $meta_mobile['mobile_responsive'] == 'mobile_responsive' ? 'selected' : ''; ?>><?php esc_html_e( 'Auto Responsive (Not Recommended)', 'woo-product-table' ); ?></option>
+                    <option value="no_responsive" <?php echo isset( $meta_mobile['mobile_responsive'] ) && $meta_mobile['mobile_responsive'] == 'no_responsive' ? 'selected' : ''; ?>><?php esc_html_e( 'Manual Responsive', 'woo-product-table' ); ?></option>
                 </select>
             </td>
         </tr>
@@ -73,8 +73,8 @@ unset( $columns_array['check'] );
 <ul id="wpt_keyword_hide_mobile" class="responsive-part mobile_responsive"
     style="display: <?php echo $meta_mobile['mobile_responsive'] == 'mobile_responsive' ? '' : 'none';  ?>"
     >
-    <h1 style="color: #D01040;"><?php esc_html_e( 'Hide On Mobile', 'wpt_pro' ); ?></h1>
-    <p style="padding: 0;margin: 0;"><?php esc_html_e( 'Pleach check you column to hide from Mobile. For all type Table(Responsive or Non-Responsive).', 'wpt_pro' ); ?></p>
+    <h1 style="color: #D01040;"><?php esc_html_e( 'Hide On Mobile', 'woo-product-table' ); ?></h1>
+    <p style="padding: 0;margin: 0;"><?php esc_html_e( 'Pleach check you column to hide from Mobile. For all type Table(Responsive or Non-Responsive).', 'woo-product-table' ); ?></p>
     <hr>
         <?php
     foreach( $columns_array as $keyword => $title ){
@@ -89,8 +89,8 @@ unset( $columns_array['check'] );
         <div class="wpt_mobile_hide_keyword">
             <b  data-column_title="<?php echo esc_attr( $title ); ?>" data-keyword="<?php echo esc_attr( $keyword ); ?>" class="mobile_issue_field <?php echo esc_attr( $keyword ); ?>" type="text" ><?php echo esc_html( $title ); ?></b>
         </div>
-        <span title="<?php echo esc_attr( $keyword ); ?>"  title="<?php esc_attr_e( 'Move Handle', 'wpt_pro' ); ?>" class="handle checkbox_handle">
-            <input  name="mobile[disable][]" value="<?php echo esc_attr( $keyword ); ?>"  title="<?php esc_attr_e( 'Active Inactive Column', 'wpt_pro' ); ?>" class="checkbox_handle_input <?php echo esc_attr( $enabled_class ); ?>" type="checkbox" data-column_keyword="<?php echo esc_attr( $keyword ); ?>" <?php echo esc_attr( $checked_attribute ); ?>>
+        <span title="<?php echo esc_attr( $keyword ); ?>"  title="<?php esc_attr_e( 'Move Handle', 'woo-product-table' ); ?>" class="handle checkbox_handle">
+            <input  name="mobile[disable][]" value="<?php echo esc_attr( $keyword ); ?>"  title="<?php esc_attr_e( 'Active Inactive Column', 'woo-product-table' ); ?>" class="checkbox_handle_input <?php echo esc_attr( $enabled_class ); ?>" type="checkbox" data-column_keyword="<?php echo esc_attr( $keyword ); ?>" <?php echo esc_attr( $checked_attribute ); ?>>
         </span>
     </li>
     <?php

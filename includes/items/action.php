@@ -71,8 +71,8 @@ if( $table_type == 'advance_table'){
             sprintf( '<a href="%s" class="%s" title="%s">%s</a>',
                 esc_url( wc_get_cart_url() ),
                 esc_attr( 'added_to_cart wc-forward' ),
-                __( 'View Cart', 'wpt_pro' ),
-                __( 'View Cart', 'wpt_pro' )
+                __( 'View Cart', 'woo-product-table' ),
+                __( 'View Cart', 'woo-product-table' )
             ), $product, false, false );
     }else{
         echo apply_filters( 'woocommerce_loop_add_to_cart_link',

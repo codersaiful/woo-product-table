@@ -513,7 +513,7 @@ if( ! function_exists( 'wpt_add_custom_message_field' ) ){
     function wpt_add_custom_message_field() {
         $status = apply_filters( 'wpt_message_box_in_single_product', true );
         if( ! $status ) return;
-        $message = apply_filters( 'wpt_message_box_label_product_page', esc_html__( 'Message', 'wpt_pro' )  );
+        $message = apply_filters( 'wpt_message_box_label_product_page', esc_html__( 'Message', 'woo-product-table' )  );
         global $product;
         $product_id = $product->get_id();
         // var_dump($product->get_id());
@@ -557,7 +557,7 @@ if( ! function_exists( 'wpt_custom_message_validation' ) ){
     function wpt_custom_message_validation() { 
 
         if ( isset( $_REQUEST['wpt_custom_message'] ) && empty( $_REQUEST['wpt_custom_message'] ) ) {
-            $short_mesg_warning = __( 'Please enter Short Message', 'wpt_pro' );
+            $short_mesg_warning = __( 'Please enter Short Message', 'woo-product-table' );
             $short_mesg_warning = apply_filters( 'wpto_short_message_warning', $short_mesg_warning );
             wc_add_notice( $short_mesg_warning, 'error' );
             return false;
@@ -607,7 +607,7 @@ if( ! function_exists( 'wpt_render_meta_on_cart_and_checkout' ) ){
             $custom_items = $cart_data;
         }
         if( isset( $cart_item['wpt_custom_message'] ) ) {
-            $msg_label = __( 'Message', 'wpt_pro' );
+            $msg_label = __( 'Message', 'woo-product-table' );
             $args['cart_data'] = $cart_data;
             $args['cart_item'] = $cart_item;
             $msg_label = apply_filters( 'wpto_shortmessage_string',$msg_label, $args );
@@ -637,7 +637,7 @@ if( ! function_exists( 'wpt_order_meta_handler' ) ){
         $values = $item->legacy_values;
         $wpt_custom_message = isset( $values['wpt_custom_message'] ) && !empty( $values['wpt_custom_message'] ) ? $values['wpt_custom_message'] : false;
         if( $wpt_custom_message ) {
-            $msg_label = __( 'Message', 'wpt_pro' );
+            $msg_label = __( 'Message', 'woo-product-table' );
             $args['item_id'] = $item_id;
             $args['values'] = $values;
             $args['item'] = $item;

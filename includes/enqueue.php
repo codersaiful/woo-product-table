@@ -50,7 +50,7 @@ if( !function_exists( 'wpt_enqueue' ) ){
         */
        //wp_enqueue_script( 'floatThead', WPT_Product_Table::getPath('BASE_URL') . 'assets/js/jquery.floatThead.min.js', array( 'jquery' ), '2.1.4', true );
        $ajax_url = admin_url( 'admin-ajax.php' );
-       $version = class_exists( 'WOO_Product_Table' ) && WOO_Product_Table::getVersion() ? __( 'WTP Pro: ', 'wpt_pro' ) . WOO_Product_Table::getVersion() : WPT_DEV_VERSION;
+       $version = class_exists( 'WOO_Product_Table' ) && WOO_Product_Table::getVersion() ? __( 'WTP Pro: ', 'woo-product-table' ) . WOO_Product_Table::getVersion() : WPT_DEV_VERSION;
        $WPT_DATA = array( 
            'ajaxurl'        => $ajax_url,
            'ajax_url'       => $ajax_url,
@@ -67,7 +67,7 @@ if( !function_exists( 'wpt_enqueue' ) ){
            'add_to_cart_view'=> apply_filters( 'wpto_add_to_cart_view', true ),
            'return_zero'    => apply_filters( 'wpto_qty_return_zero', false ),
            'return_quanity' => apply_filters( 'wpto_qty_return_quanity', true ),
-           'search_select_placeholder' => wpt_get_config( 'search_order_placeholder' ),//esc_html__( 'Select inner Item.', 'wpt_pro' ),
+           'search_select_placeholder' => wpt_get_config( 'search_order_placeholder' ),//esc_html__( 'Select inner Item.', 'woo-product-table' ),
            'notice_timeout' => 3000,
            );
        $WPT_DATA = apply_filters( 'wpto_localize_data', $WPT_DATA );

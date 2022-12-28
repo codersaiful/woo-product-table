@@ -336,7 +336,7 @@ class Row extends Table_Base{
             <?php
 
             
-            $this->handle_items( $items );
+            $this->handle_inner_items( $items, $keyword );
 
             /**
              * Adding Content at the Bottom of Each TableTD
@@ -359,15 +359,14 @@ class Row extends Table_Base{
         // var_dump($this);
     }
 
-    public function handle_items( $items = false ){
+    public function handle_inner_items( $items = [], string $parent_keyword ){
         if( empty( $items ) || ! is_array( $items ) ) return;
         foreach( $items as $item_key ){
-            $this->render_item( $item_key );
+            $this->inner_each_item( $item_key, $parent_keyword );
         }
     }
-    public function render_item( string $keyword ){
+    public function inner_each_item( string $keyword, string $parent_keyword ){
         global $product;
-        
         extract($this->data_for_extract());
 
 
@@ -437,6 +436,10 @@ class Row extends Table_Base{
          */
         do_action( 'wpto_column_top', $keyword, $this->table_id, $settings, $this->column_settings, $product );
         do_action( 'wpt_column_top', $keyword, $this );
+        
+        $parent_column_settings = $column_settings[$parent_keyword];
+
+        do_action( 'wpto_item_top', $keyword, $table_ID, $settings, $column_settings, $parent_column_settings, $product );
                 
 
         if( is_file( $file ) ){

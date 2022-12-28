@@ -8,8 +8,8 @@ class Checkbox_Box{
     public static function render( Shortcode $shortcode, string $position = 'header' ){
         
         $text = $shortcode->add_to_cart_text;
-        $selected_text = $shortcode->basics['add_to_cart_selected_text'] ?? __( 'Add to Cart (Selected)','wpt_pro' );
-        $check_uncheck_text = $shortcode->basics['check_uncheck_text'] ?? __( 'All Check/Uncheck','wpt_pro' );
+        $selected_text = $shortcode->basics['add_to_cart_selected_text'] ?? __( 'Add to Cart (Selected)','woo-product-table' );
+        $check_uncheck_text = $shortcode->basics['check_uncheck_text'] ?? __( 'All Check/Uncheck','woo-product-table' );
         if( $shortcode->wpml_bool ){
             $lang = '_'. $shortcode->wpml_lang;
             $selected_text = $shortcode->basics['add_to_cart_selected_text' . $lang] ?? $selected_text;

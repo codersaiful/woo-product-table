@@ -28,7 +28,7 @@ class Basics extends Shortcode_Base{
     public function body_class( $class ){
         if( $this->get_is_table() ){
             $class[] = 'wpt_table_body';
-            // $class[] = 'woocommerce';
+            // $class[] = 'woo-product-table';
             $class[] = 'wpt-body-' . $this->shortcde_text;
         }
 
@@ -40,12 +40,12 @@ class Basics extends Shortcode_Base{
         if( ! current_user_can( WPT_CAPABILITY ) ) return;
 
         ?>
-        <div title="<?php echo esc_attr( 'ONLY FOR ADMIN USER', 'wpt_pro' ); ?>" class="wpt_edit_table">
+        <div title="<?php echo esc_attr( 'ONLY FOR ADMIN USER', 'woo-product-table' ); ?>" class="wpt_edit_table">
             <a href="<?php echo esc_attr( admin_url( 'post.php?post=' . $shortcode->table_id . '&action=edit&classic-editor' ) ); ?>" 
                             target="_blank"
-                            title="<?php echo esc_attr( '[ONLY FOR ADMIN USER]Edit your table. It will open on new tab.', 'wpt_pro' ); ?>"
+                            title="<?php echo esc_attr( '[ONLY FOR ADMIN USER]Edit your table. It will open on new tab.', 'woo-product-table' ); ?>"
                             >
-            <?php echo esc_html__( 'Edit Table - ', 'wpt_pro' ); ?>
+            <?php echo esc_html__( 'Edit Table - ', 'woo-product-table' ); ?>
             <?php echo esc_html( get_the_title( $shortcode->table_id ) ); ?>
             </a>   
         </div>
@@ -57,7 +57,7 @@ class Basics extends Shortcode_Base{
         
         $this->empty_cart_text = $this->base_config['empty_cart_text'] ?? '';
         ?>
-        <a title="<?php echo esc_attr__( 'Empty Cart', 'wpt_pro' ); ?>" class="wpt_empty_cart_btn button"><i class="wpt-trash-empty"></i><?php echo esc_html( $this->empty_cart_text ); ?></a>
+        <a title="<?php echo esc_attr__( 'Empty Cart', 'woo-product-table' ); ?>" class="wpt_empty_cart_btn button"><i class="wpt-trash-empty"></i><?php echo esc_html__( $this->empty_cart_text, 'woo-product-table' ); ?></a>
         <?php
     }
 }

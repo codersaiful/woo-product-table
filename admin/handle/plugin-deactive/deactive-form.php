@@ -47,7 +47,7 @@ class Deactive_Form
      * @var string
      */
     protected $prefix = 'wpt';
-    protected $text_domain = 'wpt_pro';
+    protected $text_domain = 'woo-product-table';
 
     /**
      * Change also it to message.js file.
