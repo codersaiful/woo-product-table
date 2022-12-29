@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Product Table for WooCommerce - (wooproducttable)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-11-02 08:26+0000\n"
-"PO-Revision-Date: 2022-12-29 05:39+0000\n"
+"PO-Revision-Date: 2022-12-29 06:13+0000\n"
 "Last-Translator: \n"
 "Language-Team: বাংলা\n"
 "Language: bn_BD\n"
@@ -27,6 +27,9 @@ msgid ""
 "created shop archive page by any page builder. %1$sThis feature will only "
 "work on table page where table shortcode pasted.%2$s"
 msgstr ""
+"WooCommerce shop, archive page or created shop archive এ %1$sপেজিনেশান কাজ "
+"করবে না%2$s  এবং  %1$s এই ফিচারটি শুধু মাত্র শর্টকোড টি যে পেজে পেস্ট করা "
+"হয়েছে সেই পেজেই কাজ করবে।%2$s"
 
 #: admin/tabs/options.php:58 admin/tabs/options.php:123
 #, php-format
@@ -80,7 +83,7 @@ msgstr ""
 #: admin/action-hook.php:353
 #, php-format
 msgid "%s[Products Not founded!]%s - Message Text"
-msgstr ""
+msgstr "%s[Products Not founded!]%s - মেসেজ টেক্সট"
 
 #: admin/action-hook.php:494
 #, php-format
@@ -322,11 +325,6 @@ msgstr "পেজিনেশানের জন্য এজাক্স (চ�
 #: admin/tabs/options.php:36
 msgid "Ajax Pagination (Default)"
 msgstr "এজাক্স পেজিনেশান(ডিফল্ট)"
-
-#: admin/tabs/options.php:255 inc/handle/checkbox-box.php:21
-#| msgid "Check/Uncheck"
-msgid "All Check/Uncheck"
-msgstr "চেক/আনচেক"
 
 #: admin/action-hook.php:325
 msgid "All Items"
@@ -906,7 +904,7 @@ msgstr ""
 
 #: admin/post_metabox_form.php:83
 msgid "file is not found in tabs folder"
-msgstr ""
+msgstr "ট্যাব ফোল্ডারে ফাইল পাওয়া যায়নি।"
 
 #: admin/wpt_product_table_post.php:41
 msgid "Filter Product Table list"
@@ -1429,32 +1427,33 @@ msgstr "None"
 
 #: admin/action-hook.php:594
 msgid "Not Available"
-msgstr ""
+msgstr "নাই"
 
 #: woo-product-table.php:221
 msgid "Not available"
-msgstr ""
+msgstr "নাই"
 
 #: admin/action-hook.php:363
 msgid "Not for Archive page."
-msgstr ""
+msgstr "আর্কাইভ পেজের জন্য নহে"
 
 #: admin/tabs/search_n_filter.php:36
 msgid ""
 "Not for WooCommerce Archive page. Such: shop page, product category page."
 msgstr ""
+"WooCommerce Archive পেজে কাজ করবে না। যেমনঃ shop page, product category page."
 
 #: admin/wpt_product_table_post.php:31
 msgid "Not found"
-msgstr ""
+msgstr "পাওয়া যায়নি"
 
 #: admin/wpt_product_table_post.php:32
 msgid "Not found in Trash"
-msgstr ""
+msgstr "ট্রাসে পাওয়া যাওনি"
 
 #: admin/action-hook.php:355
 msgid "Not founded any products in this query."
-msgstr ""
+msgstr "এই কুয়েরিতে কোন পন্য পাওয়া যায়নি।"
 
 #: admin/pro-features-html.php:123
 msgid "Now you can show more product information in a smart way."
@@ -1546,7 +1545,7 @@ msgstr ""
 msgid "outofstock"
 msgstr "outofstock"
 
-#: admin/tabs/options.php:211
+#: inc/shortcode.php:473 admin/tabs/options.php:211
 #, php-format
 msgid "Page %s out of %s"
 msgstr "দেখছেন %s পেজ %s এর মধ্যে"
@@ -1616,7 +1615,7 @@ msgstr "প্রমিয়াম প্লাগিন"
 
 #: woo-product-table.php:107
 msgid "Price"
-msgstr ""
+msgstr "দর"
 
 #: admin/tabs/query.php:314
 msgid "Pro"
@@ -1640,7 +1639,7 @@ msgstr ""
 
 #: inc/handle/message.php:56
 msgid "Product not found!"
-msgstr ""
+msgstr "পন্য পাওয়া যায়নি!"
 
 #: admin/pro-features-html.php:36
 msgid "Product SKU"
@@ -1710,15 +1709,15 @@ msgstr ""
 
 #: woo-product-table.php:97
 msgid "Products"
-msgstr "প্রডাক্ট সমুহ"
+msgstr "পন্য"
 
 #: woo-product-table.php:201
 msgid "Products Not founded!"
-msgstr "কোন প্রোডাক্ট পাওয়া যায়নি!"
+msgstr "কোন পন্য পাওয়া যায়নি!"
 
 #: admin/action-hook.php:324
 msgid "Products Wise"
-msgstr ""
+msgstr "পন্য অনুযায়ী"
 
 #: admin/tabs/options.php:171
 #, php-format
@@ -1727,7 +1726,7 @@ msgstr ""
 
 #: woo-product-table.php:109
 msgid "Quantity"
-msgstr ""
+msgstr "পরিমান"
 
 #: admin/post_metabox_form.php:11
 msgid "Query"
@@ -1837,7 +1836,7 @@ msgstr ""
 
 #: admin/tabs/query.php:379
 msgid "Sale Products"
-msgstr ""
+msgstr "মুল্য ছাড়"
 
 #: admin/action-hook.php:674
 msgid "Save All"
@@ -1920,6 +1919,10 @@ msgstr ""
 #: admin/action-hook.php:817
 msgid "Select a template to change footer cart design"
 msgstr ""
+
+#: admin/tabs/options.php:255 inc/handle/checkbox-box.php:21
+msgid "Select All"
+msgstr "সবগুলো বাছাই করুন"
 
 #: woo-product-table.php:241
 msgid "Select inner Item."
@@ -2013,7 +2016,7 @@ msgstr "সার্চ বক্স দেখুন"
 msgid "Show Variation Name With Title"
 msgstr ""
 
-#: admin/tabs/options.php:186
+#: inc/shortcode.php:472 admin/tabs/options.php:186
 #, php-format
 msgid "Showing %s out of %s"
 msgstr "দেখছেন %s পন্য %s এর মধ্যে"
@@ -2072,11 +2075,11 @@ msgstr ""
 
 #: admin/tabs/query.php:250
 msgid "Sort by price: high to low"
-msgstr ""
+msgstr "মুল্য অনুযায়ীঃ বেশি থেকে কম"
 
 #: admin/tabs/query.php:249
 msgid "Sort by price: low to high"
-msgstr ""
+msgstr "মুল্য অনুযায়ীঃ কম থেকে বেশি"
 
 #: admin/tabs/query.php:263
 msgid "Sorting/Order"
@@ -2204,7 +2207,7 @@ msgstr ""
 
 #: modules/elementor-widget.php:182
 msgid "There is not founded any table to your. "
-msgstr ""
+msgstr "কোন টেবিল খুজে পাওয়া যাওনি।"
 
 #: admin/tabs/options.php:295
 msgid "Third Party Plugin Supporting "
@@ -2280,7 +2283,7 @@ msgstr ""
 
 #: woo-product-table.php:110
 msgid "Total Price"
-msgstr ""
+msgstr "মোট মুল্য"
 
 #: admin/menu_plugin_setting_link.php:51
 msgid "Try Pro Version"

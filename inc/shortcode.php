@@ -925,7 +925,7 @@ class Shortcode extends Shortcode_Base{
             }
             ?>
             <th class="wpt_<?php echo esc_attr( $key ); ?>">
-                <?php echo $col_content; ?>
+                <?php echo __( $col_content, 'woo-product-table' ); ?>
             </th>
             <?php
             }

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Product Table for WooCommerce - (wooproducttable)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-29 05:19+0000\n"
+"POT-Creation-Date: 2022-12-29 06:09+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -321,10 +321,6 @@ msgstr ""
 
 #: admin/tabs/options.php:36
 msgid "Ajax Pagination (Default)"
-msgstr ""
-
-#: admin/tabs/options.php:255 inc/handle/checkbox-box.php:21
-msgid "All Check/Uncheck"
 msgstr ""
 
 #: admin/action-hook.php:325
@@ -1448,6 +1444,7 @@ msgid "Not found in Trash"
 msgstr ""
 
 #: admin/action-hook.php:355
+msgctxt "এই কুয়েরিতে কোন প্রডাক্ট পাওয়া যাওনি।"
 msgid "Not founded any products in this query."
 msgstr ""
 
@@ -1541,7 +1538,7 @@ msgstr ""
 msgid "outofstock"
 msgstr ""
 
-#: admin/tabs/options.php:211
+#: inc/shortcode.php:473 admin/tabs/options.php:211
 #, php-format
 msgid "Page %s out of %s"
 msgstr ""
@@ -1706,6 +1703,7 @@ msgid "Products"
 msgstr ""
 
 #: woo-product-table.php:201
+msgctxt "কোন প্রডাক্ট পাওয়া যায়নি।"
 msgid "Products Not founded!"
 msgstr ""
 
@@ -1914,6 +1912,10 @@ msgstr ""
 msgid "Select a template to change footer cart design"
 msgstr ""
 
+#: admin/tabs/options.php:255 inc/handle/checkbox-box.php:21
+msgid "Select All"
+msgstr ""
+
 #: woo-product-table.php:241
 msgid "Select inner Item."
 msgstr ""
@@ -2006,7 +2008,7 @@ msgstr ""
 msgid "Show Variation Name With Title"
 msgstr ""
 
-#: admin/tabs/options.php:186
+#: inc/shortcode.php:472 admin/tabs/options.php:186
 #, php-format
 msgid "Showing %s out of %s"
 msgstr ""
