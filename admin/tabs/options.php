@@ -207,7 +207,7 @@ $data = isset( $meta_basics['data'] ) ? $meta_basics['data'] : false;
                         data-name="add_to_cart_selected_text" 
                         type="text" 
                         value="<?php echo $add_to_cart_selected_text;  ?>" 
-                        placeholder="<?php esc_attr( $add_to_cart_selected_placeholder ); ?>" 
+                        placeholder="<?php echo esc_attr( $add_to_cart_selected_placeholder ); ?>" 
                         id="wpt_table_add_to_cart_selected_text">
                     </td>
                 </tr>
