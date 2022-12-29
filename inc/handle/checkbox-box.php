@@ -7,7 +7,7 @@ class Checkbox_Box{
     
     public static function render( Shortcode $shortcode, string $position = 'header' ){
         
-        $text = $shortcode->add_to_cart_text ?? false;
+        // $text = $shortcode->add_to_cart_text ?? false;
         $selected_text = $shortcode->basics['add_to_cart_selected_text'] ?? false;
         $check_uncheck_text = $shortcode->basics['check_uncheck_text'] ?? false;
         if( $shortcode->wpml_bool ){
@@ -16,7 +16,7 @@ class Checkbox_Box{
             $check_uncheck_text = $shortcode->basics['check_uncheck_text' . $lang] ?? $check_uncheck_text;
         }
         
-        $text = ! empty( $text ) ? __( $text, 'woo-product-table' ) : __( 'Add to cart', 'woo-product-table' );
+        // $text = ! empty( $text ) ? __( $text, 'woo-product-table' ) : __( 'Add to cart', 'woo-product-table' );
         $selected_text = ! empty( $selected_text ) ? __( $selected_text, 'woo-product-table' ) : __( 'Add to Cart (Selected)','woo-product-table' );
         $check_uncheck_text = ! empty( $check_uncheck_text ) ? __( $check_uncheck_text, 'woo-product-table' ) : __( 'All Check/Uncheck','woo-product-table' );
         
@@ -34,8 +34,11 @@ class Checkbox_Box{
             </lable>
             <?php } ?>
         </span>
-        
-            <a data-add_to_cart='<?php echo esc_attr( $text ); ?>' 
+            <?php
+            //This bellow line was in a tag as attr
+            //data-add_to_cart=echo esc_attr( $text ); 
+            ?>
+            <a
             data-temp_number='<?php echo esc_attr( $shortcode->table_id ); ?>' 
             class='button add_to_cart_all_selected add2c_selected'>
                 <?php echo wp_kses_post( $selected_text ) ?>

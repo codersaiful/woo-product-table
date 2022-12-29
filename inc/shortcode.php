@@ -597,6 +597,7 @@ class Shortcode extends Shortcode_Base{
             $this->add_to_cart_text = $this->basics['add_to_cart_text' . $lang] ?? '';
         }
 
+        $this->add_to_cart_text = ! empty( $this->add_to_cart_text ) ? __( $this->add_to_cart_text, 'woo-product-table' ) : __( 'Add to cart', 'woo-product-table' );
 
         //Some others from other meta
 
