@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Product Table for WooCommerce - (wooproducttable)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-11-02 08:26+0000\n"
-"PO-Revision-Date: 2022-12-29 05:22+0000\n"
+"PO-Revision-Date: 2022-12-29 05:43+0000\n"
 "Last-Translator: \n"
 "Language-Team: বাংলা\n"
 "Language: bn_BD\n"
@@ -322,11 +322,6 @@ msgstr "পেজিনেশানের জন্য এজাক্স (চ�
 #: admin/tabs/options.php:36
 msgid "Ajax Pagination (Default)"
 msgstr "এজাক্স পেজিনেশান(ডিফল্ট)"
-
-#: admin/tabs/options.php:255 inc/handle/checkbox-box.php:21
-#| msgid "Check/Uncheck"
-msgid "All Check/Uncheck"
-msgstr "চেক/আনচেক"
 
 #: admin/action-hook.php:325
 msgid "All Items"
@@ -1546,7 +1541,7 @@ msgstr ""
 msgid "outofstock"
 msgstr "outofstock"
 
-#: admin/tabs/options.php:211
+#: inc/shortcode.php:473 admin/tabs/options.php:211
 #, php-format
 msgid "Page %s out of %s"
 msgstr "দেখছেন %s পেজ %s এর মধ্যে"
@@ -1921,6 +1916,10 @@ msgstr ""
 msgid "Select a template to change footer cart design"
 msgstr ""
 
+#: admin/tabs/options.php:255 inc/handle/checkbox-box.php:21
+msgid "Select All"
+msgstr "সবগুলো বাছাই করুন"
+
 #: woo-product-table.php:241
 msgid "Select inner Item."
 msgstr ""
@@ -2013,10 +2012,10 @@ msgstr "সার্চ বক্স দেখুন"
 msgid "Show Variation Name With Title"
 msgstr ""
 
-#: admin/tabs/options.php:186
+#: inc/shortcode.php:472 admin/tabs/options.php:186
 #, php-format
 msgid "Showing %s out of %s"
-msgstr "দেখছেন %s গুলো প্রডাক্ট %s এর মধ্যে"
+msgstr "দেখছেন %s পন্য %s এর মধ্যে"
 
 #: templates/table-preview.php:32
 msgid "Skip to content"

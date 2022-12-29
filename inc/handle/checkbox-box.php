@@ -18,7 +18,7 @@ class Checkbox_Box{
         
         // $text = ! empty( $text ) ? __( $text, 'woo-product-table' ) : __( 'Add to cart', 'woo-product-table' );
         $selected_text = ! empty( $selected_text ) ? __( $selected_text, 'woo-product-table' ) : __( 'Add to Cart (Selected)','woo-product-table' );
-        $check_uncheck_text = ! empty( $check_uncheck_text ) ? __( $check_uncheck_text, 'woo-product-table' ) : __( 'All Check/Uncheck','woo-product-table' );
+        $check_uncheck_text = ! empty( $check_uncheck_text ) ? __( $check_uncheck_text, 'woo-product-table' ) : __( 'Select All','woo-product-table' );
         
         ?>
         <div class='all_check_header_footer all_check_<?php echo esc_attr( $position ); ?> check_<?php echo esc_attr( $position ); ?>_<?php echo esc_attr( $shortcode->table_id ); ?>'>

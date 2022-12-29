@@ -252,7 +252,7 @@ $data = isset( $meta_basics['data'] ) ? $meta_basics['data'] : false;
                     <td>
                         <?php
                         $check_uncheck_text = $meta_basics['check_uncheck_text'] ?? '';
-                        $check_uncheck_placeholder = __( 'All Check/Uncheck','woo-product-table' );
+                        $check_uncheck_placeholder = __( 'Select All','woo-product-table' );
                         ?>
                         <input name="basics[check_uncheck_text]"  
                         class="wpt_data_filed_atts ua_input" 
