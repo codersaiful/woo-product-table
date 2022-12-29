@@ -454,6 +454,29 @@ $content_of_mail = __( 'I have found an issue with your WooProductTable plugin. 
     <?php
 }
 
+/**
+ * To display help icon with title attribute.
+ * It will show by default
+ * ----------
+ * Don't change for auto translate.
+ * 
+ * ----------
+ * Specially for Translate
+ * 
+ *
+ * @param boolean $msg
+ * @return void
+ */
+function wpt_help_icon_render( $msg = false ){
+    $title = __( $msg, 'woo-product-table' );
+    if( empty( $msg ) ){
+        $title = __( "Don't change for auto translate.", 'woo-product-table' );
+    }
+    ?>
+    <span class="wpt-help-icon" title="<?php echo esc_attr( $title ); ?>">?</span>
+    <?php
+}
+
 function wpt_get_free_templates(){
     $templates_default = array(
         'none'              =>  __( 'Select None', 'woo-product-table' ),

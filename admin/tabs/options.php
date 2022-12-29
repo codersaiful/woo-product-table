@@ -195,14 +195,26 @@ $data = isset( $meta_basics['data'] ) ? $meta_basics['data'] : false;
                 <tr>
                     <th>
                         <label class="wpt_label" for="wpt_table_add_to_cart_selected_text"><?php esc_html_e( '(Add to cart(Selected]) Text', 'woo-product-table' );?></label>
+                        <?php wpt_help_icon_render(); ?>
                     </th>
                     <td>
-                        <input name="basics[add_to_cart_selected_text]"  class="wpt_data_filed_atts ua_input" data-name="add_to_cart_selected_text" type="text" value="<?php echo isset( $meta_basics['add_to_cart_selected_text'] ) ? $meta_basics['add_to_cart_selected_text'] : __( 'Add to Cart (Selected)', 'woo-product-table' ); ?>" placeholder="<?php esc_attr_e( 'Example: Add to cart Selected', 'woo-product-table' ); ?>" id="wpt_table_add_to_cart_selected_text">
+                        <?php
+                        $add_to_cart_selected_text = $meta_basics['add_to_cart_selected_text'] ?? '';
+                        $add_to_cart_selected_placeholder = __( 'Add to Cart (Selected)', 'woo-product-table' );
+                        ?>
+                        <input name="basics[add_to_cart_selected_text]"  
+                        class="wpt_data_filed_atts ua_input" 
+                        data-name="add_to_cart_selected_text" 
+                        type="text" 
+                        value="<?php echo $add_to_cart_selected_text;  ?>" 
+                        placeholder="<?php esc_attr( $add_to_cart_selected_placeholder ); ?>" 
+                        id="wpt_table_add_to_cart_selected_text">
                     </td>
                 </tr>
                 <tr>
                     <th>
-                        <label class="wpt_label" for="wpt_table_check_uncheck_text"><?php esc_html_e( '(All Check/Uncheck) Text', 'woo-product-table' );?></label><span class="wpt-help-icon" title="Don't change for auto translate.">?</span>
+                        <label class="wpt_label" for="wpt_table_check_uncheck_text"><?php esc_html_e( '(All Check/Uncheck) Text', 'woo-product-table' );?></label>
+                        <?php wpt_help_icon_render(); ?>
                     </th>
                     <td>
                         <?php
