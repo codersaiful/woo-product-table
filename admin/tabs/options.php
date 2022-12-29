@@ -137,20 +137,9 @@ $data = isset( $meta_basics['data'] ) ? $meta_basics['data'] : false;
             <tr>
                 <th>
                     <label class="wpt_label" for='wpt_table_table_class'><?php esc_html_e( 'Set a Class name for Table', 'woo-product-table' );?></label>
-                    <?php wpt_help_icon_render(); ?>
                 </th>
                 <td>
-                    <?php
-                    $table_class_text = $meta_basics['table_class'] ?? '';
-                    $table_class_placeholder = __( 'Product Table Class Name (Optional)', 'woo-product-table' );
-                    ?>
-                    <input name="basics[table_class]" 
-                    value="<?php echo $table_class_text; ?>" 
-                    class="wpt_data_filed_atts ua_input" 
-                    data-name="table_class" 
-                    type="text" 
-                    placeholder="<?php echo esc_attr( $table_class_placeholder ); ?>" 
-                    id='wpt_table_table_class'>
+                    <input name="basics[table_class]" value="<?php echo isset( $meta_basics['table_class'] ) ? $meta_basics['table_class'] : ''; ?>" class="wpt_data_filed_atts ua_input" data-name="table_class" type="text" placeholder="<?php esc_attr_e( 'Product Table Class Name (Optional)', 'woo-product-table' ); ?>" id='wpt_table_table_class'>
                 </td>
             </tr>
         </table>
@@ -194,8 +183,8 @@ $data = isset( $meta_basics['data'] ) ? $meta_basics['data'] : false;
                 </th>
                 <td>
                     <?php
-                    $stats_post_count_text = $meta_basics['stats_post_count'] ?? '';
-                    $stats_post_count_placeholder = __( 'Example: Post %s out of %s', 'woo-product-table' );
+                    $stats_post_count_text = $meta_basics['stats_post_count'] ?? __( 'Showing %s out of %s', 'woo-product-table' );
+                    $stats_post_count_placeholder = __( 'Example: Showing %s out of %s', 'woo-product-table' );
                     ?>
                     <input name="basics[stats_post_count]" 
                     class="wpt_stats_post_count ua_input" 
@@ -204,7 +193,7 @@ $data = isset( $meta_basics['data'] ) ? $meta_basics['data'] : false;
                     value="<?php echo $stats_post_count_text; ?>" 
                     placeholder="<?php echo esc_attr( $stats_post_count_placeholder ); ?>" 
                     id="wpt_table_stats_post_count">
-                    <p><?php echo esc_html__( 'First %s will replace by showing number and second % will replace by total product number', 'woo-product-table' );?></p>
+                    <p><?php echo esc_html__( 'First %s will replace by showing number and second % will replace by total product number. To hide, leave as empty', 'woo-product-table' );?></p>
                 </td>
             </tr>
         </table>
@@ -215,11 +204,11 @@ $data = isset( $meta_basics['data'] ) ? $meta_basics['data'] : false;
             <tr>
                 <th>
                     <label class="wpt_label" for="wpt_table_stats_page_count"><?php esc_html_e( 'Stats Page Count Text', 'woo-product-table' );?></label>
-                    <?php wpt_help_icon_render(); ?>
+                    <?php wpt_help_icon_render( __( 'Leave as empty to hide Stats.' ) ); ?>
                 </th>
                 <td>
                     <?php
-                    $stats_page_count_text = $meta_basics['stats_page_count'] ?? '';
+                    $stats_page_count_text = $meta_basics['stats_page_count'] ?? __( 'Page %s out of %s', 'woo-product-table' );
                     $stats_page_count_placeholder = __( 'Example: Page %s out of %s', 'woo-product-table' );
                     ?>
                     <input name="basics[stats_page_count]" 
@@ -229,7 +218,7 @@ $data = isset( $meta_basics['data'] ) ? $meta_basics['data'] : false;
                     value="<?php echo $stats_page_count_text ?>" 
                     placeholder="<?php echo esc_attr( $stats_page_count_placeholder ); ?>" 
                     id="wpt_table_stats_page_count">
-                    <p><?php echo esc_html__( 'First %s will replace by showing number and second % will replace by total product number', 'woo-product-table' );?></p>
+                    <p><?php echo esc_html__( 'First %s will replace by current page number and second % will replace by total page count.  To hide, leave as empty', 'woo-product-table' );?></p>
                 </td>
             </tr>
         </table>

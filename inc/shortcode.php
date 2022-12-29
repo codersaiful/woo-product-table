@@ -469,15 +469,15 @@ class Shortcode extends Shortcode_Base{
             $display_count = ( $prev_post + 1 ) . " - $current_total_post";
         }
 
-        $stats_post_count = $this->basics['stats_post_count'] ?? '';// __( "Showing %s out of %s", "woo-product-table" );
-        $stats_page_count = $this->basics['stats_page_count'] ?? '';// __( "Page %s out of %s", "woo-product-table" );
+        $stats_post_count = $this->basics['stats_post_count'] ?? __( "Showing %s out of %s", "woo-product-table" );
+        $stats_page_count = $this->basics['stats_page_count'] ?? __( "Page %s out of %s", "woo-product-table" );
         
         ?>
         <p class="wpt-stats-post-count">
-            <?php printf( esc_html( $stats_post_count ), $display_count, $this->found_posts  ); ?>
+            <?php printf( esc_html__( $stats_post_count, "woo-product-table" ), $display_count, $this->found_posts  ); ?>
         </p>
         <p class="wpt-stats-page-count">
-        <?php printf( esc_html( $stats_page_count ), $display_pagN, $this->max_num_pages  ); ?>
+        <?php printf( esc_html__( $stats_page_count, "woo-product-table" ), $display_pagN, $this->max_num_pages  ); ?>
         </p>
         <?php 
 

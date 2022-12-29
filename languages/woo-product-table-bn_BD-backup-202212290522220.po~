@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Product Table for WooCommerce - (wooproducttable)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-11-02 08:26+0000\n"
-"PO-Revision-Date: 2022-12-29 04:15+0000\n"
+"PO-Revision-Date: 2022-12-29 05:21+0000\n"
 "Last-Translator: \n"
 "Language-Team: বাংলা\n"
 "Language: bn_BD\n"
@@ -117,7 +117,7 @@ msgstr ""
 msgid "%sCategories, Tags%s Link"
 msgstr ""
 
-#: admin/tabs/options.php:197
+#: admin/tabs/options.php:230
 msgid "(Add to cart(Selected]) Text"
 msgstr ""
 
@@ -125,7 +125,7 @@ msgstr ""
 msgid "(Add to cart) Text"
 msgstr "(এড টু কার্ট) টেক্সট"
 
-#: admin/tabs/options.php:216
+#: admin/tabs/options.php:249
 msgid "(All Check/Uncheck) Text"
 msgstr ""
 
@@ -242,14 +242,14 @@ msgstr "নতুন কলাম যুক্ত করুন"
 msgid "Add new Shortcode"
 msgstr ""
 
-#: admin/tabs/options.php:159 inc/handle/checkbox-box.php:18
+#: inc/shortcode.php:600 admin/tabs/options.php:162
 msgid "Add to cart"
 msgstr "কার্টে নিন"
 
-#: admin/tabs/options.php:203 inc/handle/checkbox-box.php:19
+#: admin/tabs/options.php:236 inc/handle/checkbox-box.php:20
 #| msgid "Add to cart selected"
 msgid "Add to Cart (Selected)"
-msgstr "সিলেক্টেড গুলো কার্টে নিন"
+msgstr "বাছাই করে কার্টে নিন"
 
 #: admin/action-hook.php:428
 msgid "Add to Cart all selected [Added] Text"
@@ -323,7 +323,7 @@ msgstr "পেজিনেশানের জন্য এজাক্স (চ�
 msgid "Ajax Pagination (Default)"
 msgstr "এজাক্স পেজিনেশান(ডিফল্ট)"
 
-#: admin/tabs/options.php:222 inc/handle/checkbox-box.php:20
+#: admin/tabs/options.php:255 inc/handle/checkbox-box.php:21
 #| msgid "Check/Uncheck"
 msgid "All Check/Uncheck"
 msgstr "চেক/আনচেক"
@@ -689,7 +689,7 @@ msgstr ""
 msgid "Dark Style"
 msgstr ""
 
-#: admin/tabs/options.php:277
+#: admin/tabs/options.php:310
 msgid "DataTable"
 msgstr ""
 
@@ -697,7 +697,7 @@ msgstr ""
 msgid "Date"
 msgstr ""
 
-#: admin/functions.php:52 admin/tabs/options.php:267 admin/tabs/query.php:369
+#: admin/functions.php:52 admin/tabs/options.php:300 admin/tabs/query.php:369
 #: admin/tabs/query.php:383 admin/tabs/inc-column/column-list.php:47
 msgid "Default"
 msgstr ""
@@ -746,7 +746,7 @@ msgstr ""
 msgid "Description Length :"
 msgstr ""
 
-#: admin/tabs/options.php:247
+#: admin/tabs/options.php:280
 msgid "Description Type"
 msgstr ""
 
@@ -798,7 +798,7 @@ msgid "Documentation"
 msgstr "ডকুমেন্টেশান"
 
 #: admin/functions.php:473
-msgid "Don't change for auto translate."
+msgid "Don't change for auto translate. Leave empty to get translated text."
 msgstr ""
 
 #: admin/wpt_product_table_post.php:26
@@ -846,7 +846,7 @@ msgid "Empty Cart."
 msgstr "মুছুন"
 
 #: admin/action-hook.php:137 admin/action-hook.php:292
-#: admin/tabs/options.php:268
+#: admin/tabs/options.php:301
 msgid "Enable"
 msgstr ""
 
@@ -860,7 +860,7 @@ msgid ""
 "going to Checkout Page just after Added to cart for each product"
 msgstr ""
 
-#: inc/shortcode.php:878
+#: inc/shortcode.php:879
 msgid "Error: on assing_property on the table_body!!"
 msgstr ""
 
@@ -868,19 +868,15 @@ msgstr ""
 msgid "Example:"
 msgstr ""
 
-#: admin/tabs/options.php:159
-msgid "Example: Buy"
-msgstr ""
+#: admin/tabs/options.php:212
+#, php-format
+msgid "Example: Page %s out of %s"
+msgstr "উদাহরনঃ Page %s out of %s"
 
 #: admin/tabs/options.php:187
 #, php-format
-msgid "Example: Page %s out of %s"
-msgstr ""
-
-#: admin/tabs/options.php:173
-#, php-format
 msgid "Example: Showing %s out of %s"
-msgstr ""
+msgstr "উদাহরনঃ Showing %s out of %s"
 
 #: admin/pro-features-html.php:122
 msgid "Expand/Collapse Column"
@@ -920,10 +916,16 @@ msgstr ""
 msgid "Filter:"
 msgstr ""
 
-#: admin/tabs/options.php:174 admin/tabs/options.php:188
+#: admin/tabs/options.php:221
+msgid ""
+"First %s will replace by current page number and second % will replace by "
+"total page count.  To hide, leave as empty"
+msgstr ""
+
+#: admin/tabs/options.php:196
 msgid ""
 "First %s will replace by showing number and second % will replace by total "
-"product number"
+"product number. To hide, leave as empty"
 msgstr ""
 
 #: admin/action-hook.php:173
@@ -1005,7 +1007,7 @@ msgstr "প্রিমিয়াম ভার্শন নিন"
 msgid "Get Support"
 msgstr ""
 
-#: inc/shortcode.php:879
+#: inc/shortcode.php:880
 msgid "Get Tutorial for this issue from wpOrg"
 msgstr ""
 
@@ -1081,7 +1083,7 @@ msgstr ""
 msgid "Help &amp; Support"
 msgstr ""
 
-#: admin/tabs/options.php:254
+#: admin/tabs/options.php:287
 #, php-format
 msgid ""
 "Here was %sdescription_lenght%s, But from 3.6, We have removed "
@@ -1296,7 +1298,7 @@ msgstr "লোড হচ্ছে.."
 msgid "Loading.. text write here"
 msgstr "Loading.. টেক্সট এখানে দিন"
 
-#: admin/tabs/options.php:252
+#: admin/tabs/options.php:285
 msgid "Long Description"
 msgstr "বড় ড্রেস্ক্রিপশন"
 
@@ -1544,6 +1546,11 @@ msgstr ""
 msgid "outofstock"
 msgstr "outofstock"
 
+#: admin/tabs/options.php:211
+#, php-format
+msgid "Page %s out of %s"
+msgstr ""
+
 #: admin/tabs/options.php:43 admin/tabs/options.php:113
 msgid "Pagination"
 msgstr "পেজিনেশান"
@@ -1713,7 +1720,7 @@ msgstr "কোন প্রোডাক্ট পাওয়া যায়নি!"
 msgid "Products Wise"
 msgstr ""
 
-#: admin/tabs/options.php:160
+#: admin/tabs/options.php:171
 #, php-format
 msgid "Put a Space (\" \") for getting default %s Add to Cart Text %s"
 msgstr ""
@@ -1965,7 +1972,7 @@ msgid "Set featured image"
 msgstr ""
 
 #: woo-product-table.php:120 admin/pro-features-html.php:38
-#: admin/tabs/options.php:251
+#: admin/tabs/options.php:284
 msgid "Short Description"
 msgstr ""
 
@@ -2005,6 +2012,11 @@ msgstr "সার্চ বক্স দেখুন"
 #: includes/functions.php:218
 msgid "Show Variation Name With Title"
 msgstr ""
+
+#: admin/tabs/options.php:186
+#, php-format
+msgid "Showing %s out of %s"
+msgstr "দেখছেন %s গুলো প্রডাক্ট %s এর মধ্যে"
 
 #: templates/table-preview.php:32
 msgid "Skip to content"
@@ -2074,11 +2086,11 @@ msgstr ""
 msgid "Span"
 msgstr ""
 
-#: admin/tabs/options.php:184
+#: admin/tabs/options.php:206
 msgid "Stats Page Count Text"
 msgstr ""
 
-#: admin/tabs/options.php:170
+#: admin/tabs/options.php:181
 msgid "Stats Post Count Text"
 msgstr ""
 
@@ -2194,7 +2206,7 @@ msgstr ""
 msgid "There is not founded any table to your. "
 msgstr ""
 
-#: admin/tabs/options.php:262
+#: admin/tabs/options.php:295
 msgid "Third Party Plugin Supporting "
 msgstr ""
 
@@ -2274,7 +2286,7 @@ msgstr ""
 msgid "Try Pro Version"
 msgstr ""
 
-#: inc/shortcode.php:881
+#: inc/shortcode.php:882
 msgid "Tutorial from website with Screenshot"
 msgstr ""
 
@@ -2384,7 +2396,7 @@ msgstr ""
 msgid "WordPress.org"
 msgstr "WordPress.org"
 
-#: admin/tabs/options.php:299
+#: admin/tabs/options.php:332
 msgid "WP Force"
 msgstr ""
 

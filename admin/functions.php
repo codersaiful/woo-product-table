@@ -470,7 +470,7 @@ $content_of_mail = __( 'I have found an issue with your WooProductTable plugin. 
 function wpt_help_icon_render( $msg = false ){
     $title = __( $msg, 'woo-product-table' );
     if( empty( $msg ) ){
-        $title = __( "Don't change for auto translate.", 'woo-product-table' );
+        $title = __( "Don't change for auto translate. Leave empty to get translated text.", 'woo-product-table' );
     }
     ?>
     <span class="wpt-help-icon" title="<?php echo esc_attr( $title ); ?>">?</span>
