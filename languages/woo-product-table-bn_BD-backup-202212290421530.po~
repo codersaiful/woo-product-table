@@ -1,25 +1,24 @@
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Product Table for WooCommerce - (wooproducttable)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-27 04:17+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: \n"
-"Language: \n"
-"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"POT-Creation-Date: 2021-11-02 08:26+0000\n"
+"PO-Revision-Date: 2022-12-29 04:15+0000\n"
+"Last-Translator: \n"
+"Language-Team: বাংলা\n"
+"Language: bn_BD\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco https://localise.biz/\n"
-"X-Loco-Version: 2.4.0; wp-5.8.1"
+"X-Loco-Version: 2.6.3; wp-6.1.1"
 
 #. 1: Plugin name 2: PHP 3: Required PHP version
-#: woo-product-table.php:522
+#: woo-product-table.php:527
 #, php-format
 msgid "\"%1$s\" requires \"%2$s\" version %3$s or greater."
-msgstr ""
+msgstr "\"%1$s\" এর জন্য \"%2$s\" এর ভার্শন %3$s বা বেশি হওয়া দরকার। "
 
 #: admin/tabs/options.php:57 admin/tabs/options.php:122
 #, php-format
@@ -40,13 +39,13 @@ msgstr ""
 #, php-format
 msgid "%d item"
 msgid_plural "%d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d আইটেম"
+msgstr[1] "%d আইটেম"
 
 #: admin/action-hook.php:508
 #, php-format
 msgid "%s[Add to Quote]%s - button text"
-msgstr ""
+msgstr "%s[কোটে নিন]%s - বাটন টেক্সট"
 
 #: admin/action-hook.php:502
 #, php-format
@@ -56,7 +55,7 @@ msgstr ""
 #: admin/action-hook.php:394
 #, php-format
 msgid "%s[Empty Cart]%s - Text of Empty Cart"
-msgstr ""
+msgstr "%s[মুছুন]%s - মুছুন লেখা"
 
 #: admin/action-hook.php:401
 #, php-format
@@ -124,9 +123,9 @@ msgstr ""
 
 #: admin/tabs/options.php:156
 msgid "(Add to cart) Text"
-msgstr ""
+msgstr "(এড টু কার্ট) টেক্সট"
 
-#: admin/tabs/options.php:205
+#: admin/tabs/options.php:216
 msgid "(All Check/Uncheck) Text"
 msgstr ""
 
@@ -157,35 +156,35 @@ msgstr ""
 
 #: admin/action-hook.php:628
 msgid "[ Adding in Progress ] Message"
-msgstr ""
+msgstr "[এড হচ্ছে] মেসেজ"
 
 #: admin/action-hook.php:634
 msgid "[ No Right Combination ] Message"
-msgstr ""
+msgstr "[সঠিক কম্বিনেশান নেই] মেসেজ"
 
 #: admin/action-hook.php:646
 msgid "[ Sorry! Out of Stock! ] Message"
-msgstr ""
+msgstr "[দুঃখিতঃ স্কোট আউট] মেসেজ"
 
 #: admin/action-hook.php:640
 msgid "[ Sorry, Please choose right combination. ] Message"
-msgstr ""
+msgstr "[দুঃখিত, দয়াকরে সঠিক কম্বিনেশান সেট করুন] মেসেজ"
 
 #: admin/action-hook.php:547
 msgid "[In Stock] for Table Column"
-msgstr ""
+msgstr "[In Stock] টেবিল কলামের জন্য"
 
 #: admin/action-hook.php:560
 msgid "[On Back Order] for Table Column"
-msgstr ""
+msgstr "[ব্যাক অর্ডার] টেবিল কলামের জন্য"
 
 #: admin/action-hook.php:553
 msgid "[Out of Stock] for Table Column"
-msgstr ""
+msgstr "[স্টক শেষ] টেবিল কলামের জন্য"
 
 #: admin/action-hook.php:616
 msgid "[Out of Stock] Message"
-msgstr ""
+msgstr "[স্টক শেষ] মেসেজ"
 
 #: admin/action-hook.php:610
 msgid "[Please Choose items] Alert!"
@@ -193,7 +192,7 @@ msgstr ""
 
 #: admin/action-hook.php:604
 msgid "[Please select all items.] Message"
-msgstr ""
+msgstr "[দয়াকের সব প্রডাক্ট সিলেক্ট করেন] মেসেজ"
 
 #: admin/action-hook.php:598
 msgid ""
@@ -207,28 +206,28 @@ msgstr ""
 
 #: admin/action-hook.php:652
 msgid "[Type your Message.] Message"
-msgstr ""
+msgstr "[আপনার মেসেজ লিখুন] মেসেজ"
 
 #: admin/functions.php:391
 msgid "About Product Table"
-msgstr ""
+msgstr "প্রোডাক্ট টেবিলের বিস্তারিত"
 
 #: woo-product-table.php:124
 msgid "Action"
-msgstr ""
+msgstr "বিক্রি"
 
 #: admin/tabs/inc-column/add-new-column.php:39
 msgid "Action Hooks"
-msgstr ""
+msgstr "Action Hooks"
 
 #: admin/tabs/options.php:20
 msgid "Active Ajax (Default)"
-msgstr ""
+msgstr "এজাক্স চালু(ডিফল্ট)"
 
 #: admin/tabs/mobile.php:77 admin/tabs/responsive.php:93
 #: admin/tabs/inc-column/column-list.php:120
 msgid "Active Inactive Column"
-msgstr ""
+msgstr "Active Inactive কলাম"
 
 #: admin/wpt_product_table_post.php:23 admin/wpt_product_table_post.php:24
 msgid "Add New"
@@ -237,27 +236,28 @@ msgstr ""
 #: admin/tabs/inc-column/add-new-column.php:5
 #: admin/tabs/inc-column/add-new-column.php:65
 msgid "Add New Column"
-msgstr ""
+msgstr "নতুন কলাম যুক্ত করুন"
 
 #: admin/menu_plugin_setting_link.php:17
 msgid "Add new Shortcode"
 msgstr ""
 
-#: admin/tabs/options.php:159
+#: admin/tabs/options.php:159 inc/handle/checkbox-box.php:18
 msgid "Add to cart"
-msgstr ""
+msgstr "কার্টে নিন"
 
-#: admin/tabs/options.php:200 inc/handle/checkbox-box.php:11
+#: admin/tabs/options.php:203 inc/handle/checkbox-box.php:19
+#| msgid "Add to cart selected"
 msgid "Add to Cart (Selected)"
-msgstr ""
+msgstr "সিলেক্টেড গুলো কার্টে নিন"
 
 #: admin/action-hook.php:428
 msgid "Add to Cart all selected [Added] Text"
-msgstr ""
+msgstr "সিলেক্টেড গুলো কার্টে নেওয়া হয়েছে - টেক্সট"
 
 #: admin/action-hook.php:147
 msgid "Add to Cart Icon"
-msgstr ""
+msgstr "এড টু কার্ট আইকোন"
 
 #: woo-product-table.php:215
 msgid "Add to Quote"
@@ -293,19 +293,19 @@ msgstr ""
 
 #: woo-product-table.php:216
 msgid "Adding.."
-msgstr ""
+msgstr "যোগ হচ্ছে"
 
 #: modules/elementor-widget.php:188
 msgid "Additional Information"
-msgstr ""
+msgstr "অতিরিক্ত তথ্য"
 
 #: admin/tabs/inc-column/add-new-column.php:38
 msgid "Advance Custom Field"
-msgstr ""
+msgstr "Advance Custom Field"
 
 #: admin/tabs/search_n_filter.php:27
 msgid "Advance Search Box"
-msgstr ""
+msgstr "Advance Search Box"
 
 #: admin/pro-features-html.php:68
 msgid "Advanced Custom Fields Supported"
@@ -313,19 +313,20 @@ msgstr ""
 
 #: admin/tabs/options.php:16
 msgid "Ajax Action (Enable/Disable)"
-msgstr ""
+msgstr "এজাক্স (চালু/বন্ধ)"
 
 #: admin/tabs/options.php:32
 msgid "Ajax for Pagination (Enable/Disable)"
-msgstr ""
+msgstr "পেজিনেশানের জন্য এজাক্স (চালু/বন্ধ)"
 
 #: admin/tabs/options.php:36
 msgid "Ajax Pagination (Default)"
-msgstr ""
+msgstr "এজাক্স পেজিনেশান(ডিফল্ট)"
 
-#: admin/tabs/options.php:208 inc/handle/checkbox-box.php:12
+#: admin/tabs/options.php:222 inc/handle/checkbox-box.php:20
+#| msgid "Check/Uncheck"
 msgid "All Check/Uncheck"
-msgstr ""
+msgstr "চেক/আনচেক"
 
 #: admin/action-hook.php:325
 msgid "All Items"
@@ -391,7 +392,7 @@ msgstr ""
 
 #: admin/action-hook.php:389
 msgid "attr"
-msgstr ""
+msgstr "attr"
 
 #: woo-product-table.php:116
 msgid "Attributes"
@@ -436,7 +437,7 @@ msgstr ""
 msgid "Basic Settings"
 msgstr ""
 
-#: admin/functions.php:461 admin/tabs/table_style.php:5
+#: admin/functions.php:484 admin/tabs/table_style.php:5
 msgid "Beautiful Blacky"
 msgstr ""
 
@@ -452,11 +453,11 @@ msgstr ""
 msgid "Blank"
 msgstr ""
 
-#: admin/functions.php:463 admin/tabs/table_style.php:18
+#: admin/functions.php:486 admin/tabs/table_style.php:18
 msgid "Blue Border"
 msgstr ""
 
-#: admin/functions.php:477 admin/tabs/table_style.php:14
+#: admin/functions.php:500 admin/tabs/table_style.php:14
 msgid "Blue Style"
 msgstr ""
 
@@ -502,19 +503,19 @@ msgstr ""
 
 #: admin/action-hook.php:274
 msgid "Bundle Quick Buy "
-msgstr ""
+msgstr "বান্ডিল কুইক পারচেজ"
 
 #: admin/action-hook.php:267 admin/action-hook.php:279
 msgid "Cart Page"
-msgstr ""
+msgstr "কার্ট পেজ"
 
 #: woo-product-table.php:98
 msgid "Category"
-msgstr ""
+msgstr "ক্যাটাগরি"
 
 #: admin/tabs/query.php:186
 msgid "Category Exclude"
-msgstr ""
+msgstr "বহির্ভুত ক্যাটাগরি"
 
 #: admin/pro-features-html.php:113
 msgid "Change each table is configuration"
@@ -522,11 +523,11 @@ msgstr ""
 
 #: woo-product-table.php:95
 msgid "Check"
-msgstr ""
+msgstr "চেকবক্স"
 
 #: admin/action-hook.php:268 admin/action-hook.php:280
 msgid "Checkout Page"
-msgstr ""
+msgstr "চেক-আউট পেজ"
 
 #: includes/shortcode.php:103
 msgid "Choose "
@@ -544,7 +545,7 @@ msgid ""
 "value(if number)"
 msgstr ""
 
-#: admin/functions.php:462 admin/tabs/table_style.php:17
+#: admin/functions.php:485 admin/tabs/table_style.php:17
 msgid "Classic"
 msgstr ""
 
@@ -600,19 +601,19 @@ msgstr ""
 
 #: admin/post_metabox_form.php:10
 msgid "Column"
-msgstr ""
+msgstr "কলাম"
 
 #: admin/tabs/inc-column/add-new-column.php:10
 msgid "Column Keyword"
-msgstr ""
+msgstr "কলাম কিওয়ার্ড"
 
 #: admin/tabs/inc-column/add-new-column.php:17
 msgid "Column Label"
-msgstr ""
+msgstr "কলাম লেবেল"
 
 #: admin/tabs/inc-column/add-new-column.php:25
 msgid "Column Type"
-msgstr ""
+msgstr "কলামের ধরন"
 
 #: admin/functions.php:385
 msgid "Community forum"
@@ -629,11 +630,11 @@ msgstr ""
 
 #: admin/menu_plugin_setting_link.php:18 admin/menu_plugin_setting_link.php:39
 msgid "Configure"
-msgstr ""
+msgstr "কনফিগারেশান"
 
 #: admin/menu_plugin_setting_link.php:18
 msgid "Configure for Universal"
-msgstr ""
+msgstr "সকল পেজের কনফিগারেশান"
 
 #: admin/fac_support_page.php:11
 msgid "Contact & Support"
@@ -680,15 +681,15 @@ msgstr ""
 msgid "Customizable Table using WordPress Classic Editor"
 msgstr ""
 
-#: admin/functions.php:480
+#: admin/functions.php:503
 msgid "Customized Design"
 msgstr ""
 
-#: admin/functions.php:478 admin/tabs/table_style.php:15
+#: admin/functions.php:501 admin/tabs/table_style.php:15
 msgid "Dark Style"
 msgstr ""
 
-#: admin/tabs/options.php:256
+#: admin/tabs/options.php:277
 msgid "DataTable"
 msgstr ""
 
@@ -696,7 +697,7 @@ msgstr ""
 msgid "Date"
 msgstr ""
 
-#: admin/functions.php:52 admin/tabs/options.php:246 admin/tabs/query.php:369
+#: admin/functions.php:52 admin/tabs/options.php:267 admin/tabs/query.php:369
 #: admin/tabs/query.php:383 admin/tabs/inc-column/column-list.php:47
 msgid "Default"
 msgstr ""
@@ -717,7 +718,7 @@ msgstr ""
 msgid "Default sorting (Menu Order)"
 msgstr ""
 
-#: admin/functions.php:460 admin/tabs/table_style.php:3
+#: admin/functions.php:483 admin/tabs/table_style.php:3
 msgid "Default Style"
 msgstr ""
 
@@ -745,7 +746,7 @@ msgstr ""
 msgid "Description Length :"
 msgstr ""
 
-#: admin/tabs/options.php:226
+#: admin/tabs/options.php:247
 msgid "Description Type"
 msgstr ""
 
@@ -760,17 +761,17 @@ msgstr ""
 
 #: admin/tabs/column_settings.php:109
 msgid "Desktop"
-msgstr ""
+msgstr "ডেস্কটপ"
 
 #: admin/tabs/column_settings.php:64
 msgid "Device Wise Column Setting"
-msgstr ""
+msgstr "ডিভাইস অনুযায়ী কলামের সেটিং"
 
 #: admin/action-hook.php:137 admin/action-hook.php:261
 #: admin/action-hook.php:278 admin/action-hook.php:291
-#: admin/tabs/options.php:48 admin/tabs/options.php:119
+#: admin/tabs/options.php:49 admin/tabs/options.php:119
 msgid "Disable"
-msgstr ""
+msgstr "ডিজেবল"
 
 #: admin/tabs/options.php:21
 msgid "Disable Ajax Action"
@@ -794,6 +795,10 @@ msgstr ""
 
 #: admin/action-hook.php:34 admin/pro-features-html.php:135
 msgid "Documentation"
+msgstr "ডকুমেন্টেশান"
+
+#: admin/functions.php:473
+msgid "Don't change for auto translate."
 msgstr ""
 
 #: admin/wpt_product_table_post.php:26
@@ -802,7 +807,7 @@ msgstr ""
 
 #: inc/features/basics.php:48
 msgid "Edit Table - "
-msgstr ""
+msgstr "টেবিল এডিট -"
 
 #: admin/tabs/query.php:394
 msgid "Eg: 50 (for display 50 products"
@@ -810,7 +815,7 @@ msgstr ""
 
 #: admin/action-hook.php:396
 msgid "eg: Empty Cart"
-msgstr ""
+msgstr "যেমনঃ মুছুন"
 
 #: admin/action-hook.php:403
 msgid "eg: Filter"
@@ -834,14 +839,14 @@ msgstr ""
 
 #: woo-product-table.php:210 inc/features/basics.php:60
 msgid "Empty Cart"
-msgstr ""
+msgstr "মুছুন"
 
 #: inc/handle/fragment.php:147
 msgid "Empty Cart."
-msgstr ""
+msgstr "মুছুন"
 
 #: admin/action-hook.php:137 admin/action-hook.php:292
-#: admin/tabs/options.php:247
+#: admin/tabs/options.php:268
 msgid "Enable"
 msgstr ""
 
@@ -861,14 +866,6 @@ msgstr ""
 
 #: admin/pro-features-html.php:40
 msgid "Example:"
-msgstr ""
-
-#: admin/tabs/options.php:200
-msgid "Example: Add to cart Selected"
-msgstr ""
-
-#: admin/tabs/options.php:208
-msgid "Example: All Check/Uncheck"
 msgstr ""
 
 #: admin/tabs/options.php:159
@@ -961,11 +958,12 @@ msgstr ""
 
 #: admin/functions.php:390
 msgid "For more information:"
-msgstr ""
+msgstr "বিস্তারিত জানতে"
 
 #: templates/table-preview.php:55
 msgid "For perfect view paste shortcode on a page."
 msgstr ""
+"সঠিক রেজাল্ট পেতে চাইলে shortcode টাকে কোন পেজে পেস্ট করে পাবলিস করে দেখুন।"
 
 #: admin/includes/right_side.php:56
 msgid "Fork and (Contribute)"
@@ -989,7 +987,7 @@ msgstr ""
 
 #: modules/elementor-widget.php:127
 msgid "General"
-msgstr ""
+msgstr "স্বাধারন"
 
 #: admin/wpt_product_table_post.php:45
 msgid "Generate your shortcode for Product Table."
@@ -1001,7 +999,7 @@ msgstr ""
 
 #: admin/menu_plugin_setting_link.php:15 admin/menu_plugin_setting_link.php:52
 msgid "GET PRO VERSION"
-msgstr ""
+msgstr "প্রিমিয়াম ভার্শন নিন"
 
 #: admin/action-hook.php:35
 msgid "Get Support"
@@ -1043,7 +1041,7 @@ msgstr ""
 msgid "Golden  Style"
 msgstr ""
 
-#: admin/functions.php:476 admin/tabs/table_style.php:13
+#: admin/functions.php:499 admin/tabs/table_style.php:13
 msgid "Green Style"
 msgstr ""
 
@@ -1083,7 +1081,7 @@ msgstr ""
 msgid "Help &amp; Support"
 msgstr ""
 
-#: admin/tabs/options.php:233
+#: admin/tabs/options.php:254
 #, php-format
 msgid ""
 "Here was %sdescription_lenght%s, But from 3.6, We have removed "
@@ -1181,19 +1179,20 @@ msgstr ""
 
 #: admin/tabs/options.php:52
 msgid "Infinite Scroll"
-msgstr ""
+msgstr "অসীম স্ক্রোল"
 
 #: admin/wpt_product_table_post.php:37
 msgid "Insert into Product Table"
 msgstr ""
 
 #: admin/action-hook.php:298
+#| msgid "Instant Search Filter"
 msgid "Instance Search Filter"
-msgstr ""
+msgstr "ইন্সট্যান্স সার্চ ফিল্টার"
 
 #: woo-product-table.php:213
 msgid "Instant Search.."
-msgstr ""
+msgstr "ইন্সট্যান্স সার্চবক্স"
 
 #: admin/tabs/query.php:370
 msgid "instock"
@@ -1217,7 +1216,7 @@ msgstr ""
 
 #: woo-product-table.php:218
 msgid "Item"
-msgstr ""
+msgstr "আইটেম"
 
 #: admin/action-hook.php:421
 msgid "Item [for Plural]"
@@ -1237,7 +1236,7 @@ msgstr ""
 
 #: woo-product-table.php:219
 msgid "Items"
-msgstr ""
+msgstr "আইটেম সমুহ"
 
 #: admin/includes/right_side.php:38
 msgid "Join to CodeAstrology Group"
@@ -1245,7 +1244,7 @@ msgstr ""
 
 #: admin/action-hook.php:349
 msgid "Label Text"
-msgstr ""
+msgstr "লেবেল টেক্সট"
 
 #: admin/action-hook.php:153
 msgid "Left Icon and Text"
@@ -1277,27 +1276,29 @@ msgstr ""
 
 #: woo-product-table.php:202
 msgid "Load more"
-msgstr ""
+msgstr "বিস্তারিত দেখুন"
 
 #: admin/tabs/options.php:50
+#, php-format
+#| msgid "%sLoad More%s Button"
 msgid "Load More Button"
-msgstr ""
+msgstr "লোড বাটন"
 
 #: admin/action-hook.php:362
 msgid "Load More text write here"
-msgstr ""
+msgstr "বিস্তারিত দেখুন - টেক্সট এখানে"
 
 #: woo-product-table.php:204
 msgid "Loading.."
-msgstr ""
+msgstr "লোড হচ্ছে.."
 
 #: admin/action-hook.php:383
 msgid "Loading.. text write here"
-msgstr ""
+msgstr "Loading.. টেক্সট এখানে দিন"
 
-#: admin/tabs/options.php:231
+#: admin/tabs/options.php:252
 msgid "Long Description"
-msgstr ""
+msgstr "বড় ড্রেস্ক্রিপশন"
 
 #: admin/tabs/responsive.php:17
 msgid "Manual Responsive"
@@ -1313,16 +1314,16 @@ msgstr ""
 
 #: admin/tabs/query.php:353
 msgid "Maximum Price"
-msgstr ""
+msgstr "সর্বোচ্চ প্রাইস"
 
 #: includes/functions.php:408
 msgid "Menu Order"
-msgstr ""
+msgstr "মেনু অর্ডার"
 
 #: includes/helper-functions.php:516 includes/helper-functions.php:610
 #: includes/helper-functions.php:640
 msgid "Message"
-msgstr ""
+msgstr "মেসেজ"
 
 #: admin/includes/right_side.php:44
 msgid "Message to Author"
@@ -1339,29 +1340,29 @@ msgstr ""
 
 #: admin/tabs/options.php:68
 msgid "Mini Cart Position"
-msgstr ""
+msgstr "মিনি কার্টের পজিশন"
 
 #: admin/tabs/search_n_filter.php:219
 msgid "Mini Filter"
-msgstr ""
+msgstr "মিনি ফিল্টার"
 
 #: admin/action-hook.php:200
 msgid "Mini Filter Sorting"
-msgstr ""
+msgstr "সর্টিং মিনি ফিল্টার"
 
 #: admin/tabs/query.php:344
 msgid "Minimum Price"
-msgstr ""
+msgstr "মিনিমাম প্রাইস"
 
 #: admin/functions.php:187 admin/tabs/column_settings.php:111
 msgid "Mobile"
-msgstr ""
+msgstr "মোবাইল"
 
 #: admin/tabs/mobile.php:8 admin/tabs/responsive.php:12
 msgid "Mobile Responsive"
 msgstr ""
 
-#: admin/functions.php:466
+#: admin/functions.php:489
 msgid "Modern Style"
 msgstr ""
 
@@ -1385,7 +1386,7 @@ msgstr ""
 
 #: admin/tabs/query.php:282
 msgid "Name"
-msgstr ""
+msgstr "নাম"
 
 #: admin/includes/right_side.php:29
 msgid "Need Help?"
@@ -1393,11 +1394,11 @@ msgstr ""
 
 #: admin/wpt_product_table_post.php:25
 msgid "New Product Table"
-msgstr ""
+msgstr "নতুন Product Table"
 
 #: admin/action-hook.php:250
 msgid "New Tab"
-msgstr ""
+msgstr "নতুন ট্যাব"
 
 #: includes/functions.php:243
 msgid "No Action"
@@ -1405,7 +1406,7 @@ msgstr ""
 
 #: admin/action-hook.php:151
 msgid "No Icon"
-msgstr ""
+msgstr "আইকোন বাদে"
 
 #: admin/tabs/mobile.php:13
 msgid "No Responsive"
@@ -1422,7 +1423,7 @@ msgstr ""
 #: admin/action-hook.php:204 includes/functions.php:989
 #: admin/tabs/options.php:74 admin/tabs/query.php:326
 msgid "None"
-msgstr ""
+msgstr "None"
 
 #: admin/action-hook.php:594
 msgid "Not Available"
@@ -1457,29 +1458,29 @@ msgstr ""
 msgid "Now you can show more product information in a smart way."
 msgstr ""
 
-#: admin/tabs/options.php:49
+#: admin/tabs/options.php:48
 msgid "Number/Paging"
-msgstr ""
+msgstr "নাম্বার পেজিনেশান"
 
 #: admin/action-hook.php:313
 msgid "Off"
-msgstr ""
+msgstr "বন্ধ"
 
 #: admin/functions.php:395
 msgid "Official theme"
-msgstr ""
+msgstr "অফিসিয়াল থীম"
 
 #: admin/action-hook.php:314
 msgid "On"
-msgstr ""
+msgstr "চালু"
 
 #: admin/action-hook.php:562
 msgid "On Back Order"
-msgstr ""
+msgstr "On Backorder"
 
 #: admin/tabs/query.php:371
 msgid "onbackorder"
-msgstr ""
+msgstr "onbackorder"
 
 #: admin/action-hook.php:497
 #, php-format
@@ -1504,9 +1505,9 @@ msgstr ""
 
 #: admin/post_metabox_form.php:14
 msgid "Options"
-msgstr ""
+msgstr "অপশন ও সেটিং"
 
-#: admin/functions.php:467 admin/tabs/table_style.php:22
+#: admin/functions.php:490 admin/tabs/table_style.php:22
 msgid "Orange Style"
 msgstr ""
 
@@ -1541,11 +1542,11 @@ msgstr ""
 
 #: admin/tabs/query.php:372
 msgid "outofstock"
-msgstr ""
+msgstr "outofstock"
 
 #: admin/tabs/options.php:43 admin/tabs/options.php:113
 msgid "Pagination"
-msgstr ""
+msgstr "পেজিনেশান"
 
 #: includes/functions.php:273
 msgid "Paragraph"
@@ -1559,11 +1560,11 @@ msgstr ""
 msgid "Parent Shortcode:"
 msgstr ""
 
-#: woo-product-table.php:524
+#: woo-product-table.php:529
 msgid "PHP"
-msgstr ""
+msgstr "পিএইচপি"
 
-#: admin/functions.php:465 admin/tabs/table_style.php:20
+#: admin/functions.php:488 admin/tabs/table_style.php:20
 msgid "Pink Style"
 msgstr ""
 
@@ -1584,7 +1585,7 @@ msgstr ""
 #: woo-product-table.php:224 admin/action-hook.php:606
 #: admin/action-hook.php:612
 msgid "Please select all items."
-msgstr ""
+msgstr "দয়াকরে সক সকল প্রডাক্ট সিলেক্ট করুন"
 
 #: woo-product-table.php:225
 msgid "Please select some items."
@@ -1604,7 +1605,7 @@ msgstr ""
 
 #: admin/functions.php:393
 msgid "Premium Plugin "
-msgstr ""
+msgstr "প্রমিয়াম প্লাগিন"
 
 #: woo-product-table.php:107
 msgid "Price"
@@ -1649,12 +1650,12 @@ msgstr ""
 #: admin/wpt_product_table_post.php:16
 msgctxt "PRODUCT TABLE"
 msgid "PRODUCT TABLE"
-msgstr ""
+msgstr "PRODUCT TABLE"
 
 #: admin/wpt_product_table_post.php:15
 msgctxt "Product Table"
 msgid "Product Table"
-msgstr ""
+msgstr "Product Table"
 
 #: admin/wpt_product_table_post.php:19
 msgid "Product Table Archives"
@@ -1674,7 +1675,7 @@ msgstr ""
 
 #: admin/wpt_product_table_post.php:39
 msgid "Product Table list"
-msgstr ""
+msgstr "Product Table লিস্ট"
 
 #: admin/wpt_product_table_post.php:40
 msgid "Product Table list navigation"
@@ -1686,7 +1687,7 @@ msgstr ""
 
 #: admin/pro-features-html.php:37 admin/tabs/query.php:284
 msgid "Product Title"
-msgstr ""
+msgstr "প্রোডাক্টের টাইটেল"
 
 #: modules/elementor-widget.php:308
 msgid "Product Title Color"
@@ -1697,14 +1698,16 @@ msgid ""
 "Product variations is not set Properly. May be: price is not inputted. may "
 "be: Out of Stock."
 msgstr ""
+"প্রোডাক্টের ভেরিয়েশান ঠিক মত দেওয়া হয়নি। হতে পারে প্রাইস দেওয়া হয়নি অথবা "
+"প্রডাক্টের স্টক শেষ। "
 
 #: woo-product-table.php:97
 msgid "Products"
-msgstr ""
+msgstr "প্রডাক্ট সমুহ"
 
 #: woo-product-table.php:201
 msgid "Products Not founded!"
-msgstr ""
+msgstr "কোন প্রোডাক্ট পাওয়া যায়নি!"
 
 #: admin/action-hook.php:324
 msgid "Products Wise"
@@ -1835,7 +1838,7 @@ msgstr ""
 
 #: admin/configuration_page.php:101 admin/post_metabox_form.php:137
 msgid "Save Change"
-msgstr ""
+msgstr "সেভ করুন"
 
 #: woo-product-table.php:205
 msgid "Search"
@@ -1843,12 +1846,12 @@ msgstr ""
 
 #: admin/post_metabox_form.php:16
 msgid "Search & Filter"
-msgstr ""
+msgstr "সার্চ বক্স এবং ফিল্টার বক্স"
 
 #: woo-product-table.php:237
 #, php-format
 msgid "Search Box (%sAll Fields Optional%s)"
-msgstr ""
+msgstr "সার্চ বক্স (%s সবগুলো ফিল্ড ঐচ্ছিক %s)"
 
 #: admin/action-hook.php:213
 msgid "Search Box Taxonomy Sorting"
@@ -1923,7 +1926,7 @@ msgstr ""
 msgid "Select multiple inner items:"
 msgstr ""
 
-#: admin/functions.php:459
+#: admin/functions.php:482
 msgid "Select None"
 msgstr ""
 
@@ -1962,7 +1965,7 @@ msgid "Set featured image"
 msgstr ""
 
 #: woo-product-table.php:120 admin/pro-features-html.php:38
-#: admin/tabs/options.php:230
+#: admin/tabs/options.php:251
 msgid "Short Description"
 msgstr ""
 
@@ -1997,7 +2000,7 @@ msgstr ""
 
 #: admin/tabs/search_n_filter.php:31
 msgid "Show Search Box"
-msgstr ""
+msgstr "সার্চ বক্স দেখুন"
 
 #: includes/functions.php:218
 msgid "Show Variation Name With Title"
@@ -2009,7 +2012,7 @@ msgstr ""
 
 #: woo-product-table.php:100
 msgid "SKU"
-msgstr ""
+msgstr "SKU"
 
 #: admin/includes/right_side.php:39
 msgid "Skype:"
@@ -2019,15 +2022,15 @@ msgstr ""
 msgid "SL"
 msgstr ""
 
-#: admin/functions.php:464 admin/tabs/table_style.php:19
+#: admin/functions.php:487 admin/tabs/table_style.php:19
 msgid "Smart Border"
 msgstr ""
 
-#: admin/functions.php:479 admin/tabs/table_style.php:16
+#: admin/functions.php:502 admin/tabs/table_style.php:16
 msgid "Smart Light"
 msgstr ""
 
-#: admin/functions.php:475 admin/tabs/table_style.php:12
+#: admin/functions.php:498 admin/tabs/table_style.php:12
 msgid "Smart Thin"
 msgstr ""
 
@@ -2081,11 +2084,11 @@ msgstr ""
 
 #: woo-product-table.php:106
 msgid "Stock"
-msgstr ""
+msgstr "স্টক"
 
 #: admin/tabs/query.php:365
 msgid "Stock Status"
-msgstr ""
+msgstr "স্টক স্ট্যাটাস"
 
 #: includes/functions.php:275
 msgid "Strong"
@@ -2134,7 +2137,7 @@ msgstr ""
 
 #: admin/tabs/column_settings.php:110
 msgid "Tablet"
-msgstr ""
+msgstr "ট্যাবলেট"
 
 #: woo-product-table.php:99
 msgid "Tags"
@@ -2191,7 +2194,7 @@ msgstr ""
 msgid "There is not founded any table to your. "
 msgstr ""
 
-#: admin/tabs/options.php:241
+#: admin/tabs/options.php:262
 msgid "Third Party Plugin Supporting "
 msgstr ""
 
@@ -2227,7 +2230,7 @@ msgstr ""
 
 #: admin/tabs/options.php:56 admin/tabs/options.php:121
 msgid "To change style, go to Design tab"
-msgstr ""
+msgstr "CSS এর Style চেঞ্জ করার জন্য ডিজাইন ট্যাবে যান"
 
 #: framework/recommeded.php:120
 msgid ""
@@ -2295,7 +2298,7 @@ msgstr ""
 
 #: admin/wpt_product_table_post.php:27
 msgid "Update Product Table"
-msgstr ""
+msgstr "Product Table আপডেট"
 
 #: admin/wpt_product_table_post.php:38
 msgid "Uploaded to this Product Table"
@@ -2303,7 +2306,7 @@ msgstr ""
 
 #: admin/wpt_product_table_post.php:36
 msgid "Use as featured image"
-msgstr ""
+msgstr "ফিচার ইমেজ হিসবে দিন"
 
 #: admin/pro-features-html.php:78
 msgid ""
@@ -2329,7 +2332,7 @@ msgstr ""
 
 #: admin/action-hook.php:592
 msgid "Variations [Not available] Message"
-msgstr ""
+msgstr "Variations [Not available] মেসেজ"
 
 #: admin/post_metabox_form.php:26
 msgid "Vertical Align"
@@ -2338,15 +2341,15 @@ msgstr ""
 #: inc/handle/fragment.php:153 includes/items/action.php:74
 #: includes/items/action.php:75
 msgid "View Cart"
-msgstr ""
+msgstr "কার্ট লিংক"
 
 #: admin/wpt_product_table_post.php:28
 msgid "View Product Table"
-msgstr ""
+msgstr "Product Table দেখুন"
 
 #: admin/wpt_product_table_post.php:29
 msgid "View Product Tables"
-msgstr ""
+msgstr "Product Tables দেখুন"
 
 #: admin/pro-features-html.php:21
 msgid "We have Special Pro Agent for our Pro Customer."
@@ -2354,20 +2357,20 @@ msgstr ""
 
 #: woo-product-table.php:101
 msgid "Weight(kg)"
-msgstr ""
+msgstr "Weight(কেজি)"
 
 #: woo-product-table.php:103
 msgid "Width(cm)"
-msgstr ""
+msgstr "Width(সেমি)"
 
 #: woo-product-table.php:108
 msgid "Wish List"
-msgstr ""
+msgstr "উইস লিস্ট"
 
-#: woo-product-table.php:523 framework/recommeded.php:38
+#: woo-product-table.php:528 framework/recommeded.php:38
 #: modules/elementor-widget.php:41
 msgid "Woo Product Table"
-msgstr ""
+msgstr "Woo Product Table"
 
 #: admin/includes/right_side.php:59
 msgid "Woo Product Table on (Github)"
@@ -2379,9 +2382,9 @@ msgstr ""
 
 #: admin/functions.php:392
 msgid "WordPress.org"
-msgstr ""
+msgstr "WordPress.org"
 
-#: admin/tabs/options.php:278
+#: admin/tabs/options.php:299
 msgid "WP Force"
 msgstr ""
 
@@ -2424,7 +2427,7 @@ msgstr ""
 #: includes/functions.php:223 includes/functions.php:224
 #: includes/functions.php:246 includes/functions.php:247
 msgid "You have to install"
-msgstr ""
+msgstr "আপনাকে ইন্সটল করতে হবে"
 
 #: admin/includes/right_side.php:76
 msgid "Your one share can be best GIFT for me."
@@ -2440,11 +2443,8 @@ msgstr ""
 
 #: admin/includes/right_side.php:47
 msgid "Youtube Playlist - Video Tutorial"
-msgstr ""
+msgstr "ইউটিউবে ভিডিও প্লে-লিস্ট"
 
 #: admin/includes/right_side.php:47
 msgid "Youtube:"
-msgstr ""
-
-msgid "items"
-msgstr ""
+msgstr "ইউটিউবঃ"

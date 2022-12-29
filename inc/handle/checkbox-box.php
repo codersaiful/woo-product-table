@@ -7,14 +7,19 @@ class Checkbox_Box{
     
     public static function render( Shortcode $shortcode, string $position = 'header' ){
         
-        $text = $shortcode->add_to_cart_text;
-        $selected_text = $shortcode->basics['add_to_cart_selected_text'] ?? __( 'Add to Cart (Selected)','woo-product-table' );
-        $check_uncheck_text = $shortcode->basics['check_uncheck_text'] ?? __( 'All Check/Uncheck','woo-product-table' );
+        $text = $shortcode->add_to_cart_text ?? false;
+        $selected_text = $shortcode->basics['add_to_cart_selected_text'] ?? false;
+        $check_uncheck_text = $shortcode->basics['check_uncheck_text'] ?? false;
         if( $shortcode->wpml_bool ){
             $lang = '_'. $shortcode->wpml_lang;
             $selected_text = $shortcode->basics['add_to_cart_selected_text' . $lang] ?? $selected_text;
             $check_uncheck_text = $shortcode->basics['check_uncheck_text' . $lang] ?? $check_uncheck_text;
         }
+        
+        $text = ! empty( $text ) ? __( $text, 'woo-product-table' ) : __( 'Add to cart', 'woo-product-table' );
+        $selected_text = ! empty( $selected_text ) ? __( $selected_text, 'woo-product-table' ) : __( 'Add to Cart (Selected)','woo-product-table' );
+        $check_uncheck_text = ! empty( $check_uncheck_text ) ? __( $check_uncheck_text, 'woo-product-table' ) : __( 'All Check/Uncheck','woo-product-table' );
+        
         ?>
         <div class='all_check_header_footer all_check_<?php echo esc_attr( $position ); ?> check_<?php echo esc_attr( $position ); ?>_<?php echo esc_attr( $shortcode->table_id ); ?>'>
 

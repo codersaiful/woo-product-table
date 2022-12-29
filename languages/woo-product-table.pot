@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Product Table for WooCommerce - (wooproducttable)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-27 04:21+0000\n"
+"POT-Creation-Date: 2022-12-29 04:15+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -16,7 +16,7 @@ msgstr ""
 "X-Loco-Version: 2.4.0; wp-5.8.1"
 
 #. 1: Plugin name 2: PHP 3: Required PHP version
-#: woo-product-table.php:522
+#: woo-product-table.php:527
 #, php-format
 msgid "\"%1$s\" requires \"%2$s\" version %3$s or greater."
 msgstr ""
@@ -126,7 +126,7 @@ msgstr ""
 msgid "(Add to cart) Text"
 msgstr ""
 
-#: admin/tabs/options.php:205
+#: admin/tabs/options.php:216
 msgid "(All Check/Uncheck) Text"
 msgstr ""
 
@@ -243,11 +243,11 @@ msgstr ""
 msgid "Add new Shortcode"
 msgstr ""
 
-#: admin/tabs/options.php:159
+#: admin/tabs/options.php:159 inc/handle/checkbox-box.php:18
 msgid "Add to cart"
 msgstr ""
 
-#: admin/tabs/options.php:200 inc/handle/checkbox-box.php:11
+#: admin/tabs/options.php:203 inc/handle/checkbox-box.php:19
 msgid "Add to Cart (Selected)"
 msgstr ""
 
@@ -323,7 +323,7 @@ msgstr ""
 msgid "Ajax Pagination (Default)"
 msgstr ""
 
-#: admin/tabs/options.php:208 inc/handle/checkbox-box.php:12
+#: admin/tabs/options.php:222 inc/handle/checkbox-box.php:20
 msgid "All Check/Uncheck"
 msgstr ""
 
@@ -436,7 +436,7 @@ msgstr ""
 msgid "Basic Settings"
 msgstr ""
 
-#: admin/functions.php:461 admin/tabs/table_style.php:5
+#: admin/functions.php:484 admin/tabs/table_style.php:5
 msgid "Beautiful Blacky"
 msgstr ""
 
@@ -452,11 +452,11 @@ msgstr ""
 msgid "Blank"
 msgstr ""
 
-#: admin/functions.php:463 admin/tabs/table_style.php:18
+#: admin/functions.php:486 admin/tabs/table_style.php:18
 msgid "Blue Border"
 msgstr ""
 
-#: admin/functions.php:477 admin/tabs/table_style.php:14
+#: admin/functions.php:500 admin/tabs/table_style.php:14
 msgid "Blue Style"
 msgstr ""
 
@@ -544,7 +544,7 @@ msgid ""
 "value(if number)"
 msgstr ""
 
-#: admin/functions.php:462 admin/tabs/table_style.php:17
+#: admin/functions.php:485 admin/tabs/table_style.php:17
 msgid "Classic"
 msgstr ""
 
@@ -680,15 +680,15 @@ msgstr ""
 msgid "Customizable Table using WordPress Classic Editor"
 msgstr ""
 
-#: admin/functions.php:480
+#: admin/functions.php:503
 msgid "Customized Design"
 msgstr ""
 
-#: admin/functions.php:478 admin/tabs/table_style.php:15
+#: admin/functions.php:501 admin/tabs/table_style.php:15
 msgid "Dark Style"
 msgstr ""
 
-#: admin/tabs/options.php:256
+#: admin/tabs/options.php:277
 msgid "DataTable"
 msgstr ""
 
@@ -696,7 +696,7 @@ msgstr ""
 msgid "Date"
 msgstr ""
 
-#: admin/functions.php:52 admin/tabs/options.php:246 admin/tabs/query.php:369
+#: admin/functions.php:52 admin/tabs/options.php:267 admin/tabs/query.php:369
 #: admin/tabs/query.php:383 admin/tabs/inc-column/column-list.php:47
 msgid "Default"
 msgstr ""
@@ -717,7 +717,7 @@ msgstr ""
 msgid "Default sorting (Menu Order)"
 msgstr ""
 
-#: admin/functions.php:460 admin/tabs/table_style.php:3
+#: admin/functions.php:483 admin/tabs/table_style.php:3
 msgid "Default Style"
 msgstr ""
 
@@ -745,7 +745,7 @@ msgstr ""
 msgid "Description Length :"
 msgstr ""
 
-#: admin/tabs/options.php:226
+#: admin/tabs/options.php:247
 msgid "Description Type"
 msgstr ""
 
@@ -768,7 +768,7 @@ msgstr ""
 
 #: admin/action-hook.php:137 admin/action-hook.php:261
 #: admin/action-hook.php:278 admin/action-hook.php:291
-#: admin/tabs/options.php:48 admin/tabs/options.php:119
+#: admin/tabs/options.php:49 admin/tabs/options.php:119
 msgid "Disable"
 msgstr ""
 
@@ -794,6 +794,10 @@ msgstr ""
 
 #: admin/action-hook.php:34 admin/pro-features-html.php:135
 msgid "Documentation"
+msgstr ""
+
+#: admin/functions.php:473
+msgid "Don't change for auto translate."
 msgstr ""
 
 #: admin/wpt_product_table_post.php:26
@@ -841,7 +845,7 @@ msgid "Empty Cart."
 msgstr ""
 
 #: admin/action-hook.php:137 admin/action-hook.php:292
-#: admin/tabs/options.php:247
+#: admin/tabs/options.php:268
 msgid "Enable"
 msgstr ""
 
@@ -861,14 +865,6 @@ msgstr ""
 
 #: admin/pro-features-html.php:40
 msgid "Example:"
-msgstr ""
-
-#: admin/tabs/options.php:200
-msgid "Example: Add to cart Selected"
-msgstr ""
-
-#: admin/tabs/options.php:208
-msgid "Example: All Check/Uncheck"
 msgstr ""
 
 #: admin/tabs/options.php:159
@@ -1043,7 +1039,7 @@ msgstr ""
 msgid "Golden  Style"
 msgstr ""
 
-#: admin/functions.php:476 admin/tabs/table_style.php:13
+#: admin/functions.php:499 admin/tabs/table_style.php:13
 msgid "Green Style"
 msgstr ""
 
@@ -1083,7 +1079,7 @@ msgstr ""
 msgid "Help &amp; Support"
 msgstr ""
 
-#: admin/tabs/options.php:233
+#: admin/tabs/options.php:254
 #, php-format
 msgid ""
 "Here was %sdescription_lenght%s, But from 3.6, We have removed "
@@ -1295,7 +1291,7 @@ msgstr ""
 msgid "Loading.. text write here"
 msgstr ""
 
-#: admin/tabs/options.php:231
+#: admin/tabs/options.php:252
 msgid "Long Description"
 msgstr ""
 
@@ -1361,7 +1357,7 @@ msgstr ""
 msgid "Mobile Responsive"
 msgstr ""
 
-#: admin/functions.php:466
+#: admin/functions.php:489
 msgid "Modern Style"
 msgstr ""
 
@@ -1457,7 +1453,7 @@ msgstr ""
 msgid "Now you can show more product information in a smart way."
 msgstr ""
 
-#: admin/tabs/options.php:49
+#: admin/tabs/options.php:48
 msgid "Number/Paging"
 msgstr ""
 
@@ -1506,7 +1502,7 @@ msgstr ""
 msgid "Options"
 msgstr ""
 
-#: admin/functions.php:467 admin/tabs/table_style.php:22
+#: admin/functions.php:490 admin/tabs/table_style.php:22
 msgid "Orange Style"
 msgstr ""
 
@@ -1559,11 +1555,11 @@ msgstr ""
 msgid "Parent Shortcode:"
 msgstr ""
 
-#: woo-product-table.php:524
+#: woo-product-table.php:529
 msgid "PHP"
 msgstr ""
 
-#: admin/functions.php:465 admin/tabs/table_style.php:20
+#: admin/functions.php:488 admin/tabs/table_style.php:20
 msgid "Pink Style"
 msgstr ""
 
@@ -1923,7 +1919,7 @@ msgstr ""
 msgid "Select multiple inner items:"
 msgstr ""
 
-#: admin/functions.php:459
+#: admin/functions.php:482
 msgid "Select None"
 msgstr ""
 
@@ -1962,7 +1958,7 @@ msgid "Set featured image"
 msgstr ""
 
 #: woo-product-table.php:120 admin/pro-features-html.php:38
-#: admin/tabs/options.php:230
+#: admin/tabs/options.php:251
 msgid "Short Description"
 msgstr ""
 
@@ -2019,15 +2015,15 @@ msgstr ""
 msgid "SL"
 msgstr ""
 
-#: admin/functions.php:464 admin/tabs/table_style.php:19
+#: admin/functions.php:487 admin/tabs/table_style.php:19
 msgid "Smart Border"
 msgstr ""
 
-#: admin/functions.php:479 admin/tabs/table_style.php:16
+#: admin/functions.php:502 admin/tabs/table_style.php:16
 msgid "Smart Light"
 msgstr ""
 
-#: admin/functions.php:475 admin/tabs/table_style.php:12
+#: admin/functions.php:498 admin/tabs/table_style.php:12
 msgid "Smart Thin"
 msgstr ""
 
@@ -2191,7 +2187,7 @@ msgstr ""
 msgid "There is not founded any table to your. "
 msgstr ""
 
-#: admin/tabs/options.php:241
+#: admin/tabs/options.php:262
 msgid "Third Party Plugin Supporting "
 msgstr ""
 
@@ -2364,7 +2360,7 @@ msgstr ""
 msgid "Wish List"
 msgstr ""
 
-#: woo-product-table.php:523 framework/recommeded.php:38
+#: woo-product-table.php:528 framework/recommeded.php:38
 #: modules/elementor-widget.php:41
 msgid "Woo Product Table"
 msgstr ""
@@ -2381,7 +2377,7 @@ msgstr ""
 msgid "WordPress.org"
 msgstr ""
 
-#: admin/tabs/options.php:278
+#: admin/tabs/options.php:299
 msgid "WP Force"
 msgstr ""
 
