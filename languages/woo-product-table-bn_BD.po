@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Product Table for WooCommerce - (wooproducttable)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-11-02 08:26+0000\n"
-"PO-Revision-Date: 2022-12-31 08:23+0000\n"
+"PO-Revision-Date: 2022-12-31 08:33+0000\n"
 "Last-Translator: \n"
 "Language-Team: বাংলা\n"
 "Language: bn_BD\n"
@@ -1548,7 +1548,7 @@ msgstr "outofstock"
 #: inc/shortcode.php:473 admin/tabs/options.php:211
 #, php-format
 msgid "Page %s out of %s"
-msgstr "দেখছেন %s পেজ %s এর মধ্যে"
+msgstr "পেজ %s মোট %s এর মধ্যে"
 
 #: admin/tabs/options.php:43 admin/tabs/options.php:113
 msgid "Pagination"
