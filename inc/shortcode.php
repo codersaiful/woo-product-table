@@ -469,8 +469,8 @@ class Shortcode extends Shortcode_Base{
             $display_count = ( $prev_post + 1 ) . " - $current_total_post";
         }
 
-        $stats_post_count = $this->basics['stats_post_count'] ?? __( "Showing %s out of %s", "woo-product-table" );
-        $stats_page_count = $this->basics['stats_page_count'] ?? __( "Page %s out of %s", "woo-product-table" );
+        $stats_post_count = $this->basics['stats_post_count'] ?? '';//__( "Showing %s out of %s", "woo-product-table" );
+        $stats_page_count = $this->basics['stats_page_count'] ?? '';//__( "Page %s out of %s", "woo-product-table" );
         
         ?>
         <p class="wpt-stats-post-count">

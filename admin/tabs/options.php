@@ -183,7 +183,11 @@ $data = isset( $meta_basics['data'] ) ? $meta_basics['data'] : false;
                 </th>
                 <td>
                     <?php
-                    $stats_post_count_text = $meta_basics['stats_post_count'] ?? __( 'Showing %s out of %s', 'woo-product-table' );
+                    
+                    $stats_post_count_text = $meta_basics['stats_post_count'] ?? '';
+                    if(property_exists($post, 'post_status') && $post->post_status == 'auto-draft'){
+                        $stats_post_count_text = __( 'Showing %s out of %s', 'woo-product-table' );
+                    }
                     $stats_post_count_placeholder = __( 'Example: Showing %s out of %s', 'woo-product-table' );
                     ?>
                     <input name="basics[stats_post_count]" 
@@ -208,7 +212,11 @@ $data = isset( $meta_basics['data'] ) ? $meta_basics['data'] : false;
                 </th>
                 <td>
                     <?php
-                    $stats_page_count_text = $meta_basics['stats_page_count'] ?? __( 'Page %s out of %s', 'woo-product-table' );
+                    // var_dump($meta_basics);
+                    $stats_page_count_text = $meta_basics['stats_page_count'] ?? '';// __( 'Page %s out of %s', 'woo-product-table' );
+                    if(property_exists($post, 'post_status') && $post->post_status == 'auto-draft'){
+                        $stats_page_count_text = __( 'Page %s out of %s', 'woo-product-table' );
+                    }
                     $stats_page_count_placeholder = __( 'Example: Page %s out of %s', 'woo-product-table' );
                     ?>
                     <input name="basics[stats_page_count]" 
