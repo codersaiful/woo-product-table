@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Product Table for WooCommerce - (wooproducttable)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-11-02 08:26+0000\n"
-"PO-Revision-Date: 2022-12-29 06:13+0000\n"
+"PO-Revision-Date: 2022-12-31 08:23+0000\n"
 "Last-Translator: \n"
 "Language-Team: বাংলা\n"
 "Language: bn_BD\n"
@@ -243,7 +243,7 @@ msgstr "নতুন কলাম যুক্ত করুন"
 
 #: admin/menu_plugin_setting_link.php:17
 msgid "Add new Shortcode"
-msgstr ""
+msgstr "নতুন শর্টকোড যোগকরুন"
 
 #: inc/shortcode.php:600 admin/tabs/options.php:162
 msgid "Add to cart"
@@ -991,7 +991,7 @@ msgstr "স্বাধারন"
 
 #: admin/wpt_product_table_post.php:45
 msgid "Generate your shortcode for Product Table."
-msgstr ""
+msgstr "জেনারেট শর্টকোড"
 
 #: admin/action-hook.php:23
 msgid "Get Pro"
@@ -1075,7 +1075,7 @@ msgstr ""
 
 #: woo-product-table.php:104
 msgid "Height(cm)"
-msgstr ""
+msgstr "উচ্চতা(cm)"
 
 #: admin/functions.php:371 admin/functions.php:373
 msgid "Help &amp; Support"
@@ -1564,7 +1564,7 @@ msgstr ""
 
 #: admin/wpt_product_table_post.php:21
 msgid "Parent Shortcode:"
-msgstr ""
+msgstr "প্যারেন্ট শর্টকোড"
 
 #: woo-product-table.php:529
 msgid "PHP"
@@ -1582,7 +1582,7 @@ msgstr ""
 
 #: includes/helper-functions.php:560
 msgid "Please enter Short Message"
-msgstr ""
+msgstr "দয়াকরে আপনার মেসেজ দিন"
 
 #: modules/elementor-widget.php:118
 msgid "Please select a Table."
@@ -1977,19 +1977,19 @@ msgstr ""
 #: woo-product-table.php:120 admin/pro-features-html.php:38
 #: admin/tabs/options.php:284
 msgid "Short Description"
-msgstr ""
+msgstr "ক্ষুদে বর্ননা"
 
 #: woo-product-table.php:111
 msgid "Short Message"
-msgstr ""
+msgstr "ক্ষুদে বার্তা"
 
 #: templates/table-preview.php:45
 msgid "Shortcode"
-msgstr ""
+msgstr "শর্টকোড"
 
 #: admin/pro-features-html.php:59
 msgid "Shortcode Column"
-msgstr ""
+msgstr "শর্টকোড কলাম"
 
 #. %s: Documentation URL
 #: admin/functions.php:376
@@ -2219,15 +2219,15 @@ msgstr ""
 
 #: admin/action-hook.php:230
 msgid "Thumbnail size. eg: 56"
-msgstr ""
+msgstr "পন্যের ছবি সাইজ। eg: 56"
 
 #: woo-product-table.php:96
 msgid "Thumbnails"
-msgstr ""
+msgstr "ছবি"
 
 #: admin/action-hook.php:228
 msgid "Thumbs Image Size"
-msgstr ""
+msgstr "পন্যের ছবির সাইজ"
 
 #: wpml/admin-area.php:147
 msgid ""
@@ -2372,7 +2372,7 @@ msgstr ""
 
 #: woo-product-table.php:101
 msgid "Weight(kg)"
-msgstr "Weight(কেজি)"
+msgstr "ওজন(কেজি)"
 
 #: woo-product-table.php:103
 msgid "Width(cm)"
