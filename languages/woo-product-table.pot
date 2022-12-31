@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Product Table for WooCommerce - (wooproducttable)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-29 06:10+0000\n"
+"POT-Creation-Date: 2022-12-31 12:04+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -118,7 +118,7 @@ msgstr ""
 msgid "%sCategories, Tags%s Link"
 msgstr ""
 
-#: admin/tabs/options.php:230
+#: admin/tabs/options.php:238
 msgid "(Add to cart(Selected]) Text"
 msgstr ""
 
@@ -126,7 +126,7 @@ msgstr ""
 msgid "(Add to cart) Text"
 msgstr ""
 
-#: admin/tabs/options.php:249
+#: admin/tabs/options.php:257
 msgid "(All Check/Uncheck) Text"
 msgstr ""
 
@@ -247,7 +247,7 @@ msgstr ""
 msgid "Add to cart"
 msgstr ""
 
-#: admin/tabs/options.php:236 inc/handle/checkbox-box.php:20
+#: admin/tabs/options.php:244 inc/handle/checkbox-box.php:20
 msgid "Add to Cart (Selected)"
 msgstr ""
 
@@ -684,7 +684,7 @@ msgstr ""
 msgid "Dark Style"
 msgstr ""
 
-#: admin/tabs/options.php:310
+#: admin/tabs/options.php:318
 msgid "DataTable"
 msgstr ""
 
@@ -692,7 +692,7 @@ msgstr ""
 msgid "Date"
 msgstr ""
 
-#: admin/functions.php:52 admin/tabs/options.php:300 admin/tabs/query.php:369
+#: admin/functions.php:52 admin/tabs/options.php:308 admin/tabs/query.php:369
 #: admin/tabs/query.php:383 admin/tabs/inc-column/column-list.php:47
 msgid "Default"
 msgstr ""
@@ -741,7 +741,7 @@ msgstr ""
 msgid "Description Length :"
 msgstr ""
 
-#: admin/tabs/options.php:280
+#: admin/tabs/options.php:288
 msgid "Description Type"
 msgstr ""
 
@@ -841,7 +841,7 @@ msgid "Empty Cart."
 msgstr ""
 
 #: admin/action-hook.php:137 admin/action-hook.php:292
-#: admin/tabs/options.php:301
+#: admin/tabs/options.php:309
 msgid "Enable"
 msgstr ""
 
@@ -863,12 +863,12 @@ msgstr ""
 msgid "Example:"
 msgstr ""
 
-#: admin/tabs/options.php:212
+#: admin/tabs/options.php:220
 #, php-format
 msgid "Example: Page %s out of %s"
 msgstr ""
 
-#: admin/tabs/options.php:187
+#: admin/tabs/options.php:191
 #, php-format
 msgid "Example: Showing %s out of %s"
 msgstr ""
@@ -911,13 +911,13 @@ msgstr ""
 msgid "Filter:"
 msgstr ""
 
-#: admin/tabs/options.php:221
+#: admin/tabs/options.php:229
 msgid ""
 "First %s will replace by current page number and second % will replace by "
 "total page count.  To hide, leave as empty"
 msgstr ""
 
-#: admin/tabs/options.php:196
+#: admin/tabs/options.php:200
 msgid ""
 "First %s will replace by showing number and second % will replace by total "
 "product number. To hide, leave as empty"
@@ -1077,7 +1077,7 @@ msgstr ""
 msgid "Help &amp; Support"
 msgstr ""
 
-#: admin/tabs/options.php:287
+#: admin/tabs/options.php:295
 #, php-format
 msgid ""
 "Here was %sdescription_lenght%s, But from 3.6, We have removed "
@@ -1289,7 +1289,7 @@ msgstr ""
 msgid "Loading.. text write here"
 msgstr ""
 
-#: admin/tabs/options.php:285
+#: admin/tabs/options.php:293
 msgid "Long Description"
 msgstr ""
 
@@ -1537,7 +1537,7 @@ msgstr ""
 msgid "outofstock"
 msgstr ""
 
-#: inc/shortcode.php:473 admin/tabs/options.php:211
+#: admin/tabs/options.php:218
 #, php-format
 msgid "Page %s out of %s"
 msgstr ""
@@ -1910,7 +1910,7 @@ msgstr ""
 msgid "Select a template to change footer cart design"
 msgstr ""
 
-#: admin/tabs/options.php:255 inc/handle/checkbox-box.php:21
+#: admin/tabs/options.php:263 inc/handle/checkbox-box.php:21
 msgid "Select All"
 msgstr ""
 
@@ -1965,7 +1965,7 @@ msgid "Set featured image"
 msgstr ""
 
 #: woo-product-table.php:120 admin/pro-features-html.php:38
-#: admin/tabs/options.php:284
+#: admin/tabs/options.php:292
 msgid "Short Description"
 msgstr ""
 
@@ -2006,7 +2006,7 @@ msgstr ""
 msgid "Show Variation Name With Title"
 msgstr ""
 
-#: inc/shortcode.php:472 admin/tabs/options.php:186
+#: admin/tabs/options.php:189
 #, php-format
 msgid "Showing %s out of %s"
 msgstr ""
@@ -2079,7 +2079,7 @@ msgstr ""
 msgid "Span"
 msgstr ""
 
-#: admin/tabs/options.php:206
+#: admin/tabs/options.php:210
 msgid "Stats Page Count Text"
 msgstr ""
 
@@ -2199,7 +2199,7 @@ msgstr ""
 msgid "There is not founded any table to your. "
 msgstr ""
 
-#: admin/tabs/options.php:295
+#: admin/tabs/options.php:303
 msgid "Third Party Plugin Supporting "
 msgstr ""
 
@@ -2389,7 +2389,7 @@ msgstr ""
 msgid "WordPress.org"
 msgstr ""
 
-#: admin/tabs/options.php:332
+#: admin/tabs/options.php:340
 msgid "WP Force"
 msgstr ""
 
