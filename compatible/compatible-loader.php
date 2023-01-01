@@ -25,8 +25,9 @@ class Compatible_Loader{
         foreach( $this->plugins as $plugin_slug=>$plugin_data ){
             if( ! is_array( $plugin_data ) ) continue;
             $plugin_file = $plugin_slug . '/' . $plugin_data['file'] ?? '';
+            $exist_func = $plugin_data['exits_func'] ?? false;
              
-            if( is_plugin_active( $plugin_file ) ){
+            if( is_plugin_active( $plugin_file ) || function_exists( $exist_func ) ){
                 $this->loadFile( $plugin_slug, $plugin_data );
             }
             
