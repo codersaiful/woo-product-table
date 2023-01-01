@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Product Table for WooCommerce - (wooproducttable)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-11-02 08:26+0000\n"
-"PO-Revision-Date: 2023-01-01 04:35+0000\n"
+"PO-Revision-Date: 2023-01-01 05:12+0000\n"
 "Last-Translator: \n"
 "Language-Team: বাংলা\n"
 "Language: bn_BD\n"
@@ -68,7 +68,7 @@ msgstr ""
 #: admin/action-hook.php:387
 #, php-format
 msgid "%s[Instance Search]%s - Text"
-msgstr ""
+msgstr "%s[Instance Search]%s - টেক্সট"
 
 #: admin/action-hook.php:360
 #, php-format
@@ -159,19 +159,19 @@ msgstr ""
 
 #: admin/action-hook.php:628
 msgid "[ Adding in Progress ] Message"
-msgstr "[এড হচ্ছে] মেসেজ"
+msgstr "[ Adding in Progress ] মেসেজ"
 
 #: admin/action-hook.php:634
 msgid "[ No Right Combination ] Message"
-msgstr "[সঠিক কম্বিনেশান নেই] মেসেজ"
+msgstr "[ No Right Combination ] মেসেজ"
 
 #: admin/action-hook.php:646
 msgid "[ Sorry! Out of Stock! ] Message"
-msgstr "[দুঃখিতঃ স্কোট আউট] মেসেজ"
+msgstr "[ Sorry! Out of Stock! ] মেসেজ"
 
 #: admin/action-hook.php:640
 msgid "[ Sorry, Please choose right combination. ] Message"
-msgstr "[দুঃখিত, দয়াকরে সঠিক কম্বিনেশান সেট করুন] মেসেজ"
+msgstr "[ Sorry, Please choose right combination. ] মেসেজ"
 
 #: admin/action-hook.php:547
 msgid "[In Stock] for Table Column"
@@ -187,7 +187,7 @@ msgstr "[স্টক শেষ] টেবিল কলামের জন্য
 
 #: admin/action-hook.php:616
 msgid "[Out of Stock] Message"
-msgstr "[স্টক শেষ] মেসেজ"
+msgstr "[Out of Stock] মেসেজ"
 
 #: admin/action-hook.php:610
 msgid "[Please Choose items] Alert!"
@@ -288,7 +288,7 @@ msgstr ""
 
 #: woo-product-table.php:227 admin/action-hook.php:630
 msgid "Adding in Progress"
-msgstr ""
+msgstr "কার্টে যোগ হচ্ছে"
 
 #: admin/action-hook.php:516
 msgid "Adding text write here"
@@ -1414,7 +1414,7 @@ msgstr ""
 
 #: woo-product-table.php:228 admin/action-hook.php:636
 msgid "No Right Combination"
-msgstr ""
+msgstr "কম্বিনেশান ঠিক নাই"
 
 #: includes/functions.php:265
 msgid "No Tag"
@@ -1539,7 +1539,7 @@ msgstr ""
 #: woo-product-table.php:226 admin/action-hook.php:555
 #: admin/action-hook.php:618
 msgid "Out of Stock"
-msgstr ""
+msgstr "স্টকে নাই"
 
 #: admin/tabs/query.php:372
 msgid "outofstock"
@@ -1595,7 +1595,7 @@ msgstr "দয়াকরে সক সকল প্রডাক্ট সিল�
 
 #: woo-product-table.php:225
 msgid "Please select some items."
-msgstr ""
+msgstr "দয়াকরে কিছু পন্য বাছাই করুন"
 
 #: admin/action-hook.php:131
 msgid "Plugin Recommendation"
@@ -1848,7 +1848,7 @@ msgstr "সেভ করুন"
 
 #: woo-product-table.php:205
 msgid "Search"
-msgstr ""
+msgstr "সার্চ"
 
 #: admin/post_metabox_form.php:16
 msgid "Search & Filter"
@@ -1874,7 +1874,7 @@ msgstr ""
 #: woo-product-table.php:206 woo-product-table.php:238
 #: admin/action-hook.php:376
 msgid "Search Keyword"
-msgstr "সার্চ কিওয়ার্ড"
+msgstr "সার্চ বক্স"
 
 #: admin/action-hook.php:442
 msgid "Search Keyword Placeholder"
@@ -2051,11 +2051,11 @@ msgstr ""
 
 #: woo-product-table.php:229 admin/action-hook.php:648
 msgid "Sorry! Out of Stock!"
-msgstr ""
+msgstr "দুঃখিত! স্টক শেষ"
 
 #: woo-product-table.php:231 admin/action-hook.php:642
 msgid "Sorry, Please choose right combination."
-msgstr ""
+msgstr "দুঃখিত, দয়াকরে সঠিক কম্বিনেশান সেট করুন"
 
 #: woo-product-table.php:239
 msgid "Sort By"
@@ -2215,7 +2215,7 @@ msgstr ""
 
 #: includes/variation_html.php:13
 msgid "This product is currently out of stock and unavailable."
-msgstr ""
+msgstr "স্টকে পন্য শেষ"
 
 #: admin/action-hook.php:230
 msgid "Thumbnail size. eg: 56"
