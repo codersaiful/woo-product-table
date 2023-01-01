@@ -63,6 +63,7 @@ if( ! function_exists( 'wpt_texonomy_search_generator' ) ){
             return false;
         }
         $label = apply_filters( 'wpto_searchbox_taxonomy_name', $taxonomy_details->labels->menu_name, $taxonomy_details, $temp_number );//label;
+        $label = __( $label, 'woo-product-table' );
         $label_all_items = $taxonomy_details->labels->all_items;
         $html .= "<div class='search_single search_single_texonomy search_single_{$texonomy_keyword}'>";
         $html .= "<label class='search_keyword_label {$texonomy_keyword}' for='{$texonomy_keyword}_{$temp_number}'>{$label}</label>";

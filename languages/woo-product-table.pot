@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Product Table for WooCommerce - (wooproducttable)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-31 12:04+0000\n"
+"POT-Creation-Date: 2023-01-01 05:20+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -2452,4 +2452,22 @@ msgstr ""
 
 #: admin/includes/right_side.php:47
 msgid "Youtube:"
+msgstr ""
+
+msgid "Categories"
+msgstr ""
+
+msgid "Error, duplicate 1: Tags"
+msgstr ""
+
+msgid "Product Color"
+msgstr ""
+
+msgid "Product Size"
+msgstr ""
+
+msgid "Error, duplicate 1: Color"
+msgstr ""
+
+msgid "Size"
 msgstr ""
