@@ -200,6 +200,10 @@ if( ! function_exists( 'wpt_texonomy_filter_generator' ) ){
 
 if( !function_exists( 'wpt_search_box' ) ){
     /**
+     * ##########################
+     * THIS WILL REMOVED
+     * ##########################
+     * 
      * Total Search box Generator
      * 
      * @param type $temp_number It's a Temporay Number for each Table,

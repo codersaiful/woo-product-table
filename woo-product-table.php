@@ -234,7 +234,7 @@ $default = array(
     'product_direct_checkout' => 'no',
     
     //Added Search Box Features @Since 3.3
-    'search_box_title' => sprintf( __( 'Search Box (%sAll Fields Optional%s)', 'woo-product-table' ),'<small>', '</small>'),
+    'search_box_title' => __( 'Search Box (%sAll Fields Optional%s)', 'woo-product-table' ),
     'search_box_searchkeyword' => __( 'Search Keyword', 'woo-product-table' ),
     'search_box_orderby'    => __( 'Sort By', 'woo-product-table' ),
     'search_box_order'      => __( 'Order', 'woo-product-table' ),

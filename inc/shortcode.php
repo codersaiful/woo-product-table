@@ -219,6 +219,16 @@ class Shortcode extends Shortcode_Base{
     public $meta_value_sort;
 
     public $table_style;
+
+    /**
+     * It's also a base setting but it's diffrent based on Table ID
+     * Otherwise Other all will depend on base_config
+     * 
+     * You can check also $this->base_config
+     * both are almost same
+     *
+     * @var array
+     */
     public $_config;
     public $wrapper_class;
     public $table_class;

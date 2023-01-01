@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Product Table for WooCommerce - (wooproducttable)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-11-02 08:26+0000\n"
-"PO-Revision-Date: 2022-12-31 08:33+0000\n"
+"PO-Revision-Date: 2023-01-01 04:35+0000\n"
 "Last-Translator: \n"
 "Language-Team: বাংলা\n"
 "Language: bn_BD\n"
@@ -42,8 +42,8 @@ msgstr ""
 #, php-format
 msgid "%d item"
 msgid_plural "%d items"
-msgstr[0] "%d আইটেম"
-msgstr[1] "%d আইটেম"
+msgstr[0] "%d টি পন্য"
+msgstr[1] "%d টি পন্য"
 
 #: admin/action-hook.php:508
 #, php-format
@@ -108,7 +108,7 @@ msgstr ""
 #: admin/action-hook.php:374
 #, php-format
 msgid "%s[Search Keyword Title]%s - Text"
-msgstr ""
+msgstr "%s[Search Keyword Title]%s - টেক্সট"
 
 #: admin/action-hook.php:368
 #, php-format
@@ -209,7 +209,7 @@ msgstr ""
 
 #: admin/action-hook.php:652
 msgid "[Type your Message.] Message"
-msgstr "[আপনার মেসেজ লিখুন] মেসেজ"
+msgstr "[Type your Message.] মেসেজ"
 
 #: admin/functions.php:391
 msgid "About Product Table"
@@ -1216,7 +1216,7 @@ msgstr ""
 
 #: woo-product-table.php:218
 msgid "Item"
-msgstr "আইটেম"
+msgstr "টি পন্য"
 
 #: admin/action-hook.php:421
 msgid "Item [for Plural]"
@@ -1236,7 +1236,7 @@ msgstr ""
 
 #: woo-product-table.php:219
 msgid "Items"
-msgstr "আইটেম সমুহ"
+msgstr "টি পন্য"
 
 #: admin/includes/right_side.php:38
 msgid "Join to CodeAstrology Group"
@@ -1874,15 +1874,15 @@ msgstr ""
 #: woo-product-table.php:206 woo-product-table.php:238
 #: admin/action-hook.php:376
 msgid "Search Keyword"
-msgstr ""
+msgstr "সার্চ কিওয়ার্ড"
 
 #: admin/action-hook.php:442
 msgid "Search Keyword Placeholder"
-msgstr ""
+msgstr "Search Keyword প্লেসহোল্ডার"
 
 #: admin/action-hook.php:444
 msgid "Search Keyword text"
-msgstr ""
+msgstr "Search Keyword টেক্সট"
 
 #: admin/tabs/search_n_filter.php:75
 msgid "Search on Whole Site"
@@ -1898,7 +1898,7 @@ msgstr ""
 
 #: admin/pro-features-html.php:95
 msgid "Search using specific Meta Keyword"
-msgstr ""
+msgstr "মেটা কিওয়ার্ড দিয়ে সার্চ"
 
 #: admin/action-hook.php:456
 msgid "SearchBox Order By text"
@@ -2164,7 +2164,7 @@ msgstr ""
 
 #: admin/tabs/search_n_filter.php:101
 msgid "Taxonomy Keywords for Advance Search Box (Separate with comma[,])"
-msgstr ""
+msgstr "এডভান্স সার্চবক্সের জন্য টেক্সোনমি কিওয়ার্ড(কমা দিয়ে সেপারেট করুন)"
 
 #: admin/tabs/search_n_filter.php:235
 msgid "Taxonomy Keywords for Filter (Separate with comma[,])"
@@ -2299,7 +2299,7 @@ msgstr ""
 
 #: woo-product-table.php:230 admin/action-hook.php:654
 msgid "Type your Message."
-msgstr ""
+msgstr "আপনার মেসেজ লিখুন।"
 
 #: admin/tabs/query.php:338
 msgid ""

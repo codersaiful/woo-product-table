@@ -461,17 +461,43 @@ if( ! function_exists( 'wpt_get_config_value' ) ){
             $config_value = is_array( $config_value ) && is_array( $config_l_value ) ? array_merge( $config_value, $config_l_value ) : $config_value;
         }
 
-        if( ! $table_ID ) return $config_value;
+        if( ! $table_ID ) return wpt_config_translate( $config_value, $table_ID );
 
         $config = get_post_meta( $table_ID, 'config', true );        
         $config = is_array( $config ) ? array_filter( $config ) : array();
         if( ! empty( $config ) && is_array( $config ) && is_array( $config_value ) ){
             $config_value = array_merge( $config_value, $config );
         }
-        $config_value = apply_filters( 'wpto_get_config_value', $config_value, $table_ID );
-
-        return is_array( $config_value ) ? $config_value : array();
+        
+        return wpt_config_translate( $config_value, $table_ID );
     }
+}
+
+/**
+ * Speciall for Config value make as Translateable text
+ * We will execute all value inside options, will convet to Translateable text
+ * 
+ * 
+ *
+ * @since 3.3.5.2.loco 
+ * @author Saiful Islam <codersaiful@gmail.com>
+ * 
+ * @param Array $config_value
+ * @param boolean|int|string $table_ID
+ * @return array
+ */
+function wpt_config_translate( $config_value, $table_ID = false ){
+    if( ! is_array( $config_value ) ) return [];
+
+    $config_value = array_map( function( $value ){
+        return __( $value, 'woo-product-table' );
+    }, $config_value );
+
+    //Actually we will change this bellow filter keyword, removed o from wpt
+    // $config_value = apply_filters( 'wpto_get_config_value', $config_value, $table_ID );
+    $config_value = apply_filters( 'wpt_get_config_value', $config_value, $table_ID );
+
+    return $config_value;
 }
 
 /**
