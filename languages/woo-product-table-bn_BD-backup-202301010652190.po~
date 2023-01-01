@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Product Table for WooCommerce - (wooproducttable)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-11-02 08:26+0000\n"
-"PO-Revision-Date: 2023-01-01 06:18+0000\n"
+"PO-Revision-Date: 2023-01-01 06:45+0000\n"
 "Last-Translator: \n"
 "Language-Team: বাংলা\n"
 "Language: bn_BD\n"
@@ -245,7 +245,7 @@ msgstr "নতুন কলাম যুক্ত করুন"
 msgid "Add new Shortcode"
 msgstr "নতুন শর্টকোড যোগকরুন"
 
-#: inc/shortcode.php:600 admin/tabs/options.php:162
+#: inc/shortcode.php:610 admin/tabs/options.php:162
 msgid "Add to cart"
 msgstr "কার্টে নিন"
 
@@ -861,13 +861,7 @@ msgid ""
 "going to Checkout Page just after Added to cart for each product"
 msgstr ""
 
-msgid "Error, duplicate 1: Color"
-msgstr ""
-
-msgid "Error, duplicate 1: Tags"
-msgstr ""
-
-#: inc/shortcode.php:879
+#: inc/shortcode.php:889
 msgid "Error: on assing_property on the table_body!!"
 msgstr ""
 
@@ -1014,7 +1008,7 @@ msgstr "প্রিমিয়াম ভার্শন নিন"
 msgid "Get Support"
 msgstr ""
 
-#: inc/shortcode.php:880
+#: inc/shortcode.php:890
 msgid "Get Tutorial for this issue from wpOrg"
 msgstr ""
 
@@ -1281,7 +1275,7 @@ msgstr ""
 
 #: admin/menu_plugin_setting_link.php:48
 msgid "Live Support"
-msgstr ""
+msgstr "লাইভ সাপোর্ট"
 
 #: woo-product-table.php:202
 msgid "Load more"
@@ -1429,7 +1423,7 @@ msgstr "কম্বিনেশান ঠিক নাই"
 msgid "No Tag"
 msgstr ""
 
-#: admin/action-hook.php:204 includes/functions.php:989
+#: admin/action-hook.php:204 includes/functions.php:1015
 #: admin/tabs/options.php:74 admin/tabs/query.php:326
 msgid "None"
 msgstr "None"
@@ -2307,7 +2301,7 @@ msgstr "মোট মুল্য"
 msgid "Try Pro Version"
 msgstr ""
 
-#: inc/shortcode.php:882
+#: inc/shortcode.php:892
 msgid "Tutorial from website with Screenshot"
 msgstr ""
 

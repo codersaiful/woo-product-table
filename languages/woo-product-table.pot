@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Product Table for WooCommerce - (wooproducttable)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-01 05:20+0000\n"
+"POT-Creation-Date: 2023-01-01 06:51+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -243,7 +243,7 @@ msgstr ""
 msgid "Add new Shortcode"
 msgstr ""
 
-#: inc/shortcode.php:600 admin/tabs/options.php:162
+#: inc/shortcode.php:610 admin/tabs/options.php:162
 msgid "Add to cart"
 msgstr ""
 
@@ -855,7 +855,7 @@ msgid ""
 "going to Checkout Page just after Added to cart for each product"
 msgstr ""
 
-#: inc/shortcode.php:879
+#: inc/shortcode.php:889
 msgid "Error: on assing_property on the table_body!!"
 msgstr ""
 
@@ -1001,7 +1001,7 @@ msgstr ""
 msgid "Get Support"
 msgstr ""
 
-#: inc/shortcode.php:880
+#: inc/shortcode.php:890
 msgid "Get Tutorial for this issue from wpOrg"
 msgstr ""
 
@@ -1413,7 +1413,7 @@ msgstr ""
 msgid "No Tag"
 msgstr ""
 
-#: admin/action-hook.php:204 includes/functions.php:989
+#: admin/action-hook.php:204 includes/functions.php:1015
 #: admin/tabs/options.php:74 admin/tabs/query.php:326
 msgid "None"
 msgstr ""
@@ -2279,7 +2279,7 @@ msgstr ""
 msgid "Try Pro Version"
 msgstr ""
 
-#: inc/shortcode.php:882
+#: inc/shortcode.php:892
 msgid "Tutorial from website with Screenshot"
 msgstr ""
 
@@ -2470,4 +2470,7 @@ msgid "Error, duplicate 1: Color"
 msgstr ""
 
 msgid "Size"
+msgstr ""
+
+msgid "Choose"
 msgstr ""

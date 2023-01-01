@@ -98,10 +98,10 @@ if( ! function_exists( 'wpt_texonomy_search_generator' ) ){
 		'option_none_value' => -1,
 		'value_field'       => 'term_id',
 		'multiple'          => $multiple_selectable,
-                'data-key'          => $texonomy_keyword,
+        'data-key'          => $texonomy_keyword,
 	);
         if( ! $multiple_selectable ){
-            $defaults['show_option_all'] = esc_html__( 'Choose ', 'woo-product-table' )  . $label_all_items;
+            $defaults['show_option_all'] = __( $label_all_items, 'woo-product-table' );
         }
         
         /**
