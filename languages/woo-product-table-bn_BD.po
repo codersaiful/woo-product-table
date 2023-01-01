@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Product Table for WooCommerce - (wooproducttable)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-11-02 08:26+0000\n"
-"PO-Revision-Date: 2023-01-01 08:34+0000\n"
+"PO-Revision-Date: 2023-01-01 08:37+0000\n"
 "Last-Translator: \n"
 "Language-Team: বাংলা\n"
 "Language: bn_BD\n"
@@ -333,7 +333,7 @@ msgstr "সকল ক্যাটাগরি"
 
 #: admin/functions.php:520
 msgid "All Color"
-msgstr ""
+msgstr "সকল রঙ"
 
 #: admin/action-hook.php:325
 msgid "All Items"
@@ -345,11 +345,11 @@ msgstr ""
 
 #: admin/functions.php:521
 msgid "All Size"
-msgstr ""
+msgstr "সকল সাইজ"
 
 #: admin/functions.php:519
 msgid "All tags"
-msgstr ""
+msgstr "সকল ট্যাগ"
 
 #: admin/tabs/inc-column/add-new-column.php:42
 msgid "All Type Content"
