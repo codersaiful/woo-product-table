@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Product Table for WooCommerce - (wooproducttable)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-01 08:21+0000\n"
+"POT-Creation-Date: 2023-01-01 08:23+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -209,7 +209,7 @@ msgstr ""
 msgid "[Type your Message.] Message"
 msgstr ""
 
-#: admin/functions.php:409
+#: admin/functions.php:391
 msgid "About Product Table"
 msgstr ""
 
@@ -323,7 +323,7 @@ msgstr ""
 msgid "Ajax Pagination (Default)"
 msgstr ""
 
-#: admin/functions.php:12
+#: admin/functions.php:518
 msgid "All Categories"
 msgstr ""
 
@@ -335,15 +335,15 @@ msgstr ""
 msgid "All Messages"
 msgstr ""
 
-#: admin/functions.php:14
+#: admin/functions.php:520
 msgid "All Product Color"
 msgstr ""
 
-#: admin/functions.php:15
+#: admin/functions.php:521
 msgid "All Product Size"
 msgstr ""
 
-#: admin/functions.php:13
+#: admin/functions.php:519
 msgid "All Tags"
 msgstr ""
 
@@ -448,7 +448,7 @@ msgstr ""
 msgid "Basic Settings"
 msgstr ""
 
-#: admin/functions.php:502 admin/tabs/table_style.php:5
+#: admin/functions.php:484 admin/tabs/table_style.php:5
 msgid "Beautiful Blacky"
 msgstr ""
 
@@ -464,11 +464,11 @@ msgstr ""
 msgid "Blank"
 msgstr ""
 
-#: admin/functions.php:504 admin/tabs/table_style.php:18
+#: admin/functions.php:486 admin/tabs/table_style.php:18
 msgid "Blue Border"
 msgstr ""
 
-#: admin/functions.php:518 admin/tabs/table_style.php:14
+#: admin/functions.php:500 admin/tabs/table_style.php:14
 msgid "Blue Style"
 msgstr ""
 
@@ -520,7 +520,7 @@ msgstr ""
 msgid "Cart Page"
 msgstr ""
 
-#: admin/functions.php:5
+#: admin/functions.php:511
 msgid "Categories"
 msgstr ""
 
@@ -544,7 +544,7 @@ msgstr ""
 msgid "Checkout Page"
 msgstr ""
 
-#: admin/functions.php:11
+#: admin/functions.php:517
 msgid "Choose"
 msgstr ""
 
@@ -560,7 +560,7 @@ msgid ""
 "value(if number)"
 msgstr ""
 
-#: admin/functions.php:503 admin/tabs/table_style.php:17
+#: admin/functions.php:485 admin/tabs/table_style.php:17
 msgid "Classic"
 msgstr ""
 
@@ -602,7 +602,7 @@ msgstr ""
 msgid "CodeAstrology Team"
 msgstr ""
 
-#: admin/functions.php:403
+#: admin/functions.php:385
 msgid "CodeAstrology.com support"
 msgstr ""
 
@@ -610,7 +610,7 @@ msgstr ""
 msgid "codersaiful"
 msgstr ""
 
-#: admin/functions.php:9 modules/elementor-widget.php:231
+#: admin/functions.php:515 modules/elementor-widget.php:231
 msgid "Color"
 msgstr ""
 
@@ -630,7 +630,7 @@ msgstr ""
 msgid "Column Type"
 msgstr ""
 
-#: admin/functions.php:403
+#: admin/functions.php:385
 msgid "Community forum"
 msgstr ""
 
@@ -696,11 +696,11 @@ msgstr ""
 msgid "Customizable Table using WordPress Classic Editor"
 msgstr ""
 
-#: admin/functions.php:521
+#: admin/functions.php:503
 msgid "Customized Design"
 msgstr ""
 
-#: admin/functions.php:519 admin/tabs/table_style.php:15
+#: admin/functions.php:501 admin/tabs/table_style.php:15
 msgid "Dark Style"
 msgstr ""
 
@@ -712,7 +712,7 @@ msgstr ""
 msgid "Date"
 msgstr ""
 
-#: admin/functions.php:70 admin/tabs/options.php:308 admin/tabs/query.php:369
+#: admin/functions.php:52 admin/tabs/options.php:308 admin/tabs/query.php:369
 #: admin/tabs/query.php:383 admin/tabs/inc-column/column-list.php:47
 msgid "Default"
 msgstr ""
@@ -733,7 +733,7 @@ msgstr ""
 msgid "Default sorting (Menu Order)"
 msgstr ""
 
-#: admin/functions.php:501 admin/tabs/table_style.php:3
+#: admin/functions.php:483 admin/tabs/table_style.php:3
 msgid "Default Style"
 msgstr ""
 
@@ -812,7 +812,7 @@ msgstr ""
 msgid "Documentation"
 msgstr ""
 
-#: admin/functions.php:491
+#: admin/functions.php:473
 msgid "Don't change for auto translate. Leave empty to get translated text."
 msgstr ""
 
@@ -965,7 +965,7 @@ msgid "Footer Cart Template"
 msgstr ""
 
 #. %s: Forum URL
-#: admin/functions.php:399
+#: admin/functions.php:381
 #, php-format
 msgid ""
 "For further assistance with Product Table for WooCommerce, use the <a "
@@ -973,7 +973,7 @@ msgid ""
 "href=\"%2$s\">open a support request at CodeAstrology.com</a>."
 msgstr ""
 
-#: admin/functions.php:408
+#: admin/functions.php:390
 msgid "For more information:"
 msgstr ""
 
@@ -1025,7 +1025,7 @@ msgstr ""
 msgid "Get Tutorial for this issue from wpOrg"
 msgstr ""
 
-#: admin/functions.php:412
+#: admin/functions.php:394
 msgid "Github project"
 msgstr ""
 
@@ -1057,7 +1057,7 @@ msgstr ""
 msgid "Golden  Style"
 msgstr ""
 
-#: admin/functions.php:517 admin/tabs/table_style.php:13
+#: admin/functions.php:499 admin/tabs/table_style.php:13
 msgid "Green Style"
 msgstr ""
 
@@ -1093,7 +1093,7 @@ msgstr ""
 msgid "Height(cm)"
 msgstr ""
 
-#: admin/functions.php:389 admin/functions.php:391
+#: admin/functions.php:371 admin/functions.php:373
 msgid "Help &amp; Support"
 msgstr ""
 
@@ -1144,7 +1144,7 @@ msgid ""
 "utm_source=WPT+Plugin+Dashboard&utm_medium=Free+Version"
 msgstr ""
 
-#: admin/functions.php:464
+#: admin/functions.php:446
 msgid ""
 "I have found an issue with your WooProductTable plugin. I will explain here "
 "with screenshot.Issues And Screenshots:"
@@ -1367,7 +1367,7 @@ msgstr ""
 msgid "Minimum Price"
 msgstr ""
 
-#: admin/functions.php:205 admin/tabs/column_settings.php:111
+#: admin/functions.php:187 admin/tabs/column_settings.php:111
 msgid "Mobile"
 msgstr ""
 
@@ -1375,7 +1375,7 @@ msgstr ""
 msgid "Mobile Responsive"
 msgstr ""
 
-#: admin/functions.php:507
+#: admin/functions.php:489
 msgid "Modern Style"
 msgstr ""
 
@@ -1479,7 +1479,7 @@ msgstr ""
 msgid "Off"
 msgstr ""
 
-#: admin/functions.php:413
+#: admin/functions.php:395
 msgid "Official theme"
 msgstr ""
 
@@ -1520,7 +1520,7 @@ msgstr ""
 msgid "Options"
 msgstr ""
 
-#: admin/functions.php:508 admin/tabs/table_style.php:22
+#: admin/functions.php:490 admin/tabs/table_style.php:22
 msgid "Orange Style"
 msgstr ""
 
@@ -1540,7 +1540,7 @@ msgstr ""
 msgid "Order text"
 msgstr ""
 
-#: admin/functions.php:414
+#: admin/functions.php:396
 msgid "Other Premium Plugins"
 msgstr ""
 
@@ -1582,7 +1582,7 @@ msgstr ""
 msgid "PHP"
 msgstr ""
 
-#: admin/functions.php:506 admin/tabs/table_style.php:20
+#: admin/functions.php:488 admin/tabs/table_style.php:20
 msgid "Pink Style"
 msgstr ""
 
@@ -1621,7 +1621,7 @@ msgstr ""
 msgid "Posts per page"
 msgstr ""
 
-#: admin/functions.php:411
+#: admin/functions.php:393
 msgid "Premium Plugin "
 msgstr ""
 
@@ -1637,7 +1637,7 @@ msgstr ""
 msgid "Product Categories"
 msgstr ""
 
-#: admin/functions.php:7
+#: admin/functions.php:513
 msgid "Product Color"
 msgstr ""
 
@@ -1657,7 +1657,7 @@ msgstr ""
 msgid "Product not found!"
 msgstr ""
 
-#: admin/functions.php:8
+#: admin/functions.php:514
 msgid "Product Size"
 msgstr ""
 
@@ -1840,7 +1840,7 @@ msgstr ""
 msgid "Reset Settings"
 msgstr ""
 
-#: admin/functions.php:204
+#: admin/functions.php:186
 msgid "Responsive <small>New</small>"
 msgstr ""
 
@@ -1954,7 +1954,7 @@ msgstr ""
 msgid "Select multiple inner items:"
 msgstr ""
 
-#: admin/functions.php:500
+#: admin/functions.php:482
 msgid "Select None"
 msgstr ""
 
@@ -2010,7 +2010,7 @@ msgid "Shortcode Column"
 msgstr ""
 
 #. %s: Documentation URL
-#: admin/functions.php:394
+#: admin/functions.php:376
 #, php-format
 msgid ""
 "Should you need help understanding, using, or extending Product Table for "
@@ -2039,7 +2039,7 @@ msgstr ""
 msgid "Showing %s out of %s"
 msgstr ""
 
-#: admin/functions.php:10
+#: admin/functions.php:516
 msgid "Size"
 msgstr ""
 
@@ -2059,15 +2059,15 @@ msgstr ""
 msgid "SL"
 msgstr ""
 
-#: admin/functions.php:505 admin/tabs/table_style.php:19
+#: admin/functions.php:487 admin/tabs/table_style.php:19
 msgid "Smart Border"
 msgstr ""
 
-#: admin/functions.php:520 admin/tabs/table_style.php:16
+#: admin/functions.php:502 admin/tabs/table_style.php:16
 msgid "Smart Light"
 msgstr ""
 
-#: admin/functions.php:516 admin/tabs/table_style.php:12
+#: admin/functions.php:498 admin/tabs/table_style.php:12
 msgid "Smart Thin"
 msgstr ""
 
@@ -2111,7 +2111,7 @@ msgstr ""
 msgid "Span"
 msgstr ""
 
-#: admin/functions.php:16
+#: admin/functions.php:522
 msgid "sss"
 msgstr ""
 
@@ -2180,7 +2180,7 @@ msgstr ""
 msgid "Tablet"
 msgstr ""
 
-#: woo-product-table.php:99 admin/functions.php:6
+#: woo-product-table.php:99 admin/functions.php:512
 msgid "Tags"
 msgstr ""
 
@@ -2423,7 +2423,7 @@ msgstr ""
 msgid "wooproducttable.com"
 msgstr ""
 
-#: admin/functions.php:410
+#: admin/functions.php:392
 msgid "WordPress.org"
 msgstr ""
 
