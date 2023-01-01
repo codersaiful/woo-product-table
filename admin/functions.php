@@ -515,10 +515,10 @@ function wpt_get_pro_verstion_translate_string(){
         __( 'Color', 'woo-product-table' ),
         __( 'Size', 'woo-product-table' ),
         __( 'Choose', 'woo-product-table' ),
-        __( 'All Categories', 'woo-product-table' ),
-        __( 'All Tags', 'woo-product-table' ),
-        __( 'All Product Color', 'woo-product-table' ),
-        __( 'All Product Size', 'woo-product-table' ),
+        __( 'All categories', 'woo-product-table' ),
+        __( 'All tags', 'woo-product-table' ),
+        __( 'All Color', 'woo-product-table' ),
+        __( 'All Size', 'woo-product-table' ),
         __( 'sss', 'woo-product-table' ),
     );
 

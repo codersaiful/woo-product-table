@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Product Table for WooCommerce - (wooproducttable)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-01 08:23+0000\n"
+"POT-Creation-Date: 2023-01-01 08:34+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -324,7 +324,11 @@ msgid "Ajax Pagination (Default)"
 msgstr ""
 
 #: admin/functions.php:518
-msgid "All Categories"
+msgid "All categories"
+msgstr ""
+
+#: admin/functions.php:520
+msgid "All Color"
 msgstr ""
 
 #: admin/action-hook.php:325
@@ -335,16 +339,12 @@ msgstr ""
 msgid "All Messages"
 msgstr ""
 
-#: admin/functions.php:520
-msgid "All Product Color"
-msgstr ""
-
 #: admin/functions.php:521
-msgid "All Product Size"
+msgid "All Size"
 msgstr ""
 
 #: admin/functions.php:519
-msgid "All Tags"
+msgid "All tags"
 msgstr ""
 
 #: admin/tabs/inc-column/add-new-column.php:42

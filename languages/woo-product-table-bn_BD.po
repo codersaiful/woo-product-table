@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Product Table for WooCommerce - (wooproducttable)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-11-02 08:26+0000\n"
-"PO-Revision-Date: 2023-01-01 06:52+0000\n"
+"PO-Revision-Date: 2023-01-01 08:34+0000\n"
 "Last-Translator: \n"
 "Language-Team: বাংলা\n"
 "Language: bn_BD\n"
@@ -326,12 +326,29 @@ msgstr "পেজিনেশানের জন্য এজাক্স (চ�
 msgid "Ajax Pagination (Default)"
 msgstr "এজাক্স পেজিনেশান(ডিফল্ট)"
 
+#: admin/functions.php:518
+#| msgid "All Categories"
+msgid "All categories"
+msgstr "সকল ক্যাটাগরি"
+
+#: admin/functions.php:520
+msgid "All Color"
+msgstr ""
+
 #: admin/action-hook.php:325
 msgid "All Items"
 msgstr ""
 
 #: admin/action-hook.php:588
 msgid "All Messages"
+msgstr ""
+
+#: admin/functions.php:521
+msgid "All Size"
+msgstr ""
+
+#: admin/functions.php:519
+msgid "All tags"
 msgstr ""
 
 #: admin/tabs/inc-column/add-new-column.php:42
@@ -507,6 +524,7 @@ msgstr "বান্ডিল কুইক পারচেজ"
 msgid "Cart Page"
 msgstr "কার্ট পেজ"
 
+#: admin/functions.php:511
 msgid "Categories"
 msgstr "ক্যাটাগরি"
 
@@ -530,12 +548,9 @@ msgstr "চেকবক্স"
 msgid "Checkout Page"
 msgstr "চেক-আউট পেজ"
 
+#: admin/functions.php:517
 msgid "Choose"
-msgstr ""
-
-#: includes/shortcode.php:103
-msgid "Choose "
-msgstr ""
+msgstr "পছন্দ"
 
 #: admin/tabs/search_n_filter.php:181
 #, php-format
@@ -599,7 +614,7 @@ msgstr ""
 msgid "codersaiful"
 msgstr ""
 
-#: modules/elementor-widget.php:231
+#: admin/functions.php:515 modules/elementor-widget.php:231
 msgid "Color"
 msgstr "রঙ"
 
@@ -862,12 +877,6 @@ msgstr ""
 msgid ""
 "Enable Quick Buy Button [Direct Checkout Page for each product]. Direct "
 "going to Checkout Page just after Added to cart for each product"
-msgstr ""
-
-msgid "Error, duplicate 1: Color"
-msgstr ""
-
-msgid "Error, duplicate 1: Tags"
 msgstr ""
 
 #: inc/shortcode.php:889
@@ -1637,6 +1646,7 @@ msgstr ""
 msgid "Product Categories"
 msgstr ""
 
+#: admin/functions.php:513
 msgid "Product Color"
 msgstr "পন্যের রঙ"
 
@@ -1656,6 +1666,7 @@ msgstr ""
 msgid "Product not found!"
 msgstr "কোন পন্য পাওয়া যায়নি!"
 
+#: admin/functions.php:514
 msgid "Product Size"
 msgstr "পন্যের সাইজ"
 
@@ -1858,11 +1869,11 @@ msgstr "মুল্য ছাড়"
 
 #: admin/action-hook.php:674
 msgid "Save All"
-msgstr ""
+msgstr "সংরক্ষন করুন"
 
 #: admin/configuration_page.php:101 admin/post_metabox_form.php:137
 msgid "Save Change"
-msgstr "সেভ করুন"
+msgstr "সংরক্ষন করুন"
 
 #: woo-product-table.php:205
 msgid "Search"
@@ -2039,6 +2050,7 @@ msgstr ""
 msgid "Showing %s out of %s"
 msgstr "দেখছেন %s পন্য %s এর মধ্যে"
 
+#: admin/functions.php:516
 msgid "Size"
 msgstr "সাইজ"
 
@@ -2110,6 +2122,10 @@ msgstr ""
 msgid "Span"
 msgstr ""
 
+#: admin/functions.php:522
+msgid "sss"
+msgstr ""
+
 #: admin/tabs/options.php:210
 msgid "Stats Page Count Text"
 msgstr ""
@@ -2175,7 +2191,7 @@ msgstr ""
 msgid "Tablet"
 msgstr "ট্যাবলেট"
 
-#: woo-product-table.php:99
+#: woo-product-table.php:99 admin/functions.php:512
 msgid "Tags"
 msgstr "ট্যাগ"
 
@@ -2376,6 +2392,8 @@ msgstr ""
 
 #: inc/handle/fragment.php:153 includes/items/action.php:74
 #: includes/items/action.php:75
+#: compatible/plugins/waitlist-woocommerce/waitlist-col.php:65
+#: compatible/plugins/waitlist-woocommerce/waitlist-col.php:66
 msgid "View Cart"
 msgstr "কার্ট লিংক"
 
