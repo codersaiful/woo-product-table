@@ -1,5 +1,23 @@
 <?php
 
+function wpt_get_pro_verstion_translate_string(){
+    $string_array = array(
+        __( 'Categories', 'woo-product-table' ),
+        __( 'Tags', 'woo-product-table' ),
+        __( 'Product Color', 'woo-product-table' ),
+        __( 'Product Size', 'woo-product-table' ),
+        __( 'Color', 'woo-product-table' ),
+        __( 'Size', 'woo-product-table' ),
+        __( 'Choose', 'woo-product-table' ),
+        __( 'All Categories', 'woo-product-table' ),
+        __( 'All Tags', 'woo-product-table' ),
+        __( 'All Product Color', 'woo-product-table' ),
+        __( 'All Product Size', 'woo-product-table' ),
+        __( 'sss', 'woo-product-table' ),
+    );
+
+    return $string_array;
+}
 
 if( !function_exists( 'wpt_admin_body_class' ) ){
     /**
