@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Product Table for WooCommerce - (wooproducttable)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-11-02 08:26+0000\n"
-"PO-Revision-Date: 2023-01-01 05:20+0000\n"
+"PO-Revision-Date: 2023-01-01 06:18+0000\n"
 "Last-Translator: \n"
 "Language-Team: বাংলা\n"
 "Language: bn_BD\n"
@@ -598,7 +598,7 @@ msgstr ""
 
 #: modules/elementor-widget.php:231
 msgid "Color"
-msgstr ""
+msgstr "রঙ"
 
 #: admin/post_metabox_form.php:10
 msgid "Column"
@@ -824,7 +824,7 @@ msgstr ""
 
 #: admin/tabs/search_n_filter.php:132
 msgid "eg: product_cat,product_tag,color,size"
-msgstr ""
+msgstr "উদাহরনঃ product_cat,product_tag,color,size"
 
 #: admin/action-hook.php:496
 msgid "eg: Quick View"
@@ -1635,7 +1635,7 @@ msgid "Product Categories"
 msgstr ""
 
 msgid "Product Color"
-msgstr ""
+msgstr "পন্যের রঙ"
 
 #: admin/pro-features-html.php:35
 msgid "Product ID"
@@ -1654,7 +1654,7 @@ msgid "Product not found!"
 msgstr "কোন পন্য পাওয়া যায়নি!"
 
 msgid "Product Size"
-msgstr ""
+msgstr "পন্যের সাইজ"
 
 #: admin/pro-features-html.php:36
 msgid "Product SKU"
@@ -1712,7 +1712,7 @@ msgstr "প্রোডাক্টের টাইটেল"
 
 #: modules/elementor-widget.php:308
 msgid "Product Title Color"
-msgstr ""
+msgstr "পন্যের টাইটেল কালার"
 
 #: woo-product-table.php:222 admin/action-hook.php:600
 msgid ""
@@ -2037,7 +2037,7 @@ msgid "Showing %s out of %s"
 msgstr "দেখছেন %s পন্য %s এর মধ্যে"
 
 msgid "Size"
-msgstr ""
+msgstr "সাইজ"
 
 #: templates/table-preview.php:32
 msgid "Skip to content"
@@ -2174,7 +2174,7 @@ msgstr "ট্যাবলেট"
 
 #: woo-product-table.php:99
 msgid "Tags"
-msgstr ""
+msgstr "ট্যাগ"
 
 #: includes/functions.php:30 admin/tabs/inc-column/add-new-column.php:33
 msgid "Taxonomy"
@@ -2206,7 +2206,7 @@ msgstr ""
 
 #: admin/post_metabox_form.php:22 modules/elementor-widget.php:294
 msgid "Text Color"
-msgstr ""
+msgstr "লেখার কালার"
 
 #: framework/recommeded.php:103
 msgid ""

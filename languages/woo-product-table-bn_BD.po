@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Product Table for WooCommerce - (wooproducttable)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-11-02 08:26+0000\n"
-"PO-Revision-Date: 2023-01-01 05:21+0000\n"
+"PO-Revision-Date: 2023-01-01 06:19+0000\n"
 "Last-Translator: \n"
 "Language-Team: বাংলা\n"
 "Language: bn_BD\n"
@@ -824,7 +824,7 @@ msgstr ""
 
 #: admin/tabs/search_n_filter.php:132
 msgid "eg: product_cat,product_tag,color,size"
-msgstr ""
+msgstr "উদাহরনঃ product_cat,product_tag,color,size"
 
 #: admin/action-hook.php:496
 msgid "eg: Quick View"
@@ -1281,7 +1281,7 @@ msgstr ""
 
 #: admin/menu_plugin_setting_link.php:48
 msgid "Live Support"
-msgstr ""
+msgstr "লাইভ সাপোর্ট"
 
 #: woo-product-table.php:202
 msgid "Load more"
@@ -1712,7 +1712,7 @@ msgstr "প্রোডাক্টের টাইটেল"
 
 #: modules/elementor-widget.php:308
 msgid "Product Title Color"
-msgstr ""
+msgstr "পন্যের টাইটেল কালার"
 
 #: woo-product-table.php:222 admin/action-hook.php:600
 msgid ""
@@ -2206,7 +2206,7 @@ msgstr ""
 
 #: admin/post_metabox_form.php:22 modules/elementor-widget.php:294
 msgid "Text Color"
-msgstr ""
+msgstr "লেখার কালার"
 
 #: framework/recommeded.php:103
 msgid ""
