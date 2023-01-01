@@ -11,7 +11,7 @@ class Compatible_Loader{
         $plugin_list = [
             'waitlist-woocommerce' => [
                 'file'  => 'xoo-wl-main.php',
-                'exits_func' => '',
+                'exits_func' => 'xoo_wl_frontend',
                 'folder_dir'      => $this->folder_dir,
             ],
             // 'loco-translate' => [
