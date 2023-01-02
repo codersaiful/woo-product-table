@@ -237,7 +237,7 @@ $data = isset( $meta_basics['data'] ) ? $meta_basics['data'] : false;
     <table class="ultraaddons-table wpt-table-separator">
                 <tr>
                     <th>
-                        <label class="wpt_label" for="wpt_table_add_to_cart_selected_text"><?php esc_html_e( '(Add to cart(Selected]) Text', 'woo-product-table' );?></label>
+                        <label class="wpt_label" for="wpt_table_add_to_cart_selected_text"><?php esc_html_e( '(Add to cart[Selected]) Text', 'woo-product-table' );?></label>
                         <?php wpt_help_icon_render(); ?>
                     </th>
                     <td>

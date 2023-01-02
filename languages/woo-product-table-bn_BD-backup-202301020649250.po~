@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Product Table for WooCommerce - (wooproducttable)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-11-02 08:26+0000\n"
-"PO-Revision-Date: 2023-01-02 05:08+0000\n"
+"PO-Revision-Date: 2023-01-02 06:48+0000\n"
 "Last-Translator: \n"
 "Language-Team: বাংলা\n"
 "Language: bn_BD\n"
@@ -15,7 +15,7 @@ msgstr ""
 "X-Loco-Version: 2.6.3; wp-6.1.1"
 
 #. 1: Plugin name 2: PHP 3: Required PHP version
-#: woo-product-table.php:527
+#: woo-product-table.php:530
 #, php-format
 msgid "\"%1$s\" requires \"%2$s\" version %3$s or greater."
 msgstr "\"%1$s\" এর জন্য \"%2$s\" এর ভার্শন %3$s বা বেশি হওয়া দরকার। "
@@ -120,21 +120,21 @@ msgstr ""
 msgid "%sCategories, Tags%s Link"
 msgstr ""
 
-#: admin/tabs/options.php:238
+#: admin/tabs/options.php:240
 msgid "(Add to cart(Selected]) Text"
-msgstr ""
+msgstr "(Add to cart(Selected]) Text"
 
 #: admin/tabs/options.php:156
 msgid "(Add to cart) Text"
 msgstr "(এড টু কার্ট) টেক্সট"
 
-#: admin/tabs/options.php:257
-msgid "(All Check/Uncheck) Text"
-msgstr ""
-
 #: admin/tabs/table_style.php:75
 msgid "(Premium)"
 msgstr ""
+
+#: admin/tabs/options.php:259
+msgid "(Select All) Text"
+msgstr "(Select All) টেক্সট"
 
 #. Description of the plugin
 msgid ""
@@ -249,7 +249,7 @@ msgstr "নতুন শর্টকোড যোগকরুন"
 msgid "Add to cart"
 msgstr "কার্টে নিন"
 
-#: admin/tabs/options.php:244 inc/handle/checkbox-box.php:20
+#: admin/tabs/options.php:246 inc/handle/checkbox-box.php:20
 #| msgid "Add to cart selected"
 msgid "Add to Cart (Selected)"
 msgstr "বাছাই করে কার্টে নিন"
@@ -326,12 +326,12 @@ msgstr "পেজিনেশানের জন্য এজাক্স (চ�
 msgid "Ajax Pagination (Default)"
 msgstr "এজাক্স পেজিনেশান(ডিফল্ট)"
 
-#: admin/functions.php:518
+#: admin/functions.php:519
 #| msgid "All Categories"
 msgid "All categories"
 msgstr "সকল ক্যাটাগরি"
 
-#: admin/functions.php:520
+#: admin/functions.php:521
 msgid "All Color"
 msgstr "সকল রঙ"
 
@@ -343,11 +343,11 @@ msgstr ""
 msgid "All Messages"
 msgstr ""
 
-#: admin/functions.php:521
+#: admin/functions.php:522
 msgid "All Size"
 msgstr "সকল সাইজ"
 
-#: admin/functions.php:519
+#: admin/functions.php:520
 msgid "All tags"
 msgstr "সকল ট্যাগ"
 
@@ -452,7 +452,7 @@ msgstr ""
 msgid "Basic Settings"
 msgstr ""
 
-#: admin/functions.php:484 admin/tabs/table_style.php:5
+#: admin/functions.php:485 admin/tabs/table_style.php:5
 msgid "Beautiful Blacky"
 msgstr ""
 
@@ -468,11 +468,11 @@ msgstr ""
 msgid "Blank"
 msgstr ""
 
-#: admin/functions.php:486 admin/tabs/table_style.php:18
+#: admin/functions.php:487 admin/tabs/table_style.php:18
 msgid "Blue Border"
 msgstr ""
 
-#: admin/functions.php:500 admin/tabs/table_style.php:14
+#: admin/functions.php:501 admin/tabs/table_style.php:14
 msgid "Blue Style"
 msgstr ""
 
@@ -524,7 +524,7 @@ msgstr "বান্ডিল কুইক পারচেজ"
 msgid "Cart Page"
 msgstr "কার্ট পেজ"
 
-#: admin/functions.php:511
+#: admin/functions.php:512
 msgid "Categories"
 msgstr "ক্যাটাগরি"
 
@@ -548,7 +548,7 @@ msgstr "চেকবক্স"
 msgid "Checkout Page"
 msgstr "চেক-আউট পেজ"
 
-#: admin/functions.php:517
+#: admin/functions.php:518
 msgid "Choose"
 msgstr "পছন্দ"
 
@@ -564,7 +564,7 @@ msgid ""
 "value(if number)"
 msgstr ""
 
-#: admin/functions.php:485 admin/tabs/table_style.php:17
+#: admin/functions.php:486 admin/tabs/table_style.php:17
 msgid "Classic"
 msgstr ""
 
@@ -614,7 +614,7 @@ msgstr ""
 msgid "codersaiful"
 msgstr ""
 
-#: admin/functions.php:515 modules/elementor-widget.php:231
+#: admin/functions.php:516 modules/elementor-widget.php:231
 msgid "Color"
 msgstr "রঙ"
 
@@ -700,15 +700,15 @@ msgstr ""
 msgid "Customizable Table using WordPress Classic Editor"
 msgstr ""
 
-#: admin/functions.php:503
+#: admin/functions.php:504
 msgid "Customized Design"
 msgstr ""
 
-#: admin/functions.php:501 admin/tabs/table_style.php:15
+#: admin/functions.php:502 admin/tabs/table_style.php:15
 msgid "Dark Style"
 msgstr ""
 
-#: admin/tabs/options.php:318
+#: admin/tabs/options.php:320
 msgid "DataTable"
 msgstr ""
 
@@ -716,7 +716,7 @@ msgstr ""
 msgid "Date"
 msgstr ""
 
-#: admin/functions.php:52 admin/tabs/options.php:308 admin/tabs/query.php:369
+#: admin/functions.php:52 admin/tabs/options.php:310 admin/tabs/query.php:369
 #: admin/tabs/query.php:383 admin/tabs/inc-column/column-list.php:47
 msgid "Default"
 msgstr ""
@@ -737,7 +737,7 @@ msgstr ""
 msgid "Default sorting (Menu Order)"
 msgstr ""
 
-#: admin/functions.php:483 admin/tabs/table_style.php:3
+#: admin/functions.php:484 admin/tabs/table_style.php:3
 msgid "Default Style"
 msgstr ""
 
@@ -765,7 +765,7 @@ msgstr ""
 msgid "Description Length :"
 msgstr ""
 
-#: admin/tabs/options.php:288
+#: admin/tabs/options.php:290
 msgid "Description Type"
 msgstr ""
 
@@ -865,7 +865,7 @@ msgid "Empty Cart."
 msgstr "মুছুন"
 
 #: admin/action-hook.php:137 admin/action-hook.php:292
-#: admin/tabs/options.php:309
+#: admin/tabs/options.php:311
 msgid "Enable"
 msgstr ""
 
@@ -887,12 +887,12 @@ msgstr ""
 msgid "Example:"
 msgstr ""
 
-#: admin/tabs/options.php:220
+#: admin/tabs/options.php:222
 #, php-format
 msgid "Example: Page %s out of %s"
 msgstr "উদাহরনঃ Page %s out of %s"
 
-#: admin/tabs/options.php:191
+#: admin/tabs/options.php:192
 #, php-format
 msgid "Example: Showing %s out of %s"
 msgstr "উদাহরনঃ Showing %s out of %s"
@@ -935,13 +935,13 @@ msgstr ""
 msgid "Filter:"
 msgstr ""
 
-#: admin/tabs/options.php:229
+#: admin/tabs/options.php:231
 msgid ""
 "First %s will replace by current page number and second % will replace by "
 "total page count.  To hide, leave as empty"
 msgstr ""
 
-#: admin/tabs/options.php:200
+#: admin/tabs/options.php:201
 msgid ""
 "First %s will replace by showing number and second % will replace by total "
 "product number. To hide, leave as empty"
@@ -1062,7 +1062,7 @@ msgstr ""
 msgid "Golden  Style"
 msgstr ""
 
-#: admin/functions.php:499 admin/tabs/table_style.php:13
+#: admin/functions.php:500 admin/tabs/table_style.php:13
 msgid "Green Style"
 msgstr ""
 
@@ -1102,7 +1102,7 @@ msgstr "উচ্চতা(cm)"
 msgid "Help &amp; Support"
 msgstr ""
 
-#: admin/tabs/options.php:295
+#: admin/tabs/options.php:297
 #, php-format
 msgid ""
 "Here was %sdescription_lenght%s, But from 3.6, We have removed "
@@ -1317,7 +1317,7 @@ msgstr "লোড হচ্ছে.."
 msgid "Loading.. text write here"
 msgstr "Loading.. টেক্সট এখানে দিন"
 
-#: admin/tabs/options.php:293
+#: admin/tabs/options.php:295
 msgid "Long Description"
 msgstr "বড় ড্রেস্ক্রিপশন"
 
@@ -1383,7 +1383,7 @@ msgstr "মোবাইল"
 msgid "Mobile Responsive"
 msgstr ""
 
-#: admin/functions.php:489
+#: admin/functions.php:490
 msgid "Modern Style"
 msgstr ""
 
@@ -1529,7 +1529,7 @@ msgstr ""
 msgid "Options"
 msgstr "অপশন ও সেটিং"
 
-#: admin/functions.php:490 admin/tabs/table_style.php:22
+#: admin/functions.php:491 admin/tabs/table_style.php:22
 msgid "Orange Style"
 msgstr ""
 
@@ -1566,7 +1566,7 @@ msgstr "স্টকে নাই"
 msgid "outofstock"
 msgstr "outofstock"
 
-#: admin/tabs/options.php:218
+#: admin/tabs/options.php:219
 #, php-format
 msgid "Page %s out of %s"
 msgstr "পেজ %s মোট %s এর মধ্যে"
@@ -1587,11 +1587,11 @@ msgstr ""
 msgid "Parent Shortcode:"
 msgstr "প্যারেন্ট শর্টকোড"
 
-#: woo-product-table.php:529
+#: woo-product-table.php:532
 msgid "PHP"
 msgstr "পিএইচপি"
 
-#: admin/functions.php:488 admin/tabs/table_style.php:20
+#: admin/functions.php:489 admin/tabs/table_style.php:20
 msgid "Pink Style"
 msgstr ""
 
@@ -1646,7 +1646,7 @@ msgstr ""
 msgid "Product Categories"
 msgstr ""
 
-#: admin/functions.php:513
+#: admin/functions.php:514
 msgid "Product Color"
 msgstr "পন্যের রঙ"
 
@@ -1666,7 +1666,7 @@ msgstr ""
 msgid "Product not found!"
 msgstr "কোন পন্য পাওয়া যায়নি!"
 
-#: admin/functions.php:514
+#: admin/functions.php:515
 msgid "Product Size"
 msgstr "পন্যের সাইজ"
 
@@ -1845,7 +1845,7 @@ msgstr ""
 
 #: woo-product-table.php:212 inc/handle/search-box.php:21
 msgid "Reset"
-msgstr ""
+msgstr "রিসেট"
 
 #: admin/configuration_page.php:105
 msgid "Reset Settings"
@@ -1949,7 +1949,7 @@ msgstr ""
 msgid "Select a template to change footer cart design"
 msgstr ""
 
-#: admin/tabs/options.php:263 inc/handle/checkbox-box.php:21
+#: admin/tabs/options.php:265 inc/handle/checkbox-box.php:21
 msgid "Select All"
 msgstr "সবগুলো বাছাই করুন"
 
@@ -1965,7 +1965,7 @@ msgstr ""
 msgid "Select multiple inner items:"
 msgstr ""
 
-#: admin/functions.php:482
+#: admin/functions.php:483
 msgid "Select None"
 msgstr ""
 
@@ -2004,7 +2004,7 @@ msgid "Set featured image"
 msgstr ""
 
 #: woo-product-table.php:120 admin/pro-features-html.php:38
-#: admin/tabs/options.php:292
+#: admin/tabs/options.php:294
 msgid "Short Description"
 msgstr "ক্ষুদে বর্ননা"
 
@@ -2050,7 +2050,7 @@ msgstr ""
 msgid "Showing %s out of %s"
 msgstr "দেখছেন %s পন্য %s এর মধ্যে"
 
-#: admin/functions.php:516
+#: admin/functions.php:517
 msgid "Size"
 msgstr "সাইজ"
 
@@ -2070,15 +2070,15 @@ msgstr ""
 msgid "SL"
 msgstr ""
 
-#: admin/functions.php:487 admin/tabs/table_style.php:19
+#: admin/functions.php:488 admin/tabs/table_style.php:19
 msgid "Smart Border"
 msgstr ""
 
-#: admin/functions.php:502 admin/tabs/table_style.php:16
+#: admin/functions.php:503 admin/tabs/table_style.php:16
 msgid "Smart Light"
 msgstr ""
 
-#: admin/functions.php:498 admin/tabs/table_style.php:12
+#: admin/functions.php:499 admin/tabs/table_style.php:12
 msgid "Smart Thin"
 msgstr ""
 
@@ -2122,11 +2122,11 @@ msgstr ""
 msgid "Span"
 msgstr ""
 
-#: admin/functions.php:522
+#: admin/functions.php:523
 msgid "sss"
 msgstr ""
 
-#: admin/tabs/options.php:210
+#: admin/tabs/options.php:211
 msgid "Stats Page Count Text"
 msgstr ""
 
@@ -2191,7 +2191,7 @@ msgstr ""
 msgid "Tablet"
 msgstr "ট্যাবলেট"
 
-#: woo-product-table.php:99 admin/functions.php:512
+#: woo-product-table.php:99 admin/functions.php:513
 msgid "Tags"
 msgstr "ট্যাগ"
 
@@ -2246,7 +2246,7 @@ msgstr ""
 msgid "There is not founded any table to your. "
 msgstr "কোন টেবিল খুজে পাওয়া যাওনি।"
 
-#: admin/tabs/options.php:303
+#: admin/tabs/options.php:305
 msgid "Third Party Plugin Supporting "
 msgstr ""
 
@@ -2421,7 +2421,7 @@ msgstr "Width(সেমি)"
 msgid "Wish List"
 msgstr "উইস লিস্ট"
 
-#: woo-product-table.php:528 framework/recommeded.php:38
+#: woo-product-table.php:531 framework/recommeded.php:38
 #: modules/elementor-widget.php:41
 msgid "Woo Product Table"
 msgstr "Woo Product Table"
@@ -2438,7 +2438,7 @@ msgstr ""
 msgid "WordPress.org"
 msgstr "WordPress.org"
 
-#: admin/tabs/options.php:340
+#: admin/tabs/options.php:342
 msgid "WP Force"
 msgstr ""
 
