@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Product Table for WooCommerce - (wooproducttable)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-11-02 08:26+0000\n"
-"PO-Revision-Date: 2023-01-01 08:37+0000\n"
+"PO-Revision-Date: 2023-01-02 05:09+0000\n"
 "Last-Translator: \n"
 "Language-Team: বাংলা\n"
 "Language: bn_BD\n"
@@ -1845,7 +1845,7 @@ msgstr ""
 
 #: woo-product-table.php:212 inc/handle/search-box.php:21
 msgid "Reset"
-msgstr ""
+msgstr "রিসেট"
 
 #: admin/configuration_page.php:105
 msgid "Reset Settings"
