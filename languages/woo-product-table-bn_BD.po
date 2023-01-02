@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Product Table for WooCommerce - (wooproducttable)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-11-02 08:26+0000\n"
-"PO-Revision-Date: 2023-01-02 06:58+0000\n"
+"PO-Revision-Date: 2023-01-02 07:09+0000\n"
 "Last-Translator: \n"
 "Language-Team: বাংলা\n"
 "Language: bn_BD\n"
@@ -53,7 +53,7 @@ msgstr "%s[কোটে নিন]%s - বাটন টেক্সট"
 #: admin/action-hook.php:502
 #, php-format
 msgid "%s[Browse Quote list]%s - text "
-msgstr ""
+msgstr "%s[Browse Quote list]%s - টেক্সট "
 
 #: admin/action-hook.php:394
 #, php-format
@@ -503,19 +503,19 @@ msgstr ""
 
 #: admin/menu_plugin_setting_link.php:104
 msgid "Browse our Plugins"
-msgstr ""
+msgstr "আমাদের প্লাগিন গুলো দেখুন"
 
 #: admin/menu_plugin_setting_link.php:54
 msgid "Browse Plugins"
-msgstr ""
+msgstr "আমাদের প্লাগিনসমুহ"
 
 #: woo-product-table.php:214
 msgid "Browse the list"
-msgstr ""
+msgstr "প্লাগিনের লিস্ট দেখুন"
 
 #: admin/action-hook.php:504
 msgid "Browse the list - text write here"
-msgstr ""
+msgstr "Browse the list - টেক্সট লিখুন"
 
 #: admin/action-hook.php:274
 msgid "Bundle Quick Buy "

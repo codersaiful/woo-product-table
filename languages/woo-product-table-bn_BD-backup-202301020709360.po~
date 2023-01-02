@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Product Table for WooCommerce - (wooproducttable)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-11-02 08:26+0000\n"
-"PO-Revision-Date: 2023-01-02 06:54+0000\n"
+"PO-Revision-Date: 2023-01-02 06:58+0000\n"
 "Last-Translator: \n"
 "Language-Team: বাংলা\n"
 "Language: bn_BD\n"
@@ -1768,11 +1768,11 @@ msgstr ""
 
 #: woo-product-table.php:113
 msgid "Quick"
-msgstr ""
+msgstr "দ্রুত দেখা"
 
 #: admin/action-hook.php:257
 msgid "Quick Buy"
-msgstr ""
+msgstr "দ্রুত কেনা"
 
 #: woo-product-table.php:112 woo-product-table.php:203
 #: includes/functions.php:246 includes/functions.php:247
