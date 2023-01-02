@@ -1,4 +1,6 @@
 <?php
+$text = $config_value['quick_view_btn_text'] ?? __( 'Qiuck View', 'woo-product-table' );
+$text = __( $text, 'woo-product-table' );
 /**
  * Quick View Column Default validation.
  * User able to show/hide default quick view
@@ -8,7 +10,7 @@
  */
 $wpt_qv_validation = apply_filters( 'wpto_quick_view_validation', true );
 if( $wpt_qv_validation && ! empty( $data['id'] ) && ! empty( $config_value['quick_view_btn_text'] ) ){
-    echo wp_kses_post( '<a href="#" class="button yith-wcqv-button" data-product_id="' . $data['id'] . '">' . $config_value['quick_view_btn_text'] . '</a>' );
+    echo wp_kses_post( '<a href="#" class="button yith-wcqv-button" data-product_id="' . $data['id'] . '">' . $text . '</a>' );
 }
 
 /**

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Product Table for WooCommerce - (wooproducttable)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-11-02 08:26+0000\n"
-"PO-Revision-Date: 2023-01-02 06:48+0000\n"
+"PO-Revision-Date: 2023-01-02 06:54+0000\n"
 "Last-Translator: \n"
 "Language-Team: বাংলা\n"
 "Language: bn_BD\n"
@@ -88,7 +88,7 @@ msgstr "%s[Products Not founded!]%s - মেসেজ টেক্সট"
 #: admin/action-hook.php:494
 #, php-format
 msgid "%s[Quick View]%s - Button Text"
-msgstr ""
+msgstr "%s[Quick View]%s - বাটনের টেক্সট"
 
 #: admin/action-hook.php:520
 #, php-format
@@ -120,13 +120,14 @@ msgstr ""
 msgid "%sCategories, Tags%s Link"
 msgstr ""
 
-#: admin/tabs/options.php:240
-msgid "(Add to cart(Selected]) Text"
-msgstr "(Add to cart(Selected]) Text"
-
 #: admin/tabs/options.php:156
 msgid "(Add to cart) Text"
 msgstr "(এড টু কার্ট) টেক্সট"
+
+#: admin/tabs/options.php:240
+#| msgid "(Add to cart(Selected]) Text"
+msgid "(Add to cart[Selected]) Text"
+msgstr "(Add to cart(Selected]) টেক্সট"
 
 #: admin/tabs/table_style.php:75
 msgid "(Premium)"
@@ -284,7 +285,7 @@ msgstr ""
 
 #: admin/action-hook.php:430
 msgid "Added text for [Add to cart Selected]"
-msgstr ""
+msgstr "[Add to cart Selected] এর যোগ হয়েছে টেক্সট"
 
 #: woo-product-table.php:227 admin/action-hook.php:630
 msgid "Adding in Progress"
@@ -846,7 +847,7 @@ msgstr "উদাহরনঃ product_cat,product_tag,color,size"
 
 #: admin/action-hook.php:496
 msgid "eg: Quick View"
-msgstr ""
+msgstr "উদাহরনঃ Quick View"
 
 #: admin/action-hook.php:410
 msgid "eg: Reset"
@@ -1285,7 +1286,7 @@ msgstr ""
 
 #: includes/functions.php:223 includes/functions.php:224
 msgid "Link Disable + Quick View"
-msgstr ""
+msgstr "লিংক বন্ধ করে কুইক ভিউ চালু"
 
 #: includes/functions.php:221
 msgid "Link Enable"
@@ -1776,7 +1777,7 @@ msgstr ""
 #: woo-product-table.php:112 woo-product-table.php:203
 #: includes/functions.php:246 includes/functions.php:247
 msgid "Quick View"
-msgstr ""
+msgstr "দ্রুত দেখা"
 
 #: includes/functions.php:223
 msgid "Quick View by Code Astrology"
@@ -2380,7 +2381,7 @@ msgstr ""
 
 #: woo-product-table.php:117
 msgid "Variations"
-msgstr ""
+msgstr "ভেরিয়েশান"
 
 #: admin/action-hook.php:592
 msgid "Variations [Not available] Message"
