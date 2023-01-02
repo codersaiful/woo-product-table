@@ -472,8 +472,9 @@ function wpt_help_icon_render( $msg = false ){
     if( empty( $msg ) ){
         $title = __( "Don't change for auto translate. Leave empty to get translated text.", 'woo-product-table' );
     }
+    $extra_msg = __( 'Write with default or English language.' );
     ?>
-    <span class="wpt-help-icon" title="<?php echo esc_attr( $title ); ?>">?</span>
+    <span class="wpt-help-icon" title="<?php echo esc_attr( $title . "\n" . $extra_msg ); ?>">?</span>
     <?php
 }
 

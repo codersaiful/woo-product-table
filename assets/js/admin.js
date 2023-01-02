@@ -888,9 +888,9 @@ jQuery.fn.extend({
         alert("Sorry");
     });
     
-    
+    var saveChangeText = $('button.button[name="wpt_post_submit"]').text(); //Save Change
     var myHtml = '<div class="wrapper_wpt_ajax_update ultraaddons-button-wrapper">';
-        myHtml += '<button type="submit" name="wpt_post_submit" data-title="hello" class="stick_on_scroll button-primary button-primary primary button wpt_ajax_update">Save Change</button>';
+        myHtml += '<button type="submit" name="wpt_post_submit" data-title="hello" class="stick_on_scroll button-primary button-primary primary button wpt_ajax_update">'+ saveChangeText +'</button>';
         myHtml += '</div>';
     var status = $('#original_post_status').val();
     var colSetsLen = $('#column_settings').length;

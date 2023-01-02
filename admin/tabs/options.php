@@ -187,6 +187,7 @@ $data = isset( $meta_basics['data'] ) ? $meta_basics['data'] : false;
                     $stats_post_count_text = $meta_basics['stats_post_count'] ?? '';
                     if(property_exists($post, 'post_status') && $post->post_status == 'auto-draft'){
                         $stats_post_count_text = __( 'Showing %s out of %s', 'woo-product-table' );
+                        $stats_post_count_text = __( 'Showing %s out of %s' );
                     }
                     $stats_post_count_placeholder = __( 'Example: Showing %s out of %s', 'woo-product-table' );
                     ?>
@@ -216,6 +217,7 @@ $data = isset( $meta_basics['data'] ) ? $meta_basics['data'] : false;
                     $stats_page_count_text = $meta_basics['stats_page_count'] ?? '';// __( 'Page %s out of %s', 'woo-product-table' );
                     if(property_exists($post, 'post_status') && $post->post_status == 'auto-draft'){
                         $stats_page_count_text = __( 'Page %s out of %s', 'woo-product-table' );
+                        $stats_page_count_text = __( 'Page %s out of %s' );
                     }
                     $stats_page_count_placeholder = __( 'Example: Page %s out of %s', 'woo-product-table' );
                     ?>
@@ -254,7 +256,7 @@ $data = isset( $meta_basics['data'] ) ? $meta_basics['data'] : false;
                 </tr>
                 <tr>
                     <th>
-                        <label class="wpt_label" for="wpt_table_check_uncheck_text"><?php esc_html_e( '(All Check/Uncheck) Text', 'woo-product-table' );?></label>
+                        <label class="wpt_label" for="wpt_table_check_uncheck_text"><?php esc_html_e( '(Select All) Text', 'woo-product-table' );?></label>
                         <?php wpt_help_icon_render(); ?>
                     </th>
                     <td>
