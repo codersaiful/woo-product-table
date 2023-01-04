@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Product Table for WooCommerce - (wooproducttable)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-11-02 08:26+0000\n"
-"PO-Revision-Date: 2023-01-04 09:49+0000\n"
+"PO-Revision-Date: 2022-12-22 10:46+0000\n"
 "Last-Translator: \n"
 "Language-Team: German\n"
 "Language: de_DE\n"
@@ -257,6 +257,7 @@ msgid "Add to cart"
 msgstr "In den Warenkorb legen"
 
 #: admin/tabs/options.php:200 inc/handle/checkbox-box.php:11
+#, fuzzy
 #| msgid "Add to cart selected"
 msgid "Add to Cart (Selected)"
 msgstr "Zum Warenkorb hinzufügen ausgewählt"
@@ -334,6 +335,7 @@ msgid "Ajax Pagination (Default)"
 msgstr "Ajax-Paginierung (Standard)"
 
 #: admin/tabs/options.php:208 inc/handle/checkbox-box.php:12
+#, fuzzy
 #| msgid "Check/Uncheck"
 msgid "All Check/Uncheck"
 msgstr "Aktivieren/deaktivieren"
@@ -448,6 +450,7 @@ msgid "Basic Settings"
 msgstr "Grundeinstellungen"
 
 #: admin/functions.php:461 admin/tabs/table_style.php:5
+#, fuzzy
 #| msgid "Beautifull Blacky"
 msgid "Beautiful Blacky"
 msgstr "Schöner Blacky"
@@ -589,6 +592,7 @@ msgstr ""
 "ausgeschlossen."
 
 #: admin/includes/right_side.php:42
+#, fuzzy
 #| msgid "CodeAstrology Profile"
 msgid "CodeAstrology Page"
 msgstr "CodeAstrologie-Profil"
@@ -598,6 +602,7 @@ msgid "CodeAstrology Support"
 msgstr "CodeAstrology-Unterstützung"
 
 #. Author of the plugin
+#, fuzzy
 #| msgid "CodeAstrology.com"
 msgid "CodeAstrology Team"
 msgstr "CodeAstrology.com"
@@ -779,6 +784,7 @@ msgid "Desktop"
 msgstr ""
 
 #: admin/tabs/column_settings.php:64
+#, fuzzy
 #| msgid "Devicewise Column Setting"
 msgid "Device Wise Column Setting"
 msgstr "Geräteweise Spalteneinstellung"
@@ -822,6 +828,7 @@ msgid "Edit Table - "
 msgstr "Tabelle bearbeiten -"
 
 #: admin/tabs/query.php:394
+#, fuzzy
 #| msgid "Eg: 50 (for display 20 products"
 msgid "Eg: 50 (for display 50 products"
 msgstr "Beispiel: 50 (für die Anzeige von 20 Produkten"
@@ -1214,6 +1221,7 @@ msgid "Insert into Product Table"
 msgstr "In Produkttabelle einfügen"
 
 #: admin/action-hook.php:298
+#, fuzzy
 #| msgid "Instant Search Filter"
 msgid "Instance Search Filter"
 msgstr "Sofort-Suchfilter"
