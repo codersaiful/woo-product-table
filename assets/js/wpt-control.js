@@ -26,7 +26,7 @@ jQuery(function($) {
             var TableTagWrap = $('#table_id_' + table_id + ' .wpt_table_tag_wrapper');
             var SearchWrap = $('#table_id_' + table_id + ' .wpt-search-full-wrapper');
             if( thisTable.length < 1 ){
-                console.log("Error on: ajaxTableLoad. Table not founded!");
+                console.log("Error on: ajaxTableLoad. Table not found!");
                 return;
             }
             

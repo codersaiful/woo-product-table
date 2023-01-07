@@ -438,7 +438,7 @@ jQuery(function($) {
 
             if('undefined' === typeof final_image_url){
                 placeholder_image = $(thisImg).attr('src');
-                console.log("No Thumbnail Image founded");
+                console.log("No Thumbnail Image found");
                 final_image_url = placeholder_image;//Set final image size to place holder image when not found
                 wrapper_style = '';//Default blank value for style of wrapper, when not found any image
             }else{
@@ -1579,7 +1579,7 @@ jQuery(function($) {
                         thisButton.html(searchText);
                     }
                     if( actionType === 'load_more' ){
-                        if(!data.match('wpt_product_not_found')){ //'Product Not found' //Products Not founded!
+                        if(!data.match('wpt_product_not_found')){ //'Product not found' //Products not found!
                             targetTableBody.append( data );
                             thisButton.html(loadMoreText);
                             

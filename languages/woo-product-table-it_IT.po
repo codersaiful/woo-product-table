@@ -79,7 +79,7 @@ msgstr ""
 
 #: admin/action-hook.php:353
 #, php-format
-msgid "%s[Products Not founded!]%s - Message Text"
+msgid "%s[Products not found!]%s - Message Text"
 msgstr ""
 
 #: admin/action-hook.php:494
@@ -1449,7 +1449,7 @@ msgid "Not found in Trash"
 msgstr ""
 
 #: admin/action-hook.php:355
-msgid "Not founded any products in this query."
+msgid "No products found in this query."
 msgstr ""
 
 #: admin/pro-features-html.php:123
@@ -1702,7 +1702,7 @@ msgid "Products"
 msgstr ""
 
 #: woo-product-table.php:201
-msgid "Products Not founded!"
+msgid "Products not found!"
 msgstr ""
 
 #: admin/action-hook.php:324
@@ -2187,7 +2187,7 @@ msgid "There is no more products based on current Query."
 msgstr ""
 
 #: modules/elementor-widget.php:182
-msgid "There is not founded any table to your. "
+msgid "There is no table found to your. "
 msgstr ""
 
 #: admin/tabs/options.php:241
