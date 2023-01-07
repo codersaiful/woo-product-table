@@ -63,6 +63,7 @@ if( ! function_exists( 'wpt_texonomy_search_generator' ) ){
             return false;
         }
         $label = apply_filters( 'wpto_searchbox_taxonomy_name', $taxonomy_details->labels->menu_name, $taxonomy_details, $temp_number );//label;
+        $label = __( $label, 'woo-product-table' );
         $label_all_items = $taxonomy_details->labels->all_items;
         $html .= "<div class='search_single search_single_texonomy search_single_{$texonomy_keyword}'>";
         $html .= "<label class='search_keyword_label {$texonomy_keyword}' for='{$texonomy_keyword}_{$temp_number}'>{$label}</label>";
@@ -97,10 +98,10 @@ if( ! function_exists( 'wpt_texonomy_search_generator' ) ){
 		'option_none_value' => -1,
 		'value_field'       => 'term_id',
 		'multiple'          => $multiple_selectable,
-                'data-key'          => $texonomy_keyword,
+        'data-key'          => $texonomy_keyword,
 	);
         if( ! $multiple_selectable ){
-            $defaults['show_option_all'] = esc_html__( 'Choose ', 'woo-product-table' )  . $label_all_items;
+            $defaults['show_option_all'] = __( $label_all_items, 'woo-product-table' );
         }
         
         /**
@@ -200,6 +201,10 @@ if( ! function_exists( 'wpt_texonomy_filter_generator' ) ){
 
 if( !function_exists( 'wpt_search_box' ) ){
     /**
+     * ##########################
+     * THIS WILL REMOVED
+     * ##########################
+     * 
      * Total Search box Generator
      * 
      * @param type $temp_number It's a Temporay Number for each Table,

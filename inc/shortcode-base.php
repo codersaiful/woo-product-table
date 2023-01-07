@@ -36,6 +36,10 @@ class Shortcode_Base extends Base{
     /**
      * Configuration Page Setting, It's not based on Each Table Setting.
      * It's come from Configuration page
+     * 
+     * Same as $this->_config 
+     * Actually $this->base_config this will come from configuration page and
+     * $this->_config will come configuration based on Table ID. Speciall from Configuration tab.
      *
      * @var array
      */

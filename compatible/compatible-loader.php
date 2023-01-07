@@ -10,7 +10,7 @@ class Compatible_Loader{
     {
         $plugin_list = [
             'waitlist-woocommerce' => [
-                'file'  => 'xoo-wl-main.php',
+                'file'  => 'waitlist-woocommerce/xoo-wl-main.php',
                 'exits_func' => '',
                 'folder_dir'      => $this->folder_dir,
             ],
@@ -24,7 +24,8 @@ class Compatible_Loader{
 
         foreach( $this->plugins as $plugin_slug=>$plugin_data ){
             if( ! is_array( $plugin_data ) ) continue;
-            $plugin_file = $plugin_slug . '/' . $plugin_data['file'] ?? '';
+            // $plugin_file = $plugin_slug . '/' . $plugin_data['file'] ?? '';
+            $plugin_file = $plugin_data['file'] ?? '';
              
             if( is_plugin_active( $plugin_file ) ){
                 $this->loadFile( $plugin_slug, $plugin_data );

@@ -454,6 +454,30 @@ $content_of_mail = __( 'I have found an issue with your WooProductTable plugin. 
     <?php
 }
 
+/**
+ * To display help icon with title attribute.
+ * It will show by default
+ * ----------
+ * Don't change for auto translate.
+ * 
+ * ----------
+ * Specially for Translate
+ * 
+ *
+ * @param boolean $msg
+ * @return void
+ */
+function wpt_help_icon_render( $msg = false ){
+    $title = __( $msg, 'woo-product-table' );
+    if( empty( $msg ) ){
+        $title = __( "Don't change for auto translate. Leave empty to get translated text.", 'woo-product-table' );
+    }
+    $extra_msg = __( 'Write with default or English language.' );
+    ?>
+    <span class="wpt-help-icon" title="<?php echo esc_attr( $title . "\n" . $extra_msg ); ?>">?</span>
+    <?php
+}
+
 function wpt_get_free_templates(){
     $templates_default = array(
         'none'              =>  __( 'Select None', 'woo-product-table' ),
@@ -481,4 +505,23 @@ if( ! function_exists( 'wpt_get_pro_templates' ) ){
         );
         return $pro_templates;
     }
+}
+
+function wpt_get_pro_verstion_translate_string(){
+    $string_array = array(
+        __( 'Categories', 'woo-product-table' ),
+        __( 'Tags', 'woo-product-table' ),
+        __( 'Product Color', 'woo-product-table' ),
+        __( 'Product Size', 'woo-product-table' ),
+        __( 'Color', 'woo-product-table' ),
+        __( 'Size', 'woo-product-table' ),
+        __( 'Choose', 'woo-product-table' ),
+        __( 'All categories', 'woo-product-table' ),
+        __( 'All tags', 'woo-product-table' ),
+        __( 'All Color', 'woo-product-table' ),
+        __( 'All Size', 'woo-product-table' ),
+        __( 'sss', 'woo-product-table' ),
+    );
+
+    return $string_array;
 }

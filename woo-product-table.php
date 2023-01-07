@@ -33,7 +33,7 @@ if( ! defined( 'WPT_PLUGIN_BASE_FOLDER' ) ){
 }
 
 if( ! defined( 'WPT_DEV_VERSION' ) ){
-    define( 'WPT_DEV_VERSION', '3.3.5.0' );
+    define( 'WPT_DEV_VERSION', '3.3.5.3' );
 }
 
 if( ! defined( 'WPT_CAPABILITY' ) ){
@@ -234,7 +234,7 @@ $default = array(
     'product_direct_checkout' => 'no',
     
     //Added Search Box Features @Since 3.3
-    'search_box_title' => sprintf( __( 'Search Box (%sAll Fields Optional%s)', 'woo-product-table' ),'<small>', '</small>'),
+    'search_box_title' => __( 'Search Box (%sAll Fields Optional%s)', 'woo-product-table' ),
     'search_box_searchkeyword' => __( 'Search Keyword', 'woo-product-table' ),
     'search_box_orderby'    => __( 'Sort By', 'woo-product-table' ),
     'search_box_order'      => __( 'Order', 'woo-product-table' ),
@@ -478,8 +478,7 @@ class WPT_Product_Table{
     $shortcode = new WOO_PRODUCT_TABLE\Inc\Shortcode();
     $shortcode->run();
 
-    $compatible = new WOO_PRODUCT_TABLE\Compatible\Compatible_Loader();
-    $compatible->run();
+    add_action( 'init', [$this, 'init'] );
        
     /**
      * Include WPML Integration
@@ -504,6 +503,10 @@ class WPT_Product_Table{
     add_action( 'plugin_loaded', [ $this, 'load_textdomain' ] );
    }
    
+   public function init(){
+        $compatible = new WOO_PRODUCT_TABLE\Compatible\Compatible_Loader();
+        $compatible->run(); 
+   }
         
     public function load_textdomain() {
         load_plugin_textdomain( 'woo-product-table', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' ); 
