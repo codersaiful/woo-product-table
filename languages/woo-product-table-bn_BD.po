@@ -82,8 +82,13 @@ msgstr ""
 
 #: admin/action-hook.php:353
 #, php-format
+<<<<<<< HEAD
 msgid "%s[Products Not founded!]%s - Message Text"
 msgstr "%s[Products Not founded!]%s - মেসেজ টেক্সট"
+=======
+msgid "%s[Products not found!]%s - Message Text"
+msgstr ""
+>>>>>>> cc5b8ade87b288dd164fcc5c119006974626a1fb
 
 #: admin/action-hook.php:494
 #, php-format
@@ -1474,8 +1479,13 @@ msgid "Not found in Trash"
 msgstr "ট্রাসে পাওয়া যাওনি"
 
 #: admin/action-hook.php:355
+<<<<<<< HEAD
 msgid "Not founded any products in this query."
 msgstr "এই কুয়েরিতে কোন পন্য পাওয়া যায়নি।"
+=======
+msgid "No products found in this query."
+msgstr ""
+>>>>>>> cc5b8ade87b288dd164fcc5c119006974626a1fb
 
 #: admin/pro-features-html.php:123
 msgid "Now you can show more product information in a smart way."
@@ -1742,8 +1752,13 @@ msgid "Products"
 msgstr "পন্য"
 
 #: woo-product-table.php:201
+<<<<<<< HEAD
 msgid "Products Not founded!"
 msgstr "কোন পন্য পাওয়া যায়নি!"
+=======
+msgid "Products not found!"
+msgstr "কোন প্রোডাক্ট পাওয়া যায়নি!"
+>>>>>>> cc5b8ade87b288dd164fcc5c119006974626a1fb
 
 #: admin/action-hook.php:324
 msgid "Products Wise"
@@ -2244,8 +2259,13 @@ msgid "There is no more products based on current Query."
 msgstr ""
 
 #: modules/elementor-widget.php:182
+<<<<<<< HEAD
 msgid "There is not founded any table to your. "
 msgstr "কোন টেবিল খুজে পাওয়া যাওনি।"
+=======
+msgid "There is no table found to your. "
+msgstr ""
+>>>>>>> cc5b8ade87b288dd164fcc5c119006974626a1fb
 
 #: admin/tabs/options.php:305
 msgid "Third Party Plugin Supporting "

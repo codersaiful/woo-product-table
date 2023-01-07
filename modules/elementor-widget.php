@@ -179,7 +179,7 @@ class WPT_Elementor_Widget extends \Elementor\Widget_Base{
                     );
                     //***************************************/
                 }else{
-                    $wpt_extra_msg = __( 'There is not founded any table to your. ', 'woo-product-table' );
+                    $wpt_extra_msg = __( 'There is no table found to your. ', 'woo-product-table' );
                 }
                 
                 $this->add_control(

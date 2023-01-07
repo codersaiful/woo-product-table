@@ -350,9 +350,9 @@ if( !function_exists( 'wpt_configure_label_part' ) ){
             <table class="ultraaddons-table">
                 <tbody>
                     <tr> 
-                        <th> <label for="wpt_table_product_not_founded" class="wpt_label"><?php echo sprintf(esc_html__( '%s[Products Not founded!]%s - Message Text', 'woo-product-table' ), '<b>', '</b>' ); ?></label></th>
+                        <th> <label for="wpt_table_product_not_founded" class="wpt_label"><?php echo sprintf(esc_html__( '%s[Products not found!]%s - Message Text', 'woo-product-table' ), '<b>', '</b>' ); ?></label></th>
                         <td>
-                            <input name="<?php echo esc_attr( $field_name ); ?>[product_not_founded]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['product_not_founded'] ); ?>" id="wpt_table_product_not_founded" type="text" placeholder="<?php esc_attr_e( 'Not founded any products in this query.', 'woo-product-table' ); ?>">
+                            <input name="<?php echo esc_attr( $field_name ); ?>[product_not_founded]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['product_not_founded'] ); ?>" id="wpt_table_product_not_founded" type="text" placeholder="<?php esc_attr_e( 'No products found in this query.', 'woo-product-table' ); ?>">
                         </td>
                     </tr>
 
