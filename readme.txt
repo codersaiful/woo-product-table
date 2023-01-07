@@ -188,12 +188,13 @@ With a Product Table Plugin, you can feel confident that your business processes
 
 **👷 HONORABLE CONTRIBUTOR - [GitHub](https://github.com/codersaiful/woo-product-table/graphs/contributors) 👷**<br>
 
-* [codersaiful](https://github.com/codersaiful) (1,000+ commits And Pro: 1000+ commits )
+* [codersaiful](https://github.com/codersaiful) (1600+ commits And Pro: 1000+ commits)
+* [fazlebarisn](https://github.com/fazlebarisn) (100+ commits And Pro: 70+ commits)
 * [unikforceit](https://github.com/unikforceit) (42 commits )
 * [fatimakhatungit](https://github.com/fatimakhatungit) (38 commits )
-* [fazlebarisn](https://github.com/fazlebarisn) (35 commits And Pro: 50+ commits)
 * [rafiul](https://github.com/rafiul) (29 commits )
-* [tanyabouman](https://github.com/tanyabouman) (3 commits )
+* [tanyabouman](https://github.com/tanyabouman) (4 commits )
+* [zbandhan](https://github.com/zbandhan) (1 commits )
 * 👉 [You can join here](https://github.com/codersaiful/woo-product-table/fork)
 
 **🥇 CONTRIBUTE 🥇**<br>
