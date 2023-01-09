@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Product Table for WooCommerce - (wooproducttable)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-02 06:48+0000\n"
+"POT-Creation-Date: 2023-01-09 06:28+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -1421,6 +1421,10 @@ msgstr ""
 msgid "No Icon"
 msgstr ""
 
+#: admin/action-hook.php:355
+msgid "No products found in this query."
+msgstr ""
+
 #: admin/tabs/mobile.php:13
 msgid "No Responsive"
 msgstr ""
@@ -1461,10 +1465,6 @@ msgstr ""
 
 #: admin/wpt_product_table_post.php:32
 msgid "Not found in Trash"
-msgstr ""
-
-#: admin/action-hook.php:355
-msgid "No products found in this query."
 msgstr ""
 
 #: admin/pro-features-html.php:123
@@ -1740,6 +1740,10 @@ msgstr ""
 #: admin/tabs/options.php:171
 #, php-format
 msgid "Put a Space (\" \") for getting default %s Add to Cart Text %s"
+msgstr ""
+
+#: includes/items/quick.php:2 includes/items/quick_view.php:3
+msgid "Qiuck View"
 msgstr ""
 
 #: woo-product-table.php:109

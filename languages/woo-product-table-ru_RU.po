@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Product Table for WooCommerce - (wooproducttable)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-12-15 06:11+0000\n"
-"PO-Revision-Date: 2023-01-07 08:30+0000\n"
+"PO-Revision-Date: 2023-01-09 06:38+0000\n"
 "Last-Translator: \n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -40,9 +40,9 @@ msgstr ""
 #, php-format
 msgid "%d item"
 msgid_plural "%d items"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%s Товар"
+msgstr[1] "%s Товары"
+msgstr[2] "%s Товары"
 
 #: admin/action-hook.php:508
 #, php-format
@@ -216,7 +216,7 @@ msgstr ""
 
 #: woo-product-table.php:124
 msgid "Action"
-msgstr ""
+msgstr "Действие"
 
 #: admin/tabs/inc-column/add-new-column.php:39
 msgid "Action Hooks"
@@ -246,11 +246,11 @@ msgstr ""
 
 #: inc/shortcode.php:610 admin/tabs/options.php:162
 msgid "Add to cart"
-msgstr ""
+msgstr "В корзину"
 
 #: admin/tabs/options.php:246 inc/handle/checkbox-box.php:20
 msgid "Add to Cart (Selected)"
-msgstr ""
+msgstr "Добавить в корзину (отмеченное)"
 
 #: admin/action-hook.php:428
 msgid "Add to Cart all selected [Added] Text"
@@ -258,7 +258,7 @@ msgstr ""
 
 #: admin/action-hook.php:147
 msgid "Add to Cart Icon"
-msgstr ""
+msgstr "В корзину icon"
 
 #: woo-product-table.php:215
 msgid "Add to Quote"
@@ -855,11 +855,11 @@ msgstr ""
 
 #: woo-product-table.php:210 inc/features/basics.php:60
 msgid "Empty Cart"
-msgstr ""
+msgstr "Корзина пуста"
 
 #: inc/handle/fragment.php:147
 msgid "Empty Cart."
-msgstr ""
+msgstr "Корзина пуста"
 
 #: admin/action-hook.php:137 admin/action-hook.php:292
 #: admin/tabs/options.php:311
@@ -930,7 +930,7 @@ msgstr ""
 
 #: woo-product-table.php:211
 msgid "Filter:"
-msgstr ""
+msgstr "Фильтр"
 
 #: admin/tabs/options.php:231
 msgid ""
@@ -1232,7 +1232,7 @@ msgstr ""
 
 #: woo-product-table.php:218
 msgid "Item"
-msgstr ""
+msgstr "Товар"
 
 #: admin/action-hook.php:421
 msgid "Item [for Plural]"
@@ -1252,7 +1252,7 @@ msgstr ""
 
 #: woo-product-table.php:219
 msgid "Items"
-msgstr ""
+msgstr "Товары"
 
 #: admin/includes/right_side.php:38
 msgid "Join to CodeAstrology Group"
@@ -1292,7 +1292,7 @@ msgstr ""
 
 #: woo-product-table.php:202
 msgid "Load more"
-msgstr ""
+msgstr "Загрузить больше"
 
 #: admin/tabs/options.php:50
 msgid "Load More Button"
@@ -1304,7 +1304,7 @@ msgstr ""
 
 #: woo-product-table.php:204
 msgid "Loading.."
-msgstr ""
+msgstr "Загружаю..."
 
 #: admin/action-hook.php:383
 msgid "Loading.. text write here"
@@ -1656,7 +1656,7 @@ msgstr ""
 
 #: inc/handle/message.php:56
 msgid "Product not found!"
-msgstr ""
+msgstr "Товары отсутсвуют"
 
 #: admin/functions.php:515
 msgid "Product Size"
@@ -1732,7 +1732,7 @@ msgstr ""
 
 #: woo-product-table.php:201
 msgid "Products not found!"
-msgstr ""
+msgstr "Товары отсутсвуют"
 
 #: admin/action-hook.php:324
 msgid "Products Wise"
@@ -1741,6 +1741,10 @@ msgstr ""
 #: admin/tabs/options.php:171
 #, php-format
 msgid "Put a Space (\" \") for getting default %s Add to Cart Text %s"
+msgstr ""
+
+#: includes/items/quick.php:2 includes/items/quick_view.php:3
+msgid "Qiuck View"
 msgstr ""
 
 #: woo-product-table.php:109
@@ -1835,11 +1839,11 @@ msgstr ""
 
 #: woo-product-table.php:212 inc/handle/search-box.php:21
 msgid "Reset"
-msgstr ""
+msgstr "Сбросить"
 
 #: admin/configuration_page.php:105
 msgid "Reset Settings"
-msgstr ""
+msgstr "Сбросить Settings"
 
 #: admin/functions.php:186
 msgid "Responsive <small>New</small>"
@@ -1867,7 +1871,7 @@ msgstr ""
 
 #: woo-product-table.php:205
 msgid "Search"
-msgstr ""
+msgstr "Поиск"
 
 #: admin/post_metabox_form.php:16
 msgid "Search & Filter"
@@ -1893,7 +1897,7 @@ msgstr ""
 #: woo-product-table.php:206 woo-product-table.php:238
 #: admin/action-hook.php:376
 msgid "Search Keyword"
-msgstr ""
+msgstr "Слово для поиска"
 
 #: admin/action-hook.php:442
 msgid "Search Keyword Placeholder"
@@ -1941,7 +1945,7 @@ msgstr ""
 
 #: admin/tabs/options.php:265 inc/handle/checkbox-box.php:21
 msgid "Select All"
-msgstr ""
+msgstr "Выбрать всё"
 
 #: woo-product-table.php:241
 msgid "Select inner Item."
