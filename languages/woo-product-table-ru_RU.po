@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Product Table for WooCommerce - (wooproducttable)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-12-15 06:11+0000\n"
-"PO-Revision-Date: 2023-01-09 06:38+0000\n"
+"PO-Revision-Date: 2023-01-09 06:44+0000\n"
 "Last-Translator: \n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -40,9 +40,9 @@ msgstr ""
 #, php-format
 msgid "%d item"
 msgid_plural "%d items"
-msgstr[0] "%s Товар"
-msgstr[1] "%s Товары"
-msgstr[2] "%s Товары"
+msgstr[0] "%d Товар"
+msgstr[1] "%d Товары"
+msgstr[2] "%d Товары"
 
 #: admin/action-hook.php:508
 #, php-format

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Product Table for WooCommerce - (wooproducttable)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-12-15 06:11+0000\n"
-"PO-Revision-Date: 2023-01-09 06:33+0000\n"
+"PO-Revision-Date: 2023-01-09 06:43+0000\n"
 "Last-Translator: \n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -40,8 +40,8 @@ msgstr ""
 #, php-format
 msgid "%d item"
 msgid_plural "%d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%s Товар"
+msgstr[1] "%s Товары"
 msgstr[2] ""
 
 #: admin/action-hook.php:508
@@ -930,7 +930,7 @@ msgstr ""
 
 #: woo-product-table.php:211
 msgid "Filter:"
-msgstr ""
+msgstr "Фильтр"
 
 #: admin/tabs/options.php:231
 msgid ""
@@ -1232,7 +1232,7 @@ msgstr ""
 
 #: woo-product-table.php:218
 msgid "Item"
-msgstr ""
+msgstr "Товар"
 
 #: admin/action-hook.php:421
 msgid "Item [for Plural]"
@@ -1252,7 +1252,7 @@ msgstr ""
 
 #: woo-product-table.php:219
 msgid "Items"
-msgstr ""
+msgstr "Товары"
 
 #: admin/includes/right_side.php:38
 msgid "Join to CodeAstrology Group"
@@ -1839,11 +1839,11 @@ msgstr ""
 
 #: woo-product-table.php:212 inc/handle/search-box.php:21
 msgid "Reset"
-msgstr ""
+msgstr "Сбросить"
 
 #: admin/configuration_page.php:105
 msgid "Reset Settings"
-msgstr ""
+msgstr "Сбросить Settings"
 
 #: admin/functions.php:186
 msgid "Responsive <small>New</small>"
