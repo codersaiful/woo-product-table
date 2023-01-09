@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Product Table for WooCommerce - (wooproducttable)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-12-15 06:11+0000\n"
-"PO-Revision-Date: 2023-01-09 09:24+0000\n"
+"PO-Revision-Date: 2023-01-09 09:19+0000\n"
 "Last-Translator: \n"
 "Language-Team: French (France)\n"
 "Language: fr_FR\n"
@@ -214,7 +214,7 @@ msgstr ""
 
 #: woo-product-table.php:124
 msgid "Action"
-msgstr "Action"
+msgstr ""
 
 #: admin/tabs/inc-column/add-new-column.php:39
 msgid "Action Hooks"
@@ -406,7 +406,7 @@ msgstr ""
 
 #: woo-product-table.php:116
 msgid "Attributes"
-msgstr "Attributs"
+msgstr ""
 
 #: admin/tabs/inc-column/add-new-column.php:41
 msgid "Audio File Type"
@@ -461,7 +461,7 @@ msgstr ""
 
 #: woo-product-table.php:121 admin/tabs/inc-column/add-new-column.php:37
 msgid "Blank"
-msgstr "Vide"
+msgstr ""
 
 #: admin/functions.php:487 admin/tabs/table_style.php:18
 msgid "Blue Border"
@@ -709,7 +709,7 @@ msgstr ""
 
 #: woo-product-table.php:114 admin/tabs/query.php:286
 msgid "Date"
-msgstr "Date"
+msgstr ""
 
 #: admin/functions.php:52 admin/tabs/options.php:310 admin/tabs/query.php:369
 #: admin/tabs/query.php:383 admin/tabs/inc-column/column-list.php:47
@@ -754,7 +754,7 @@ msgstr ""
 
 #: woo-product-table.php:119
 msgid "Description"
-msgstr "Description"
+msgstr ""
 
 #: admin/action-hook.php:711
 msgid "Description Length :"
@@ -841,7 +841,7 @@ msgstr ""
 
 #: admin/action-hook.php:496
 msgid "eg: Quick View"
-msgstr "eg: Quick View"
+msgstr ""
 
 #: admin/action-hook.php:410
 msgid "eg: Reset"
@@ -1151,7 +1151,7 @@ msgstr ""
 
 #: woo-product-table.php:122 admin/tabs/query.php:325
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 #: admin/pro-features-html.php:87
 msgid ""
@@ -1384,7 +1384,7 @@ msgstr ""
 
 #: woo-product-table.php:115
 msgid "Modified Date"
-msgstr "Date modifié"
+msgstr ""
 
 #: admin/tabs/query.php:319
 msgid "Modified(Pro)"
@@ -1761,7 +1761,7 @@ msgstr ""
 
 #: woo-product-table.php:113
 msgid "Quick"
-msgstr "Rapide"
+msgstr ""
 
 #: admin/action-hook.php:257
 msgid "Quick Buy"
@@ -1770,11 +1770,11 @@ msgstr ""
 #: woo-product-table.php:112 woo-product-table.php:203
 #: includes/functions.php:246 includes/functions.php:247
 msgid "Quick View"
-msgstr "Vue rapide"
+msgstr ""
 
 #: includes/functions.php:223
 msgid "Quick View by Code Astrology"
-msgstr "Vue rapide by Code Astrology"
+msgstr ""
 
 #: admin/pro-features-html.php:7
 msgid "Quick View of Pro features"
@@ -1786,7 +1786,7 @@ msgstr ""
 
 #: woo-product-table.php:118
 msgid "Quote Request"
-msgstr "Demandé devis"
+msgstr ""
 
 #: woo-product-table.php:217
 msgid "Quoted"
@@ -2000,11 +2000,11 @@ msgstr ""
 #: woo-product-table.php:120 admin/pro-features-html.php:38
 #: admin/tabs/options.php:294
 msgid "Short Description"
-msgstr "Description court"
+msgstr ""
 
 #: woo-product-table.php:111
 msgid "Short Message"
-msgstr "Message court"
+msgstr ""
 
 #: templates/table-preview.php:45
 msgid "Shortcode"
@@ -2062,7 +2062,7 @@ msgstr ""
 
 #: woo-product-table.php:123
 msgid "SL"
-msgstr "Série"
+msgstr ""
 
 #: admin/functions.php:488 admin/tabs/table_style.php:19
 msgid "Smart Border"
@@ -2314,7 +2314,7 @@ msgstr ""
 
 #: woo-product-table.php:110
 msgid "Total Price"
-msgstr "Prix total"
+msgstr ""
 
 #: admin/menu_plugin_setting_link.php:51
 msgid "Try Pro Version"
@@ -2374,7 +2374,7 @@ msgstr ""
 
 #: woo-product-table.php:117
 msgid "Variations"
-msgstr "Variations"
+msgstr ""
 
 #: admin/action-hook.php:592
 msgid "Variations [Not available] Message"
