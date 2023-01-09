@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Product Table for WooCommerce - (wooproducttable)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-12-15 06:11+0000\n"
-"PO-Revision-Date: 2023-01-09 06:43+0000\n"
+"PO-Revision-Date: 2023-01-09 07:09+0000\n"
 "Last-Translator: \n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -40,92 +40,92 @@ msgstr ""
 #, php-format
 msgid "%d item"
 msgid_plural "%d items"
-msgstr[0] "%s Товар"
-msgstr[1] "%s Товары"
-msgstr[2] ""
+msgstr[0] "%d Товар"
+msgstr[1] "%d Товары"
+msgstr[2] "%d Товары"
 
 #: admin/action-hook.php:508
 #, php-format
 msgid "%s[Add to Quote]%s - button text"
-msgstr ""
+msgstr "%s[Add to Quote]%s - Текст кнопки"
 
 #: admin/action-hook.php:502
 #, php-format
 msgid "%s[Browse Quote list]%s - text "
-msgstr ""
+msgstr "%s[Browse Quote list]%s - текст"
 
 #: admin/action-hook.php:394
 #, php-format
 msgid "%s[Empty Cart]%s - Text of Empty Cart"
-msgstr ""
+msgstr "%s[Empty Cart]%s - текст"
 
 #: admin/action-hook.php:401
 #, php-format
 msgid "%s[Filter]%s - Text of Filter"
-msgstr ""
+msgstr "%s[Filter]%s - текст"
 
 #: admin/action-hook.php:387
 #, php-format
 msgid "%s[Instance Search]%s - Text"
-msgstr ""
+msgstr "%s[Instance Search]%s - текст"
 
 #: admin/action-hook.php:360
 #, php-format
 msgid "%s[Load More]%s - Button Text"
-msgstr ""
+msgstr "%s[Load More]%s - Button Text"
 
 #: admin/action-hook.php:381
 #, php-format
 msgid "%s[Loading..]%s - Button Text"
-msgstr ""
+msgstr "%s[Loading..]%s - Текст кнопки"
 
 #: admin/action-hook.php:353
 #, php-format
 msgid "%s[Products not found!]%s - Message Text"
-msgstr ""
+msgstr "%s[Products not found!]%s - Сообщение текст"
 
 #: admin/action-hook.php:494
 #, php-format
 msgid "%s[Quick View]%s - Button Text"
-msgstr ""
+msgstr "%s[Quick View]%s - Текст кнопки"
 
 #: admin/action-hook.php:520
 #, php-format
 msgid "%s[Quote Added]%s - text "
-msgstr ""
+msgstr "%s[Quote Added]%s - текст"
 
 #: admin/action-hook.php:514
 #, php-format
 msgid "%s[Quote Adding]%s - text"
-msgstr ""
+msgstr "%s[Quote Adding]%s - текст"
 
 #: admin/action-hook.php:408
 #, php-format
 msgid "%s[Reset]%s - Button Text of Filter"
-msgstr ""
+msgstr "%s[Reset]%s - текст"
 
 #: admin/action-hook.php:374
 #, php-format
 msgid "%s[Search Keyword Title]%s - Text"
-msgstr ""
+msgstr "%s[Search Keyword Title]%s - текст"
 
 #: admin/action-hook.php:368
 #, php-format
 msgid "%s[Search]%s - Button Text"
-msgstr ""
+msgstr "%s[Search]%s - Текст кнопки"
 
 #: admin/action-hook.php:287
 #, php-format
 msgid "%sCategories, Tags%s Link"
-msgstr ""
+msgstr "%sCategories, Tags%s Связь"
 
 #: admin/tabs/options.php:156
 msgid "(Add to cart) Text"
-msgstr ""
+msgstr "(Add to cart) текст"
 
 #: admin/tabs/options.php:240
 msgid "(Add to cart[Selected]) Text"
-msgstr ""
+msgstr "(Add to cart[Selected]) текст"
 
 #: admin/tabs/table_style.php:75
 msgid "(Premium)"
@@ -133,7 +133,7 @@ msgstr ""
 
 #: admin/tabs/options.php:259
 msgid "(Select All) Text"
-msgstr ""
+msgstr "(Select All) текст"
 
 #. Description of the plugin
 msgid ""
@@ -158,19 +158,19 @@ msgstr ""
 
 #: admin/action-hook.php:628
 msgid "[ Adding in Progress ] Message"
-msgstr ""
+msgstr "[ Adding in Progress ] Сообщение"
 
 #: admin/action-hook.php:634
 msgid "[ No Right Combination ] Message"
-msgstr ""
+msgstr "[ No Right Combination ] Сообщение"
 
 #: admin/action-hook.php:646
 msgid "[ Sorry! Out of Stock! ] Message"
-msgstr ""
+msgstr "[ Sorry! Out of Stock! ] Сообщение"
 
 #: admin/action-hook.php:640
 msgid "[ Sorry, Please choose right combination. ] Message"
-msgstr ""
+msgstr "[ Sorry, Please choose right combination. ] Сообщение"
 
 #: admin/action-hook.php:547
 msgid "[In Stock] for Table Column"
@@ -186,29 +186,31 @@ msgstr ""
 
 #: admin/action-hook.php:616
 msgid "[Out of Stock] Message"
-msgstr ""
+msgstr "[Out of Stock] Сообщение"
 
 #: admin/action-hook.php:610
 msgid "[Please Choose items] Alert!"
-msgstr ""
+msgstr "[Please Choose items] Сообщение!"
 
 #: admin/action-hook.php:604
 msgid "[Please select all items.] Message"
-msgstr ""
+msgstr "[Please select all items.] Сообщение"
 
 #: admin/action-hook.php:598
 msgid ""
 "[Product variations is not set Properly. May be: price is not inputted. may "
 "be: Out of Stock.] Message"
 msgstr ""
+"[Product variations is not set Properly. May be: price is not inputted. may "
+"be: Out of Stock.] Сообщение"
 
 #: admin/action-hook.php:622
 msgid "[There is no more products based on current Query.] Message"
-msgstr ""
+msgstr "[There is no more products based on current Query.] Сообщение"
 
 #: admin/action-hook.php:652
 msgid "[Type your Message.] Message"
-msgstr ""
+msgstr "[Type your Message.] Сообщение"
 
 #: admin/functions.php:391
 msgid "About Product Table"
