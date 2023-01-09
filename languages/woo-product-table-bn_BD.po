@@ -3,9 +3,9 @@ msgstr ""
 "Project-Id-Version: Product Table for WooCommerce - (wooproducttable)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-11-02 08:26+0000\n"
-"PO-Revision-Date: 2023-01-02 07:09+0000\n"
+"PO-Revision-Date: 2023-01-09 09:15+0000\n"
 "Last-Translator: \n"
-"Language-Team: বাংলা\n"
+"Language-Team: Bengali (Bangladesh)\n"
 "Language: bn_BD\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "MIME-Version: 1.0\n"
@@ -81,14 +81,8 @@ msgid "%s[Loading..]%s - Button Text"
 msgstr ""
 
 #: admin/action-hook.php:353
-#, php-format
-<<<<<<< HEAD
-msgid "%s[Products Not founded!]%s - Message Text"
-msgstr "%s[Products Not founded!]%s - মেসেজ টেক্সট"
-=======
 msgid "%s[Products not found!]%s - Message Text"
-msgstr ""
->>>>>>> cc5b8ade87b288dd164fcc5c119006974626a1fb
+msgstr "%s[Products not found!]%s - মেসেজ টেক্সট"
 
 #: admin/action-hook.php:494
 #, php-format
@@ -1148,22 +1142,28 @@ msgid ""
 "https://wooproducttable.com/?"
 "utm_source=WPT+Plugin+Dashboard&utm_medium=Free+Version"
 msgstr ""
+"https://wooproducttable.com/?"
+"utm_source=WPT+Plugin+Dashboard&utm_medium=Free+Version"
 
 #. URI of the plugin
 msgid ""
 "https://wooproducttable.com/pricing/?"
 "utm_source=WPT+Plugin+Dashboard&utm_medium=Free+Version"
 msgstr ""
+"https://wooproducttable.com/pricing/?"
+"utm_source=WPT+Plugin+Dashboard&utm_medium=Free+Version"
 
 #: admin/functions.php:446
 msgid ""
 "I have found an issue with your WooProductTable plugin. I will explain here "
 "with screenshot.Issues And Screenshots:"
 msgstr ""
+"I have found an issue with your WooProductTable plugin. I will explain here "
+"with screenshot.Issues And Screenshots:"
 
 #: woo-product-table.php:122 admin/tabs/query.php:325
 msgid "ID"
-msgstr ""
+msgstr "আইডি"
 
 #: admin/pro-features-html.php:87
 msgid ""
@@ -1198,7 +1198,7 @@ msgstr ""
 
 #: admin/action-hook.php:549
 msgid "In Stock"
-msgstr ""
+msgstr "স্টকে আছে"
 
 #: admin/pro-features-html.php:86
 msgid "Include/Exclude by Product ID"
@@ -1239,7 +1239,7 @@ msgstr ""
 
 #: framework/recommeded.php:37
 msgid "It's"
-msgstr ""
+msgstr "এই হচ্ছে"
 
 #: woo-product-table.php:218
 msgid "Item"
@@ -1247,11 +1247,11 @@ msgstr "টি পন্য"
 
 #: admin/action-hook.php:421
 msgid "Item [for Plural]"
-msgstr ""
+msgstr "টি"
 
 #: admin/action-hook.php:415
 msgid "Item [for Singular]"
-msgstr ""
+msgstr "টি"
 
 #: admin/action-hook.php:417 admin/action-hook.php:423
 msgid "Item | for All selected Button"
@@ -1267,7 +1267,7 @@ msgstr "টি পন্য"
 
 #: admin/includes/right_side.php:38
 msgid "Join to CodeAstrology Group"
-msgstr ""
+msgstr "CodeAstrology Group এ জয়েন করুন"
 
 #: admin/action-hook.php:349
 msgid "Label Text"
@@ -1354,11 +1354,11 @@ msgstr "মেসেজ"
 
 #: admin/includes/right_side.php:44
 msgid "Message to Author"
-msgstr ""
+msgstr "অথরকে মেসেজ দিন"
 
 #: admin/includes/right_side.php:41
 msgid "Message to CodeAstorlogy"
-msgstr ""
+msgstr "CodeAstrology কে মেসেজ দিন"
 
 #: admin/tabs/query.php:334
 #, php-format
@@ -1435,6 +1435,10 @@ msgstr ""
 msgid "No Icon"
 msgstr "আইকোন বাদে"
 
+#: admin/action-hook.php:355
+msgid "No products found in this query."
+msgstr "কোনো প্রন্য খুজে পাওয়া যায়নি।"
+
 #: admin/tabs/mobile.php:13
 msgid "No Responsive"
 msgstr ""
@@ -1477,15 +1481,6 @@ msgstr "পাওয়া যায়নি"
 #: admin/wpt_product_table_post.php:32
 msgid "Not found in Trash"
 msgstr "ট্রাসে পাওয়া যাওনি"
-
-#: admin/action-hook.php:355
-<<<<<<< HEAD
-msgid "Not founded any products in this query."
-msgstr "এই কুয়েরিতে কোন পন্য পাওয়া যায়নি।"
-=======
-msgid "No products found in this query."
-msgstr ""
->>>>>>> cc5b8ade87b288dd164fcc5c119006974626a1fb
 
 #: admin/pro-features-html.php:123
 msgid "Now you can show more product information in a smart way."
@@ -1752,13 +1747,8 @@ msgid "Products"
 msgstr "পন্য"
 
 #: woo-product-table.php:201
-<<<<<<< HEAD
-msgid "Products Not founded!"
-msgstr "কোন পন্য পাওয়া যায়নি!"
-=======
 msgid "Products not found!"
 msgstr "কোন প্রোডাক্ট পাওয়া যায়নি!"
->>>>>>> cc5b8ade87b288dd164fcc5c119006974626a1fb
 
 #: admin/action-hook.php:324
 msgid "Products Wise"
@@ -1767,6 +1757,10 @@ msgstr "পন্য অনুযায়ী"
 #: admin/tabs/options.php:171
 #, php-format
 msgid "Put a Space (\" \") for getting default %s Add to Cart Text %s"
+msgstr ""
+
+#: includes/items/quick.php:2 includes/items/quick_view.php:3
+msgid "Qiuck View"
 msgstr ""
 
 #: woo-product-table.php:109
@@ -2259,13 +2253,8 @@ msgid "There is no more products based on current Query."
 msgstr ""
 
 #: modules/elementor-widget.php:182
-<<<<<<< HEAD
-msgid "There is not founded any table to your. "
-msgstr "কোন টেবিল খুজে পাওয়া যাওনি।"
-=======
 msgid "There is no table found to your. "
-msgstr ""
->>>>>>> cc5b8ade87b288dd164fcc5c119006974626a1fb
+msgstr "কোনো টেবিল খুজে পাওয়া যায়নি।"
 
 #: admin/tabs/options.php:305
 msgid "Third Party Plugin Supporting "
