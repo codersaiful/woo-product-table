@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Product Table for WooCommerce - (wooproducttable)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-12-15 06:11+0000\n"
-"PO-Revision-Date: 2023-01-09 07:11+0000\n"
+"PO-Revision-Date: 2023-01-09 08:46+0000\n"
 "Last-Translator: \n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -129,7 +129,7 @@ msgstr "(Add to cart[Selected]) текст"
 
 #: admin/tabs/table_style.php:75
 msgid "(Premium)"
-msgstr ""
+msgstr "(Premium)"
 
 #: admin/tabs/options.php:259
 msgid "(Select All) Text"
@@ -829,11 +829,11 @@ msgstr ""
 
 #: admin/tabs/query.php:394
 msgid "Eg: 50 (for display 50 products"
-msgstr ""
+msgstr "Пример: 50 (for display 50 products"
 
 #: admin/action-hook.php:396
 msgid "eg: Empty Cart"
-msgstr ""
+msgstr "Пример: Empty Cart"
 
 #: admin/action-hook.php:403
 msgid "eg: Filter"
@@ -853,7 +853,7 @@ msgstr "Пример: Reset"
 
 #: admin/includes/right_side.php:37
 msgid "Email:"
-msgstr ""
+msgstr "Эл. адрес:"
 
 #: woo-product-table.php:210 inc/features/basics.php:60
 msgid "Empty Cart"
@@ -884,17 +884,17 @@ msgstr ""
 
 #: admin/pro-features-html.php:40
 msgid "Example:"
-msgstr ""
+msgstr "Пример:"
 
 #: admin/tabs/options.php:222
 #, php-format
 msgid "Example: Page %s out of %s"
-msgstr ""
+msgstr "Пример: Page %s out of %s"
 
 #: admin/tabs/options.php:192
 #, php-format
 msgid "Example: Showing %s out of %s"
-msgstr ""
+msgstr "Пример: Showing %s out of %s"
 
 #: admin/pro-features-html.php:122
 msgid "Expand/Collapse Column"
@@ -2399,7 +2399,7 @@ msgstr ""
 
 #: admin/wpt_product_table_post.php:29
 msgid "View Product Tables"
-msgstr ""
+msgstr "View Product Tables"
 
 #: admin/pro-features-html.php:21
 msgid "We have Special Pro Agent for our Pro Customer."
@@ -2420,19 +2420,19 @@ msgstr ""
 #: woo-product-table.php:531 framework/recommeded.php:38
 #: modules/elementor-widget.php:41
 msgid "Woo Product Table"
-msgstr ""
+msgstr "Woo Product Table"
 
 #: admin/includes/right_side.php:59
 msgid "Woo Product Table on (Github)"
-msgstr ""
+msgstr "Woo Product Table (Github)"
 
 #: admin/pro-features-html.php:133
 msgid "wooproducttable.com"
-msgstr ""
+msgstr "wooproducttable.com"
 
 #: admin/functions.php:392
 msgid "WordPress.org"
-msgstr ""
+msgstr "WordPress.org"
 
 #: admin/tabs/options.php:342
 msgid "WP Force"
@@ -2497,4 +2497,4 @@ msgstr ""
 
 #: admin/includes/right_side.php:47
 msgid "Youtube:"
-msgstr ""
+msgstr "Youtube:"
