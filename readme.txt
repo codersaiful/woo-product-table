@@ -186,6 +186,13 @@ There are over 16 different pre-made Product Table templates available, each of 
 **FAST, SECURE AND EASY**<br>
 With a Product Table Plugin, you can feel confident that your business processes will go quickly and easily. User-friendly and adaptable to all popular themes.<br>
 
+**Translation**<br>
+
+* French (France) - fr_FR
+* Bengali (Bangladesh) - bn_BD
+* German (German) - de_DE
+* Russian (Russia) - ru_RU
+
 **👷 HONORABLE CONTRIBUTOR - [GitHub](https://github.com/codersaiful/woo-product-table/graphs/contributors) 👷**<br>
 
 * [codersaiful](https://github.com/codersaiful) (1600+ commits And Pro: 1000+ commits)
@@ -275,6 +282,16 @@ You can easily show specific category products. While creating new table click o
 25. Manually responsive for mobile devices
 
 == Changelog ==
+
+= 3.3.5 =
+* Fixed: Spelling issue solved. Helped by [tanyabouman](https://github.com/tanyabouman) - his pull request [#254](https://github.com/codersaiful/woo-product-table/issues/254)
+* Added: French (France) Translated file added for frontend. Helped us [ozapp.app](https://ozapp.app/) to translate French Language.
+* Added: Russian (Russia) Translated file added for frontend. Helped us *[Vasiliy Kotov]* to translate Russian Language.
+* Added: Bangla (Bangladesh) translated file added for frontend.
+* Bug Fixed 
+* Code Optimized 
+* Language File Upload
+
 
 = 3.3.4 =
 * Fixed: Only custom field search box issue solved
