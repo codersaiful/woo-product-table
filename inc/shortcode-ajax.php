@@ -284,7 +284,9 @@ class Shortcode_Ajax extends Shortcode{
                 $pr_id = $perItem['product_id'];
 
                 $pqt_value = $perItem['quantity'];
-                $qtys[$pr_id] = isset( $qtys[$pr_id] ) ? $qtys[$pr_id] + $pqt_value : $pqt_value;
+                $total_qty = isset( $qtys[$pr_id] ) ? $qtys[$pr_id] + $pqt_value : $pqt_value;
+                $qtys[$pr_id] =  round($total_qty, 5);
+                // $qtys[$pr_id] = $total_qty;
 
                 $per_items[$pr_id]['cart_item_key'] = $cart_item_key;
                 $per_items[$pr_id]['quantity'] = $qtys[$pr_id];

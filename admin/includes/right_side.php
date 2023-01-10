@@ -5,12 +5,12 @@
             
             <div class="social_links">
                 <ul>
-                    <li><a href="https://github.com/codersaiful" rel="nofollow ugc">codersaiful</a> (1,000+ commits And Pro: 1000+ commits )</li>
+                    <li><a href="https://github.com/codersaiful" rel="nofollow ugc">codersaiful</a> (1600+ commits And Pro: 1000+ commits)</li>
+                    <li><a href="https://github.com/fazlebarisn" rel="nofollow ugc">fazlebarisn</a> (100+ commits And Pro: 70+ commits)</li>
                     <li><a href="https://github.com/unikforceit" rel="nofollow ugc">unikforceit</a> (42 commits )</li>
                     <li><a href="https://github.com/fatimakhatungit" rel="nofollow ugc">fatimakhatungit</a> (38 commits )</li>
-                    <li><a href="https://github.com/fazlebarisn" rel="nofollow ugc">fazlebarisn</a> (35 commits And Pro: 50+ commits)</li>
                     <li><a href="https://github.com/rafiul" rel="nofollow ugc">rafiul</a> (29 commits )</li>
-                    <li><a href="https://github.com/tanyabouman" rel="nofollow ugc">tanyabouman</a> (3 commits )</li>
+                    <li><a href="https://github.com/tanyabouman" rel="nofollow ugc">tanyabouman</a> (4 commits )</li>
                     <li><a href="https://github.com/zbandhan" rel="nofollow ugc">zbandhan</a> (1 commit )</li>
                     <li>🥇 <a href="https://github.com/codersaiful/woo-product-table/fork" rel="nofollow ugc">You can join here</a></li>
                 </ul>

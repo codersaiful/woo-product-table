@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Product Table for WooCommerce - (wooproducttable)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-12-15 06:11+0000\n"
-"PO-Revision-Date: 2022-12-22 10:47+0000\n"
+"PO-Revision-Date: 2023-01-09 09:21+0000\n"
 "Last-Translator: \n"
 "Language-Team: German (Formal)\n"
 "Language: de_DE_formal\n"
@@ -15,10 +15,10 @@ msgstr ""
 "X-Loco-Version: 2.6.3; wp-6.1.1"
 
 #. 1: Plugin name 2: PHP 3: Required PHP version
-#: woo-product-table.php:522
+#: woo-product-table.php:530
 #, php-format
 msgid "\"%1$s\" requires \"%2$s\" version %3$s or greater."
-msgstr ""
+msgstr "\"%1$s\" erfordert \"%2$s\" Version %3$s oder höher."
 
 #: admin/tabs/options.php:57 admin/tabs/options.php:122
 #, php-format
@@ -27,6 +27,10 @@ msgid ""
 "created shop archive page by any page builder. %1$sThis feature will only "
 "work on table page where table shortcode pasted.%2$s"
 msgstr ""
+"%1$sPaginierung funktioniert nicht%2$s auf WooCommerce-Shops, Archivseiten "
+"oder erstellten Shop-Archivseiten von Seitenerstellern. %1$sDiese Funktion "
+"funktioniert nur auf Tabellenseiten, auf denen der Tabellen-Shortcode "
+"eingefügt wurde.%2$s"
 
 #: admin/tabs/options.php:58 admin/tabs/options.php:123
 #, php-format
@@ -34,6 +38,8 @@ msgid ""
 "%1$sThis pagination will replaced on WooCommerce shop archive page%2$s by "
 "your theme's default pagination."
 msgstr ""
+"%1$sDiese Seitennummerierung wird auf der Archivseite des WooCommerce-"
+"Shops%2$s durch die Standardseitennummerierung Ihres Designs ersetzt."
 
 #: inc/handle/fragment.php:144
 #, php-format
@@ -45,92 +51,92 @@ msgstr[1] ""
 #: admin/action-hook.php:508
 #, php-format
 msgid "%s[Add to Quote]%s - button text"
-msgstr ""
+msgstr "%s[Zum Angebot hinzufügen]%s - Schaltflächentext"
 
 #: admin/action-hook.php:502
 #, php-format
 msgid "%s[Browse Quote list]%s - text "
-msgstr ""
+msgstr "%s[Zitatliste durchsuchen]%s - Text"
 
 #: admin/action-hook.php:394
 #, php-format
 msgid "%s[Empty Cart]%s - Text of Empty Cart"
-msgstr ""
+msgstr "%s[Leerer Einkaufswagen]%s - Text des leeren Einkaufswagens"
 
 #: admin/action-hook.php:401
 #, php-format
 msgid "%s[Filter]%s - Text of Filter"
-msgstr ""
+msgstr "%s[Filter]%s - Text des Filters"
 
 #: admin/action-hook.php:387
 #, php-format
 msgid "%s[Instance Search]%s - Text"
-msgstr ""
+msgstr "%s[Instanzsuche]%s - Text"
 
 #: admin/action-hook.php:360
 #, php-format
 msgid "%s[Load More]%s - Button Text"
-msgstr ""
+msgstr "%s[Mehr laden]%s - Schaltflächentext"
 
 #: admin/action-hook.php:381
 #, php-format
 msgid "%s[Loading..]%s - Button Text"
-msgstr ""
+msgstr "%s[Laden..]%s - Schaltflächentext"
 
 #: admin/action-hook.php:353
 #, php-format
 msgid "%s[Products not found!]%s - Message Text"
-msgstr ""
+msgstr "%s[Produkte nicht gefunden!]%s - Nachrichtentext"
 
 #: admin/action-hook.php:494
 #, php-format
 msgid "%s[Quick View]%s - Button Text"
-msgstr ""
+msgstr "%s[Schnellansicht]%s - Schaltflächentext"
 
 #: admin/action-hook.php:520
 #, php-format
 msgid "%s[Quote Added]%s - text "
-msgstr ""
+msgstr "%s[Zitat hinzugefügt]%s - Text"
 
 #: admin/action-hook.php:514
 #, php-format
 msgid "%s[Quote Adding]%s - text"
-msgstr ""
+msgstr "%s[Zitat hinzufügen]%s - Text"
 
 #: admin/action-hook.php:408
 #, php-format
 msgid "%s[Reset]%s - Button Text of Filter"
-msgstr ""
+msgstr "%s[Reset]%s - Schaltflächentext des Filters"
 
 #: admin/action-hook.php:374
 #, php-format
 msgid "%s[Search Keyword Title]%s - Text"
-msgstr ""
+msgstr "%s[Titel des Suchbegriffs]%s - Text"
 
 #: admin/action-hook.php:368
 #, php-format
 msgid "%s[Search]%s - Button Text"
-msgstr ""
+msgstr "%s[Suchen]%s - Schaltflächentext"
 
 #: admin/action-hook.php:287
 #, php-format
 msgid "%sCategories, Tags%s Link"
-msgstr ""
-
-#: admin/tabs/options.php:197
-msgid "(Add to cart(Selected]) Text"
-msgstr ""
+msgstr "%sKategorien, Tags%s Link"
 
 #: admin/tabs/options.php:156
 msgid "(Add to cart) Text"
-msgstr ""
+msgstr "(In den Warenkorb) Text"
 
-#: admin/tabs/options.php:205
-msgid "(All Check/Uncheck) Text"
+#: admin/tabs/options.php:240
+msgid "(Add to cart[Selected]) Text"
 msgstr ""
 
 #: admin/tabs/table_style.php:75
 msgid "(Premium)"
+msgstr "(Premium)"
+
+#: admin/tabs/options.php:259
+msgid "(Select All) Text"
 msgstr ""
 
 #. Description of the plugin
@@ -142,7 +148,7 @@ msgstr ""
 
 #: admin/menu_plugin_setting_link.php:52
 msgid "<i>Get <strong>Pro</strong></i>"
-msgstr ""
+msgstr "<i>Holen Sie sich <strong>Pro</strong></i>"
 
 #: admin/fac_support_page.php:33
 msgid ""
@@ -156,35 +162,35 @@ msgstr ""
 
 #: admin/action-hook.php:628
 msgid "[ Adding in Progress ] Message"
-msgstr ""
+msgstr "[ Wird hinzugefügt ] Nachricht"
 
 #: admin/action-hook.php:634
 msgid "[ No Right Combination ] Message"
-msgstr ""
+msgstr "[ Keine richtige Kombination ] Meldung"
 
 #: admin/action-hook.php:646
 msgid "[ Sorry! Out of Stock! ] Message"
-msgstr ""
+msgstr "[ Es tut uns leid! Ausverkauft! ] Nachricht"
 
 #: admin/action-hook.php:640
 msgid "[ Sorry, Please choose right combination. ] Message"
-msgstr ""
+msgstr "[ Entschuldigung, bitte wähle die richtige Kombination. ] Nachricht"
 
 #: admin/action-hook.php:547
 msgid "[In Stock] for Table Column"
-msgstr ""
+msgstr "[Auf Lager] für Tischsäule"
 
 #: admin/action-hook.php:560
 msgid "[On Back Order] for Table Column"
-msgstr ""
+msgstr "[Auf Nachbestellung] für Tabellenspalte"
 
 #: admin/action-hook.php:553
 msgid "[Out of Stock] for Table Column"
-msgstr ""
+msgstr " [Nicht auf Lager] für Tischsäule"
 
 #: admin/action-hook.php:616
 msgid "[Out of Stock] Message"
-msgstr ""
+msgstr "[Nicht vorrätig] Nachricht"
 
 #: admin/action-hook.php:610
 msgid "[Please Choose items] Alert!"
@@ -192,75 +198,80 @@ msgstr ""
 
 #: admin/action-hook.php:604
 msgid "[Please select all items.] Message"
-msgstr ""
+msgstr "[Bitte alle Elemente auswählen.] Nachricht"
 
 #: admin/action-hook.php:598
 msgid ""
 "[Product variations is not set Properly. May be: price is not inputted. may "
 "be: Out of Stock.] Message"
 msgstr ""
+"[Produktvariationen sind nicht richtig eingestellt. Kann sein: Preis wird "
+"nicht eingegeben. kann sein: Ausverkauft.] Nachricht"
 
 #: admin/action-hook.php:622
 msgid "[There is no more products based on current Query.] Message"
 msgstr ""
+"[Es gibt keine weiteren Produkte basierend auf der aktuellen Abfrage.] "
+"Nachricht"
 
 #: admin/action-hook.php:652
 msgid "[Type your Message.] Message"
-msgstr ""
+msgstr "[Gib deine Nachricht ein.] Nachricht"
 
 #: admin/functions.php:391
 msgid "About Product Table"
-msgstr ""
+msgstr "Über Produkttabelle"
 
 #: woo-product-table.php:124
 msgid "Action"
-msgstr ""
+msgstr "Aktion"
 
 #: admin/tabs/inc-column/add-new-column.php:39
 msgid "Action Hooks"
-msgstr ""
+msgstr "Aktionshaken"
 
 #: admin/tabs/options.php:20
 msgid "Active Ajax (Default)"
-msgstr ""
+msgstr "Aktives Ajax (Standard)"
 
 #: admin/tabs/mobile.php:77 admin/tabs/responsive.php:93
 #: admin/tabs/inc-column/column-list.php:120
 msgid "Active Inactive Column"
-msgstr ""
+msgstr "Aktive inaktive Spalte"
 
 #: admin/wpt_product_table_post.php:23 admin/wpt_product_table_post.php:24
 msgid "Add New"
-msgstr ""
+msgstr "Neue hinzufügen"
 
 #: admin/tabs/inc-column/add-new-column.php:5
 #: admin/tabs/inc-column/add-new-column.php:65
 msgid "Add New Column"
-msgstr ""
+msgstr "Neue Spalte hinzufügen"
 
 #: admin/menu_plugin_setting_link.php:17
 msgid "Add new Shortcode"
-msgstr ""
+msgstr "Neuen Shortcode hinzufügen"
 
-#: admin/tabs/options.php:159
+#: inc/shortcode.php:610 admin/tabs/options.php:162
 msgid "Add to cart"
-msgstr ""
+msgstr "In den Warenkorb legen"
 
-#: admin/tabs/options.php:200 inc/handle/checkbox-box.php:11
+#: admin/tabs/options.php:246 inc/handle/checkbox-box.php:20
+#| msgid "Add to cart selected"
 msgid "Add to Cart (Selected)"
-msgstr ""
+msgstr "Zum Warenkorb hinzufügen ausgewählt"
 
 #: admin/action-hook.php:428
 msgid "Add to Cart all selected [Added] Text"
-msgstr ""
+msgstr "Alle ausgewählten [Hinzugefügt] Text in den Warenkorb legen"
 
 #: admin/action-hook.php:147
 msgid "Add to Cart Icon"
-msgstr ""
+msgstr "In den Warenkorb-Symbol"
 
 #: woo-product-table.php:215
 msgid "Add to Quote"
-msgstr ""
+msgstr "Zum Angebot hinzufügen"
 
 #: includes/items/quoterequest.php:12
 msgid "Add to quote"
@@ -268,7 +279,7 @@ msgstr ""
 
 #: admin/action-hook.php:510
 msgid "Add to Quote text write here"
-msgstr ""
+msgstr "Zum Angebotstext hinzufügen hier schreiben"
 
 #: admin/pro-features-html.php:77
 msgid "Add Unlimited Blank Column"
@@ -276,35 +287,35 @@ msgstr ""
 
 #: woo-product-table.php:220
 msgid "Added"
-msgstr ""
+msgstr "Hinzugefügt"
 
 #: admin/action-hook.php:430
 msgid "Added text for [Add to cart Selected]"
-msgstr ""
+msgstr "Text hinzugefügt für [In den Einkaufswagen Ausgewählte]"
 
 #: woo-product-table.php:227 admin/action-hook.php:630
 msgid "Adding in Progress"
-msgstr ""
+msgstr "Hinzufügen läuft"
 
 #: admin/action-hook.php:516
 msgid "Adding text write here"
-msgstr ""
+msgstr "Füge hier Text hinzu"
 
 #: woo-product-table.php:216
 msgid "Adding.."
-msgstr ""
+msgstr "hinzufügen.."
 
 #: modules/elementor-widget.php:188
 msgid "Additional Information"
-msgstr ""
+msgstr "zusätzliche Information"
 
 #: admin/tabs/inc-column/add-new-column.php:38
 msgid "Advance Custom Field"
-msgstr ""
+msgstr "Erweitertes benutzerdefiniertes Feld"
 
 #: admin/tabs/search_n_filter.php:27
 msgid "Advance Search Box"
-msgstr ""
+msgstr "Erweitertes Suchfeld"
 
 #: admin/pro-features-html.php:68
 msgid "Advanced Custom Fields Supported"
@@ -312,39 +323,51 @@ msgstr ""
 
 #: admin/tabs/options.php:16
 msgid "Ajax Action (Enable/Disable)"
-msgstr ""
+msgstr "Ajax-Aktion (Aktivieren/Deaktivieren)"
 
 #: admin/tabs/options.php:32
 msgid "Ajax for Pagination (Enable/Disable)"
-msgstr ""
+msgstr "Ajax für Paginierung (Aktivieren/Deaktivieren)"
 
 #: admin/tabs/options.php:36
 msgid "Ajax Pagination (Default)"
+msgstr "Ajax-Paginierung (Standard)"
+
+#: admin/functions.php:519
+msgid "All categories"
 msgstr ""
 
-#: admin/tabs/options.php:208 inc/handle/checkbox-box.php:12
-msgid "All Check/Uncheck"
+#: admin/functions.php:521
+msgid "All Color"
 msgstr ""
 
 #: admin/action-hook.php:325
 msgid "All Items"
-msgstr ""
+msgstr "Alle Elemente"
 
 #: admin/action-hook.php:588
 msgid "All Messages"
+msgstr "Alle Meldungen"
+
+#: admin/functions.php:522
+msgid "All Size"
+msgstr ""
+
+#: admin/functions.php:520
+msgid "All tags"
 msgstr ""
 
 #: admin/tabs/inc-column/add-new-column.php:42
 msgid "All Type Content"
-msgstr ""
+msgstr "Alle Arten von Inhalten"
 
 #: admin/action-hook.php:164
 msgid "Always Hide"
-msgstr ""
+msgstr "Immer ausblenden"
 
 #: admin/action-hook.php:166
 msgid "Always Show"
-msgstr ""
+msgstr "Immer anzeigen"
 
 #: admin/pro-features-html.php:131
 msgid "And many more"
@@ -352,11 +375,11 @@ msgstr ""
 
 #: admin/tabs/query.php:231
 msgid "AND Operation"
-msgstr ""
+msgstr "UND-Operation"
 
 #: admin/post_metabox.php:111
 msgid "Any Ideas? Please "
-msgstr ""
+msgstr "Irgendwelche Ideen? Bitte"
 
 #: admin/includes/right_side.php:54
 msgid "Are you Coder?"
@@ -371,7 +394,7 @@ msgstr ""
 
 #: admin/tabs/inc-column/add-new-column.php:40
 msgid "Array type Custom Field"
-msgstr ""
+msgstr "Array-Typ Benutzerdefiniertes Feld"
 
 #: admin/pro-features-html.php:49
 msgid ""
@@ -382,27 +405,27 @@ msgstr ""
 
 #: admin/action-hook.php:205 admin/action-hook.php:218
 msgid "Ascending"
-msgstr ""
+msgstr "Aufsteigend"
 
 #: admin/tabs/query.php:267
 msgid "ASCENDING (Default)"
-msgstr ""
+msgstr "AUFSTEIGEN (Standard)"
 
 #: admin/action-hook.php:389
 msgid "attr"
-msgstr ""
+msgstr "attr"
 
 #: woo-product-table.php:116
 msgid "Attributes"
-msgstr ""
+msgstr "Attribute"
 
 #: admin/tabs/inc-column/add-new-column.php:41
 msgid "Audio File Type"
-msgstr ""
+msgstr "Audiodateityp"
 
 #: admin/tabs/query.php:304
 msgid "Author"
-msgstr ""
+msgstr "Autor"
 
 #: admin/includes/right_side.php:45
 msgid "Author Profile"
@@ -414,7 +437,7 @@ msgstr ""
 
 #: admin/tabs/mobile.php:12 admin/tabs/responsive.php:16
 msgid "Auto Responsive (Not Recommended)"
-msgstr ""
+msgstr "Automatische Reaktion (nicht empfohlen)"
 
 #: admin/post_metabox.php:66
 msgid ""
@@ -433,15 +456,16 @@ msgstr ""
 
 #: admin/action-hook.php:126
 msgid "Basic Settings"
-msgstr ""
+msgstr "Grundeinstellungen"
 
-#: admin/functions.php:461 admin/tabs/table_style.php:5
+#: admin/functions.php:485 admin/tabs/table_style.php:5
+#| msgid "Beautifull Blacky"
 msgid "Beautiful Blacky"
-msgstr ""
+msgstr "Schöner Blacky"
 
 #: admin/action-hook.php:175
 msgid "BG Color"
-msgstr ""
+msgstr "BG-Farbe"
 
 #: admin/tabs/table_style.php:27
 msgid "Black Style"
@@ -449,15 +473,15 @@ msgstr ""
 
 #: woo-product-table.php:121 admin/tabs/inc-column/add-new-column.php:37
 msgid "Blank"
-msgstr ""
+msgstr "Leer"
 
-#: admin/functions.php:463 admin/tabs/table_style.php:18
+#: admin/functions.php:487 admin/tabs/table_style.php:18
 msgid "Blue Border"
 msgstr ""
 
-#: admin/functions.php:477 admin/tabs/table_style.php:14
+#: admin/functions.php:501 admin/tabs/table_style.php:14
 msgid "Blue Style"
-msgstr ""
+msgstr "Blauer Stil"
 
 #: includes/functions.php:274
 msgid "Bold"
@@ -473,15 +497,15 @@ msgstr ""
 
 #: admin/tabs/options.php:73
 msgid "Bottom"
-msgstr ""
+msgstr "Unterseite"
 
 #: admin/action-hook.php:184
 msgid "Bottom Left"
-msgstr ""
+msgstr "Unten links"
 
 #: admin/action-hook.php:183
 msgid "Bottom Right"
-msgstr ""
+msgstr "Unten rechts"
 
 #: admin/menu_plugin_setting_link.php:104
 msgid "Browse our Plugins"
@@ -493,27 +517,31 @@ msgstr ""
 
 #: woo-product-table.php:214
 msgid "Browse the list"
-msgstr ""
+msgstr "Durchsuche die Liste"
 
 #: admin/action-hook.php:504
 msgid "Browse the list - text write here"
-msgstr ""
+msgstr "Durchsuche die Liste - schreibe hier Text"
 
 #: admin/action-hook.php:274
 msgid "Bundle Quick Buy "
-msgstr ""
+msgstr "Bündel Schnellkauf "
 
 #: admin/action-hook.php:267 admin/action-hook.php:279
 msgid "Cart Page"
+msgstr "Warenkorb-Seite"
+
+#: admin/functions.php:512
+msgid "Categories"
 msgstr ""
 
 #: woo-product-table.php:98
 msgid "Category"
-msgstr ""
+msgstr "Kategorie"
 
 #: admin/tabs/query.php:186
 msgid "Category Exclude"
-msgstr ""
+msgstr "Kategorie ausschließen"
 
 #: admin/pro-features-html.php:113
 msgid "Change each table is configuration"
@@ -521,20 +549,22 @@ msgstr ""
 
 #: woo-product-table.php:95
 msgid "Check"
-msgstr ""
+msgstr "Prüfen"
 
 #: admin/action-hook.php:268 admin/action-hook.php:280
 msgid "Checkout Page"
-msgstr ""
+msgstr "Checkout-Seite"
 
-#: includes/shortcode.php:103
-msgid "Choose "
-msgstr ""
+#: admin/functions.php:518
+#, fuzzy
+#| msgid "Choose "
+msgid "Choose"
+msgstr "Wählen"
 
 #: admin/tabs/search_n_filter.php:181
 #, php-format
 msgid "Choose [%s] %s (For Advanced Searchbox Filter) %s"
-msgstr ""
+msgstr "Wähle [%s] %s (für erweiterten Suchfeldfilter) %s"
 
 #: admin/tabs/query.php:328
 msgid ""
@@ -543,7 +573,7 @@ msgid ""
 "value(if number)"
 msgstr ""
 
-#: admin/functions.php:462 admin/tabs/table_style.php:17
+#: admin/functions.php:486 admin/tabs/table_style.php:17
 msgid "Classic"
 msgstr ""
 
@@ -553,11 +583,11 @@ msgstr ""
 
 #: admin/tabs/inc-column/column-list.php:40
 msgid "Click for Expand/Collapse. Edit your Column Title here."
-msgstr ""
+msgstr "Klicke zum Erweitern/Reduzieren. Bearbeite hier deinen Spaltentitel."
 
 #: admin/tabs/inc-column/available-column-list.php:24
 msgid "Click from Following list to add as Column."
-msgstr ""
+msgstr "Klicke in der folgenden Liste, um sie als Spalte hinzuzufügen."
 
 #: admin/pro-features-html.php:40
 msgid "Click here"
@@ -572,34 +602,38 @@ msgid ""
 "Click to choose. Selected Categories products will be exclude from your "
 "table."
 msgstr ""
+"Klicke zur Auswahl. Ausgewählte Kategorienprodukte werden aus deiner Tabelle "
+"ausgeschlossen."
 
 #: admin/includes/right_side.php:42
+#| msgid "CodeAstrology Profile"
 msgid "CodeAstrology Page"
-msgstr ""
+msgstr "CodeAstrologie-Profil"
 
 #: admin/menu_plugin_setting_link.php:19
 msgid "CodeAstrology Support"
-msgstr ""
+msgstr "CodeAstrology-Unterstützung"
 
 #. Author of the plugin
+#| msgid "CodeAstrology.com"
 msgid "CodeAstrology Team"
-msgstr ""
+msgstr "CodeAstrology.com"
 
 #: admin/functions.php:385
 msgid "CodeAstrology.com support"
-msgstr ""
+msgstr "CodeAstrology.com-Unterstützung"
 
 #: admin/includes/right_side.php:39
 msgid "codersaiful"
 msgstr ""
 
-#: modules/elementor-widget.php:231
+#: admin/functions.php:516 modules/elementor-widget.php:231
 msgid "Color"
 msgstr ""
 
 #: admin/post_metabox_form.php:10
 msgid "Column"
-msgstr ""
+msgstr "Spalte"
 
 #: admin/tabs/inc-column/add-new-column.php:10
 msgid "Column Keyword"
@@ -615,41 +649,41 @@ msgstr ""
 
 #: admin/functions.php:385
 msgid "Community forum"
-msgstr ""
+msgstr "Gemeinschaftsforum"
 
 #: admin/post_metabox_form.php:17
 #, php-format
 msgid "Configuration %sPro%s"
-msgstr ""
+msgstr "Konfiguration %sPro%s"
 
 #: admin/menu_plugin_setting_link.php:39
 msgid "Configuration WPTpro"
-msgstr ""
+msgstr "Konfiguration WPTpro"
 
 #: admin/menu_plugin_setting_link.php:18 admin/menu_plugin_setting_link.php:39
 msgid "Configure"
-msgstr ""
+msgstr "Konfigurieren"
 
 #: admin/menu_plugin_setting_link.php:18
 msgid "Configure for Universal"
-msgstr ""
+msgstr "Für Universal konfigurieren"
 
 #: admin/fac_support_page.php:11
 msgid "Contact & Support"
-msgstr ""
+msgstr "Kontaktieren Support"
 
 #: admin/wpt_product_table_post.php:102
 msgid "Copy"
-msgstr ""
+msgstr "Kopieren"
 
 #: modules/elementor-widget.php:191
 #, php-format
 msgid "Create %sa new table%s."
-msgstr ""
+msgstr "Erstelle %sa neue Tabelle%s."
 
 #: admin/menu_plugin_setting_link.php:17
 msgid "Create Table"
-msgstr ""
+msgstr "Tabelle erstellen"
 
 #: includes/functions.php:25 admin/tabs/inc-column/add-new-column.php:32
 msgid "Custom Field"
@@ -657,7 +691,7 @@ msgstr ""
 
 #: admin/tabs/query.php:293
 msgid "Custom Meta Number (if numeric data)"
-msgstr ""
+msgstr "Benutzerdefinierte Metanummer (falls numerische Daten)"
 
 #: admin/tabs/query.php:316
 msgid "Custom Meta Number(Pro)"
@@ -665,7 +699,7 @@ msgstr ""
 
 #: admin/tabs/query.php:287
 msgid "Custom Meta Value"
-msgstr ""
+msgstr "Benutzerdefinierter Metawert"
 
 #: admin/pro-features-html.php:48
 msgid "Custom Table Design"
@@ -679,26 +713,26 @@ msgstr ""
 msgid "Customizable Table using WordPress Classic Editor"
 msgstr ""
 
-#: admin/functions.php:480
+#: admin/functions.php:504
 msgid "Customized Design"
-msgstr ""
+msgstr "Kundenspezifisches Design"
 
-#: admin/functions.php:478 admin/tabs/table_style.php:15
+#: admin/functions.php:502 admin/tabs/table_style.php:15
 msgid "Dark Style"
 msgstr ""
 
-#: admin/tabs/options.php:256
+#: admin/tabs/options.php:320
 msgid "DataTable"
 msgstr ""
 
 #: woo-product-table.php:114 admin/tabs/query.php:286
 msgid "Date"
-msgstr ""
+msgstr "Datum"
 
-#: admin/functions.php:52 admin/tabs/options.php:246 admin/tabs/query.php:369
+#: admin/functions.php:52 admin/tabs/options.php:310 admin/tabs/query.php:369
 #: admin/tabs/query.php:383 admin/tabs/inc-column/column-list.php:47
 msgid "Default"
-msgstr ""
+msgstr "Standard"
 
 #: includes/functions.php:242
 msgid "Default Popup"
@@ -706,7 +740,7 @@ msgstr ""
 
 #: admin/action-hook.php:196
 msgid "Default Size. eg: 70"
-msgstr ""
+msgstr "Standard Größe. zB: 70"
 
 #: admin/action-hook.php:217
 msgid "Default Sorting"
@@ -716,9 +750,9 @@ msgstr ""
 msgid "Default sorting (Menu Order)"
 msgstr ""
 
-#: admin/functions.php:460 admin/tabs/table_style.php:3
+#: admin/functions.php:484 admin/tabs/table_style.php:3
 msgid "Default Style"
-msgstr ""
+msgstr "Standardstil"
 
 #: admin/tabs/inc-column/add-new-column.php:31
 msgid "Default/No Type"
@@ -730,23 +764,23 @@ msgstr ""
 
 #: admin/tabs/query.php:268
 msgid "DESCENDING"
-msgstr ""
+msgstr "ABSTEIGEND"
 
 #: admin/action-hook.php:206 admin/action-hook.php:219
 msgid "Descending"
-msgstr ""
+msgstr "Absteigend"
 
 #: woo-product-table.php:119
 msgid "Description"
-msgstr ""
+msgstr "Beschreibung"
 
 #: admin/action-hook.php:711
 msgid "Description Length :"
 msgstr ""
 
-#: admin/tabs/options.php:226
+#: admin/tabs/options.php:290
 msgid "Description Type"
-msgstr ""
+msgstr "Beschreibung Typ"
 
 #: admin/post_metabox_form.php:13
 #, php-format
@@ -762,22 +796,23 @@ msgid "Desktop"
 msgstr ""
 
 #: admin/tabs/column_settings.php:64
+#| msgid "Devicewise Column Setting"
 msgid "Device Wise Column Setting"
-msgstr ""
+msgstr "Geräteweise Spalteneinstellung"
 
 #: admin/action-hook.php:137 admin/action-hook.php:261
 #: admin/action-hook.php:278 admin/action-hook.php:291
-#: admin/tabs/options.php:48 admin/tabs/options.php:119
+#: admin/tabs/options.php:49 admin/tabs/options.php:119
 msgid "Disable"
-msgstr ""
+msgstr "Deaktivieren"
 
 #: admin/tabs/options.php:21
 msgid "Disable Ajax Action"
-msgstr ""
+msgstr "Deaktiviere die Ajax-Aktion"
 
 #: admin/tabs/options.php:37
 msgid "Disable Ajax Pagination"
-msgstr ""
+msgstr "Deaktivieren Sie die Ajax-Paginierung"
 
 #: includes/functions.php:217
 msgid "Disable Description"
@@ -789,43 +824,48 @@ msgstr ""
 
 #: includes/functions.php:277
 msgid "Div"
-msgstr ""
+msgstr "Div"
 
 #: admin/action-hook.php:34 admin/pro-features-html.php:135
 msgid "Documentation"
+msgstr "Dokumentation"
+
+#: admin/functions.php:473
+msgid "Don't change for auto translate. Leave empty to get translated text."
 msgstr ""
 
 #: admin/wpt_product_table_post.php:26
 msgid "Edit Product Table"
-msgstr ""
+msgstr "Produkttabelle bearbeiten"
 
 #: inc/features/basics.php:48
 msgid "Edit Table - "
-msgstr ""
+msgstr "Tabelle bearbeiten -"
 
 #: admin/tabs/query.php:394
+#| msgid "Eg: 50 (for display 20 products"
 msgid "Eg: 50 (for display 50 products"
-msgstr ""
+msgstr "Beispiel: 50 (für die Anzeige von 20 Produkten"
 
 #: admin/action-hook.php:396
 msgid "eg: Empty Cart"
-msgstr ""
+msgstr "zB: Einkaufswagen leeren"
 
 #: admin/action-hook.php:403
 msgid "eg: Filter"
-msgstr ""
+msgstr "zB: filtern"
 
 #: admin/tabs/search_n_filter.php:132
 msgid "eg: product_cat,product_tag,color,size"
-msgstr ""
+msgstr "zB: product_cat,product_tag,color,size"
 
 #: admin/action-hook.php:496
 msgid "eg: Quick View"
-msgstr ""
+msgstr "zB: Schnellansicht"
 
 #: admin/action-hook.php:410
 msgid "eg: Reset"
-msgstr ""
+msgstr "zB: Zurücksetzen"
 
 #: admin/includes/right_side.php:37
 msgid "Email:"
@@ -833,28 +873,31 @@ msgstr ""
 
 #: woo-product-table.php:210 inc/features/basics.php:60
 msgid "Empty Cart"
-msgstr ""
+msgstr "Leerer Warenkorb"
 
 #: inc/handle/fragment.php:147
 msgid "Empty Cart."
 msgstr ""
 
 #: admin/action-hook.php:137 admin/action-hook.php:292
-#: admin/tabs/options.php:247
+#: admin/tabs/options.php:311
 msgid "Enable"
-msgstr ""
+msgstr "Ermöglichen"
 
 #: admin/tabs/options.php:118
 msgid "Enable (Default)"
-msgstr ""
+msgstr "Aktivieren (Standard)"
 
 #: admin/action-hook.php:270
 msgid ""
 "Enable Quick Buy Button [Direct Checkout Page for each product]. Direct "
 "going to Checkout Page just after Added to cart for each product"
 msgstr ""
+"Quick Buy Button aktivieren [Direct Checkout-Seite für jedes Produkt]. Gehen "
+"Sie direkt zur Checkout-Seite, nachdem Sie für jedes Produkt in den "
+"Warenkorb gelegt wurden"
 
-#: inc/shortcode.php:878
+#: inc/shortcode.php:889
 msgid "Error: on assing_property on the table_body!!"
 msgstr ""
 
@@ -862,24 +905,12 @@ msgstr ""
 msgid "Example:"
 msgstr ""
 
-#: admin/tabs/options.php:200
-msgid "Example: Add to cart Selected"
-msgstr ""
-
-#: admin/tabs/options.php:208
-msgid "Example: All Check/Uncheck"
-msgstr ""
-
-#: admin/tabs/options.php:159
-msgid "Example: Buy"
-msgstr ""
-
-#: admin/tabs/options.php:187
+#: admin/tabs/options.php:222
 #, php-format
 msgid "Example: Page %s out of %s"
 msgstr ""
 
-#: admin/tabs/options.php:173
+#: admin/tabs/options.php:192
 #, php-format
 msgid "Example: Showing %s out of %s"
 msgstr ""
@@ -891,7 +922,7 @@ msgstr ""
 #: admin/action-hook.php:490
 #, php-format
 msgid "External Plugin's %s[YITH]%s "
-msgstr ""
+msgstr "Externe Plugin's %s[YITH]%s "
 
 #: admin/includes/right_side.php:41 admin/includes/right_side.php:42
 #: admin/includes/right_side.php:44 admin/includes/right_side.php:45
@@ -904,7 +935,7 @@ msgstr ""
 
 #: admin/wpt_product_table_post.php:33
 msgid "Featured Image"
-msgstr ""
+msgstr "Vorgestelltes Bild"
 
 #: admin/includes/right_side.php:107
 msgid "Feel free to knock me Any time."
@@ -912,38 +943,44 @@ msgstr ""
 
 #: admin/post_metabox_form.php:83
 msgid "file is not found in tabs folder"
-msgstr ""
+msgstr "Die Datei wurde nicht im Tabs-Ordner gefunden"
 
 #: admin/wpt_product_table_post.php:41
 msgid "Filter Product Table list"
-msgstr ""
+msgstr "Produkttabellenliste filtern"
 
 #: woo-product-table.php:211
 msgid "Filter:"
+msgstr "Filter:"
+
+#: admin/tabs/options.php:231
+msgid ""
+"First %s will replace by current page number and second % will replace by "
+"total page count.  To hide, leave as empty"
 msgstr ""
 
-#: admin/tabs/options.php:174 admin/tabs/options.php:188
+#: admin/tabs/options.php:201
 msgid ""
 "First %s will replace by showing number and second % will replace by total "
-"product number"
+"product number. To hide, leave as empty"
 msgstr ""
 
 #: admin/action-hook.php:173
 msgid "Floating Cart BG Color"
-msgstr ""
+msgstr "Schwebender Warenkorb BG Farbe"
 
 #: admin/action-hook.php:160
 msgid "Floating Cart Option"
-msgstr ""
+msgstr "Option Schwebender Warenkorb"
 
 #: admin/action-hook.php:179
 msgid "Floating Cart Position"
-msgstr ""
+msgstr "Schwebender Warenkorb position"
 
 #: admin/action-hook.php:194
 #, php-format
 msgid "Floating Cart Size %s[Only Int]%s"
-msgstr ""
+msgstr "Schwebender Warenkorb Größe %s[Only Int]%s"
 
 #: admin/action-hook.php:803
 msgid "Footer Cart Template"
@@ -957,10 +994,13 @@ msgid ""
 "href=\"%1$s\">community forum</a>. For help with premium support, <a "
 "href=\"%2$s\">open a support request at CodeAstrology.com</a>."
 msgstr ""
+"Weitere Unterstützung zu Product Table for WooCommerce findest du im <a "
+"href=\"%1$s\">Community-Forum</a> . <a href=\"%2$s\">Öffne für Hilfe zum "
+"Premium-Support eine Support-Anfrage unter CodeAstrology.com</a> ."
 
 #: admin/functions.php:390
 msgid "For more information:"
-msgstr ""
+msgstr "Für mehr Informationen:"
 
 #: templates/table-preview.php:55
 msgid "For perfect view paste shortcode on a page."
@@ -988,11 +1028,11 @@ msgstr ""
 
 #: modules/elementor-widget.php:127
 msgid "General"
-msgstr ""
+msgstr "Allgemein"
 
 #: admin/wpt_product_table_post.php:45
 msgid "Generate your shortcode for Product Table."
-msgstr ""
+msgstr "Generiere dein Shortcode für die Produkttabelle."
 
 #: admin/action-hook.php:23
 msgid "Get Pro"
@@ -1000,19 +1040,19 @@ msgstr ""
 
 #: admin/menu_plugin_setting_link.php:15 admin/menu_plugin_setting_link.php:52
 msgid "GET PRO VERSION"
-msgstr ""
+msgstr "PRO-VERSION HOLEN"
 
 #: admin/action-hook.php:35
 msgid "Get Support"
 msgstr ""
 
-#: inc/shortcode.php:879
+#: inc/shortcode.php:890
 msgid "Get Tutorial for this issue from wpOrg"
 msgstr ""
 
 #: admin/functions.php:394
 msgid "Github project"
-msgstr ""
+msgstr "Github-Projekt"
 
 #: admin/action-hook.php:31
 msgid "GitHub Repo"
@@ -1020,15 +1060,15 @@ msgstr ""
 
 #: admin/post_metabox.php:109
 msgid "Github Repo"
-msgstr ""
+msgstr "Github-Repo"
 
 #: admin/menu_plugin_setting_link.php:20
 msgid "Github Repo Link"
-msgstr ""
+msgstr "Github Repo-Link"
 
 #: admin/menu_plugin_setting_link.php:20
 msgid "Github Repository"
-msgstr ""
+msgstr "Github-Repository"
 
 #: admin/includes/right_side.php:59
 msgid "GitHub:"
@@ -1042,9 +1082,9 @@ msgstr ""
 msgid "Golden  Style"
 msgstr ""
 
-#: admin/functions.php:476 admin/tabs/table_style.php:13
+#: admin/functions.php:500 admin/tabs/table_style.php:13
 msgid "Green Style"
-msgstr ""
+msgstr "Grüner Stil"
 
 #: admin/tabs/table_style.php:6
 msgid "Greeny"
@@ -1076,26 +1116,28 @@ msgstr ""
 
 #: woo-product-table.php:104
 msgid "Height(cm)"
-msgstr ""
+msgstr "Höhe (cm)"
 
 #: admin/functions.php:371 admin/functions.php:373
 msgid "Help &amp; Support"
-msgstr ""
+msgstr "Hilfe Unterstützung"
 
-#: admin/tabs/options.php:233
+#: admin/tabs/options.php:297
 #, php-format
 msgid ""
 "Here was %sdescription_lenght%s, But from 3.6, We have removed "
 "%sdescription_lenght%s"
 msgstr ""
+"Hier war %sdescription_lenght%s, aber ab 3.6 haben wir "
+"%sdescription_lenght%s entfernt"
 
 #: admin/action-hook.php:241 admin/action-hook.php:303
 msgid "Hide"
-msgstr ""
+msgstr "Ausblenden"
 
 #: admin/tabs/search_n_filter.php:223
 msgid "Hide Filter"
-msgstr ""
+msgstr "Filter ausblenden"
 
 #: admin/action-hook.php:788
 msgid "Hide Footer Cart"
@@ -1103,15 +1145,15 @@ msgstr ""
 
 #: admin/action-hook.php:165
 msgid "Hide for Zero"
-msgstr ""
+msgstr "Verstecken bei Null"
 
 #: admin/tabs/mobile.php:60 admin/tabs/responsive.php:76
 msgid "Hide On Mobile"
-msgstr ""
+msgstr "Auf Mobilgerät ausblenden"
 
 #: admin/tabs/search_n_filter.php:32
 msgid "Hide Search Box"
-msgstr ""
+msgstr "Suchfeld ausblenden"
 
 #: admin/tabs/search_n_filter.php:49
 msgid "Hide Search Input Box"
@@ -1137,7 +1179,7 @@ msgstr ""
 
 #: woo-product-table.php:122 admin/tabs/query.php:325
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #: admin/pro-features-html.php:87
 msgid ""
@@ -1147,7 +1189,7 @@ msgstr ""
 
 #: admin/post_metabox.php:108
 msgid "If you want to be a Contributor, Go to "
-msgstr ""
+msgstr "Wenn du Mitwirkender werden möchtest, gehst du zu"
 
 #: framework/recommeded.php:61
 msgid ""
@@ -1168,11 +1210,11 @@ msgstr ""
 
 #: admin/tabs/query.php:230
 msgid "IN Operation"
-msgstr ""
+msgstr "In Betrieb"
 
 #: admin/action-hook.php:549
 msgid "In Stock"
-msgstr ""
+msgstr "Auf Lager"
 
 #: admin/pro-features-html.php:86
 msgid "Include/Exclude by Product ID"
@@ -1184,19 +1226,20 @@ msgstr ""
 
 #: admin/wpt_product_table_post.php:37
 msgid "Insert into Product Table"
-msgstr ""
+msgstr "In Produkttabelle einfügen"
 
 #: admin/action-hook.php:298
+#| msgid "Instant Search Filter"
 msgid "Instance Search Filter"
-msgstr ""
+msgstr "Sofort-Suchfilter"
 
 #: woo-product-table.php:213
 msgid "Instant Search.."
-msgstr ""
+msgstr "Sofortsuche.."
 
 #: admin/tabs/query.php:370
 msgid "instock"
-msgstr ""
+msgstr "auf Lager"
 
 #: admin/includes/right_side.php:35 admin/includes/right_side.php:61
 msgid "Issue on Github:"
@@ -1216,27 +1259,27 @@ msgstr ""
 
 #: woo-product-table.php:218
 msgid "Item"
-msgstr ""
+msgstr "Artikel"
 
 #: admin/action-hook.php:421
 msgid "Item [for Plural]"
-msgstr ""
+msgstr "Artikel [für Plural]"
 
 #: admin/action-hook.php:415
 msgid "Item [for Singular]"
-msgstr ""
+msgstr "Artikel [für Singular]"
 
 #: admin/action-hook.php:417 admin/action-hook.php:423
 msgid "Item | for All selected Button"
-msgstr ""
+msgstr "Artikel | für alle ausgewählten Schaltflächen"
 
 #: admin/action-hook.php:320
 msgid "Item/Products Count system [New]"
-msgstr ""
+msgstr "Item/Products Count System [Neu]"
 
 #: woo-product-table.php:219
 msgid "Items"
-msgstr ""
+msgstr "Artikel"
 
 #: admin/includes/right_side.php:38
 msgid "Join to CodeAstrology Group"
@@ -1244,15 +1287,15 @@ msgstr ""
 
 #: admin/action-hook.php:349
 msgid "Label Text"
-msgstr ""
+msgstr "Etikettentext"
 
 #: admin/action-hook.php:153
 msgid "Left Icon and Text"
-msgstr ""
+msgstr "Linkes Symbol und Text"
 
 #: woo-product-table.php:102
 msgid "Length(cm)"
-msgstr ""
+msgstr "Länge (cm)"
 
 #: admin/tabs/table_style.php:23
 msgid "Light Sea Green Style"
@@ -1276,35 +1319,37 @@ msgstr ""
 
 #: woo-product-table.php:202
 msgid "Load more"
-msgstr ""
+msgstr "Mehr laden"
 
 #: admin/tabs/options.php:50
+#, fuzzy, php-format
+#| msgid "%sLoad More%s Button"
 msgid "Load More Button"
-msgstr ""
+msgstr "Schaltfläche %sMehr laden%s"
 
 #: admin/action-hook.php:362
 msgid "Load More text write here"
-msgstr ""
+msgstr "\"Laden Mehr\" Text schreibe hier"
 
 #: woo-product-table.php:204
 msgid "Loading.."
-msgstr ""
+msgstr "Wird geladen.."
 
 #: admin/action-hook.php:383
 msgid "Loading.. text write here"
-msgstr ""
+msgstr "Loading.. Text hier schreiben"
 
-#: admin/tabs/options.php:231
+#: admin/tabs/options.php:295
 msgid "Long Description"
-msgstr ""
+msgstr "Lange Beschreibung"
 
 #: admin/tabs/responsive.php:17
 msgid "Manual Responsive"
-msgstr ""
+msgstr "Manuell reagiert"
 
 #: admin/menu_plugin_setting_link.php:15
 msgid "Many awesome features is waiting for you"
-msgstr ""
+msgstr "Viele tolle Features warten auf dich"
 
 #: admin/pro-features-html.php:132
 msgid "Many more awesome feature is waiting..."
@@ -1312,16 +1357,16 @@ msgstr ""
 
 #: admin/tabs/query.php:353
 msgid "Maximum Price"
-msgstr ""
+msgstr "Höchstpreis"
 
 #: includes/functions.php:408
 msgid "Menu Order"
-msgstr ""
+msgstr "Menübestellung"
 
 #: includes/helper-functions.php:516 includes/helper-functions.php:610
 #: includes/helper-functions.php:640
 msgid "Message"
-msgstr ""
+msgstr "Nachricht"
 
 #: admin/includes/right_side.php:44
 msgid "Message to Author"
@@ -1335,42 +1380,43 @@ msgstr ""
 #, php-format
 msgid "Meta Value for [Custom Meta Value] of %s Custom Meta Value %s"
 msgstr ""
+"Metawert für [Custom Meta Value] von %s Benutzerdefinierter Metawert %s"
 
 #: admin/tabs/options.php:68
 msgid "Mini Cart Position"
-msgstr ""
+msgstr "Mini-Cart-Position"
 
 #: admin/tabs/search_n_filter.php:219
 msgid "Mini Filter"
-msgstr ""
+msgstr "Minifilter"
 
 #: admin/action-hook.php:200
 msgid "Mini Filter Sorting"
-msgstr ""
+msgstr "Mini-Filter-Sortierung"
 
 #: admin/tabs/query.php:344
 msgid "Minimum Price"
-msgstr ""
+msgstr "Minimaler Preis"
 
 #: admin/functions.php:187 admin/tabs/column_settings.php:111
 msgid "Mobile"
-msgstr ""
+msgstr "Mobile"
 
 #: admin/tabs/mobile.php:8 admin/tabs/responsive.php:12
 msgid "Mobile Responsive"
-msgstr ""
+msgstr "Mobil reagiert"
 
-#: admin/functions.php:466
+#: admin/functions.php:490
 msgid "Modern Style"
 msgstr ""
 
 #: admin/tabs/query.php:308
 msgid "Modified"
-msgstr ""
+msgstr "Geändert"
 
 #: woo-product-table.php:115
 msgid "Modified Date"
-msgstr ""
+msgstr "Geändertes Datum"
 
 #: admin/tabs/query.php:319
 msgid "Modified(Pro)"
@@ -1380,11 +1426,11 @@ msgstr ""
 #: admin/tabs/inc-column/column-list.php:32
 #: admin/tabs/inc-column/column-list.php:117
 msgid "Move Handle"
-msgstr ""
+msgstr "Griff verschieben"
 
 #: admin/tabs/query.php:282
 msgid "Name"
-msgstr ""
+msgstr "Name"
 
 #: admin/includes/right_side.php:29
 msgid "Need Help?"
@@ -1392,11 +1438,11 @@ msgstr ""
 
 #: admin/wpt_product_table_post.php:25
 msgid "New Product Table"
-msgstr ""
+msgstr "Neue Produkttabelle"
 
 #: admin/action-hook.php:250
 msgid "New Tab"
-msgstr ""
+msgstr "Neue Registerkarte"
 
 #: includes/functions.php:243
 msgid "No Action"
@@ -1404,32 +1450,36 @@ msgstr ""
 
 #: admin/action-hook.php:151
 msgid "No Icon"
-msgstr ""
+msgstr "Kein Symbol"
+
+#: admin/action-hook.php:355
+msgid "No products found in this query."
+msgstr "Keine Produkte in dieser Abfrage gefunden."
 
 #: admin/tabs/mobile.php:13
 msgid "No Responsive"
-msgstr ""
+msgstr "Nein Reagiert"
 
 #: woo-product-table.php:228 admin/action-hook.php:636
 msgid "No Right Combination"
-msgstr ""
+msgstr "Keine richtige Kombination"
 
 #: includes/functions.php:265
 msgid "No Tag"
 msgstr ""
 
-#: admin/action-hook.php:204 includes/functions.php:989
+#: admin/action-hook.php:204 includes/functions.php:1015
 #: admin/tabs/options.php:74 admin/tabs/query.php:326
 msgid "None"
-msgstr ""
+msgstr "Keiner"
 
 #: admin/action-hook.php:594
 msgid "Not Available"
-msgstr ""
+msgstr "Nicht verfügbar"
 
 #: woo-product-table.php:221
 msgid "Not available"
-msgstr ""
+msgstr "Nicht verfügbar"
 
 #: admin/action-hook.php:363
 msgid "Not for Archive page."
@@ -1439,95 +1489,93 @@ msgstr ""
 msgid ""
 "Not for WooCommerce Archive page. Such: shop page, product category page."
 msgstr ""
+"Nicht für die WooCommerce-Archivseite. Zum Beispiel: Shopseite, "
+"Produktkategorieseite."
 
 #: admin/wpt_product_table_post.php:31
 msgid "Not found"
-msgstr ""
+msgstr "Nicht gefunden"
 
 #: admin/wpt_product_table_post.php:32
 msgid "Not found in Trash"
-msgstr ""
-
-#: admin/action-hook.php:355
-msgid "No products found in this query."
-msgstr ""
+msgstr "Nicht im Papierkorb gefunden"
 
 #: admin/pro-features-html.php:123
 msgid "Now you can show more product information in a smart way."
 msgstr ""
 
-#: admin/tabs/options.php:49
+#: admin/tabs/options.php:48
 msgid "Number/Paging"
 msgstr ""
 
 #: admin/action-hook.php:313
 msgid "Off"
-msgstr ""
+msgstr "Aus"
 
 #: admin/functions.php:395
 msgid "Official theme"
-msgstr ""
+msgstr "Offizielles Thema"
 
 #: admin/action-hook.php:314
 msgid "On"
-msgstr ""
+msgstr "An"
 
 #: admin/action-hook.php:562
 msgid "On Back Order"
-msgstr ""
+msgstr "Auf Nachbestellung"
 
 #: admin/tabs/query.php:371
 msgid "onbackorder"
-msgstr ""
+msgstr "Nachbestellung"
 
 #: admin/action-hook.php:497
 #, php-format
 msgid "Only for %s YITH WooCommerce Quick View%s Plugin"
-msgstr ""
+msgstr "Nur für %s YITH WooCommerce Quick View%s Plugin"
 
 #: admin/action-hook.php:305
 msgid "Only for viewable products of current table."
-msgstr ""
+msgstr "Nur für sichtbare Produkte der aktuellen Tabelle."
 
 #: admin/tabs/search_n_filter.php:226
 msgid "Only for Visible products of current table."
-msgstr ""
+msgstr "Nur für sichtbare Produkte der aktuellen Tabelle."
 
 #: admin/action-hook.php:152
 msgid "Only Icon"
-msgstr ""
+msgstr "Nur Symbol"
 
 #: admin/tabs/query.php:384
 msgid "Only Sale"
-msgstr ""
+msgstr "Nur Verkauf"
 
 #: admin/post_metabox_form.php:14
 msgid "Options"
 msgstr ""
 
-#: admin/functions.php:467 admin/tabs/table_style.php:22
+#: admin/functions.php:491 admin/tabs/table_style.php:22
 msgid "Orange Style"
 msgstr ""
 
 #: woo-product-table.php:240
 msgid "Order"
-msgstr ""
+msgstr "Befehl"
 
 #: admin/tabs/query.php:277
 msgid "Order By"
-msgstr ""
+msgstr "Sortieren nach"
 
 #: admin/action-hook.php:458
 msgid "Order By text"
-msgstr ""
+msgstr "Nach Text bestellen"
 
 #: admin/action-hook.php:464
 msgid "Order text"
-msgstr ""
+msgstr "Bestelltext"
 
 #: admin/functions.php:396
 msgid "Other Premium Plugins"
-msgstr ""
+msgstr "Andere Premium-Plugins"
 
 #: includes/items/rating.php:3
 msgid "out of 5"
@@ -1536,15 +1584,20 @@ msgstr ""
 #: woo-product-table.php:226 admin/action-hook.php:555
 #: admin/action-hook.php:618
 msgid "Out of Stock"
-msgstr ""
+msgstr "Ausverkauft"
 
 #: admin/tabs/query.php:372
 msgid "outofstock"
+msgstr "ausverkauft"
+
+#: admin/tabs/options.php:219
+#, php-format
+msgid "Page %s out of %s"
 msgstr ""
 
 #: admin/tabs/options.php:43 admin/tabs/options.php:113
 msgid "Pagination"
-msgstr ""
+msgstr "Seitennummerierung"
 
 #: includes/functions.php:273
 msgid "Paragraph"
@@ -1552,17 +1605,17 @@ msgstr ""
 
 #: admin/tabs/query.php:322
 msgid "Parent"
-msgstr ""
+msgstr "Elternteil"
 
 #: admin/wpt_product_table_post.php:21
 msgid "Parent Shortcode:"
-msgstr ""
+msgstr "Übergeordneter Shortcode:"
 
-#: woo-product-table.php:524
+#: woo-product-table.php:532
 msgid "PHP"
-msgstr ""
+msgstr "PHP"
 
-#: admin/functions.php:465 admin/tabs/table_style.php:20
+#: admin/functions.php:489 admin/tabs/table_style.php:20
 msgid "Pink Style"
 msgstr ""
 
@@ -1571,19 +1624,21 @@ msgid ""
 "Pleach check you column to hide from Mobile. For all type Table(Responsive "
 "or Non-Responsive)."
 msgstr ""
+"Bitte überprüfe dein Spalte, um dich vor Mobile zu verstecken. Für alle "
+"Typen Tabelle (Responsive oder Non-Responsive)."
 
 #: includes/helper-functions.php:560
 msgid "Please enter Short Message"
-msgstr ""
+msgstr "Bitte Kurznachricht eingeben"
 
 #: modules/elementor-widget.php:118
 msgid "Please select a Table."
-msgstr ""
+msgstr "Bitte wähle einen Tisch aus."
 
 #: woo-product-table.php:224 admin/action-hook.php:606
 #: admin/action-hook.php:612
 msgid "Please select all items."
-msgstr ""
+msgstr "Bitte wähle alle Artikel aus."
 
 #: woo-product-table.php:225
 msgid "Please select some items."
@@ -1591,11 +1646,11 @@ msgstr ""
 
 #: admin/action-hook.php:131
 msgid "Plugin Recommendation"
-msgstr ""
+msgstr "Plugin-Empfehlung"
 
 #: admin/action-hook.php:236
 msgid "Popup Notice"
-msgstr ""
+msgstr "Popup-Hinweis"
 
 #: admin/tabs/query.php:391
 msgid "Posts per page"
@@ -1603,11 +1658,11 @@ msgstr ""
 
 #: admin/functions.php:393
 msgid "Premium Plugin "
-msgstr ""
+msgstr "Premium-Plugin"
 
 #: woo-product-table.php:107
 msgid "Price"
-msgstr ""
+msgstr "Preis"
 
 #: admin/tabs/query.php:314
 msgid "Pro"
@@ -1615,6 +1670,10 @@ msgstr ""
 
 #: admin/post_metabox_form.php:31
 msgid "Product Categories"
+msgstr ""
+
+#: admin/functions.php:514
+msgid "Product Color"
 msgstr ""
 
 #: admin/pro-features-html.php:35
@@ -1627,10 +1686,14 @@ msgstr ""
 
 #: admin/action-hook.php:246
 msgid "Product Link Open Type"
-msgstr ""
+msgstr "Offener Typ für Produktverknüpfung"
 
 #: inc/handle/message.php:56
 msgid "Product not found!"
+msgstr ""
+
+#: admin/functions.php:515
+msgid "Product Size"
 msgstr ""
 
 #: admin/pro-features-html.php:36
@@ -1639,33 +1702,33 @@ msgstr ""
 
 #: admin/wpt_product_table_post.php:17 admin/wpt_product_table_post.php:44
 msgid "PRODUCT TABLE"
-msgstr ""
+msgstr "PRODUKTTABELLE"
 
 #: admin/wpt_product_table_post.php:18 admin/wpt_product_table_post.php:22
 msgid "Product Table"
-msgstr ""
+msgstr "Produkttabelle"
 
 #: admin/wpt_product_table_post.php:16
 msgctxt "PRODUCT TABLE"
 msgid "PRODUCT TABLE"
-msgstr ""
+msgstr "PRODUKTTABELLE"
 
 #: admin/wpt_product_table_post.php:15
 msgctxt "Product Table"
 msgid "Product Table"
-msgstr ""
+msgstr "Produkttabelle"
 
 #: admin/wpt_product_table_post.php:19
 msgid "Product Table Archives"
-msgstr ""
+msgstr "Produkttabellenarchiv"
 
 #: admin/wpt_product_table_post.php:20
 msgid "Product Table Attributes"
-msgstr ""
+msgstr "Attribute der Produkttabelle"
 
 #: admin/tabs/options.php:142
 msgid "Product Table Class Name (Optional)"
-msgstr ""
+msgstr "Klassenname der Produkttabelle (optional)"
 
 #. Name of the plugin
 msgid "Product Table for WooCommerce by codeAstrology (WooproductTable)"
@@ -1673,11 +1736,11 @@ msgstr ""
 
 #: admin/wpt_product_table_post.php:39
 msgid "Product Table list"
-msgstr ""
+msgstr "Produkttabellenliste"
 
 #: admin/wpt_product_table_post.php:40
 msgid "Product Table list navigation"
-msgstr ""
+msgstr "Navigation in der Produkttabellenliste"
 
 #: admin/post_metabox_form.php:32
 msgid "Product Tags"
@@ -1685,7 +1748,7 @@ msgstr ""
 
 #: admin/pro-features-html.php:37 admin/tabs/query.php:284
 msgid "Product Title"
-msgstr ""
+msgstr "Produktname"
 
 #: modules/elementor-widget.php:308
 msgid "Product Title Color"
@@ -1696,27 +1759,35 @@ msgid ""
 "Product variations is not set Properly. May be: price is not inputted. may "
 "be: Out of Stock."
 msgstr ""
+"Produktvariationen sind nicht richtig eingestellt. Kann sein: Preis wird "
+"nicht eingegeben. kann sein: Ausverkauft."
 
 #: woo-product-table.php:97
 msgid "Products"
-msgstr ""
+msgstr "Produkte"
 
 #: woo-product-table.php:201
 msgid "Products not found!"
-msgstr ""
+msgstr "Produkte Nicht gegründet!"
 
 #: admin/action-hook.php:324
 msgid "Products Wise"
-msgstr ""
+msgstr "Produkte klug"
 
-#: admin/tabs/options.php:160
+#: admin/tabs/options.php:171
 #, php-format
 msgid "Put a Space (\" \") for getting default %s Add to Cart Text %s"
+msgstr ""
+"Setzen Sie ein Leerzeichen (\" \"), um den standardmäßigen %s-Text \"In den "
+"Warenkorb\" %s zu erhalten"
+
+#: includes/items/quick.php:2 includes/items/quick_view.php:3
+msgid "Qiuck View"
 msgstr ""
 
 #: woo-product-table.php:109
 msgid "Quantity"
-msgstr ""
+msgstr "Menge"
 
 #: admin/post_metabox_form.php:11
 msgid "Query"
@@ -1724,7 +1795,7 @@ msgstr ""
 
 #: admin/action-hook.php:309
 msgid "Query by URL"
-msgstr ""
+msgstr "Abfrage per URL"
 
 #: woo-product-table.php:113
 msgid "Quick"
@@ -1732,12 +1803,12 @@ msgstr ""
 
 #: admin/action-hook.php:257
 msgid "Quick Buy"
-msgstr ""
+msgstr "Schnellkauf"
 
 #: woo-product-table.php:112 woo-product-table.php:203
 #: includes/functions.php:246 includes/functions.php:247
 msgid "Quick View"
-msgstr ""
+msgstr "Schnellansicht"
 
 #: includes/functions.php:223
 msgid "Quick View by Code Astrology"
@@ -1749,19 +1820,19 @@ msgstr ""
 
 #: admin/action-hook.php:522
 msgid "Quote Added text write here"
-msgstr ""
+msgstr "Zitat Hinzugefügter Text hier schreiben"
 
 #: woo-product-table.php:118
 msgid "Quote Request"
-msgstr ""
+msgstr "Angebotsanfrage"
 
 #: woo-product-table.php:217
 msgid "Quoted"
-msgstr ""
+msgstr "Zitiert"
 
 #: admin/tabs/query.php:310
 msgid "Rand"
-msgstr ""
+msgstr "Rand"
 
 #: admin/tabs/query.php:320
 msgid "Rand(Pro)"
@@ -1769,7 +1840,7 @@ msgstr ""
 
 #: admin/tabs/query.php:269
 msgid "Random"
-msgstr ""
+msgstr "Zufällig"
 
 #: admin/includes/right_side.php:69
 msgid "Rate Us on WordPress.org"
@@ -1782,7 +1853,7 @@ msgstr ""
 
 #: woo-product-table.php:105
 msgid "Rating"
-msgstr ""
+msgstr "Bewertung"
 
 #: admin/handle/pro-version-update.php:29
 msgid "RECOMMED UPDATE: Woo Product table Pro - CodeAstrology"
@@ -1798,27 +1869,27 @@ msgstr ""
 
 #: admin/tabs/query.php:324
 msgid "Relevance"
-msgstr ""
+msgstr "Relevanz"
 
 #: admin/wpt_product_table_post.php:35
 msgid "Remove featured image"
-msgstr ""
+msgstr "Beitragsbild entfernen"
 
 #: woo-product-table.php:212 inc/handle/search-box.php:21
 msgid "Reset"
-msgstr ""
+msgstr "Zurücksetzen"
 
 #: admin/configuration_page.php:105
 msgid "Reset Settings"
-msgstr ""
+msgstr "Einstellungen zurücksetzen"
 
 #: admin/functions.php:186
 msgid "Responsive <small>New</small>"
-msgstr ""
+msgstr "Reaktionsschnell <small>Neu</small>"
 
 #: admin/tabs/query.php:323
 msgid "Reviews/Comment Count"
-msgstr ""
+msgstr "Anzahl der Bewertungen/Kommentare"
 
 #: admin/action-hook.php:451
 msgid "Sale"
@@ -1826,7 +1897,7 @@ msgstr ""
 
 #: admin/tabs/query.php:379
 msgid "Sale Products"
-msgstr ""
+msgstr "Verkaufsprodukte"
 
 #: admin/action-hook.php:674
 msgid "Save All"
@@ -1834,28 +1905,28 @@ msgstr ""
 
 #: admin/configuration_page.php:101 admin/post_metabox_form.php:137
 msgid "Save Change"
-msgstr ""
+msgstr "Änderungen speichern"
 
 #: woo-product-table.php:205
 msgid "Search"
-msgstr ""
+msgstr "Suche"
 
 #: admin/post_metabox_form.php:16
 msgid "Search & Filter"
-msgstr ""
+msgstr "Suchen & Filtern"
 
 #: woo-product-table.php:237
 #, php-format
 msgid "Search Box (%sAll Fields Optional%s)"
-msgstr ""
+msgstr "Suchfeld (%sAlle Felder optional%s)"
 
 #: admin/action-hook.php:213
 msgid "Search Box Taxonomy Sorting"
-msgstr ""
+msgstr "Suchfeld-Taxonomie-Sortierung"
 
 #: admin/action-hook.php:436 admin/action-hook.php:438
 msgid "Search Box title"
-msgstr ""
+msgstr "Titel des Suchfelds"
 
 #: admin/action-hook.php:468
 msgid "Search Dropdown Placeholder text"
@@ -1864,15 +1935,15 @@ msgstr ""
 #: woo-product-table.php:206 woo-product-table.php:238
 #: admin/action-hook.php:376
 msgid "Search Keyword"
-msgstr ""
+msgstr "Schlüsselwort suchen"
 
 #: admin/action-hook.php:442
 msgid "Search Keyword Placeholder"
-msgstr ""
+msgstr "Platzhalter für Suchbegriffe"
 
 #: admin/action-hook.php:444
 msgid "Search Keyword text"
-msgstr ""
+msgstr "Keyword-Text suchen"
 
 #: admin/tabs/search_n_filter.php:75
 msgid "Search on Whole Site"
@@ -1880,11 +1951,11 @@ msgstr ""
 
 #: admin/wpt_product_table_post.php:30
 msgid "Search Product Table"
-msgstr ""
+msgstr "Produkttabelle durchsuchen"
 
 #: admin/action-hook.php:370
 msgid "Search text write here"
-msgstr ""
+msgstr "Suchtext hier schreiben"
 
 #: admin/pro-features-html.php:95
 msgid "Search using specific Meta Keyword"
@@ -1892,11 +1963,11 @@ msgstr ""
 
 #: admin/action-hook.php:456
 msgid "SearchBox Order By text"
-msgstr ""
+msgstr "SearchBox-Reihenfolge nach Text"
 
 #: admin/action-hook.php:462
 msgid "SearchBox Order text"
-msgstr ""
+msgstr "SearchBox Auftragstext"
 
 #: admin/action-hook.php:449
 msgid "SearchBox Sale text"
@@ -1910,9 +1981,13 @@ msgstr ""
 msgid "Select a template to change footer cart design"
 msgstr ""
 
+#: admin/tabs/options.php:265 inc/handle/checkbox-box.php:21
+msgid "Select All"
+msgstr ""
+
 #: woo-product-table.php:241
 msgid "Select inner Item."
-msgstr ""
+msgstr "Wähle den inneren Artikel aus."
 
 #: admin/action-hook.php:470
 msgid "Select Innet Items"
@@ -1922,9 +1997,9 @@ msgstr ""
 msgid "Select multiple inner items:"
 msgstr ""
 
-#: admin/functions.php:459
+#: admin/functions.php:483
 msgid "Select None"
-msgstr ""
+msgstr "Nichts ausgewählt"
 
 #: admin/tabs/table_style.php:59
 msgid "Select Template"
@@ -1936,38 +2011,42 @@ msgstr ""
 
 #: admin/action-hook.php:251
 msgid "Self Tab"
-msgstr ""
+msgstr "Registerkarte „Selbst“."
 
 #: admin/post_metabox.php:112
 msgid "Send your Suggestion or Idea"
-msgstr ""
+msgstr "Sende deinen Vorschlag oder Ihre Idee"
 
 #: admin/tabs/options.php:139
 msgid "Set a Class name for Table"
-msgstr ""
+msgstr "Lege einen Klassennamen für die Tabelle fest"
 
 #: admin/tabs/column_settings.php:167
 msgid ""
 "Set columns for mobile, otherwise tablet columns will be shown on mobile."
 msgstr ""
+"Lege Spalten für Mobilgeräte fest, andernfalls werden Tablet-Spalten auf "
+"Mobilgeräten angezeigt."
 
 #: admin/tabs/column_settings.php:144
 msgid ""
 "Set columns for tablet, otherwise desktop columns will be shown on tablet."
 msgstr ""
+"Lege die Spalten für das Tablet fest, andernfalls werden die Desktop-Spalten "
+"auf dem Tablet angezeigt."
 
 #: admin/wpt_product_table_post.php:34
 msgid "Set featured image"
-msgstr ""
+msgstr "Beitragsbild einstellen"
 
 #: woo-product-table.php:120 admin/pro-features-html.php:38
-#: admin/tabs/options.php:230
+#: admin/tabs/options.php:294
 msgid "Short Description"
-msgstr ""
+msgstr "kurze Beschreibung"
 
 #: woo-product-table.php:111
 msgid "Short Message"
-msgstr ""
+msgstr "Kurznachricht"
 
 #: templates/table-preview.php:45
 msgid "Shortcode"
@@ -1985,21 +2064,34 @@ msgid ""
 "WooCommerce, <a href=\"%s\">please read our documentation</a>. You will find "
 "all kinds of resources including snippets, tutorials and much more."
 msgstr ""
+"Solltest du Hilfe beim Verständnis, der Verwendung oder Erweiterung der "
+"Produkttabelle für WooCommerce benötigen, <a href=\"%s\">lese bitte unsere "
+"Dokumentation</a> . Du findest alle Arten von Ressourcen, darunter Snippets, "
+"Tutorials und vieles mehr."
 
 #: admin/action-hook.php:240 admin/action-hook.php:302
 msgid "Show"
-msgstr ""
+msgstr "Zeigen"
 
 #: admin/tabs/search_n_filter.php:224
 msgid "Show Filter"
-msgstr ""
+msgstr "Filter anzeigen"
 
 #: admin/tabs/search_n_filter.php:31
 msgid "Show Search Box"
-msgstr ""
+msgstr "Suchfeld anzeigen"
 
 #: includes/functions.php:218
 msgid "Show Variation Name With Title"
+msgstr ""
+
+#: admin/tabs/options.php:189
+#, php-format
+msgid "Showing %s out of %s"
+msgstr ""
+
+#: admin/functions.php:517
+msgid "Size"
 msgstr ""
 
 #: templates/table-preview.php:32
@@ -2008,7 +2100,7 @@ msgstr ""
 
 #: woo-product-table.php:100
 msgid "SKU"
-msgstr ""
+msgstr "Artikelnummer"
 
 #: admin/includes/right_side.php:39
 msgid "Skype:"
@@ -2016,27 +2108,27 @@ msgstr ""
 
 #: woo-product-table.php:123
 msgid "SL"
-msgstr ""
+msgstr "SL"
 
-#: admin/functions.php:464 admin/tabs/table_style.php:19
+#: admin/functions.php:488 admin/tabs/table_style.php:19
 msgid "Smart Border"
 msgstr ""
 
-#: admin/functions.php:479 admin/tabs/table_style.php:16
+#: admin/functions.php:503 admin/tabs/table_style.php:16
 msgid "Smart Light"
 msgstr ""
 
-#: admin/functions.php:475 admin/tabs/table_style.php:12
+#: admin/functions.php:499 admin/tabs/table_style.php:12
 msgid "Smart Thin"
-msgstr ""
+msgstr "Smart dünn"
 
 #: woo-product-table.php:229 admin/action-hook.php:648
 msgid "Sorry! Out of Stock!"
-msgstr ""
+msgstr "Es tut uns leid! Ausverkauft!"
 
 #: woo-product-table.php:231 admin/action-hook.php:642
 msgid "Sorry, Please choose right combination."
-msgstr ""
+msgstr "Entschuldigung, bitte wähle die richtige Kombination."
 
 #: woo-product-table.php:239
 msgid "Sort By"
@@ -2064,27 +2156,31 @@ msgstr ""
 
 #: admin/tabs/query.php:263
 msgid "Sorting/Order"
-msgstr ""
+msgstr "Sortieren/Ordnen"
 
 #: includes/functions.php:276
 msgid "Span"
 msgstr ""
 
-#: admin/tabs/options.php:184
+#: admin/functions.php:523
+msgid "sss"
+msgstr ""
+
+#: admin/tabs/options.php:211
 msgid "Stats Page Count Text"
 msgstr ""
 
-#: admin/tabs/options.php:170
+#: admin/tabs/options.php:181
 msgid "Stats Post Count Text"
 msgstr ""
 
 #: woo-product-table.php:106
 msgid "Stock"
-msgstr ""
+msgstr "Aktie"
 
 #: admin/tabs/query.php:365
 msgid "Stock Status"
-msgstr ""
+msgstr "Lagerbestand"
 
 #: includes/functions.php:275
 msgid "Strong"
@@ -2104,7 +2200,7 @@ msgstr ""
 
 #: admin/menu_plugin_setting_link.php:19
 msgid "Support"
-msgstr ""
+msgstr "Support"
 
 #: modules/elementor-widget.php:270
 msgid "Table Body"
@@ -2120,24 +2216,24 @@ msgstr ""
 
 #: modules/elementor-widget.php:212 admin/tabs/options.php:87
 msgid "Table Head"
-msgstr ""
+msgstr "Tabellenkopf"
 
 #: modules/elementor-widget.php:160
 msgid "Table List"
-msgstr ""
+msgstr "Tabellenliste"
 
 #: admin/action-hook.php:543
 #, php-format
 msgid "Table's Default Content %sSince 3.3%s"
-msgstr ""
+msgstr "Standardinhalt der Tabelle %sSeit 3.3%s"
 
 #: admin/tabs/column_settings.php:110
 msgid "Tablet"
 msgstr ""
 
-#: woo-product-table.php:99
+#: woo-product-table.php:99 admin/functions.php:513
 msgid "Tags"
-msgstr ""
+msgstr "Stichworte"
 
 #: includes/functions.php:30 admin/tabs/inc-column/add-new-column.php:33
 msgid "Taxonomy"
@@ -2146,14 +2242,15 @@ msgstr ""
 #: admin/tabs/search_n_filter.php:101
 msgid "Taxonomy Keywords for Advance Search Box (Separate with comma[,])"
 msgstr ""
+"Taxonomie-Schlüsselwörter für erweitertes Suchfeld (mit Komma [,] trennen)"
 
 #: admin/tabs/search_n_filter.php:235
 msgid "Taxonomy Keywords for Filter (Separate with comma[,])"
-msgstr ""
+msgstr "Taxonomie-Schlüsselwörter für Filter (mit Komma [,] trennen)"
 
 #: admin/tabs/query.php:226
 msgid "Taxonomy Query Operation"
-msgstr ""
+msgstr "Taxonomie-Abfragevorgang"
 
 #: admin/tabs/table_style.php:4
 msgid "Template None"
@@ -2165,7 +2262,7 @@ msgstr ""
 
 #: admin/action-hook.php:154
 msgid "Text and Right Icon"
-msgstr ""
+msgstr "Text und rechtes Symbol"
 
 #: admin/post_metabox_form.php:22 modules/elementor-widget.php:294
 msgid "Text Color"
@@ -2184,15 +2281,15 @@ msgstr ""
 
 #: woo-product-table.php:223 admin/action-hook.php:624
 msgid "There is no more products based on current Query."
-msgstr ""
+msgstr "Es gibt keine weiteren Produkte basierend auf der aktuellen Abfrage."
 
 #: modules/elementor-widget.php:182
 msgid "There is no table found to your. "
-msgstr ""
+msgstr "Es gibt keine Tabelle für dich."
 
-#: admin/tabs/options.php:241
+#: admin/tabs/options.php:305
 msgid "Third Party Plugin Supporting "
-msgstr ""
+msgstr "Plugin-Unterstützung von Drittanbietern"
 
 #: includes/variation_html.php:13
 msgid "This product is currently out of stock and unavailable."
@@ -2200,11 +2297,11 @@ msgstr ""
 
 #: admin/action-hook.php:230
 msgid "Thumbnail size. eg: 56"
-msgstr ""
+msgstr "Thumbnail Größe. zB: 56"
 
 #: woo-product-table.php:96
 msgid "Thumbnails"
-msgstr ""
+msgstr "Miniaturansichten"
 
 #: admin/action-hook.php:228
 msgid "Thumbs Image Size"
@@ -2218,7 +2315,7 @@ msgstr ""
 
 #: admin/post_metabox.php:105 admin/tabs/search_n_filter.php:35
 msgid "Tips:"
-msgstr ""
+msgstr "Tipps:"
 
 #: admin/includes/right_side.php:56
 msgid "To be a Contributor"
@@ -2226,7 +2323,7 @@ msgstr ""
 
 #: admin/tabs/options.php:56 admin/tabs/options.php:121
 msgid "To change style, go to Design tab"
-msgstr ""
+msgstr "Um den Stil zu ändern, gehen Sie zur Registerkarte Design"
 
 #: framework/recommeded.php:120
 msgid ""
@@ -2237,6 +2334,8 @@ msgstr ""
 #: admin/tabs/search_n_filter.php:200
 msgid "To get Taxonomy customization, Please save/update this shortcode."
 msgstr ""
+"Um die Taxonomie-Anpassung zu erhalten, speichern/aktualisiere bitte diesen "
+"Shortcode."
 
 #: admin/pro-features-html.php:51
 msgid "To learn more about how to use them,"
@@ -2248,15 +2347,15 @@ msgstr ""
 
 #: admin/tabs/options.php:72
 msgid "Top (Default)"
-msgstr ""
+msgstr "Oben (Standard)"
 
 #: admin/action-hook.php:186
 msgid "Top Left"
-msgstr ""
+msgstr "Oben links"
 
 #: admin/action-hook.php:185
 msgid "Top Right"
-msgstr ""
+msgstr "Oben rechts"
 
 #: admin/includes/right_side.php:36 admin/includes/right_side.php:62
 msgid "Topic on WordPress.org:"
@@ -2264,29 +2363,31 @@ msgstr ""
 
 #: woo-product-table.php:110
 msgid "Total Price"
-msgstr ""
+msgstr "Gesamtpreis"
 
 #: admin/menu_plugin_setting_link.php:51
 msgid "Try Pro Version"
 msgstr ""
 
-#: inc/shortcode.php:881
+#: inc/shortcode.php:892
 msgid "Tutorial from website with Screenshot"
 msgstr ""
 
 #: admin/tabs/query.php:306
 msgid "Type"
-msgstr ""
+msgstr "Typ"
 
 #: woo-product-table.php:230 admin/action-hook.php:654
 msgid "Type your Message."
-msgstr ""
+msgstr "Gib deine Nachricht ein."
 
 #: admin/tabs/query.php:338
 msgid ""
 "Type your Right meta value here. EG: \"_sku,_price,_customNumber\" - use any "
 "one only, there should no any space or comma"
 msgstr ""
+"Gib hier deinen rechten Metawert ein. ZB: \"_sku,_price,_customNumber\" - "
+"verwende nur eine beliebige, es sollte kein Leerzeichen oder Komma geben"
 
 #: admin/tabs/query.php:318
 msgid "Type(Pro)"
@@ -2294,15 +2395,15 @@ msgstr ""
 
 #: admin/wpt_product_table_post.php:27
 msgid "Update Product Table"
-msgstr ""
+msgstr "Produkttabelle aktualisieren"
 
 #: admin/wpt_product_table_post.php:38
 msgid "Uploaded to this Product Table"
-msgstr ""
+msgstr "In diese Produkttabelle hochgeladen"
 
 #: admin/wpt_product_table_post.php:36
 msgid "Use as featured image"
-msgstr ""
+msgstr "Als Beitragsbild verwenden"
 
 #: admin/pro-features-html.php:78
 msgid ""
@@ -2324,11 +2425,11 @@ msgstr ""
 
 #: woo-product-table.php:117
 msgid "Variations"
-msgstr ""
+msgstr "Variationen"
 
 #: admin/action-hook.php:592
 msgid "Variations [Not available] Message"
-msgstr ""
+msgstr "Variationen [Nicht verfügbar] Nachricht"
 
 #: admin/post_metabox_form.php:26
 msgid "Vertical Align"
@@ -2336,16 +2437,18 @@ msgstr ""
 
 #: inc/handle/fragment.php:153 includes/items/action.php:74
 #: includes/items/action.php:75
+#: compatible/plugins/waitlist-woocommerce/waitlist-col.php:65
+#: compatible/plugins/waitlist-woocommerce/waitlist-col.php:66
 msgid "View Cart"
-msgstr ""
+msgstr "Warenkorb ansehen"
 
 #: admin/wpt_product_table_post.php:28
 msgid "View Product Table"
-msgstr ""
+msgstr "Produkttabelle anzeigen"
 
 #: admin/wpt_product_table_post.php:29
 msgid "View Product Tables"
-msgstr ""
+msgstr "Produkttabellen anzeigen"
 
 #: admin/pro-features-html.php:21
 msgid "We have Special Pro Agent for our Pro Customer."
@@ -2353,20 +2456,20 @@ msgstr ""
 
 #: woo-product-table.php:101
 msgid "Weight(kg)"
-msgstr ""
+msgstr "Gewicht (kg)"
 
 #: woo-product-table.php:103
 msgid "Width(cm)"
-msgstr ""
+msgstr "Breite (cm)"
 
 #: woo-product-table.php:108
 msgid "Wish List"
-msgstr ""
+msgstr "Wunschzettel"
 
-#: woo-product-table.php:523 framework/recommeded.php:38
+#: woo-product-table.php:531 framework/recommeded.php:38
 #: modules/elementor-widget.php:41
 msgid "Woo Product Table"
-msgstr ""
+msgstr "Woo-Produkttabelle"
 
 #: admin/includes/right_side.php:59
 msgid "Woo Product Table on (Github)"
@@ -2378,9 +2481,9 @@ msgstr ""
 
 #: admin/functions.php:392
 msgid "WordPress.org"
-msgstr ""
+msgstr "WordPress.org"
 
-#: admin/tabs/options.php:278
+#: admin/tabs/options.php:342
 msgid "WP Force"
 msgstr ""
 
@@ -2390,7 +2493,7 @@ msgstr ""
 
 #: admin/admin-enqueue.php:72 includes/enqueue.php:53
 msgid "WTP Pro: "
-msgstr ""
+msgstr "WTP Pro:"
 
 #: admin/tabs/table_style.php:26
 msgid "Yellow  Style"

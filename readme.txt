@@ -186,14 +186,23 @@ There are over 16 different pre-made Product Table templates available, each of 
 **FAST, SECURE AND EASY**<br>
 With a Product Table Plugin, you can feel confident that your business processes will go quickly and easily. User-friendly and adaptable to all popular themes.<br>
 
+**Translation**<br>
+
+* French (Français) - fr_FR
+* Bengali (বাংলা) - bn_BD
+* German (Deutsch) - de_DE
+* German formal ( Deutsch (Sie) ) - de_DE_formal
+* Russian (Русский) - ru_RU
+
 **👷 HONORABLE CONTRIBUTOR - [GitHub](https://github.com/codersaiful/woo-product-table/graphs/contributors) 👷**<br>
 
-* [codersaiful](https://github.com/codersaiful) (1,000+ commits And Pro: 1000+ commits )
+* [codersaiful](https://github.com/codersaiful) (1600+ commits And Pro: 1000+ commits)
+* [fazlebarisn](https://github.com/fazlebarisn) (100+ commits And Pro: 70+ commits)
 * [unikforceit](https://github.com/unikforceit) (42 commits )
 * [fatimakhatungit](https://github.com/fatimakhatungit) (38 commits )
-* [fazlebarisn](https://github.com/fazlebarisn) (35 commits And Pro: 50+ commits)
 * [rafiul](https://github.com/rafiul) (29 commits )
-* [tanyabouman](https://github.com/tanyabouman) (3 commits )
+* [tanyabouman](https://github.com/tanyabouman) (4 commits )
+* [zbandhan](https://github.com/zbandhan) (1 commits )
 * 👉 [You can join here](https://github.com/codersaiful/woo-product-table/fork)
 
 **🥇 CONTRIBUTE 🥇**<br>
@@ -274,6 +283,17 @@ You can easily show specific category products. While creating new table click o
 25. Manually responsive for mobile devices
 
 == Changelog ==
+
+= 3.3.5 =
+* Fixed: Spelling issue solved. Helped by [tanyabouman](https://github.com/tanyabouman) - his pull request [#254](https://github.com/codersaiful/woo-product-table/issues/254)
+* Added: French (Français) Translated file added for frontend. Helped us [ozapp.app](https://ozapp.app/) to translate French Language.
+* Added: Russian (Русский) Translated file added for frontend. Helped us [Vasiliy Kotov](https://www.linkedin.com/in/vasiliy-kotov-10542b47/) to translate Russian Language.
+* Added: Bangla (বাংলা) translated file added for frontend.
+* Added: German formal ( Deutsch (Sie) ) translated file added for frontend.
+* Bug Fixed 
+* Code Optimized 
+* Language File Upload
+
 
 = 3.3.4 =
 * Fixed: Only custom field search box issue solved
