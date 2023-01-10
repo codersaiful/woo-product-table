@@ -188,10 +188,11 @@ With a Product Table Plugin, you can feel confident that your business processes
 
 **Translation**<br>
 
-* French (France) - fr_FR
-* Bengali (Bangladesh) - bn_BD
-* German (German) - de_DE
-* Russian (Russia) - ru_RU
+* French (Français) - fr_FR
+* Bengali (বাংলা) - bn_BD
+* German (Deutsch) - de_DE
+* German formal ( Deutsch (Sie) ) - de_DE_formal
+* Russian (Русский) - ru_RU
 
 **👷 HONORABLE CONTRIBUTOR - [GitHub](https://github.com/codersaiful/woo-product-table/graphs/contributors) 👷**<br>
 
@@ -285,9 +286,10 @@ You can easily show specific category products. While creating new table click o
 
 = 3.3.5 =
 * Fixed: Spelling issue solved. Helped by [tanyabouman](https://github.com/tanyabouman) - his pull request [#254](https://github.com/codersaiful/woo-product-table/issues/254)
-* Added: French (France) Translated file added for frontend. Helped us [ozapp.app](https://ozapp.app/) to translate French Language.
-* Added: Russian (Russia) Translated file added for frontend. Helped us *[Vasiliy Kotov]* to translate Russian Language.
-* Added: Bangla (Bangladesh) translated file added for frontend.
+* Added: French (Français) Translated file added for frontend. Helped us [ozapp.app](https://ozapp.app/) to translate French Language.
+* Added: Russian (Русский) Translated file added for frontend. Helped us [Vasiliy Kotov](https://www.linkedin.com/in/vasiliy-kotov-10542b47/) to translate Russian Language.
+* Added: Bangla (বাংলা) translated file added for frontend.
+* Added: German formal ( Deutsch (Sie) ) translated file added for frontend.
 * Bug Fixed 
 * Code Optimized 
 * Language File Upload
