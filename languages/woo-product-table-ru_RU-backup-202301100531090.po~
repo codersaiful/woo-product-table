@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Product Table for WooCommerce - (wooproducttable)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-12-15 06:11+0000\n"
-"PO-Revision-Date: 2023-01-10 05:31+0000\n"
+"PO-Revision-Date: 2023-01-10 05:29+0000\n"
 "Last-Translator: \n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -465,7 +465,7 @@ msgstr ""
 
 #: woo-product-table.php:121 admin/tabs/inc-column/add-new-column.php:37
 msgid "Blank"
-msgstr "Пусто"
+msgstr ""
 
 #: admin/functions.php:487 admin/tabs/table_style.php:18
 msgid "Blue Border"
@@ -758,7 +758,7 @@ msgstr ""
 
 #: woo-product-table.php:119
 msgid "Description"
-msgstr "Описание"
+msgstr ""
 
 #: admin/action-hook.php:711
 msgid "Description Length :"
@@ -1155,7 +1155,7 @@ msgstr ""
 
 #: woo-product-table.php:122 admin/tabs/query.php:325
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 #: admin/pro-features-html.php:87
 msgid ""
@@ -2004,7 +2004,7 @@ msgstr ""
 #: woo-product-table.php:120 admin/pro-features-html.php:38
 #: admin/tabs/options.php:294
 msgid "Short Description"
-msgstr "Короткое описание"
+msgstr ""
 
 #: woo-product-table.php:111
 msgid "Short Message"
