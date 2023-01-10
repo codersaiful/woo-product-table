@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Product Table for WooCommerce - (wooproducttable)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-12-15 06:11+0000\n"
-"PO-Revision-Date: 2023-01-09 08:46+0000\n"
+"PO-Revision-Date: 2023-01-10 05:20+0000\n"
 "Last-Translator: \n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -129,7 +129,7 @@ msgstr "(Add to cart[Selected]) текст"
 
 #: admin/tabs/table_style.php:75
 msgid "(Premium)"
-msgstr ""
+msgstr "(Premium)"
 
 #: admin/tabs/options.php:259
 msgid "(Select All) Text"
@@ -280,7 +280,7 @@ msgstr ""
 
 #: woo-product-table.php:220
 msgid "Added"
-msgstr ""
+msgstr "Добавлено"
 
 #: admin/action-hook.php:430
 msgid "Added text for [Add to cart Selected]"
@@ -328,11 +328,11 @@ msgstr ""
 
 #: admin/functions.php:519
 msgid "All categories"
-msgstr ""
+msgstr "Все категории"
 
 #: admin/functions.php:521
 msgid "All Color"
-msgstr ""
+msgstr "Все цвета"
 
 #: admin/action-hook.php:325
 msgid "All Items"
@@ -344,7 +344,7 @@ msgstr ""
 
 #: admin/functions.php:522
 msgid "All Size"
-msgstr ""
+msgstr "Все размеры"
 
 #: admin/functions.php:520
 msgid "All tags"
@@ -525,11 +525,11 @@ msgstr ""
 
 #: admin/functions.php:512
 msgid "Categories"
-msgstr ""
+msgstr "Категории"
 
 #: woo-product-table.php:98
 msgid "Category"
-msgstr ""
+msgstr "Категория"
 
 #: admin/tabs/query.php:186
 msgid "Category Exclude"
@@ -569,7 +569,7 @@ msgstr ""
 
 #: includes/variation_html.php:57 includes/variation_html.php:59
 msgid "Clear"
-msgstr ""
+msgstr "Очистить"
 
 #: admin/tabs/inc-column/column-list.php:40
 msgid "Click for Expand/Collapse. Edit your Column Title here."
@@ -825,7 +825,7 @@ msgstr ""
 
 #: inc/features/basics.php:48
 msgid "Edit Table - "
-msgstr ""
+msgstr "Редактировать таблицу - "
 
 #: admin/tabs/query.php:394
 msgid "Eg: 50 (for display 50 products"
@@ -1190,7 +1190,7 @@ msgstr ""
 
 #: admin/action-hook.php:549
 msgid "In Stock"
-msgstr ""
+msgstr "В наличии"
 
 #: admin/pro-features-html.php:86
 msgid "Include/Exclude by Product ID"
@@ -1210,7 +1210,7 @@ msgstr ""
 
 #: woo-product-table.php:213
 msgid "Instant Search.."
-msgstr ""
+msgstr "Быстрый поиск"
 
 #: admin/tabs/query.php:370
 msgid "instock"
@@ -1529,7 +1529,7 @@ msgstr ""
 
 #: woo-product-table.php:240
 msgid "Order"
-msgstr ""
+msgstr "Заказ"
 
 #: admin/tabs/query.php:277
 msgid "Order By"
@@ -1554,7 +1554,7 @@ msgstr ""
 #: woo-product-table.php:226 admin/action-hook.php:555
 #: admin/action-hook.php:618
 msgid "Out of Stock"
-msgstr ""
+msgstr "Нет в наличии"
 
 #: admin/tabs/query.php:372
 msgid "outofstock"
@@ -1642,7 +1642,7 @@ msgstr ""
 
 #: admin/functions.php:514
 msgid "Product Color"
-msgstr ""
+msgstr "Цвет товара"
 
 #: admin/pro-features-html.php:35
 msgid "Product ID"
@@ -1662,7 +1662,7 @@ msgstr "Товары отсутсвуют"
 
 #: admin/functions.php:515
 msgid "Product Size"
-msgstr ""
+msgstr " Размер товара"
 
 #: admin/pro-features-html.php:36
 msgid "Product SKU"
@@ -1882,7 +1882,7 @@ msgstr ""
 #: woo-product-table.php:237
 #, php-format
 msgid "Search Box (%sAll Fields Optional%s)"
-msgstr ""
+msgstr "Окно поиска (%sвсе поля необязательны%s)"
 
 #: admin/action-hook.php:213
 msgid "Search Box Taxonomy Sorting"
@@ -1907,7 +1907,7 @@ msgstr ""
 
 #: admin/action-hook.php:444
 msgid "Search Keyword text"
-msgstr ""
+msgstr "Слово для поиска текст"
 
 #: admin/tabs/search_n_filter.php:75
 msgid "Search on Whole Site"
@@ -1951,7 +1951,7 @@ msgstr "Выбрать всё"
 
 #: woo-product-table.php:241
 msgid "Select inner Item."
-msgstr ""
+msgstr "Выберите внутренний элемент."
 
 #: admin/action-hook.php:470
 msgid "Select Innet Items"
@@ -2332,7 +2332,7 @@ msgstr ""
 
 #: woo-product-table.php:230 admin/action-hook.php:654
 msgid "Type your Message."
-msgstr ""
+msgstr "Введите ваше сообщение"
 
 #: admin/tabs/query.php:338
 msgid ""
