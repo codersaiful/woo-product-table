@@ -289,6 +289,7 @@ You can easily show specific category products. While creating new table click o
 * Added: French (Français) Translated file added for frontend. Helped us [ozapp.app](https://ozapp.app/) to translate French Language.
 * Added: Russian (Русский) Translated file added for frontend. Helped us [Vasiliy Kotov](https://www.linkedin.com/in/vasiliy-kotov-10542b47/) to translate Russian Language.
 * Added: Bangla (বাংলা) translated file added for frontend.
+* Added: German(Deutsch) translated file added for frontend.
 * Added: German formal ( Deutsch (Sie) ) translated file added for frontend.
 * Bug Fixed 
 * Code Optimized 
