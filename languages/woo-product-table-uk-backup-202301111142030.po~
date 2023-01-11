@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Product Table for WooCommerce - (wooproducttable)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-09 06:28+0000\n"
-"PO-Revision-Date: 2023-01-11 10:01+0000\n"
+"PO-Revision-Date: 2023-01-11 11:40+0000\n"
 "Last-Translator: \n"
 "Language-Team: Ukrainian\n"
 "Language: uk\n"
@@ -40,8 +40,8 @@ msgstr ""
 #, php-format
 msgid "%d item"
 msgid_plural "%d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d Товар"
+msgstr[1] "%d Товари"
 msgstr[2] ""
 
 #: admin/action-hook.php:508
@@ -246,11 +246,11 @@ msgstr ""
 
 #: inc/shortcode.php:610 admin/tabs/options.php:162
 msgid "Add to cart"
-msgstr ""
+msgstr "До кошика"
 
 #: admin/tabs/options.php:246 inc/handle/checkbox-box.php:20
 msgid "Add to Cart (Selected)"
-msgstr ""
+msgstr "До кошика (Обране)"
 
 #: admin/action-hook.php:428
 msgid "Add to Cart all selected [Added] Text"
@@ -278,7 +278,7 @@ msgstr ""
 
 #: woo-product-table.php:220
 msgid "Added"
-msgstr ""
+msgstr "Додано"
 
 #: admin/action-hook.php:430
 msgid "Added text for [Add to cart Selected]"
@@ -286,7 +286,7 @@ msgstr ""
 
 #: woo-product-table.php:227 admin/action-hook.php:630
 msgid "Adding in Progress"
-msgstr ""
+msgstr "Виконується додавання"
 
 #: admin/action-hook.php:516
 msgid "Adding text write here"
@@ -326,11 +326,11 @@ msgstr ""
 
 #: admin/functions.php:519
 msgid "All categories"
-msgstr ""
+msgstr "Усі категорії"
 
 #: admin/functions.php:521
 msgid "All Color"
-msgstr ""
+msgstr "Усі кольори"
 
 #: admin/action-hook.php:325
 msgid "All Items"
@@ -342,7 +342,7 @@ msgstr ""
 
 #: admin/functions.php:522
 msgid "All Size"
-msgstr ""
+msgstr "Усі розміри"
 
 #: admin/functions.php:520
 msgid "All tags"
@@ -523,11 +523,11 @@ msgstr ""
 
 #: admin/functions.php:512
 msgid "Categories"
-msgstr ""
+msgstr "Категорії"
 
 #: woo-product-table.php:98
 msgid "Category"
-msgstr ""
+msgstr "Категорія"
 
 #: admin/tabs/query.php:186
 msgid "Category Exclude"
@@ -539,7 +539,7 @@ msgstr ""
 
 #: woo-product-table.php:95
 msgid "Check"
-msgstr ""
+msgstr "Прапорець"
 
 #: admin/action-hook.php:268 admin/action-hook.php:280
 msgid "Checkout Page"
@@ -567,7 +567,7 @@ msgstr ""
 
 #: includes/variation_html.php:57 includes/variation_html.php:59
 msgid "Clear"
-msgstr ""
+msgstr "Очистити"
 
 #: admin/tabs/inc-column/column-list.php:40
 msgid "Click for Expand/Collapse. Edit your Column Title here."
@@ -823,7 +823,7 @@ msgstr ""
 
 #: inc/features/basics.php:48
 msgid "Edit Table - "
-msgstr ""
+msgstr "Редагувати таблицю - "
 
 #: admin/tabs/query.php:394
 msgid "Eg: 50 (for display 50 products"
@@ -835,11 +835,11 @@ msgstr "приклад: Empty Cart"
 
 #: admin/action-hook.php:403
 msgid "eg: Filter"
-msgstr ""
+msgstr "приклад: Filter"
 
 #: admin/tabs/search_n_filter.php:132
 msgid "eg: product_cat,product_tag,color,size"
-msgstr ""
+msgstr "приклад: product_cat,product_tag,color,size"
 
 #: admin/action-hook.php:496
 msgid "eg: Quick View"
@@ -847,7 +847,7 @@ msgstr ""
 
 #: admin/action-hook.php:410
 msgid "eg: Reset"
-msgstr ""
+msgstr "приклад: Reset"
 
 #: admin/includes/right_side.php:37
 msgid "Email:"
@@ -887,7 +887,7 @@ msgstr ""
 #: admin/tabs/options.php:222
 #, php-format
 msgid "Example: Page %s out of %s"
-msgstr ""
+msgstr "приклад: Page %s out of %s"
 
 #: admin/tabs/options.php:192
 #, php-format
@@ -930,7 +930,7 @@ msgstr ""
 
 #: woo-product-table.php:211
 msgid "Filter:"
-msgstr ""
+msgstr "Фільтр"
 
 #: admin/tabs/options.php:231
 msgid ""
@@ -1188,7 +1188,7 @@ msgstr ""
 
 #: admin/action-hook.php:549
 msgid "In Stock"
-msgstr ""
+msgstr "У наявності"
 
 #: admin/pro-features-html.php:86
 msgid "Include/Exclude by Product ID"
@@ -1208,7 +1208,7 @@ msgstr ""
 
 #: woo-product-table.php:213
 msgid "Instant Search.."
-msgstr ""
+msgstr "Миттєвий пошук.."
 
 #: admin/tabs/query.php:370
 msgid "instock"
@@ -1232,7 +1232,7 @@ msgstr ""
 
 #: woo-product-table.php:218
 msgid "Item"
-msgstr ""
+msgstr "Товар"
 
 #: admin/action-hook.php:421
 msgid "Item [for Plural]"
@@ -1252,7 +1252,7 @@ msgstr ""
 
 #: woo-product-table.php:219
 msgid "Items"
-msgstr ""
+msgstr "Товари"
 
 #: admin/includes/right_side.php:38
 msgid "Join to CodeAstrology Group"
@@ -1268,7 +1268,7 @@ msgstr ""
 
 #: woo-product-table.php:102
 msgid "Length(cm)"
-msgstr ""
+msgstr " Довжина (см)"
 
 #: admin/tabs/table_style.php:23
 msgid "Light Sea Green Style"
@@ -1292,7 +1292,7 @@ msgstr ""
 
 #: woo-product-table.php:202
 msgid "Load more"
-msgstr ""
+msgstr "Завантажити ще"
 
 #: admin/tabs/options.php:50
 msgid "Load More Button"
@@ -1304,7 +1304,7 @@ msgstr ""
 
 #: woo-product-table.php:204
 msgid "Loading.."
-msgstr ""
+msgstr "Завантажую…"
 
 #: admin/action-hook.php:383
 msgid "Loading.. text write here"
@@ -1432,7 +1432,7 @@ msgstr ""
 
 #: woo-product-table.php:228 admin/action-hook.php:636
 msgid "No Right Combination"
-msgstr ""
+msgstr "Невірна комбінація"
 
 #: includes/functions.php:265
 msgid "No Tag"
@@ -1445,11 +1445,11 @@ msgstr ""
 
 #: admin/action-hook.php:594
 msgid "Not Available"
-msgstr ""
+msgstr "Недоступно"
 
 #: woo-product-table.php:221
 msgid "Not available"
-msgstr ""
+msgstr "Недоступно"
 
 #: admin/action-hook.php:363
 msgid "Not for Archive page."
@@ -1527,7 +1527,7 @@ msgstr ""
 
 #: woo-product-table.php:240
 msgid "Order"
-msgstr ""
+msgstr "Замовлення"
 
 #: admin/tabs/query.php:277
 msgid "Order By"
@@ -1552,7 +1552,7 @@ msgstr ""
 #: woo-product-table.php:226 admin/action-hook.php:555
 #: admin/action-hook.php:618
 msgid "Out of Stock"
-msgstr ""
+msgstr "Немає в наявності"
 
 #: admin/tabs/query.php:372
 msgid "outofstock"
@@ -1561,7 +1561,7 @@ msgstr ""
 #: admin/tabs/options.php:219
 #, php-format
 msgid "Page %s out of %s"
-msgstr ""
+msgstr "Сторінка %s з %s"
 
 #: admin/tabs/options.php:43 admin/tabs/options.php:113
 msgid "Pagination"
@@ -1604,11 +1604,11 @@ msgstr ""
 #: woo-product-table.php:224 admin/action-hook.php:606
 #: admin/action-hook.php:612
 msgid "Please select all items."
-msgstr ""
+msgstr " Будь ласка, виберіть усі елементи."
 
 #: woo-product-table.php:225
 msgid "Please select some items."
-msgstr ""
+msgstr "Будь ласка, виберіть деякі елементи."
 
 #: admin/action-hook.php:131
 msgid "Plugin Recommendation"
@@ -1640,7 +1640,7 @@ msgstr ""
 
 #: admin/functions.php:514
 msgid "Product Color"
-msgstr ""
+msgstr " Кольор товару"
 
 #: admin/pro-features-html.php:35
 msgid "Product ID"
@@ -1660,7 +1660,7 @@ msgstr ""
 
 #: admin/functions.php:515
 msgid "Product Size"
-msgstr ""
+msgstr "Розмір товару"
 
 #: admin/pro-features-html.php:36
 msgid "Product SKU"
@@ -1725,14 +1725,16 @@ msgid ""
 "Product variations is not set Properly. May be: price is not inputted. may "
 "be: Out of Stock."
 msgstr ""
+" Варіанти товару не встановлено належним чином. Можливо: не вказана ціна. "
+"Можливо: Немає в наявності."
 
 #: woo-product-table.php:97
 msgid "Products"
-msgstr ""
+msgstr "Товари"
 
 #: woo-product-table.php:201
 msgid "Products not found!"
-msgstr ""
+msgstr "Товарів не знайдено"
 
 #: admin/action-hook.php:324
 msgid "Products Wise"
@@ -1839,7 +1841,7 @@ msgstr ""
 
 #: woo-product-table.php:212 inc/handle/search-box.php:21
 msgid "Reset"
-msgstr ""
+msgstr "Очистити фільтр"
 
 #: admin/configuration_page.php:105
 msgid "Reset Settings"
@@ -1871,7 +1873,7 @@ msgstr ""
 
 #: woo-product-table.php:205
 msgid "Search"
-msgstr ""
+msgstr "Введіть пошуковий запит"
 
 #: admin/post_metabox_form.php:16
 msgid "Search & Filter"
@@ -1880,7 +1882,7 @@ msgstr ""
 #: woo-product-table.php:237
 #, php-format
 msgid "Search Box (%sAll Fields Optional%s)"
-msgstr ""
+msgstr "Поле пошуку (%sусі поля не є обов’язковимиl%s)"
 
 #: admin/action-hook.php:213
 msgid "Search Box Taxonomy Sorting"
@@ -1897,7 +1899,7 @@ msgstr ""
 #: woo-product-table.php:206 woo-product-table.php:238
 #: admin/action-hook.php:376
 msgid "Search Keyword"
-msgstr ""
+msgstr "Пошук за ключовими словами"
 
 #: admin/action-hook.php:442
 msgid "Search Keyword Placeholder"
@@ -1945,11 +1947,11 @@ msgstr ""
 
 #: admin/tabs/options.php:265 inc/handle/checkbox-box.php:21
 msgid "Select All"
-msgstr ""
+msgstr "Обрати все"
 
 #: woo-product-table.php:241
 msgid "Select inner Item."
-msgstr ""
+msgstr "Виберіть внутрішній елемент"
 
 #: admin/action-hook.php:470
 msgid "Select Innet Items"
@@ -2042,7 +2044,7 @@ msgstr ""
 #: admin/tabs/options.php:189
 #, php-format
 msgid "Showing %s out of %s"
-msgstr ""
+msgstr "Відображено %s з %s"
 
 #: admin/functions.php:517
 msgid "Size"
@@ -2054,7 +2056,7 @@ msgstr ""
 
 #: woo-product-table.php:100
 msgid "SKU"
-msgstr ""
+msgstr "Артикул"
 
 #: admin/includes/right_side.php:39
 msgid "Skype:"
@@ -2082,7 +2084,7 @@ msgstr ""
 
 #: woo-product-table.php:231 admin/action-hook.php:642
 msgid "Sorry, Please choose right combination."
-msgstr ""
+msgstr "Вибачте, будь ласка виберіть правильну комбінацію."
 
 #: woo-product-table.php:239
 msgid "Sort By"
@@ -2187,7 +2189,7 @@ msgstr ""
 
 #: woo-product-table.php:99 admin/functions.php:513
 msgid "Tags"
-msgstr ""
+msgstr "Теги"
 
 #: includes/functions.php:30 admin/tabs/inc-column/add-new-column.php:33
 msgid "Taxonomy"
@@ -2234,7 +2236,7 @@ msgstr ""
 
 #: woo-product-table.php:223 admin/action-hook.php:624
 msgid "There is no more products based on current Query."
-msgstr ""
+msgstr "Більше немає продуктів на основі поточного запиту."
 
 #: modules/elementor-widget.php:182
 msgid "There is no table found to your. "
@@ -2330,7 +2332,7 @@ msgstr ""
 
 #: woo-product-table.php:230 admin/action-hook.php:654
 msgid "Type your Message."
-msgstr ""
+msgstr "Ваше повідомлення"
 
 #: admin/tabs/query.php:338
 msgid ""
@@ -2389,7 +2391,7 @@ msgstr ""
 #: compatible/plugins/waitlist-woocommerce/waitlist-col.php:65
 #: compatible/plugins/waitlist-woocommerce/waitlist-col.php:66
 msgid "View Cart"
-msgstr ""
+msgstr "Переглянути кошик"
 
 #: admin/wpt_product_table_post.php:28
 msgid "View Product Table"
@@ -2405,7 +2407,7 @@ msgstr ""
 
 #: woo-product-table.php:101
 msgid "Weight(kg)"
-msgstr ""
+msgstr "Вага (кг)"
 
 #: woo-product-table.php:103
 msgid "Width(cm)"

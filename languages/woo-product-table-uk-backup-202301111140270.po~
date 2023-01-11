@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Product Table for WooCommerce - (wooproducttable)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-09 06:28+0000\n"
-"PO-Revision-Date: 2023-01-11 11:47+0000\n"
+"PO-Revision-Date: 2023-01-11 11:38+0000\n"
 "Last-Translator: \n"
 "Language-Team: Ukrainian\n"
 "Language: uk\n"
@@ -216,7 +216,7 @@ msgstr ""
 
 #: woo-product-table.php:124
 msgid "Action"
-msgstr "Дія"
+msgstr ""
 
 #: admin/tabs/inc-column/add-new-column.php:39
 msgid "Action Hooks"
@@ -408,7 +408,7 @@ msgstr ""
 
 #: woo-product-table.php:116
 msgid "Attributes"
-msgstr "Атрибути"
+msgstr ""
 
 #: admin/tabs/inc-column/add-new-column.php:41
 msgid "Audio File Type"
@@ -463,7 +463,7 @@ msgstr ""
 
 #: woo-product-table.php:121 admin/tabs/inc-column/add-new-column.php:37
 msgid "Blank"
-msgstr "Порожній"
+msgstr ""
 
 #: admin/functions.php:487 admin/tabs/table_style.php:18
 msgid "Blue Border"
@@ -711,7 +711,7 @@ msgstr ""
 
 #: woo-product-table.php:114 admin/tabs/query.php:286
 msgid "Date"
-msgstr "Дата"
+msgstr ""
 
 #: admin/functions.php:52 admin/tabs/options.php:310 admin/tabs/query.php:369
 #: admin/tabs/query.php:383 admin/tabs/inc-column/column-list.php:47
@@ -756,7 +756,7 @@ msgstr ""
 
 #: woo-product-table.php:119
 msgid "Description"
-msgstr "Опис"
+msgstr ""
 
 #: admin/action-hook.php:711
 msgid "Description Length :"
@@ -1092,7 +1092,7 @@ msgstr ""
 
 #: woo-product-table.php:104
 msgid "Height(cm)"
-msgstr "Висота (см)"
+msgstr ""
 
 #: admin/functions.php:371 admin/functions.php:373
 msgid "Help &amp; Support"
@@ -1153,7 +1153,7 @@ msgstr ""
 
 #: woo-product-table.php:122 admin/tabs/query.php:325
 msgid "ID"
-msgstr "Код"
+msgstr ""
 
 #: admin/pro-features-html.php:87
 msgid ""
@@ -1268,7 +1268,7 @@ msgstr ""
 
 #: woo-product-table.php:102
 msgid "Length(cm)"
-msgstr " Довжина (см)"
+msgstr ""
 
 #: admin/tabs/table_style.php:23
 msgid "Light Sea Green Style"
@@ -1386,7 +1386,7 @@ msgstr ""
 
 #: woo-product-table.php:115
 msgid "Modified Date"
-msgstr "Дата модифікації"
+msgstr ""
 
 #: admin/tabs/query.php:319
 msgid "Modified(Pro)"
@@ -1628,7 +1628,7 @@ msgstr ""
 
 #: woo-product-table.php:107
 msgid "Price"
-msgstr "Ціна"
+msgstr ""
 
 #: admin/tabs/query.php:314
 msgid "Pro"
@@ -1730,7 +1730,7 @@ msgstr ""
 
 #: woo-product-table.php:97
 msgid "Products"
-msgstr "Товари"
+msgstr ""
 
 #: woo-product-table.php:201
 msgid "Products not found!"
@@ -1751,7 +1751,7 @@ msgstr ""
 
 #: woo-product-table.php:109
 msgid "Quantity"
-msgstr "Кількість"
+msgstr ""
 
 #: admin/post_metabox_form.php:11
 msgid "Query"
@@ -1763,7 +1763,7 @@ msgstr ""
 
 #: woo-product-table.php:113
 msgid "Quick"
-msgstr "Швидкий"
+msgstr ""
 
 #: admin/action-hook.php:257
 msgid "Quick Buy"
@@ -1772,7 +1772,7 @@ msgstr ""
 #: woo-product-table.php:112 woo-product-table.php:203
 #: includes/functions.php:246 includes/functions.php:247
 msgid "Quick View"
-msgstr "Швидкий перегляд"
+msgstr ""
 
 #: includes/functions.php:223
 msgid "Quick View by Code Astrology"
@@ -1788,7 +1788,7 @@ msgstr ""
 
 #: woo-product-table.php:118
 msgid "Quote Request"
-msgstr "Запит вартості"
+msgstr ""
 
 #: woo-product-table.php:217
 msgid "Quoted"
@@ -1817,7 +1817,7 @@ msgstr ""
 
 #: woo-product-table.php:105
 msgid "Rating"
-msgstr "Рейтинг"
+msgstr ""
 
 #: admin/handle/pro-version-update.php:29
 msgid "RECOMMED UPDATE: Woo Product table Pro - CodeAstrology"
@@ -2002,11 +2002,11 @@ msgstr ""
 #: woo-product-table.php:120 admin/pro-features-html.php:38
 #: admin/tabs/options.php:294
 msgid "Short Description"
-msgstr "Короткий опис"
+msgstr ""
 
 #: woo-product-table.php:111
 msgid "Short Message"
-msgstr " Коротке повідомлення"
+msgstr ""
 
 #: templates/table-preview.php:45
 msgid "Shortcode"
@@ -2056,7 +2056,7 @@ msgstr ""
 
 #: woo-product-table.php:100
 msgid "SKU"
-msgstr "Артикул"
+msgstr ""
 
 #: admin/includes/right_side.php:39
 msgid "Skype:"
@@ -2064,7 +2064,7 @@ msgstr ""
 
 #: woo-product-table.php:123
 msgid "SL"
-msgstr "Серійний номер"
+msgstr ""
 
 #: admin/functions.php:488 admin/tabs/table_style.php:19
 msgid "Smart Border"
@@ -2132,7 +2132,7 @@ msgstr ""
 
 #: woo-product-table.php:106
 msgid "Stock"
-msgstr "Наявність"
+msgstr ""
 
 #: admin/tabs/query.php:365
 msgid "Stock Status"
@@ -2189,7 +2189,7 @@ msgstr ""
 
 #: woo-product-table.php:99 admin/functions.php:513
 msgid "Tags"
-msgstr "Теги"
+msgstr ""
 
 #: includes/functions.php:30 admin/tabs/inc-column/add-new-column.php:33
 msgid "Taxonomy"
@@ -2316,7 +2316,7 @@ msgstr ""
 
 #: woo-product-table.php:110
 msgid "Total Price"
-msgstr "Разом "
+msgstr ""
 
 #: admin/menu_plugin_setting_link.php:51
 msgid "Try Pro Version"
@@ -2376,7 +2376,7 @@ msgstr ""
 
 #: woo-product-table.php:117
 msgid "Variations"
-msgstr "Варіанти"
+msgstr ""
 
 #: admin/action-hook.php:592
 msgid "Variations [Not available] Message"
@@ -2407,15 +2407,15 @@ msgstr ""
 
 #: woo-product-table.php:101
 msgid "Weight(kg)"
-msgstr "Вага (кг)"
+msgstr ""
 
 #: woo-product-table.php:103
 msgid "Width(cm)"
-msgstr "Ширина (см)"
+msgstr ""
 
 #: woo-product-table.php:108
 msgid "Wish List"
-msgstr "Список бажань"
+msgstr ""
 
 #: woo-product-table.php:531 framework/recommeded.php:38
 #: modules/elementor-widget.php:41
