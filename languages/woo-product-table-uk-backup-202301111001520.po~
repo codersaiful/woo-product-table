@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Product Table for WooCommerce - (wooproducttable)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-09 06:28+0000\n"
-"PO-Revision-Date: 2023-01-11 10:04+0000\n"
+"PO-Revision-Date: 2023-01-11 08:47+0000\n"
 "Last-Translator: \n"
 "Language-Team: Ukrainian\n"
 "Language: uk\n"
@@ -42,7 +42,6 @@ msgid "%d item"
 msgid_plural "%d items"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
 
 #: admin/action-hook.php:508
 #, php-format
@@ -831,7 +830,7 @@ msgstr ""
 
 #: admin/action-hook.php:396
 msgid "eg: Empty Cart"
-msgstr "приклад: Empty Cart"
+msgstr ""
 
 #: admin/action-hook.php:403
 msgid "eg: Filter"
@@ -855,11 +854,11 @@ msgstr ""
 
 #: woo-product-table.php:210 inc/features/basics.php:60
 msgid "Empty Cart"
-msgstr "Очистити кошик"
+msgstr ""
 
 #: inc/handle/fragment.php:147
 msgid "Empty Cart."
-msgstr "Очистити кошик"
+msgstr ""
 
 #: admin/action-hook.php:137 admin/action-hook.php:292
 #: admin/tabs/options.php:311
@@ -1880,7 +1879,7 @@ msgstr ""
 #: woo-product-table.php:237
 #, php-format
 msgid "Search Box (%sAll Fields Optional%s)"
-msgstr "Поле пошуку (%sусі поля не є обов’язковимиl%s)"
+msgstr ""
 
 #: admin/action-hook.php:213
 msgid "Search Box Taxonomy Sorting"
@@ -1897,7 +1896,7 @@ msgstr ""
 #: woo-product-table.php:206 woo-product-table.php:238
 #: admin/action-hook.php:376
 msgid "Search Keyword"
-msgstr "Пошук за ключовими словами"
+msgstr ""
 
 #: admin/action-hook.php:442
 msgid "Search Keyword Placeholder"
@@ -2389,7 +2388,7 @@ msgstr ""
 #: compatible/plugins/waitlist-woocommerce/waitlist-col.php:65
 #: compatible/plugins/waitlist-woocommerce/waitlist-col.php:66
 msgid "View Cart"
-msgstr "Переглянути кошик"
+msgstr ""
 
 #: admin/wpt_product_table_post.php:28
 msgid "View Product Table"

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Product Table for WooCommerce - (wooproducttable)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-09 06:28+0000\n"
-"PO-Revision-Date: 2023-01-11 10:04+0000\n"
+"PO-Revision-Date: 2023-01-11 10:01+0000\n"
 "Last-Translator: \n"
 "Language-Team: Ukrainian\n"
 "Language: uk\n"
@@ -1880,7 +1880,7 @@ msgstr ""
 #: woo-product-table.php:237
 #, php-format
 msgid "Search Box (%sAll Fields Optional%s)"
-msgstr "Поле пошуку (%sусі поля не є обов’язковимиl%s)"
+msgstr ""
 
 #: admin/action-hook.php:213
 msgid "Search Box Taxonomy Sorting"
@@ -1897,7 +1897,7 @@ msgstr ""
 #: woo-product-table.php:206 woo-product-table.php:238
 #: admin/action-hook.php:376
 msgid "Search Keyword"
-msgstr "Пошук за ключовими словами"
+msgstr ""
 
 #: admin/action-hook.php:442
 msgid "Search Keyword Placeholder"
@@ -2389,7 +2389,7 @@ msgstr ""
 #: compatible/plugins/waitlist-woocommerce/waitlist-col.php:65
 #: compatible/plugins/waitlist-woocommerce/waitlist-col.php:66
 msgid "View Cart"
-msgstr "Переглянути кошик"
+msgstr ""
 
 #: admin/wpt_product_table_post.php:28
 msgid "View Product Table"
