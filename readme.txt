@@ -42,7 +42,7 @@ https://www.youtube.com/watch?v=jZ9bx4VqB08
 
 * [A table on Single Variable Product Page](https://demo.wooproducttable.com/product/samsung-galaxy/) <br>If you select a table and enable 'Variation Table' then it will replace the default variation dropdown select options and will display that table on every variable product page.
 
-* [A table on an archive page.](https://demo.wooproducttable.com/shop/) <br>You can override the default archive page and display our table. 
+* [A table on an archive page.](https://demo.wooproducttable.com/shop/) <br>You can override the default archive page and display our table.  (Please note Product table will display products according to the WooCommerce default query and the Advance Search box is not available on the Archive page.)
 
 * [Product Variant In Separate Row](https://demo.wooproducttable.com/product-variant-in-separate-row/) <br>If you have variable products and you want to show every variation as a single product, this table is like that. 
 
