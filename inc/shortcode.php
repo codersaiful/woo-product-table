@@ -591,7 +591,7 @@ class Shortcode extends Shortcode_Base{
         
 
         $this->posts_per_page = $this->conditions['posts_per_page'] ?? $this->posts_per_page;
-        $this->table_type = $this->conditions['table_type'] ?? $this->table_type;
+        
 
         //Some Basic Meta Values | All other query related available in Args Class
         $this->table_head = ! isset( $this->basics['table_head'] ) ? true : false;
@@ -643,6 +643,23 @@ class Shortcode extends Shortcode_Base{
 
         $this->column_settings = apply_filters( 'wpto_column_settings', $column_settings, $this->table_id, $this->_enable_cols );
         
+        /**
+         * Actually this option has come from condition tab 
+         * in old version,
+         * Now I have changed it and transfer to Action column.
+         * 
+         * ---------------
+         * This was from options tab
+         * now come from 
+         * admin/handle/feature-loader.php
+         * admin/handle/action-feature.php
+         * 
+         * @since 3.3.6
+         * @author Saiful Islam <codersaiful@gmail.com>
+         */
+        $third_table_type = $this->conditions['table_type'] ?? $this->table_type;
+        $this->table_type = $this->column_settings['action']['third_party_plugin'] ?? $third_table_type;
+
         /**
          * Column Management Here
          */
