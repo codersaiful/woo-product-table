@@ -288,7 +288,7 @@ You can easily show specific category products. While creating new table click o
 
 = 3.3.6 =
 * Added: Ukrainian(Українська) translated file added for frontend.
-* Added: Spanish(Español) translated file added for frontend.
+* Added: Spanish(Español) translated file added for frontend helped by *Lucas*.
 
 = 3.3.5 =
 * Fixed: Spelling issue solved. Helped by [tanyabouman](https://github.com/tanyabouman) - his pull request [#254](https://github.com/codersaiful/woo-product-table/issues/254)
