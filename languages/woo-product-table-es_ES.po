@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Plugins - Product Table for WooCommerce by CodeAstrology (WooCommerce Product Variation Table, Advance Search Filter, Ajax Pagination, WooCommerce Shop table layout) - Development (trunk) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-01-09 09:16+0000\n"
+"PO-Revision-Date: 2023-01-12 05:16+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -12,7 +12,11 @@ msgstr ""
 "Project-Id-Version: Plugins - Product Table for WooCommerce by CodeAstrology "
 "(WooCommerce Product Variation Table, Advance Search Filter, Ajax Pagination,"
 " WooCommerce Shop table layout) - Development (trunk)\n"
-"Language-Team: Spanish (Spain)"
+"Language-Team: Spanish (Spain)\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-12 05:07+0000\n"
+"Last-Translator: \n"
+"X-Loco-Version: 2.6.3; wp-6.1.1"
 
 #. 1: Plugin name 2: PHP 3: Required PHP version
 #: woo-product-table.php:530
@@ -55,7 +59,7 @@ msgstr ""
 #: admin/action-hook.php:394
 #, php-format
 msgid "%s[Empty Cart]%s - Text of Empty Cart"
-msgstr ""
+msgstr "%s[Empty Cart]%s - Texto"
 
 #: admin/action-hook.php:401
 #, php-format
@@ -105,7 +109,7 @@ msgstr ""
 #: admin/action-hook.php:374
 #, php-format
 msgid "%s[Search Keyword Title]%s - Text"
-msgstr ""
+msgstr "%s[Search Keyword Title]%s - Texto"
 
 #: admin/action-hook.php:368
 #, php-format
@@ -131,7 +135,7 @@ msgstr ""
 
 #: admin/tabs/options.php:259
 msgid "(Select All) Text"
-msgstr ""
+msgstr "(Select All) Texto"
 
 #. Description of the plugin
 msgid ""
@@ -192,7 +196,7 @@ msgstr ""
 
 #: admin/action-hook.php:604
 msgid "[Please select all items.] Message"
-msgstr ""
+msgstr "[Please select all items.] Mensaje"
 
 #: admin/action-hook.php:598
 msgid ""
@@ -324,7 +328,7 @@ msgstr ""
 
 #: admin/functions.php:519
 msgid "All categories"
-msgstr ""
+msgstr "Todas las categorías"
 
 #: admin/functions.php:521
 msgid "All Color"
@@ -521,11 +525,11 @@ msgstr ""
 
 #: admin/functions.php:512
 msgid "Categories"
-msgstr ""
+msgstr "Categorías"
 
 #: woo-product-table.php:98
 msgid "Category"
-msgstr ""
+msgstr "Categoría"
 
 #: admin/tabs/query.php:186
 msgid "Category Exclude"
@@ -829,7 +833,7 @@ msgstr ""
 
 #: admin/action-hook.php:396
 msgid "eg: Empty Cart"
-msgstr ""
+msgstr "Ejemplo: Empty Cart"
 
 #: admin/action-hook.php:403
 msgid "eg: Filter"
@@ -837,7 +841,7 @@ msgstr ""
 
 #: admin/tabs/search_n_filter.php:132
 msgid "eg: product_cat,product_tag,color,size"
-msgstr ""
+msgstr "Ejemplo: product_cat,product_tag,color,size"
 
 #: admin/action-hook.php:496
 msgid "eg: Quick View"
@@ -853,11 +857,11 @@ msgstr ""
 
 #: woo-product-table.php:210 inc/features/basics.php:60
 msgid "Empty Cart"
-msgstr ""
+msgstr "Vaciar carrito"
 
 #: inc/handle/fragment.php:147
 msgid "Empty Cart."
-msgstr ""
+msgstr "Vaciar carrito"
 
 #: admin/action-hook.php:137 admin/action-hook.php:292
 #: admin/tabs/options.php:311
@@ -1638,7 +1642,7 @@ msgstr ""
 
 #: admin/functions.php:514
 msgid "Product Color"
-msgstr ""
+msgstr "Color del producto"
 
 #: admin/pro-features-html.php:35
 msgid "Product ID"
@@ -1658,7 +1662,7 @@ msgstr ""
 
 #: admin/functions.php:515
 msgid "Product Size"
-msgstr ""
+msgstr "Talla del producto"
 
 #: admin/pro-features-html.php:36
 msgid "Product SKU"
@@ -1869,7 +1873,7 @@ msgstr ""
 
 #: woo-product-table.php:205
 msgid "Search"
-msgstr ""
+msgstr "Buscar"
 
 #: admin/post_metabox_form.php:16
 msgid "Search & Filter"
@@ -1878,7 +1882,7 @@ msgstr ""
 #: woo-product-table.php:237
 #, php-format
 msgid "Search Box (%sAll Fields Optional%s)"
-msgstr ""
+msgstr "Caja de búsqueda (%sTodos los campos son opcionales%s)"
 
 #: admin/action-hook.php:213
 msgid "Search Box Taxonomy Sorting"
@@ -1895,7 +1899,7 @@ msgstr ""
 #: woo-product-table.php:206 woo-product-table.php:238
 #: admin/action-hook.php:376
 msgid "Search Keyword"
-msgstr ""
+msgstr "Término de búsqueda"
 
 #: admin/action-hook.php:442
 msgid "Search Keyword Placeholder"
@@ -1943,7 +1947,7 @@ msgstr ""
 
 #: admin/tabs/options.php:265 inc/handle/checkbox-box.php:21
 msgid "Select All"
-msgstr ""
+msgstr "Seleccionar todo"
 
 #: woo-product-table.php:241
 msgid "Select inner Item."
@@ -2387,7 +2391,7 @@ msgstr ""
 #: compatible/plugins/waitlist-woocommerce/waitlist-col.php:65
 #: compatible/plugins/waitlist-woocommerce/waitlist-col.php:66
 msgid "View Cart"
-msgstr ""
+msgstr "Ver carrito"
 
 #: admin/wpt_product_table_post.php:28
 msgid "View Product Table"
