@@ -194,6 +194,7 @@ With a Product Table Plugin, you can feel confident that your business processes
 * German formal ( Deutsch (Sie) ) - de_DE_formal
 * Russian (Русский) - ru_RU
 * Ukrainian(Українська) - uk
+* Spanish(Español) - es_ES
 
 **👷 HONORABLE CONTRIBUTOR - [GitHub](https://github.com/codersaiful/woo-product-table/graphs/contributors) 👷**<br>
 
@@ -287,6 +288,7 @@ You can easily show specific category products. While creating new table click o
 
 = 3.3.6 =
 * Added: Ukrainian(Українська) translated file added for frontend.
+* Added: Spanish(Español) translated file added for frontend.
 
 = 3.3.5 =
 * Fixed: Spelling issue solved. Helped by [tanyabouman](https://github.com/tanyabouman) - his pull request [#254](https://github.com/codersaiful/woo-product-table/issues/254)
