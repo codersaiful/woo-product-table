@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Plugins - Product Table for WooCommerce by CodeAstrology (WooCommerce Product Variation Table, Advance Search Filter, Ajax Pagination, WooCommerce Shop table layout) - Development (trunk) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-01-12 05:18+0000\n"
+"PO-Revision-Date: 2023-01-12 05:46+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -43,8 +43,8 @@ msgstr ""
 #, php-format
 msgid "%d item"
 msgid_plural "%d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d item"
+msgstr[1] "%d items"
 
 #: admin/action-hook.php:508
 #, php-format
@@ -94,12 +94,12 @@ msgstr ""
 #: admin/action-hook.php:520
 #, php-format
 msgid "%s[Quote Added]%s - text "
-msgstr ""
+msgstr "%s[Quote Added]%s - Texto"
 
 #: admin/action-hook.php:514
 #, php-format
 msgid "%s[Quote Adding]%s - text"
-msgstr ""
+msgstr "%s[Quote Adding]%s - Texto"
 
 #: admin/action-hook.php:408
 #, php-format
@@ -123,11 +123,11 @@ msgstr ""
 
 #: admin/tabs/options.php:156
 msgid "(Add to cart) Text"
-msgstr ""
+msgstr "(Añadir al carrito) Texto"
 
 #: admin/tabs/options.php:240
 msgid "(Add to cart[Selected]) Text"
-msgstr ""
+msgstr "(Add to cart[Selected]) Texto"
 
 #: admin/tabs/table_style.php:75
 msgid "(Premium)"
@@ -160,19 +160,19 @@ msgstr ""
 
 #: admin/action-hook.php:628
 msgid "[ Adding in Progress ] Message"
-msgstr ""
+msgstr "[ Adding in Progress ] Mensaje"
 
 #: admin/action-hook.php:634
 msgid "[ No Right Combination ] Message"
-msgstr ""
+msgstr "[ No Right Combination ] Mensaje"
 
 #: admin/action-hook.php:646
 msgid "[ Sorry! Out of Stock! ] Message"
-msgstr ""
+msgstr "[ Sorry! Out of Stock! ] Mensaje"
 
 #: admin/action-hook.php:640
 msgid "[ Sorry, Please choose right combination. ] Message"
-msgstr ""
+msgstr "[ Sorry, Please choose right combination. ] Mensaje"
 
 #: admin/action-hook.php:547
 msgid "[In Stock] for Table Column"
@@ -188,7 +188,7 @@ msgstr ""
 
 #: admin/action-hook.php:616
 msgid "[Out of Stock] Message"
-msgstr ""
+msgstr "[Out of Stock] Mensaje"
 
 #: admin/action-hook.php:610
 msgid "[Please Choose items] Alert!"
@@ -203,14 +203,16 @@ msgid ""
 "[Product variations is not set Properly. May be: price is not inputted. may "
 "be: Out of Stock.] Message"
 msgstr ""
+"[Product variations is not set Properly. May be: price is not inputted. may "
+"be: Out of Stock.] Mensaje"
 
 #: admin/action-hook.php:622
 msgid "[There is no more products based on current Query.] Message"
-msgstr ""
+msgstr "[There is no more products based on current Query.] Mensaje"
 
 #: admin/action-hook.php:652
 msgid "[Type your Message.] Message"
-msgstr ""
+msgstr "[Type your Message.] Mensaje"
 
 #: admin/functions.php:391
 msgid "About Product Table"
@@ -248,15 +250,15 @@ msgstr ""
 
 #: inc/shortcode.php:610 admin/tabs/options.php:162
 msgid "Add to cart"
-msgstr ""
+msgstr "Añadir al carrito"
 
 #: admin/tabs/options.php:246 inc/handle/checkbox-box.php:20
 msgid "Add to Cart (Selected)"
-msgstr ""
+msgstr "Añadir al carrito (seleccionados)"
 
 #: admin/action-hook.php:428
 msgid "Add to Cart all selected [Added] Text"
-msgstr ""
+msgstr "Add to Cart all selected [Added] Texto"
 
 #: admin/action-hook.php:147
 msgid "Add to Cart Icon"
@@ -280,7 +282,7 @@ msgstr ""
 
 #: woo-product-table.php:220
 msgid "Added"
-msgstr ""
+msgstr "Añadido"
 
 #: admin/action-hook.php:430
 msgid "Added text for [Add to cart Selected]"
@@ -332,7 +334,7 @@ msgstr "Todas las categorías"
 
 #: admin/functions.php:521
 msgid "All Color"
-msgstr ""
+msgstr "Todos los colores"
 
 #: admin/action-hook.php:325
 msgid "All Items"
@@ -344,7 +346,7 @@ msgstr ""
 
 #: admin/functions.php:522
 msgid "All Size"
-msgstr ""
+msgstr "Todas las tallas"
 
 #: admin/functions.php:520
 msgid "All tags"
@@ -569,7 +571,7 @@ msgstr ""
 
 #: includes/variation_html.php:57 includes/variation_html.php:59
 msgid "Clear"
-msgstr ""
+msgstr "Limpiar"
 
 #: admin/tabs/inc-column/column-list.php:40
 msgid "Click for Expand/Collapse. Edit your Column Title here."
@@ -821,11 +823,11 @@ msgstr ""
 
 #: admin/wpt_product_table_post.php:26
 msgid "Edit Product Table"
-msgstr ""
+msgstr "Editar Product Table"
 
 #: inc/features/basics.php:48
 msgid "Edit Table - "
-msgstr ""
+msgstr "Editar tabla - "
 
 #: admin/tabs/query.php:394
 msgid "Eg: 50 (for display 50 products"
@@ -849,7 +851,7 @@ msgstr ""
 
 #: admin/action-hook.php:410
 msgid "eg: Reset"
-msgstr ""
+msgstr "Ejemplo: Reset"
 
 #: admin/includes/right_side.php:37
 msgid "Email:"
@@ -889,7 +891,7 @@ msgstr ""
 #: admin/tabs/options.php:222
 #, php-format
 msgid "Example: Page %s out of %s"
-msgstr ""
+msgstr "Ejemplo: Page %s out of %s"
 
 #: admin/tabs/options.php:192
 #, php-format
@@ -932,7 +934,7 @@ msgstr ""
 
 #: woo-product-table.php:211
 msgid "Filter:"
-msgstr ""
+msgstr "Filtrar:"
 
 #: admin/tabs/options.php:231
 msgid ""
@@ -1190,7 +1192,7 @@ msgstr ""
 
 #: admin/action-hook.php:549
 msgid "In Stock"
-msgstr ""
+msgstr "En stock"
 
 #: admin/pro-features-html.php:86
 msgid "Include/Exclude by Product ID"
@@ -1210,7 +1212,7 @@ msgstr ""
 
 #: woo-product-table.php:213
 msgid "Instant Search.."
-msgstr ""
+msgstr "Búsqueda instantánea"
 
 #: admin/tabs/query.php:370
 msgid "instock"
@@ -1234,7 +1236,7 @@ msgstr ""
 
 #: woo-product-table.php:218
 msgid "Item"
-msgstr ""
+msgstr "Item"
 
 #: admin/action-hook.php:421
 msgid "Item [for Plural]"
@@ -1254,7 +1256,7 @@ msgstr ""
 
 #: woo-product-table.php:219
 msgid "Items"
-msgstr ""
+msgstr "Items"
 
 #: admin/includes/right_side.php:38
 msgid "Join to CodeAstrology Group"
@@ -1294,7 +1296,7 @@ msgstr ""
 
 #: woo-product-table.php:202
 msgid "Load more"
-msgstr ""
+msgstr "Cargar más"
 
 #: admin/tabs/options.php:50
 msgid "Load More Button"
@@ -1306,7 +1308,7 @@ msgstr ""
 
 #: woo-product-table.php:204
 msgid "Loading.."
-msgstr ""
+msgstr "Cargando…"
 
 #: admin/action-hook.php:383
 msgid "Loading.. text write here"
@@ -1339,7 +1341,7 @@ msgstr ""
 #: includes/helper-functions.php:516 includes/helper-functions.php:610
 #: includes/helper-functions.php:640
 msgid "Message"
-msgstr ""
+msgstr "Mensaje"
 
 #: admin/includes/right_side.php:44
 msgid "Message to Author"
@@ -1447,11 +1449,11 @@ msgstr ""
 
 #: admin/action-hook.php:594
 msgid "Not Available"
-msgstr ""
+msgstr "No disponible"
 
 #: woo-product-table.php:221
 msgid "Not available"
-msgstr ""
+msgstr "No disponible"
 
 #: admin/action-hook.php:363
 msgid "Not for Archive page."
@@ -1529,7 +1531,7 @@ msgstr ""
 
 #: woo-product-table.php:240
 msgid "Order"
-msgstr ""
+msgstr "Pedir"
 
 #: admin/tabs/query.php:277
 msgid "Order By"
@@ -1554,7 +1556,7 @@ msgstr ""
 #: woo-product-table.php:226 admin/action-hook.php:555
 #: admin/action-hook.php:618
 msgid "Out of Stock"
-msgstr ""
+msgstr "Fuera de stocl"
 
 #: admin/tabs/query.php:372
 msgid "outofstock"
@@ -1563,7 +1565,7 @@ msgstr ""
 #: admin/tabs/options.php:219
 #, php-format
 msgid "Page %s out of %s"
-msgstr ""
+msgstr "Página %s de %s"
 
 #: admin/tabs/options.php:43 admin/tabs/options.php:113
 msgid "Pagination"
@@ -1727,6 +1729,8 @@ msgid ""
 "Product variations is not set Properly. May be: price is not inputted. may "
 "be: Out of Stock."
 msgstr ""
+"Las variaciones de producto no están configuradas correctamente. Quizá el "
+"precio no está especificado o el artículo se encuentra fuera de stock."
 
 #: woo-product-table.php:97
 msgid "Products"
@@ -1841,7 +1845,7 @@ msgstr ""
 
 #: woo-product-table.php:212 inc/handle/search-box.php:21
 msgid "Reset"
-msgstr ""
+msgstr "Reset"
 
 #: admin/configuration_page.php:105
 msgid "Reset Settings"
@@ -1951,7 +1955,7 @@ msgstr "Seleccionar todo"
 
 #: woo-product-table.php:241
 msgid "Select inner Item."
-msgstr ""
+msgstr "Seleccionar item interior"
 
 #: admin/action-hook.php:470
 msgid "Select Innet Items"
@@ -2332,7 +2336,7 @@ msgstr ""
 
 #: woo-product-table.php:230 admin/action-hook.php:654
 msgid "Type your Message."
-msgstr ""
+msgstr "Escribe tu mensaje"
 
 #: admin/tabs/query.php:338
 msgid ""
@@ -2380,7 +2384,7 @@ msgstr ""
 
 #: admin/action-hook.php:592
 msgid "Variations [Not available] Message"
-msgstr ""
+msgstr "Variations [Not available] Mensaje"
 
 #: admin/post_metabox_form.php:26
 msgid "Vertical Align"
