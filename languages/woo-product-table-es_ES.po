@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Plugins - Product Table for WooCommerce by CodeAstrology (WooCommerce Product Variation Table, Advance Search Filter, Ajax Pagination, WooCommerce Shop table layout) - Development (trunk) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-01-12 05:16+0000\n"
+"PO-Revision-Date: 2023-01-12 05:19+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -889,12 +889,12 @@ msgstr ""
 #: admin/tabs/options.php:222
 #, php-format
 msgid "Example: Page %s out of %s"
-msgstr ""
+msgstr "Ejemplo: Page %s out of %s"
 
 #: admin/tabs/options.php:192
 #, php-format
 msgid "Example: Showing %s out of %s"
-msgstr ""
+msgstr "Ejemplo: Showing %s out of %s"
 
 #: admin/pro-features-html.php:122
 msgid "Expand/Collapse Column"
@@ -1563,7 +1563,7 @@ msgstr ""
 #: admin/tabs/options.php:219
 #, php-format
 msgid "Page %s out of %s"
-msgstr ""
+msgstr "Página %s de %s"
 
 #: admin/tabs/options.php:43 admin/tabs/options.php:113
 msgid "Pagination"
@@ -2044,7 +2044,7 @@ msgstr ""
 #: admin/tabs/options.php:189
 #, php-format
 msgid "Showing %s out of %s"
-msgstr ""
+msgstr "Mostrando %s de %s"
 
 #: admin/functions.php:517
 msgid "Size"
