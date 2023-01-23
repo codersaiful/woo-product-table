@@ -12,7 +12,7 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 WooCommerce product table plugin helps you to display your products in a searchable table layout with filters. Boost conversions & sales. Woo Product Table is best for Wholesale.
 
 == Description ==
-(Woo Product Table) Product Table plugin helps you to display your WooCommerce products in a searchable table layout with filters.  Add a table on any page or post via a shortcode. You can create tables as many as you want.
+(**Woo Product Table**) Product Table plugin helps you to display your WooCommerce products in a searchable table layout with filters.  Add a table on any page or post via a shortcode. You can create tables as many as you want.
 Create a table for restaurant order systems, Online music sell, product Wholesale, Course Booking, or Selling books any many more.
 
 **Have a looks in short for WooCommerce Product Table**
