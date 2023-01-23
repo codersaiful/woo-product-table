@@ -123,7 +123,7 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
         // var_dump($page);
         ?>
         <div class="section ultraaddons-panel basic <?php echo esc_attr( $page ); ?>">
-            <h3 class="with-background dark-background"><?php esc_html_e( 'Basic Settings', 'woo-product-table' );?></h3>
+            <h3 class="with-background dark-background wpt-design-expand"><?php esc_html_e( 'Basic Settings', 'woo-product-table' );?><span title="Collapse/Expand" class="wpt-design-collaps"> <i class="wpt-expand-collapse"></i></span></h3>
             <table class="ultraaddons-table">
                 <tbody>
                     <tr class="table_disable_plugin_noti" style="display:none;">
@@ -346,7 +346,7 @@ if( !function_exists( 'wpt_configure_label_part' ) ){
         
         ?>
         <div class="section ultraaddons-panel label <?php echo esc_attr( $page ); ?>">
-            <h3 class="with-background dark-background"><?php esc_html_e( 'Label Text', 'woo-product-table' );?></h3>
+            <h3 class="with-background dark-background wpt-design-expand"><?php esc_html_e( 'Label Text', 'woo-product-table' );?><span title="Collapse/Expand" class="wpt-design-collaps"> <i class="wpt-expand-collapse"></i></span></h3>
             <table class="ultraaddons-table">
                 <tbody>
                     <tr> 
@@ -487,7 +487,7 @@ if( !function_exists( 'wpt_configure_external_part' ) ){
         
         ?>
         <div class="section ultraaddons-panel label <?php echo esc_attr( $page ); ?>">
-            <h3 class="with-background dark-background"><?php echo sprintf( esc_html__( 'External Plugin\'s %s[YITH]%s ', 'woo-product-table' ),'<span style="color: orange; font-size: 18px;">', '</span>' );?></h3>
+            <h3 class="with-background dark-background wpt-design-expand"><?php echo sprintf( esc_html__( 'External Plugin\'s %s[YITH]%s ', 'woo-product-table' ),'<span style="color: orange; font-size: 18px;">', '</span>' );?><span title="Collapse/Expand" class="wpt-design-collaps"> <i class="wpt-expand-collapse"></i></span></h3>
             <table class="ultraaddons-table external_plugin">
                 <tbody>
                     <tr> 
@@ -540,7 +540,7 @@ if( !function_exists( 'wpt_configure_default_content_part' ) ){
         // label <?php echo esc_attr( $page ); "
         ?>
         <div class="section ultraaddons-panel default_content <?php echo esc_attr( $page );?>">
-            <h3 class="with-background dark-background"><?php echo sprintf( esc_html__( 'Table\'s Default Content %sSince 3.3%s', 'woo-product-table' ), '<small style="color: orange; font-size: 12px;">', '</small>' );?></h3>
+            <h3 class="with-background dark-background wpt-design-expand"><?php echo sprintf( esc_html__( 'Table\'s Default Content %sSince 3.3%s', 'woo-product-table' ), '<small style="color: orange; font-size: 12px;">', '</small>' );?><span title="Collapse/Expand" class="wpt-design-collaps"> <i class="wpt-expand-collapse"></i></span></h3>
             <table class="ultraaddons-table">
                 <tbody>
                     <tr>
@@ -585,7 +585,7 @@ if( !function_exists( 'wpt_configure_all_message_part' ) ){
         // label <?php echo esc_attr( $page ); "
         ?>
         <div class="section ultraaddons-panel all_message <?php echo esc_attr( $page ); ?>">
-            <h3 class="with-background dark-background"><?php esc_html_e( 'All Messages', 'woo-product-table' );?></h3>
+            <h3 class="with-background dark-background wpt-design-expand"><?php esc_html_e( 'All Messages', 'woo-product-table' );?><span title="Collapse/Expand" class="wpt-design-collaps"> <i class="wpt-expand-collapse"></i></span></h3>
             <table class="ultraaddons-table wpt_all_messages">
                 <tbody>
                     <tr class="<?php echo esc_attr( $user_can_edit ); ?>">
