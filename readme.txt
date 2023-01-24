@@ -287,7 +287,8 @@ You can easily show specific category products. While creating new table click o
 == Changelog ==
 
 = 3.3.6 =
-* Add Collapse/Expand option on Design and configure page 
+* remove trigger - removed_from_cart
+* Add Collapse/Expand option on Design and configure page
 * Added: Ukrainian(Українська) translated file added for frontend.
 * Added: Spanish(Español) translated file added for frontend helped by *Lucas*.
 

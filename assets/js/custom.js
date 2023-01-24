@@ -376,7 +376,7 @@ jQuery(function($) {
         $( document.body ).trigger( 'wc_fragments_refreshed' );
         $( document.body ).trigger( 'wc_fragments_refresh' );
         $( document.body ).trigger( 'wc_fragment_refresh' );
-        $( document.body ).trigger( 'removed_from_cart' );
+        // $( document.body ).trigger( 'removed_from_cart' );
         WPT_MiniCart();
         
         //if(config_json.thumbs_lightbox === '1' || config_json.thumbs_lightbox === 1){
