@@ -287,6 +287,8 @@ You can easily show specific category products. While creating new table click o
 == Changelog ==
 
 = 3.3.6 =
+* Diaplay column label in mobile issue solved
+* Added: Polish Translated file added for frontend. Piotr helped us to translate Polish Language.
 * remove trigger - removed_from_cart
 * Add Collapse/Expand option on Design and configure page
 * Added: Ukrainian(Українська) translated file added for frontend.
