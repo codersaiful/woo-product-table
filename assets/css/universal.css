@@ -1742,3 +1742,28 @@ div.wpt-wrap .wpt-search-full-wrapper .button.wpt-search-products {
 tr.wpt-row .button.loading:after {
     display: none !important;
 }
+
+/* 
+    * for display label in mobile version
+    * @since 3.3.6.1
+    * @author Fazle Bari
+ */
+td.wpt-replace-td-in-tr.wpt-mobile-label-show>div:before {
+    content: attr(data-title);
+    height: 100%;
+    width: 86px;
+    position: absolute;
+    left: -86px;
+    top: 0;
+    color: black;
+}
+
+td.wpt-replace-td-in-tr.wpt-mobile-label-show>div {
+    margin-left: 86px !important;
+    position: relative !important;
+}
+.item_inside_cell.wpt_check.autoresponsive-label-show{
+    position: absolute;
+    top: -45px;
+    left: 220px;
+}
