@@ -32,7 +32,7 @@ if( !function_exists( 'wpt_admin_form_top' ) ){
             <li><a target="_blank" href="https://demo.wooproducttable.com/?utm_source=Product+Table+EditPage&utm_medium=Free+Version"><?php echo esc_html__( 'Demo', 'woo-product-table' ); ?></a></li>
             <li><a target="_blank" href="https://github.com/codersaiful/woo-product-table/discussions"><?php echo esc_html__( 'Forum on Repo', 'woo-product-table' ); ?></a></li>
             <li><a target="_blank" href="https://wooproducttable.com/documentation/?utm_source=Product+Table+EditPage&utm_medium=Free+Version"><?php echo esc_html__( 'Documentation', 'woo-product-table' ); ?></a></li>
-            <li><a target="_blank" href="https://codeastrology.com/support/?utm_source=Product+Table+EditPage&utm_medium=Free+Version"><?php echo esc_html__( 'Get Support', 'woo-product-table' ); ?></a></li>
+            <li><a target="_blank" href="https://codeastrology.com/my-support/?utm_source=Product+Table+EditPage&utm_medium=Free+Version"><?php echo esc_html__( 'Get Support', 'woo-product-table' ); ?></a></li>
             
 
         </ul>    

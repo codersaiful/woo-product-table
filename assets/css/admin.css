@@ -2058,6 +2058,10 @@ label.switch.switch-big .on, label.switch.switch-big .off {
     border: 1px solid #4a4a4a17;
     transition: .2s all;
 }
+a.ca-social-link.ca-social-ticket.ca-title-available {
+    background: #42b9cc;
+    color: white;
+}
 .codeastrogy-social-area-wrapper a.ca-social-link.ca-title-available:hover {
     background: #02142a;
     border: 1px solid transparent;
@@ -2144,6 +2148,14 @@ p.wpt-issue-submit a {
     font-style: oblique;
     background: #8080801c;
     padding: 0 3px;
+}
+a.wpt-create-ticket {
+    background: #56687a !important;
+    color: #ffeb3b;
+    border: 1px solid #9e9e9e;
+    padding: 2px 6px !important;
+    text-decoration: none;
+    border-radius: 6px;
 }
 
 p.wpt-issue-submit a:hover {

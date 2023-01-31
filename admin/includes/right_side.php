@@ -27,7 +27,7 @@
     <div class="wpt_right_side_in_wrapper" style="padding: 10px;">
         <div class="need_help_wrapper">
             <h1><?php echo esc_html__( 'Need Help?', 'woo-product-table' ); ?></h1>
-            <a style="display: block;text-align: left;" target="_blank" href="https://codeastrology.com/support/">
+            <a style="display: block;text-align: left;" target="_blank" href="https://codeastrology.com/my-support/">
                 <img style="max-width: 100px" src="<?php echo WPT_BASE_URL; ?>assets/images/customer_support.png">
                 <h3><?php echo esc_html__( 'Customer Support', 'woo-product-table' ); ?></h3>
             </a>
