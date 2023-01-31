@@ -7,7 +7,15 @@ Style for WOO Product Table Admin Panel
     display: inline-block;
     padding: 1px 10px 3px 10px;
 }
-
+.menu-icon-wpt_product_table a.wp-has-submenu.menu-icon-wpt_product_table .wp-menu-image.dashicons-before {
+    
+}
+.menu-icon-wpt_product_table a.wp-has-submenu.menu-icon-wpt_product_table {
+    background: #ffffff10;
+}
+.menu-icon-wpt_product_table a.wp-has-submenu.menu-icon-wpt_product_table .wp-menu-name {
+    font-size: 95%;
+}
 .wpt_column>label.wpt_label {
     color: #0c0c0c;
     padding: 5px 0;
