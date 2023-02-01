@@ -457,6 +457,17 @@ $content_of_mail = __( 'I have found an issue with your WooProductTable plugin. 
 }
 
 /**
+ * This function will add helper doc
+ * @since 3.3.6.1
+ * @author Fazle Bari
+ */
+function wpt_doc_link( $url, $title='Helper doc' ){
+    ?>
+        <a href="<?php echo esc_url($url)?>" target="_blank" class="wpt-doc-lick"><?php esc_html_e( $title ); ?></a>
+    <?php
+}
+
+/**
  * To display help icon with title attribute.
  * It will show by default
  * ----------
