@@ -1175,11 +1175,12 @@ body.wpt_admin_body .wpt_auto_hide{
     display: none;
 }
 
-body.wpt_admin_body .wpt_shortable_data div p,
-body.wpt_admin_body .ultraaddons-panel td p{
-    color: #607D8B;
+body.wpt_admin_body .wpt_shortable_data div p, 
+body.wpt_admin_body .ultraaddons-panel td p {
+    color: #b3b3b3;
     font-style: italic;
     font-size: 16px;
+    margin: 5px 0;
 }
 .wpt-pro-only-featues {
     background: #a2a2a2;
