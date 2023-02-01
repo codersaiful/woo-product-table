@@ -2230,10 +2230,13 @@ span.wpt-help-icon:hover:before {
     line-height: 16px;
     font-size: 14px;
 }
-span.wpt-help-icon.wpt-help-focused,
 span.wpt-help-icon:hover {
     background: green;
     color: wheat;
+}
+span.wpt-help-icon.wpt-help-focused{
+    background: rgb(3, 3, 3);
+    color: white;
 }
 @media screen and (max-width: 782px){
     span.wpt-help-icon {
