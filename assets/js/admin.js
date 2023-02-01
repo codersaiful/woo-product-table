@@ -25,6 +25,11 @@ jQuery.fn.extend({
             wptUpdateStyleData(this);
         });
         
+        $('span.wpt-help-icon').click(function(){
+            // $('span.wpt-help-icon').removeClass('wpt-help-focused');
+            $(this).toggleClass('wpt-help-focused');
+        });
+
         //For select, used select2 addons of jquery
         //$('.wpt_wrap select,.wpt_shortcode_gen_panel select, select#wpt_product_ids,select#product_tag_ids').select2();
         

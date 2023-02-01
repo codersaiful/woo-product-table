@@ -2205,12 +2205,51 @@ span.wpt-help-icon {
     height: 21px;
     display: inline-block;
     text-align: center;
-    
     margin: 10px;
     cursor: pointer;
     border-radius: 50%;
+    position: relative;
 }
+span.wpt-help-icon.wpt-help-focused:before,
+span.wpt-help-icon:hover:before {
+    content: attr(title);
+    position: absolute;
+    top: 0;
+    min-width: 500px;
+    width: 100%;
+    max-width: 100%;
+    left: 25px;
+    background: #007694;
+    border: 1px solid #007694;
+    padding: 5px;
+    box-shadow: 0px 5px 19px 0 #00000040;
+    border-radius: 6px;
+    text-align: left;
+    color: white;
+    display: block !important;
+    line-height: 16px;
+    font-size: 14px;
+}
+span.wpt-help-icon.wpt-help-focused,
 span.wpt-help-icon:hover {
     background: green;
     color: wheat;
+}
+@media screen and (max-width: 782px){
+    span.wpt-help-icon {
+        float: left;
+        margin: 10px 2px;
+    }
+    span.wpt-help-icon:focus:before,
+    span.wpt-help-icon:hover:before,
+    span.wpt-help-icon:before{
+        display: none;
+    }
+    span.wpt-help-icon.wpt-help-focused:before{
+        top: 28px;
+        min-width: 300px;
+        left: -13px;
+        display: block;
+
+    }
 }
