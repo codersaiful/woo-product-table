@@ -152,7 +152,7 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
                                 <option value="add_cart_only_icon" <?php wpt_selected( 'custom_add_to_cart', 'add_cart_only_icon', $current_config_value ); ?>><?php esc_html_e( 'Only Icon', 'woo-product-table' ); ?></option>
                                 <option value="add_cart_left_icon" <?php wpt_selected( 'custom_add_to_cart', 'add_cart_left_icon', $current_config_value ); ?>><?php esc_html_e( 'Left Icon and Text', 'woo-product-table' ); ?></option>
                                 <option value="add_cart_right_icon" <?php wpt_selected( 'custom_add_to_cart', 'add_cart_right_icon', $current_config_value ); ?>><?php esc_html_e( 'Text and Right Icon', 'woo-product-table' ); ?></option>
-                            </select>
+                            </select> <?php wpt_doc_link('https://wooproducttable.com/docs/doc/table-options/customize-add-to-card-icon/') ?>
 
                         </td>
                     </tr>
@@ -165,7 +165,7 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
                                 <option value="hide_for_zerro" <?php wpt_selected( 'footer_cart', 'hide_for_zerro', $current_config_value ); ?>><?php esc_html_e( 'Hide for Zero', 'woo-product-table' ); ?></option>
                                 <option value="always_show" <?php wpt_selected( 'footer_cart', 'always_show', $current_config_value ); ?>><?php esc_html_e( 'Always Show', 'woo-product-table' ); ?></option>
                                 
-                            </select>
+                            </select><?php wpt_doc_link('https://wooproducttable.com/docs/doc/advance-uses/floating-cart-options/') ?>
 
                         </td>
                     </tr>
@@ -173,6 +173,7 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
                         <th> <label for="wpt_table_footer_bg_color" class="wpt_label"><?php esc_html_e( 'Floating Cart BG Color', 'woo-product-table' ); ?></label></th>
                         <td>
                             <input name="<?php echo esc_attr( $field_name ); ?>[footer_bg_color]" class="wpt_data_filed_atts wpt_color_picker" value="<?php echo esc_attr( $current_config_value['footer_bg_color'] ); ?>" id="wpt_table_footer_bg_colort" type="text" placeholder="<?php esc_attr_e( 'BG Color', 'woo-product-table' ); ?>">
+                            <?php wpt_doc_link('https://wooproducttable.com/docs/doc/advance-uses/floating-cart-options/') ?>
                         </td>
                     </tr>
                     <tr>
@@ -185,7 +186,7 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
                                 <option value="top_right" <?php wpt_selected( 'footer_possition', 'top_right', $current_config_value ); ?>><?php esc_html_e( 'Top Right', 'woo-product-table' ); ?></option>
                                 <option value="top_left" <?php wpt_selected( 'footer_possition', 'top_left', $current_config_value ); ?>><?php esc_html_e( 'Top Left', 'woo-product-table' ); ?></option>
                             </select>
-
+                            <?php wpt_doc_link('https://wooproducttable.com/docs/doc/advance-uses/floating-cart-options/') ?>
                         </td>
                     </tr>
 
@@ -194,6 +195,7 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
                         <th><label class="wpt_label" for="wpt_table_footer_cart_size"><?php echo sprintf(esc_html__( 'Floating Cart Size %s[Only Int]%s', 'woo-product-table' ), '<small>', '</small>' ); ?></label></th>
                         <td>
                             <input name="<?php echo esc_attr( $field_name ); ?>[footer_cart_size]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['footer_cart_size'] ); ?>" id="wpt_table_footer_cart_size" type="number" placeholder="<?php esc_attr_e( 'Default Size. eg: 70', 'woo-product-table' ); ?>" min="50" max="" pattern="[0-9]*" inputmode="numeric">
+                            <?php wpt_doc_link('https://wooproducttable.com/docs/doc/advance-uses/floating-cart-options/') ?>
                         </td>
                     </tr>
                     <tr>
@@ -205,7 +207,7 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
                                 <option value="ASC" <?php wpt_selected( 'sort_mini_filter', 'ASC', $current_config_value ); ?>><?php esc_html_e( 'Ascending', 'woo-product-table' ); ?></option>
                                 <option value="DESC" <?php wpt_selected( 'sort_mini_filter', 'DESC', $current_config_value ); ?>><?php esc_html_e( 'Descending', 'woo-product-table' ); ?></option>
                             </select>
-
+                            <?php wpt_doc_link('https://wooproducttable.com/docs/doc/table-options/mini-filter-search-box-taxonomy-sorting/') ?>
                         </td>
                     </tr>
 
@@ -217,7 +219,7 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
                                 <option value="0" <?php wpt_selected( 'sort_searchbox_filter', '0', $current_config_value ); ?>><?php esc_html_e( 'Default Sorting', 'woo-product-table' ); ?></option>
                                 <option value="ASC" <?php wpt_selected( 'sort_searchbox_filter', 'ASC', $current_config_value ); ?>><?php esc_html_e( 'Ascending', 'woo-product-table' ); ?></option>
                                 <option value="DESC" <?php wpt_selected( 'sort_searchbox_filter', 'DESC', $current_config_value ); ?>><?php esc_html_e( 'Descending', 'woo-product-table' ); ?></option>
-                            </select>
+                            </select> <?php wpt_doc_link('https://wooproducttable.com/docs/doc/table-options/mini-filter-search-box-taxonomy-sorting/') ?>
                             <p class="warning">
                                 <b>Tips:</b>
                                 <span>If set Default Sorting, Taxonomy (Category/Tag) sorting will be like Default Taxonomy list.</span>
@@ -228,6 +230,7 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
                         <th><label class="wpt_label" for="wpt_table_thumbs_image_size"><?php echo sprintf(esc_html__( 'Thumbs Image Size', 'woo-product-table' ), '<small>', '</small>' ); ?></label></th>
                         <td>
                             <input name="<?php echo esc_attr( $field_name ); ?>[thumbs_image_size]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['thumbs_image_size'] ); ?>" id="wpt_table_thumbs_image_size" type="text" placeholder="<?php esc_attr_e( 'Thumbnail size. eg: 56', 'woo-product-table' ); ?>" min="16" max="" pattern="[0-9]*" inputmode="numeric">
+                            <?php wpt_doc_link('https://wooproducttable.com/docs/doc/table-options/change-thumbnail-image-size/') ?>
                             <p><?php esc_html_e( 'You can use number like 150 or use as text version like full, medium, large', 'woo-product-table' ); ?></p>
                         </td>
                     </tr>
@@ -239,7 +242,7 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
                                 <?php wpt_default_option( $page ) ?>
                                 <option value="1" <?php wpt_selected( 'popup_notice', '1', $current_config_value ); ?>><?php esc_html_e( 'Show', 'woo-product-table' ); ?></option>
                                 <option value="0" <?php wpt_selected( 'popup_notice', '0', $current_config_value ); ?>><?php esc_html_e( 'Hide', 'woo-product-table' ); ?></option>
-                            </select>
+                            </select><?php wpt_doc_link('https://wooproducttable.com/docs/doc/table-options/disable-enable-add-to-cart-popup-notice/') ?>
                         </td>
                     </tr>
                     <tr> 
@@ -249,7 +252,7 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
                                 <?php wpt_default_option( $page ) ?>
                                 <option value="_blank" <?php wpt_selected( 'product_link_target', '_blank', $current_config_value ); ?>><?php esc_html_e( 'New Tab', 'woo-product-table' ); ?></option>
                                 <option value="_self" <?php wpt_selected( 'product_link_target', '_self', $current_config_value ); ?>><?php esc_html_e( 'Self Tab', 'woo-product-table' ); ?></option>
-                            </select>
+                            </select><?php wpt_doc_link('https://wooproducttable.com/docs/doc/advance-uses/show-product-in-new-same-tab/') ?>
                         </td>
                     </tr>
                     
@@ -266,7 +269,7 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
                                     ?>
                                     value="cart" <?php wpt_selected( 'product_direct_checkout', 'cart', $current_config_value ); ?>><?php echo esc_html__( 'Cart Page', 'woo-product-table' ) . $wpt_cart_page_redirect; ?></option>
                                 <option value="yes" <?php wpt_selected( 'product_direct_checkout', 'yes', $current_config_value ); ?>><?php esc_html_e( 'Checkout Page', 'woo-product-table' ); ?></option>
-                            </select>
+                            </select><?php wpt_doc_link('https://wooproducttable.com/docs/doc/table-options/redirect-checkout-page-after-add-to-cart/') ?>
                             <p><?php esc_html_e( 'Enable Quick Buy Button [Direct Checkout Page for each product]. Direct going to Checkout Page just after Added to cart for each product', 'woo-product-table' ); ?></p>
                         </td>
                     </tr>
@@ -278,7 +281,7 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
                                 <option value="no" <?php wpt_selected( 'all_selected_direct_checkout', 'no', $current_config_value ); ?>><?php esc_html_e( 'Disable', 'woo-product-table' ); ?></option>
                                 <option value="cart" <?php wpt_selected( 'all_selected_direct_checkout', 'cart', $current_config_value ); ?>><?php esc_html_e( 'Cart Page', 'woo-product-table' ); ?></option>
                                 <option value="yes" <?php wpt_selected( 'all_selected_direct_checkout', 'yes', $current_config_value ); ?>><?php esc_html_e( 'Checkout Page', 'woo-product-table' ); ?></option>
-                            </select>
+                            </select><?php wpt_doc_link('https://wooproducttable.com/docs/doc/table-options/redirect-checkout-page-after-add-to-cart/') ?>
                             <p>Direct Checkout Page[for Add to cart Selected]</p>
                         </td>
                     </tr>
@@ -290,7 +293,7 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
                                 <?php wpt_default_option( $page ) ?>
                                 <option value="1" <?php wpt_selected( 'disable_cat_tag_link', '1', $current_config_value ); ?>><?php esc_html_e( 'Disable', 'woo-product-table' ); ?></option>
                                 <option value="0" <?php wpt_selected( 'disable_cat_tag_link', '0', $current_config_value ); ?>><?php esc_html_e( 'Enable', 'woo-product-table' ); ?></option>
-                            </select>
+                            </select><?php wpt_doc_link('https://wooproducttable.com/docs/doc/table-options/disable-categories-tag-link/') ?>
                         </td>
                     </tr>
 
@@ -301,7 +304,7 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
                                 <?php wpt_default_option( $page ) ?>
                                 <option value="1" <?php wpt_selected( 'instant_search_filter', '1', $current_config_value ); ?>><?php esc_html_e( 'Show', 'woo-product-table' ); ?></option>
                                 <option value="0" <?php wpt_selected( 'instant_search_filter', '0', $current_config_value ); ?>><?php esc_html_e( 'Hide', 'woo-product-table' ); ?></option>
-                            </select>
+                            </select><?php wpt_doc_link('https://wooproducttable.com/docs/doc/advance-uses/use-instant-search-filter/') ?>
                             <p class="warning"><?php echo esc_html__( 'Only for viewable products of current table.', 'woo-product-table' ) ?></p>
                         </td>
                     </tr>
@@ -312,7 +315,7 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
                                 <?php wpt_default_option( $page ) ?>
                                 <option value="0" <?php wpt_selected( 'query_by_url', '0', $current_config_value ); ?>><?php esc_html_e( 'Off', 'woo-product-table' ); ?></option>
                                 <option value="1" <?php wpt_selected( 'query_by_url', '1', $current_config_value ); ?>><?php esc_html_e( 'On', 'woo-product-table' ); ?></option>
-                            </select>
+                            </select><?php wpt_doc_link('https://wooproducttable.com/docs/doc/table-options/how-to-show-hide-query-url/') ?>
                         </td>
                     </tr>
 
