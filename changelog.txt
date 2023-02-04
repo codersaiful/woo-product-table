@@ -1,6 +1,7 @@
 == Changelog ==
 
 == 3.3.6.1
+  * New language added - Croatian
   * Add Collapse/Expand option on Design and configure page 
   
 = 3.1.1 =
