@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Product Table for WooCommerce - (wooproducttable)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-12-15 06:11+0000\n"
-"PO-Revision-Date: 2023-02-04 06:41+0000\n"
+"PO-Revision-Date: 2023-02-04 06:37+0000\n"
 "Last-Translator: \n"
 "Language-Team: Croatian\n"
 "Language: hr\n"
@@ -158,19 +158,19 @@ msgstr ""
 
 #: admin/action-hook.php:628
 msgid "[ Adding in Progress ] Message"
-msgstr "[ Adding in Progress ] Poruka"
+msgstr ""
 
 #: admin/action-hook.php:634
 msgid "[ No Right Combination ] Message"
-msgstr "[ No Right Combination ] Poruka"
+msgstr ""
 
 #: admin/action-hook.php:646
 msgid "[ Sorry! Out of Stock! ] Message"
-msgstr "[ Sorry! Out of Stock! ] Poruka"
+msgstr ""
 
 #: admin/action-hook.php:640
 msgid "[ Sorry, Please choose right combination. ] Message"
-msgstr "[ Sorry, Please choose right combination. ] Poruka"
+msgstr ""
 
 #: admin/action-hook.php:547
 msgid "[In Stock] for Table Column"
@@ -186,7 +186,7 @@ msgstr ""
 
 #: admin/action-hook.php:616
 msgid "[Out of Stock] Message"
-msgstr "[Out of Stock] Poruka"
+msgstr ""
 
 #: admin/action-hook.php:610
 msgid "[Please Choose items] Alert!"
@@ -194,23 +194,21 @@ msgstr ""
 
 #: admin/action-hook.php:604
 msgid "[Please select all items.] Message"
-msgstr "[Please select all items.] Poruka"
+msgstr ""
 
 #: admin/action-hook.php:598
 msgid ""
 "[Product variations is not set Properly. May be: price is not inputted. may "
 "be: Out of Stock.] Message"
 msgstr ""
-"[Product variations is not set Properly. May be: price is not inputted. may "
-"be: Out of Stock.] Poruka"
 
 #: admin/action-hook.php:622
 msgid "[There is no more products based on current Query.] Message"
-msgstr "[There is no more products based on current Query.] Poruka"
+msgstr ""
 
 #: admin/action-hook.php:652
 msgid "[Type your Message.] Message"
-msgstr "[Type your Message.] Poruka"
+msgstr ""
 
 #: admin/functions.php:391
 msgid "About Product Table"
@@ -829,27 +827,27 @@ msgstr ""
 
 #: admin/tabs/query.php:394
 msgid "Eg: 50 (for display 50 products"
-msgstr "Primjer: 50 (for display 50 products"
+msgstr ""
 
 #: admin/action-hook.php:396
 msgid "eg: Empty Cart"
-msgstr "Primjer: Empty Cart"
+msgstr ""
 
 #: admin/action-hook.php:403
 msgid "eg: Filter"
-msgstr "Primjer: Filter"
+msgstr ""
 
 #: admin/tabs/search_n_filter.php:132
 msgid "eg: product_cat,product_tag,color,size"
-msgstr "Primjer: product_cat,product_tag,color,size"
+msgstr ""
 
 #: admin/action-hook.php:496
 msgid "eg: Quick View"
-msgstr "Primjer: Quick View"
+msgstr ""
 
 #: admin/action-hook.php:410
 msgid "eg: Reset"
-msgstr "Primjer: Reset"
+msgstr ""
 
 #: admin/includes/right_side.php:37
 msgid "Email:"
@@ -884,17 +882,17 @@ msgstr ""
 
 #: admin/pro-features-html.php:40
 msgid "Example:"
-msgstr "Primjer"
+msgstr ""
 
 #: admin/tabs/options.php:222
 #, php-format
 msgid "Example: Page %s out of %s"
-msgstr "Primjer: Page %s out of %s"
+msgstr ""
 
 #: admin/tabs/options.php:192
 #, php-format
 msgid "Example: Showing %s out of %s"
-msgstr "Primjer: Showing %s out of %s"
+msgstr ""
 
 #: admin/pro-features-html.php:122
 msgid "Expand/Collapse Column"
@@ -1339,7 +1337,7 @@ msgstr ""
 #: includes/helper-functions.php:516 includes/helper-functions.php:610
 #: includes/helper-functions.php:640
 msgid "Message"
-msgstr "Poruka"
+msgstr ""
 
 #: admin/includes/right_side.php:44
 msgid "Message to Author"
@@ -2382,7 +2380,7 @@ msgstr ""
 
 #: admin/action-hook.php:592
 msgid "Variations [Not available] Message"
-msgstr "Variations [Not available] Poruka"
+msgstr ""
 
 #: admin/post_metabox_form.php:26
 msgid "Vertical Align"
