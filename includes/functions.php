@@ -1503,6 +1503,31 @@ function wpt_matched_cart_items( $search_products ) {
     return $count; // returning matched items count 
 }
 
+//Checking with Dokan's class WeDevs_Dokan
+if( class_exists('WeDevs_Dokan') && !function_exists( 'wpt_template_for_dokan' ) ){
+   
+    /**
+     * Compatible with Dokan plugin
+     * 
+     * @since 3.3.6.2
+     *
+     * @param string $template_file
+     * @return void
+     */
+    function wpt_template_for_dokan( $template_file ) {
+        $page_template_validation = apply_filters( 'wpt_dokan_template', true, $template_file );
+       if( $page_template_validation && strpos( $template_file, 'dokan' ) > 0 && strpos( $template_file, 'store' ) > 0 ){
+           $my_archive = WPT_BASE_DIR . 'templates/store.php';
+           $my_archive = apply_filters( 'wpto_dokan_page_template_loc', $my_archive, $template_file );
+           return file_exists( $my_archive ) ? $my_archive : $template_file;
+       }
+       
+       return $template_file;
+    }
+    add_filter( 'template_include', 'wpt_template_for_dokan', 999 );
+}
+
+
 
 if( defined('B2BKING_DIR') && ! function_exists( 'wpt_b2bking_plugin_integration' ) ){
     

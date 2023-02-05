@@ -287,6 +287,7 @@ You can easily show specific category products. While creating new table click o
 == Changelog ==
 
 = 3.3.6 =
+* Added: Now free version is compatible with [WeDevs_Dokan](https://wooproducttable.com/combability-list/) plugin.
 * New language added - Croatian
 * Diaplay column label in mobile issue solved
 * Added: Polish Translated file added for frontend. Piotr helped us to translate Polish Language.
