@@ -406,8 +406,9 @@ function wpt_social_links(){
         <?php
         $img_folder = WPT_BASE_URL . 'assets/images/brand/social/';
         $codeastrology = [
+            'ticket'   => ['url' => 'https://codeastrology.com/my-support/?utm=Plugin_Social', 'title' => 'Create Ticket'],
             'doc'   => ['url' => 'https://wooproducttable.com/documentation/?utm=Plugin_Social', 'title' => 'Online Doc'],
-            'web'   => ['url' => 'https://codeastrology.com/?utm=Plugin_Social', 'title' => 'CodeAstrology'],
+            'web'   => ['url' => 'https://codeastrology.com/downloads?utm=Plugin_Social', 'title' => 'CodeAstrology Plugins'],
             'wpt'   => ['url' => 'https://wooproducttable.com/?utm=Plugin_Social', 'title' => 'Woo Product Table'],
             'min-max'   => ['url' => 'https://codeastrology.com/min-max-quantity/?utm=Plugin_Social', 'title' => 'CodeAstrology Min Max Step'],
             'linkedin'   => ['url' => 'https://www.linkedin.com/company/codeastrology'],
@@ -445,15 +446,27 @@ function wpt_submit_issue_link(){
 <?php
 $content_of_mail = __( 'I have found an issue with your WooProductTable plugin. I will explain here with screenshot.Issues And Screenshots:', 'woo-product-table' );
 ?>
-        <b>ISSUE SUBMIT:</b> If you found any issues, please inform us. That will be very helpful for us to fix.
+        <b>ISSUE SUBMIT:</b> If you found any issues, please inform us.
         <a href="https://github.com/codersaiful/woo-product-table/issues/new" target="_blank">SUBMIT ISSUE</a> or 
-        <a href="mailto:contact@codeastrology.com">contact@codeastrology.com</a> or 
+        <a href="mailto:support@codeastrology.com">support@codeastrology.com</a> or 
         <a href="https://mail.google.com/mail/u/0/?view=cm&fs=1&su=<?php echo urlencode("Found issue on your Woo Product Table, see screenshot of issue"); ?>&body=<?php echo esc_attr( $content_of_mail ); ?>&ui=2&tf=1&to=codersaiful@gmail.com,contact@codeastrology.com" target="_blank">Gmail Me</a> or
         <a href="https://www.facebook.com/groups/wphelps" target="_blank">Facebook Group</a>
+        <a href="https://codeastrology.com/my-support/?utm_source=plugin-backend&&utm_medium=Free+Version" target="_blank" class="wpt-create-ticket">Create Ticket</a>
     </p>
     <?php
 }
-
+if( ! function_exists('wpt_doc_link') ){
+    /**
+     * This function will add helper doc
+     * @since 3.3.6.1
+     * @author Fazle Bari
+     */
+    function wpt_doc_link( $url, $title='Helper doc' ){
+        ?>
+            <a href="<?php echo esc_url($url)?>" target="_blank" class="wpt-doc-lick"><?php esc_html_e( $title ); ?></a>
+        <?php
+    }
+}
 /**
  * To display help icon with title attribute.
  * It will show by default

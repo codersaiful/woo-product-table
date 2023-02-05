@@ -14,7 +14,7 @@ function wpt_product_table_post() {
 	$labels = array(
 		'name'                  => _x( 'Product Table', 'Product Table', 'woo-product-table' ),
 		'singular_name'         => _x( 'PRODUCT TABLE', 'PRODUCT TABLE', 'woo-product-table' ),
-		'menu_name'             => __( 'PRODUCT TABLE', 'woo-product-table' ),
+		'menu_name'             => __( 'Woo Product Table', 'woo-product-table' ),
 		'name_admin_bar'        => __( 'Product Table', 'woo-product-table' ),
 		'archives'              => __( 'Product Table Archives', 'woo-product-table' ),
 		'attributes'            => __( 'Product Table Attributes', 'woo-product-table' ),

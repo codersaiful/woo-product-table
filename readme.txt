@@ -12,7 +12,7 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 WooCommerce product table plugin helps you to display your products in a searchable table layout with filters. Boost conversions & sales. Woo Product Table is best for Wholesale.
 
 == Description ==
-(Woo Product Table) Product Table plugin helps you to display your WooCommerce products in a searchable table layout with filters.  Add a table on any page or post via a shortcode. You can create tables as many as you want.
+(**Woo Product Table**) Product Table plugin helps you to display your WooCommerce products in a searchable table layout with filters.  Add a table on any page or post via a shortcode. You can create tables as many as you want.
 Create a table for restaurant order systems, Online music sell, product Wholesale, Course Booking, or Selling books any many more.
 
 **Have a looks in short for WooCommerce Product Table**
@@ -42,7 +42,7 @@ https://www.youtube.com/watch?v=jZ9bx4VqB08
 
 * [A table on Single Variable Product Page](https://demo.wooproducttable.com/product/samsung-galaxy/) <br>If you select a table and enable 'Variation Table' then it will replace the default variation dropdown select options and will display that table on every variable product page.
 
-* [A table on an archive page.](https://demo.wooproducttable.com/shop/) <br>You can override the default archive page and display our table. 
+* [A table on an archive page.](https://demo.wooproducttable.com/shop/) <br>You can override the default archive page and display our table.  (Please note Product table will display products according to the WooCommerce default query and the Advance Search box is not available on the Archive page.)
 
 * [Product Variant In Separate Row](https://demo.wooproducttable.com/product-variant-in-separate-row/) <br>If you have variable products and you want to show every variation as a single product, this table is like that. 
 
@@ -193,6 +193,8 @@ With a Product Table Plugin, you can feel confident that your business processes
 * German (Deutsch) - de_DE
 * German formal ( Deutsch (Sie) ) - de_DE_formal
 * Russian (Русский) - ru_RU
+* Ukrainian(Українська) - uk
+* Spanish(Español) - es_ES
 
 **👷 HONORABLE CONTRIBUTOR - [GitHub](https://github.com/codersaiful/woo-product-table/graphs/contributors) 👷**<br>
 
@@ -284,11 +286,21 @@ You can easily show specific category products. While creating new table click o
 
 == Changelog ==
 
+= 3.3.6 =
+* New language added - Croatian
+* Diaplay column label in mobile issue solved
+* Added: Polish Translated file added for frontend. Piotr helped us to translate Polish Language.
+* remove trigger - removed_from_cart
+* Add Collapse/Expand option on Design and configure page
+* Added: Ukrainian(Українська) translated file added for frontend.
+* Added: Spanish(Español) translated file added for frontend helped by *Lucas*.
+
 = 3.3.5 =
 * Fixed: Spelling issue solved. Helped by [tanyabouman](https://github.com/tanyabouman) - his pull request [#254](https://github.com/codersaiful/woo-product-table/issues/254)
 * Added: French (Français) Translated file added for frontend. Helped us [ozapp.app](https://ozapp.app/) to translate French Language.
 * Added: Russian (Русский) Translated file added for frontend. Helped us [Vasiliy Kotov](https://www.linkedin.com/in/vasiliy-kotov-10542b47/) to translate Russian Language.
 * Added: Bangla (বাংলা) translated file added for frontend.
+* Added: German(Deutsch) translated file added for frontend.
 * Added: German formal ( Deutsch (Sie) ) translated file added for frontend.
 * Bug Fixed 
 * Code Optimized 

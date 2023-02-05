@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Product Table for WooCommerce - (wooproducttable)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-12-15 06:11+0000\n"
-"PO-Revision-Date: 2023-01-09 09:16+0000\n"
+"PO-Revision-Date: 2023-02-04 06:41+0000\n"
 "Last-Translator: \n"
 "Language-Team: Croatian\n"
 "Language: hr\n"
@@ -40,8 +40,8 @@ msgstr ""
 #, php-format
 msgid "%d item"
 msgid_plural "%d items"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d Stavka"
+msgstr[1] "%d Stavke"
 msgstr[2] ""
 
 #: admin/action-hook.php:508
@@ -52,7 +52,7 @@ msgstr ""
 #: admin/action-hook.php:502
 #, php-format
 msgid "%s[Browse Quote list]%s - text "
-msgstr ""
+msgstr "%s[Browse Quote list]%s - Tekst"
 
 #: admin/action-hook.php:394
 #, php-format
@@ -67,7 +67,7 @@ msgstr ""
 #: admin/action-hook.php:387
 #, php-format
 msgid "%s[Instance Search]%s - Text"
-msgstr ""
+msgstr "%s[Instance Search]%s - Tekst"
 
 #: admin/action-hook.php:360
 #, php-format
@@ -92,12 +92,12 @@ msgstr ""
 #: admin/action-hook.php:520
 #, php-format
 msgid "%s[Quote Added]%s - text "
-msgstr ""
+msgstr "%s[Quote Added]%s - Tekst"
 
 #: admin/action-hook.php:514
 #, php-format
 msgid "%s[Quote Adding]%s - text"
-msgstr ""
+msgstr "%s[Quote Adding]%s - Tekst"
 
 #: admin/action-hook.php:408
 #, php-format
@@ -107,7 +107,7 @@ msgstr ""
 #: admin/action-hook.php:374
 #, php-format
 msgid "%s[Search Keyword Title]%s - Text"
-msgstr ""
+msgstr "%s[Search Keyword Title]%s - Tekst"
 
 #: admin/action-hook.php:368
 #, php-format
@@ -121,11 +121,11 @@ msgstr ""
 
 #: admin/tabs/options.php:156
 msgid "(Add to cart) Text"
-msgstr ""
+msgstr "(Add to cart) Tekst"
 
 #: admin/tabs/options.php:240
 msgid "(Add to cart[Selected]) Text"
-msgstr ""
+msgstr "(Add to cart[Selected]) Tekst"
 
 #: admin/tabs/table_style.php:75
 msgid "(Premium)"
@@ -133,7 +133,7 @@ msgstr ""
 
 #: admin/tabs/options.php:259
 msgid "(Select All) Text"
-msgstr ""
+msgstr "(Select All) Tekst"
 
 #. Description of the plugin
 msgid ""
@@ -158,19 +158,19 @@ msgstr ""
 
 #: admin/action-hook.php:628
 msgid "[ Adding in Progress ] Message"
-msgstr ""
+msgstr "[ Adding in Progress ] Poruka"
 
 #: admin/action-hook.php:634
 msgid "[ No Right Combination ] Message"
-msgstr ""
+msgstr "[ No Right Combination ] Poruka"
 
 #: admin/action-hook.php:646
 msgid "[ Sorry! Out of Stock! ] Message"
-msgstr ""
+msgstr "[ Sorry! Out of Stock! ] Poruka"
 
 #: admin/action-hook.php:640
 msgid "[ Sorry, Please choose right combination. ] Message"
-msgstr ""
+msgstr "[ Sorry, Please choose right combination. ] Poruka"
 
 #: admin/action-hook.php:547
 msgid "[In Stock] for Table Column"
@@ -186,7 +186,7 @@ msgstr ""
 
 #: admin/action-hook.php:616
 msgid "[Out of Stock] Message"
-msgstr ""
+msgstr "[Out of Stock] Poruka"
 
 #: admin/action-hook.php:610
 msgid "[Please Choose items] Alert!"
@@ -194,21 +194,23 @@ msgstr ""
 
 #: admin/action-hook.php:604
 msgid "[Please select all items.] Message"
-msgstr ""
+msgstr "[Please select all items.] Poruka"
 
 #: admin/action-hook.php:598
 msgid ""
 "[Product variations is not set Properly. May be: price is not inputted. may "
 "be: Out of Stock.] Message"
 msgstr ""
+"[Product variations is not set Properly. May be: price is not inputted. may "
+"be: Out of Stock.] Poruka"
 
 #: admin/action-hook.php:622
 msgid "[There is no more products based on current Query.] Message"
-msgstr ""
+msgstr "[There is no more products based on current Query.] Poruka"
 
 #: admin/action-hook.php:652
 msgid "[Type your Message.] Message"
-msgstr ""
+msgstr "[Type your Message.] Poruka"
 
 #: admin/functions.php:391
 msgid "About Product Table"
@@ -216,7 +218,7 @@ msgstr ""
 
 #: woo-product-table.php:124
 msgid "Action"
-msgstr ""
+msgstr "Dodaj u korpu"
 
 #: admin/tabs/inc-column/add-new-column.php:39
 msgid "Action Hooks"
@@ -246,15 +248,15 @@ msgstr ""
 
 #: inc/shortcode.php:610 admin/tabs/options.php:162
 msgid "Add to cart"
-msgstr ""
+msgstr "Dodaj u korpu"
 
 #: admin/tabs/options.php:246 inc/handle/checkbox-box.php:20
 msgid "Add to Cart (Selected)"
-msgstr ""
+msgstr "Dodaj u korpu izabrano"
 
 #: admin/action-hook.php:428
 msgid "Add to Cart all selected [Added] Text"
-msgstr ""
+msgstr "Add to Cart all selected [Added] Tekst"
 
 #: admin/action-hook.php:147
 msgid "Add to Cart Icon"
@@ -262,11 +264,11 @@ msgstr ""
 
 #: woo-product-table.php:215
 msgid "Add to Quote"
-msgstr ""
+msgstr "Dodaj u citat"
 
 #: includes/items/quoterequest.php:12
 msgid "Add to quote"
-msgstr ""
+msgstr "Dodaj u citat"
 
 #: admin/action-hook.php:510
 msgid "Add to Quote text write here"
@@ -278,7 +280,7 @@ msgstr ""
 
 #: woo-product-table.php:220
 msgid "Added"
-msgstr ""
+msgstr "Dodato"
 
 #: admin/action-hook.php:430
 msgid "Added text for [Add to cart Selected]"
@@ -286,7 +288,7 @@ msgstr ""
 
 #: woo-product-table.php:227 admin/action-hook.php:630
 msgid "Adding in Progress"
-msgstr ""
+msgstr "Dodavanje u toku"
 
 #: admin/action-hook.php:516
 msgid "Adding text write here"
@@ -294,7 +296,7 @@ msgstr ""
 
 #: woo-product-table.php:216
 msgid "Adding.."
-msgstr ""
+msgstr "Dodavanje.."
 
 #: modules/elementor-widget.php:188
 msgid "Additional Information"
@@ -507,7 +509,7 @@ msgstr ""
 
 #: woo-product-table.php:214
 msgid "Browse the list"
-msgstr ""
+msgstr "Pregledajte listu"
 
 #: admin/action-hook.php:504
 msgid "Browse the list - text write here"
@@ -827,27 +829,27 @@ msgstr ""
 
 #: admin/tabs/query.php:394
 msgid "Eg: 50 (for display 50 products"
-msgstr ""
+msgstr "Primjer: 50 (for display 50 products"
 
 #: admin/action-hook.php:396
 msgid "eg: Empty Cart"
-msgstr ""
+msgstr "Primjer: Empty Cart"
 
 #: admin/action-hook.php:403
 msgid "eg: Filter"
-msgstr ""
+msgstr "Primjer: Filter"
 
 #: admin/tabs/search_n_filter.php:132
 msgid "eg: product_cat,product_tag,color,size"
-msgstr ""
+msgstr "Primjer: product_cat,product_tag,color,size"
 
 #: admin/action-hook.php:496
 msgid "eg: Quick View"
-msgstr ""
+msgstr "Primjer: Quick View"
 
 #: admin/action-hook.php:410
 msgid "eg: Reset"
-msgstr ""
+msgstr "Primjer: Reset"
 
 #: admin/includes/right_side.php:37
 msgid "Email:"
@@ -855,11 +857,11 @@ msgstr ""
 
 #: woo-product-table.php:210 inc/features/basics.php:60
 msgid "Empty Cart"
-msgstr ""
+msgstr "Prazna korpa"
 
 #: inc/handle/fragment.php:147
 msgid "Empty Cart."
-msgstr ""
+msgstr "Prazna korpa"
 
 #: admin/action-hook.php:137 admin/action-hook.php:292
 #: admin/tabs/options.php:311
@@ -882,17 +884,17 @@ msgstr ""
 
 #: admin/pro-features-html.php:40
 msgid "Example:"
-msgstr ""
+msgstr "Primjer"
 
 #: admin/tabs/options.php:222
 #, php-format
 msgid "Example: Page %s out of %s"
-msgstr ""
+msgstr "Primjer: Page %s out of %s"
 
 #: admin/tabs/options.php:192
 #, php-format
 msgid "Example: Showing %s out of %s"
-msgstr ""
+msgstr "Primjer: Showing %s out of %s"
 
 #: admin/pro-features-html.php:122
 msgid "Expand/Collapse Column"
@@ -930,7 +932,7 @@ msgstr ""
 
 #: woo-product-table.php:211
 msgid "Filter:"
-msgstr ""
+msgstr "Filter:"
 
 #: admin/tabs/options.php:231
 msgid ""
@@ -1208,7 +1210,7 @@ msgstr ""
 
 #: woo-product-table.php:213
 msgid "Instant Search.."
-msgstr ""
+msgstr "Trenutna pretraga.."
 
 #: admin/tabs/query.php:370
 msgid "instock"
@@ -1232,7 +1234,7 @@ msgstr ""
 
 #: woo-product-table.php:218
 msgid "Item"
-msgstr ""
+msgstr "Stavka"
 
 #: admin/action-hook.php:421
 msgid "Item [for Plural]"
@@ -1260,7 +1262,7 @@ msgstr ""
 
 #: admin/action-hook.php:349
 msgid "Label Text"
-msgstr ""
+msgstr "Label Tekst"
 
 #: admin/action-hook.php:153
 msgid "Left Icon and Text"
@@ -1292,7 +1294,7 @@ msgstr ""
 
 #: woo-product-table.php:202
 msgid "Load more"
-msgstr ""
+msgstr "Učitaj više"
 
 #: admin/tabs/options.php:50
 msgid "Load More Button"
@@ -1304,7 +1306,7 @@ msgstr ""
 
 #: woo-product-table.php:204
 msgid "Loading.."
-msgstr ""
+msgstr "Učitavanje.."
 
 #: admin/action-hook.php:383
 msgid "Loading.. text write here"
@@ -1337,7 +1339,7 @@ msgstr ""
 #: includes/helper-functions.php:516 includes/helper-functions.php:610
 #: includes/helper-functions.php:640
 msgid "Message"
-msgstr ""
+msgstr "Poruka"
 
 #: admin/includes/right_side.php:44
 msgid "Message to Author"
@@ -1432,7 +1434,7 @@ msgstr ""
 
 #: woo-product-table.php:228 admin/action-hook.php:636
 msgid "No Right Combination"
-msgstr ""
+msgstr "Nema prave kombinacije"
 
 #: includes/functions.php:265
 msgid "No Tag"
@@ -1445,11 +1447,11 @@ msgstr ""
 
 #: admin/action-hook.php:594
 msgid "Not Available"
-msgstr ""
+msgstr "Nije dostupno"
 
 #: woo-product-table.php:221
 msgid "Not available"
-msgstr ""
+msgstr "Nije dostupno"
 
 #: admin/action-hook.php:363
 msgid "Not for Archive page."
@@ -1535,11 +1537,11 @@ msgstr ""
 
 #: admin/action-hook.php:458
 msgid "Order By text"
-msgstr ""
+msgstr "Order By Tekst"
 
 #: admin/action-hook.php:464
 msgid "Order text"
-msgstr ""
+msgstr "Order Tekst"
 
 #: admin/functions.php:396
 msgid "Other Premium Plugins"
@@ -1552,7 +1554,7 @@ msgstr ""
 #: woo-product-table.php:226 admin/action-hook.php:555
 #: admin/action-hook.php:618
 msgid "Out of Stock"
-msgstr ""
+msgstr "Nema na zalihi"
 
 #: admin/tabs/query.php:372
 msgid "outofstock"
@@ -1561,7 +1563,7 @@ msgstr ""
 #: admin/tabs/options.php:219
 #, php-format
 msgid "Page %s out of %s"
-msgstr ""
+msgstr "Strana %s od preostalih %s"
 
 #: admin/tabs/options.php:43 admin/tabs/options.php:113
 msgid "Pagination"
@@ -1604,11 +1606,11 @@ msgstr ""
 #: woo-product-table.php:224 admin/action-hook.php:606
 #: admin/action-hook.php:612
 msgid "Please select all items."
-msgstr ""
+msgstr "Molimo izaberite sve stavke."
 
 #: woo-product-table.php:225
 msgid "Please select some items."
-msgstr ""
+msgstr "Molimo izaberite neke stavke."
 
 #: admin/action-hook.php:131
 msgid "Plugin Recommendation"
@@ -1628,7 +1630,7 @@ msgstr ""
 
 #: woo-product-table.php:107
 msgid "Price"
-msgstr ""
+msgstr "Cena"
 
 #: admin/tabs/query.php:314
 msgid "Pro"
@@ -1725,14 +1727,16 @@ msgid ""
 "Product variations is not set Properly. May be: price is not inputted. may "
 "be: Out of Stock."
 msgstr ""
+"Varijacije proizvoda nisu pravilno podešene. Može biti: cena nije uneta. "
+"može biti: Nema na zalihama."
 
 #: woo-product-table.php:97
 msgid "Products"
-msgstr ""
+msgstr "Proizvodi"
 
 #: woo-product-table.php:201
 msgid "Products not found!"
-msgstr ""
+msgstr "Proizvodi Nisu pronađeni!"
 
 #: admin/action-hook.php:324
 msgid "Products Wise"
@@ -1749,7 +1753,7 @@ msgstr ""
 
 #: woo-product-table.php:109
 msgid "Quantity"
-msgstr ""
+msgstr "Količina"
 
 #: admin/post_metabox_form.php:11
 msgid "Query"
@@ -1770,7 +1774,7 @@ msgstr ""
 #: woo-product-table.php:112 woo-product-table.php:203
 #: includes/functions.php:246 includes/functions.php:247
 msgid "Quick View"
-msgstr ""
+msgstr "Brzi pogled"
 
 #: includes/functions.php:223
 msgid "Quick View by Code Astrology"
@@ -1790,7 +1794,7 @@ msgstr ""
 
 #: woo-product-table.php:217
 msgid "Quoted"
-msgstr ""
+msgstr "Citirano"
 
 #: admin/tabs/query.php:310
 msgid "Rand"
@@ -1839,7 +1843,7 @@ msgstr ""
 
 #: woo-product-table.php:212 inc/handle/search-box.php:21
 msgid "Reset"
-msgstr ""
+msgstr "Resetovanje"
 
 #: admin/configuration_page.php:105
 msgid "Reset Settings"
@@ -1871,7 +1875,7 @@ msgstr ""
 
 #: woo-product-table.php:205
 msgid "Search"
-msgstr ""
+msgstr "Pretraga"
 
 #: admin/post_metabox_form.php:16
 msgid "Search & Filter"
@@ -1880,7 +1884,7 @@ msgstr ""
 #: woo-product-table.php:237
 #, php-format
 msgid "Search Box (%sAll Fields Optional%s)"
-msgstr ""
+msgstr "Okvir za pretragu (%sASva polja su opciona%s)"
 
 #: admin/action-hook.php:213
 msgid "Search Box Taxonomy Sorting"
@@ -1892,12 +1896,12 @@ msgstr ""
 
 #: admin/action-hook.php:468
 msgid "Search Dropdown Placeholder text"
-msgstr ""
+msgstr "Search Dropdown Placeholder Tekst"
 
 #: woo-product-table.php:206 woo-product-table.php:238
 #: admin/action-hook.php:376
 msgid "Search Keyword"
-msgstr ""
+msgstr "Ključna reč za pretragu"
 
 #: admin/action-hook.php:442
 msgid "Search Keyword Placeholder"
@@ -1905,7 +1909,7 @@ msgstr ""
 
 #: admin/action-hook.php:444
 msgid "Search Keyword text"
-msgstr ""
+msgstr "Search Keyword Tekst"
 
 #: admin/tabs/search_n_filter.php:75
 msgid "Search on Whole Site"
@@ -1925,15 +1929,15 @@ msgstr ""
 
 #: admin/action-hook.php:456
 msgid "SearchBox Order By text"
-msgstr ""
+msgstr "SearchBox Order By Tekst"
 
 #: admin/action-hook.php:462
 msgid "SearchBox Order text"
-msgstr ""
+msgstr "SearchBox Order Tekst"
 
 #: admin/action-hook.php:449
 msgid "SearchBox Sale text"
-msgstr ""
+msgstr "SearchBox Sale Tekst"
 
 #: includes/functions.php:266
 msgid "Section"
@@ -1949,7 +1953,7 @@ msgstr ""
 
 #: woo-product-table.php:241
 msgid "Select inner Item."
-msgstr ""
+msgstr "Izaberite unutrašnju stavku."
 
 #: admin/action-hook.php:470
 msgid "Select Innet Items"
@@ -2042,7 +2046,7 @@ msgstr ""
 #: admin/tabs/options.php:189
 #, php-format
 msgid "Showing %s out of %s"
-msgstr ""
+msgstr "Prikaži %s od preostalih %s"
 
 #: admin/functions.php:517
 msgid "Size"
@@ -2078,15 +2082,15 @@ msgstr ""
 
 #: woo-product-table.php:229 admin/action-hook.php:648
 msgid "Sorry! Out of Stock!"
-msgstr ""
+msgstr "Izvinjavamo se! Nema na zalihi!"
 
 #: woo-product-table.php:231 admin/action-hook.php:642
 msgid "Sorry, Please choose right combination."
-msgstr ""
+msgstr "Izvinite, izaberite pravu kombinaciju."
 
 #: woo-product-table.php:239
 msgid "Sort By"
-msgstr ""
+msgstr "Sortiraj po"
 
 #: admin/tabs/query.php:247
 msgid "Sort by average rating"
@@ -2122,15 +2126,15 @@ msgstr ""
 
 #: admin/tabs/options.php:211
 msgid "Stats Page Count Text"
-msgstr ""
+msgstr "Stats Page Count Tekst"
 
 #: admin/tabs/options.php:181
 msgid "Stats Post Count Text"
-msgstr ""
+msgstr "Stats Post Count Tekst"
 
 #: woo-product-table.php:106
 msgid "Stock"
-msgstr ""
+msgstr "Lager"
 
 #: admin/tabs/query.php:365
 msgid "Stock Status"
@@ -2234,7 +2238,7 @@ msgstr ""
 
 #: woo-product-table.php:223 admin/action-hook.php:624
 msgid "There is no more products based on current Query."
-msgstr ""
+msgstr "Nema više proizvoda na osnovu trenutnog upita."
 
 #: modules/elementor-widget.php:182
 msgid "There is no table found to your. "
@@ -2254,7 +2258,7 @@ msgstr ""
 
 #: woo-product-table.php:96
 msgid "Thumbnails"
-msgstr ""
+msgstr "Slika"
 
 #: admin/action-hook.php:228
 msgid "Thumbs Image Size"
@@ -2330,7 +2334,7 @@ msgstr ""
 
 #: woo-product-table.php:230 admin/action-hook.php:654
 msgid "Type your Message."
-msgstr ""
+msgstr "Unesite svoju poruku."
 
 #: admin/tabs/query.php:338
 msgid ""
@@ -2378,7 +2382,7 @@ msgstr ""
 
 #: admin/action-hook.php:592
 msgid "Variations [Not available] Message"
-msgstr ""
+msgstr "Variations [Not available] Poruka"
 
 #: admin/post_metabox_form.php:26
 msgid "Vertical Align"

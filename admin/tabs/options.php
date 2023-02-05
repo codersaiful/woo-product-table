@@ -299,8 +299,13 @@ $meta_conditions =  get_post_meta( $post->ID, 'conditions', true );
             </tr>
 
             
+            <!-- 
+                actually ei option ta mai action column a niye gechi.
+                location: admin/handle/feature-loader.php
+                location: admin/handle/action-feature.php
+            -->
 
-            <tr>
+            <!-- <tr>
                 <th>
                     <label class="wpt_label" for="wpt_table_table_type"><?php esc_html_e( 'Third Party Plugin Supporting ', 'woo-product-table' ); ?></label>
                 </th>
@@ -313,7 +318,7 @@ $meta_conditions =  get_post_meta( $post->ID, 'conditions', true );
                         
                     </select>
                 </td>
-            </tr>
+            </tr> -->
 
             <tr>
                 <th>

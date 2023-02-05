@@ -1,4 +1,9 @@
 == Changelog ==
+
+== 3.3.6.1
+  * New language added - Croatian
+  * Add Collapse/Expand option on Design and configure page 
+  
 = 3.1.1 =
   * Fixed: thub variation and title variation not saving issue fixed
   * Fixed: Not showing product count on add to cart button for variation

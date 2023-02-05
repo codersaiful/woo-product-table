@@ -104,7 +104,16 @@ class Row extends Table_Base{
 
         if($shortcode->generated_row){
             $this->td_tag = 'div';
-            $this->generated_td_start = '<td class="wpt-replace-td-in-tr">';
+
+            $this->is_column_label = $shortcode->is_column_label;
+
+            // Wiil add 'wpt-mobile-label-show' claas which will help to display column label in mobile @by Fazle Bari  
+            if( $this->is_column_label =='show' ){
+                $this->generated_td_start = '<td class="wpt-replace-td-in-tr wpt-mobile-label-show">';
+            }else{
+                $this->generated_td_start = '<td class="wpt-replace-td-in-tr">';
+            }
+            
             $this->generated_td_end = '</td>';
         }
 
@@ -142,7 +151,7 @@ class Row extends Table_Base{
         $this->wp_force = $shortcode->conditions['wp_force'] ?? false;
 
 
-        $this->is_column_label = $shortcode->is_column_label;
+        // $this->is_column_label = $shortcode->is_column_label;
         
         $this->items_directory = $shortcode->items_directory;
 
