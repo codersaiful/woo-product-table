@@ -29,17 +29,6 @@ $data = isset( $meta_basics['data'] ) ? $meta_basics['data'] : false;
         <table class="ultraaddons-table">
             <tr>
                 <th>
-                    <label class="wpt_label wpt_table_ajax_action" for='wpt_table_ajax_pagination'><?php esc_html_e('Ajax for Pagination (Enable/Disable)','woo-product-table');?></label>
-                </th>
-                <td>
-                    <select name="basics[pagination_ajax]" data-name='pagination_ajax' id="wpt_table_ajax_pagination" class="wpt_fullwidth wpt_data_filed_atts ua_input" >
-                        <option value="pagination_ajax" <?php echo isset( $meta_basics['pagination_ajax'] ) && $meta_basics['pagination_ajax'] == 'pagination_ajax' ? 'selected' : false; ?>><?php esc_html_e('Ajax Pagination (Default)','woo-product-table');?></option>
-                        <option value="no_pagination_ajax" <?php echo isset( $meta_basics['pagination_ajax'] ) && $meta_basics['pagination_ajax'] == 'no_pagination_ajax' ? 'selected' : false; ?>><?php esc_html_e('Disable Ajax Pagination','woo-product-table');?></option>
-                    </select>                   
-                </td>
-            </tr>
-            <tr>
-                <th>
                     <label class="wpt_label wpt_table_ajax_action" for='wpt_table_ajax_pagination'><?php esc_html_e('Pagination','woo-product-table');?></label>
                 </th>
                 <td>
@@ -51,11 +40,22 @@ $data = isset( $meta_basics['data'] ) ? $meta_basics['data'] : false;
                         <?php if(defined('WPT_PRO_DEV_VERSION')){ ?>
                             <option value="infinite_scroll" <?php echo isset( $meta_basics['pagination'] ) && $meta_basics['pagination'] == 'infinite_scroll' ? 'selected' : false; ?>><?php esc_html_e('Infinite Scroll','woo-product-table');?></option>
                         <?php } ?>
-                    </select>   
+                    </select><?php wpt_doc_link('https://wooproducttable.com/docs/doc/table-options/pagination-on-of/'); ?>   
                     
                     <p><?php esc_html_e( 'To change style, go to Design tab', 'woo-product-table' ); ?></p>
                         <p class="warning"><?php echo sprintf(esc_html__( '%1$sPagination will not work%2$s on WooCommerce shop, archive page or created shop archive page by any page builder. %1$sThis feature will only work on table page where table shortcode pasted.%2$s', 'woo-product-table' ), '<b>', '</b>'); ?></p>
                         <p class="wpt-tips"><?php echo sprintf(esc_html__( '%1$sThis pagination will replaced on WooCommerce shop archive page%2$s by your theme\'s default pagination.', 'woo-product-table' ), '<b>', '</b>'); ?></p>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <label class="wpt_label wpt_table_ajax_action" for='wpt_table_ajax_pagination'><?php esc_html_e('Ajax for Pagination (Enable/Disable)','woo-product-table');?></label>
+                </th>
+                <td>
+                    <select name="basics[pagination_ajax]" data-name='pagination_ajax' id="wpt_table_ajax_pagination" class="wpt_fullwidth wpt_data_filed_atts ua_input" >
+                        <option value="pagination_ajax" <?php echo isset( $meta_basics['pagination_ajax'] ) && $meta_basics['pagination_ajax'] == 'pagination_ajax' ? 'selected' : false; ?>><?php esc_html_e('Ajax Pagination (Default)','woo-product-table');?></option>
+                        <option value="no_pagination_ajax" <?php echo isset( $meta_basics['pagination_ajax'] ) && $meta_basics['pagination_ajax'] == 'no_pagination_ajax' ? 'selected' : false; ?>><?php esc_html_e('Disable Ajax Pagination','woo-product-table');?></option>
+                    </select> <?php wpt_doc_link('https://wooproducttable.com/docs/doc/table-options/pagination-on-of/'); ?>                  
                 </td>
             </tr>
         </table>
@@ -73,7 +73,7 @@ $data = isset( $meta_basics['data'] ) ? $meta_basics['data'] : false;
                         <option value="bottom" <?php echo isset( $meta_basics['minicart_position'] ) && $meta_basics['minicart_position'] == 'bottom' ? 'selected' : false; ?>><?php esc_html_e( 'Bottom', 'woo-product-table');?></option>
                         <option value="none" <?php echo isset( $meta_basics['minicart_position'] ) && $meta_basics['minicart_position'] == 'none' ? 'selected' : false; ?>><?php esc_html_e( 'None', 'woo-product-table' );?></option>
                         <option value="both" <?php echo isset( $meta_basics['minicart_position'] ) && $meta_basics['minicart_position'] == 'both' ? 'selected' : false; ?>><?php esc_html_e( 'Both', 'woo-product-table' );?></option>
-                    </select>
+                    </select><?php wpt_doc_link('https://wooproducttable.com/docs/doc/table-options/mini-cart-options/'); ?> 
                 </td>
             </tr>
         </table>
