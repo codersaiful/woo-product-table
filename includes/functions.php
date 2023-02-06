@@ -296,7 +296,7 @@ if( ! function_exists( 'wpt_column_tag_for_all' ) ){
                 ) );
             }
             ?>
-            </select>
+            </select><?php wpt_doc_link('https://wooproducttable.com/docs/doc/table-design/select-wrapper-tag/'); ?>
         </div>
         <?php
     }
@@ -344,8 +344,8 @@ if( ! function_exists( 'wpt_column_add_extra_items' ) ){
         }
         ?>
         <div class="column_add_extra_items extra-inner-item-wrapper">
-        <label for="<?php echo esc_attr( "column_settings{$_device_name}_{$keyword}" ); ?>"><?php echo esc_html__( 'Select multiple inner items:', 'woo-product-table' ); ?></label>
-
+        <label for="<?php echo esc_attr( "column_settings{$_device_name}_{$keyword}" ); ?>"><?php echo esc_html__( 'Select multiple inner items:', 'woo-product-table' ); ?><?php wpt_doc_link('https://wooproducttable.com/docs/doc/table-options/select-multiple-inner-items/'); ?></label>
+        
         <?php
         $select = "";
         $items_columns = $columns_array;
