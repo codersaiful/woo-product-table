@@ -296,7 +296,7 @@ if( ! function_exists( 'wpt_column_tag_for_all' ) ){
                 ) );
             }
             ?>
-            </select>
+            </select><?php wpt_doc_link('https://wooproducttable.com/docs/doc/table-design/select-wrapper-tag/'); ?>
         </div>
         <?php
     }
@@ -344,8 +344,8 @@ if( ! function_exists( 'wpt_column_add_extra_items' ) ){
         }
         ?>
         <div class="column_add_extra_items extra-inner-item-wrapper">
-        <label for="<?php echo esc_attr( "column_settings{$_device_name}_{$keyword}" ); ?>"><?php echo esc_html__( 'Select multiple inner items:', 'woo-product-table' ); ?></label>
-
+        <label for="<?php echo esc_attr( "column_settings{$_device_name}_{$keyword}" ); ?>"><?php echo esc_html__( 'Select multiple inner items:', 'woo-product-table' ); ?><?php wpt_doc_link('https://wooproducttable.com/docs/doc/table-options/select-multiple-inner-items/'); ?></label>
+        
         <?php
         $select = "";
         $items_columns = $columns_array;
@@ -1502,6 +1502,31 @@ function wpt_matched_cart_items( $search_products ) {
     }
     return $count; // returning matched items count 
 }
+
+//Checking with Dokan's class WeDevs_Dokan
+if( class_exists('WeDevs_Dokan') && !function_exists( 'wpt_template_for_dokan' ) ){
+   
+    /**
+     * Compatible with Dokan plugin
+     * 
+     * @since 3.3.6.2
+     *
+     * @param string $template_file
+     * @return void
+     */
+    function wpt_template_for_dokan( $template_file ) {
+        $page_template_validation = apply_filters( 'wpt_dokan_template', true, $template_file );
+       if( $page_template_validation && strpos( $template_file, 'dokan' ) > 0 && strpos( $template_file, 'store' ) > 0 ){
+           $my_archive = WPT_BASE_DIR . 'templates/store.php';
+           $my_archive = apply_filters( 'wpto_dokan_page_template_loc', $my_archive, $template_file );
+           return file_exists( $my_archive ) ? $my_archive : $template_file;
+       }
+       
+       return $template_file;
+    }
+    add_filter( 'template_include', 'wpt_template_for_dokan', 999 );
+}
+
 
 
 if( defined('B2BKING_DIR') && ! function_exists( 'wpt_b2bking_plugin_integration' ) ){

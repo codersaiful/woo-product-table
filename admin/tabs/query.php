@@ -345,6 +345,7 @@ unset($catalog_orderby_options['menu_order']);
                 </th>
                 <td>
                     <input name="conditions[min_price]" data-name='min_price' value="<?php echo isset( $meta_conditions['min_price'] ) ?$meta_conditions['min_price'] : ''; ?>" id="wpt_product_min_price" class="wpt_fullwidth wpt_data_filed_atts ua_input" type="number" step="0.001" pattern="[0-9]+([\.,][0-9]+)?">
+                    <?php wpt_doc_link('https://wooproducttable.com/docs/doc/table-options/set-minimum-maximum-price/'); ?>
                 </td>
             </tr>
 
@@ -354,6 +355,7 @@ unset($catalog_orderby_options['menu_order']);
                 </th>
                 <td>
                     <input name="conditions[max_price]" data-name='max_price' value="<?php echo isset( $meta_conditions['max_price'] ) ?$meta_conditions['max_price'] : ''; ?>" id="wpt_product_max_price" class="wpt_fullwidth wpt_data_filed_atts ua_input" type="number" step="0.001" pattern="[0-9]+([\.,][0-9]+)?">
+                    <?php wpt_doc_link('https://wooproducttable.com/docs/doc/table-options/set-minimum-maximum-price/'); ?>
                 </td>
             </tr>
         </table>
@@ -370,7 +372,7 @@ unset($catalog_orderby_options['menu_order']);
                         <option value="instock" <?php echo isset( $meta_conditions['only_stock'] ) && $meta_conditions['only_stock'] == 'instock' ? 'selected' : ''; ?>><?php esc_html_e( 'instock', 'woo-product-table' ); ?></option>
                         <option value="onbackorder" <?php echo isset( $meta_conditions['only_stock'] ) && $meta_conditions['only_stock'] == 'onbackorder' ? 'selected' : ''; ?>><?php esc_html_e( 'onbackorder', 'woo-product-table' ); ?></option>
                         <option value="outofstock" <?php echo isset( $meta_conditions['only_stock'] ) && $meta_conditions['only_stock'] == 'outofstock' ? 'selected' : ''; ?>><?php esc_html_e( 'outofstock', 'woo-product-table' ); ?></option>
-                    </select>
+                    </select><?php wpt_doc_link('https://wooproducttable.com/docs/doc/advance-uses/show-stock-products-by-stock-status/'); ?>
                 </td>
             </tr>
 
@@ -382,7 +384,7 @@ unset($catalog_orderby_options['menu_order']);
                     <select name="conditions[only_sale]" data-name='only_sale' id="wpt_table_only_sale" class="wpt_fullwidth wpt_data_filed_atts ua_input" >
                         <option value="no" <?php echo isset( $meta_conditions['only_sale'] ) && $meta_conditions['only_sale'] == 'no' ? 'selected' : ''; ?>><?php esc_html_e( 'Default', 'woo-product-table' ); ?></option>
                         <option value="yes" <?php echo isset( $meta_conditions['only_sale'] ) && $meta_conditions['only_sale'] == 'yes' ? 'selected' : ''; ?>><?php esc_html_e( 'Only Sale', 'woo-product-table' ); ?></option>
-                    </select>
+                    </select><?php wpt_doc_link('https://wooproducttable.com/docs/doc/advance-uses/show-only-sale-products/'); ?>
                 </td>
             </tr>
 
@@ -392,6 +394,7 @@ unset($catalog_orderby_options['menu_order']);
                 </th>
                 <td>
                     <input name="conditions[posts_per_page]" data-name='posts_per_page' value="<?php echo isset( $meta_conditions['posts_per_page'] ) ?$meta_conditions['posts_per_page'] : '20'; ?>" id="wpt_posts_per_page" class="wpt_fullwidth wpt_data_filed_atts ua_input" type="number" pattern="[0-9]*" placeholder="<?php esc_attr_e( 'Eg: 50 (for display 50 products', 'woo-product-table' ); ?>" value="20">
+                    <?php wpt_doc_link('https://wooproducttable.com/docs/doc/table-options/display-limited-quantity-of-products/'); ?>
                     <p>Posts limit on each load.</p>
                     <p class="warning">
                         <b>Tips:</b>

@@ -30,7 +30,7 @@ foreach($terms as $term){
                     <select name="search_n_filter[search_box]" data-name='search_box' id="wpt_search_box" class="wpt_fullwidth wpt_data_filed_atts ua_input wpt_toggle" data-on="yes|.wpt_snf_on_off" >
                         <option value="yes" <?php echo isset( $meta_search_n_filter['search_box'] ) && $meta_search_n_filter['search_box'] == 'yes' ? 'selected' : ''; ?>><?php esc_html_e( 'Show Search Box', 'woo-product-table' ); ?></option>
                         <option value="no" <?php echo isset( $meta_search_n_filter['search_box'] ) && $meta_search_n_filter['search_box'] == 'no' ? 'selected' : ''; ?>><?php esc_html_e( 'Hide Search Box', 'woo-product-table' ); ?></option>
-                    </select>
+                    </select><?php wpt_doc_link('https://wooproducttable.com/docs/doc/search-and-filter/create-an-advanced-search-box-table/') ?>
                     <p class="warning">
                         <b><?php echo esc_html__( 'Tips:', 'woo-product-table' ); ?></b>
                         <span><?php echo esc_html__( 'Not for WooCommerce Archive page. Such: shop page, product category page.','woo-product-table' ); ?></span>
