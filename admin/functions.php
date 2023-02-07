@@ -480,14 +480,14 @@ if( ! function_exists('wpt_doc_link') ){
  * @param boolean $msg
  * @return void
  */
-function wpt_help_icon_render( $msg = false ){
+function wpt_help_icon_render( $msg = false, $extra_msg = false ){
     $title = __( $msg, 'woo-product-table' );
     if( empty( $msg ) ){
         $title = __( "Don't change for auto translate. Leave empty to get translated text.", 'woo-product-table' );
     }
-    $extra_msg = __( 'Write with default or English language.' );
+    $extra_msg_text = $extra_msg ? "\n" . __( 'Write with default or English language.' ) : '';
     ?>
-    <span class="wpt-help-icon" title="<?php echo esc_attr( $title . "\n" . $extra_msg ); ?>">?</span>
+    <span class="wpt-help-icon" title="<?php echo esc_attr( $title .  $extra_msg_text ); ?>">?</span>
     <?php
 }
 
