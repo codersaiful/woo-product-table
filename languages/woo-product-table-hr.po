@@ -3,9 +3,9 @@ msgstr ""
 "Project-Id-Version: Product Table for WooCommerce - (wooproducttable)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-12-15 06:11+0000\n"
-"PO-Revision-Date: 2023-02-04 06:41+0000\n"
+"PO-Revision-Date: 2023-02-07 09:12+0000\n"
 "Last-Translator: \n"
-"Language-Team: Croatian\n"
+"Language-Team: Hrvatski\n"
 "Language: hr\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10 >= 2 && "
 "n%10<=4 &&(n%100<10||n%100 >= 20)? 1 : 2;\n"
@@ -42,7 +42,7 @@ msgid "%d item"
 msgid_plural "%d items"
 msgstr[0] "%d Stavka"
 msgstr[1] "%d Stavke"
-msgstr[2] ""
+msgstr[2] "%d Stavke"
 
 #: admin/action-hook.php:508
 #, php-format
@@ -1949,7 +1949,7 @@ msgstr ""
 
 #: admin/tabs/options.php:265 inc/handle/checkbox-box.php:21
 msgid "Select All"
-msgstr ""
+msgstr "Odaberi sve"
 
 #: woo-product-table.php:241
 msgid "Select inner Item."
@@ -2393,7 +2393,7 @@ msgstr ""
 #: compatible/plugins/waitlist-woocommerce/waitlist-col.php:65
 #: compatible/plugins/waitlist-woocommerce/waitlist-col.php:66
 msgid "View Cart"
-msgstr ""
+msgstr "Košarica"
 
 #: admin/wpt_product_table_post.php:28
 msgid "View Product Table"
