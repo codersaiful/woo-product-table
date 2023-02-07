@@ -88,7 +88,7 @@ $current_template = $meta_table_style_inPost['template'] ?? '';
                         <?php 
                         }
                         ?>
-                    </select>
+                    </select> <?php wpt_doc_link('https://wooproducttable.com/docs/doc/table-design/change-table-design-using-template/'); ?>
                 </td>
             </tr>
         </table>
