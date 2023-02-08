@@ -183,7 +183,7 @@ do_action( 'wpto_admin_basic_tab',$meta_basics, $tab, $post, $tab_array );
         <table class="ultraaddons-table">
             <tr>
                 <th>
-                    <label class="wpt_label" for="wpt_product_cat_excludes"><?php echo esc_html__( 'Category Exclude', 'woo-product-table' );?></label>
+                    <label class="wpt_label" for="wpt_product_cat_excludes"><?php echo esc_html__( 'Category Exclude', 'woo-product-table' );?></label><?php wpt_doc_link('https://wooproducttable.com/docs/doc/table-options/hide-specific-categories-products/');?>
                 </th>
                 <td>
                     <select name="basics[cat_explude][]" data-name="cat_explude" id="wpt_product_cat_excludes" class="wpt_fullwidth wpt_data_filed_atts ua_select wpt_select2" multiple>
@@ -192,7 +192,7 @@ do_action( 'wpto_admin_basic_tab',$meta_basics, $tab, $post, $tab_array );
                             echo "<option value='{$category->term_id}' " . ( isset( $meta_basics['cat_explude'] ) && is_array( $meta_basics['cat_explude'] ) && in_array( $category->term_id, $meta_basics['cat_explude'] ) ? 'selected' : false ) . ">{$category->name} - {$category->slug} ({$category->count})</option>";
                         }
                         ?>
-                    </select><?php wpt_doc_link('https://wooproducttable.com/docs/doc/table-options/hide-specific-categories-products/');?>
+                    </select>
                     <p><?php echo esc_html__( 'Click to choose. Selected Categories products will be exclude from your table.', 'woo-product-table') ?></p>
                 </td>
             </tr>
