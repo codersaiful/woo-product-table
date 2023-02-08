@@ -222,7 +222,7 @@ foreach($terms as $term){
                     <select name="search_n_filter[filter_box]" data-name='filter_box' id="wpt_filter_box" class="wpt_fullwidth wpt_data_filed_atts ua_input wpt_toggle"  data-on="yes|.wpt_filtr_on_off">
                         <option value="no" <?php echo isset( $meta_search_n_filter['filter_box'] ) && $meta_search_n_filter['filter_box'] == 'no' ? 'selected' : ''; ?>><?php esc_html_e( 'Hide Filter', 'woo-product-table' ); ?></option>
                         <option value="yes" <?php echo isset( $meta_search_n_filter['filter_box'] ) && $meta_search_n_filter['filter_box'] == 'yes' ? 'selected' : ''; ?>><?php esc_html_e( 'Show Filter', 'woo-product-table' ); ?></option>
-                    </select>
+                    </select><?php wpt_doc_link('https://wooproducttable.com/docs/doc/advance-uses/use-mini-filter/');?>
                     <p><?php echo esc_html__( 'Only for Visible products of current table.', 'woo-product-table' ) ?></p>
                 </td>
             </tr>
