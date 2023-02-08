@@ -293,7 +293,7 @@ $meta_conditions =  get_post_meta( $post->ID, 'conditions', true );
                     <select name="conditions[description_type]" data-name='description_type' id="wpt_table_description_type" class="wpt_fullwidth wpt_data_filed_atts ua_input" >
                         <option value="short_description" <?php echo isset( $meta_conditions['description_type'] ) && $meta_conditions['description_type'] == 'short_description' ? 'selected' : ''; ?>><?php esc_html_e( 'Short Description', 'woo-product-table' ); ?></option><!-- Default Value -->
                         <option value="description" <?php echo isset( $meta_conditions['description_type'] ) && $meta_conditions['description_type'] == 'description' ? 'selected' : ''; ?>><?php esc_html_e( 'Long Description', 'woo-product-table' ); ?></option>
-                    </select>
+                    </select><?php wpt_doc_link('https://wooproducttable.com/docs/doc/table-options/set-description-type/');?>
                     <p style="color: #0087be;"><?php echo sprintf( esc_html__( 'Here was %sdescription_lenght%s, But from 3.6, We have removed %sdescription_lenght%s', 'woo-product-table' ),'<b>','</b>','<b>','</b>' ); ?>.</p>
                 </td>
             </tr>
