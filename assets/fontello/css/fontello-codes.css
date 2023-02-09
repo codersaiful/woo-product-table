@@ -46,9 +46,16 @@
 .wpt-spin5:before { content: '\e838'; } /* '' */
 .wpt-spin6:before { content: '\e839'; } /* '' */
 .wpt-table:before { content: '\f0ce'; } /* '' */
+.wpt-sort:before { content: '\f0dc'; } /* '' */
+.wpt-sort-down:before { content: '\f0dd'; } /* '' */
+.wpt-sort-up:before { content: '\f0de'; } /* '' */
 .wpt-desktop:before { content: '\f108'; } /* '' */
 .wpt-laptop:before { content: '\f109'; } /* '' */
 .wpt-tablet:before { content: '\f10a'; } /* '' */
 .wpt-mobile:before { content: '\f10b'; } /* '' */
+.wpt-sort-name-up:before { content: '\f15d'; } /* '' */
+.wpt-sort-name-down:before { content: '\f15e'; } /* '' */
+.wpt-sort-alt-up:before { content: '\f160'; } /* '' */
+.wpt-sort-alt-down:before { content: '\f161'; } /* '' */
 .wpt-cart-plus:before { content: '\f217'; } /* '' */
 .wpt-cart-arrow-down:before { content: '\f218'; } /* '' */
