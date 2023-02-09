@@ -952,7 +952,7 @@ class Shortcode extends Shortcode_Base{
             }
             ?>
             <th class="wpt_<?php echo esc_attr( $key ); ?>">
-                <?php echo __( $col_content, 'woo-product-table' ); ?>
+                <?php echo __( $col_content, 'woo-product-table' ); ?><i class="wpt-sort"></i>
             </th>
             <?php
             }

@@ -343,20 +343,25 @@ div.wpt_column_sort table#wpt_table.wpt_product_table tr>td.this_column_sorted {
 div.wpt_column_sort table#wpt_table.wpt_product_table tr>th.this_column_sorted {
     background-color: rgba(0, 0, 0, 0.18);
 }
-div.wpt_column_sort table#wpt_table.wpt_product_table tr.wpt_table_head>th {
+
+/* div.wpt_column_sort table#wpt_table.wpt_product_table tr.wpt_table_head>th {
     background-image: url(../images/arrow.png);
     background-repeat: no-repeat;
     background-repeat: no-repeat;
     background-position: 97% center;
     background-size: 9px;
-    /*background-position: center right;*/
 }
 div.wpt_column_sort table#wpt_table.wpt_product_table tr>th.this_column_sorted[data-sort_type="DESC"] {
     background-image: url(../images/arrow_down.png) !important;
 }
 div.wpt_column_sort table#wpt_table.wpt_product_table tr>th.this_column_sorted[data-sort_type="ASC"] {
     background-image: url(../images/arrow_top.png) !important;
+} */
+
+body.wpt_table_body .wpt-wrap table thead tr.wpt_table_header_row th i{
+    font-size: 14px;
 }
+
 div.wpt_column_sort table#wpt_table.wpt_product_table tr>th.wpt_Message,
 div.wpt_column_sort table#wpt_table.wpt_product_table tr>th.wpt_quoterequest,
 div.wpt_column_sort table#wpt_table.wpt_product_table tr>th.wpt_check,
