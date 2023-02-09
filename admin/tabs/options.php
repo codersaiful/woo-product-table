@@ -92,7 +92,7 @@ $data = isset( $meta_basics['data'] ) ? $meta_basics['data'] : false;
                         <div class="slider round"><!--ADDED HTML -->
                             <span class="on">Hide</span><span class="off">Show</span><!--END-->
                         </div>
-                    </label>
+                    </label><?php wpt_doc_link('https://wooproducttable.com/docs/doc/table-options/hide-show-table-heading/');?>
                     
                                     
                 </td>
