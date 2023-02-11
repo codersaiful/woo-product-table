@@ -357,7 +357,37 @@ div.wpt_column_sort table#wpt_table.wpt_product_table tr>th.this_column_sorted[d
 div.wpt_column_sort table#wpt_table.wpt_product_table tr>th.this_column_sorted[data-sort_type="ASC"] {
     background-image: url(../images/arrow_top.png) !important;
 } */
-
+div.wpt_column_sort table#wpt_table.wpt_product_table tr>th::after{
+    content: '\f0dc';
+    font-family: "fontello";
+    font-style: normal;
+    font-weight: normal;
+    speak: never;
+    display: inline-block;
+    text-decoration: inherit;
+    width: 1em;
+    margin-right: .2em;
+    text-align: center;
+    /* opacity: .8; */
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1em;
+    margin-left: .2em;
+    /* font-size: 120%; */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+div.wpt_column_sort table#wpt_table.wpt_product_table tr>th.wpt_quantity::after,
+div.wpt_column_sort table#wpt_table.wpt_product_table tr>th.wpt_check::after{
+    display: none;
+}
+div.wpt_column_sort table#wpt_table.wpt_product_table tr>th.this_column_sorted[data-sort_type="ASC"]::after{
+    content: '\f160';
+}
+div.wpt_column_sort table#wpt_table.wpt_product_table tr>th.this_column_sorted[data-sort_type="DESC"]::after{
+    content: '\f161';
+}
 body.wpt_table_body .wpt-wrap table thead tr.wpt_table_header_row th i{
     font-size: 14px;
 }
