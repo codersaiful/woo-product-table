@@ -1805,3 +1805,6 @@ td.wpt-replace-td-in-tr.wpt-mobile-label-show>div {
     top: -45px;
     left: 220px;
 }
+body[class^="wpt-"]:before, body[class*=" wpt-"]:before {
+    display: none;
+}
