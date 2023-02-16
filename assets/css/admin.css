@@ -2264,3 +2264,21 @@ a.wpt-doc-lick{
     color: #42b9cc;
     font-style: oblique;
 }
+
+span.wpt-design-collaps {
+    border: 1px solid #ffffff00;
+    margin: 0 10px;
+    width: 25px;
+    display: inline-block;
+    height: 20px;
+    padding: 2px 4px;
+    border-radius: 1px;
+    background: #073b48;
+    box-shadow: -4px 5px 0px 0px #00000047;
+    transition: .4s all;
+    cursor: pointer;
+}
+span.wpt-design-collaps:hover {
+    background: #0e6175;
+    box-shadow: -5px 4px 0px 0px #0000001f;
+}

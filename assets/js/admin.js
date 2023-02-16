@@ -937,3 +937,35 @@ jQuery.fn.extend({
 
     });
 })(jQuery);
+
+/**
+ * Fazle did it in pro, which was wrong decision.
+ * I Saiful Islam transferred it to free version.
+ * 
+ * 
+ * Collapsible design tab
+ * @author Fazle Bari 
+ * @since 8.1.9.1
+ */
+
+var coll = document.getElementsByClassName("wpt-design-expand");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    var content = this.nextElementSibling;
+    // if (content.style.display === "block") {
+    //   content.style.display = "none";
+    // } else {
+    //   content.style.display = "block";
+    // }
+
+    if (content.style.display === "none") {
+        content.style.display = "block";
+      } else {
+        content.style.display = "none";
+      }
+  
+
+  });
+}
