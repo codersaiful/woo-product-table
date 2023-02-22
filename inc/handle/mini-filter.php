@@ -52,13 +52,15 @@ class Mini_Filter{
 
     protected static function select_generate( $texonomy_name ){
         if( ! is_string( $texonomy_name ) ) return;
-
+        
         $taxonomy_details = get_taxonomy( $texonomy_name );
-        if( ! $taxonomy_details ){
-            return;
+        if( $taxonomy_details ){
+            $label = $taxonomy_details->labels->singular_name;
+        }else{
+            $label = $texonomy_name;
         }
+        
         $html = '';
-        $label = $taxonomy_details->labels->singular_name;
         $label = apply_filters( 'wpt_minifilter_taxonomy_name', $label, $texonomy_name );
         $table_id = self::$table_id;
         $html .= "<select data-temp_number='{$table_id}' data-key='{$texonomy_name}' data-label='{$label}' class='filter_select filter filter_select_{$texonomy_name}' id='{$texonomy_name}_{$table_id}'>";
