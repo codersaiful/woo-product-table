@@ -153,9 +153,11 @@ if( $this->cart_lists && $this->cart_stats ){
     $view_cart_text = __('View Cart', 'woo-product-table');
     $view_cart_text = apply_filters('wpt_view_cart_text', $view_cart_text, $this->table_id );
     $view_cart_target = '_blank';
-    $view_cart_target =  apply_filters('wpt_view_cart_target', $view_cart_target);
+    $view_cart_target =  apply_filters('wpt_view_cart_target', $view_cart_target, $this->table_id );
+    $view_cart_link = wc_get_cart_url();
+    $view_cart_link =  apply_filters('wpt_view_cart_link', $view_cart_link, $this->table_id );
 ?>
-<a target="<?php echo esc_attr( $view_cart_target ); ?>" href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="wpt-view-n"><?php echo esc_html( $view_cart_text ); ?> <i class="wpt-bag"></i></a>
+<a target="<?php echo esc_attr( $view_cart_target ); ?>" href="<?php echo esc_url( $view_cart_link ); ?>" class="wpt-view-n"><?php echo esc_html( $view_cart_text ); ?> <i class="wpt-bag"></i></a>
 
 </div>
 </div>
