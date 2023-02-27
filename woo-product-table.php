@@ -11,7 +11,7 @@
  * Requires at least:    5.0.0
  * Tested up to:         6.1.1
  * WC requires at least: 5.0.0
- * WC tested up to: 	 7.3.0
+ * WC tested up to: 	 7.4.0
  * 
  * 
  * Text Domain: woo-product-table
