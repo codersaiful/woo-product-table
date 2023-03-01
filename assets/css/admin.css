@@ -2264,7 +2264,10 @@ a.wpt-doc-lick{
     color: #42b9cc;
     font-style: oblique;
 }
-
+.add-new-column-doc>a{
+    color: #23282d;
+    text-decoration: underline;
+}
 span.wpt-design-collaps {
     border: 1px solid #ffffff00;
     margin: 0 10px;
