@@ -52,7 +52,7 @@
                         </td>
                 </tr>
                 <tr>
-                    <th><label><?php echo esc_html__( 'Toturials','woo-product-table' ); ?></label></th>
+                    <th><label><?php echo esc_html__( 'Tutorials','woo-product-table' ); ?></label></th>
                         <td class="add-new-column-doc">
                             <?php 
                                 wpt_doc_link('https://wooproducttable.com/docs/doc/table-options/add-new-column-using-custom-field/', 'Custom Field');
