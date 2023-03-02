@@ -66,7 +66,7 @@ if( !function_exists( 'wpt_configuration_page' ) ){
                 // do_action( 'wpt_offer_here' );
                  ?>
                     <form action="" method="POST">
-                    <?php do_action( 'wpo_pro_feature_message', 'configuration_page_top' ); ?>
+                    
                         <?php 
                     /**
                      * Here wil will include two input Like bellow:
@@ -87,8 +87,10 @@ if( !function_exists( 'wpt_configuration_page' ) ){
                 ?>
                         <div class="ultraaddons-button-wrapper">
                             <button name="configure_submit" class="button-primary primary button">Save All</button>
-                        </div>
+                        </div><br>
+                        <?php do_action( 'wpo_pro_feature_message', 'configuration_page_top' ); ?>
                     </div>
+                    
                 <?php
                     }
                     
@@ -116,6 +118,7 @@ if( !function_exists( 'wpt_configuration_page' ) ){
                     
                     <?php wpt_social_links(); ?>
                     <?php wpt_submit_issue_link(); ?>
+                    <?php wpt_donate_button(); ?>
                 </div>
 
             </div>

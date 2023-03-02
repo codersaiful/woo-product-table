@@ -1137,7 +1137,7 @@ if( ! function_exists( 'wpt_args_manipulation_frontend' ) ){
             }
             
         //if( isset( $page_query['wc_query'] ) && $page_query['wc_query'] == 'product_query' ){
-            $gen_args = array_merge( $args,$GLOBALS['wp_query']->query_vars );
+            $gen_args = is_array( $args) && is_array($GLOBALS['wp_query']->query_vars) ? array_merge( $args,$GLOBALS['wp_query']->query_vars ) : $args;
             $gen_args['post_type'] = isset( $args['post_type'] ) && !empty( $args['post_type'] ) ? $args['post_type'] : 'product';
             $args = $gen_args;
 

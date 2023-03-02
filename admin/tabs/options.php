@@ -19,7 +19,7 @@ $data = isset( $meta_basics['data'] ) ? $meta_basics['data'] : false;
                     <select name="basics[ajax_action]" data-name='ajax_action' id="wpt_table_ajax_enable" class="wpt_fullwidth wpt_data_filed_atts ua_input" >
                         <option value="ajax_active" <?php echo isset( $meta_basics['ajax_action'] ) && $meta_basics['ajax_action'] == 'ajax_active' ? 'selected' : false; ?>><?php esc_html_e('Active Ajax (Default)','woo-product-table');?></option>
                         <option value="no_ajax_action" <?php echo isset( $meta_basics['ajax_action'] ) && $meta_basics['ajax_action'] == 'no_ajax_action' ? 'selected' : false; ?>><?php esc_html_e('Disable Ajax Action','woo-product-table');?></option>
-                    </select>
+                    </select><?php wpt_doc_link('https://wooproducttable.com/docs/doc/table-options/enable-disable-ajax-action/');?>
                 </td>
             </tr>
         </table>
@@ -92,7 +92,7 @@ $data = isset( $meta_basics['data'] ) ? $meta_basics['data'] : false;
                         <div class="slider round"><!--ADDED HTML -->
                             <span class="on">Hide</span><span class="off">Show</span><!--END-->
                         </div>
-                    </label>
+                    </label><?php wpt_doc_link('https://wooproducttable.com/docs/doc/table-options/hide-show-table-heading/');?>
                     
                                     
                 </td>
@@ -293,7 +293,7 @@ $meta_conditions =  get_post_meta( $post->ID, 'conditions', true );
                     <select name="conditions[description_type]" data-name='description_type' id="wpt_table_description_type" class="wpt_fullwidth wpt_data_filed_atts ua_input" >
                         <option value="short_description" <?php echo isset( $meta_conditions['description_type'] ) && $meta_conditions['description_type'] == 'short_description' ? 'selected' : ''; ?>><?php esc_html_e( 'Short Description', 'woo-product-table' ); ?></option><!-- Default Value -->
                         <option value="description" <?php echo isset( $meta_conditions['description_type'] ) && $meta_conditions['description_type'] == 'description' ? 'selected' : ''; ?>><?php esc_html_e( 'Long Description', 'woo-product-table' ); ?></option>
-                    </select>
+                    </select><?php wpt_doc_link('https://wooproducttable.com/docs/doc/table-options/set-description-type/');?>
                     <p style="color: #0087be;"><?php echo sprintf( esc_html__( 'Here was %sdescription_lenght%s, But from 3.6, We have removed %sdescription_lenght%s', 'woo-product-table' ),'<b>','</b>','<b>','</b>' ); ?>.</p>
                 </td>
             </tr>

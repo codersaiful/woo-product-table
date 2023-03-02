@@ -75,12 +75,12 @@ if( ! function_exists( 'wpt_texonomy_search_generator' ) ){
             // $defaults['orderby'] = '';
             // $defaults['order'] = '';
         // }
-
+        $tx_order = $config_value['sort_searchbox_filter'] ?? 'ASC';
         $defaults = array(
 		'show_option_all'   => '',
 		'show_option_none'  => '',
 		'orderby'           => 'name',
-		'order'             => $config_value['sort_searchbox_filter'],//'ASC', //$config_value['sort_searchbox_filter'],//
+		'order'             => $tx_order,//'ASC', //$config_value['sort_searchbox_filter'],//
 		'show_count'        => 0,
 		'hide_empty'        => 1,
 		'child_of'          => 0,
@@ -132,6 +132,21 @@ if( ! function_exists( 'wpt_texonomy_search_generator' ) ){
             $customized_texonomy_boj = false;
         }
 
+        
+        if( is_array( $customized_texonomy_boj ) && ! empty( $tx_order ) && $tx_order !== '0' ){
+
+            usort( $customized_texonomy_boj,function($prev,$next){
+                $tx_order = wpt_get_config('sort_searchbox_filter');
+                if( $tx_order == 'ASC' ) return $prev->name > $next->name ? 1 : -1;
+                if( $tx_order == 'DESC' ) return $prev->name > $next->name ? -1 : 1;
+                
+             
+                // if($prev->name == $next->name) return 0;
+                // var_dump($prev->name,$next->name);
+                return 0;
+            });
+        }
+       
         $html .= wpt_wp_dropdown_categories( $defaults, $customized_texonomy_boj );
 
         $html .= "</div>"; //End of .search_single

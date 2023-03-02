@@ -480,14 +480,14 @@ if( ! function_exists('wpt_doc_link') ){
  * @param boolean $msg
  * @return void
  */
-function wpt_help_icon_render( $msg = false ){
+function wpt_help_icon_render( $msg = false, $extra_msg = false ){
     $title = __( $msg, 'woo-product-table' );
     if( empty( $msg ) ){
         $title = __( "Don't change for auto translate. Leave empty to get translated text.", 'woo-product-table' );
     }
-    $extra_msg = __( 'Write with default or English language.' );
+    $extra_msg_text = $extra_msg ? "\n" . __( 'Write with default or English language.' ) : '';
     ?>
-    <span class="wpt-help-icon" title="<?php echo esc_attr( $title . "\n" . $extra_msg ); ?>">?</span>
+    <span class="wpt-help-icon" title="<?php echo esc_attr( $title .  $extra_msg_text ); ?>">?</span>
     <?php
 }
 
@@ -537,4 +537,19 @@ function wpt_get_pro_verstion_translate_string(){
     );
 
     return $string_array;
+}
+
+function wpt_donate_button($only_free = false){
+    if($only_free && defined('WPT_PRO_DEV_VERSION')) return;
+    ?>
+<script async
+  src="https://js.stripe.com/v3/buy-button.js">
+</script>
+
+<stripe-buy-button
+  buy-button-id="buy_btn_1Mh4DgD2lfqrjhAGr5oI4uQw"
+  publishable-key="pk_live_51Mg2ndD2lfqrjhAG866UldpkG61JxUK5boTxSFo5hahsnMqyWhAOrqNpCOuj67AaalPgamISySLbl4s4BCDWo7mH00vrDu4ba6"
+>
+</stripe-buy-button>  
+    <?php
 }
