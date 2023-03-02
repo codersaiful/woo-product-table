@@ -1,5 +1,6 @@
 <div class="wpt_rightside">
     <div class="wpt_right_side_in_wrapper" style="padding: 10px;">
+        <?php wpt_donate_button(); ?>
         <div class="social_title_wrapper">
             <h3 class="social_title">🥇HONORABLE CONTRIBUTOR</h3>
             
@@ -22,6 +23,7 @@
             <h3 class="social_title">🥇Important Links (Follow Us)</h3>
             <?php wpt_social_links(); ?>
         </div>
+        
     </div>
     
     <div class="wpt_right_side_in_wrapper" style="padding: 10px;">

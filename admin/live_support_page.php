@@ -498,6 +498,15 @@ if (!function_exists('wpt_live_support')) {
                                             </a>
                                         </div>
                                     </div>
+                                    <div class="col-md-4">
+                                        <div class="categories_guide_item wow fadeInUp">
+                                            <img width="34" height="46" src="https://wooproducttable.com/wp-content/uploads/2022/06/files.png" class="attachment-full size-full wp-post-image" alt="" loading="lazy">
+                                            <div class="doc_tag_title">
+                                                <h4>Help us to Inprove Plugin</h4>
+                                            </div>
+                                            <?php wpt_donate_button(); ?>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="text-center">
                                     <a target="_blank"  href="https://wooproducttable.com/doc/" class="doc_border_btn all_doc_btn wow fadeinUp">

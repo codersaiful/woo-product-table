@@ -141,8 +141,10 @@
     <div class="wpt-plugin-recommend-area wpt-plugin-recommend-tab-page">
         <?php do_action( 'wpt_plugin_recommend_here' ); ?>
     </div>
+    
     <?php wpt_social_links(); ?>
     <?php wpt_submit_issue_link(); ?>
+    <?php wpt_donate_button(); ?>
 </div>
 
 <style>
