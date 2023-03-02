@@ -286,6 +286,13 @@ You can easily show specific category products. While creating new table click o
 
 == Changelog ==
 
+= 3.3.7 =
+* select2 issue has been solved
+* Code Optimized
+* Bug fixed
+* New feature (Variable Product Exclude include) - Pro feature
+* Audio issue has been solved - Pro Feature
+
 = 3.3.6 =
 * Added: Now free version is compatible with [WeDevs_Dokan](https://wooproducttable.com/combability-list/) plugin.
 * New language added - Croatian
