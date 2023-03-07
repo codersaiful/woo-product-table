@@ -4,7 +4,7 @@ Donate link: https://donate.stripe.com/4gw2bB2Pzdjd8mYfYZ
 Tags: wc product table, wooproducttable, woo product table,woocommerce product table, product table, wc table, quick order table, wholesale table, restaurants table
 Requires at least: 5.0.0
 Tested up to: 6.1.1
-Stable tag: 3.3.6
+Stable tag: 3.3.7
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -285,6 +285,16 @@ You can easily show specific category products. While creating new table click o
 25. Manually responsive for mobile devices
 
 == Changelog ==
+
+= 3.3.8 =
+  Code Optimized
+
+= 3.3.7 =
+* select2 issue has been solved
+* Code Optimized
+* Bug fixed
+* New feature (Variable Product Exclude include) - Pro feature
+* Audio issue has been solved - Pro Feature
 
 = 3.3.6 =
 * Added: Now free version is compatible with [WeDevs_Dokan](https://wooproducttable.com/combability-list/) plugin.
