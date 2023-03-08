@@ -285,9 +285,11 @@ You can easily show specific category products. While creating new table click o
 25. Manually responsive for mobile devices
 
 == Changelog ==
+= 3.3.9 =
+* Fixed: Table Head sorting issue on variable product - has been solved
 
 = 3.3.8 =
-  Code Optimized
+* Code Optimized
 
 = 3.3.7 =
 * select2 issue has been solved
