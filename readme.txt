@@ -288,6 +288,7 @@ You can easily show specific category products. While creating new table click o
 
 = 3.3.8 =
 * Fixed: Table Head sorting issue on variable product - has been solved
+* Fixed: Total column issue on Variable product has been solved.
 * Code Optimized
 
 = 3.3.7 =
