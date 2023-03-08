@@ -915,7 +915,7 @@ jQuery(function($) {
                 setValueToTargetTD_IfAvailable('stock', targetAttributeObject.availability_html);
                 
                 //Set Total Price display_price
-                var targetQty = $('#table_id_' + temp_number + ' #product_id_' + product_id + ' wpt_quantity .quantity input.input-text.qty.text').val();
+                var targetQty = $('#table_id_' + temp_number + ' #product_id_' + product_id + ' input.input-text.qty.text').val();
                 if(!targetQty){
                     targetQty = 1;
                 }
