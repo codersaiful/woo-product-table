@@ -287,7 +287,8 @@ You can easily show specific category products. While creating new table click o
 == Changelog ==
 
 = 3.3.8 =
-  Code Optimized
+* Fixed: Table Head sorting issue on variable product - has been solved
+* Code Optimized
 
 = 3.3.7 =
 * select2 issue has been solved

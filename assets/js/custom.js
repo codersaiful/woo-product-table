@@ -521,7 +521,7 @@ jQuery(function($) {
          * for Ajax add to cart
          * for Variation product
          */
-        $('body').on('click', 'a.ajax_active.wpt_variation_product.single_add_to_cart_button.button.enabled, a.add_to_cart_button.ajax_add_to_cart, a.ajax_active.add_to_cart_button.wpt_woo_add_cart_button', function(e) {
+        $(document.body).on('click', 'a.ajax_active.wpt_variation_product.single_add_to_cart_button.button.enabled, a.add_to_cart_button.ajax_add_to_cart, a.ajax_active.add_to_cart_button.wpt_woo_add_cart_button', function(e) {
             
             e.preventDefault();
             
@@ -713,7 +713,7 @@ jQuery(function($) {
          * On change Product Variation
          * Vairation Change
          */
-        $('body').on('change','.wpt_varition_section',function() {
+        $(document.body).on('change','.wpt_varition_section',function() {
             
             var product_id = $(this).data('product_id');
             var temp_number = $(this).data('temp_number');
@@ -2294,24 +2294,8 @@ jQuery(function($) {
                         
                         text = text + "_" + product_id;
                     }
-                    
-                    var rowInsideHTMLData = $(this).parent('tr').html();
-
                     var thisRowObject = $('#table_id_'+ temp_number +' #product_id_' + product_id);
-                    var thisRowAttributes = thisRowObject[0].attributes;
-                    var thisRowAttributesHTML = '';
-                    
-                    $.each(thisRowAttributes,function(i,item){
-
-                        if(this.specified) {
-                            thisRowAttributesHTML += this.name + '="' + this.value + '" ';
-                        }
-
-                    });
-                    html += '<tr ' + thisRowAttributesHTML + '>';
-                    html += rowInsideHTMLData;
-                    html += '</tr>';
-
+                    html = thisRowObject.prop('outerHTML');
                     //get_val is actually generated value
                     contentHTMLArray[index] = {
                         product_id: product_id,
