@@ -345,7 +345,7 @@ class Row extends Table_Base{
             <?php
 
             
-            $this->handle_inner_items( $items, $keyword );
+            $this->handle_inner_items( $keyword, $items );
 
             /**
              * Adding Content at the Bottom of Each TableTD
@@ -368,7 +368,16 @@ class Row extends Table_Base{
         // var_dump($this);
     }
 
-    public function handle_inner_items( $items = [], string $parent_keyword ){
+    /**
+     * Handle Innter item based on current keyword and items array.
+     *
+     * @param string $parent_keyword
+     * @param array $items
+     * @return void
+     */
+    public function handle_inner_items( string $parent_keyword, $items = [] ){
+        if( empty($parent_keyword ) ) return;
+
         if( empty( $items ) || ! is_array( $items ) ) return;
         foreach( $items as $item_key ){
             $this->inner_each_item( $item_key, $parent_keyword );
