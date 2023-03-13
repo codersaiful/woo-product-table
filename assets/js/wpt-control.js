@@ -313,6 +313,13 @@ jQuery(function($) {
 
             try{
                 ownFragmentPerItemsHandle( ownFragment );
+
+                /**
+                 * If any customer want to do something based on Fragment refresh,
+                 * Then u can use this.
+                 * 
+                 */
+                $(document.body).trigger('wpt_fragents_loaded',ownFragment);
             }catch(e){
                 console.log('Something went wrong on ownFragment loads.',ownFragment);
             }
