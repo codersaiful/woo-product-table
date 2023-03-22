@@ -380,9 +380,9 @@ if( ! function_exists( 'wpt_add_tabs' ) ){
 						/* translators: %s: Forum URL */
 						__( 'For further assistance with Product Table for WooCommerce, use the <a href="%1$s">community forum</a>. For help with premium support, <a href="%2$s">open a support request at CodeAstrology.com</a>.', 'woo-product-table' ),
 						'https://wordpress.org/support/plugin/woo-product-table/',
-						'https://codeastrology.com/support/submit-ticket/?utm_source=helptab&utm_content=tickets&utm_campaign=wptplugin'
+						'https://codeastrology.com/my-support/?utm_source=helptab&utm_content=tickets&utm_campaign=wptplugin'
 					) . '</p>' .
-					'<p><a href="https://wordpress.org/support/plugin/woo-product-table/" class="button">' . __( 'Community forum', 'woo-product-table' ) . '</a> <a href="https://codeastrology.com/support/submit-ticket/?utm_source=helptab&utm_content=tickets&utm_campaign=wptplugin" class="button">' . __( 'CodeAstrology.com support', 'woo-product-table' ) . '</a></p>',
+					'<p><a href="https://wordpress.org/support/plugin/woo-product-table/" class="button">' . __( 'Community forum', 'woo-product-table' ) . '</a> <a href="https://codeastrology.com/my-support/?utm_source=helptab&utm_content=tickets&utm_campaign=wptplugin" class="button">' . __( 'CodeAstrology.com support', 'woo-product-table' ) . '</a></p>',
 			)
 		);
 

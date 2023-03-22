@@ -72,7 +72,7 @@ class Deactive_Form
      */
     protected $required_screen_id = 'plugins'; // 'plugins';
 
-    protected $support_url = 'https://codeastrology.com/support/submit-ticket/';
+    protected $support_url = 'https://codeastrology.com/my-support/';
 
     protected $common_target_msg = "Contact with our support email: support@codeastrology.com";
 
