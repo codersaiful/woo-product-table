@@ -7,6 +7,14 @@ class Shortcode_Base extends Base{
     public $shortcde_text = 'Product_Table';
 
     /**
+     * actually public $table_id is not available here
+     * it will override at extened class
+     *
+     * @var null|int It's actually int number ot post id for woo_product_table post_type
+     */
+    public $table_id = 0;
+    
+    /**
      * Very important Property, 
      * Default is true, But somethime, we need to disable table. 
      * Then we can set property value false,

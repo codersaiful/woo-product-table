@@ -57,6 +57,54 @@ There are variety of ways to add your custom code to manipulate code by hooks:
 - To a custom child theme’s functions.php file.
 - Using a plugin such as [Code Snippets](https://wordpress.org/plugins/code-snippets/)
 
+### Available Variable in item file. 
+such: woo-product-table/includes/items/xxxx.php
+see a method of `\Row`
+
+```php
+private function data_for_extract(){
+        $serial = ( ($this->page_number - 1) * $this->posts_per_page ) + $this->serial_number;
+        
+        $this->avialable_variables = [
+            'id' => $this->product_id,
+            'args' => $this->args,
+            'table_type' => $this->table_type,
+            'product_type' => $this->product_type,
+            'temp_number' => $this->table_id,
+            'table_ID' => $this->table_id,
+            'data' => $this->product_data,
+            'config_value' => $this->table_config,
+            'column_settings' => $this->column_settings,
+            'column_array' => $this->column_array,
+            'checkbox' =>  $this->checkbox,
+            'table_column_keywords' => $this->_enable_cols,
+            'ajax_action' => $this->ajax_action,
+            'add_to_cart_text' => $this->add_to_cart_text,
+            'default_quantity' => $this->default_quantity,
+            'stock_status' => $this->product_stock_status,
+            'stock_status_class' => $this->product_stock_status_class,
+    
+            'description_type' => $this->description_type,
+            '_device' => $this->_device,
+            //For Variable Product
+            'attributes' => $this->attributes,
+            'available_variations' => $this->available_variations,
+            'variable_for_total' => $this->variable_for_total,
+    
+    
+            'row_class' => $this->row_class,
+            'wpt_table_row_serial' => $serial,
+        ];
+
+        return $this->apply_filter( 'wpt_avialable_variables', $this->avialable_variables );
+    }
+```
+actually we have extract($this->avialable_variables). means: you will get all these array key as variable inside items file.
+suppose:
+```php
+echo $id;
+```
+
 ### Using action hooks
 To execute your own code, you hook in by using the action hook ```do_action('action_name');```. Here is where to place your code:
 ```php
