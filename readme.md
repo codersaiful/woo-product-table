@@ -59,7 +59,7 @@ There are variety of ways to add your custom code to manipulate code by hooks:
 
 ### Available Variable in item file. 
 such: woo-product-table/includes/items/xxxx.php
-see a method of `\Row`
+see a method of `\WOO_PRODUCT_TABLE\Inc\Table\Row` class.
 
 ```php
 private function data_for_extract(){
