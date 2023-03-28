@@ -185,7 +185,8 @@ foreach($terms as $term){
                         <?php
                         foreach ( $tax_object as $tax_item ) {
                             $tax_array_key = $per_keyword;
-                            echo "<option value='{$tax_item->term_id}' " . ( isset( $meta_search_n_filter[$tax_array_key] ) &&  is_array( $meta_search_n_filter[$tax_array_key] ) && in_array( $tax_item->term_id, $meta_search_n_filter[$tax_array_key] ) ? 'selected' : false ) . ">{$tax_item->name} - {$tax_item->slug} ({$tax_item->count})</option>";
+                            $selected = ( isset( $meta_search_n_filter[$tax_array_key] ) &&  is_array( $meta_search_n_filter[$tax_array_key] ) && in_array( $tax_item->term_id, $meta_search_n_filter[$tax_array_key] ) ? 'selected' : false );//
+                            echo "<option value='{$tax_item->term_id}' " . $selected . ">{$tax_item->name} - {$tax_item->slug} ({$tax_item->count})</option>";
                         }
                         ?>
                     </select>
