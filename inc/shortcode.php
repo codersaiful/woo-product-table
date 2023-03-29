@@ -281,7 +281,7 @@ class Shortcode extends Shortcode_Base{
 
         $this->do_action('wpt_load');
 
-        if( $this->error_name ) return Msg::handle($this);
+        if( $this->error_name ) Msg::handle($this);
         if( ! $this->table_display ) return;
         // var_dump($this->product_loop);
         //wpto_action_table_wrapper_top
