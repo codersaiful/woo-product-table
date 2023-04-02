@@ -856,6 +856,9 @@ class Shortcode extends Shortcode_Base{
         $this->args = apply_filters( 'wpto_table_query_args', $this->args, $this->table_id, $this->atts, $this->column_settings, $this->_enable_cols, $this->column_array );
         /**
          * @Hook filter wpt_query_args manage wpt table query args using filter hook
+         * 
+         * Example: 
+         * $this->args = apply_filters( 'wpto_table_query_args', $this->args, $this );
          */
         $this->args = $this->apply_filter( 'wpt_query_args', $this->args );
         $this->args_organized = true;
