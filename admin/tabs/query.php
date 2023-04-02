@@ -227,7 +227,7 @@ do_action( 'wpto_admin_basic_tab',$meta_basics, $tab, $post, $tab_array );
                 </th>
                 <td>
                     <select name="basics[query_relation]" data-name='ajax_action' id="wpt_table_operation" class="wpt_fullwidth wpt_data_filed_atts ua_input" >
-                        <option value="IN" <?php echo isset( $meta_basics['query_relation'] ) && $meta_basics['query_relation'] == 'IN' ? 'selected' : false; ?>><?php esc_html_e('IN Operation','woo-product-table');?></option>
+                        <option value="IN" <?php echo isset( $meta_basics['query_relation'] ) && $meta_basics['query_relation'] == 'IN' ? 'selected' : false; ?>><?php esc_html_e('IN/OR Operation','woo-product-table');?></option>
                         <option value="AND" <?php echo isset( $meta_basics['query_relation'] ) && $meta_basics['query_relation'] == 'AND' ? 'selected' : false; ?>><?php esc_html_e('AND Operation','woo-product-table');?></option>
                     </select>
                 </td>

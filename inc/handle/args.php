@@ -144,7 +144,12 @@ class Args{
          * function change at @version 3.3.8.0
          */
         self::$args = array_merge_recursive( $args, $shortcode->basics_args );
-        
+
+        if( ! empty( self::$args['tax_query'] ) && $shortcode->basics['query_relation'] ){
+            $query_rel = $shortcode->basics['query_relation'] ?? 'OR';
+            self::$args['tax_query']['relation'] = $query_rel == 'AND' ? $query_rel : 'OR';
+        }
+
         if( $shortcode->req_product_type == 'product_variation' ){
 
             self::$tax_query = self::$args['tax_query'] ?? [];

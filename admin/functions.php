@@ -317,6 +317,7 @@ if( !function_exists( 'wpt_data_manipulation_on_save' ) ){
              * @version 2.8.3.5
              */
             $query_relation = ! isset( $tab_data['query_relation'] ) ? 'IN' : $tab_data['query_relation'];
+            $query_relation = $tab_data['query_relation'] ?? 'IN';
 
             $data = isset( $tab_data['data'] ) ? $tab_data['data'] : false;
             $terms_string = 'terms';
@@ -328,7 +329,7 @@ if( !function_exists( 'wpt_data_manipulation_on_save' ) ){
                             'taxonomy'      => $term_key,
                             'field'         => 'id',
                             'terms'         => $term_ids, //Array of Term's IDs
-                            'operator'      => $query_relation,//'IN'
+                            'operator'      => 'IN' //$query_relation,//
                    );
                } 
             }
