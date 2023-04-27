@@ -851,7 +851,9 @@ class Shortcode extends Shortcode_Base{
      * @return null|object|Shortcode
      */
     protected function argsOrganize(){
-        if( $this->args_organized ) return $this;
+        // Eta thakar karone pege a ekbar e query kaj korche. tai eker odhik table thakle somossa hosse ( Fazle Bari )
+        //if( $this->args_organized ) return $this;
+        
 
         $this->args = apply_filters( 'wpto_table_query_args', $this->args, $this->table_id, $this->atts, $this->column_settings, $this->_enable_cols, $this->column_array );
         /**
