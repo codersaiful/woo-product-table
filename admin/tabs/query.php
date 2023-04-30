@@ -283,7 +283,7 @@ unset($catalog_orderby_options['menu_order']);
                         
                         <option value="title" <?php echo isset( $meta_conditions['sort_order_by'] ) && $meta_conditions['sort_order_by'] == 'title' ? 'selected' : ''; ?>><?php esc_html_e( 'Product Title', 'woo-product-table' ); ?></option>
 
-                        <option value="date" <?php echo isset( $meta_conditions['sort_order_by'] ) && $meta_conditions['sort_order_by'] == 'date' ? 'selected' : ''; ?>><?php esc_html_e( 'Date', 'woo-product-table' ); ?></option>
+                        <option value="publish-date" <?php echo isset( $meta_conditions['sort_order_by'] ) && $meta_conditions['sort_order_by'] == 'publish-date' ? 'selected' : ''; ?>><?php esc_html_e( 'Date', 'woo-product-table' ); ?></option>
                         <option value="meta_value" <?php echo isset( $meta_conditions['sort_order_by'] ) && $meta_conditions['sort_order_by'] == 'meta_value' ? 'selected' : ''; ?>><?php esc_html_e( 'Custom Meta Value', 'woo-product-table' ); ?></option>
                         
                         
@@ -298,8 +298,9 @@ unset($catalog_orderby_options['menu_order']);
                         $selected = $val == $id ? 'selected' : '';
                         ?>
                             <option value="<?php echo esc_attr( $id ); ?>" 
-                            <?php echo esc_attr( $selected ); ?>>
-                            <?php esc_html_e( $name ); ?></option>
+                                <?php echo esc_attr( $selected ); ?>>
+                                <?php esc_html_e( $name ); ?>
+                            </option>
                         <?php endforeach; ?>
                         <option value="author" <?php echo isset( $meta_conditions['sort_order_by'] ) && $meta_conditions['sort_order_by'] == 'author' ? 'selected' : ''; ?>><?php esc_html_e( 'Author', 'woo-product-table' ); ?></option>
                         
@@ -312,12 +313,12 @@ unset($catalog_orderby_options['menu_order']);
                         <?php }else{ 
                                 foreach ( $catalog_orderby_options as $id => $name ) : ?>
                                     <option disabled><?php echo esc_html( $name ); ?>  (<?php echo esc_html__( 'Pro', 'woo-product-table' ); ?>)</option>
-                            <?php endforeach; ?>
-                            <option disabled><?php echo esc_html__( 'Custom Meta Number(Pro)', 'woo-product-table' ); ?></option>
-                            <option disabled><?php echo esc_html__( 'Author(Pro)', 'woo-product-table' ); ?></option>
-                            <option disabled><?php echo esc_html__( 'Type(Pro)', 'woo-product-table' ); ?></option>
-                            <option disabled><?php echo esc_html__( 'Modified(Pro)', 'woo-product-table' ); ?></option>
-                            <option disabled><?php echo esc_html__( 'Rand(Pro)', 'woo-product-table' ); ?></option>
+                                <?php endforeach; ?>
+                                <option disabled><?php echo esc_html__( 'Custom Meta Number(Pro)', 'woo-product-table' ); ?></option>
+                                <option disabled><?php echo esc_html__( 'Author(Pro)', 'woo-product-table' ); ?></option>
+                                <option disabled><?php echo esc_html__( 'Type(Pro)', 'woo-product-table' ); ?></option>
+                                <option disabled><?php echo esc_html__( 'Modified(Pro)', 'woo-product-table' ); ?></option>
+                                <option disabled><?php echo esc_html__( 'Rand(Pro)', 'woo-product-table' ); ?></option>
                         <?php } ?>
                         <option value="parent" <?php echo isset( $meta_conditions['sort_order_by'] ) && $meta_conditions['sort_order_by'] == 'parent' ? 'selected' : ''; ?>><?php esc_html_e( 'Parent', 'woo-product-table' ); ?></option>
                         <option value="comment_count" <?php echo isset( $meta_conditions['sort_order_by'] ) && $meta_conditions['sort_order_by'] == 'comment_count' ? 'selected' : ''; ?>><?php esc_html_e( 'Reviews/Comment Count', 'woo-product-table' ); ?></option>
