@@ -851,7 +851,18 @@ class Shortcode extends Shortcode_Base{
      * @return null|object|Shortcode
      */
     protected function argsOrganize(){
-        // Eta thakar karone pege a ekbar e query kaj korche. tai eker odhik table thakle somossa hosse ( Fazle Bari )
+        /**
+         * No need checking of $this->args_organized
+         * Because we are curenly in organize part
+         * We can use it in other place.
+         * 
+         * ****************
+         * Important
+         * ****************
+         * Actually first time, why I  have used it.
+         * to reduce query excution time. But we already used 
+         * $this->product_loop checking to reduce query execution time.
+         */
         //if( $this->args_organized ) return $this;
         
 
