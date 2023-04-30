@@ -129,7 +129,7 @@ foreach($terms as $term){
                         }
                         ?>
                     </select>
-                    <!-- <input name="search_n_filter[taxonomy_keywords]" data-name='taxonomy_keywords' id="wpt_taxonomy_keywords" value="<?php echo isset( $meta_search_n_filter['taxonomy_keywords'] ) ?$meta_search_n_filter['taxonomy_keywords'] : 'product_cat,product_tag'; ?>" class="wpt_fullwidth wpt_data_filed_atts ua_input" type="text" placeholder="<?php esc_attr_e( 'eg: product_cat,product_tag,color,size', 'woo-product-table' ); ?>"> -->
+                    
                     <p class="warning">
                         <b>IMPORTANT Tips:</b>
                         <span>To CHOOSE selected Taxonomy(Category,Tag), PLEASE Save & RELOAD,
