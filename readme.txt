@@ -286,13 +286,11 @@ You can easily show specific category products. While creating new table click o
 
 == Changelog ==
 
-= 3.3.9 =
+= 3.3.8 =
 * Fixed the issue: 'Deprecated: Required parameter $parent_keyword follows optional parameter $items'
 * `wpt_fragents_loaded` js trigger added when fragment will be load.
 * query_by_url issue has been solved.
 * variation,tag,category,taxonomy column is available for variation column. (Some Pro Feature)
-
-= 3.3.8 =
 * Fixed: Table Head sorting issue on variable product - has been solved
 * Fixed: Total column issue on Variable product has been solved.
 * Code Optimized
