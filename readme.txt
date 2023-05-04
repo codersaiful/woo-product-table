@@ -2,10 +2,10 @@
 Contributors: codersaiful,codeastrology,ultraaddons,unikforce,rafiul17,fazlebari,phpcoderhannan,fatimakhatungit
 Donate link: https://donate.stripe.com/4gw2bB2Pzdjd8mYfYZ
 Tags: wc product table, wooproducttable, woo product table,woocommerce product table, product table, wc table, quick order table, wholesale table, restaurants table,woo-product-table
-Requires at least: 5.0.0
+Requires at least: 4.0.0
 Tested up to: 6.2
-Stable tag: 3.3.8
-Requires PHP: 7.4
+Stable tag: 3.3.9
+Requires PHP: 5.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -285,6 +285,9 @@ You can easily show specific category products. While creating new table click o
 25. Manually responsive for mobile devices
 
 == Changelog ==
+
+= 3.3.9 =
+* Code Optimized
 
 = 3.3.8 =
 * Fixed the issue: 'Deprecated: Required parameter $parent_keyword follows optional parameter $items'
