@@ -1,7 +1,7 @@
-=== Product Table for WooCommerce by CodeAstrology (WooCommerce Product Variation Table, Advance Search Filter, Ajax Pagination, WooCommerce Shop table layout) ===
+=== Product Table for WooCommerce by CodeAstrology (wooproducttable.com) ===
 Contributors: codersaiful,codeastrology,ultraaddons,unikforce,rafiul17,fazlebari,phpcoderhannan,fatimakhatungit
 Donate link: https://donate.stripe.com/4gw2bB2Pzdjd8mYfYZ
-Tags: wc product table, wooproducttable, woo product table,woocommerce product table, product table, wc table, quick order table, wholesale table, restaurants table
+Tags: wc product table, wooproducttable, woo product table,woocommerce product table, product table, wc table, quick order table, wholesale table, restaurants table,woo-product-table
 Requires at least: 5.0.0
 Tested up to: 6.2
 Stable tag: 3.3.8

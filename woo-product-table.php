@@ -1,11 +1,11 @@
 <?php
 /**
- * Plugin Name: Product Table for WooCommerce by codeAstrology (WooproductTable)
+ * Plugin Name: Product Table for WooCommerce by CodeAstrology (WooproductTable)
  * Plugin URI: https://wooproducttable.com/pricing/?utm_source=WPT+Plugin+Dashboard&utm_medium=Free+Version
- * Description: (WooProductTable - woo product table) WooCommerce product table plugin helps you to display your products in a searchable table layout with filters. Boost conversions & sales. Woo Product Table is best for Wholesale.
+ * Description: (WooProductTable - woo product table) WooCommerce product table plugin helps you to display your products in a searchable table layout with filters. Boost conversions & sales. Woo Product Table is best for Wholesale. wooproducttable, woo-product-table
  * Author: CodeAstrology Team
  * Author URI: https://wooproducttable.com/?utm_source=WPT+Plugin+Dashboard&utm_medium=Free+Version
- * Tags: woocommerce product list,woocommerce product table, wc product table, product grid view, inventory, shop product table
+ * Tags: wooproducttable, woocommerce product list,woocommerce product table, wc product table, product grid view, inventory, shop product table
  * 
  * Version: 3.3.8
  * Requires at least:    5.0.0
