@@ -19,6 +19,10 @@ Create a table for restaurant order systems, Online music sell, product Wholesal
 
 https://www.youtube.com/watch?v=jZ9bx4VqB08
 
+**How to Create a WooCommerce Product Table**
+
+https://www.youtube.com/watch?v=yPjFmCHn36Y
+
 **Shortcode Example**
 
 `[Product_Table ID='123' name='Table Name']`
