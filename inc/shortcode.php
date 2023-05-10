@@ -281,7 +281,7 @@ class Shortcode extends Shortcode_Base{
 
         $this->do_action('wpt_load');
 
-        if( $this->error_name ) return Msg::handle($this);
+        if( $this->error_name ) Msg::handle($this);
         if( ! $this->table_display ) return;
         // var_dump($this->product_loop);
         //wpto_action_table_wrapper_top
@@ -851,11 +851,27 @@ class Shortcode extends Shortcode_Base{
      * @return null|object|Shortcode
      */
     protected function argsOrganize(){
-        if( $this->args_organized ) return $this;
+        /**
+         * No need checking of $this->args_organized
+         * Because we are curenly in organize part
+         * We can use it in other place.
+         * 
+         * ****************
+         * Important
+         * ****************
+         * Actually first time, why I  have used it.
+         * to reduce query excution time. But we already used 
+         * $this->product_loop checking to reduce query execution time.
+         */
+        //if( $this->args_organized ) return $this;
+        
 
         $this->args = apply_filters( 'wpto_table_query_args', $this->args, $this->table_id, $this->atts, $this->column_settings, $this->_enable_cols, $this->column_array );
         /**
          * @Hook filter wpt_query_args manage wpt table query args using filter hook
+         * 
+         * Example: 
+         * $this->args = apply_filters( 'wpto_table_query_args', $this->args, $this );
          */
         $this->args = $this->apply_filter( 'wpt_query_args', $this->args );
         $this->args_organized = true;

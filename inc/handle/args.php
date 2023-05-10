@@ -133,9 +133,23 @@ class Args{
          * we store like query and stored it in basics tab
          * and I made a property by following code at Class Shortcode:inc/shortcode.php
          * $this->basics_args = $this->basics['args'] ?? [];
+         * 
+         * *******************************************
+         * Notice:
+         * ********************************************
+         * Here was array_merge() function
+         * but for using that function, we got a problem on category_include and category_exclude at a time.
+         * 
+         * that's why, I have used new func array_merge_recursive() so that exclude and eclude can work both at a time
+         * function change at @version 3.3.8.0
          */
-        self::$args = array_merge( $args, $shortcode->basics_args );
-        
+        self::$args = array_merge_recursive( $args, $shortcode->basics_args );
+
+        if( ! empty( self::$args['tax_query'] ) && $shortcode->basics['query_relation'] ){
+            $query_rel = $shortcode->basics['query_relation'] ?? 'OR';
+            self::$args['tax_query']['relation'] = $query_rel == 'AND' ? $query_rel : 'OR';
+        }
+
         if( $shortcode->req_product_type == 'product_variation' ){
 
             self::$tax_query = self::$args['tax_query'] ?? [];

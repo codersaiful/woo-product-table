@@ -129,7 +129,7 @@ foreach($terms as $term){
                         }
                         ?>
                     </select>
-                    <!-- <input name="search_n_filter[taxonomy_keywords]" data-name='taxonomy_keywords' id="wpt_taxonomy_keywords" value="<?php echo isset( $meta_search_n_filter['taxonomy_keywords'] ) ?$meta_search_n_filter['taxonomy_keywords'] : 'product_cat,product_tag'; ?>" class="wpt_fullwidth wpt_data_filed_atts ua_input" type="text" placeholder="<?php esc_attr_e( 'eg: product_cat,product_tag,color,size', 'woo-product-table' ); ?>"> -->
+                    
                     <p class="warning">
                         <b>IMPORTANT Tips:</b>
                         <span>To CHOOSE selected Taxonomy(Category,Tag), PLEASE Save & RELOAD,
@@ -185,7 +185,9 @@ foreach($terms as $term){
                         <?php
                         foreach ( $tax_object as $tax_item ) {
                             $tax_array_key = $per_keyword;
-                            echo "<option value='{$tax_item->term_id}' " . ( isset( $meta_search_n_filter[$tax_array_key] ) &&  is_array( $meta_search_n_filter[$tax_array_key] ) && in_array( $tax_item->term_id, $meta_search_n_filter[$tax_array_key] ) ? 'selected' : false ) . ">{$tax_item->name} - {$tax_item->slug} ({$tax_item->count})</option>";
+                            $selected = ( isset( $meta_search_n_filter[$tax_array_key] ) &&  is_array( $meta_search_n_filter[$tax_array_key] ) && in_array( $tax_item->term_id, $meta_search_n_filter[$tax_array_key] ) ? 'selected' : false );//
+                            // $selected = 'selected';// 
+                            echo "<option value='{$tax_item->term_id}' " . $selected . ">{$tax_item->name} - {$tax_item->slug} ({$tax_item->count})</option>";
                         }
                         ?>
                     </select>

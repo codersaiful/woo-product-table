@@ -66,15 +66,25 @@ class Enable_Column extends Base{
         }
         //If set Only Product Variation
         if( $shortcode->req_product_type == 'product_variation' ){
-            unset( $shortcode->_enable_cols['category'] );
-            unset( $shortcode->_enable_cols['tags'] );
+            /**
+             * We have remove @version 3.3.8.1 because, in category item
+             * we have taken parent product it when it variation product.
+             */
+            // unset( $shortcode->_enable_cols['category'] );
+
+            /**
+             * We have remove @version 3.3.8.1 because, in tag item
+             * we have taken parent product it when it variation product.
+             */
+            // unset( $shortcode->_enable_cols['tags'] );
             unset( $shortcode->_enable_cols['weight'] );
             unset( $shortcode->_enable_cols['length'] );
             unset( $shortcode->_enable_cols['width'] );
             unset( $shortcode->_enable_cols['height'] );
             unset( $shortcode->_enable_cols['rating'] );
-            unset( $shortcode->_enable_cols['attribute'] );
-            unset( $shortcode->_enable_cols['variations'] );
+            //removed@version 3.3.8.1
+            // unset( $shortcode->_enable_cols['attribute'] );
+            // unset( $shortcode->_enable_cols['variations'] );
         }
 
 

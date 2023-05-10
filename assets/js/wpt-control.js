@@ -160,8 +160,19 @@ jQuery(function($) {
 
         });
 
+        /**
+         * Solved topic here are:
+         * 1* paginated val
+         * 2* 
+         */
         $(document.body).on('wpt_ajax_loaded',function(){
             paginated_val = 0; 
+
+            /**
+             * set Change trigger after load filter table
+             * 
+             */
+            $('.wpt_varition_section.variations').change();
         });
 
 
@@ -313,6 +324,13 @@ jQuery(function($) {
 
             try{
                 ownFragmentPerItemsHandle( ownFragment );
+
+                /**
+                 * If any customer want to do something based on Fragment refresh,
+                 * Then u can use this.
+                 * 
+                 */
+                $(document.body).trigger('wpt_fragents_loaded',ownFragment);
             }catch(e){
                 console.log('Something went wrong on ownFragment loads.',ownFragment);
             }

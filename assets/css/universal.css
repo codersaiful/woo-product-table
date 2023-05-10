@@ -928,10 +928,10 @@ div.wpt-wrap .elementor-menu-cart__product-image img {
 }
 
 .wpt_search_box .search_box_wrapper a.search_box_reset, 
-a.search_box_reset {
+.wpt_search_box .search_box_wrapper a.search_box_reset, a.search_box_reset {
     position: absolute;
-    right: 8px;
-    top: 0;
+    right: -28px;
+    bottom: 0;
     height: 25px;
     padding: 0;
     width: 25px;
@@ -948,6 +948,7 @@ a.search_box_reset {
     border: none !important;
     text-decoration: none !important;
     display: none;
+    min-width: 0;
 }
 a.search_box_reset:focus,
 .wpt_search_box .search_box_wrapper a.search_box_reset:hover, a.search_box_reset:hover {

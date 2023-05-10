@@ -915,7 +915,7 @@ jQuery(function($) {
                 setValueToTargetTD_IfAvailable('stock', targetAttributeObject.availability_html);
                 
                 //Set Total Price display_price
-                var targetQty = $('#table_id_' + temp_number + ' #product_id_' + product_id + ' wpt_quantity .quantity input.input-text.qty.text').val();
+                var targetQty = $('#table_id_' + temp_number + ' #product_id_' + product_id + ' input.input-text.qty.text').val();
                 if(!targetQty){
                     targetQty = 1;
                 }
@@ -1637,13 +1637,44 @@ jQuery(function($) {
             });
             var page_number = $('#table_id_' + table_id + ' table').attr('data-page_number');
             page_number = parseInt( page_number ) - 1;
-            link += "paged=" + page_number + "&";
-            
+            link += "paged=" + page_number;
+            $('a.search_box_reset').show();
             link += extra;
             //window.location.href = link;
             window.history.pushState('data', null, link.replace(/(^&)|(&$)/g, ""));
         }
         
+        // var extra_link_tax_cf = "";
+        // if( !$.isEmptyObject(texonomies)){
+        //     extra_link_tax_cf = "tax=" + JSON.stringify(targetTableArgs.args.tax_query)
+        // }
+        // if( !$.isEmptyObject(custom_field)){
+        //     extra_link_tax_cf = "meta=" + JSON.stringify(targetTableArgs.args.meta_query)
+        // }
+        
+        //Set a Attr value in table tag, If already queried
+        // $('#table_id_' + temp_number + ' table.wpt_product_table').attr('data-queried','true');
+        /**
+         * Generate here where query
+         */
+        // generate_url_by_search_query(temp_number, extra_link_tax_cf);
+
+        $(document.body).on('wpt_ajax_load_data',function(Event,data){
+            var table_id = data.table_id;
+
+            var page_number = data.others.page_number;
+            var extra_link_tax_cf = "";
+            if( typeof data.args.tax_query === 'object' && !$.isEmptyObject(data.args.tax_query)){
+                extra_link_tax_cf = "&tax=" + JSON.stringify(data.args.tax_query)
+            }
+            if( typeof data.args.meta_query === 'object'  && !$.isEmptyObject(data.args.meta_query)){
+                extra_link_tax_cf = "&meta=" + JSON.stringify(data.args.meta_query)
+            }
+            generate_url_by_search_query(table_id, extra_link_tax_cf);
+
+            
+        });
+
         $(document.body).on('click','h1.entry-title-BACKUP',function(){
             var temp_number = '19541';
             var newjsonData = $('#table_id_' + temp_number + ' mypagi').attr('myjson');

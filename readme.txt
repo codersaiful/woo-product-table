@@ -1,11 +1,11 @@
-=== Product Table for WooCommerce by CodeAstrology (WooCommerce Product Variation Table, Advance Search Filter, Ajax Pagination, WooCommerce Shop table layout) ===
+=== Product Table for WooCommerce by CodeAstrology (wooproducttable.com) ===
 Contributors: codersaiful,codeastrology,ultraaddons,unikforce,rafiul17,fazlebari,phpcoderhannan,fatimakhatungit
 Donate link: https://donate.stripe.com/4gw2bB2Pzdjd8mYfYZ
-Tags: wc product table, wooproducttable, woo product table,woocommerce product table, product table, wc table, quick order table, wholesale table, restaurants table
-Requires at least: 5.0.0
-Tested up to: 6.1.1
-Stable tag: 3.3.7
-Requires PHP: 7.4
+Tags: wc product table, wooproducttable, woo product table,woocommerce product table, product table, wc table, quick order table, wholesale table, restaurants table,woo-product-table
+Requires at least: 4.0.0
+Tested up to: 6.2
+Stable tag: 3.3.9
+Requires PHP: 5.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -18,6 +18,10 @@ Create a table for restaurant order systems, Online music sell, product Wholesal
 **Have a looks in short for WooCommerce Product Table**
 
 https://www.youtube.com/watch?v=jZ9bx4VqB08
+
+**How to Create a WooCommerce Product Table**
+
+https://www.youtube.com/watch?v=yPjFmCHn36Y
 
 **Shortcode Example**
 
@@ -286,8 +290,16 @@ You can easily show specific category products. While creating new table click o
 
 == Changelog ==
 
+= 3.3.9 =
+* Code Optimized
+
 = 3.3.8 =
+* Fixed the issue: 'Deprecated: Required parameter $parent_keyword follows optional parameter $items'
+* `wpt_fragents_loaded` js trigger added when fragment will be load.
+* query_by_url issue has been solved.
+* variation,tag,category,taxonomy column is available for variation column. (Some Pro Feature)
 * Fixed: Table Head sorting issue on variable product - has been solved
+* Fixed: Total column issue on Variable product has been solved.
 * Code Optimized
 
 = 3.3.7 =
