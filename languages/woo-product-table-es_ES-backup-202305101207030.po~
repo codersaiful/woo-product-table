@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Plugins - Product Table for WooCommerce by CodeAstrology (WooCommerce Product Variation Table, Advance Search Filter, Ajax Pagination, WooCommerce Shop table layout) - Development (trunk) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-05-10 12:07+0000\n"
+"PO-Revision-Date: 2023-01-12 06:02+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-12 05:07+0000\n"
 "Last-Translator: \n"
-"X-Loco-Version: 2.6.3; wp-6.2"
+"X-Loco-Version: 2.6.3; wp-6.1.1"
 
 #. 1: Plugin name 2: PHP 3: Required PHP version
 #: woo-product-table.php:530
@@ -43,8 +43,8 @@ msgstr ""
 #, php-format
 msgid "%d item"
 msgid_plural "%d items"
-msgstr[0] "%d pieza"
-msgstr[1] "%d piezas"
+msgstr[0] "%d item"
+msgstr[1] "%d items"
 
 #: admin/action-hook.php:508
 #, php-format
