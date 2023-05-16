@@ -62,7 +62,7 @@ if( ! class_exists( 'WPT_Required' ) ){
                  */
 
                 $small_notc = new Notice('WP20-notice');
-                $small_notc->set_message(sprintf( __( "Are you enjoying <b>%s</b>? <b>COUPON CODE: <i>WP20</i> - up to 60%% OFF</b> %s.", 'woo-product-table' ),"<a href='https://wordpress.org/plugins/woo-product-table/' target='_blank'>Woo Product Table (Product Table for Woocommerce)</a>", "<a href='https://codeastrology.com/coupons/?campaign=WP20&utm_source=Default_Offer_LINK' target='_blank'>Click Here</a>" ));
+                $small_notc->set_message(sprintf( __( "Are you enjoying <b>%s</b>? <b>COUPON CODE: <i>WP20</i> - up to 60%% OFF</b> %s.", 'woo-product-table' ),"<a href='https://wordpress.org/plugins/woo-product-table/' target='_blank'>Woo Product Table (Product Table for Woocommerce)</a>", "<a href='https://codeastrology.com/coupons/?campaign=WP20&ref=1&utm_source=Default_Offer_LINK' target='_blank'>Click Here</a>" ));
                 $small_notc->set_diff_limit(10);
                 if( method_exists($small_notc, 'set_location') ){
                     $small_notc->set_location('wpt_premium_image_top'); //wpt_premium_image_bottom
@@ -71,7 +71,7 @@ if( ! class_exists( 'WPT_Required' ) ){
                 
 
 
-                $target = 'https://codeastrology.com/coupons/?campaign=WP20&utm_source=Default_Offer_LINK';
+                $target = 'https://codeastrology.com/coupons/?campaign=WP20&ref=1&utm_source=Default_Offer_LINK';
                 $my_message = '<b><i>COUPON CODE: WP20 - up to 60% OFF</i></b> A coupon code for you for <b>Woo Product Table Pro(Product Table for WooCommerce - Premium version)</b> Plugin?';
                 $offerNc = new Notice('WP20-offer');
                 $offerNc->set_title( 'SPECIAL OFFER - WOO PRODUCT TABLE PRO' )
