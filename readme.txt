@@ -291,6 +291,7 @@ You can easily show specific category products. While creating new table click o
 == Changelog ==
 
 = 3.3.9 =
+* Bug Fixed 
 * Code Optimized
 
 = 3.3.8 =
