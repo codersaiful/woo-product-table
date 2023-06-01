@@ -151,7 +151,7 @@ class Row extends Table_Base{
         $this->wp_force = $shortcode->conditions['wp_force'] ?? false;
 
 
-        // $this->is_column_label = $shortcode->is_column_label;
+        $this->is_column_label = $shortcode->is_column_label;
         
         $this->items_directory = $shortcode->items_directory;
 
