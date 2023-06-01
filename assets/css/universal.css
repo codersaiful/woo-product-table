@@ -1800,8 +1800,13 @@ td.wpt-replace-td-in-tr.wpt-mobile-label-show>div:before {
 td.wpt-replace-td-in-tr.wpt-mobile-label-show>div {
     margin-left: 86px !important;
     position: relative !important;
+    min-height: 19px;
 }
-.item_inside_cell.wpt_check.autoresponsive-label-show{
+.wpt_device_mobile td.wpt-replace-td-in-tr.wpt-mobile-label-show>div.wpt_check{
+    min-height: 0;
+    height: 0;
+}
+.wpt_device_mobile .item_inside_cell.wpt_check.autoresponsive-label-show{
     position: absolute;
     top: -45px;
     left: 220px;
