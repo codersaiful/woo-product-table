@@ -251,7 +251,7 @@ WPT_Product_Table::$default = $default;
  */
 class WPT_Product_Table{
     
-    
+    public $text_domain_applied = false;
     /**
      * To set Default Value for Woo Product Table, So that, we can set Default Value in Plugin Start and 
      * can get Any were
@@ -509,7 +509,10 @@ class WPT_Product_Table{
    }
         
     public function load_textdomain() {
+        if( $this->text_domain_applied ) return;
+        
         load_plugin_textdomain( 'woo-product-table', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' ); 
+        $this->text_domain_applied = true;
     }
         
     /**
