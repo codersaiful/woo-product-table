@@ -929,20 +929,24 @@ jQuery(function($) {
                 var priceFormat = WPT_DATA.priceFormat;
                 
                 var newPrice;
-                switch(priceFormat){
+                switch (priceFormat) {
                     case 'left': // left
-                        newPrice = targetQtyCurrency + totalPrice.replace(".",targetPriceDecimalSeparator);
+                        //newPrice = targetCurrency + totalPrice.replace(".",targetPriceDecimalSeparator);
+                        newPrice = targetCurrency+ (totalPrice + '').replace(/\B(?=(?:\d{3})+\b)/g, targetPriceThousandlSeparator);
                         break;
                     case 'right': // right
-                        newPrice = totalPrice.replace(".",targetPriceDecimalSeparator) + targetQtyCurrency;
+                        //newPrice = totalPrice.replace(".",targetPriceDecimalSeparator) + targetCurrency;
+                        newPrice = (totalPrice + '').replace(/\B(?=(?:\d{3})+\b)/g, targetPriceThousandlSeparator) + targetCurrency;
                         break;
                     case 'left-space': // left with space
-                        newPrice = targetQtyCurrency + ' ' + totalPrice.replace(".",targetPriceDecimalSeparator);
+                        //newPrice = targetCurrency + ' ' + totalPrice.replace(".",targetPriceDecimalSeparator);
+                        newPrice = targetCurrency + ' ' +  (totalPrice + '').replace(/\B(?=(?:\d{3})+\b)/g, targetPriceThousandlSeparator);
                         break;
                     case 'right-space': // right with space
-                        newPrice = totalPrice.replace(".",targetPriceDecimalSeparator) + ' ' + targetQtyCurrency;
+                        //newPrice = totalPrice.replace(".",targetPriceDecimalSeparator) + ' ' + targetCurrency;
+                        newPrice =  (totalPrice + '').replace(/\B(?=(?:\d{3})+\b)/g, targetPriceThousandlSeparator) + ' ' + targetCurrency;
                         break;
-                }
+                    }
 
                 var totalPriceHtml = '<strong>' + newPrice + '</strong>';
 
