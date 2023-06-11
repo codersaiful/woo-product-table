@@ -919,7 +919,7 @@ jQuery(function($) {
                 if(!targetQty){
                     targetQty = 1;
                 }
-                var targetQtyCurrency = targetTD('total_item').data('currency');
+                var targetCurrency = targetTD('total_item').data('currency');
                 var targetPriceDecimalSeparator = targetTD('total_item').data('price_decimal_separator');
                 var targetPriceThousandlSeparator = targetTD('total_item').data('thousand_separator');
                 var targetNumbersPoint = targetTD('total_item').data('number_of_decimal');
@@ -929,6 +929,7 @@ jQuery(function($) {
                 var priceFormat = WPT_DATA.priceFormat;
                 
                 var newPrice;
+
                 switch (priceFormat) {
                     case 'left': // left
                         //newPrice = targetCurrency + totalPrice.replace(".",targetPriceDecimalSeparator);
@@ -946,7 +947,7 @@ jQuery(function($) {
                         //newPrice = totalPrice.replace(".",targetPriceDecimalSeparator) + ' ' + targetCurrency;
                         newPrice =  (totalPrice + '').replace(/\B(?=(?:\d{3})+\b)/g, targetPriceThousandlSeparator) + ' ' + targetCurrency;
                         break;
-                    }
+                }
 
                 var totalPriceHtml = '<strong>' + newPrice + '</strong>';
 
@@ -1799,7 +1800,7 @@ jQuery(function($) {
  
         $('body').on('change', '.wpt_row input.input-text.qty.text', inputBoxChangeHandle);
         function inputBoxChangeHandle() {
-            console.log(2222);
+            // console.log(2222);
             var temp_number = $(this).parents('tr.wpt_row').data('temp_number');
             var Qty_Val = $(this).val();
             var product_id = $(this).parents('tr').data('product_id');
