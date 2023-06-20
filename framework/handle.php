@@ -67,7 +67,7 @@ if( ! class_exists( 'WPT_Required' ) ){
                 if( method_exists($small_notc, 'set_location') ){
                     $small_notc->set_location('wpt_premium_image_top'); //wpt_premium_image_bottom
                 }
-                if($temp_numb == 3) $small_notc->show();
+                // if($temp_numb == 3) $small_notc->show();
                 
 
 
@@ -88,7 +88,7 @@ if( ! class_exists( 'WPT_Required' ) ){
                 if( method_exists($offerNc, 'set_location') ){
                     $offerNc->set_location('wpt_offer_here'); //wpt_premium_image_bottom
                 }
-                if($temp_numb == 6) $offerNc->show();
+                // if($temp_numb == 6) $offerNc->show();
                 
                 
 
