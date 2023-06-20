@@ -293,6 +293,10 @@ You can easily show specific category products. While creating new table click o
 
 == Changelog ==
 
+= 3.4.1 =
+* Notice removed 
+* Code Optimized
+
 = 3.4.0 =
 * Fixed: wpml issue fixed when not select any taxonomy on query. 
 * Bug Fixed 

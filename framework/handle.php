@@ -51,7 +51,7 @@ if( ! class_exists( 'WPT_Required' ) ){
         public static function display_notice()
         {
                 if( defined( 'WPT_PRO_DEV_VERSION' ) ) return;
-
+                return;
                 $temp_numb = rand(2,7);
             // var_dump($temp_numb);
                 /**
