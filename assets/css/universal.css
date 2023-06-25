@@ -1684,7 +1684,7 @@ td.td_or_cell .item_inside_cell.wpt_description {
 }
 td.wpt-replace-td-in-tr div.td_or_cell.wpt_check {
     position: absolute;
-    top: 10px;
+    /* top: 10px; */
     right: 10px;
     background: transparent;
     width: 22px;
@@ -1806,11 +1806,18 @@ td.wpt-replace-td-in-tr.wpt-mobile-label-show>div {
     min-height: 0;
     height: 0;
 }
-.wpt_device_mobile .item_inside_cell.wpt_check.autoresponsive-label-show{
+/* .wpt_device_mobile .item_inside_cell.wpt_check.autoresponsive-label-show{
     position: absolute;
     top: -45px;
     left: 220px;
+} */
+
+td.wpt-replace-td-in-tr.wpt-mobile-label-show>div.wpt_check{
+    position: absolute;
+    top: -45px;
+    left: 220px;  
 }
+
 body[class^="wpt-"]:before, body[class*=" wpt-"]:before {
     display: none;
 }
