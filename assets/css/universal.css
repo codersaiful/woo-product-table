@@ -1813,7 +1813,6 @@ td.wpt-replace-td-in-tr.wpt-mobile-label-show>div {
 } */
 
 td.wpt-replace-td-in-tr.wpt-mobile-label-show>div.wpt_check{
-    position: absolute;
     top: -45px;
     left: 220px;  
 }
