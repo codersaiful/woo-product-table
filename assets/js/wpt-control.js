@@ -94,10 +94,11 @@ jQuery(function($) {
                     TableTagWrap.removeClass('wpt-ajax-loading');
                     SearchWrap.removeClass('wpt-ajax-loading');
                 },
-                error:function(){
+                error:function(error){
                     TableTagWrap.removeClass('wpt-ajax-loading');
                     SearchWrap.removeClass('wpt-ajax-loading');
                     console.log("Error on: ajaxTableLoad. Error on Ajax load!");
+                    console.log(error);
                 }
             });
         };
