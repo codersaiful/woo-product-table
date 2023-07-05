@@ -1802,20 +1802,7 @@ td.wpt-replace-td-in-tr.wpt-mobile-label-show>div {
     position: relative !important;
     min-height: 19px;
 }
-/* .wpt_device_mobile td.wpt-replace-td-in-tr.wpt-mobile-label-show>div.wpt_check{
-    min-height: 0;
-    height: 0;
-} */
-/* .wpt_device_mobile .item_inside_cell.wpt_check.autoresponsive-label-show{
-    position: absolute;
-    top: -45px;
-    left: 220px;
-} */
 
-/* td.wpt-replace-td-in-tr.wpt-mobile-label-show>div.wpt_check{
-    top: -45px;
-    left: 220px;  
-} */
 
 td.wpt-replace-td-in-tr.wpt-mobile-label-show>.td_or_cell.no-inner.wpt_check.type_default.type_name_Default {
     right: 10px;
