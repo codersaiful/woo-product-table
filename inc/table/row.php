@@ -16,6 +16,19 @@ class Row extends Table_Base{
     public $product_type;
     public $product_sku;
     public $row_attr = null;
+
+    /**
+     * Td colum keyword pass
+     * when use some following filter
+     * wpt_column_top
+     * wpt_column_bottom
+     * 
+     * Why I have used this property
+     * actually we created new action hook like our based/default action hook
+     *
+     * @var string
+     */
+    public $td_keyword;
     public $_device;
 
     /**
@@ -236,7 +249,15 @@ class Row extends Table_Base{
         echo $this->generated_td_start;
 
         foreach( $this->_enable_cols as $keyword => $col ){
-            
+
+            /**
+             * Additional data added
+             * specially for each td
+             * where we will keep td keyword data inside row object
+             * 
+             * @since 3.4.1.0
+             */
+            $this->td_keyword = $keyword;
             
             $settings = $this->column_settings[$keyword] ?? false;
             $items = $settings['items'] ?? false;
@@ -320,7 +341,9 @@ class Row extends Table_Base{
              * This wpto_ hook will be removed in future update
              */
             do_action( 'wpto_column_top', $keyword, $this->table_id, $settings, $this->column_settings, $product );
-            do_action( 'wpt_column_top', $keyword, $this );
+            
+            //I have removed prev style, where was $keyword as first parametter.
+            do_action( 'wpt_column_top', $this );
             
             $tag = ! empty( $settings['tag'] ) ? $settings['tag'] : 'div';
             $tag_class = $settings['tag_class'] ?? '';
@@ -354,7 +377,9 @@ class Row extends Table_Base{
              * This wpto_ hook will be removed in future update
              */
             do_action( 'wpto_column_bottom', $keyword, $this->table_id, $settings, $this->column_settings, $product );
-            do_action( 'wpt_column_bottom', $keyword, $this );
+            //I have removed prev style, where was $keyword as first parametter.
+            //Old code: do_action( 'wpt_column_bottom', $keyword, $this );
+            do_action( 'wpt_column_bottom', $this );
             ?>
             </<?php echo $this->td_tag; ?>><!--EndTd-->
             <?php
