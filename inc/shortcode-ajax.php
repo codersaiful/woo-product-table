@@ -3,6 +3,7 @@ namespace WOO_PRODUCT_TABLE\Inc;
 
 use WC_AJAX;
 use WOO_PRODUCT_TABLE\Inc\Shortcode;
+use WOO_PRODUCT_TABLE\Inc\Handle\Args;
 use WOO_PRODUCT_TABLE\Inc\Handle\Element;
 use WOO_PRODUCT_TABLE\Inc\Handle\Pagination;
 
@@ -26,7 +27,7 @@ class Shortcode_Ajax extends Shortcode{
         $args = $this->arrayFilter( $args );
         $temp_args = $args;
         unset($temp_args['base_link']);
-        
+        $this->args_ajax_called = true;
         //It's need to the beginning of this process.
         $this->assing_property($atts); 
 
@@ -168,7 +169,11 @@ class Shortcode_Ajax extends Shortcode{
             $this->args['wpt_query_type'] = 'search';
             unset( $this->args['suppress_filters'] );
         }
-
+        $tax_query = $this->args['tax_query'];
+        // var_dump($tax_query);
+        Args::setOverrideArgs($this->args);
+        Args::manage($this);
+        // var_dump($this->args);
         /**
          * set_product_loop() is importants obviously
          * for ajax also

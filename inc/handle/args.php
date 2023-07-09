@@ -7,10 +7,18 @@ class Args{
 
     public static $shortcode;
     public static $args;
+    public static $overrideArgs = false;
     public static $tax_query;
     public static $tax_query_stats;
     public static $post_include;
     public static $table_id;
+
+    public static function setOverrideArgs($overArgs = [])
+    {
+        if( empty( $overArgs ) ) return;
+        if( ! is_array( $overArgs ) ) return;
+        self::$overrideArgs = $overArgs;
+    }
 
     /**
      * Args Management Method, args related any type customizaion/ handling will happen here
@@ -143,7 +151,17 @@ class Args{
          * that's why, I have used new func array_merge_recursive() so that exclude and eclude can work both at a time
          * function change at @version 3.3.8.0
          */
-        self::$args = array_merge_recursive( $args, $shortcode->basics_args );
+        if( ! $shortcode->args_ajax_called ){
+            self::$args = array_merge_recursive( $args, $shortcode->basics_args );
+        }else{
+            self::$args = $args;
+        }
+        // var_dump(self::$args,self::$overrideArgs);
+        if( $shortcode->args_ajax_called && is_array( self::$overrideArgs )){
+            unset(self::$args['post_parent__in']);
+            self::$args = array_merge( self::$args, self::$overrideArgs );
+        }
+        // var_dump(self::$overrideArgs);
 
         if( ! empty( self::$args['tax_query'] ) && $shortcode->basics['query_relation'] ){
             $query_rel = $shortcode->basics['query_relation'] ?? 'OR';
@@ -151,8 +169,9 @@ class Args{
         }
 
         if( $shortcode->req_product_type == 'product_variation' ){
-
+            unset(self::$args['post_parent__in']);
             self::$tax_query = self::$args['tax_query'] ?? [];
+            // var_dump(self::$tax_query);
             self::$tax_query_stats =  is_array( self::$tax_query ) && ! empty( self::$tax_query );
             self::$post_include = $shortcode->post_include;
 
@@ -182,18 +201,19 @@ class Args{
      */
     public static function args_for_variable(){
 
-        self::$args['post_parent__in'] = [];
+        // self::$args['post_parent__in'] = [];
 
-        if( self::$tax_query_stats ){
+        // if( self::$tax_query_stats ){
+            // var_dump(33333333333);
             self::$args['post_parent__in'] = self::get_parent_ids_by_term();
 
-        }
+        // }
 
-        if( ! empty( self::$post_include ) ){
-            $post_parent__in = self::$args['post_parent__in'];
-            $post_parent__in = array_merge( $post_parent__in, self::$post_include );
-            self::$args['post_parent__in'] = array_unique( $post_parent__in );
-        }
+        // if( ! empty( self::$post_include ) ){
+        //     $post_parent__in = self::$args['post_parent__in'];
+        //     $post_parent__in = array_merge( $post_parent__in, self::$post_include );
+        //     self::$args['post_parent__in'] = array_unique( $post_parent__in );
+        // }
 
         if( ! empty( self::$args['post_parent__in'] ) ){
             unset(self::$args['post__in']);
@@ -213,10 +233,11 @@ class Args{
         $type = 'term_id';
         $prepare = array();
         $results = $terms = [];
+        // var_dump(self::$tax_query);
         foreach( self::$tax_query as $tax_details){
             if( !is_array($tax_details) ) continue;
-
-            $terms = is_array( $tax_details['terms'] ) ? $tax_details['terms'] : array();
+            $terms_terms = $tax_details['terms'] ?? 'saiful';
+            $terms = is_array( $tax_details['terms'] ) ? $tax_details['terms'] : array($terms_terms);
             $taxonomy = $tax_details['taxonomy'];
             foreach($terms as $term){
                 $s_result = $wpdb->get_col( "

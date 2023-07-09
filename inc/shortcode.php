@@ -902,7 +902,7 @@ class Shortcode extends Shortcode_Base{
         // if( ! $this->args_organized ){
             
         // }
-        
+        // var_dump($this->args);
         return new \WP_Query( $this->args );
     }
 
