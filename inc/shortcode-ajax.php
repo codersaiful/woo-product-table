@@ -28,9 +28,11 @@ class Shortcode_Ajax extends Shortcode{
         $temp_args = $args;
         unset($temp_args['base_link']);
         $this->args_ajax_called = true;
+        $this->reset_search_clicked = ! empty( $others['reset_search_clicked'] ) && $others['reset_search_clicked'] == 'yes' ? true : false;//reset_search_clicked
+
         //It's need to the beginning of this process.
         $this->assing_property($atts); 
-
+        
 
         /**
          * Actually if enable "Order By field" from 
@@ -169,11 +171,13 @@ class Shortcode_Ajax extends Shortcode{
             $this->args['wpt_query_type'] = 'search';
             unset( $this->args['suppress_filters'] );
         }
-        $tax_query = $this->args['tax_query'];
-        // var_dump($tax_query);
-        Args::setOverrideArgs($this->args);
-        Args::manage($this);
-        // var_dump($this->args);
+        
+        if( ! $this->reset_search_clicked && $this->args['post_type'] == 'product_variation' ){
+            Args::setOverrideArgs($this->args);
+            Args::manage($this);
+        }
+        
+
         /**
          * set_product_loop() is importants obviously
          * for ajax also
