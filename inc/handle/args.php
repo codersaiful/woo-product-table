@@ -277,7 +277,7 @@ class Args{
         }
 
         if( ! empty( self::$post_include ) ){
-            $post_parent__in = self::$args['post_parent__in'];
+            $post_parent__in = self::$args['post_parent__in'] ?? [];
             $post_parent__in = array_merge( $post_parent__in, self::$post_include );
             self::$args['post_parent__in'] = array_unique( $post_parent__in );
         }
