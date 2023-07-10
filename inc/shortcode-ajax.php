@@ -28,6 +28,15 @@ class Shortcode_Ajax extends Shortcode{
         $temp_args = $args;
         unset($temp_args['base_link']);
         $this->args_ajax_called = true;
+
+        /**
+         * we need to track reset button click of search box.
+         * 
+         * That's why, we have create new event from javascript
+         * 
+         * @author Saiful Islam <codersaiful@gmail.com>
+         * @since 3.4.1.0
+         */
         $this->reset_search_clicked = ! empty( $others['reset_search_clicked'] ) && $others['reset_search_clicked'] == 'yes' ? true : false;//reset_search_clicked
 
         //It's need to the beginning of this process.
@@ -173,6 +182,15 @@ class Shortcode_Ajax extends Shortcode{
         }
         
         if( ! $this->reset_search_clicked && $this->args['post_type'] == 'product_variation' ){
+            /**
+             * When user will use only_variation
+             * mean $this->args['post_type'] == 'product_variation'
+             * We will re-generate Args::manage() based on new search
+             * 
+             * @author Saiful Islam <codersaiful@gmail.com>
+             * @since 3.4.1.0
+             */
+            
             Args::setOverrideArgs($this->args);
             Args::manage($this);
         }

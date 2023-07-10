@@ -4,6 +4,13 @@ jQuery(function($) {
         var 
         own_fragment_load = 0,
         paginated_val = 0,
+        
+        /**
+         * we need track search box's reset_button click
+         * used it on shortcode-ajax.php file for ajax
+         * @since 3.4.1.0
+         * here we changed on reset button click otherewise reset again after complete ajax complete always
+         */
         reset_search_clicked = 'no',
         wc_fragment_load = 0,
         fragment_handle_load = 0,
