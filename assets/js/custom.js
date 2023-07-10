@@ -752,6 +752,7 @@ jQuery(function($) {
             var variations_data = $(this).closest(target_class).data('product_variations');
             var messageSelector = $(this).children('div.wpt_message');
             var addToCartSelector = $('#table_id_' + temp_number + ' #product_id_' + product_id + ' a.wpt_variation_product.single_add_to_cart_button');
+            
             var rowSelector = $('#table_id_' + temp_number + ' #product_id_' + product_id);
             var addToQuoteSelector = $('.' + quoted_target);
             
@@ -878,6 +879,8 @@ jQuery(function($) {
                 //Set variation Array to addToCart Button
                 addToCartSelector.attr('data-variation', JSON.stringify(current)); //current_object //targetAttributeObject.attributes //It was before 2.8 now we will use 'current' object whic will come based on current_selection of variations
                 addToCartSelector.attr('data-variation_id', targetAttributeObject.variation_id);
+                
+
                 rowSelector.attr('data-variation', JSON.stringify(current)); //current_object //targetAttributeObject.attributes //It was before 2.8 now we will use 'current' object whic will come based on current_selection of variations
                 rowSelector.attr('data-variation_id', targetAttributeObject.variation_id);
                 
@@ -999,6 +1002,8 @@ jQuery(function($) {
                 
                 addToCartSelector.attr('data-variation', false);
                 addToCartSelector.attr('data-variation_id', false);
+
+                //New add variation data at row
                 
                 rowSelector.attr('data-variation', false);
                 rowSelector.attr('data-variation_id', false);
@@ -1128,6 +1133,7 @@ jQuery(function($) {
             var itemAmount = 0;
             
             $('#table_id_' + temp_number + ' input.enabled.wpt_tabel_checkbox.wpt_td_checkbox:checked').each(function() {
+                var thisRow = $(this).closest('tr.wpt-row');
                 var product_id = $(this).data('product_id');
                 var thisButton = $('tr.wpt_row_product_id_' + product_id + ' wpt_action a.button.wpt_woo_add_cart_button');
                 thisButton.removeClass('added');
@@ -1143,20 +1149,15 @@ jQuery(function($) {
                 
                 var currentAddToCartSelector = $('#table_id_' + temp_number + ' #product_id_' + product_id + ' .wpt_action a.wpt_woo_add_cart_button');
                 var currentCustomMessage = $('#table_id_' + temp_number + ' #product_id_' + product_id + ' .wpt_message .message').val();
-                var currentVariaionId = currentAddToCartSelector.attr('data-variation_id');//currentAddToCartSelector.data('variation_id');
-                //var currentVariaion = currentAddToCartSelector.data('variation');
+                var currentVariaionId = thisRow.attr('data-variation_id');//currentAddToCartSelector.data('variation_id');
+
                 var currentVariaion;
                 try{
-                        currentVariaion = $.parseJSON(currentAddToCartSelector.attr('data-variation'));
+                        currentVariaion = $.parseJSON(thisRow.attr('data-variation'));
                 }catch(e){
                         //Get error message
                 }
 
-                /*
-                var currentVariaionId = currentAddToCartSelector.attr('data-variation_id');
-                
-                var currentVariaion = JSON.parse(currentAddToCartSelector.attr('data-variation'));
-                 */
 
                 var currentQantity = $('#table_id_' + temp_number + ' table#wpt_table .product_id_' + product_id ).attr('data-quantity');
                 currentQantity = parseFloat(currentQantity);
