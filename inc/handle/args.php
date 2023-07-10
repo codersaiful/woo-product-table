@@ -7,11 +7,33 @@ class Args{
 
     public static $shortcode;
     public static $args;
+
+    /**
+     * I made if specially for Advance Search
+     * actually where searched something specially for only_variation (right now)
+     * we need to rejoin search query and need to set $args[tax_query]
+     * * reset_search_clicked
+     *
+     * @var boolean
+     */
     public static $overrideArgs = false;
     public static $tax_query;
     public static $tax_query_stats;
     public static $post_include;
     public static $table_id;
+
+    /**
+     * I made if specially for Advance Search
+     * actually where searched something specially for only_variation (right now)
+     * we need to rejoin search query and need to set $args[tax_query]
+     * 
+     * By default, it will always true. because at the first time, we accept it
+     * reset situation
+     * 
+     * * reset_search_clicked
+     *
+     * @var boolean
+     */
     public static $if_reset = true;
 
     /**
@@ -19,6 +41,8 @@ class Args{
      * actually where searched something specially for only_variation (right now)
      * we need to rejoin search query and need to set $args[tax_query]
      * to that Args::manage() can agin generate parent_product_ids
+     * 
+     * * reset_search_clicked
      * 
      * *****************
      * USED:
@@ -56,10 +80,18 @@ class Args{
      */
     public static function manage( Shortcode $shortcode ){
         
+        /**
+         * update self::$if_reset based on $shortcode->reset_search_clicked
+         * after click ajax action.
+         * * reset_search_clicked has set at inc/shortcode-ajax.php file
+         * 
+         * @since 3.4.1.0 
+         * @author Saiful Islam <codersaiful@gmail.com>
+         */
         if( isset($shortcode->reset_search_clicked) ){
             self::$if_reset = $shortcode->reset_search_clicked;
         }
-        // self::$if_reset = ;
+        
         $shortcode->post_include = $shortcode->basics['post_include'] ?? [];
         $shortcode->post_exclude = $shortcode->basics['post_exclude'] ?? [];
         $shortcode->cat_explude = $shortcode->basics['cat_explude'] ?? [];
