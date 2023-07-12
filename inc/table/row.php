@@ -12,6 +12,7 @@ class Row extends Table_Base{
     public $posts_per_page;
     
     public $product_id;
+    public $product_title;
     public $product_parent_id;
     public $product_type;
     public $product_sku;
@@ -109,10 +110,12 @@ class Row extends Table_Base{
         $this->table_atts = $shortcode->atts;
         $this->table_type = $shortcode->table_type;
         $this->product_id = $product->get_id();
+        
         $this->product_type = $product->get_type();
         $this->product_parent_id = $product->get_parent_id();//$parent_id = $product->get_parent_id();
         $this->individual = $product->is_sold_individually() ? "individually-sold" : "not-individually-sold";
         $this->product_data = $product->get_data();
+        $this->product_title = $this->product_data['name'] ?? '';
         $this->filter = $shortcode->filter;
 
         if($shortcode->generated_row){
@@ -232,7 +235,7 @@ class Row extends Table_Base{
         ?>
         <tr
         class="<?php echo esc_attr( $this->tr_class ); ?>"
-        
+        data-title="<?php echo esc_attr( $this->product_title ); ?>"
         id="product_id_<?php echo esc_attr( $this->product_id ); ?>"
         data-product_id="<?php echo esc_attr( $this->product_id ); ?>"
         data-temp_number="<?php echo esc_attr( $this->table_id ); ?>"
