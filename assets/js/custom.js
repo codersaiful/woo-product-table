@@ -752,6 +752,7 @@ jQuery(function($) {
             var variations_data = $(this).closest(target_class).data('product_variations');
             var messageSelector = $(this).children('div.wpt_message');
             var addToCartSelector = $('#table_id_' + temp_number + ' #product_id_' + product_id + ' a.wpt_variation_product.single_add_to_cart_button');
+            
             var rowSelector = $('#table_id_' + temp_number + ' #product_id_' + product_id);
             var addToQuoteSelector = $('.' + quoted_target);
             
@@ -858,6 +859,12 @@ jQuery(function($) {
                 //e.getMessage();
             }
             
+            var price_markup_backup = targetTD('price').attr('data-price_markup');
+            if( ! price_markup_backup ){
+                var targetPriceHTML = targetTD('price').find('span').prop('innerHTML');
+                targetTD('price').attr('data-price_markup', targetPriceHTML);
+            }
+
             var wptMessageText = false;
             if (targetVariationIndex !== 'not_found') {
                 var targetAttributeObject = variations_data[targetVariationIndex];
@@ -878,6 +885,8 @@ jQuery(function($) {
                 //Set variation Array to addToCart Button
                 addToCartSelector.attr('data-variation', JSON.stringify(current)); //current_object //targetAttributeObject.attributes //It was before 2.8 now we will use 'current' object whic will come based on current_selection of variations
                 addToCartSelector.attr('data-variation_id', targetAttributeObject.variation_id);
+                
+
                 rowSelector.attr('data-variation', JSON.stringify(current)); //current_object //targetAttributeObject.attributes //It was before 2.8 now we will use 'current' object whic will come based on current_selection of variations
                 rowSelector.attr('data-variation_id', targetAttributeObject.variation_id);
                 
@@ -901,7 +910,7 @@ jQuery(function($) {
                 wptMessageText = targetAttributeObject.availability_html;
                 //Setup Price Live
                 setValueToTargetTD_IfAvailable('price', targetAttributeObject.price_html);
-
+                
                 //Set Image Live for Thumbs
                 targetThumbs.attr('src', targetAttributeObject.image.gallery_thumbnail_src);
                 if(targetAttributeObject.image.srcset && 'false' !== targetAttributeObject.image.srcset) {
@@ -919,7 +928,7 @@ jQuery(function($) {
                 if(!targetQty){
                     targetQty = 1;
                 }
-                var targetQtyCurrency = targetTD('total_item').data('currency');
+                var targetCurrency = targetTD('total_item').data('currency');
                 var targetPriceDecimalSeparator = targetTD('total_item').data('price_decimal_separator');
                 var targetPriceThousandlSeparator = targetTD('total_item').data('thousand_separator');
                 var targetNumbersPoint = targetTD('total_item').data('number_of_decimal');
@@ -929,18 +938,23 @@ jQuery(function($) {
                 var priceFormat = WPT_DATA.priceFormat;
                 
                 var newPrice;
-                switch(priceFormat){
+
+                switch (priceFormat) {
                     case 'left': // left
-                        newPrice = targetQtyCurrency + totalPrice.replace(".",targetPriceDecimalSeparator);
+                        //newPrice = targetCurrency + totalPrice.replace(".",targetPriceDecimalSeparator);
+                        newPrice = targetCurrency+ (totalPrice + '').replace(/\B(?=(?:\d{3})+\b)/g, targetPriceThousandlSeparator);
                         break;
                     case 'right': // right
-                        newPrice = totalPrice.replace(".",targetPriceDecimalSeparator) + targetQtyCurrency;
+                        //newPrice = totalPrice.replace(".",targetPriceDecimalSeparator) + targetCurrency;
+                        newPrice = (totalPrice + '').replace(/\B(?=(?:\d{3})+\b)/g, targetPriceThousandlSeparator) + targetCurrency;
                         break;
                     case 'left-space': // left with space
-                        newPrice = targetQtyCurrency + ' ' + totalPrice.replace(".",targetPriceDecimalSeparator);
+                        //newPrice = targetCurrency + ' ' + totalPrice.replace(".",targetPriceDecimalSeparator);
+                        newPrice = targetCurrency + ' ' +  (totalPrice + '').replace(/\B(?=(?:\d{3})+\b)/g, targetPriceThousandlSeparator);
                         break;
                     case 'right-space': // right with space
-                        newPrice = totalPrice.replace(".",targetPriceDecimalSeparator) + ' ' + targetQtyCurrency;
+                        //newPrice = totalPrice.replace(".",targetPriceDecimalSeparator) + ' ' + targetCurrency;
+                        newPrice =  (totalPrice + '').replace(/\B(?=(?:\d{3})+\b)/g, targetPriceThousandlSeparator) + ' ' + targetCurrency;
                         break;
                 }
 
@@ -994,6 +1008,8 @@ jQuery(function($) {
                 
                 addToCartSelector.attr('data-variation', false);
                 addToCartSelector.attr('data-variation_id', false);
+
+                //New add variation data at row
                 
                 rowSelector.attr('data-variation', false);
                 rowSelector.attr('data-variation_id', false);
@@ -1010,7 +1026,9 @@ jQuery(function($) {
                 enable_disable_class();
 
                 //Reset Price Data from old Price, what was First time
-                getValueFromOldTD('price', 'price_html');
+                targetPriceHTML = targetTD('price').attr('data-price_markup');
+                targetTD('price').html(targetPriceHTML);
+
                 getValueFromOldTD('sku', 'sku');
                 setValueToTargetTD('total_item', '');
                 targetTD('total_item').attr('data-price', '');
@@ -1123,6 +1141,7 @@ jQuery(function($) {
             var itemAmount = 0;
             
             $('#table_id_' + temp_number + ' input.enabled.wpt_tabel_checkbox.wpt_td_checkbox:checked').each(function() {
+                var thisRow = $(this).closest('tr.wpt-row');
                 var product_id = $(this).data('product_id');
                 var thisButton = $('tr.wpt_row_product_id_' + product_id + ' wpt_action a.button.wpt_woo_add_cart_button');
                 thisButton.removeClass('added');
@@ -1138,20 +1157,15 @@ jQuery(function($) {
                 
                 var currentAddToCartSelector = $('#table_id_' + temp_number + ' #product_id_' + product_id + ' .wpt_action a.wpt_woo_add_cart_button');
                 var currentCustomMessage = $('#table_id_' + temp_number + ' #product_id_' + product_id + ' .wpt_message .message').val();
-                var currentVariaionId = currentAddToCartSelector.attr('data-variation_id');//currentAddToCartSelector.data('variation_id');
-                //var currentVariaion = currentAddToCartSelector.data('variation');
+                var currentVariaionId = thisRow.attr('data-variation_id');//currentAddToCartSelector.data('variation_id');
+
                 var currentVariaion;
                 try{
-                        currentVariaion = $.parseJSON(currentAddToCartSelector.attr('data-variation'));
+                        currentVariaion = $.parseJSON(thisRow.attr('data-variation'));
                 }catch(e){
                         //Get error message
                 }
 
-                /*
-                var currentVariaionId = currentAddToCartSelector.attr('data-variation_id');
-                
-                var currentVariaion = JSON.parse(currentAddToCartSelector.attr('data-variation'));
-                 */
 
                 var currentQantity = $('#table_id_' + temp_number + ' table#wpt_table .product_id_' + product_id ).attr('data-quantity');
                 currentQantity = parseFloat(currentQantity);
@@ -1795,6 +1809,7 @@ jQuery(function($) {
  
         $('body').on('change', '.wpt_row input.input-text.qty.text', inputBoxChangeHandle);
         function inputBoxChangeHandle() {
+            // console.log(2222);
             var temp_number = $(this).parents('tr.wpt_row').data('temp_number');
             var Qty_Val = $(this).val();
             var product_id = $(this).parents('tr').data('product_id');
@@ -1838,23 +1853,24 @@ jQuery(function($) {
             totalPrice = totalPrice.toFixed(targetNumbersPoint);
             var priceFormat = WPT_DATA.priceFormat;
            
+           totalPrice = totalPrice.replace('.', targetPriceDecimalSeparator);
             var newPrice;
             switch (priceFormat) {
             case 'left': // left
                 //newPrice = targetCurrency + totalPrice.replace(".",targetPriceDecimalSeparator);
-                newPrice = targetCurrency+ (totalPrice + '').replace(/\B(?=(?:\d{3})+\b)/g, ',');
+                newPrice = targetCurrency+ (totalPrice + '').replace(/\B(?=(?:\d{3})+\b)/g, targetPriceThousandlSeparator);
                 break;
             case 'right': // right
                 //newPrice = totalPrice.replace(".",targetPriceDecimalSeparator) + targetCurrency;
-                newPrice = (totalPrice + '').replace(/\B(?=(?:\d{3})+\b)/g, ',') + targetCurrency;
+                newPrice = (totalPrice + '').replace(/\B(?=(?:\d{3})+\b)/g, targetPriceThousandlSeparator) + targetCurrency;
                 break;
             case 'left-space': // left with space
                 //newPrice = targetCurrency + ' ' + totalPrice.replace(".",targetPriceDecimalSeparator);
-                newPrice = targetCurrency + ' ' +  (totalPrice + '').replace(/\B(?=(?:\d{3})+\b)/g, ',');
+                newPrice = targetCurrency + ' ' +  (totalPrice + '').replace(/\B(?=(?:\d{3})+\b)/g, targetPriceThousandlSeparator);
                 break;
             case 'right-space': // right with space
                 //newPrice = totalPrice.replace(".",targetPriceDecimalSeparator) + ' ' + targetCurrency;
-                newPrice =  (totalPrice + '').replace(/\B(?=(?:\d{3})+\b)/g, ',') + ' ' + targetCurrency;
+                newPrice =  (totalPrice + '').replace(/\B(?=(?:\d{3})+\b)/g, targetPriceThousandlSeparator) + ' ' + targetCurrency;
                 break;
             }
 

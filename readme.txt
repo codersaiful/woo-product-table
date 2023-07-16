@@ -3,8 +3,8 @@ Contributors: codersaiful,codeastrology,ultraaddons,unikforce,rafiul17,fazlebari
 Donate link: https://donate.stripe.com/4gw2bB2Pzdjd8mYfYZ
 Tags: wc product table, wooproducttable, woo product table,woocommerce product table, product table, wc table, quick order table, wholesale table, restaurants table,woo-product-table
 Requires at least: 4.0.0
-Tested up to: 6.2
-Stable tag: 3.3.9
+Tested up to: 6.2.2
+Stable tag: 3.4.1
 Requires PHP: 5.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -94,6 +94,9 @@ Please Visit our demo site to see all our demo tables. [All Demo](https://demo.w
 https://www.youtube.com/shorts/Qq8Ck8yqQ5U
 
 <h2>Our main features ( Pro and Free )</h2>
+
+**WPML/Loco Translate/Multi Language**<br>
+Totally supported with WPML or any other Local language supported. here can use any plugin of multi language.
 
 **Drag and Drop**<br>
 We have a rich column list. Such as product Title, Attributes, thumbnails, quantity, short message, variation, and many more. Users can show or hide multiple columns with one click. Also easily can Change position by drag and drop. 
@@ -290,7 +293,21 @@ You can easily show specific category products. While creating new table click o
 
 == Changelog ==
 
+= 3.4.2 =
+* Fixed: variation default price issue solve 
+* optimize custom css loading
+
+= 3.4.1 =
+* Notice removed 
+* Code Optimized
+
+= 3.4.0 =
+* Fixed: wpml issue fixed when not select any taxonomy on query. 
+* Bug Fixed 
+* Code Optimized
+
 = 3.3.9 =
+* Bug Fixed 
 * Code Optimized
 
 = 3.3.8 =

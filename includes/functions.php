@@ -490,7 +490,10 @@ function wpt_config_translate( $config_value, $table_ID = false ){
     if( ! is_array( $config_value ) ) return [];
 
     $config_value = array_map( function( $value ){
-        return __( $value, 'woo-product-table' );
+        
+        if(is_string( $value )) return __( $value, 'woo-product-table' );
+        return $value;
+        
     }, $config_value );
 
     //Actually we will change this bellow filter keyword, removed o from wpt

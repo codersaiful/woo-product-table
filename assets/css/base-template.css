@@ -544,7 +544,7 @@ body.wpt_table_body .wpt-wrap table tbody tr.wpt_row>td a.wpt_product_title_in_t
   opacity: 0.7;
 }
 
-.wpt-wrap .qib-button.qib-button-wrapper {
+.wpt-wrap .qib-button-wrapper {
   display: flex !important;
   height: 37px;
   float: unset;
@@ -573,19 +573,19 @@ body.wpt_table_body .wpt-wrap table tbody tr.wpt_row>td a.wpt_product_title_in_t
 .wpt-wrap .qib-button-wrapper .quantity input.input-text.qty.text{
   border-radius: 0;
 }
-body.wpt_table_body .wpt-wrap .qib-button.qib-button-wrapper .minus.qib-button,
-body.wpt_table_body .wpt-wrap .qib-button.qib-button-wrapper .plus.qib-button {
+body.wpt_table_body .wpt-wrap .qib-button-wrapper .minus.qib-button,
+body.wpt_table_body .wpt-wrap .qib-button-wrapper .plus.qib-button {
   font-size: 18px;
   line-height:18px;
   height: 37px;
   font-weight: normal;
 }
-body.wpt_table_body .wpt-wrap .qib-button.qib-button-wrapper .minus.qib-button{
+body.wpt_table_body .wpt-wrap .qib-button-wrapper .minus.qib-button{
   border-top-left-radius: 2px;
   border-bottom-left-radius: 2px;
   border-right: 0 none;
 }
-body.wpt_table_body .wpt-wrap .qib-button.qib-button-wrapper .plus.qib-button{
+body.wpt_table_body .wpt-wrap .qib-button-wrapper .plus.qib-button{
   border-top-right-radius: 2px;
   border-bottom-right-radius: 2px;
   border-left: 0 none;

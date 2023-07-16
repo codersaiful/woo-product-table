@@ -112,13 +112,16 @@ if( ! function_exists( 'wpt_texonomy_search_generator' ) ){
         $defaults = apply_filters( 'wpto_dropdown_categories_default', $defaults, $texonomy_keyword,$taxonomy_details, $temp_number );
         
         /**
-         * New Added for Taxonomy Args
-         * on Search Box
-         * Advance Search Box
+         * Replaced a filter wpt_seachbox_tax_args instead of wpto_dropdown_taxonomy_default_args
+         * wpt_seachbox_tax_args
+         * wpto_dropdown_taxonomy_default_args
          * 
-         * @since 2.8.3.5
+         * Actually name was to long, I have just changed it to short
+         * 
+         * @since 3.3.9.0
+         * @author Saiful Islam <codersaiful@gmail.com>
          */
-        $defaults = apply_filters( 'wpto_dropdown_taxonomy_default_args', $defaults, $texonomy_keyword,$taxonomy_details, $temp_number );
+        $defaults = apply_filters( 'wpt_seachbox_tax_args', $defaults, $texonomy_keyword,$taxonomy_details, $temp_number );
         
         if( $selected_taxs && is_array( $selected_taxs ) && count( $selected_taxs ) > 0 ){
             $customized_texonomy_boj = array();

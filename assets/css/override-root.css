@@ -299,14 +299,14 @@ body.wpt_table_body .wpt-wrap button:focus {
     border-right: 0;
 }
 
-body.wpt_table_body .wpt-wrap .qib-button.qib-button-wrapper .minus.qib-button, 
-body.wpt_table_body .wpt-wrap .qib-button.qib-button-wrapper .plus.qib-button {
+body.wpt_table_body .wpt-wrap .qib-button-wrapper .minus.qib-button, 
+body.wpt_table_body .wpt-wrap .qib-button-wrapper .plus.qib-button {
     background: var(--wpt_white);
     border: 1px solid var(--wpt_off_white);
     color: var(--wpt_primary_deepest);
 }
-body.wpt_table_body .wpt-wrap .qib-button.qib-button-wrapper .minus.qib-button:hover, 
-body.wpt_table_body .wpt-wrap .qib-button.qib-button-wrapper .plus.qib-button:hover {
+body.wpt_table_body .wpt-wrap .qib-button-wrapper .minus.qib-button:hover, 
+body.wpt_table_body .wpt-wrap .qib-button-wrapper .plus.qib-button:hover {
     background: var(--wpt_off_white);
 }
 /*Mini Cart*/

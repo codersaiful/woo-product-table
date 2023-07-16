@@ -7,10 +7,61 @@ class Args{
 
     public static $shortcode;
     public static $args;
+
+    /**
+     * I made if specially for Advance Search
+     * actually where searched something specially for only_variation (right now)
+     * we need to rejoin search query and need to set $args[tax_query]
+     * * reset_search_clicked
+     *
+     * @var boolean
+     */
+    public static $overrideArgs = false;
     public static $tax_query;
     public static $tax_query_stats;
     public static $post_include;
     public static $table_id;
+
+    /**
+     * I made if specially for Advance Search
+     * actually where searched something specially for only_variation (right now)
+     * we need to rejoin search query and need to set $args[tax_query]
+     * 
+     * By default, it will always true. because at the first time, we accept it
+     * reset situation
+     * 
+     * * reset_search_clicked
+     *
+     * @var boolean
+     */
+    public static $if_reset = true;
+
+    /**
+     * I made if specially for Advance Search
+     * actually where searched something specially for only_variation (right now)
+     * we need to rejoin search query and need to set $args[tax_query]
+     * to that Args::manage() can agin generate parent_product_ids
+     * 
+     * * reset_search_clicked
+     * 
+     * *****************
+     * USED:
+     * *****************
+     * inc/shortcode-ajax.php file
+     * based on reset_button_clicked trigger
+     *
+     * @param array $overArgs 
+     * @return void
+     * 
+     * @author Saiful Islam <codersaiful@gmail.com>
+     * @since 3.4.1.0
+     */
+    public static function setOverrideArgs($overArgs = [])
+    {
+        if( empty( $overArgs ) ) return;
+        if( ! is_array( $overArgs ) ) return;
+        self::$overrideArgs = $overArgs;
+    }
 
     /**
      * Args Management Method, args related any type customizaion/ handling will happen here
@@ -28,6 +79,19 @@ class Args{
      * @author Saiful Islam <codersaiful@gmail.com>
      */
     public static function manage( Shortcode $shortcode ){
+        
+        /**
+         * update self::$if_reset based on $shortcode->reset_search_clicked
+         * after click ajax action.
+         * * reset_search_clicked has set at inc/shortcode-ajax.php file
+         * 
+         * @since 3.4.1.0 
+         * @author Saiful Islam <codersaiful@gmail.com>
+         */
+        if( isset($shortcode->reset_search_clicked) ){
+            self::$if_reset = $shortcode->reset_search_clicked;
+        }
+        
         $shortcode->post_include = $shortcode->basics['post_include'] ?? [];
         $shortcode->post_exclude = $shortcode->basics['post_exclude'] ?? [];
         $shortcode->cat_explude = $shortcode->basics['cat_explude'] ?? [];
@@ -142,8 +206,32 @@ class Args{
          * 
          * that's why, I have used new func array_merge_recursive() so that exclude and eclude can work both at a time
          * function change at @version 3.3.8.0
+         * 
+         * ***************************************
+         * ***************************************
+         * NEW UPDATE AND ADDED
+         * ***************************************
+         * I have create new proverty named: $if_reset
+         * actually specially for search and get trigger of 'reset_button_clicked'
+         * we used assing reset_button_clicked to $if_reset.
+         * Actually by default, here will keep that $if_reset = true, and also if click on reset_button_clicked, than will 
+         * also be true, but if click search button and not click reset_button_clicked 
+         * than $if_reset = false
+         * 
+         * @since 3.4.1.0
+         * @author Saiful Islam <codersaiful@gmail.com>
          */
-        self::$args = array_merge_recursive( $args, $shortcode->basics_args );
+        if( self::$if_reset ){
+            self::$args = array_merge_recursive( $args, $shortcode->basics_args );
+        }else{
+            self::$args = $args;
+        }
+
+        if( $shortcode->args_ajax_called && is_array( self::$overrideArgs )){
+            unset(self::$args['post_parent__in']);
+            self::$args = array_merge( self::$args, self::$overrideArgs );
+        }
+
 
         if( ! empty( self::$args['tax_query'] ) && $shortcode->basics['query_relation'] ){
             $query_rel = $shortcode->basics['query_relation'] ?? 'OR';
@@ -151,7 +239,7 @@ class Args{
         }
 
         if( $shortcode->req_product_type == 'product_variation' ){
-
+            unset(self::$args['post_parent__in']);
             self::$tax_query = self::$args['tax_query'] ?? [];
             self::$tax_query_stats =  is_array( self::$tax_query ) && ! empty( self::$tax_query );
             self::$post_include = $shortcode->post_include;
@@ -160,7 +248,6 @@ class Args{
         }
 
         $shortcode->args = self::$args;
-        // return self::$args;
     }
 
     /**
@@ -182,7 +269,7 @@ class Args{
      */
     public static function args_for_variable(){
 
-        self::$args['post_parent__in'] = [];
+        // self::$args['post_parent__in'] = [];
 
         if( self::$tax_query_stats ){
             self::$args['post_parent__in'] = self::get_parent_ids_by_term();
@@ -190,7 +277,7 @@ class Args{
         }
 
         if( ! empty( self::$post_include ) ){
-            $post_parent__in = self::$args['post_parent__in'];
+            $post_parent__in = self::$args['post_parent__in'] ?? [];
             $post_parent__in = array_merge( $post_parent__in, self::$post_include );
             self::$args['post_parent__in'] = array_unique( $post_parent__in );
         }
@@ -213,10 +300,11 @@ class Args{
         $type = 'term_id';
         $prepare = array();
         $results = $terms = [];
+        
         foreach( self::$tax_query as $tax_details){
-            if( !is_array($tax_details) ) continue;
-
-            $terms = is_array( $tax_details['terms'] ) ? $tax_details['terms'] : array();
+            if( ! is_array($tax_details) ) continue;
+            $terms_genArr = ! empty( $tax_details['terms'] ) && is_numeric( $tax_details['terms'] ) ? [ $tax_details['terms'] ] : [];
+            $terms = is_array( $tax_details['terms'] ) ? $tax_details['terms'] : $terms_genArr;
             $taxonomy = $tax_details['taxonomy'];
             foreach($terms as $term){
                 $s_result = $wpdb->get_col( "

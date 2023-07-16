@@ -114,15 +114,15 @@ body.wpt_table_body .wpt-wrap table tbody tr.wpt_row > td .product_description {
   color: #a7a7a7 !important;
 }
 
-body.wpt_table_body div.beautiful_blacky_wrapper.wpt-wrap tr>td .qib-button.qib-button-wrapper .minus.qib-button, 
-body.wpt_table_body div.beautiful_blacky_wrapper.wpt-wrap tr>td .qib-button.qib-button-wrapper .plus.qib-button {
+body.wpt_table_body div.beautiful_blacky_wrapper.wpt-wrap tr>td .qib-button-wrapper .minus.qib-button, 
+body.wpt_table_body div.beautiful_blacky_wrapper.wpt-wrap tr>td .qib-button-wrapper .plus.qib-button {
   background: #37aee9;
   border: 1px solid #37aee9;
   color: #ffffff;
 }
 
-body.wpt_table_body div.beautiful_blacky_wrapper.wpt-wrap tr>td .qib-button.qib-button-wrapper .minus.qib-button:hover, 
-body.wpt_table_body div.beautiful_blacky_wrapper.wpt-wrap tr>td .qib-button.qib-button-wrapper .plus.qib-button:hover {
+body.wpt_table_body div.beautiful_blacky_wrapper.wpt-wrap tr>td .qib-button-wrapper .minus.qib-button:hover, 
+body.wpt_table_body div.beautiful_blacky_wrapper.wpt-wrap tr>td .qib-button-wrapper .plus.qib-button:hover {
   background: var(--wpt_black);
   border: 1px solid #37aee9;
   color: #37aee9;

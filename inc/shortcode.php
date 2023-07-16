@@ -635,7 +635,7 @@ class Shortcode extends Shortcode_Base{
 
         $this->column_array = apply_filters( 'wpto_column_arr', $column_array, $this->table_id, $atts, $column_settings, $enabled_column_array );
         //we will removed this filter after few version. Not really, there are some old user available.
-        $this->_enable_cols = apply_filters( 'wpto_enabled_column_array', $enabled_column_array, $this->table_id, $this->atts, $this->column_settings, $this->column_array );
+        $this->_enable_cols = apply_filters( 'wpto_enabled_column_array', $enabled_column_array, $this->table_id, $this->atts, $column_settings, $this->column_array );
         /**
          * @Hook Filter wpto_enabled_column_array to change or modify column amount, we can use it.
          */
@@ -902,7 +902,7 @@ class Shortcode extends Shortcode_Base{
         // if( ! $this->args_organized ){
             
         // }
-        
+        // var_dump($this->args);
         return new \WP_Query( $this->args );
     }
 

@@ -4,6 +4,14 @@ jQuery(function($) {
         var 
         own_fragment_load = 0,
         paginated_val = 0,
+        
+        /**
+         * we need track search box's reset_button click
+         * used it on shortcode-ajax.php file for ajax
+         * @since 3.4.1.0
+         * here we changed on reset button click otherewise reset again after complete ajax complete always
+         */
+        reset_search_clicked = 'no',
         wc_fragment_load = 0,
         fragment_handle_load = 0,
         isMob,isDesk,current_width = $(window).width(),
@@ -29,7 +37,7 @@ jQuery(function($) {
                 console.log("Error on: ajaxTableLoad. Table not found!");
                 return;
             }
-            
+            others.reset_search_clicked = reset_search_clicked;
             var data = {
                 action: 'wpt_load_both',
                 table_id: table_id,
@@ -93,11 +101,13 @@ jQuery(function($) {
                 complete:function(){
                     TableTagWrap.removeClass('wpt-ajax-loading');
                     SearchWrap.removeClass('wpt-ajax-loading');
+                    reset_search_clicked = 'no';
                 },
-                error:function(){
+                error:function(error){
                     TableTagWrap.removeClass('wpt-ajax-loading');
                     SearchWrap.removeClass('wpt-ajax-loading');
                     console.log("Error on: ajaxTableLoad. Error on Ajax load!");
+                    console.log(error);
                 }
             });
         };
@@ -271,6 +281,7 @@ jQuery(function($) {
         $(document.body).on('click','.wpt-query-reset-button',function(){
             $(this).closest('.wpt-search-full-wrapper').find('.query_box_direct_value').val('');
             $(this).closest('.wpt-search-full-wrapper').find('select').val('').change();
+            reset_search_clicked = 'yes';
             $(this).closest('.wpt-search-full-wrapper').find('.wpt-search-products').trigger('click');
         });
 
