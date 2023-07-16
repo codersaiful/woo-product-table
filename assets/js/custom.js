@@ -859,6 +859,12 @@ jQuery(function($) {
                 //e.getMessage();
             }
             
+            var price_markup_backup = targetTD('price').attr('data-price_markup');
+            if( ! price_markup_backup ){
+                var targetPriceHTML = targetTD('price').find('span').prop('innerHTML');
+                targetTD('price').attr('data-price_markup', targetPriceHTML);
+            }
+
             var wptMessageText = false;
             if (targetVariationIndex !== 'not_found') {
                 var targetAttributeObject = variations_data[targetVariationIndex];
@@ -904,7 +910,7 @@ jQuery(function($) {
                 wptMessageText = targetAttributeObject.availability_html;
                 //Setup Price Live
                 setValueToTargetTD_IfAvailable('price', targetAttributeObject.price_html);
-
+                
                 //Set Image Live for Thumbs
                 targetThumbs.attr('src', targetAttributeObject.image.gallery_thumbnail_src);
                 if(targetAttributeObject.image.srcset && 'false' !== targetAttributeObject.image.srcset) {
@@ -1020,7 +1026,9 @@ jQuery(function($) {
                 enable_disable_class();
 
                 //Reset Price Data from old Price, what was First time
-                getValueFromOldTD('price', 'price_html');
+                targetPriceHTML = targetTD('price').attr('data-price_markup');
+                targetTD('price').html(targetPriceHTML);
+
                 getValueFromOldTD('sku', 'sku');
                 setValueToTargetTD('total_item', '');
                 targetTD('total_item').attr('data-price', '');
