@@ -293,6 +293,10 @@ You can easily show specific category products. While creating new table click o
 
 == Changelog ==
 
+= 3.4.2 =
+* Fixed: variation default price issue solve 
+* optimize custom css loading
+
 = 3.4.1 =
 * Notice removed 
 * Code Optimized
