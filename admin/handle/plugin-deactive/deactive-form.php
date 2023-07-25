@@ -211,6 +211,11 @@ class Deactive_Form
         $site_url = get_site_url();
         $blog_name = get_bloginfo( 'name' );
         $plugin_name = $this->data['name'] ?? 'CA Plugin';
+        $email = '';
+        if(function_exists('wp_get_current_user')){
+            $current_user = wp_get_current_user();
+            $email = $current_user->user_email;
+        }
 ?>
         <div id="<?php echo esc_attr( $this->prefix ); ?>-survey-form-wrap" class="ca-survey-form-wrap">
             <div id="<?php echo esc_attr( $this->prefix ); ?>-survey-form" class="ca-survey-form">
@@ -231,7 +236,7 @@ class Deactive_Form
                         <p>For support queries <a href="<?php echo esc_url( $this->support_url ); ?>" target="_blank">Submit Ticket</a></p>
                     </div>
                     <div class="ca-email common-target" style="display:none;">
-                        <input type="email" id="ca_email" name="Email" value="" placeholder="(Optional) Please write your email, We will contact with you.">
+                        <input type="email" id="ca_email" name="Email" value="<?php echo esc_attr( $email ); ?>" placeholder="(Optional) Please write your email, We will contact with you.">
                     </div>
                     <div class="ca-display-message common-target" style="display:none;" data-target_msg="<?php echo esc_attr( $this->common_target_msg ); ?>">
                         <?php echo wp_kses_post( $this->common_target_msg ); ?>
