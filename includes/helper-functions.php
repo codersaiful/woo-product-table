@@ -293,6 +293,8 @@ if( ! function_exists( 'wpt_ajax_add_to_cart' ) ){
      * @updated 04.05.2018
      */
     function wpt_ajax_add_to_cart() {
+        var_dump($_POST, $_REQUEST);
+        die();
 
         $data = filter_input_array( INPUT_POST );
         
