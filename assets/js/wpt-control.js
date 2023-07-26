@@ -285,6 +285,9 @@ jQuery(function($) {
             $(this).closest('.wpt-search-full-wrapper').find('.wpt-search-products').trigger('click');
         });
 
+        $(document).on('added_to_cart',function(){
+            fragment_load();
+        });
         $(document).on('wc_fragments_refreshed',function(){
             fragment_load();
         });
@@ -414,25 +417,25 @@ jQuery(function($) {
                 data: data,
                 success:function(result){
                     // $('.wpt_edit_table').html(result);
-                    if(result == 'removed'){
+                    // if(result == 'removed'){
                         
-                    }
-                    $('.wpt-cart-remove.wpt-cart-remove-' + product_id).remove();
-                    $('#product_id_' + product_id + ' a.added_to_cart.wc-forward').remove();
+                    // }
+                    // $('.wpt-cart-remove.wpt-cart-remove-' + product_id).remove();
+                    // $('#product_id_' + product_id + ' a.added_to_cart.wc-forward').remove();
 
 
-                    $(document.body).trigger('wpt_ajax_loaded'); 
+                    // $(document.body).trigger('wpt_ajax_loaded'); 
+                    // // $( document.body ).trigger( 'wc_fragment_refresh' );
+                    // // $( document.body ).trigger( 'removed_from_cart' );
+
+                    // // $( document.body ).trigger( 'removed_from_cart' );
+                    // $( document.body ).trigger( 'added_to_cart' );
+                    // $( document.body ).trigger( 'updated_cart_totals' );
+                    // $( document.body ).trigger( 'wc_fragments_refreshed' );
+                    // $( document.body ).trigger( 'wc_fragments_refresh' );
                     // $( document.body ).trigger( 'wc_fragment_refresh' );
-                    // $( document.body ).trigger( 'removed_from_cart' );
-
-                    // $( document.body ).trigger( 'removed_from_cart' );
-                    $( document.body ).trigger( 'added_to_cart' );
-                    $( document.body ).trigger( 'updated_cart_totals' );
-                    $( document.body ).trigger( 'wc_fragments_refreshed' );
-                    $( document.body ).trigger( 'wc_fragments_refresh' );
-                    $( document.body ).trigger( 'wc_fragment_refresh' );
-                    //It's need to update checkout page Since 3.3.3.1
-                    $( document.body ).trigger( 'update_checkout' );
+                    // //It's need to update checkout page Since 3.3.3.1
+                    // $( document.body ).trigger( 'update_checkout' );
 
                 },
                 

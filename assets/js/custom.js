@@ -16,7 +16,7 @@ jQuery(function($) {
             let myDataWCTypes = {
                 product_id: "1357",
                 product_sku: "",
-                quantity: "5"
+                quantity: "50"
             };
             var $thisbutton = $(this);
             $.ajax({
@@ -27,9 +27,11 @@ jQuery(function($) {
                 success: (response) => {
                     $thisbutton.html("Added");
                     console.log(response);
-                    $( document.body ).trigger( 'added_to_cart', [ response.fragments, response.cart_hash, $thisbutton ] );
+                    $( document.body ).trigger( 'added_to_cart', [ response.fragments, response.cart_hash ] );
+                    // $( document.body ).trigger( 'added_to_cart', [ response.fragments, response.cart_hash, $thisbutton ] );
                     // $( document ).trigger( 'wc_fragment_refresh' );
                     // $( document ).trigger( 'cart_page_refreshed' );
+                    // $( document ).trigger( 'cart_totals_refreshed', [ response.fragments, response.cart_hash ] );
                     // $( document ).trigger( 'cart_totals_refreshed' );
                     // // $( document ).trigger( 'wc_fragments_refreshed' ); //This is effective
                     // $( document.body ).trigger( 'update_checkout' );
