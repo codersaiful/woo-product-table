@@ -2668,6 +2668,10 @@ jQuery(function($) {
                 checkBoxSelector.addClass('disabled');
             }
             enable_disable_class();
+
+            var skuTDobj = $('#table_id_' + temp_number + ' #product_id_' + product_id + ' .td_or_cell.wpt_sku');
+            var sku = skuTDobj.data('sku');
+            skuTDobj.find('div.wpt_sku').html(sku);
             
         });
         $(document).on( 'found_variation', 'div.advance_table_wrapper table.advance_table.wpt_product_table form.cart', function( event, variation ) {
@@ -2685,7 +2689,9 @@ jQuery(function($) {
                 var targetElement = $('#table_id_' + temp_number + ' #product_id_' + product_id + ' wpt_' + td_name);
                 return targetElement;
             }
-            
+            var sku = variation.sku;
+            var skuTDobj = $('#table_id_' + temp_number + ' #product_id_' + product_id + ' div.wpt_sku');
+            skuTDobj.html(sku);
 
             //Adding selected variation ID adding at row
             thisRow.attr('data-variation_id', variation.variation_id );

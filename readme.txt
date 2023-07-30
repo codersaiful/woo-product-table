@@ -294,6 +294,7 @@ You can easily show specific category products. While creating new table click o
 == Changelog ==
 
 = 3.4.2 =
+* Fixed: SKU changed for variation product when selected 3rd Party plugin supported - issue fixed.
 * Fixed: variation default price issue solve 
 * optimize custom css loading
 
