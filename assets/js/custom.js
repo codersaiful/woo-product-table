@@ -249,7 +249,9 @@ jQuery(function($) {
         });
         //End of Pagination
         
-        $('table.wpt_product_table td select').trigger('change');
+        setTimeout(function(){
+			$('table.wpt_product_table td select').trigger('change');
+		}, 4000);
         function fixAfterAjaxLoad() {
             $('table.wpt_product_table td select').trigger('change');
             //$.getScript(include_url + "/js/mediaelement/mediaelement-and-player.min.js");
