@@ -1740,7 +1740,8 @@ jQuery(function($) {
                 //$(this).children().first().attr('selected','selected');
             });
             $('#table_id_' + temp_number + ' select.filter_select').trigger('change');
-            //filterTableRow(temp_number);
+
+            $('.wpt-my-pagination-' + temp_number).show();//wpt_filter_reset
         });
         
         
@@ -1751,11 +1752,12 @@ jQuery(function($) {
             
             //Checking FilterBox
             var filterBoxYesNo = $('#table_id_' + temp_number + ' .wpt-mini-filter').html();
-
+            // console.log(filterBoxYesNo);
             /**
              * Uncheck All, If any change on filter button
              * @version 2.0
              */
+            let tableBodyobj = $('#table_id_' + temp_number + ' table#wpt_table tbody');
             
             var ClassArray =[];
             var serial = 0;
@@ -1769,8 +1771,24 @@ jQuery(function($) {
             });
             var finalClassSelctor = '.filter_row' + ClassArray.join(''); //Test will keep
             var hideAbleClass = '#table_id_' + temp_number + ' table tr.wpt_row';
+        
+            let foundRow = $(finalClassSelctor);
+            let foundFirstRow = foundRow.first();
+            let colSpanCount = tableBodyobj.find('tr').first().find('td.td_or_cell').length;
+            let foundRowCount = foundRow.length;
+            let notFundMsg = config_json.product_not_founded;
             
+            if(foundRowCount > 0){
+                $('.wpt-my-pagination-' + temp_number).hide();//wpt_filter_reset
+            }
+            if(foundRowCount < 1){
+                let newRotHtml = "<tr class='product-not-found-tr'><td colspan='" + colSpanCount + "'><div class='wpt_product_not_found'>" + notFundMsg + "</div></td></tr>";
+                $('#table_id_' + temp_number + ' table#wpt_table tbody').append(newRotHtml)
+            }else{
+                $('#table_id_' + temp_number + ' table#wpt_table tbody tr.product-not-found-tr').remove();
+            }
            
+
            if( filterBoxYesNo ){
                 $(hideAbleClass + ' wpt_check input.enabled.wpt_tabel_checkbox').removeClass('wpt_td_checkbox');
                 $(hideAbleClass).css('display','none');
