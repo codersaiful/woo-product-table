@@ -295,7 +295,9 @@ You can easily show specific category products. While creating new table click o
 
 = 3.4.2 =
 * Fixed: SKU changed for variation product when selected 3rd Party plugin supported - issue fixed.
-* Fixed: variation default price issue solve 
+* Fixed: variation default price issue solve
+* Fixed: on mini filter trigger, hide pagination.
+* Fixed: on mini filter trigger, added not found message, if not found any product. 
 * optimize custom css loading
 
 = 3.4.1 =
