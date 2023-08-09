@@ -765,8 +765,23 @@ if( !function_exists( 'wpto_admin_configuration_form_top_free' ) ){
         }
         
         ?>
-        
-            <table class="ultraaddons-table">
+        <table class="wpt-my-table universal-setting">
+    <thead>
+        <tr>
+            <th class="wpt-inside">
+                <div class="wpt-table-header-inside">
+                    <h3><?php echo esc_html__( 'Settings (Universal)', 'wpt' ); ?></h3>
+                </div>
+                
+            </th>
+            <th>
+            <div class="wpt-table-header-right-side"></div>
+            </th>
+        </tr>
+    </thead>
+
+    <tbody>
+
                 <tr>
                     <th>
                         <label class="wpt_label wpt_column_sorting_on_off" for="wpt_column_sorting_on_off"><?php esc_html_e( 'Table Column Sorting', 'woo-product-table' );?></label>
@@ -820,7 +835,10 @@ if( !function_exists( 'wpto_admin_configuration_form_top_free' ) ){
                         <p><?php echo esc_html__( 'Select a template to change footer cart design', 'woo-product-table' ); ?></p>
                     </td>
                 </tr>
-            </table>
+        </tbody>
+
+    
+    </table>
             
 
          <?php
