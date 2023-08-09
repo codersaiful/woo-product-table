@@ -28,7 +28,7 @@ class Page_Loader extends Base
 
     public function run()
     {
-        // var_dump($this);
+        
         //has come from admin/menu_plugin_settings_link.php file
         add_action( 'admin_menu', [$this, 'admin_menu'] );
         add_action( 'admin_enqueue_scripts', [$this, 'admin_enqueue_scripts'] );
