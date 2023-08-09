@@ -81,12 +81,13 @@ class Tracker extends Base
      * 1 hour = 3600 second
      * half hour = 1800 second
      * 3 hours = 10800 second
+     * 4 hours = 14400 second
      * 
-     * We have used 3 hours actually.
+     * We have used 4 hours actually.
      *
      * @author Saiful Islam <codersaiful@gmail.com>
      */
-    protected $transient_exp = 15; // 10800 in second // when test used 60
+    protected $transient_exp = 14400; // 14400 in second = 4 hours // when test used 60
     
     public $_domain = 'http://edm.ultraaddons.com'; //Don't use slash at the end of the link. eg: http://wptheme.cm or: http://edm.ultraaddons.com
     public $tracker_url;
