@@ -399,7 +399,7 @@ if( ! function_exists( 'wpt_add_tabs' ) ){
 
     }
 }
-add_action( 'current_screen', 'wpt_add_tabs', 50 );
+// add_action( 'current_screen', 'wpt_add_tabs', 50 );
 
 function wpt_social_links(){
     ?>
