@@ -70,7 +70,7 @@ $wrapper_class = isset( $settings['module'] ) ? $settings['module'] : '';
 
         if( $default_lang_bool ){
     ?>
-        <div class="wpt-section-panel supported-terms configuration_page" id="wpt-configurate-main-section">
+        <!-- <div class="wpt-section-panel supported-terms configuration_page" id="wpt-configurate-main-section"> -->
     <?php
     /**
      * To add something and Anything at the top of Form Of Configuratin Page
@@ -78,7 +78,7 @@ $wrapper_class = isset( $settings['module'] ) ? $settings['module'] : '';
     do_action( 'wpto_admin_configuration_form_top', $settings,$current_config_value ); 
 
     ?>
-        </div>
+        <!-- </div> -->
         
     <?php
         }

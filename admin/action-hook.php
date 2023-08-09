@@ -765,12 +765,13 @@ if( !function_exists( 'wpto_admin_configuration_form_top_free' ) ){
         }
         
         ?>
+        <div class="wpt-section-panel supported-terms configuration_page" id="wpt-configurate-main-section">
         <table class="wpt-my-table universal-setting">
     <thead>
         <tr>
             <th class="wpt-inside">
                 <div class="wpt-table-header-inside">
-                    <h3><?php echo esc_html__( 'Settings (Universal)', 'wpt' ); ?></h3>
+                    <h3><?php echo esc_html__( 'Basic', 'wpt' ); ?></h3>
                 </div>
                 
             </th>
@@ -781,46 +782,76 @@ if( !function_exists( 'wpto_admin_configuration_form_top_free' ) ){
     </thead>
 
     <tbody>
+        <tr>
+            <td>
+                <div class="wpt-form-control">
+                    <div class="form-label col-lg-6">
+                        LabelTagHere
+                    </div>
+                    <div class="form-field col-lg-6">
+                        InputFieldOrAnyOtherField
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="wpt-form-info">
+                    DescriptionOfField_and_docLink
+                </div> 
+            </td>
+        </tr>
 
-                <tr>
-                    <th>
+
+        <tr>
+            <td>
+                <div class="wpt-form-control">
+                    <div class="form-label col-lg-6">
                         <label class="wpt_label wpt_column_sorting_on_off" for="wpt_column_sorting_on_off"><?php esc_html_e( 'Table Column Sorting', 'woo-product-table' );?></label>
-                    </th>
-                    <td>
-                        <!-- <label class="switch">
-                            <input  name="data[column_sort]" type="checkbox" id="wpt_column_sorting_on_off" <?php echo isset( $current_config_value['column_sort'] ) ? 'checked="checked"' : ''; ?>>
-                            <div class="slider round">
-                                <span class="on">On</span><span class="off">Off</span>
-                            </div>
-                        </label> -->
+                    </div>
+                    <div class="form-field col-lg-6">
                         <p><?php echo esc_html( 'Column sorting for visible product Column.', 'woo-product-table' ); ?></p>
                         <p class="warning">
                             <b>Tips:</b>
                             <span>If you want to sort any column like number where text like: 1st,2nd,3rd,4th. To this situation, add a custom tag className <code>text_with_number</code> for column. <a href="https://wooproducttable.com/doc/advance-uses/sort-table-column/" target="_blank">Helper doc</a> </span>
                         </p>
-                                        
-                    </td>
-                </tr>
-                <tr id="wpt_footer_cart_on">
-                    <th>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="wpt-form-info">
+                    
+                </div> 
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="wpt-form-control">
+                    <div class="form-label col-lg-6">
                         <label class="wpt_label wpt_footer_cart_on_of" for="wpt_footer_cart_on_of"><?php esc_html_e( 'Hide Footer Cart', 'woo-product-table' );?></label>
-                    </th>
-                    <td>
-                        <label class="switch">
+                    </div>
+                    <div class="form-field col-lg-6">
+                        <label class="switch reverse">
                             <input name="data[footer_cart_on_of]" type="checkbox" id="wpt_footer_cart_on_of" <?php echo isset( $current_config_value['footer_cart_on_of'] ) ? 'checked="checked"' : ''; ?>>
                             <div class="slider round"><!--ADDED HTML -->
-                                <span class="on">Hide</span><span class="off">Show</span><!--END-->
+                                <span class="on">Show</span><span class="off">Hide</span><!--END-->
                             </div>
                         </label>
-                        <p><?php echo esc_html( 'Turn on or off footer cart', 'woo-product-table' ); ?></p>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="wpt-form-info">
+                    <p><?php echo esc_html( 'Turn on or off footer cart', 'woo-product-table' ); ?></p>
+                </div> 
+            </td>
+        </tr>
 
-                    </td>
-                </tr>
-                <tr id="wpt_footer_cart_template">
-                    <th>
+        <tr id="wpt_footer_cart_template">
+            <td>
+                <div class="wpt-form-control">
+                    <div class="form-label col-lg-6">
                         <label class="wpt_label wpt_footer_template " for="wpt_table_footer_cart_template"><?php esc_html_e( 'Footer Cart Template', 'woo-product-table' );?></label>
-                    </th>
-                    <td>
+                    </div>
+                    <div class="form-field col-lg-6">
                         <select name="data[footer_cart_template]" class="wpt_fullwidth ua_input wpt_table_footer_cart_template">
                             <option value="none">Default Template</option>
                             <?php 
@@ -831,15 +862,21 @@ if( !function_exists( 'wpto_admin_configuration_form_top_free' ) ){
                                 } 
                             ?>
                         </select>
-                        <br>
-                        <p><?php echo esc_html__( 'Select a template to change footer cart design', 'woo-product-table' ); ?></p>
-                    </td>
-                </tr>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="wpt-form-info">
+                    <p><?php echo esc_html__( 'Select a template to change footer cart design', 'woo-product-table' ); ?></p>
+                </div> 
+            </td>
+        </tr>
+
         </tbody>
 
     
     </table>
-            
+        </div>           
 
          <?php
     }
