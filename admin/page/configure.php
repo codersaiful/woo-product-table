@@ -70,18 +70,14 @@ $wrapper_class = isset( $settings['module'] ) ? $settings['module'] : '';
 
         if( $default_lang_bool ){
     ?>
-        <div class="section ultraaddons-panel top_secion configuration_page">
+        <div class="wpt-section-panel supported-terms configuration_page" id="wpt-configurate-main-section">
     <?php
-            /**
-             * To add something and Anything at the top of Form Of Configuratin Page
-             */
-            do_action( 'wpto_admin_configuration_form_top', $settings,$current_config_value ); 
+    /**
+     * To add something and Anything at the top of Form Of Configuratin Page
+     */
+    do_action( 'wpto_admin_configuration_form_top', $settings,$current_config_value ); 
 
     ?>
-            <div class="ultraaddons-button-wrapper">
-                <button name="configure_submit" class="button-primary primary button">Save All</button>
-            </div><br>
-            <?php do_action( 'wpo_pro_feature_message', 'configuration_page_top' ); ?>
         </div>
         
     <?php

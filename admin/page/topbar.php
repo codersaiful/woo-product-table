@@ -18,10 +18,10 @@ $wpt_logo = WPT_ASSETS_URL . 'images/logo.png';
  * load kora hoyeche. tokhon to $this->license pabe na.
  * tai notun kore check korechi.
  */
-// $license_direct = true;
-// if($this->is_pro && class_exists('\WC_MMQ_PRO')){
-//     $license_direct = \WC_MMQ_PRO::$direct;
-// }
+$license_direct = true;
+if($this->is_pro && class_exists('\WC_MMQ_PRO')){
+    $license_direct = \WOO_Product_Table::$direct;
+}
 
 $topbar_sub_title = __( 'Manage and Settings', 'wpt' );
 if( isset( $this->topbar_sub_title ) && ! empty( $this->topbar_sub_title ) ){
@@ -56,7 +56,7 @@ if( isset( $this->topbar_sub_title ) && ! empty( $this->topbar_sub_title ) ){
                     </a>
                 <?php }else if($license_direct){ ?>
                     <a class="wpt-btn wpt-has-icon" 
-                        href="<?php esc_attr( admin_url() ) ?>admin.php?page=wpt-license">
+                        href="<?php esc_attr( admin_url( 'edit.php?post_type=wpt_product_table&page=woo-product-table-license' ) ) ?>">
                         <span><i class=" wpt-heart-1"></i></span>
                         License
                     </a>
