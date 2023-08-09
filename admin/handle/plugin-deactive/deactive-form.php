@@ -89,7 +89,7 @@ class Deactive_Form
     protected $assignScreen = false;
     protected $screen;
     protected $screenID;
-    public $dev_version = '1.0.0';
+    public $dev_version = WPT_DEV_VERSION;
 
     protected $form_top_message;
 
