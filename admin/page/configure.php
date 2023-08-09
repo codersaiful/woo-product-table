@@ -70,6 +70,26 @@ $wrapper_class = isset( $settings['module'] ) ? $settings['module'] : '';
 
         if( $default_lang_bool ){
     ?>
+
+<div class="wpt-section-panel supported-terms configuration_page" id="wpt-configurate-main-section">
+        <table class="wpt-my-table universal-setting">
+    <thead>
+        <tr>
+            <th class="wpt-inside">
+                <div class="wpt-table-header-inside">
+                    <h3><?php echo esc_html__( 'Settings', 'wpt' ); ?></h3>
+                </div>
+                
+            </th>
+            <th>
+            <div class="wpt-table-header-right-side"></div>
+            </th>
+        </tr>
+    </thead>
+
+    <tbody>
+    </tbody></table>
+
         <!-- <div class="wpt-section-panel supported-terms configuration_page" id="wpt-configurate-main-section"> -->
     <?php
     /**
@@ -78,8 +98,8 @@ $wrapper_class = isset( $settings['module'] ) ? $settings['module'] : '';
     do_action( 'wpto_admin_configuration_form_top', $settings,$current_config_value ); 
 
     ?>
-        <!-- </div> -->
-        
+        </div>
+    
     <?php
         }
         

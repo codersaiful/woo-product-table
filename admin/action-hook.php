@@ -765,23 +765,7 @@ if( !function_exists( 'wpto_admin_configuration_form_top_free' ) ){
         }
         
         ?>
-        <div class="wpt-section-panel supported-terms configuration_page" id="wpt-configurate-main-section">
-        <table class="wpt-my-table universal-setting">
-    <thead>
-        <tr>
-            <th class="wpt-inside">
-                <div class="wpt-table-header-inside">
-                    <h3><?php echo esc_html__( 'Basic', 'wpt' ); ?></h3>
-                </div>
-                
-            </th>
-            <th>
-            <div class="wpt-table-header-right-side"></div>
-            </th>
-        </tr>
-    </thead>
-
-    <tbody>
+    <table class="wpt-my-table universal-setting">
         <tr>
             <td>
                 <div class="wpt-form-control">
@@ -872,11 +856,8 @@ if( !function_exists( 'wpto_admin_configuration_form_top_free' ) ){
             </td>
         </tr>
 
-        </tbody>
-
-    
-    </table>
-        </div>           
+                            </table>
+         
 
          <?php
     }
