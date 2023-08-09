@@ -13,6 +13,12 @@ class Admin_Loader extends Base{
         $deactive_form = new Deactive_Form();
         $deactive_form->run();
 
+        /**
+         * This is only for Notice for pro user,
+         * Actually on free version and pro version combination
+         * need min request pro for latest free version,
+         * that's why, we have added this notice.
+         */
         $pro_update_ntc = new Pro_Version_Update();
         $pro_update_ntc->run();
 
