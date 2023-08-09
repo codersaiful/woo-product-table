@@ -2,7 +2,10 @@
     color: white !important;
     background-color: black !important;
 } */
-body #wpcontent {
+/* body:not(.wp-default-content-wrapper) #wpcontent {
+    padding-left: 0;
+} */
+body.wpt-zero-body #wpcontent {
     padding-left: 0;
 }
 .wpt_wrap .fieldwrap,.wpt_wrap .fieldwrap form, #wpt-main-configuration-form{

@@ -31,6 +31,7 @@ class Page_Loader extends Base
         
         //has come from admin/menu_plugin_settings_link.php file
         add_action( 'admin_menu', [$this, 'admin_menu'] );
+        add_filter('admin_body_class', [$this, 'body_class']);
         add_action( 'admin_enqueue_scripts', [$this, 'admin_enqueue_scripts'] );
         
     }
@@ -54,6 +55,23 @@ class Page_Loader extends Base
         }
     }
 
+    public function body_class( $classes )
+    {
+        global $current_screen;
+
+        
+        $s_id = isset( $current_screen->id ) ? $current_screen->id : '';
+        
+        if( $s_id == 'edit-wpt_product_table' || $s_id == 'wpt_product_table' ){
+            // $classes .= ' wp-default-content-wrapper ';
+        }else if( strpos( $s_id, $this->plugin_prefix ) !== false ){
+            $classes .= ' wpt-zero-body ';
+        }
+        
+        
+        return $classes;
+
+    }
     public function admin_enqueue_scripts()
     {
         global $current_screen;
