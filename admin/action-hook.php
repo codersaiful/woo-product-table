@@ -766,25 +766,24 @@ if( !function_exists( 'wpto_admin_configuration_form_top_free' ) ){
         
         ?>
     <table class="wpt-my-table universal-setting">
-        <tr>
+        <tbody>
+        <tr class="divider-row">
             <td>
-                <div class="wpt-form-control">
+                <div class="wqpmb-form-control">
                     <div class="form-label col-lg-6">
-                        LabelTagHere
+                        <h4 class="section-divider-title">Sort and Footer Cart</h4>
                     </div>
                     <div class="form-field col-lg-6">
-                        InputFieldOrAnyOtherField
+                        
                     </div>
                 </div>
             </td>
             <td>
-                <div class="wpt-form-info">
-                    DescriptionOfField_and_docLink
+                <div class="wqpmb-form-info">
+                    
                 </div> 
             </td>
         </tr>
-
-
         <tr>
             <td>
                 <div class="wpt-form-control">
@@ -855,7 +854,7 @@ if( !function_exists( 'wpto_admin_configuration_form_top_free' ) ){
                 </div> 
             </td>
         </tr>
-
+        </tbody>
                             </table>
          
 
