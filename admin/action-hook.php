@@ -757,16 +757,29 @@ add_filter( 'admin_head', 'wpt_tawkto_code_header', 999 );
  * "Table Column Sorting" option was in pro version, we move that into free version
  * @since 3.2.5.4
  * @author Fazle Bari 
+ * 
+ * Added a new Param: $Page_Loader
+ * which is represent Page_Loader Class
+ * @since 3.4.2.0.new_admin3 
+ * @author Saiful Islam <codersaiful@gmail.com>
  */
 if( !function_exists( 'wpto_admin_configuration_form_top_free' ) ){
-    function wpto_admin_configuration_form_top_free($settings,$current_config_value){
+    function wpto_admin_configuration_form_top_free($settings,$current_config_value, $Page_Loader){
         if( !isset( $settings['page'] ) || isset( $settings['page'] ) && $settings['page'] != 'configuration_page' ){
             return;
         }
-        
+
+        /**
+         * Now Here Available is:
+         * $Page_Loader
+         * which is represent Page_Loader classes's Object.
+         * we used $Page_Loader->is_pro
+         * in this function specially to show or hide divider-row
+         */
         ?>
     <table class="wpt-my-table universal-setting">
         <tbody>
+        <?php if($Page_Loader->is_pro){ ?>
         <tr class="divider-row">
             <td>
                 <div class="wqpmb-form-control">
@@ -784,11 +797,12 @@ if( !function_exists( 'wpto_admin_configuration_form_top_free' ) ){
                 </div> 
             </td>
         </tr>
+        <?php } ?>
         <tr>
             <td>
                 <div class="wpt-form-control">
                     <div class="form-label col-lg-6">
-                        <label class="wpt_label wpt_column_sorting_on_off" for="wpt_column_sorting_on_off"><?php esc_html_e( 'Table Column Sorting', 'woo-product-table' );?></label>
+                        <label class="wpt_label wpt_column_sorting_on_off" for="wpt_column_sorting_on_off"><?php esc_html_e( 'Table Column Sortings', 'woo-product-table' );?></label>
                     </div>
                     <div class="form-field col-lg-6">
                         <p><?php echo esc_html( 'Column sorting for visible product Column.', 'woo-product-table' ); ?></p>
@@ -861,4 +875,4 @@ if( !function_exists( 'wpto_admin_configuration_form_top_free' ) ){
          <?php
     }
 }
-add_action('wpto_admin_configuration_form_top', 'wpto_admin_configuration_form_top_free',60,2);
+add_action('wpto_admin_configuration_form_top', 'wpto_admin_configuration_form_top_free',60,3);

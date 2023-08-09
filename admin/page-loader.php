@@ -10,7 +10,7 @@ class Page_Loader extends Base
     public $topbar_file;
     public $topbar_sub_title;
 
-    protected $is_pro;
+    public $is_pro; //I tried to load inside hook, then make it public
     protected $pro_version;
     protected $license;
 
