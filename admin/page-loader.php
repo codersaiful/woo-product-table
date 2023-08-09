@@ -43,14 +43,15 @@ class Page_Loader extends Base
     public function admin_menu()
     {
         add_submenu_page( $this->main_slug, esc_html__( 'Configuration', 'woo-product-table' ),  esc_html__( 'Configure', 'woo-product-table' ), WPT_CAPABILITY, 'woo-product-table-config', [$this, 'configure_page_render'] );
-        add_submenu_page( $this->main_slug, esc_html__( 'Live Support', 'woo-product-table' ),  __( 'Live Support', 'woo-product-table' ), WPT_CAPABILITY, 'wpt-live-support', 'wpt_live_support' );
+        add_submenu_page( $this->main_slug, esc_html__( 'Tutorials', 'woo-product-table' ),  __( 'Tutorial', 'woo-product-table' ), WPT_CAPABILITY, 'wpt-live-support', [$this, 'html_tutorial_page'] );
 
+        
+        add_submenu_page( $this->main_slug, esc_html__( 'Browse Plugins', 'woo-product-table' ),  __( 'Browse Plugins', 'woo-product-table' ), WPT_CAPABILITY, 'wpt-browse-plugins',[$this, 'browse_plugins_html'] );
+        add_submenu_page( $this->main_slug, esc_html__( 'Issue Submit', 'woo-product-table' ),  __( 'Issue Submit', 'woo-product-table' ), WPT_CAPABILITY, 'https://github.com/codersaiful/woo-product-table/issues/new' );
         if( ! $this->is_pro ){
             add_submenu_page( $this->main_slug, esc_html__( 'Try Pro Version', 'woo-product-table' ),  esc_html__( 'Try Pro Version', 'woo-product-table' ), WPT_CAPABILITY, 'https://try.wooproducttable.com/wp-admin/?utm=PluginDashboard' );
             add_submenu_page( $this->main_slug, esc_html__( 'GET PRO VERSION', 'woo-product-table' ),  __( '<i>Get <strong>Pro</strong></i>', 'woo-product-table' ), WPT_CAPABILITY, 'https://wooproducttable.com/pricing/' );
         }
-        add_submenu_page( $this->main_slug, esc_html__( 'Browse Plugins', 'woo-product-table' ),  __( 'Browse Plugins', 'woo-product-table' ), WPT_CAPABILITY, 'wpt-browse-plugins', 'wpt_browse_all_plugin_list' );
-        add_submenu_page( $this->main_slug, esc_html__( 'ISSUE SUBMIT', 'woo-product-table' ),  __( 'ISSUE SUBMIT', 'woo-product-table' ), WPT_CAPABILITY, 'https://github.com/codersaiful/woo-product-table/issues/new' );
     }
 
     public function admin_enqueue_scripts()
@@ -78,5 +79,21 @@ class Page_Loader extends Base
             '<i class="wpt-star-filled"></i><i class="wpt-star-filled"></i><i class="wpt-star-filled"></i><i class="wpt-star-filled"></i><i class="wpt-star-filled"></i>'
 		);
         return '<span id="footer-thankyou" class="wcmmq-footer-thankyou">' . $text . '</span>';
+    }
+    public function browse_plugins_html()
+    {
+        //In future, I will make it like min max plugin - which I already did
+        // add_filter( 'plugins_api_result', [$this, 'plugins_api_result'], 1, 3 );
+        $this->topbar_sub_title = __( 'Browse our Plugins','wcmmq' );
+        include $this->topbar_file;
+        include $this->page_folder_dir . 'browse-plugins.php';
+    }
+    public function html_tutorial_page()
+    {
+        //In future, I will make it like min max plugin - which I already did
+        // add_filter( 'plugins_api_result', [$this, 'plugins_api_result'], 1, 3 );
+        $this->topbar_sub_title = __( 'Tutorial','wcmmq' );
+        include $this->topbar_file;
+        include $this->page_folder_dir . 'tutorials.php';
     }
 }

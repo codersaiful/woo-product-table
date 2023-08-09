@@ -90,7 +90,7 @@ if( !function_exists( 'wpt_pro_features_content' ) ){
         include __DIR__ . '/pro-features-html.php';
     }
 }
-
+//##Unused Function - I will delete it asap
 if( !function_exists( 'wpt_browse_all_plugin_list' ) ){
     
     /**

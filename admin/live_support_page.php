@@ -1,5 +1,5 @@
 <?php
-
+//## Unused, Totally unused function and file
 if (!function_exists('wpt_live_support')) {
     function wpt_live_support()
     {
