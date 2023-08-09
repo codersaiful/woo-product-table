@@ -826,7 +826,7 @@ if( !function_exists( 'wpto_admin_configuration_form_top_free' ) ){
             <td>
                 <div class="wpt-form-control">
                     <div class="form-label col-lg-6">
-                        <label class="wpt_label wpt_footer_cart_on_of" for="wpt_footer_cart_on_of"><?php esc_html_e( 'Hide Footer Cart', 'woo-product-table' );?></label>
+                        <label class="wpt_label wpt_footer_cart_on_of" for="wpt_footer_cart_on_of"><?php esc_html_e( 'Footer Cart', 'woo-product-table' );?></label>
                     </div>
                     <div class="form-field col-lg-6">
                         <label class="switch reverse">
