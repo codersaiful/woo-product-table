@@ -660,6 +660,24 @@ if( !function_exists( 'wpt_configure_label_part' ) ){
                 </td>
             </tr>
 
+            <tr class="<?php echo esc_attr( $user_can_edit ); ?>">
+                <td>
+                    <div class="wpt-form-control">
+                        <div class="form-label col-lg-6">
+                            <label for="wpt_table_type_your_message" class="wpt_label"><?php esc_html_e( '[Type your Message.] Placeholder', 'woo-product-table' );?></label>
+                        </div>
+                        <div class="form-field col-lg-6">
+                            <input name="<?php echo esc_attr( $field_name ); ?>[type_your_message]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['type_your_message'] ); ?>" id="wpt_table_type_your_message" type="text" placeholder="<?php esc_attr_e( 'Type your Message.', 'woo-product-table' );?>">
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="wpt-form-info">
+                        <p>Specially for <b>Short Message</b> column. It's a placeholder text of Short Message Input box. To enable <b>Short Message</b> - Please enable this collumn from Table Edit page.</p>
+                    </div> 
+                </td>
+            </tr>
+
             <tr>
                 <td>
                     <div class="wpt-form-control">
@@ -1023,7 +1041,7 @@ if( !function_exists( 'wpt_configure_external_part' ) ){
         $page = isset( $settings['page'] ) ? $settings['page'] : 'not_set_page';
         
         ?>
-<div class="wpt-section-panel basic-settings label <?php echo esc_attr( $page ); ?>" id="wpt-label-settings">
+<div class="wpt-section-panel basic-settings yith <?php echo esc_attr( $page ); ?>" id="wpt-yith-settings">
     <table class="wpt-my-table basic-setting-table">
         <thead>
             <tr>
@@ -1146,79 +1164,207 @@ if( !function_exists( 'wpt_configure_all_message_part' ) ){
 
         // label <?php echo esc_attr( $page ); "
         ?>
-        <div class="section ultraaddons-panel all_message <?php echo esc_attr( $page ); ?>">
-            <h3 class="with-background dark-background wpt-design-expand"><?php esc_html_e( 'All Messages', 'woo-product-table' );?><span title="Collapse/Expand" class="wpt-design-collaps"> <i class="wpt-expand-collapse"></i></span></h3>
-            <table class="ultraaddons-table wpt_all_messages">
-                <tbody>
-                    <tr class="<?php echo esc_attr( $user_can_edit ); ?>">
-                        <th><label for="wpt_table_right_combination_message" class="wpt_label"><?php esc_html_e( 'Variations [Not available] Message', 'woo-product-table' );?></label></th>
-                        <td> 
+<div class="wpt-section-panel basic-settings yith <?php echo esc_attr( $page ); ?>" id="wpt-yith-settings">
+    <table class="wpt-my-table basic-setting-table">
+        <thead>
+            <tr>
+                <th class="wpt-inside">
+                    <div class="wpt-table-header-inside">
+                        <h3><?php esc_html_e( 'All Messages', 'woo-product-table' );?></h3>
+                    </div>
+                    
+                </th>
+                <th>
+                <div class="wpt-table-header-right-side"></div>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr class="<?php echo esc_attr( $user_can_edit ); ?>">
+                <td>
+                    <div class="wpt-form-control">
+                        <div class="form-label col-lg-6">
+                            <label for="wpt_table_right_combination_message" class="wpt_label"><?php esc_html_e( 'Variations [Not available] Message', 'woo-product-table' );?></label>
+                        </div>
+                        <div class="form-field col-lg-6">
                             <input name="<?php echo esc_attr( $field_name ); ?>[right_combination_message]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['right_combination_message'] ); ?>" id="wpt_table_right_combination_message" type="text" placeholder="<?php esc_attr_e( 'Not Available', 'woo-product-table' );?>">
-                        </td>
-                    </tr>
-                    <tr class="<?php echo esc_attr( $user_can_edit ); ?>">
-                        <th><label for="wpt_table_right_combination_message_alt" class="wpt_label"><?php esc_html_e( '[Product variations is not set Properly. May be: price is not inputted. may be: Out of Stock.] Message', 'woo-product-table' );?></label></th>
-                        <td>    
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="wpt-form-info">
+                        <p>For vairable product, If you change drop-down of Variation and Not available variation. Then this message will show.</p>
+                    </div> 
+                </td>
+            </tr>
+
+            <tr class="<?php echo esc_attr( $user_can_edit ); ?>">
+                <td>
+                    <div class="wpt-form-control">
+                        <div class="form-label col-lg-6">
+                            <label for="wpt_table_right_combination_message_alt" class="wpt_label"><?php esc_html_e( '[Product variations is not set Properly.] Message', 'woo-product-table' );?></label>
+                        </div>
+                        <div class="form-field col-lg-6">
                             <input name="<?php echo esc_attr( $field_name ); ?>[right_combination_message_alt]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['right_combination_message_alt'] ); ?>" id="wpt_table_right_combination_message_alt" type="text" placeholder="<?php esc_attr_e( 'Product variations is not set Properly. May be: price is not inputted. may be: Out of Stock.', 'woo-product-table' );?>">
-                        </td>
-                    </tr>
-                    <tr class="<?php echo esc_attr( $user_can_edit ); ?>">
-                        <th><label for="wpt_table_select_all_items_message" class="wpt_label"><?php esc_html_e( '[Please select all items.] Message', 'woo-product-table' );?></label></th>
-                        <td>    
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="wpt-form-info">
+                        For variable product, if not set properly variation. May be: price is not inputted. may be: Out of Stock.
+                    </div> 
+                </td>
+            </tr>
+            <tr class="<?php echo esc_attr( $user_can_edit ); ?>">
+                <td>
+                    <div class="wpt-form-control">
+                        <div class="form-label col-lg-6">
+                            <label for="wpt_table_select_all_items_message" class="wpt_label"><?php esc_html_e( '[Please select all items.] Message', 'woo-product-table' );?></label>
+                        </div>
+                        <div class="form-field col-lg-6">
                             <input name="<?php echo esc_attr( $field_name ); ?>[select_all_items_message]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['select_all_items_message'] ); ?>" id="wpt_table_select_all_items_message" type="text" placeholder="<?php esc_attr_e( 'Please select all items.', 'woo-product-table' );?>">
-                        </td>
-                    </tr>
-                    <tr class="<?php echo esc_attr( $user_can_edit ); ?>">
-                        <th><label for="wpt_table_please_choose_items" class="wpt_label"><?php esc_html_e( '[Please Choose items] Alert!', 'woo-product-table' );?></label></th>
-                        <td>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="wpt-form-info">
+                        
+                    </div> 
+                </td>
+            </tr>
+
+            <tr class="<?php echo esc_attr( $user_can_edit ); ?>">
+                <td>
+                    <div class="wpt-form-control">
+                        <div class="form-label col-lg-6">
+                            <label for="wpt_table_please_choose_items" class="wpt_label"><?php esc_html_e( '[Please Choose items] Alert!', 'woo-product-table' );?></label>
+                        </div>
+                        <div class="form-field col-lg-6">
                             <input name="<?php echo esc_attr( $field_name ); ?>[please_choose_items]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['please_choose_items'] ); ?>" id="wpt_table_please_choose_items" type="text" placeholder="<?php esc_attr_e( 'Please select all items.', 'woo-product-table' );?>">
-                        </td>
-                    </tr>
-                    <tr class="<?php echo esc_attr( $user_can_edit ); ?>">
-                        <th><label for="wpt_table_out_of_stock_message" class="wpt_label"><?php esc_html_e( '[Out of Stock] Message', 'woo-product-table' );?></label></th>
-                        <td>    
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="wpt-form-info">
+                        For vairable product, If user click on Add to cart button without select any variation. Then this message will show.
+                    </div> 
+                </td>
+            </tr>
+
+            <tr class="<?php echo esc_attr( $user_can_edit ); ?>">
+                <td>
+                    <div class="wpt-form-control">
+                        <div class="form-label col-lg-6">
+                            <label for="wpt_table_out_of_stock_message" class="wpt_label"><?php esc_html_e( '[Out of Stock] Message', 'woo-product-table' );?></label>
+                        </div>
+                        <div class="form-field col-lg-6">
                             <input name="<?php echo esc_attr( $field_name ); ?>[out_of_stock_message]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['out_of_stock_message'] ); ?>" id="wpt_table_out_of_stock_message" type="text" placeholder="<?php esc_attr_e( 'Out of Stock', 'woo-product-table' );?>">
-                        </td>
-                    </tr>
-                    <tr class="<?php echo esc_attr( $user_can_edit ); ?>">
-                        <th><label for="wpt_table_no_more_query_message" class="wpt_label"><?php esc_html_e( '[There is no more products based on current Query.] Message', 'woo-product-table' );?></label></th>
-                        <td>    
-                            <input name="<?php echo esc_attr( $field_name ); ?>[no_more_query_message]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['no_more_query_message'] ); ?>" id="wpt_table_no_more_query_message" type="text" placeholder="<?php esc_attr_e( 'There is no more products based on current Query.', 'woo-product-table' );?>">
-                        </td>
-                    </tr>
-                    <tr class="<?php echo esc_attr( $user_can_edit ); ?>">
-                        <th><label for="wpt_table_out_adding_progress" class="wpt_label"><?php esc_html_e( '[ Adding in Progress ] Message', 'woo-product-table' );?></label></th>
-                        <td>    
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="wpt-form-info">
+                        
+                    </div> 
+                </td>
+            </tr>
+
+            <tr class="<?php echo esc_attr( $user_can_edit ); ?>">
+                <td>
+                    <div class="wpt-form-control">
+                        <div class="form-label col-lg-6">
+                            <label for="wpt_table_no_more_query_message" class="wpt_label"><?php esc_html_e( '[There is no more products based on current Query.] Message', 'woo-product-table' );?></label>
+                        </div>
+                        <div class="form-field col-lg-6">
+                        <input name="<?php echo esc_attr( $field_name ); ?>[no_more_query_message]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['no_more_query_message'] ); ?>" id="wpt_table_no_more_query_message" type="text" placeholder="<?php esc_attr_e( 'There is no more products based on current Query.', 'woo-product-table' );?>">
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="wpt-form-info">
+                        <p>Actually it's for pagination. When select Load More button or infinite scroll. If not found product on nect load more clik.</p>
+                    </div> 
+                </td>
+            </tr>
+
+            <tr class="<?php echo esc_attr( $user_can_edit ); ?>">
+                <td>
+                    <div class="wpt-form-control">
+                        <div class="form-label col-lg-6">
+                            <label for="wpt_table_out_adding_progress" class="wpt_label"><?php esc_html_e( '[ Adding in Progress ] Message', 'woo-product-table' );?></label>
+                        </div>
+                        <div class="form-field col-lg-6">
                             <input name="<?php echo esc_attr( $field_name ); ?>[adding_in_progress]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['adding_in_progress'] ); ?>" id="wpt_table_out_adding_progress" type="text" placeholder="<?php esc_attr_e( 'Adding in Progress', 'woo-product-table' );?>">
-                        </td>
-                    </tr>
-                    <tr class="<?php echo esc_attr( $user_can_edit ); ?>">
-                        <th><label for="wpt_table_no_right_comb" class="wpt_label"><?php esc_html_e( '[ No Right Combination ] Message', 'woo-product-table' );?></label></th>
-                        <td>    
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="wpt-form-info">
+                        <p>If user click again same add to cart button before complete added.</p>
+                    </div> 
+                </td>
+            </tr>
+
+            <tr class="<?php echo esc_attr( $user_can_edit ); ?>">
+                <td>
+                    <div class="wpt-form-control">
+                        <div class="form-label col-lg-6">
+                            <label for="wpt_table_no_right_comb" class="wpt_label"><?php esc_html_e( '[ No Right Combination ] Message', 'woo-product-table' );?></label>
+                        </div>
+                        <div class="form-field col-lg-6">
                             <input name="<?php echo esc_attr( $field_name ); ?>[no_right_combination]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['no_right_combination'] ); ?>" id="wpt_table_no_right_comb" type="text" placeholder="<?php esc_attr_e( 'No Right Combination', 'woo-product-table' );?>">
-                        </td>
-                    </tr>
-                    <tr class="<?php echo esc_attr( $user_can_edit ); ?>">
-                        <th><label for="wpt_table_sorry_plz_right_combination" class="wpt_label"><?php esc_html_e( '[ Sorry, Please choose right combination. ] Message', 'woo-product-table' );?></label></th>
-                        <td>    
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="wpt-form-info">
+                        <p>It's for variable product. If not match variation, of if not found variation. </p>
+                    </div> 
+                </td>
+            </tr>
+
+            <tr class="<?php echo esc_attr( $user_can_edit ); ?>">
+                <td>
+                    <div class="wpt-form-control">
+                        <div class="form-label col-lg-6">
+                            <label for="wpt_table_sorry_plz_right_combination" class="wpt_label"><?php esc_html_e( '[ Sorry, Please choose right combination. ] Message', 'woo-product-table' );?></label>
+                        </div>
+                        <div class="form-field col-lg-6">
                             <input name="<?php echo esc_attr( $field_name ); ?>[sorry_plz_right_combination]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['sorry_plz_right_combination'] ); ?>" id="wpt_table_sorry_plz_right_combination" type="text" placeholder="<?php esc_attr_e( 'Sorry, Please choose right combination.', 'woo-product-table' );?>">
-                        </td>
-                    </tr>
-                    <tr class="<?php echo esc_attr( $user_can_edit ); ?>">
-                        <th><label for="wpt_table_sorry_out_stock" class="wpt_label"><?php esc_html_e( '[ Sorry! Out of Stock! ] Message', 'woo-product-table' );?></label></th>
-                        <td>    
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="wpt-form-info">
+                        <p>It's actually for variable product. If product has one more type variation, and if not match on available. this message will show.</p>
+                    </div> 
+                </td>
+            </tr>
+
+            <tr class="<?php echo esc_attr( $user_can_edit ); ?>">
+                <td>
+                    <div class="wpt-form-control">
+                        <div class="form-label col-lg-6">
+                            <label for="wpt_table_sorry_out_stock" class="wpt_label"><?php esc_html_e( '[ Sorry! Out of Stock! ] Message', 'woo-product-table' );?></label>
+                        </div>
+                        <div class="form-field col-lg-6">
                             <input name="<?php echo esc_attr( $field_name ); ?>[sorry_out_of_stock]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['sorry_out_of_stock'] ); ?>" id="wpt_table_sorry_out_stock" type="text" placeholder="<?php esc_attr_e( 'Sorry! Out of Stock!', 'woo-product-table' );?>">
-                        </td>
-                    </tr>
-                    <tr class="<?php echo esc_attr( $user_can_edit ); ?>">
-                        <th><label for="wpt_table_type_your_message" class="wpt_label"><?php esc_html_e( '[Type your Message.] Message', 'woo-product-table' );?></label></th>
-                        <td>    
-                            <input name="<?php echo esc_attr( $field_name ); ?>[type_your_message]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['type_your_message'] ); ?>" id="wpt_table_type_your_message" type="text" placeholder="<?php esc_attr_e( 'Type your Message.', 'woo-product-table' );?>">
-                        </td>
-                    </tr>
-                </tbody>
-            </table><?php do_action( 'wpto_admin_configuration_panel_bottom',$settings,$current_config_value ); ?>
-        </div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="wpt-form-info">
+                        
+                    </div> 
+                </td>
+            </tr>
+
+            
+        </tbody>
+    </table>
+</div>
+
          <?php
          
     }
