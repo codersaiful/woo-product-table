@@ -23,7 +23,7 @@ class Page_Loader extends Base
         }
         $this->page_folder_dir = $this->base_dir . 'admin/page/';
         $this->topbar_file = $this->page_folder_dir . 'topbar.php';
-        $this->topbar_sub_title = __("Manage and Settings", "wcmmq");
+        $this->topbar_sub_title = __("Manage and Settings", "woo-product-table");
     }
 
     public function run()
@@ -96,13 +96,13 @@ class Page_Loader extends Base
 			$rev_link,
             '<i class="wpt-star-filled"></i><i class="wpt-star-filled"></i><i class="wpt-star-filled"></i><i class="wpt-star-filled"></i><i class="wpt-star-filled"></i>'
 		);
-        return '<span id="footer-thankyou" class="wcmmq-footer-thankyou">' . $text . '</span>';
+        return '<span id="footer-thankyou" class="wpt-footer-thankyou">' . $text . '</span>';
     }
     public function browse_plugins_html()
     {
         //In future, I will make it like min max plugin - which I already did
         // add_filter( 'plugins_api_result', [$this, 'plugins_api_result'], 1, 3 );
-        $this->topbar_sub_title = __( 'Browse our Plugins','wcmmq' );
+        $this->topbar_sub_title = __( 'Browse our Plugins','woo-product-table' );
         include $this->topbar_file;
         include $this->page_folder_dir . 'browse-plugins.php';
     }
@@ -110,7 +110,7 @@ class Page_Loader extends Base
     {
         //In future, I will make it like min max plugin - which I already did
         // add_filter( 'plugins_api_result', [$this, 'plugins_api_result'], 1, 3 );
-        $this->topbar_sub_title = __( 'Tutorial','wcmmq' );
+        $this->topbar_sub_title = __( 'Tutorial','woo-product-table' );
         include $this->topbar_file;
         include $this->page_folder_dir . 'tutorials.php';
     }
