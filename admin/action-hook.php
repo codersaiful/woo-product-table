@@ -1023,94 +1023,119 @@ if( !function_exists( 'wpt_configure_external_part' ) ){
         $page = isset( $settings['page'] ) ? $settings['page'] : 'not_set_page';
         
         ?>
-        <div class="section ultraaddons-panel label <?php echo esc_attr( $page ); ?>">
-            <h3 class="with-background dark-background wpt-design-expand"><?php echo sprintf( esc_html__( 'External Plugin\'s %s[YITH]%s ', 'woo-product-table' ),'<span style="color: orange; font-size: 18px;">', '</span>' );?><span title="Collapse/Expand" class="wpt-design-collaps"> <i class="wpt-expand-collapse"></i></span></h3>
-            <table class="ultraaddons-table external_plugin">
-                <tbody>
-                    <tr> 
-                        <th><label for="wpt_table_quick_view_btn_text" class="wpt_label"><?php echo sprintf(esc_html__( '%s[Quick View]%s - Button Text', 'woo-product-table' ), '<b>', '</b>' ); ?></label></th>
-                        <td>
+<div class="wpt-section-panel basic-settings label <?php echo esc_attr( $page ); ?>" id="wpt-label-settings">
+    <table class="wpt-my-table basic-setting-table">
+        <thead>
+            <tr>
+                <th class="wpt-inside">
+                    <div class="wpt-table-header-inside">
+                        <h3><?php echo sprintf( esc_html__( 'External Plugin\'s %s[YITH]%s ', 'woo-product-table' ),'<span style="color: orange; font-size: 18px;">', '</span>' );?></h3>
+                    </div>
+                    
+                </th>
+                <th>
+                <div class="wpt-table-header-right-side"></div>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <div class="wpt-form-control">
+                        <div class="form-label col-lg-6">
+                            <label for="wpt_table_quick_view_btn_text" class="wpt_label"><?php echo sprintf(esc_html__( '%s[Quick View]%s - Button Text', 'woo-product-table' ), '<b>', '</b>' ); ?></label>
+                        </div>
+                        <div class="form-field col-lg-6">
                             <input name="<?php echo esc_attr( $field_name ); ?>[quick_view_btn_text]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['quick_view_btn_text'] ); ?>" id="wpt_table_quick_view_btn_text" type="text" placeholder="<?php esc_attr_e( 'eg: Quick View', 'woo-product-table' ); ?>">
-                            <p style="color: #005082;padding: 0;margin: 0;"><?php echo sprintf(esc_html__( 'Only for %s YITH WooCommerce Quick View%s Plugin', 'woo-product-table' ), '<a target="_blank" href="https://wordpress.org/plugins/yith-woocommerce-quick-view/">', '</a>' ); ?></p>
-                        </td>
-                    </tr>
-
-                    <tr> 
-                        <th> <label for="wpt_table_yith_browse_list" class="wpt_label"><?php echo sprintf(esc_html__( '%s[Browse Quote list]%s - text ', 'woo-product-table' ), '<b>', '</b>' ); ?></label></th>
-                        <td>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="wpt-form-info">
+                        <p><?php echo sprintf(esc_html__( 'Only for %s YITH WooCommerce Quick View%s Plugin', 'woo-product-table' ), '<a target="_blank" href="https://wordpress.org/plugins/yith-woocommerce-quick-view/">', '</a>' ); ?></p>
+                    </div> 
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="wpt-form-control">
+                        <div class="form-label col-lg-6">
+                            <label for="wpt_table_yith_browse_list" class="wpt_label"><?php echo sprintf(esc_html__( '%s[Browse Quote list]%s - text ', 'woo-product-table' ), '<b>', '</b>' ); ?></label>
+                        </div>
+                        <div class="form-field col-lg-6">
                             <input name="<?php echo esc_attr( $field_name ); ?>[yith_browse_list]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['yith_browse_list'] ); ?>" id="wpt_table_yith_browse_list" type="text" placeholder="<?php esc_attr_e( 'Browse the list - text write here', 'woo-product-table' ); ?>">
-                        </td>
-                    </tr>
-                    <tr> 
-                        <th><label for="wpt_table_yith_add_to_quote_text" class="wpt_label"><?php echo sprintf(esc_html__( '%s[Add to Quote]%s - button text', 'woo-product-table' ), '<b>', '</b>' ); ?></label></th>
-                        <td>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="wpt-form-info">
+                        
+                    </div> 
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <div class="wpt-form-control">
+                        <div class="form-label col-lg-6">
+                            <label for="wpt_table_yith_add_to_quote_text" class="wpt_label"><?php echo sprintf(esc_html__( '%s[Add to Quote]%s - button text', 'woo-product-table' ), '<b>', '</b>' ); ?></label>
+                        </div>
+                        <div class="form-field col-lg-6">
                             <input name="<?php echo esc_attr( $field_name ); ?>[yith_add_to_quote_text]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['yith_add_to_quote_text'] ); ?>" id="wpt_table_yith_add_to_quote_text" type="text" placeholder="<?php esc_attr_e( 'Add to Quote text write here', 'woo-product-table' ); ?>">
-                        </td>
-                    </tr>
-                    <tr> 
-                        <th> <label for="wpt_table_yith_add_to_quote_adding" class="wpt_label"><?php echo sprintf(esc_html__( '%s[Quote Adding]%s - text', 'woo-product-table' ), '<b>', '</b>' ); ?></label></th>
-                        <td>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="wpt-form-info">
+                        
+                    </div> 
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="wpt-form-control">
+                        <div class="form-label col-lg-6">
+                            <label for="wpt_table_yith_add_to_quote_adding" class="wpt_label"><?php echo sprintf(esc_html__( '%s[Quote Adding]%s - text', 'woo-product-table' ), '<b>', '</b>' ); ?></label>
+                        </div>
+                        <div class="form-field col-lg-6">
                             <input name="<?php echo esc_attr( $field_name ); ?>[yith_add_to_quote_adding]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['yith_add_to_quote_adding'] ); ?>" id="wpt_table_yith_add_to_quote_adding" type="text" placeholder="<?php esc_attr_e( 'Adding text write here', 'woo-product-table' ); ?>">
-                        </td>
-                    </tr>
-                    <tr> 
-                        <th> <label for="wpt_table_yith_add_to_quote_added" class="wpt_label"><?php echo sprintf(esc_html__( '%s[Quote Added]%s - text ', 'woo-product-table' ), '<b>', '</b>' ); ?></label></th>
-                        <td>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="wpt-form-info">
+                        
+                    </div> 
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <div class="wpt-form-control">
+                        <div class="form-label col-lg-6">
+                            <label for="wpt_table_yith_add_to_quote_added" class="wpt_label"><?php echo sprintf(esc_html__( '%s[Quote Added]%s - text ', 'woo-product-table' ), '<b>', '</b>' ); ?></label>
+                        </div>
+                        <div class="form-field col-lg-6">
                             <input name="<?php echo esc_attr( $field_name ); ?>[yith_add_to_quote_added]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['yith_add_to_quote_added'] ); ?>" id="wpt_table_yith_add_to_quote_added" type="text" placeholder="<?php esc_attr_e( 'Quote Added text write here', 'woo-product-table' ); ?>">
-                        </td>
-                    </tr>
-                </tbody>
-            </table><?php do_action( 'wpto_admin_configuration_panel_bottom',$settings,$current_config_value ); ?>
-        </div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="wpt-form-info">
+                        
+                    </div> 
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
          <?php
          
     }
 }
 add_action( 'wpto_admin_configuration_form', 'wpt_configure_external_part',15, 3 );
 
-
-if( !function_exists( 'wpt_configure_default_content_part' ) ){
-    
-    function wpt_configure_default_content_part( $settings,$current_config_value,$field_name ){
-        $page = isset( $settings['page'] ) ? $settings['page'] : 'not_set_page';
-        
-        // label <?php echo esc_attr( $page ); "
-        ?>
-        <div class="section ultraaddons-panel default_content <?php echo esc_attr( $page );?>">
-            <h3 class="with-background dark-background wpt-design-expand"><?php echo sprintf( esc_html__( 'Table\'s Default Content %sSince 3.3%s', 'woo-product-table' ), '<small style="color: orange; font-size: 12px;">', '</small>' );?><span title="Collapse/Expand" class="wpt-design-collaps"> <i class="wpt-expand-collapse"></i></span></h3>
-            <table class="ultraaddons-table">
-                <tbody>
-                    <tr>
-                        <th><label for="wpt_table_table_in_stock" class="wpt_label"><?php esc_html_e( '[In Stock] for Table Column', 'woo-product-table' );?></label></th>
-                        <td>
-                            <input name="<?php echo esc_attr( $field_name ); ?>[table_in_stock]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['table_in_stock'] ); ?>" id="wpt_table_table_in_stock" type="text" placeholder="<?php esc_attr_e( 'In Stock', 'woo-product-table' );?>">
-                        </td>
-                    </tr>
-                    <tr>
-                        <th><label for="wpt_table_table_out_of_stock" class="wpt_label"><?php esc_html_e( '[Out of Stock] for Table Column', 'woo-product-table' );?></label></th>
-                        <td>
-                            <input name="<?php echo esc_attr( $field_name ); ?>[table_out_of_stock]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['table_out_of_stock'] ); ?>" id="wpt_table_table_out_of_stock" type="text" placeholder="<?php esc_attr_e( 'Out of Stock', 'woo-product-table' );?>">
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <th><label for="wpt_table_table_on_back_order" class="wpt_label"><?php esc_html_e( '[On Back Order] for Table Column', 'woo-product-table' );?></label></th>
-                        <td>
-                            <input name="<?php echo esc_attr( $field_name ); ?>[table_on_back_order]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['table_on_back_order'] ); ?>" id="wpt_table_table_on_back_order" type="text" placeholder="<?php esc_attr_e( 'On Back Order', 'woo-product-table' );?>">
-                        </td>
-                    </tr>
-
-                </tbody>
-            </table><?php do_action( 'wpto_admin_configuration_panel_bottom',$settings,$current_config_value ); ?>
-        </div>
-         <?php
-         
-    }
-}
-/**
- * Stock Message or BackOrder Message or All about stock will manage from WooCommerce
- */
-//add_action( 'wpto_admin_configuration_form', 'wpt_configure_default_content_part',20, 3 );
 
 
 if( !function_exists( 'wpt_configure_all_message_part' ) ){
