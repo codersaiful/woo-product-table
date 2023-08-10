@@ -306,7 +306,7 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
                 <td>
                     <div class="wqpmb-form-control">
                         <div class="form-label col-lg-6">
-                            <h4 class="section-divider-title"><?php echo esc_html__('Options', 'woo-product-table'); ?></h4>
+                            <h4 class="section-divider-title"><?php echo esc_html__('Search & Filter Options', 'woo-product-table'); ?></h4>
                         </div>
                         <div class="form-field col-lg-6">
                             
@@ -339,6 +339,7 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
                 <td>
                     <div class="wpt-form-info">
                         <?php wpt_doc_link('https://wooproducttable.com/docs/doc/table-options/mini-filter-search-box-taxonomy-sorting/') ?>
+                        <p>You can sort mini filter's option by assending or descending. It's a minimal feature. When user showing all product in a table and there is no pagination. Then user can use <b>Mini Filter</b>.</p>
                     </div> 
                 </td>
             </tr>
@@ -347,7 +348,7 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
                 <td>
                     <div class="wpt-form-control">
                         <div class="form-label col-lg-6">
-                            <label class="wpt_label" for="wpt_table_sort_searchbox_filter"><?php esc_html_e( 'Search Box Taxonomy Sorting', 'woo-product-table' ); ?></label>
+                            <label class="wpt_label" for="wpt_table_sort_searchbox_filter"><?php esc_html_e( 'Advance Search drop-down Sorting', 'woo-product-table' ); ?></label>
                         </div>
                         <div class="form-field col-lg-6">
                             <select name="<?php echo esc_attr( $field_name ); ?>[sort_searchbox_filter]" id="wpt_table_sort_searchbox_filter" class="wpt_fullwidth ua_input" >
@@ -362,10 +363,8 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
                 <td>
                     <div class="wpt-form-info">
                         <?php wpt_doc_link('https://wooproducttable.com/docs/doc/table-options/mini-filter-search-box-taxonomy-sorting/') ?>
-                        <p class="warning">
-                            <b>Tips:</b>
-                            <span>If set Default Sorting, Taxonomy (Category/Tag) sorting will be like Default Taxonomy list.</span>
-                        </p>
+                        <p>It's for Advance Search Drop-Down sorting. Advance Search box is important, when you created your table with pagination. or when you want that, search will execute from whole site.</p>
+                        <p class="warning">If set Default Sorting, Taxonomy (Category/Tag) sorting will be like Default Taxonomy list.</p>
                     </div> 
                 </td>
             </tr>
@@ -388,10 +387,27 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
                 <td>
                     <div class="wpt-form-info">
                         <?php wpt_doc_link('https://wooproducttable.com/docs/doc/advance-uses/use-instant-search-filter/') ?>
-                        <p class="warning"><?php echo esc_html__( 'Only for viewable products of current table.', 'woo-product-table' ) ?></p>
+                        <p>It's a minimal feature. When user showing all product in a table and there is no pagination. Then user can use <b>Instance Search</b> input box.</p>
                     </div> 
                 </td>
             </tr>  
+            <tr>
+                <td>
+                    <div class="wpt-form-control">
+                        <div class="form-label col-lg-6">
+                            <label for="wpt_table_instant_search_text" class="wpt_label"><?php echo sprintf(esc_html__( '%s[Instance Search]%s - Text', 'woo-product-table' ), '<b>', '</b>' ); ?></label>
+                        </div>
+                        <div class="form-field col-lg-6">
+                            <input name="<?php echo esc_attr( $field_name ); ?>[instant_search_text]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['instant_search_text'] ); ?>" id="wpt_table_instant_search_text" type="text" placeholder="<?php esc_attr_e( 'attr', 'woo-product-table' ); ?>">
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="wpt-form-info">
+                        <p>For Instance search box, you can change placeholder text.</p>  
+                    </div> 
+                </td>
+            </tr>
 
             <tr class="divider-row">
                 <td>
@@ -608,134 +624,392 @@ if( !function_exists( 'wpt_configure_label_part' ) ){
         $user_can_edit = wpt_user_can_edit() ? 'user_can_edit' : 'user_can_not_edit';
         
         ?>
-        <div class="section ultraaddons-panel label <?php echo esc_attr( $page ); ?>">
-            <h3 class="with-background dark-background wpt-design-expand"><?php esc_html_e( 'Label Text', 'woo-product-table' );?><span title="Collapse/Expand" class="wpt-design-collaps"> <i class="wpt-expand-collapse"></i></span></h3>
-            <table class="ultraaddons-table">
-                <tbody>
-                    <tr> 
-                        <th> <label for="wpt_table_product_not_founded" class="wpt_label"><?php echo sprintf(esc_html__( '%s[Products not found!]%s - Message Text', 'woo-product-table' ), '<b>', '</b>' ); ?></label></th>
-                        <td>
+
+<div class="wpt-section-panel basic-settings label <?php echo esc_attr( $page ); ?>" id="wpt-label-settings">
+    <table class="wpt-my-table basic-setting-table">
+        <thead>
+            <tr>
+                <th class="wpt-inside">
+                    <div class="wpt-table-header-inside">
+                        <h3><?php esc_html_e( 'Label Text', 'woo-product-table' );?></h3>
+                    </div>
+                    
+                </th>
+                <th>
+                <div class="wpt-table-header-right-side"></div>
+                </th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>
+                    <div class="wpt-form-control">
+                        <div class="form-label col-lg-6">
+                            <label for="wpt_table_product_not_founded" class="wpt_label"><?php echo sprintf(esc_html__( '%s[Products not found!]%s - Message Text', 'woo-product-table' ), '<b>', '</b>' ); ?></label>
+                        </div>
+                        <div class="form-field col-lg-6">
                             <input name="<?php echo esc_attr( $field_name ); ?>[product_not_founded]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['product_not_founded'] ); ?>" id="wpt_table_product_not_founded" type="text" placeholder="<?php esc_attr_e( 'No products found in this query.', 'woo-product-table' ); ?>">
-                        </td>
-                    </tr>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="wpt-form-info">
+                        <p>When products not found in table based on your query.</p>
+                    </div> 
+                </td>
+            </tr>
 
-                    <tr> 
-                        <th> <label for="wpt_table_load_more_text" class="wpt_label"><?php echo sprintf(esc_html__( '%s[Load More]%s - Button Text', 'woo-product-table' ), '<b>', '</b>' ); ?></label></th>
-                        <td>
+            <tr>
+                <td>
+                    <div class="wpt-form-control">
+                        <div class="form-label col-lg-6">
+                            <label for="wpt_table_load_more_text" class="wpt_label"><?php echo sprintf(esc_html__( '%s[Load More]%s - Button Text', 'woo-product-table' ), '<b>', '</b>' ); ?></label>
+                        </div>
+                        <div class="form-field col-lg-6">
                             <input name="<?php echo esc_attr( $field_name ); ?>[load_more_text]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['load_more_text'] ); ?>" id="wpt_table_load_more_text" type="text" placeholder="<?php esc_attr_e( 'Load More text write here', 'woo-product-table' ); ?>">
-                            <p><?php echo esc_html__( 'Not for Archive page.', 'woo-product-table' ); ?></p>
-                        </td>
-                    </tr>
-
-                    <tr> 
-                        <th>   <label for="wpt_table_search_button_text" class="wpt_label"><?php echo sprintf(esc_html__( '%s[Search]%s - Button Text', 'woo-product-table' ), '<b>', '</b>' ); ?></label></th>
-                        <td>
-                            <input name="<?php echo esc_attr( $field_name ); ?>[search_button_text]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['search_button_text'] ); ?>" id="wpt_table_search_button_textt" type="text" placeholder="<?php esc_attr_e( 'Search text write here', 'woo-product-table' ); ?>">
-                        </td>
-                    </tr>
-                    <tr> 
-                        <th><label for="wpt_table_search_keyword_text" class="wpt_label"><?php echo sprintf(esc_html__( '%s[Search Keyword Title]%s - Text', 'woo-product-table' ), '<b>', '</b>' ); ?></label></th>
-                        <td>
-                            <input name="<?php echo esc_attr( $field_name ); ?>[search_keyword_text]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['search_keyword_text'] ); ?>" id="wpt_table_search_keyword_text" type="text" placeholder="<?php esc_attr_e( 'Search Keyword', 'woo-product-table' ); ?>">
-                        </td>
-                    </tr>
-
-                    <tr> 
-                        <th><label for="wpt_table_loading_more_text" class="wpt_label"><?php echo sprintf(esc_html__( '%s[Loading..]%s - Button Text', 'woo-product-table' ), '<b>', '</b>' ); ?></label></th>
-                        <td>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="wpt-form-info">
+                        <p>
+                            <?php echo esc_html__( 'At the end of the table, when enable [Load More] from Option tab.', 'woo-product-table' ); ?>
+                            <?php echo esc_html__( 'Not for Archive page.', 'woo-product-table' ); ?>
+                        </p>
+                    </div> 
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="wpt-form-control">
+                        <div class="form-label col-lg-6">
+                            <label for="wpt_table_loading_more_text" class="wpt_label"><?php echo sprintf(esc_html__( '%s[Loading..]%s - Button Text', 'woo-product-table' ), '<b>', '</b>' ); ?></label>
+                        </div>
+                        <div class="form-field col-lg-6">
                             <input name="<?php echo esc_attr( $field_name ); ?>[loading_more_text]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['loading_more_text'] ); ?>" id="wpt_table_loading_more_text" type="text" placeholder="<?php esc_attr_e( 'Loading.. text write here', 'woo-product-table' ); ?>"> 
-                        </td>
-                    </tr>
-                    <tr> 
-                        <th> <label for="wpt_table_instant_search_text" class="wpt_label"><?php echo sprintf(esc_html__( '%s[Instance Search]%s - Text', 'woo-product-table' ), '<b>', '</b>' ); ?></label></th>
-                        <td>
-                            <input name="<?php echo esc_attr( $field_name ); ?>[instant_search_text]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['instant_search_text'] ); ?>" id="wpt_table_instant_search_text" type="text" placeholder="<?php esc_attr_e( 'attr', 'woo-product-table' ); ?>"> 
-                        </td>
-                    </tr>
-                    
-                    <tr class="<?php echo esc_attr( $user_can_edit ); ?>"> 
-                        <th> <label for="wpt_table_empty_cart_text" class="wpt_label"><?php echo sprintf(esc_html__( '%s[Empty Cart]%s - Text of Empty Cart', 'woo-product-table' ), '<b>', '</b>' ); ?></label></th>
-                        <td>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="wpt-form-info">
+                        <p>When select infinite scrol for pagination option, there will show a Loading button. Change text from here.</p>
+                    </div> 
+                </td>
+            </tr>
+
+            <tr style="display: none;">
+                <td>
+                    <div class="wpt-form-control">
+                        <div class="form-label col-lg-6">
+                            <label for="wpt_table_search_button_text" class="wpt_label"><?php echo sprintf(esc_html__( '%s[Search]%s - Button Text', 'woo-product-table' ), '<b>', '</b>' ); ?></label>
+                        </div>
+                        <div class="form-field col-lg-6">
+                            <input name="<?php echo esc_attr( $field_name ); ?>[search_button_text]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['search_button_text'] ); ?>" id="wpt_table_search_button_textt" type="text" placeholder="<?php esc_attr_e( 'Search text write here', 'woo-product-table' ); ?>">
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="wpt-form-info">
+                        <p>It's not visible to table. Hidden by css.</p>
+                    </div> 
+                </td>
+            </tr>
+
+            
+
+            <tr class="<?php echo esc_attr( $user_can_edit ); ?>">
+                <td>
+                    <div class="wpt-form-control">
+                        <div class="form-label col-lg-6">
+                            <label for="wpt_table_empty_cart_text" class="wpt_label"><?php echo sprintf(esc_html__( '%s[Empty Cart]%s - Text of Empty Cart', 'woo-product-table' ), '<b>', '</b>' ); ?></label>
+                        </div>
+                        <div class="form-field col-lg-6">
                             <input name="<?php echo esc_attr( $field_name ); ?>[empty_cart_text]" class="wpt_data_filed_atts ua_input" value="<?php echo isset( $current_config_value['empty_cart_text'] ) ? esc_attr( $current_config_value['empty_cart_text'] ) : ''; ?>" id="wpt_table_filter_text" type="text" placeholder="<?php esc_attr_e( 'eg: Empty Cart', 'woo-product-table' ); ?>">
-                        </td>
-                    </tr>
-                    
-                    <tr> 
-                        <th> <label for="wpt_table_filter_text" class="wpt_label"><?php echo sprintf(esc_html__( '%s[Filter]%s - Text of Filter', 'woo-product-table' ), '<b>', '</b>' ); ?></label></th>
-                        <td>
-                            <input name="<?php echo esc_attr( $field_name ); ?>[filter_text]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['filter_text'] ); ?>" id="wpt_table_filter_text" type="text" placeholder="<?php esc_attr_e( 'eg: Filter', 'woo-product-table' ); ?>">
-                        </td>
-                    </tr>
-                    
-                    <tr> 
-                        <th><label for="wpt_table_filter_reset_button" class="wpt_label"><?php echo sprintf(esc_html__( '%s[Reset]%s - Button Text of Filter', 'woo-product-table' ), '<b>', '</b>' ); ?></label></th>
-                        <td>
-                            <input name="<?php echo esc_attr( $field_name ); ?>[filter_reset_button]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['filter_reset_button'] ); ?>" id="wpt_table_filter_reset_button" type="text" placeholder="<?php esc_attr_e( 'eg: Reset', 'woo-product-table' ); ?>">
-                        </td>
-                    </tr>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="wpt-form-info">
+                        <p>Empty cart button text change for Woo Product Table's mini cart. Min Cart can show/hide from Options table from Product Table Edit page.</p>
+                    </div> 
+                </td>
+            </tr>
+            
 
-                    <tr> 
-                        <th><label for="wpt_table_item" class="wpt_label"><?php esc_html_e( 'Item [for Singular]', 'woo-product-table' ); ?></label></th>
-                        <td>
-                            <input name="<?php echo esc_attr( $field_name ); ?>[item]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['item'] ); ?>" id="wpt_table_item" type="text" placeholder="<?php esc_attr_e( 'Item | for All selected Button', 'woo-product-table' ); ?>">
-                        </td>
-                    </tr>
-                    <tr> 
-                        <th> <label for="wpt_table_items" class="wpt_label"><?php esc_html_e( 'Item [for Plural]', 'woo-product-table' ); ?></label></th>
-                        <td>
-                            <input name="<?php echo esc_attr( $field_name ); ?>[items]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['items'] ); ?>" id="wpt_table_items" type="text" placeholder="<?php esc_attr_e( 'Item | for All selected Button', 'woo-product-table' ); ?>">
-                        </td>
-                    </tr>
-                    
-                    <tr> 
-                        <th> <label for="wpt_table_item_add_selct_all" class="wpt_label"><?php esc_html_e( 'Add to Cart all selected [Added] Text', 'woo-product-table' ); ?></label></th>
-                        <td>
+            <!-- ----add to cart selected---- -->
+            <tr class="divider-row">
+                <td>
+                    <div class="wqpmb-form-control">
+                        <div class="form-label col-lg-6">
+                            <h4 class="section-divider-title"><?php echo esc_html__( 'Checbox & Selected button', 'woo-product-table' ); ?></h4>
+                        </div>
+                        <div class="form-field col-lg-6">
+                            
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="wqpmb-form-info">
+                        
+                    </div> 
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <div class="wpt-form-control">
+                        <div class="form-label col-lg-6">
+                            <label for="wpt_table_item_add_selct_all" class="wpt_label"><?php esc_html_e( 'Add to Cart all selected [Added] Text', 'woo-product-table' ); ?></label>
+                        </div>
+                        <div class="form-field col-lg-6">
                             <input name="<?php echo esc_attr( $field_name ); ?>[add2cart_all_added_text]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['add2cart_all_added_text'] ); ?>" id="wpt_table_item_add_selct_all" type="text" placeholder="<?php esc_attr_e( 'Added text for [Add to cart Selected]', 'woo-product-table' ); ?>">
-                        </td>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="wpt-form-info">
+                        <p>If user enable checkbox for a table, then a Add To Cart Selected button at the top of table.</p>
+                    </div> 
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="wpt-form-control">
+                        <div class="form-label col-lg-6">
+                            <label for="wpt_table_item" class="wpt_label"><?php esc_html_e( 'Item [for Singular]', 'woo-product-table' ); ?></label>
+                        </div>
+                        <div class="form-field col-lg-6">
+                            <input name="<?php echo esc_attr( $field_name ); ?>[item]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['item'] ); ?>" id="wpt_table_item" type="text" placeholder="<?php esc_attr_e( 'Item | for All selected Button', 'woo-product-table' ); ?>">
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="wpt-form-info">
+                        <p>It's for Add to cart Selected button. If user enable checkbox for a table, then a Add To Cart Selected button at the top of table.</p>
+                    </div> 
+                </td>
+            </tr>
 
-                    </tr>
+            <tr>
+                <td>
+                    <div class="wpt-form-control">
+                        <div class="form-label col-lg-6">
+                            <label for="wpt_table_items" class="wpt_label"><?php esc_html_e( 'Item [for Plural]', 'woo-product-table' ); ?></label>
+                        </div>
+                        <div class="form-field col-lg-6">
+                            <input name="<?php echo esc_attr( $field_name ); ?>[items]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['items'] ); ?>" id="wpt_table_items" type="text" placeholder="<?php esc_attr_e( 'Item | for All selected Button', 'woo-product-table' ); ?>">
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="wpt-form-info">
+                        <p>It's for Add to cart Selected button. If user enable checkbox for a table, then a Add To Cart Selected button at the top of table.</p>
+                    </div> 
+                </td>
+            </tr>
 
-                    <tr> 
-                        <th><label for="wpt_table_search_box_title" class="wpt_label"><?php esc_html_e( 'Search Box title', 'woo-product-table' ); ?></label></th>
-                        <td>
+            
+            <tr class="divider-row">
+                <td>
+                    <div class="wqpmb-form-control">
+                        <div class="form-label col-lg-6">
+                            <h4 class="section-divider-title"><?php echo esc_html__( 'Advance Search Box', 'woo-product-table' ); ?></h4>
+                        </div>
+                        <div class="form-field col-lg-6">
+                            
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="wqpmb-form-info">
+                        
+                    </div> 
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="wpt-form-control">
+                        <div class="form-label col-lg-6">
+                            <label for="wpt_table_search_box_title" class="wpt_label"><?php esc_html_e( 'Searchbox Area title', 'woo-product-table' ); ?></label>
+                        </div>
+                        <div class="form-field col-lg-6">
                             <input name="<?php echo esc_attr( $field_name ); ?>[search_box_title]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['search_box_title'] ); ?>" id="wpt_table_search_box_title" type="text" placeholder="<?php esc_attr_e( 'Search Box title', 'woo-product-table' ); ?>">
-                        </td>
-                    </tr>
-                    <tr> 
-                        <th><label for="wpt_table_search_box_searchkeyword" class="wpt_label"><?php esc_html_e( 'Search Keyword Placeholder', 'woo-product-table' ); ?></label></th>
-                        <td>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="wpt-form-info">
+                        <p>Advance Search Box area title. Showing at the top of main search box.</p>
+                    </div> 
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="wpt-form-control">
+                        <div class="form-label col-lg-6">
+                            <label for="wpt_table_search_keyword_text" class="wpt_label"><?php echo sprintf(esc_html__( '%s[Search Input Label]%s - Text', 'woo-product-table' ), '<b>', '</b>' ); ?></label>
+                        </div>
+                        <div class="form-field col-lg-6">
+                            <input name="<?php echo esc_attr( $field_name ); ?>[search_keyword_text]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['search_keyword_text'] ); ?>" id="wpt_table_search_keyword_text" type="text" placeholder="<?php esc_attr_e( 'Search Keyword', 'woo-product-table' ); ?>">
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="wpt-form-info">
+                        <p>Label/Title text of Search Input box of Advance Search area. Not a placeholder of inpux. It's label.</p>
+                    </div> 
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="wpt-form-control">
+                        <div class="form-label col-lg-6">
+                            <label for="wpt_table_search_box_searchkeyword" class="wpt_label"><?php esc_html_e( 'Search Keyword Placeholder', 'woo-product-table' ); ?></label>
+                        </div>
+                        <div class="form-field col-lg-6">
                             <input name="<?php echo esc_attr( $field_name ); ?>[search_box_searchkeyword]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['search_box_searchkeyword'] ); ?>" id="wpt_table_search_box_searchkeyword" type="text" placeholder="<?php esc_attr_e( 'Search Keyword text', 'woo-product-table' ); ?>">
-                        </td>
-                    </tr>
-                    <?php if( defined( 'WPT_PRO_DEV_VERSION' ) ){ ?>
-                    <tr>
-                        <th><label for="wpt_table_search_box_sale" class="wpt_label"><?php esc_html_e( 'SearchBox Sale text', 'woo-product-table' ); ?></label></label></th>
-                        <td>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="wpt-form-info">
+                        <p>Advance search box - Placeholder of input box.</p>
+                    </div> 
+                </td>
+            </tr>
+
+            <?php if( defined( 'WPT_PRO_DEV_VERSION' ) ){ ?>
+
+                <tr>
+                <td>
+                    <div class="wpt-form-control">
+                        <div class="form-label col-lg-6">
+                            <label for="wpt_table_search_box_sale" class="wpt_label"><?php esc_html_e( 'SearchBox Sale text', 'woo-product-table' ); ?></label></label>
+                        </div>
+                        <div class="form-field col-lg-6">
                             <input name="<?php echo esc_attr( $field_name ); ?>[search_box_sale]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['search_box_sale'] ?? '' ); ?>" id="wpt_table_search_box_sale" type="text" placeholder="<?php esc_attr_e( 'Sale', 'woo-product-table' ); ?>">
-                        </td>
-                    </tr>
-                    <?php } ?>
-                    <tr>
-                        <th><label for="wpt_table_search_box_orderby" class="wpt_label"><?php esc_html_e( 'SearchBox Order By text', 'woo-product-table' ); ?></label></label></th>
-                        <td>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="wpt-form-info">
+                        <p>SearchBox Sale text</p>
+                    </div> 
+                </td>
+            </tr>
+            <?php } ?>
+            <tr>
+                <td>
+                    <div class="wpt-form-control">
+                        <div class="form-label col-lg-6">
+                            <label for="wpt_table_search_box_orderby" class="wpt_label"><?php esc_html_e( 'SearchBox Order By text', 'woo-product-table' ); ?></label></label>
+                        </div>
+                        <div class="form-field col-lg-6">
                             <input name="<?php echo esc_attr( $field_name ); ?>[search_box_orderby]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['search_box_orderby'] ); ?>" id="wpt_table_search_box_orderby" type="text" placeholder="<?php esc_attr_e( 'Order By text', 'woo-product-table' ); ?>">
-                        </td>
-                    </tr>
-                    <tr>
-                        <th><label for="wpt_table_search_eee" class="wpt_label"><?php esc_html_e( 'SearchBox Order text', 'woo-product-table' ); ?></label></label></th>
-                        <td>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="wpt-form-info">
+                        
+                    </div> 
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="wpt-form-control">
+                        <div class="form-label col-lg-6">
+                            <label for="wpt_table_search_eee" class="wpt_label"><?php esc_html_e( 'SearchBox Order text', 'woo-product-table' ); ?></label></label>
+                        </div>
+                        <div class="form-field col-lg-6">
                             <input name="<?php echo esc_attr( $field_name ); ?>[search_box_order]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['search_box_order'] ); ?>" id="wpt_table_search_eee" type="text" placeholder="<?php esc_attr_e( 'Order text', 'woo-product-table' ); ?>">
-                        </td>
-                    </tr>
-                    <tr>
-                        <th><label for="wpt_table_search_eee" class="wpt_label"><?php esc_html_e( 'Search Dropdown Placeholder text', 'woo-product-table' ); ?></label></label></th>
-                        <td>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="wpt-form-info">
+                        
+                    </div> 
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="wpt-form-control">
+                        <div class="form-label col-lg-6">
+                            <label for="wpt_table_search_eee" class="wpt_label"><?php esc_html_e( 'Search Dropdown Placeholder text', 'woo-product-table' ); ?></label></label>
+                        </div>
+                        <div class="form-field col-lg-6">
                             <input name="<?php echo esc_attr( $field_name ); ?>[search_order_placeholder]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['search_order_placeholder'] ?? '' ); ?>" id="wpt_table_search_eee" type="text" placeholder="<?php esc_attr_e( 'Select Innet Items', 'woo-product-table' ); ?>">
-                        </td>
-                    </tr>
-                </tbody>
-            </table><?php do_action( 'wpto_admin_configuration_panel_bottom',$settings,$current_config_value ); ?>
-        </div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="wpt-form-info">
+                        
+                    </div> 
+                </td>
+            </tr>
+
+            <tr class="divider-row">
+                <td>
+                    <div class="wqpmb-form-control">
+                        <div class="form-label col-lg-6">
+                            <h4 class="section-divider-title"><?php echo esc_html__( 'Mini Filter', 'woo-product-table' ); ?></h4>
+                        </div>
+                        <div class="form-field col-lg-6">
+                            
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="wqpmb-form-info">
+                        
+                    </div> 
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="wpt-form-control">
+                        <div class="form-label col-lg-6">
+                            <label for="wpt_table_filter_text" class="wpt_label"><?php echo sprintf(esc_html__( '%s[Filter]%s - Text of Filter', 'woo-product-table' ), '<b>', '</b>' ); ?></label>
+                        </div>
+                        <div class="form-field col-lg-6">
+                        <input name="<?php echo esc_attr( $field_name ); ?>[filter_text]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['filter_text'] ); ?>" id="wpt_table_filter_text" type="text" placeholder="<?php esc_attr_e( 'eg: Filter', 'woo-product-table' ); ?>">
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="wpt-form-info">
+                        <p>Mini Filter - label text. Remember: Mini Filter only for Visible product. It's a minmal feature.</p>
+                    </div> 
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <div class="wpt-form-control">
+                        <div class="form-label col-lg-6">
+                            <label for="wpt_table_filter_reset_button" class="wpt_label"><?php echo sprintf(esc_html__( '%s[Reset]%s - Button Text of Filter', 'woo-product-table' ), '<b>', '</b>' ); ?></label>
+                        </div>
+                        <div class="form-field col-lg-6">
+                            <input name="<?php echo esc_attr( $field_name ); ?>[filter_reset_button]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['filter_reset_button'] ); ?>" id="wpt_table_filter_reset_button" type="text" placeholder="<?php esc_attr_e( 'eg: Reset', 'woo-product-table' ); ?>">
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="wpt-form-info">
+                        <p>Reset button text of Mini-Filter. Remember: Mini Filter only for Visible product. It's a minmal feature.</p>
+                    </div> 
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <?php do_action( 'wpto_admin_configuration_panel_bottom',$settings,$current_config_value ); ?>
+</div>
+
          <?php
          
     }
