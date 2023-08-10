@@ -1379,34 +1379,40 @@ body.wpt_admin_body .ultraaddons-panel td .notice-for-variations{
     font-weight: 700;
 }
 
-tr.user_can_not_edit:after {
-    content: "pro";
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: #ff5722;
-    color: white;
-    padding: 1px 10px;
-    /*border-radius: 4px;*/
-    opacity: .8;
-    z-index: 150;
-}
-tr.user_can_not_edit{
+tr.user_can_not_edit {
     position: relative;
-    display: table-row;
+    background: #efeff0;
 }
-tr.user_can_not_edit input[disabled='disabled'] {
-    opacity: 0.5;
+
+tr.user_can_not_edit>td:first-child:before {
+    content: "Pro";
+    background: #F44336;
+    color: white;
+    padding: 1px 5px;
+    border-radius: 6px;
+    z-index: 9999;
+    position: relative;
+    font-size: 10px;
 }
-tr.user_can_not_edit:before {
+
+tr.user_can_not_edit>td:after {
     content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: #78787824;
+    background: #ffffffbd;
     width: 100%;
     height: 100%;
-    z-index: 100;
+    z-index: 999;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+tr.user_can_not_edit>td {
+    position: relative;
+}
+
+tr.user_can_not_edit>td {
+    background: white !important;
 }
 .wpt-notice.wpt-user-rating-notice {
     background: white url(../images/logo.png) no-repeat 5px 10px;
