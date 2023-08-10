@@ -213,7 +213,8 @@ font-weight: 600;
 margin-bottom: 7px;
 }
 
-h1, h2, h3, h4, h5, h6, .wrap h1 {
+body.wpt-zero-body h1,body.wpt-zero-body h2,body.wpt-zero-body  h3,body.wpt-zero-body  h4, 
+body.wpt-zero-body h5, body.wpt-zero-body h6,body.wpt-zero-body .wrap h1 {
 color: #291c09;
 font-family: "Open Sans", Arial, sans-serif;
 font-weight: normal;

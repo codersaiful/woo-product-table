@@ -49,6 +49,11 @@
         transition: background .3s, border .3s, border-radius .3s, box-shadow .3s;
         transition: background .3s, border .3s, border-radius .3s, box-shadow .3s, -webkit-box-shadow .3s;
     }
+    .wpt-widget-container-flued .tuts-box-wrapper{
+        display: flex;
+        gap: 25px;
+        flex-wrap: wrap;
+    }
 
     .row {
         --bs-gutter-x: 1.5rem;
@@ -159,6 +164,14 @@
         text-decoration: none;
         margin-top: auto;
     }
+    .home-docs .col-md-4 a.wpt-button.reverse {
+        text-decoration: none;
+        margin-top: auto;
+        margin-left: auto;
+        padding: 5px 10px;
+        text-align: center;
+        text-transform: none;
+    }
     h2.wpt-heading-title.wpt-size-default {
         font-size: 3em;
     }
@@ -176,7 +189,7 @@
         <div class="wpt-element wpt-element-119e904b home-docs wpt-widget wpt-widget-Docly_single_doc" data-id="119e904b" data-element_type="widget" data-widget_type="Docly_single_doc.default">
                 <div class="wpt-widget-container-flued">
                     <div class="container-flued">
-                        <div class="row">
+                        <div class="tuts-box-wrapper">
                             <div class="col-md-4">
                                 <div class="categories_guide_item wow fadeInUp">
                                     <img loading="lazy" width="39" height="40" src="https://wooproducttable.com/wp-content/uploads/2022/06/Channel.png" class="attachment-full size-full wp-post-image" alt="" srcset="https://wooproducttable.com/wp-content/uploads/2022/06/Channel.png 39w, https://wooproducttable.com/wp-content/uploads/2022/06/Channel-16x16.png 16w, https://wooproducttable.com/wp-content/uploads/2022/06/Channel-18x18.png 18w, https://wooproducttable.com/wp-content/uploads/2022/06/Channel-20x20.png 20w" sizes="(max-width: 39px) 100vw, 39px">
