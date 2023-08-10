@@ -17,7 +17,7 @@ class Page_Loader extends Base
     public function __construct()
     {
         $this->is_pro = defined( 'WPT_PRO_DEV_VERSION' );
-        if($this->is_pro && class_exists( 'WOO_Product_Table' ) ){
+        if($this->is_pro && class_exists( '\WOO_Product_Table' ) ){
             $this->pro_version = WPT_PRO_DEV_VERSION;
             $this->license = \WOO_Product_Table::$direct;
         }
@@ -53,6 +53,13 @@ class Page_Loader extends Base
             add_submenu_page( $this->main_slug, esc_html__( 'Try Pro Version', 'woo-product-table' ),  esc_html__( 'Try Pro Version', 'woo-product-table' ), WPT_CAPABILITY, 'https://try.wooproducttable.com/wp-admin/?utm=PluginDashboard' );
             add_submenu_page( $this->main_slug, esc_html__( 'GET PRO VERSION', 'woo-product-table' ),  __( '<i>Get <strong>Pro</strong></i>', 'woo-product-table' ), WPT_CAPABILITY, 'https://wooproducttable.com/pricing/' );
         }
+        // var_dump($this->license);
+
+        //License Menu if pro version is getter or equal V2.0.8.4
+        // if( is_object( $this->license ) && version_compare($this->pro_version, '2.0.8.4', '>=')){
+        //     add_submenu_page( $this->main_slug, __('Min Max Control License', 'wcmmq_pro'), __( 'License', 'wcmmq_pro' ), $capability, 'wcmmq-license', [$this->license, 'license_page'] );
+        // }
+
     }
 
     public function body_class( $classes )
