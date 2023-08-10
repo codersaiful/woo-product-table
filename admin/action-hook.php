@@ -122,63 +122,116 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
 
         // var_dump($page);
         ?>
-        <div class="section ultraaddons-panel basic <?php echo esc_attr( $page ); ?>">
-            <h3 class="with-background dark-background wpt-design-expand"><?php esc_html_e( 'Basic Settings', 'woo-product-table' );?><span title="Collapse/Expand" class="wpt-design-collaps"> <i class="wpt-expand-collapse"></i></span></h3>
-            <table class="ultraaddons-table">
-                <tbody>
-                    <tr class="table_disable_plugin_noti" style="display:none;">
-                        <th>
-                            <label class="wpt_label wpt_disable_plugin_noti" for="wpt_disable_plugin_noti"><?php esc_html_e( 'Plugin Recommendation', 'woo-product-table' );?></label>
-                        </th>
-                        <td>
-                            <label class="switch">
-                                <input  name="<?php echo esc_attr( $field_name ); ?>[disable_plugin_noti]" type="checkbox" id="wpt_disable_plugin_noti" <?php echo isset( $current_config_value['disable_plugin_noti'] ) ? 'checked="checked"' : ''; ?>>
-                                <div class="slider round"><!--ADDED HTML -->
-                                    <span class="on"><?php echo esc_html__( 'Enable', 'woo-product-table' ); ?></span><span class="off"><?php echo esc_html__( 'Disable', 'woo-product-table' ); ?></span><!--END-->
-                                </div>
-                            </label>
-                            <p><?php echo esc_html( 'To enable or disable our plugin Notification for our Product Table', 'woo-product-table' ); ?></p>
 
-                        </td>
-                    </tr>
+<div class="wpt-section-panel basic-settings basic <?php echo esc_attr( $page ); ?>" id="wpt-basic-settings">
+    <table class="wpt-my-table basic-setting-table">
+        <thead>
+            <tr>
+                <th class="wpt-inside">
+                    <div class="wpt-table-header-inside">
+                        <h3><?php echo esc_html__( 'Basic', 'woo-product-table' ); ?></h3>
+                    </div>
+                    
+                </th>
+                <th>
+                <div class="wpt-table-header-right-side"></div>
+                </th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <!-- <tr>
+                <td>
+                    <div class="wpt-form-control">
+                        <div class="form-label col-lg-6">
+                            LabelTagHere
+                        </div>
+                        <div class="form-field col-lg-6">
+                            InputFieldOrAnyOtherField
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="wpt-form-info">
+                        DescriptionOfField_and_docLink
+                    </div> 
+                </td>
+            </tr> -->
 
 
-                    <tr>
-                        <th><label class="wpt_label" for="wpt_table_custom_add_to_cart"><?php esc_html_e( 'Add to Cart Icon', 'woo-product-table' ); ?></label></th>
-                        <td>
+
+            <tr>
+                <td>
+                    <div class="wpt-form-control">
+                        <div class="form-label col-lg-6">
+                            <label class="wpt_label" for="wpt_table_custom_add_to_cart"><?php esc_html_e( 'Add to Cart Icon', 'woo-product-table' ); ?></label>
+                        </div>
+                        <div class="form-field col-lg-6">
                             <select name="<?php echo esc_attr( $field_name ); ?>[custom_add_to_cart]" id="wpt_table_custom_add_to_cart" class="wpt_fullwidth ua_input" >
                                 <?php wpt_default_option( $page ) ?>
                                 <option value="add_cart_no_icon" <?php wpt_selected( 'custom_add_to_cart', 'add_cart_no_icon', $current_config_value ); ?>><?php esc_html_e( 'No Icon', 'woo-product-table' ); ?></option>
                                 <option value="add_cart_only_icon" <?php wpt_selected( 'custom_add_to_cart', 'add_cart_only_icon', $current_config_value ); ?>><?php esc_html_e( 'Only Icon', 'woo-product-table' ); ?></option>
                                 <option value="add_cart_left_icon" <?php wpt_selected( 'custom_add_to_cart', 'add_cart_left_icon', $current_config_value ); ?>><?php esc_html_e( 'Left Icon and Text', 'woo-product-table' ); ?></option>
                                 <option value="add_cart_right_icon" <?php wpt_selected( 'custom_add_to_cart', 'add_cart_right_icon', $current_config_value ); ?>><?php esc_html_e( 'Text and Right Icon', 'woo-product-table' ); ?></option>
-                            </select> <?php wpt_doc_link('https://wooproducttable.com/docs/doc/table-options/customize-add-to-card-icon/') ?>
+                            </select>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="wpt-form-info">
+                        <?php wpt_doc_link('https://wooproducttable.com/docs/doc/table-options/customize-add-to-card-icon/') ?>
+                    </div> 
+                </td>
+            </tr>
 
-                        </td>
-                    </tr>
-                    <tr class="<?php echo esc_attr( $user_can_edit ); ?> ">
-                        <th><label class="wpt_label" for="wpt_table_footer_cart"><?php esc_html_e( 'Floating Cart Option', 'woo-product-table' ); ?></label></th>
-                        <td>
+            <tr class="<?php echo esc_attr( $user_can_edit ); ?> ">
+                <td>
+                    <div class="wpt-form-control">
+                        <div class="form-label col-lg-6">
+                            <label class="wpt_label" for="wpt_table_footer_cart"><?php esc_html_e( 'Floating Cart Option', 'woo-product-table' ); ?></label>
+                        </div>
+                        <div class="form-field col-lg-6">
                             <select name="<?php echo esc_attr( $field_name ); ?>[footer_cart]" id="wpt_table_footer_cart" class="wpt_fullwidth ua_input" >
                                 <?php wpt_default_option( $page ) ?>
                                 <option value="always_hide" <?php wpt_selected( 'footer_cart', 'always_hide', $current_config_value ); ?>><?php esc_html_e( 'Always Hide', 'woo-product-table' ); ?></option>
                                 <option value="hide_for_zerro" <?php wpt_selected( 'footer_cart', 'hide_for_zerro', $current_config_value ); ?>><?php esc_html_e( 'Hide for Zero', 'woo-product-table' ); ?></option>
                                 <option value="always_show" <?php wpt_selected( 'footer_cart', 'always_show', $current_config_value ); ?>><?php esc_html_e( 'Always Show', 'woo-product-table' ); ?></option>
                                 
-                            </select><?php wpt_doc_link('https://wooproducttable.com/docs/doc/advance-uses/floating-cart-options/') ?>
+                            </select>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="wpt-form-info">
+                        <?php wpt_doc_link('https://wooproducttable.com/docs/doc/advance-uses/floating-cart-options/'); ?>
+                    </div> 
+                </td>
+            </tr>
 
-                        </td>
-                    </tr>
-                    <tr class="<?php echo esc_attr( $user_can_edit ); ?>" > 
-                        <th> <label for="wpt_table_footer_bg_color" class="wpt_label"><?php esc_html_e( 'Floating Cart BG Color', 'woo-product-table' ); ?></label></th>
-                        <td>
+            <tr class="<?php echo esc_attr( $user_can_edit ); ?> ">
+                <td>
+                    <div class="wpt-form-control">
+                        <div class="form-label col-lg-6">
+                            <label for="wpt_table_footer_bg_color" class="wpt_label"><?php esc_html_e( 'Floating Cart BG Color', 'woo-product-table' ); ?></label>
+                        </div>
+                        <div class="form-field col-lg-6">
                             <input name="<?php echo esc_attr( $field_name ); ?>[footer_bg_color]" class="wpt_data_filed_atts wpt_color_picker" value="<?php echo esc_attr( $current_config_value['footer_bg_color'] ); ?>" id="wpt_table_footer_bg_colort" type="text" placeholder="<?php esc_attr_e( 'BG Color', 'woo-product-table' ); ?>">
-                            <?php wpt_doc_link('https://wooproducttable.com/docs/doc/advance-uses/floating-cart-options/') ?>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th><label class="wpt_label" for="wpt_table_footer_possition"><?php esc_html_e( 'Floating Cart Position', 'woo-product-table' ); ?></label></th>
-                        <td>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="wpt-form-info">
+                        <?php wpt_doc_link('https://wooproducttable.com/docs/doc/advance-uses/floating-cart-options/') ?>
+                    </div> 
+                </td>
+            </tr>
+            <tr class="<?php echo esc_attr( $user_can_edit ); ?> ">
+                <td>
+                    <div class="wpt-form-control">
+                        <div class="form-label col-lg-6">
+                            <label class="wpt_label" for="wpt_table_footer_possition"><?php esc_html_e( 'Floating Cart Position', 'woo-product-table' ); ?></label>
+                        </div>
+                        <div class="form-field col-lg-6">
                             <select name="<?php echo esc_attr( $field_name ); ?>[footer_possition]" id="wpt_table_footer_possition" class="wpt_fullwidth ua_input" >
                                 <?php wpt_default_option( $page ) ?>
                                 <option value="bottom_right" <?php wpt_selected( 'footer_possition', 'bottom_right', $current_config_value ); ?>><?php esc_html_e( 'Bottom Right', 'woo-product-table' ); ?></option>
@@ -186,9 +239,32 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
                                 <option value="top_right" <?php wpt_selected( 'footer_possition', 'top_right', $current_config_value ); ?>><?php esc_html_e( 'Top Right', 'woo-product-table' ); ?></option>
                                 <option value="top_left" <?php wpt_selected( 'footer_possition', 'top_left', $current_config_value ); ?>><?php esc_html_e( 'Top Left', 'woo-product-table' ); ?></option>
                             </select>
-                            <?php wpt_doc_link('https://wooproducttable.com/docs/doc/advance-uses/floating-cart-options/') ?>
-                        </td>
-                    </tr>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="wpt-form-info">
+                        <?php wpt_doc_link('https://wooproducttable.com/docs/doc/advance-uses/floating-cart-options/'); ?>
+                    </div> 
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="wpt-form-control">
+                        <div class="form-label col-lg-6">
+                            LabelTagHere
+                        </div>
+                        <div class="form-field col-lg-6">
+                            InputFieldOrAnyOtherField
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="wpt-form-info">
+                        DescriptionOfField_and_docLink
+                    </div> 
+                </td>
+            </tr>
 
 
                     <tr>
@@ -331,10 +407,16 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
                         </td>
                     </tr>
 
-                </tbody>
-            </table><?php do_action( 'wpto_admin_configuration_panel_bottom',$settings,$current_config_value ); ?>
-            <?php do_action( 'wpt_offer_here' );  ?>
-        </div>
+
+
+        </tbody>
+    </table>
+    <?php do_action( 'wpto_admin_configuration_panel_bottom',$settings,$current_config_value ); ?>
+</div>
+
+
+                    
+
          <?php
          
     }
