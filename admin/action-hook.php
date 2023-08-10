@@ -1024,11 +1024,12 @@ add_filter( 'admin_head', 'wpt_tawkto_code_header', 999 );
  * @author Saiful Islam <codersaiful@gmail.com>
  */
 if( !function_exists( 'wpto_admin_configuration_form_top_free' ) ){
-    function wpto_admin_configuration_form_top_free($settings,$current_config_value, $Page_Loader){
+    function wpto_admin_configuration_form_top_free($settings,$current_config_value){
         if( !isset( $settings['page'] ) || isset( $settings['page'] ) && $settings['page'] != 'configuration_page' ){
             return;
         }
 
+        $is_pro = ! empty( $settings['module'] ) && $settings['module'] == 'pro_version' ? true : false;
         /**
          * Now Here Available is:
          * $Page_Loader
@@ -1036,10 +1037,11 @@ if( !function_exists( 'wpto_admin_configuration_form_top_free' ) ){
          * we used $Page_Loader->is_pro
          * in this function specially to show or hide divider-row
          */
+
         ?>
     <table class="wpt-my-table universal-setting">
         <tbody>
-        <?php if($Page_Loader->is_pro){ ?>
+        <?php if( $is_pro ){ ?>
         <tr class="divider-row">
             <td>
                 <div class="wqpmb-form-control">
@@ -1135,4 +1137,4 @@ if( !function_exists( 'wpto_admin_configuration_form_top_free' ) ){
          <?php
     }
 }
-add_action('wpto_admin_configuration_form_top', 'wpto_admin_configuration_form_top_free',60,3);
+add_action('wpto_admin_configuration_form_top', 'wpto_admin_configuration_form_top_free',60,2);
