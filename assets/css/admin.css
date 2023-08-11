@@ -1559,6 +1559,50 @@ body.wpt_admin_body .ultraaddons .warning {
     z-index: 75;
 }
 
+form#wpt-main-configuration-form  .float-btn.wpt-btn {
+    opacity: 0;
+    /* top: 70px; */
+    right: -80px;
+    transition: .4s all;
+}
+form#wpt-main-configuration-form  #stick_on_scroll-on {
+    position: fixed;
+    bottom: unset;
+    right: 0;
+    box-shadow: 0px 10px 30px 0 #00000061;
+    padding: 0 2px 0 0 !important;
+    font-size: 16px;
+    font-weight: normal;
+    border-radius: unset;
+    z-index: 99999;
+    display: none;
+    top: 80px;
+    left: unset;
+    margin: 0;
+    opacity: 1;
+}
+form#wpt-main-configuration-form #stick_on_scroll-on span {
+    width: 60px;
+    padding: 16 0;
+    margin-right: 0;
+}
+form#wpt-main-configuration-form #stick_on_scroll-on span i{
+    font-size: 22px;
+}
+form#wpt-main-configuration-form #stick_on_scroll-on>strong {
+    font-size: 10px;
+    font-weight: 100;
+    transform: rotate(90deg);
+    display: inline-block;
+    letter-spacing: 1px;
+    width: 28px;
+    text-align: center;
+}
+form#wpt-main-configuration-form  #stick_on_scroll-on.stick_on_scroll-on{
+    display: block;
+}
+
+
 body.post-type-wpt_product_table .stick_on_scroll#stick_on_scroll-on, 
 body.post-type-wpt_product_table .stick_on_scroll-on, 
 body.post-type-wpt_product_table #stick_on_scroll-on {

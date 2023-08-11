@@ -915,29 +915,29 @@ jQuery.fn.extend({
         $('#wpt-main-configuration-form').append(btnHtml);
     } 
     $(window).on('scroll',function(){
-        
-        let targetElement = $('.stick_on_scroll');
+    
+        let targetElement = $('.float-btn');
         
         
         let bodyHeight = $('#wpbody').height();
         let scrollTop = $(this).scrollTop();
         let screenHeight = $(this).height();
 
-        let configFormElement = $('#wpt_configuration_form');
+        let configFormElement = $('form#wpt-main-configuration-form');
         if(configFormElement.length < 1) return;
 
-        let conPass = bodyHeight - screenHeight - 300 - targetElement.height();
+        let conPass = bodyHeight - screenHeight - 100 - targetElement.height();
         let leftWill = configFormElement.width() - targetElement.width() - 20;
         
 
-        targetElement.css({
-            left: leftWill,
-            right: 'unset'
-        });
+        // targetElement.css({
+        //     left: leftWill,
+        //     right: 'unset'
+        // });
         if(scrollTop < conPass){
-            targetElement.attr('id','stick_on_scroll-on');
+            targetElement.addClass('stick_on_scroll-on');
         }else{
-            targetElement.removeAttr('id');
+            targetElement.removeClass('stick_on_scroll-on');
         }
         
         if(scrollTop > 100 && colSetsLen > 0){
