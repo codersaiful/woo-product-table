@@ -1438,31 +1438,39 @@ if( !function_exists( 'wpt_extra_field_for_disc_limit' ) ){
 
  if( !function_exists( 'wpt_tawkto_code_header' ) ){
     /**
-     * set class for Admin Body tag
+     * tawk.to Chatbox Added and 
+     * condition applied
      * 
-     * @param type $classes
      * @return String
      */
-    function wpt_tawkto_code_header( $class_string ){
+    function wpt_tawkto_code_header(){
         global $current_screen;
         $s_id = isset( $current_screen->id ) ? $current_screen->id : '';
-        if( strpos( $s_id, 'wpt') !== false ){
-        ?>
-<!--Start of Tawk.to Script-->
-<script type="text/javascript">
-var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-(function(){
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;
-s1.src='https://embed.tawk.to/628f5d4f7b967b1179915ad7/1g4009033';
-s1.charset='UTF-8';
-s1.setAttribute('crossorigin','*');
-s0.parentNode.insertBefore(s1,s0);
-})();
-</script>
-<!--End of Tawk.to Script-->      
-        <?php
+        if( strpos( $s_id, 'wpt') === false ) return;
+        $temp_permission = false;
+        $submitted = filter_input_array(INPUT_POST);
+        if( isset( $submitted['data'] ) ){
+            if(isset( $submitted['data']['disable_live_support'] )) return;
+            $temp_permission = true;
         }
+        $disable_live_support = $temp_permission ? false : wpt_get_config('disable_live_support');
+        if( $disable_live_support ) return;
+        ?>
+        <!--Start of Tawk.to Script-->
+        <script type="text/javascript">
+        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+        (function(){
+        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+        s1.async=true;
+        s1.src='https://embed.tawk.to/628f5d4f7b967b1179915ad7/1g4009033';
+        s1.charset='UTF-8';
+        s1.setAttribute('crossorigin','*');
+        s0.parentNode.insertBefore(s1,s0);
+        })();
+        </script>
+        <!--End of Tawk.to Script-->      
+        <?php
+
         
     }
 }
