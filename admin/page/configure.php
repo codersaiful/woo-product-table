@@ -48,7 +48,7 @@ $wrapper_class = isset($settings['module']) ? $settings['module'] : '';
 
     <h1 class="wp-heading "></h1>
     <div class="fieldwrap">
-        <form action="" method="POST">
+        <form action="" method="POST"  id="wpt-main-configuration-form">
 
             <div class="wpt-section-panel no-background wpt-full-form-submit-wrapper">
                 <button name="configure_submit" type="submit" class="wpt-btn wpt-has-icon configure_submit">

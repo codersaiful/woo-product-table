@@ -893,15 +893,27 @@ jQuery.fn.extend({
         alert("Sorry");
     });
     
-    var saveChangeText = $('button.button[name="wpt_post_submit"]').text(); //Save Change
-    var myHtml = '<div class="wrapper_wpt_ajax_update ultraaddons-button-wrapper">';
-        myHtml += '<button type="submit" name="wpt_post_submit" data-title="hello" class="stick_on_scroll button-primary button-primary primary button wpt_ajax_update">'+ saveChangeText +'</button>';
-        myHtml += '</div>';
-    var status = $('#original_post_status').val();
-    var colSetsLen = $('#column_settings').length;
-    if( colSetsLen > 0 && status === 'publish'){
-        $('#wpt_configuration_form').append(myHtml);
-    }
+
+    $(document.body).on('submit', 'form#wpt-main-configuration-form', function (e){
+
+        let submitBtn = $(this).find('button.configure_submit');
+        let submitBtnInForm = submitBtn.not('.float-btn');
+        let submitBtnIcon = submitBtn.find('span i');
+        submitBtn.find('strong.form-submit-text').text('Saving...');
+        submitBtnIcon.attr('class', 'wpt-spin5 animate-spin');
+        // submitBtnIcon.attr('class', 'wpt-floppy');
+        
+        
+    });
+
+    var saveChangeText = 'Save';
+    var btnHtml = '<div class="">';
+    btnHtml += '<button type="submit" name="configure_submit" class="float-btn wpt-btn wpt-has-icon configure_submit"><span><i class="wpt-floppy"></i></span><strong>' + saveChangeText + '</strong></button>';
+    btnHtml += '</div>';
+    var colSetsLen = $('form#wpt-main-configuration-form').length;
+    if( colSetsLen > 0 ){
+        $('#wpt-main-configuration-form').append(btnHtml);
+    } 
     $(window).on('scroll',function(){
         
         let targetElement = $('.stick_on_scroll');
