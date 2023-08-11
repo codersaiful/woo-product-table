@@ -1585,8 +1585,51 @@ if( !function_exists( 'wpto_admin_configuration_form_top_free' ) ){
                 </div> 
             </td>
         </tr>
+
+        <tr class="divider-row">
+            <td>
+                <div class="wqpmb-form-control">
+                    <div class="form-label col-lg-6">
+                        <h4 class="section-divider-title">Chat Area (Optional)</h4>
+                    </div>
+                    <div class="form-field col-lg-6">
+                        
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="wqpmb-form-info">
+                    
+                </div> 
+            </td>
+        </tr>
+        <?php $live_support = isset( $current_config_value['disable_live_support' ] ) && $current_config_value['disable_live_support' ] == '1' ? 'checked' : false; ?>
+        <tr>
+            <td>
+                <div class="wpt-form-control">
+                    <div class="form-label col-lg-6">
+                        <label for="_disable_live_support"><?php echo esc_html__('Chatbox Live Support','woo-product-table');?></label>
+                    </div>
+                    <div class="form-field col-lg-6">
+                        <label class="switch reverse">
+                            <input value="1" name="data[disable_live_support]"
+                                <?php echo $live_support; /* finding checked or null */ ?> type="checkbox" id="_disable_live_support">
+                            <div class="slider round"><!--ADDED HTML -->
+                                <span class="on"><?php echo esc_html__('ON','woo-product-table');?></span><span class="off"> <?php echo esc_html__('OFF','woo-product-table');?></span><!--END-->
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="wpt-form-info">
+                    <?php wpt_doc_link('https://codeastrology.com/my-support', 'Customer Support'); ?>
+                    <p>You can Disable/Off Chatbox. Live Support chatbox are showing in your dashboard at right bottom corner. If you need any help, Just knock over there.</p>
+                </div> 
+            </td>
+        </tr>
         </tbody>
-                            </table>
+    </table>
          
 
          <?php
