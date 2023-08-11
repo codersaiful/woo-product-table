@@ -1037,7 +1037,17 @@ add_action( 'wpto_admin_configuration_form', 'wpt_configure_label_part',10, 3 );
 
 if( !function_exists( 'wpt_configure_external_part' ) ){
     
+    /**
+     * specially for YITH Quick View Plugin
+     *
+     * @param mixed $settings
+     * @param mixed $current_config_value
+     * @param string $field_name
+     * @return void
+     */
     function wpt_configure_external_part( $settings,$current_config_value,$field_name ){
+        if( ! defined( 'YITH_WCQV_VERSION' ) ) return;
+
         $page = isset( $settings['page'] ) ? $settings['page'] : 'not_set_page';
         
         ?>
