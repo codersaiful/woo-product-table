@@ -44,7 +44,7 @@ $default_lang = apply_filters('wpml_default_language', NULL);
 $wrapper_class = isset($settings['module']) ? $settings['module'] : '';
 
 ?>
-<div class="wrap wpt_wrap wpt-content">
+<div class="wrap wpt_wrap wpt-content <?php echo esc_attr($wrapper_class); ?>">
 
     <h1 class="wp-heading "></h1>
     <div class="fieldwrap">
@@ -127,6 +127,3 @@ $wrapper_class = isset($settings['module']) ? $settings['module'] : '';
     </div>
 
 </div> <!-- ./wrap wpt_wrap wpt-content -->
-<div class="wrap wpt_wrap wpt_configure_page ultraaddons <?php echo esc_attr($wrapper_class); ?>">
-
-</div>
