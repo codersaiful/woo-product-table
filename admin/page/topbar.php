@@ -18,10 +18,13 @@ $wpt_logo = WPT_ASSETS_URL . 'images/logo.png';
  * load kora hoyeche. tokhon to $this->license pabe na.
  * tai notun kore check korechi.
  */
-$license_direct = true;
-if($this->is_pro && class_exists('\WC_MMQ_PRO')){
+$license_direct = $pro = $license_page_slug = false;
+if(class_exists('\WOO_Product_Table')){
+    $pro = true;
     $license_direct = \WOO_Product_Table::$direct;
+    $license_page_slug = defined('WPT_EDD_LICENSE_PAGE') ? WPT_EDD_LICENSE_PAGE : false;
 }
+$current_page = $_GET['page'] ?? '';
 
 $topbar_sub_title = __( 'Manage and Settings', 'wpt' );
 if( isset( $this->topbar_sub_title ) && ! empty( $this->topbar_sub_title ) ){
@@ -47,16 +50,16 @@ if( isset( $this->topbar_sub_title ) && ! empty( $this->topbar_sub_title ) ){
         </div>
         <div class="col-lg-5">
             <div class="header-button-wrapper">
-                <?php if( ! $this->is_pro){ ?>
+                <?php if( ! $pro){ ?>
                     <a class="wpt-button reverse" 
                         href="https://wooproducttable.com/pricing/" 
                         target="_blank">
                         <i class="wpt-heart-filled"></i>
                         Get Premium Offer
                     </a>
-                <?php }else if($license_direct){ ?>
+                <?php }else if( $license_direct && $license_page_slug !== $current_page ){ ?>
                     <a class="wpt-btn wpt-has-icon" 
-                        href="<?php esc_attr( admin_url( 'edit.php?post_type=wpt_product_table&page=woo-product-table-license' ) ) ?>">
+                        href="<?php echo esc_attr( admin_url( 'edit.php?post_type=wpt_product_table&page=' . $license_page_slug ) ) ?>">
                         <span><i class=" wpt-heart-1"></i></span>
                         License
                     </a>
