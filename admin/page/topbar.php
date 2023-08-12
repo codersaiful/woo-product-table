@@ -19,9 +19,9 @@ $wpt_logo = WPT_ASSETS_URL . 'images/logo.png';
  * tai notun kore check korechi.
  */
 $license_direct = $pro = $license_page_slug = false;
-if(class_exists('\WOO_Product_Table')){
+if( class_exists( '\WOO_Product_Table' ) ){
     $pro = true;
-    $license_direct = \WOO_Product_Table::$direct;
+    $license_direct = property_exists( '\WOO_Product_Table','direct' ) ? \WOO_Product_Table::$direct : false;
     $license_page_slug = defined('WPT_EDD_LICENSE_PAGE') ? WPT_EDD_LICENSE_PAGE : false;
 }
 $current_page = $_GET['page'] ?? '';

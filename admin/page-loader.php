@@ -20,7 +20,7 @@ class Page_Loader extends Base
         $this->is_pro = defined( 'WPT_PRO_DEV_VERSION' );
         if($this->is_pro && class_exists( '\WOO_Product_Table' ) ){
             $this->pro_version = WPT_PRO_DEV_VERSION;
-            $this->license = \WOO_Product_Table::$direct;
+            // $this->license = \WOO_Product_Table::$direct;
         }
         $this->page_folder_dir = $this->base_dir . 'admin/page/';
         $this->topbar_file = $this->page_folder_dir . 'topbar.php';
