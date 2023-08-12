@@ -1558,7 +1558,7 @@ body.wpt_admin_body .ultraaddons .warning {
     /* border: 1px solid #3f9b43; */
     z-index: 75;
 }
-
+.wpt-header.wpt-clearfix:before {display:block}
 form#wpt-main-configuration-form  .float-btn.wpt-btn {
     opacity: 0;
     /* top: 70px; */
