@@ -1564,6 +1564,7 @@ form#wpt-main-configuration-form  .float-btn.wpt-btn {
     /* top: 70px; */
     right: -80px;
     transition: .4s all;
+    display: none;
 }
 form#wpt-main-configuration-form  #stick_on_scroll-on {
     position: fixed;

@@ -966,7 +966,7 @@ jQuery.fn.extend({
     } 
     
 
-    var colSetsLen = $('#column_settings').length;
+    var postColSetsLen = $('#column_settings').length;
 
     /**
      * This is for Product Table post Edit and Add new page.
@@ -976,8 +976,8 @@ jQuery.fn.extend({
      */
     
     var status = $('#original_post_status').val();
-    console.log(status, colSetsLen);
-    if( colSetsLen > 0 && status === 'publish'){
+    console.log(status, postColSetsLen);
+    if( postColSetsLen > 0 && status === 'publish'){
         var saveChangeText = $('button.button[name="wpt_post_submit"]').text(); //Save Change
         var myHtml = '<div class="wrapper_wpt_ajax_update ultraaddons-button-wrapper">';
         myHtml += '<button type="submit" name="wpt_post_submit" data-title="hello" class="stick_on_scroll button-primary button-primary primary button wpt_ajax_update">'+ saveChangeText +'</button>';
@@ -1010,9 +1010,9 @@ jQuery.fn.extend({
                 targetElement.removeAttr('id');
             }
             
-            if(scrollTop > 100 && colSetsLen > 0){
+            if(scrollTop > 100 && postColSetsLen > 0){
                 targetElement.attr('id','stick_on_scroll-on');
-            }else if(colSetsLen > 0){
+            }else if(postColSetsLen > 0){
                 targetElement.removeAttr('id');
             }
             
