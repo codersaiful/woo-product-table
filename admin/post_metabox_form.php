@@ -130,21 +130,12 @@
     ?>
     
     <div class="form_bottom form_bottom_submit_button wrapper_<?php echo esc_attr( $ajax_submit_btn ); ?> ultraaddons-button-wrapper ultraaddons-panel no-background">
-        <button type="submit" 
+        <button type="submit" style="display: none;"
                 name="wpt_post_submit" 
                 data-title="<?php echo esc_attr( $post_title ); ?>" 
                 class="button-primary button-primary primary button <?php echo esc_attr( $ajax_submit_btn ); ?>"
                 ><?php esc_html_e( 'Save Change', 'woo-product-table' );?></button>
     </div>
-
-    <?php do_action( 'wpt_offer_here' ); ?>
-    <div class="wpt-plugin-recommend-area wpt-plugin-recommend-tab-page">
-        <?php do_action( 'wpt_plugin_recommend_here' ); ?>
-    </div>
-    
-    <?php wpt_social_links(); ?>
-    <?php wpt_submit_issue_link(); ?>
-    <?php wpt_donate_button(); ?>
 </div>
 
 <style>
