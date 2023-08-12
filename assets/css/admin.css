@@ -298,10 +298,7 @@ p.wpt_warning_message{
 
 input.wpt_meta_box_shortcode {
     font-size: 20px;
-    color: #007692;
     min-width: 80%;
-    background: #0076920a;
-    border: 1px solid #00769266;
 }
 .wpt_copy_button_metabox{
     font-size: 17px !important;
@@ -1796,12 +1793,12 @@ body.post-type-wpt_product_table #stick_on_scroll-on {
     font-size: 14px;
   }
   table.wpt-table-separator, tr.wpt-table-separator, td.wpt-table-separator, div.wpt-table-separator {
-    border-top: 3px solid #007694;
+    border-top: 1px solid #4c4c4c1a;
     padding-top: 30px;
     margin-top: 30px;
     padding-bottom: 10px;
     margin-bottom: 10px;
- }
+}
  table.wpt-table-separator-light, 
  tr.wpt-table-separator-light, 
  td.wpt-table-separator-light, 
