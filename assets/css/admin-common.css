@@ -75,21 +75,16 @@ h1.with-background.dark-background {}
 }
 
 /*For Input Box and Select Tag*/
-.ultraaddons .ua_input,
-.ultraaddons .ua_select,
-.ultraaddons-wrapper .ua_input,
-.ultraaddons-wrapper .ua_select
-
-{
-	width: 100%;
-	max-width: 400px;
-	border: 1px solid #b5b5b5;
-	border-radius: 4px;
-	padding: 4px 10px;
-	height: 36px;
-	min-width: 90px;
-	box-shadow: none;
-	color: #000000;
+.ultraaddons .ua_input, .ultraaddons .ua_select, .ultraaddons-wrapper .ua_input, .ultraaddons-wrapper .ua_select {
+    width: 100%;
+    max-width: 400px;
+    border: 1px solid #b5b5b552;
+    border-radius: 4px;
+    padding: 4px 10px;
+    height: 36px;
+    min-width: 90px;
+    box-shadow: none;
+    color: #000000;
 }
 
 .ultraaddons .ua_input:focus,
@@ -139,7 +134,12 @@ h1.with-background.dark-background {}
     font-weight: 500;
     color: #004354;
     }
-.ultraaddons-panel table tr th label{font-weight: 400;text-shadow: -1px 0 0px #0572a982;font-size: 17px;}
+.ultraaddons-panel table tr th label {
+        font-weight: 400;
+        text-shadow: none;
+        font-size: 17px;
+        color: black;
+}
 .ultraaddons-panel table tr th,
 .ultraaddons-panel table tr td{
     padding: 6px 0 16px 0;
@@ -247,18 +247,17 @@ h1.with-background.dark-background {}
 .ultraaddons .switch input {display:none;}
 
 .ultraaddons .slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #eaeaea;
-  -webkit-transition: .4s;
-  transition: .4s;
-  border: 1px solid #bdbdbd;
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #eaeaea6e;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border: 1px solid #96939359;
 }
-
 .ultraaddons .slider:before {
   position: absolute;
   content: "";

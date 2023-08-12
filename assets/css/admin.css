@@ -1182,7 +1182,7 @@ body.wpt_admin_body .ultraaddons-panel td p {
     margin: 5px 0;
 }
 .wpt-pro-only-featues {
-    background: #a2a2a2;
+    background: #a2a2a247;
 }
 
 .wpt-pro-only-featues img {
@@ -1296,9 +1296,10 @@ ul#wpt_column_sortable>li.wpt_sortable_peritem {
     background: #ffffff;
 }
 ul#wpt_column_sortable>li.wpt_sortable_peritem.ui-sortable-helper {
-        /* background: #000000; */
-    box-shadow: 0 1px 12px 0 #00000057;
-    /* border-color: #100000;*/
+    background: #ffc10740;
+    box-shadow: none;
+    border-color: #ffc107a3;
+    opacity: 0.9;
 }
 
 /* Notice Style for UltraAddons*/
