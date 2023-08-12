@@ -164,10 +164,9 @@
         text-decoration: none;
         margin-top: auto;
     }
-    .home-docs .col-md-4 a.wpt-button.reverse {
+    .home-docs .col-md-4 a.wpt-button.reset {
         text-decoration: none;
         margin-top: auto;
-        margin-left: auto;
         padding: 5px 10px;
         text-align: center;
         text-transform: none;
@@ -210,7 +209,7 @@
                                                 <i class="icon_document_alt"></i> Can I get a refund? </a>
                                         </li>
                                     </ul>
-                                    <a target="_blank"  href="https://wooproducttable.com/doc/pre-sale/" class="wpt-button reverse">
+                                    <a target="_blank"  href="https://wooproducttable.com/doc/pre-sale/" class="wpt-button reset">
                                         View All<i class="arrow_right"></i>
                                     </a>
                                 </div>
@@ -235,7 +234,7 @@
                                                 <i class="icon_document_alt"></i> Get Automatic Updates from CodeCanyon (Only for CodeCanyon user) </a>
                                         </li>
                                     </ul>
-                                    <a target="_blank"  href="https://wooproducttable.com/doc/gating-start/" class="wpt-button reverse">
+                                    <a target="_blank"  href="https://wooproducttable.com/doc/gating-start/" class="wpt-button reset">
                                         View All<i class="arrow_right"></i>
                                     </a>
                                 </div>
@@ -260,7 +259,7 @@
                                                 <i class="icon_document_alt"></i> How to install Woo Product Table Pro Plugin </a>
                                         </li>
                                     </ul>
-                                    <a target="_blank"  href="https://wooproducttable.com/doc/installation/" class="wpt-button reverse">
+                                    <a target="_blank"  href="https://wooproducttable.com/doc/installation/" class="wpt-button reset">
                                         View All<i class="arrow_right"></i>
                                     </a>
                                 </div>
@@ -281,7 +280,7 @@
                                                 <i class="icon_document_alt"></i> Where is my license key </a>
                                         </li>
                                     </ul>
-                                    <a target="_blank"  href="https://wooproducttable.com/doc/license/" class="wpt-button reverse">
+                                    <a target="_blank"  href="https://wooproducttable.com/doc/license/" class="wpt-button reset">
                                         View All<i class="arrow_right"></i>
                                     </a>
                                 </div>
@@ -306,7 +305,7 @@
                                                 <i class="icon_document_alt"></i> Change Table Design Using Template </a>
                                         </li>
                                     </ul>
-                                    <a target="_blank"  href="https://wooproducttable.com/doc/table-design/" class="wpt-button reverse">
+                                    <a target="_blank"  href="https://wooproducttable.com/doc/table-design/" class="wpt-button reset">
                                         View All<i class="arrow_right"></i>
                                     </a>
                                 </div>
@@ -331,7 +330,7 @@
                                                 <i class="icon_document_alt"></i> Create an advanced search box table </a>
                                         </li>
                                     </ul>
-                                    <a target="_blank"  href="https://wooproducttable.com/doc/search-and-filter/" class="wpt-button reverse">
+                                    <a target="_blank"  href="https://wooproducttable.com/doc/search-and-filter/" class="wpt-button reset">
                                         View All<i class="arrow_right"></i>
                                     </a>
                                 </div>
@@ -356,7 +355,7 @@
                                                 <i class="icon_document_alt"></i> Add Custom Taxonomy as Table Column </a>
                                         </li>
                                     </ul>
-                                    <a target="_blank"  href="https://wooproducttable.com/doc/table-options/" class="wpt-button reverse">
+                                    <a target="_blank"  href="https://wooproducttable.com/doc/table-options/" class="wpt-button reset">
                                         View All<i class="arrow_right"></i>
                                     </a>
                                 </div>
@@ -381,7 +380,7 @@
                                                 <i class="icon_document_alt"></i> Create an Online Book Store using Woo Product Table </a>
                                         </li>
                                     </ul>
-                                    <a target="_blank"  href="https://wooproducttable.com/doc/tutorials/" class="wpt-button reverse">
+                                    <a target="_blank"  href="https://wooproducttable.com/doc/tutorials/" class="wpt-button reset">
                                         View All<i class="arrow_right"></i>
                                     </a>
                                 </div>
@@ -406,7 +405,7 @@
                                                 <i class="icon_document_alt"></i> Change Default WooCommerce Thumbnail Image Size for Woo Product Table </a>
                                         </li>
                                     </ul>
-                                    <a target="_blank"  href="https://wooproducttable.com/doc/advance-uses/" class="wpt-button reverse">
+                                    <a target="_blank"  href="https://wooproducttable.com/doc/advance-uses/" class="wpt-button reset">
                                         View All<i class="arrow_right"></i>
                                     </a>
                                 </div>
@@ -431,7 +430,7 @@
                                                 <i class="icon_document_alt"></i> How to find custom taxonomies in WordPress? </a>
                                         </li>
                                     </ul>
-                                    <a target="_blank"  href="https://wooproducttable.com/doc/basic-tips/" class="wpt-button reverse">
+                                    <a target="_blank"  href="https://wooproducttable.com/doc/basic-tips/" class="wpt-button reset">
                                         View All<i class="arrow_right"></i>
                                     </a>
                                 </div>
@@ -448,7 +447,7 @@
                                                 <i class="icon_document_alt"></i> Change or remove WooCommerce currency symbols </a>
                                         </li>
                                     </ul>
-                                    <a target="_blank"  href="https://wooproducttable.com/doc/woocommerce-tips/" class="wpt-button reverse">
+                                    <a target="_blank"  href="https://wooproducttable.com/doc/woocommerce-tips/" class="wpt-button reset">
                                         View All<i class="arrow_right"></i>
                                     </a>
                                 </div>
@@ -465,7 +464,7 @@
                                                 <i class="icon_document_alt"></i> Full Table data is not saving </a>
                                         </li>
                                     </ul>
-                                    <a target="_blank"  href="https://wooproducttable.com/doc/troubleshoots/" class="wpt-button reverse">
+                                    <a target="_blank"  href="https://wooproducttable.com/doc/troubleshoots/" class="wpt-button reset">
                                         View All<i class="arrow_right"></i>
                                     </a>
                                 </div>
@@ -482,7 +481,7 @@
                                                 <i class="icon_document_alt"></i> Wishlist Not Displaying ( YITH Plugin ) </a>
                                         </li>
                                     </ul>
-                                    <a target="_blank"  href="https://wooproducttable.com/doc/developer-docs/" class="wpt-button reverse">
+                                    <a target="_blank"  href="https://wooproducttable.com/doc/developer-docs/" class="wpt-button reset">
                                         View All<i class="arrow_right"></i>
                                     </a>
                                 </div>
