@@ -557,6 +557,7 @@ span.purchase_code_active {
 }
 .wpt_column_setting_single_extra>div {
     margin-top: 10px;
+    display: flex;
 }
 .wpt_column_setting_extra input[type=text],
 .wpt_column_setting_single_extra input[type=text]{width: 100%;}
@@ -566,8 +567,9 @@ ul#wpt_column_sortable>li.wpt_sortable_peritem {
     padding: 0;
 }
 ul#wpt_column_sortable>li.wpt_sortable_peritem {
-    border-top: 0 none; 
-    box-shadow: 0px 1px 16px 0 #bbbbbb9c;
+    /* border-top: 0 none; */
+    /* box-shadow: 0px 1px 16px 0 #bbbbbb9c; */
+    border: 1px solid #0000001a;
 }
 ul#wpt_column_sortable li.wpt_sortable_peritem.enabled>span.handle, ul#wpt_keyword_hide_mobile li>span.handle {
     background: #e8e8e840 no-repeat center 20px;
@@ -730,14 +732,14 @@ table.wp-list-table.widefat.plugins tr.active[data-slug='product-table-for-wooco
 .inside-column-settings-wrapper {}
 
 .inside-column-settings-wrapper .inside_tab_content {
-    padding: 15px 20px;
+    padding: 15px 0;
     width: 100%;
-    overflow: hidden;
+    /* overflow: hidden; */
     box-sizing: border-box;
-    border: 1px solid #ddd;
+    /* border: 1px solid #000; */
     /* background: #ddd; */
     margin-bottom: 35px;
-    box-shadow: 0 10px 20px 0 #00000026;
+    /* box-shadow: -2px 0px 6px #0000001f; */
     display: none;
 }
 .inside-column-settings-wrapper .inside_tab_content.tab-content.tab-content-active{display: block;}
@@ -2136,8 +2138,8 @@ a.ca-social-link.ca-social-ticket.ca-title-available {
     background-repeat: no-repeat !important;
     background-position: center right !important;
     background-size: auto 35px;
-    background: #007694;
-    color: white;
+    background: white;
+    color: black;
 }
 
 h1.wp-heading-inline.plugin_name.plugin-name {
@@ -2238,13 +2240,14 @@ p.wpt-issue-submit a:hover {
 }
 
 div#wpt_configuration_form #column_settings .add_new_col_wrapper .section.ultraaddons-panel.add_new_column {
-    background: #e7feff;
-    border: 1px solid #ddd;
+    background: white;
+    border: 0 none;
+    box-shadow: -2px 0px 6px #0000001f;
 }
 .section.ultraaddons-panel.add_new_column h3 {
     font-size: 18px;
     line-height: 11px;
-    color: #f5eaff;
+    color: black;
 }
 span.wpt-help-icon {
     background: rgb(233, 236, 11);
@@ -2322,14 +2325,16 @@ span.wpt-design-collaps {
     width: 25px;
     display: inline-block;
     height: 20px;
-    padding: 2px 4px;
+    padding: 0px 10px;
     border-radius: 1px;
-    background: #073b48;
-    box-shadow: -4px 5px 0px 0px #00000047;
+    background: transparent;
+    /* box-shadow: -4px 5px 0px 0px #00000047; */
     transition: .4s all;
     cursor: pointer;
+    color: black;
+    /* border: 1px solid black; */
 }
+h1:hover span.wpt-design-collaps,
 span.wpt-design-collaps:hover {
-    background: #0e6175;
-    box-shadow: -5px 4px 0px 0px #0000001f;
+    color: #ddd;
 }
