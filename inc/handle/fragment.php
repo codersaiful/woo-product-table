@@ -128,39 +128,39 @@ class Fragment extends Shortcode_Base{
         $class_status = $this->cart_stats ? 'on' : 'empty';
         ob_start();
         ?>
-<div class="wpt-new-footer-cart <?php echo esc_attr( $template ); ?> wpt-foooter-cart-stats-<?php echo esc_attr( $class_status ); ?>">
-<?php
-if( $this->cart_lists && $this->cart_stats ){
-    $this->render_cart_list();
-    ?>
-    <span class="wpt-fcart-coll-expand"><i class="wpt-dot-3"></i></span>
-    <?php
-}
-?>
-<div class="wpt-new-footer-cart-inside">
-<div class="wpt-cart-contents">
-    <?php echo wp_kses_post( WC()->cart->get_cart_subtotal() ); ?> 
-    <span class="count">
-        <?php echo wp_kses_data( sprintf( _n( '%d item', '%d items', WC()->cart->get_cart_contents_count(), 'woo-product-table' ), WC()->cart->get_cart_contents_count() ) ); ?>
-    </span>
-<?php if( $this->cart_stats ){ ?>
-    <span title="<?php echo esc_attr__( 'Empty Cart.', 'woo-product-table' ); ?>" class="wpt_empty_cart_btn">
-        <i class="wpt-trash-empty"></i>
-    </span>
-<?php } ?>
-</div>
-<?php
-    $view_cart_text = __('View Cart', 'woo-product-table');
-    $view_cart_text = apply_filters('wpt_view_cart_text', $view_cart_text, $this->table_id );
-    $view_cart_target = '_blank';
-    $view_cart_target =  apply_filters('wpt_view_cart_target', $view_cart_target, $this->table_id );
-    $view_cart_link = wc_get_cart_url();
-    $view_cart_link =  apply_filters('wpt_view_cart_link', $view_cart_link, $this->table_id );
-?>
-<a target="<?php echo esc_attr( $view_cart_target ); ?>" href="<?php echo esc_url( $view_cart_link ); ?>" class="wpt-view-n"><?php echo esc_html( $view_cart_text ); ?> <i class="wpt-bag"></i></a>
+        <div class="wpt-new-footer-cart <?php echo esc_attr( $template ); ?> wpt-foooter-cart-stats-<?php echo esc_attr( $class_status ); ?>">
+            <?php
+            if( $this->cart_lists && $this->cart_stats ){
+                $this->render_cart_list();
+                ?>
+                <span class="wpt-fcart-coll-expand"><i class="wpt-dot-3"></i></span>
+                <?php
+            }
+            ?>
+            <div class="wpt-new-footer-cart-inside">
+                <div class="wpt-cart-contents">
+                    <?php echo wp_kses_post( WC()->cart->get_cart_subtotal() ); ?> 
+                    <span class="count">
+                        <?php echo wp_kses_data( sprintf( _n( '%d item', '%d items', WC()->cart->get_cart_contents_count(), 'woo-product-table' ), WC()->cart->get_cart_contents_count() ) ); ?>
+                    </span>
+                    <?php if( $this->cart_stats ){ ?>
+                        <span title="<?php echo esc_attr__( 'Empty Cart.', 'woo-product-table' ); ?>" class="wpt_empty_cart_btn">
+                            <i class="wpt-trash-empty"></i>
+                        </span>
+                    <?php } ?>
+                </div>
+                <?php
+                    $view_cart_text = __('View Cart', 'woo-product-table');
+                    $view_cart_text = apply_filters('wpt_view_cart_text', $view_cart_text, $this->table_id );
+                    $view_cart_target = '_blank';
+                    $view_cart_target =  apply_filters('wpt_view_cart_target', $view_cart_target, $this->table_id );
+                    $view_cart_link = wc_get_cart_url();
+                    $view_cart_link =  apply_filters('wpt_view_cart_link', $view_cart_link, $this->table_id );
+                ?>
+                <a target="<?php echo esc_attr( $view_cart_target ); ?>" href="<?php echo esc_url( $view_cart_link ); ?>" class="wpt-view-n"><?php echo esc_html( $view_cart_text ); ?> <i class="wpt-bag"></i></a>
 
-</div>
-</div>
+            </div>
+        </div>
         <?php 
         $output = ob_get_clean();
         return $output;
@@ -176,6 +176,8 @@ if( $this->cart_lists && $this->cart_stats ){
             <?php
             $cart = WC()->cart;
             $subtotal = $cart->get_subtotal();
+            $currency_symbol = get_woocommerce_currency_symbol();
+
             foreach ( $cart->get_cart() as $cart_item_key => $cart_item ) {
                 $_product   = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key );
                 $product_id = apply_filters( 'woocommerce_cart_item_product_id', $cart_item['product_id'], $cart_item, $cart_item_key );
@@ -189,29 +191,10 @@ if( $this->cart_lists && $this->cart_stats ){
                 <li>
                 <i data-cart_item_key="<?php echo esc_attr( $cart_item_key ); ?>" class="wpt-cart-remove wpt-trash-empty"></i>
                     <?php 
-                    // echo apply_filters( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-					// 	'woocommerce_cart_item_remove_link',
-					// 	sprintf(
-					// 		'<a href="%s" class="remove remove_from_cart_button" aria-label="%s" data-product_id="%s" data-cart_item_key="%s" data-product_sku="%s">&times;</a>',
-					// 		esc_url( wc_get_cart_remove_url( $cart_item_key ) ),
-					// 		esc_attr__( 'Remove this item', 'woo-product-table' ),
-					// 		esc_attr( $product_id ),
-					// 		esc_attr( $cart_item_key ),
-					// 		esc_attr( $_product->get_sku() )
-					// 	),
-					// 	$cart_item_key
-					// );
-                    
-                    $product_qty = $cart_item['quantity'];
-                    $total_price = $product_qty * $_product->price;
-                    $currency_symbol = get_woocommerce_currency_symbol();
-                    $product_total = $product_qty * $total_price;
-                    // $subtotal += $product_qty * $total_price;
-
                     echo wp_kses_post( $product_name );
                     echo wc_get_formatted_cart_item_data( $cart_item );
                     echo apply_filters( 'woocommerce_widget_cart_item_quantity', '<span class="quantity">' . sprintf( '%s &times; %s', $cart_item['quantity'], $product_price ) . '</span>', $cart_item, $cart_item_key );
-                    echo " = " . $currency_symbol . $product_total;
+                    echo " = " . $currency_symbol . $cart_item['line_total'];
                      ?>
                 </li>
                 <?php 
