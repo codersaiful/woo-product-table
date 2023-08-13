@@ -1820,3 +1820,11 @@ td.wpt-replace-td-in-tr.wpt-mobile-label-show a.wpt_product_title_in_td{
 body[class^="wpt-"]:before, body[class*=" wpt-"]:before {
     display: none;
 }
+
+li.wpt-cart-subtotal {
+    border-top: 1px solid #c7afaf;
+}
+.wpt-cart-subtotal span {
+    margin-left: 50%;
+    color: #853434;
+}

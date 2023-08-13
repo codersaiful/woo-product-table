@@ -174,6 +174,7 @@ if( $this->cart_lists && $this->cart_stats ){
             <div class="lister-ins">
                 <ul>
             <?php
+            $subtotal = 0;
             foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ) {
                 $_product   = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key );
                 $product_id = apply_filters( 'woocommerce_cart_item_product_id', $cart_item['product_id'], $cart_item, $cart_item_key );
@@ -199,9 +200,17 @@ if( $this->cart_lists && $this->cart_stats ){
 					// 	),
 					// 	$cart_item_key
 					// );
+                    
+                    $product_qty = $cart_item['quantity'];
+                    $total_price = $product_qty * $_product->price;
+                    $currency_symbol = get_woocommerce_currency_symbol();
+                    $product_total = $product_qty * $total_price;
+                    $subtotal += $product_qty * $total_price;
+
                     echo wp_kses_post( $product_name );
                     echo wc_get_formatted_cart_item_data( $cart_item );
                     echo apply_filters( 'woocommerce_widget_cart_item_quantity', '<span class="quantity">' . sprintf( '%s &times; %s', $cart_item['quantity'], $product_price ) . '</span>', $cart_item, $cart_item_key );
+                    echo " = " . $currency_symbol . $product_total;
                      ?>
                 </li>
                 <?php 
@@ -209,6 +218,7 @@ if( $this->cart_lists && $this->cart_stats ){
 
             }
             ?>
+                <li class="wpt-cart-subtotal"><span>Subtotal : <?php echo $currency_symbol . $subtotal ?></span></li>
                 </ul>
             </div>
             
