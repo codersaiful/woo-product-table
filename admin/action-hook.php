@@ -1491,7 +1491,7 @@ if( !function_exists( 'wpto_admin_configuration_form_top_free' ) ){
         if( !isset( $settings['page'] ) || isset( $settings['page'] ) && $settings['page'] != 'configuration_page' ){
             return;
         }
-
+        $user_can_edit = wpt_user_can_edit() ? 'user_can_edit' : 'user_can_not_edit';
         $is_pro = ! empty( $settings['module'] ) && $settings['module'] == 'pro_version' ? true : false;
         /**
          * Now Here Available is:
@@ -1567,7 +1567,7 @@ if( !function_exists( 'wpto_admin_configuration_form_top_free' ) ){
             </td>
         </tr>
 
-        <tr id="wpt_footer_cart_template">
+        <tr class="<?php echo esc_attr( $user_can_edit ); ?>" id="wpt_footer_cart_template">
             <td>
                 <div class="wpt-form-control">
                     <div class="form-label col-lg-6">
@@ -1638,8 +1638,260 @@ if( !function_exists( 'wpto_admin_configuration_form_top_free' ) ){
         </tr>
         </tbody>
     </table>
-         
+    <?php if( ! $is_pro ){ ?>
 
+    <table class="wpt-my-table universal-setting">
+        <tbody>
+        
+        <tr class="user_can_not_edit">
+            <td>
+                <div class="wpt-form-control">
+                    <div class="form-label col-lg-6">
+                        <label class="wpt_label wpt_advance_search_on_of" for="wpt_table_on_archive">Table on Archives</label>
+                    </div>
+                    <div class="form-field col-lg-6">
+                                                <select name="data[archive_table_id]" class="wpt_fullwidth ua_input wpt_table_on_archive">
+                            <option value="">Select a Table</option>
+                        <option value="20262">Product Table Test July 2023</option><option value="20243">July 2023 Sample Table</option><option value="20203">sdfsdfddf</option><option value="20194">Hello June 2023</option><option value="20193">Again test</option><option value="20183">Test New June 2023</option><option value="20182">test toggle</option><option value="20164">Table for WPML</option><option value="20162">sdfsdfds</option><option value="20157"></option><option value="20146">Simple Just Table</option><option value="20130">Jonas Customer Table</option><option value="20116">Hello</option><option value="20114">2023 New Table Appril</option><option value="20080">sdsdf</option><option value="20066">Testing</option><option value="20050">Audio Table</option><option value="20014">নতুন ট্রান্সলেশন চেক টেবিল</option><option value="19845">New Test</option><option value="19844">ssss</option><option value="19731">Hello</option><option value="19682">Another Test Table</option><option value="19674">Nothing For Test Only</option><option value="19669">Aug 22</option><option value="19661">Variation Table</option><option value="19650">Welcome To all</option><option value="19646">300</option><option value="19638">ffff</option><option value="19636">Pure New Table</option><option value="19605">July 2022</option><option value="19604">for Group Product</option><option value="19577">sssssssssss</option><option value="19571">Popular Products</option><option value="19566">Data Table</option><option value="19555">Popular</option><option value="19544">New Table</option><option value="19541">May 2022 last</option><option value="19513">May 2022</option><option value="19484">aaaaaaaa</option><option value="19451">ghgfhfghgfh</option><option value="19449">ccccccccccccc</option><option value="19447">fgfgfgggf</option><option value="19444">dddddd</option><option value="19431">Product Table March 2022</option><option value="19183">dddd</option><option value="19176">testing only variation</option><option value="19045">Rakib</option><option value="18914">test</option><option value="18909">Dec 2021</option><option value="18763">hello</option><option value="18722">Hello Worldggg</option><option value="18676">sdfsd f</option><option value="18564">test</option><option value="18551">Home Table Nov 20, 2021</option><option value="18550">ddd</option><option value="18543">hjhjh</option><option value="18524">Hello World test</option><option value="17049">Home 14.10.2021</option><option value="17043">Table Home 5.10.2021</option><option value="17042">sdfdf</option><option value="1347">check thumb test</option><option value="1345">Configuration</option><option value="1340">Checking Table with Bari</option><option value="1338">ssssssssssss</option><option value="1335">Table Home 6.9.2021</option><option value="1334"></option><option value="1332">fffffffffff</option><option value="1328">test</option><option value="1276">Table 1.9.2021</option><option value="1234">Test Variation Advance Search</option><option value="1233">ssss</option><option value="1227">Single Product</option><option value="1224">New Client</option><option value="1222">new july</option><option value="1220">llllllllllllllllllll</option><option value="1217">Hello</option><option value="1195">June 2021</option><option value="1149">hjhj</option><option value="1144">New Table</option><option value="1142">Hello</option><option value="1140">Hello World</option><option value="1138">Hello Bangladesh</option><option value="1119">Hello new table</option><option value="1028">dfdfdff</option><option value="1021">Access</option><option value="1017">sss</option><option value="985">ddddddddddddddd</option><option value="995">hello bangladesh</option><option value="994">ddddds</option><option value="993">zzztggg</option><option value="992">Ekebare New</option><option value="987">dddddffdfdfd</option><option value="980">sss</option><option value="979">New Table after update</option><option value="945">sdfsdfsdfrrrrrr</option><option value="919">new testing</option><option value="908">Table on New Version</option><option value="905">6.0.16 Hoodie</option><option value="903">Welcome 6.0.16</option>                        </select> 
+                                                <br>
+                        <label class="switch">
+                            <input name="data[table_on_archive]" type="checkbox" id="wpt_table_on_archive">
+                            <div class="slider round"><!--ADDED HTML -->
+                                <span class="on">On</span><span class="off">Off</span><!--END-->
+                            </div>
+                        </label>
+                        
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="wpt-form-info">
+                                <a href="https://wooproducttable.com/docs/doc/table-options/product-table-woocommerce-archive-category-tag-attribute-page/" target="_blank" class="wpt-doc-lick">Helper doc</a>
+                            <p>Enable Table on Archive Page. Such as: Archive Page, Tag Page, Taxonomy Page. First Select a table and check [On] to show in shop/archive page.</p>
+                    <p class="wpt-tips">
+                        <b>Notice:</b>
+                        <span>Product table will display products according to WooCommerce default query and Advance Search box is not available on Archive page.</span>
+                    </p>
+                </div> 
+            </td>
+        </tr>
+
+
+        <tr class="user_can_not_edit">
+            <td>
+                <div class="wpt-form-control">
+                    <div class="form-label col-lg-6">
+                        <label class="table_view_switcher_on_of" for="wpt_advance_cascade_filter_on_of">Table View Switcher On Shop Page</label>
+                    </div>
+                    <div class="form-field col-lg-6">
+                        <label class="switch">
+                            <input name="data[table_view_switcher]" type="checkbox" id="table_view_switcher_on_of">
+                            <div class="slider round"><!--ADDED HTML -->
+                                <span class="on">On</span><span class="off">Off</span><!--END-->
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="wpt-form-info">
+                                <a href="https://wooproducttable.com/docs/doc/table-options/product-table-woocommerce-archive-category-tag-attribute-page/" target="_blank" class="wpt-doc-lick">Helper doc</a>
+                            <p>You Can turn on/off table view switcher on shop page</p>
+
+                </div> 
+            </td>
+        </tr>
+
+        <tr class="divider-row">
+            <td>
+                <div class="wqpmb-form-control">
+                    <div class="form-label col-lg-6">
+                        <h4 class="section-divider-title">For Variable Products</h4>
+                    </div>
+                    <div class="form-field col-lg-6">
+                        
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="wqpmb-form-info">
+                    
+                </div> 
+            </td>
+        </tr>
+
+        <tr class="user_can_not_edit">
+            <td>
+                <div class="wpt-form-control">
+                    <div class="form-label col-lg-6">
+                        <label class="wpt_label wpt_variation_table_on_off" for="wpt_table__for_variation">Variation Table</label>
+                    </div>
+                    <div class="form-field col-lg-6">
+                                                <select name="data[variation_table_id]" class="wpt_fullwidth ua_input wpt_table__for_variation">
+                            <option value="">Select a Table</option>
+                        <option value="20262">Product Table Test July 2023</option><option value="20243">July 2023 Sample Table</option><option value="20203">sdfsdfddf</option><option value="20194">Hello June 2023</option><option value="20193">Again test</option><option value="20183">Test New June 2023</option><option value="20182">test toggle</option><option value="20164">Table for WPML</option><option value="20162">sdfsdfds</option><option value="20157"></option><option value="20146">Simple Just Table</option><option value="20130">Jonas Customer Table</option><option value="20116">Hello</option><option value="20114">2023 New Table Appril</option><option value="20080">sdsdf</option><option value="20066">Testing</option><option value="20050">Audio Table</option><option value="20014">নতুন ট্রান্সলেশন চেক টেবিল</option><option value="19845">New Test</option><option value="19844">ssss</option><option value="19731">Hello</option><option value="19682">Another Test Table</option><option value="19674">Nothing For Test Only</option><option value="19669">Aug 22</option><option value="19661">Variation Table</option><option value="19650">Welcome To all</option><option value="19646">300</option><option value="19638">ffff</option><option value="19636">Pure New Table</option><option value="19605">July 2022</option><option value="19604">for Group Product</option><option value="19577">sssssssssss</option><option value="19571">Popular Products</option><option value="19566">Data Table</option><option value="19555">Popular</option><option value="19544">New Table</option><option value="19541">May 2022 last</option><option value="19513">May 2022</option><option value="19484">aaaaaaaa</option><option value="19451">ghgfhfghgfh</option><option value="19449">ccccccccccccc</option><option value="19447">fgfgfgggf</option><option value="19444">dddddd</option><option value="19431">Product Table March 2022</option><option value="19183">dddd</option><option value="19176">testing only variation</option><option value="19045">Rakib</option><option value="18914">test</option><option value="18909">Dec 2021</option><option value="18763">hello</option><option value="18722">Hello Worldggg</option><option value="18676">sdfsd f</option><option value="18564">test</option><option value="18551">Home Table Nov 20, 2021</option><option value="18550">ddd</option><option value="18543">hjhjh</option><option value="18524">Hello World test</option><option value="17049">Home 14.10.2021</option><option value="17043">Table Home 5.10.2021</option><option value="17042">sdfdf</option><option value="1347">check thumb test</option><option value="1345">Configuration</option><option value="1340">Checking Table with Bari</option><option value="1338">ssssssssssss</option><option value="1335">Table Home 6.9.2021</option><option value="1334"></option><option value="1332">fffffffffff</option><option value="1328">test</option><option value="1276">Table 1.9.2021</option><option value="1234">Test Variation Advance Search</option><option value="1233">ssss</option><option value="1227">Single Product</option><option value="1224">New Client</option><option value="1222">new july</option><option value="1220">llllllllllllllllllll</option><option value="1217">Hello</option><option value="1195">June 2021</option><option value="1149">hjhj</option><option value="1144">New Table</option><option value="1142">Hello</option><option value="1140">Hello World</option><option value="1138">Hello Bangladesh</option><option value="1119">Hello new table</option><option value="1028">dfdfdff</option><option value="1021">Access</option><option value="1017">sss</option><option value="985">ddddddddddddddd</option><option value="995">hello bangladesh</option><option value="994">ddddds</option><option value="993">zzztggg</option><option value="992">Ekebare New</option><option value="987">dddddffdfdfd</option><option value="980">sss</option><option value="979">New Table after update</option><option value="945">sdfsdfsdfrrrrrr</option><option value="919">new testing</option><option value="908">Table on New Version</option><option value="905">6.0.16 Hoodie</option><option value="903">Welcome 6.0.16</option>                        </select>
+                                                
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="wpt-form-info">
+                                <a href="https://wooproducttable.com/docs/doc/advance-uses/show-product-variation-inside-table-on-a-single-variable-product-page/" target="_blank" class="wpt-doc-lick">Helper doc</a>
+                            <p>Select a table and enable above the button to show a variation table on every variable product page which will replace the default variation dropdown select options.</p>
+                </div> 
+            </td>
+        </tr>
+
+        <tr class="user_can_not_edit">
+            <td>
+                <div class="wpt-form-control">
+                    <div class="form-label col-lg-6">
+                        <label class="wpt_label wpt_variation_table_position" for="wpt_table_position_for_variation">Variation Table Position</label>
+                    </div>
+                    <div class="form-field col-lg-6">
+                        <select name="data[variation_table_position]" class="wpt_fullwidth ua_input wpt_table_position_for_variation">
+                            <option value="woocommerce_single_product_summary" selected="">After Title</option>
+                            <option value="woocommerce_product_meta_start">Before Meta</option>
+                            <option value="woocommerce_product_meta_end">After Meta</option>
+                            <option value="woocommerce_after_single_product_summary">After summary</option>
+
+                            <option value="woocommerce_product_after_tabs">After Tab</option>
+                            <option value="woocommerce_before_add_to_cart_form">Before Add to cart - Additional</option>
+                        </select>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="wpt-form-info">
+                                <a href="https://wooproducttable.com/docs/doc/advance-uses/show-product-variation-inside-table-on-a-single-variable-product-page/" target="_blank" class="wpt-doc-lick">Helper doc</a>
+                            <p>Select a table position to show the table to your desire place!</p>
+                </div> 
+            </td>
+        </tr>
+
+
+        <tr class="user_can_not_edit">
+            <td>
+                <div class="wpt-form-control">
+                    <div class="form-label col-lg-6">
+                        <label class="wpt_label wpt_vt_prod_inc_exc" for="wpt_table_product_inc_exc_variation">Variation Product Include/Exclude</label>
+                    </div>
+                    <div class="form-field col-lg-6">
+                                                <select name="data[vt_prod_inc_exc]" class="wpt_fullwidth ua_input wpt_table_product_inc_exc_variation">
+                            <option value="" selected="">Variation Table to Everywhere</option>
+                            <option value="vt_product_inc">Include Products</option>
+                            <option value="vt_product_exc">Exclude Products</option>
+                        </select>
+                        <br>
+                        <br>
+                        <input name="data[vt_prod_inc_exc_ids]" value="" type="text" placeholder="123,234,2345" class="wpt_var_table_product_exc_inc_ids ua_input" style="display:none;">
+                        
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="wpt-form-info">
+                    <p>Input product ids. If you have more then one products, sepetare them with coma(,).</p>
+                </div> 
+            </td>
+        </tr>
+
+        <tr class="divider-row">
+            <td>
+                <div class="wqpmb-form-control">
+                    <div class="form-label col-lg-6">
+                        <h4 class="section-divider-title">Advance</h4>
+                    </div>
+                    <div class="form-field col-lg-6">
+                        
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="wqpmb-form-info">
+                    
+                </div> 
+            </td>
+        </tr>
+        <tr class="user_can_not_edit">
+            <td>
+                <div class="wpt-form-control">
+                    <div class="form-label col-lg-6">
+                        <label class="wpt_label wpt_advance_search_issue" for="wpt_advance_search_issue">Advance Search PROBLEM FIX</label>
+                    </div>
+                    <div class="form-field col-lg-6">
+                        <label class="switch">
+                            <input name="data[advance_search_issue]" type="checkbox" id="wpt_advance_search_issue">
+                            <div class="slider round"><!--ADDED HTML -->
+                                <span class="on">On</span><span class="off">Off</span><!--END-->
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="wpt-form-info">
+                    <p>Only if found issue on Advance Search, Check it</p>
+                </div> 
+            </td>
+        </tr>
+
+
+    <!--
+        Advance search cascade filter on ajax
+        @Since 8.0.2.1
+        -->
+        <tr class="user_can_not_edit">
+            <td>
+                <div class="wpt-form-control">
+                    <div class="form-label col-lg-6">
+                        <label class="wpt_label wpt_advance_cascade_filter_on_of" for="wpt_advance_cascade_filter_on_of">Advance Cascade Filter</label>
+                    </div>
+                    <div class="form-field col-lg-6">
+                        <label class="switch">
+                            <input name="data[advance_cascade_filter]" type="checkbox" id="wpt_advance_cascade_filter_on_of">
+                            <div class="slider round"><!--ADDED HTML -->
+                                <span class="on">On</span><span class="off">Off</span><!--END-->
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="wpt-form-info">
+                                <a href="https://wooproducttable.com/docs/doc/table-options/how-to-use-advance-cascade-filter/" target="_blank" class="wpt-doc-lick">Helper doc</a>
+                            <p>Cascade filter will be added to product search filter</p>
+                </div> 
+            </td>
+        </tr>
+
+        <tr class="user_can_not_edit">
+            <td>
+                <div class="wpt-form-control">
+                    <div class="form-label col-lg-6">
+                        <label class="wpt_label wpt_column_hide_for_guest" for="wpt_column_hide_for_guest">Show/Hide Column for Guest</label>
+                    </div>
+                    <div class="form-field col-lg-6">
+                        <label class="switch">
+                            <input name="data[column_hide_for_guest]" type="checkbox" id="wpt_column_hide_for_guest">
+                            <div class="slider round"><!--ADDED HTML -->
+                                <span class="on">Show</span><span class="off">Hide</span><!--END-->
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="wpt-form-info">
+                                <a href="https://wooproducttable.com/docs/doc/advance-uses/show-column-only-for-login-user/" target="_blank" class="wpt-doc-lick">Helper doc</a>
+                            <p>Show or hide the restricted column for guest user.</p>
+                </div> 
+            </td>
+        </tr>
+
+        </tbody>
+        </table>     
+        <?php } ?>
          <?php
     }
 }

@@ -126,7 +126,7 @@ function wpt_datewise_validation(){
     $prev_args = array(
         'post_type' => 'wpt_product_table',
         'date_query' => array(
-            'before' => '2022-3-15' 
+            'before' => '2022-3-15' //2022-3-15 //2014-3-15
           ),
     );
     
