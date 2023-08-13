@@ -1654,7 +1654,7 @@ if( !function_exists( 'wpto_admin_configuration_form_top_free' ) ){
                                 </select>
                                 <br>
                                 <label class="switch">
-                                    <input name="data[table_on_archive]" type="checkbox" id="wpt_table_on_archive">
+                                    <input type="checkbox" id="wpt_table_on_archive">
                                     <div class="slider round">
                                         <!--ADDED HTML -->
                                         <span class="on">On</span><span class="off">Off</span><!--END-->
@@ -1773,7 +1773,7 @@ if( !function_exists( 'wpto_admin_configuration_form_top_free' ) ){
                                 </select>
                                 <br>
                                 <br>
-                                <input name="data[vt_prod_inc_exc_ids]" value="" type="text" placeholder="123,234,2345" class="wpt_var_table_product_exc_inc_ids ua_input" style="display:none;">
+                                <input value="" type="text" placeholder="123,234,2345" class="wpt_var_table_product_exc_inc_ids ua_input" style="display:none;">
                             </div>
                         </div>
                     </td>
