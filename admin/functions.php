@@ -142,7 +142,7 @@ function wpt_datewise_validation(){
     $query = new WP_Query( $args );
     $total = $query->found_posts;
 
-     return $total <= 2; //Limitation upto 4 //limitation has changed upto 2
+     return $total <= 0; //Limitation upto 2 //limitation has changed upto 0
 }
 
 /**
