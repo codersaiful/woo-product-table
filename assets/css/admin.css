@@ -1381,7 +1381,6 @@ body.wpt_admin_body .ultraaddons-panel td .notice-for-variations{
 
 tr.user_can_not_edit {
     position: relative;
-    background: #efeff0;
 }
 
 tr.user_can_not_edit>td:first-child:before {
@@ -1415,9 +1414,6 @@ tr.user_can_not_edit>td {
     position: relative;
 }
 
-tr.user_can_not_edit>td {
-    background: white !important;
-}
 .wpt-notice.wpt-user-rating-notice {
     background: white url(../images/logo.png) no-repeat 5px 10px;
     background-size: 45px;
