@@ -174,8 +174,9 @@ if( $this->cart_lists && $this->cart_stats ){
             <div class="lister-ins">
                 <ul>
             <?php
-            $subtotal = 0;
-            foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ) {
+            $cart = WC()->cart;
+            $subtotal = $cart->get_subtotal();
+            foreach ( $cart->get_cart() as $cart_item_key => $cart_item ) {
                 $_product   = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key );
                 $product_id = apply_filters( 'woocommerce_cart_item_product_id', $cart_item['product_id'], $cart_item, $cart_item_key );
 
@@ -205,7 +206,7 @@ if( $this->cart_lists && $this->cart_stats ){
                     $total_price = $product_qty * $_product->price;
                     $currency_symbol = get_woocommerce_currency_symbol();
                     $product_total = $product_qty * $total_price;
-                    $subtotal += $product_qty * $total_price;
+                    // $subtotal += $product_qty * $total_price;
 
                     echo wp_kses_post( $product_name );
                     echo wc_get_formatted_cart_item_data( $cart_item );
