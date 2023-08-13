@@ -2262,7 +2262,9 @@ span.wpt-help-icon {
     margin: 10px;
     cursor: pointer;
     border-radius: 50%;
-    position: relative;
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 span.wpt-help-icon.wpt-help-focused:before,
 span.wpt-help-icon:hover:before {
@@ -2339,4 +2341,7 @@ span.wpt-design-collaps {
 h1:hover span.wpt-design-collaps,
 span.wpt-design-collaps:hover {
     color: #ddd;
+}
+div.wpt_tab_content table th {
+    position: relative;
 }
