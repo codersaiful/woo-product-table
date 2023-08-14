@@ -294,6 +294,7 @@ You can easily show specific category products. While creating new table click o
 == Changelog ==
 
 = 3.4.2 =
+* Added: Footer added sub total and line total with class markup, so that user can easily handle.
 * Added: Live Chatbox Disable button/Option added 
 * Improved: Dashboard/Backend Design improvement.
 * Fixed: SKU changed for variation product when selected 3rd Party plugin supported - issue fixed.
