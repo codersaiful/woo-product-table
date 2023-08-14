@@ -187,13 +187,15 @@ class Fragment extends Shortcode_Base{
                     
                 ?>
                 <li>
-                <i data-cart_item_key="<?php echo esc_attr( $cart_item_key ); ?>" class="wpt-cart-remove wpt-trash-empty"></i>
+                    <span class="wpt-vc-left">
+                    <i data-cart_item_key="<?php echo esc_attr( $cart_item_key ); ?>" class="wpt-cart-remove wpt-trash-empty"></i>    
                     <?php 
                     echo wp_kses_post( $product_name );
                     echo wc_get_formatted_cart_item_data( $cart_item );
                     echo apply_filters( 'woocommerce_widget_cart_item_quantity', '<span class="quantity">' . sprintf( '%s &times; %s', $cart_item['quantity'], $product_price ) . '</span>', $cart_item, $cart_item_key );
-                    echo " = " . wc_price( $cart_item['line_total'] ?? 0 );
-                     ?>
+                    ?></span>
+                    <span class="wpt-vc-left"><?php echo wc_price( $cart_item['line_total'] ?? 0 ); ?></span>
+                     
                 </li>
                 <?php 
                 }
