@@ -50,9 +50,9 @@ class Pagination{
          * value will be different. like: load_more, infinite_scroll etc.
          */
 
-        if( 'on' !== $shortcode->pagination ) return;
+        // if( 'on' !== $shortcode->pagination ) return;
         $args = $shortcode->args;
-
+        echo 'HELLO';
         /**
          * @Hook Filter (wpt_paginate_args) for pagination 
          * as a param, I added args

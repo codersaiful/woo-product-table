@@ -354,7 +354,7 @@ class Shortcode extends Shortcode_Base{
              * We will call Pagination::render() Only when pagination is number
              * mean: pagination value is 'on'
              */
-            
+            Pagination::render( $this );
             switch($this->pagination){
                 case 'on':
                     $big = 99999999;
