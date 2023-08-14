@@ -1385,8 +1385,8 @@ tr.user_can_not_edit {
 
 tr.user_can_not_edit>td:first-child:before {
     content: "Pro";
-    background: #F44336;
-    color: white;
+    background: #f4433659;
+    color: black;
     padding: 1px 5px;
     border-radius: 6px;
     z-index: 2;
@@ -1398,7 +1398,7 @@ tr.user_can_not_edit>td:first-child:before {
 
 tr.user_can_not_edit>td:after {
     content: "";
-    background: #ffffff52;
+    background: #ffffffa6;
     width: 100%;
     height: 100%;
     z-index: 1;

@@ -1533,14 +1533,14 @@ if( !function_exists( 'wpto_admin_configuration_form_top_free' ) ){
                         <p><?php echo esc_html( 'Column sorting for visible product Column.', 'woo-product-table' ); ?></p>
                         <p class="warning">
                             <b>Tips:</b>
-                            <span>If you want to sort any column like number where text like: 1st,2nd,3rd,4th. To this situation, add a custom tag className <code>text_with_number</code> for column. <a href="https://wooproducttable.com/doc/advance-uses/sort-table-column/" target="_blank">Helper doc</a> </span>
+                            <span>If you want to sort any column like number where text like: 1st,2nd,3rd,4th. To this situation, add a custom tag className <code>text_with_number</code> for column.</span>
                         </p>
                     </div>
                 </div>
             </td>
             <td>
                 <div class="wpt-form-info">
-                    
+                    <?php wpt_doc_link('https://wooproducttable.com/doc/advance-uses/sort-table-column/') ?>
                 </div> 
             </td>
         </tr>
