@@ -247,7 +247,7 @@ class Shortcode_Ajax extends Shortcode{
          */
         //We are not agable to set condition page on pagination on.
         //karon: jodi condition ekhane dei, ar search onusare pagination na thake, seta faka hoya dorokar, kintu ta hobe na.
-        $output['.wpt_my_pagination.wpt_table_pagination'] = Pagination::get_paginate_links( $this );
+        $output['.wpt_my_pagination.wpt_table_paginations'] = Pagination::get_paginate_links( $this );
         
         if( $this->pagination !== 'on' ){
             ob_start();
@@ -256,7 +256,7 @@ class Shortcode_Ajax extends Shortcode{
         }
         
         if( ( $this->pagination !== 'on' && $max_page == $page_number ) || $max_page == 0){
-            $output['.wpt_load_more_wrapper'] = $output['.wpt_my_pagination.wpt_table_pagination'] = '';
+            $output['.wpt_load_more_wrappers'] = $output['.wpt_my_pagination.wpt_table_paginations'] = '';
         }
 
 

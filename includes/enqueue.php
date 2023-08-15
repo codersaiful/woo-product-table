@@ -70,6 +70,14 @@ if( !function_exists( 'wpt_enqueue' ) ){
            'search_select_placeholder' => wpt_get_config( 'search_order_placeholder' ),//esc_html__( 'Select inner Item.', 'woo-product-table' ),
            'notice_timeout' => 3000,
            );
+        global $wp_query;
+        // $WPT_DATA['query'] = $wp_query->query;//json_encode($wp_query->query);
+        // $WPT_DATA['query_vars'] = $GLOBALS['wp_query']->query_vars;
+        $WPT_DATA['query_vars'] = $wp_query->query_vars;
+        $WPT_DATA['query_vars_request'] = $GLOBALS['wp_query']->request;
+        // var_dump($wp_query);
+        print_r($WPT_DATA['query_vars_request']);
+
        $WPT_DATA = apply_filters( 'wpto_localize_data', $WPT_DATA );
        wp_localize_script( 'wpt-custom-js', 'WPT_DATA', $WPT_DATA );
 

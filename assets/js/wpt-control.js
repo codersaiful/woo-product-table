@@ -125,7 +125,9 @@ jQuery(function($) {
             
             var table_id = thisPagination.data('table_id');
             var args = getSearchQueriedArgs( table_id );
-            
+            args.query_vars = WPT_DATA.query_vars;
+            args.query_vars_request = WPT_DATA.query_vars_request;
+            console.log(table_id, args, others);
             ajaxTableLoad(table_id, args, others );
             
         });

@@ -44,6 +44,40 @@ class Pagination{
      */
     public static function get_paginate_links( Shortcode $shortcode ){
 
+        global $wp_query;
+        // var_dump($wp_query->query);
+        // var_dump($wp_query->query_vars);
+
+        $total   = isset( $total ) ? $total : wc_get_loop_prop( 'total_pages' );
+        $current = isset( $current ) ? $current : wc_get_loop_prop( 'current_page' );
+        $base    = isset( $base ) ? $base : esc_url_raw( str_replace( 999999999, '%#%', remove_query_arg( 'add-to-cart', get_pagenum_link( 999999999, false ) ) ) );
+        $format  = isset( $format ) ? $format : '';
+
+        // var_dump($shortcode->pagination_base_url,$total,$current,$base);
+
+        if ( $total <= 1 ) {
+            return;
+        }
+        $args = $shortcode->args;
+        return paginate_links(
+            apply_filters(
+                'woocommerce_pagination_args',
+                array( // WPCS: XSS ok.
+                    'base'      => $base,//$shortcode->pagination_base_url,
+                    'format'    => '?paged=%#%',//apply_filters( 'wpto_pagination_format', '?paged=%#%', $args ),
+                    'add_args'  => false,
+                    'current'   => max( 1, $current ),
+                    'total'     => $total,
+                    'prev_text' => is_rtl() ? '&rarr;' : '&larr;',
+                    'next_text' => is_rtl() ? '&larr;' : '&rarr;',
+                    // 'type'      => 'list',
+                    'end_size'  => 3,
+                    'mid_size'  => 3,
+                )
+            )
+        );
+        return;
+
         /**
          * Pagination's this part/method, only need when pagination will number.
          * and in our plugin, pagination value 'on' means number. for other,
