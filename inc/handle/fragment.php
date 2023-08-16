@@ -203,7 +203,7 @@ class Fragment extends Shortcode_Base{
             }
             ?>
                 <li class="wpt-cart-subtotal">
-                    <span class="subtotal-text"><?php echo esc_html__('Subtotal:', 'woo-product-table'); ?></span>
+                    <span class="subtotal-text"><?php echo apply_filters( 'wpt_subtotal_text', esc_html__('Subtotal:', 'woo-product-table') ); ?></span>
                     <span class="subtotal-price"><?php echo wp_kses_post( WC()->cart->get_cart_subtotal() );  ?></span>
                 </li>
                 </ul>

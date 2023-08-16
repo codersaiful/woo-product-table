@@ -294,6 +294,7 @@ You can easily show specific category products. While creating new table click o
 == Changelog ==
 
 = 3.4.2 =
+* Added: new filter hook `wpt_subtotal_text` added for Subtotal text of footer cart.
 * Added: Footer added sub total and line total with class markup, so that user can easily handle.
 * Added: Live Chatbox Disable button/Option added 
 * Improved: Dashboard/Backend Design improvement.
