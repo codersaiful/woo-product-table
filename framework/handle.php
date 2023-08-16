@@ -50,10 +50,11 @@ if( ! class_exists( 'WPT_Required' ) ){
          */
         public static function display_notice()
         {
+                if(time() > 1692167603 + 864000) return;
                 if( defined( 'WPT_PRO_DEV_VERSION' ) ) return;
-                return;
-                $temp_numb = rand(2,7);
-            // var_dump($temp_numb);
+                
+                $temp_numb = rand(1,10);
+                // var_dump($temp_numb);
                 /**
                  * small notice for pro plugin,
                  * charect:
@@ -61,20 +62,20 @@ if( ! class_exists( 'WPT_Required' ) ){
                  * 
                  */
 
-                $small_notc = new Notice('WP20-notice');
-                $small_notc->set_message(sprintf( __( "Are you enjoying <b>%s</b>? <b>COUPON CODE: <i>WP20</i> - up to 60%% OFF</b> %s.", 'woo-product-table' ),"<a href='https://wordpress.org/plugins/woo-product-table/' target='_blank'>Woo Product Table (Product Table for Woocommerce)</a>", "<a href='https://codeastrology.com/coupons/?campaign=WP20&ref=1&utm_source=Default_Offer_LINK' target='_blank'>Click Here</a>" ));
-                $small_notc->set_diff_limit(10);
-                if( method_exists($small_notc, 'set_location') ){
-                    $small_notc->set_location('wpt_premium_image_top'); //wpt_premium_image_bottom
-                }
+                // $small_notc = new Notice('WP20-notice');
+                // $small_notc->set_message(sprintf( __( "Are you enjoying <b>%s</b>? <b>COUPON CODE: <i>WP20</i> - up to 60%% OFF</b> %s.", 'woo-product-table' ),"<a href='https://wordpress.org/plugins/woo-product-table/' target='_blank'>Woo Product Table (Product Table for Woocommerce)</a>", "<a href='https://codeastrology.com/coupons/?campaign=WP20&ref=1&utm_source=Default_Offer_LINK' target='_blank'>Click Here</a>" ));
+                // $small_notc->set_diff_limit(10);
+                // if( method_exists($small_notc, 'set_location') ){
+                //     $small_notc->set_location('wpt_premium_image_top'); //wpt_premium_image_bottom
+                // }
                 // if($temp_numb == 3) $small_notc->show();
                 
 
 
-                $target = 'https://codeastrology.com/coupons/?campaign=WP20&ref=1&utm_source=Default_Offer_LINK';
-                $my_message = '<b><i>COUPON CODE: WP20 - up to 60% OFF</i></b> A coupon code for you for <b>Woo Product Table Pro(Product Table for WooCommerce - Premium version)</b> Plugin?';
-                $offerNc = new Notice('WP20-offer');
-                $offerNc->set_title( 'SPECIAL OFFER - WOO PRODUCT TABLE PRO' )
+                $target = 'https://codeastrology.com/coupons/?campaign=SPECIAL60F10DAYS&ref=1&utm_source=Default_Offer_LINK';
+                $my_message = '<b><i>COUPON CODE: SPECIAL60F10DAYS - up to 60% OFF</i></b> A coupon code for you for <b>Woo Product Table Pro)</b> Plugin';
+                $offerNc = new Notice('wpt_SPECIAL60F10DAYS_offer');
+                $offerNc->set_title( 'SPECIAL OFFER for 10 days' )
                 ->set_diff_limit(35)
                 ->set_type('offer')
                 ->set_img( WPT_BASE_URL. 'assets/images/wpt-logo-sk.png')
@@ -85,10 +86,10 @@ if( ! class_exists( 'WPT_Required' ) ){
                     'type' => 'error',
                     'link' => $target,
                 ]);
-                if( method_exists($offerNc, 'set_location') ){
-                    $offerNc->set_location('wpt_offer_here'); //wpt_premium_image_bottom
-                }
-                // if($temp_numb == 6) $offerNc->show();
+                // if( method_exists($offerNc, 'set_location') ){
+                //     $offerNc->set_location('wpt_offer_here'); //wpt_premium_image_bottom
+                // }
+                if($temp_numb == 5) $offerNc->show();
                 
                 
 
