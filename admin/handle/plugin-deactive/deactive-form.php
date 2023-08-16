@@ -214,7 +214,7 @@ class Deactive_Form
         $email = '';
         if(function_exists('wp_get_current_user')){
             $current_user = wp_get_current_user();
-            $email = $current_user->user_email;
+            // $email = $current_user->user_email; //Has been removed
         }
 ?>
         <div id="<?php echo esc_attr( $this->prefix ); ?>-survey-form-wrap" class="ca-survey-form-wrap">
@@ -241,9 +241,9 @@ class Deactive_Form
                     <div class="ca-display-message common-target" style="display:none;" data-target_msg="<?php echo esc_attr( $this->common_target_msg ); ?>">
                         <?php echo wp_kses_post( $this->common_target_msg ); ?>
                     </div>
-                    <p style="padding:0;margin: 0 0 8px 0;font-size: 13px;">
+                    <p style="color: #5c5c5c;padding:0;margin: 0 0 8px 0;font-size: 13px;">
                         Submission will send some basic data to Plugin Author as a servey. 
-                        Such: your site url, site title, site email, this plugin version etc. <i>You can <b>Skip & Deactivate</b> by click skip button.</i>
+                        Such: <b>your site url, site title, this plugin version</b> etc. <i>You can <b>Skip & Deactivate</b> by click skip button.</i>
                     </p>
                     <div class="ca-msg-button-wrapper">
                         <button type="submit" class="ca_button ca-deactive ca-submit-form" id="ca_deactivate">Submit & Deactivate</button>
