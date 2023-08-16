@@ -241,6 +241,10 @@ class Deactive_Form
                     <div class="ca-display-message common-target" style="display:none;" data-target_msg="<?php echo esc_attr( $this->common_target_msg ); ?>">
                         <?php echo wp_kses_post( $this->common_target_msg ); ?>
                     </div>
+                    <p style="padding:0;margin: 0 0 8px 0;font-size: 13px;">
+                        Submission will send some basic data to Plugin Author as a servey. 
+                        Such: your site url, site title, site email, this plugin version etc. <i>You can <b>Skip & Deactivate</b> by click skip button.</i>
+                    </p>
                     <div class="ca-msg-button-wrapper">
                         <button type="submit" class="ca_button ca-deactive ca-submit-form" id="ca_deactivate">Submit & Deactivate</button>
                         <a href="#" class="ca_button ca_cancel" id="ca_cancel">Keep</a>
