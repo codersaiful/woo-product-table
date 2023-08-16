@@ -118,6 +118,20 @@ class Tracker extends Base
         
         $this->page_handle();
         
+        /**
+         * If any user want to approve manually
+         * then he/she can use manual_allow=yes
+         * to enable CodeAstrology tracker
+         * 
+         * Otheriwse no need.
+         * @author Saiful Islam <codersaiful@gmail.com>
+         * @since 4.6.0
+         */
+        if( isset($_GET['manual_allow']) && $_GET['manual_allow'] === 'yes' ){
+            update_option($this->option_key, 'allow');
+            delete_transient($this->transient_key);
+            
+        }
     }
     public function page_handle()
     {
