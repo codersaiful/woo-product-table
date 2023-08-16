@@ -45,7 +45,10 @@ body .wpt-header, body .wpt-content {
     padding-left: 9px;
     border-left: 1px solid #80808057;
 }
-
+body.already-added-tracker .wpt-main-title.wpt-main-title-secondary {
+    padding-right: 25px;
+    border-right: 1px solid #6868681f;
+}
 .wpt-main-title h2.wpt-ntitle {
     font-size: 25px;
     font-weight: normal;
@@ -56,6 +59,9 @@ body .wpt-header, body .wpt-content {
 .wpt-main-title.wpt-main-title-secondary h2.wpt-ntitle {
     color: #ababab;
     font-weight: 100;
+}
+body.already-added-tracker .wpt-main-title.wpt-main-title-secondary h2.wpt-ntitle {
+    color: #ababab;
 }
 .wpt-logo-area {}
 
