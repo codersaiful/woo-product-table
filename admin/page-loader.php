@@ -40,7 +40,9 @@ class Page_Loader extends Base
     public function configure_page_render()
     {
         include $this->topbar_file;
-        include $this->page_folder_dir . 'premium-link-header.php';
+        if( ! $this->is_pro ){
+            include $this->page_folder_dir . 'premium-link-header.php';
+        }
         include $this->page_folder_dir . 'configure.php';
     }
     public function admin_menu()
@@ -113,7 +115,9 @@ class Page_Loader extends Base
         // add_filter( 'plugins_api_result', [$this, 'plugins_api_result'], 1, 3 );
         $this->topbar_sub_title = __( 'Browse our Plugins','woo-product-table' );
         include $this->topbar_file;
-        include $this->page_folder_dir . 'premium-link-header.php';
+        if( ! $this->is_pro ){
+            include $this->page_folder_dir . 'premium-link-header.php';
+        }
         include $this->page_folder_dir . 'browse-plugins.php';
     }
     public function html_tutorial_page()
@@ -122,7 +126,9 @@ class Page_Loader extends Base
         // add_filter( 'plugins_api_result', [$this, 'plugins_api_result'], 1, 3 );
         $this->topbar_sub_title = __( 'Tutorial','woo-product-table' );
         include $this->topbar_file;
-        include $this->page_folder_dir . 'premium-link-header.php';
+        if( ! $this->is_pro ){
+            include $this->page_folder_dir . 'premium-link-header.php';
+        }
         include $this->page_folder_dir . 'tutorials.php';
     }
 }
