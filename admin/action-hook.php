@@ -1401,6 +1401,7 @@ if( !function_exists( 'wpt_configure_all_part_save_btn' ) ){
 if( !function_exists( 'wpt_profeatures_message_box' ) ){
     
     function wpt_profeatures_message_box( $value ){
+        if(defined('WPT_PRO_DEV_VERSION')) return;
         $img_url = WPT_BASE_URL . 'assets/images/pro-features/';
         ?>
         <?php do_action( 'wpt_premium_image_top' ); ?>
