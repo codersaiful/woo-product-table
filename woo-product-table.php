@@ -500,7 +500,7 @@ class WPT_Product_Table{
      * 
      * @since 3.3.4.5
      */
-    add_action( 'plugin_loaded', [ $this, 'load_textdomain' ] );
+    add_action( 'plugins_loaded', [ $this, 'load_textdomain' ] );
    }
    
    public function init(){
