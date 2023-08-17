@@ -89,6 +89,7 @@ $shortCodeText = 'Product_Table';
 * @since 1.0.0
 */
 include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+
 WPT_Product_Table::getInstance();
 
 $column_array = array(
@@ -243,6 +244,8 @@ $default = array(
 $default = apply_filters( 'wpto_default_configure', $default );
 WPT_Product_Table::$default = $default;
 
+        
+
 /**
  * Main Manager Class for WOO Product Table Plugin.
  * All Important file included here.
@@ -386,12 +389,8 @@ class WPT_Product_Table{
         }
 
        $dir = dirname( __FILE__ ); //dirname( __FILE__ )
-        /**
-         * Include Autoloader
-         * @since 8.0.2.4
-         * @author Saiful Islam <codersaiful@gmail.com>
-         */
-        include_once $dir . '/autoloader.php';
+
+       
        /**
         * See $path_args for Set Path and set Constant
         * 
@@ -416,7 +415,28 @@ class WPT_Product_Table{
         * @since 1.0.0
         */
        $this->setConstant($path_args);
-       //Load File
+       
+
+    add_action( 'plugins_loaded', [$this, 'init'] );
+    /**
+     * Text-domain load in init hook.
+     * It's important
+     * 
+     * @since 3.3.4.5
+     */
+    add_action( 'init', [ $this, 'load_textdomain' ] );
+   }
+   
+   public function init(){
+
+        $dir = dirname( __FILE__ ); //dirname( __FILE__ )
+        /**
+         * Include Autoloader
+         * @since 8.0.2.4
+         * @author Saiful Islam <codersaiful@gmail.com>
+         */
+        include_once $dir . '/autoloader.php';
+        //why this file outside of is_admin() actually if we want to show preview, need load outside.
        include_once $this->path('BASE_DIR','admin/wpt_product_table_post.php');
        if( is_admin() ){
            
@@ -446,66 +466,54 @@ class WPT_Product_Table{
             //Admin Section Action Hook, which we can Control from Addon
             include_once $this->path('BASE_DIR','admin/action-hook.php');
        }
-    //Coll elementor Module, If installed Elementor
-    if ( did_action( 'elementor/loaded' ) ) {
+        //Coll elementor Module, If installed Elementor
+        if ( did_action( 'elementor/loaded' ) ) {
 
-        include_once $this->path('BASE_DIR','modules/elementor.php'); //Elementor Widget for Table using Elementor
-    }   
+            include_once $this->path('BASE_DIR','modules/elementor.php'); //Elementor Widget for Table using Elementor
+        }   
+            
+        if( ! class_exists( 'Mobile_Detect' ) ){
+            include_once $this->path('BASE_DIR','modules/Mobile_Detect.php'); //MObile or Table Defice Detector
+        }
         
-    if( ! class_exists( 'Mobile_Detect' ) ){
-        include_once $this->path('BASE_DIR','modules/Mobile_Detect.php'); //MObile or Table Defice Detector
-    }
-    
-    /**
-     * Not activated this, Even file still not added to this directory
-     * 
-     * Comment for include_once $this->path('BASE_DIR','includes/wpt_product_table_post.php');
-     * Has transferred to include from admin folder
-     * 
-     * Because, We would like to show preview table
-     * from plugin by using wp templating feature
-     * 
-     * Functioned at includes/functions.php
-     * @since 2.7.8.2
-     * 
-     */
-    //include_once $this->path('BASE_DIR','includes/wpt_product_table_post.php');
-    include_once $this->path('BASE_DIR','includes/enqueue.php');
-    include_once $this->path('BASE_DIR','includes/functions.php');
-    include_once $this->path('BASE_DIR','includes/helper-functions.php'); 
-    include_once $this->path('BASE_DIR','includes/shortcode.php');
+        /**
+         * Not activated this, Even file still not added to this directory
+         * 
+         * Comment for include_once $this->path('BASE_DIR','includes/wpt_product_table_post.php');
+         * Has transferred to include from admin folder
+         * 
+         * Because, We would like to show preview table
+         * from plugin by using wp templating feature
+         * 
+         * Functioned at includes/functions.php
+         * @since 2.7.8.2
+         * 
+         */
+        //include_once $this->path('BASE_DIR','includes/wpt_product_table_post.php');
+        include_once $this->path('BASE_DIR','includes/enqueue.php');
+        include_once $this->path('BASE_DIR','includes/functions.php');
+        include_once $this->path('BASE_DIR','includes/helper-functions.php'); 
+        include_once $this->path('BASE_DIR','includes/shortcode.php');
 
-    $shortcode = new WOO_PRODUCT_TABLE\Inc\Shortcode();
-    $shortcode->run();
+        $shortcode = new WOO_PRODUCT_TABLE\Inc\Shortcode();
+        $shortcode->run();
 
-    add_action( 'init', [$this, 'init'] );
-       
-    /**
-     * Include WPML Integration
-     * 
-     * Maximum task will handle from this folder.
-     * Otherwise all other task will in particular position
-     * 
-     * @since 3.1.5.0
-     * @author Saiful Islam <codersaiful@gmail.com>
-     * @link https://wpml.org/documentation/
-     */
-    if( has_filter( 'wpml_current_language' ) ){
-        include_once $this->path('BASE_DIR','wpml/init.php');
-    }
-
-    /**
-     * Text-domain load in init hook.
-     * It's important
-     * 
-     * @since 3.3.4.5
-     */
-    add_action( 'plugins_loaded', [ $this, 'load_textdomain' ] );
-   }
-   
-   public function init(){
         $compatible = new WOO_PRODUCT_TABLE\Compatible\Compatible_Loader();
         $compatible->run(); 
+
+        /**
+         * Include WPML Integration
+         * 
+         * Maximum task will handle from this folder.
+         * Otherwise all other task will in particular position
+         * 
+         * @since 3.1.5.0
+         * @author Saiful Islam <codersaiful@gmail.com>
+         * @link https://wpml.org/documentation/
+         */
+        if( has_filter( 'wpml_current_language' ) ){
+            include_once $this->path('BASE_DIR','wpml/init.php');
+        }
    }
         
     public function load_textdomain() {
