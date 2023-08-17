@@ -73,6 +73,14 @@ if( !function_exists( 'wpt_enqueue' ) ){
        $WPT_DATA = apply_filters( 'wpto_localize_data', $WPT_DATA );
        wp_localize_script( 'wpt-custom-js', 'WPT_DATA', $WPT_DATA );
 
+    //    global $wp_query;
+    // // var_dump($wp_query->query_vars);
+    // $ids = [];
+    // foreach( $wp_query->posts as $p_post ){
+    //     $ids[$p_post->ID] = $p_post->ID;
+    //     echo $p_post->post_title, '<br>';
+    // }
+    // var_dump($ids);
        /**
         * Compatible with other plugin
         * Start here

@@ -1162,7 +1162,35 @@ if( ! function_exists( 'wpt_args_manipulation_frontend' ) ){
     }
 }
 add_filter( 'wpto_table_query_args', 'wpt_args_manipulation_frontend' );
+add_action('wpt_load',function($args){
+    global $wp_query;
+    // var_dump($wp_query->query_vars);
+    $q_vars = $wp_query->query_vars;
+    $q_vars['paged'] = 2;
+    $ttt = new \WP_Query( $q_vars );
+    $iids = [];
+    foreach($ttt->posts as $tt){
+        $iids[$tt->ID] = $tt->ID;
+    }
+    var_dump($iids);
+    
+    $ids = [];
+    foreach( $wp_query->posts as $p_post ){
+        $ids[$p_post->ID] = $p_post->ID;
+        // echo $p_post->post_title, '<br>';
+    }
+    var_dump($ids);
+    // return $args;
+});
+add_filter('wpt_query_args-bk',function($args){
+    global $wp_query;
+    var_dump($wp_query->query_vars);
+    foreach( $wp_query->posts as $p_post ){
+        echo $p_post->post_title, '<br>';
+    }
 
+    return $args;
+});
 
 if( ! function_exists( 'wpt_args_manage_by_get_args' ) ){
     
