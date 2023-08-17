@@ -1161,27 +1161,45 @@ if( ! function_exists( 'wpt_args_manipulation_frontend' ) ){
         return $args;
     }
 }
-add_filter( 'wpto_table_query_args', 'wpt_args_manipulation_frontend' );
-add_action('wpt_load',function($args){
+// add_filter( 'wpto_table_query_args', 'wpt_args_manipulation_frontend' );
+add_filter('wpt_query_args',function($args, $shortcode){
     global $wp_query;
-    // var_dump($wp_query->query_vars);
-    $q_vars = $wp_query->query_vars;
-    $q_vars['paged'] = 2;
-    $ttt = new \WP_Query( $q_vars );
-    $iids = [];
-    foreach($ttt->posts as $tt){
-        $iids[$tt->ID] = $tt->ID;
-    }
-    var_dump($iids);
+
     
     $ids = [];
     foreach( $wp_query->posts as $p_post ){
-        $ids[$p_post->ID] = $p_post->ID;
+        $ids[$p_post->ID] = $p_post->post_title;
         // echo $p_post->post_title, '<br>';
     }
-    var_dump($ids);
+    // var_dump($ids);
+
+    // var_dump($wp_query->query_vars);
+    $q_vars = $wp_query->query_vars;
+    $q_vars['paged'] = $q_vars['paged'] ?? 1;
+    // $q_vars['orderby'] = 'price';
+    // var_dump($wp_query->query);
+    // var_dump($wp_query->query_vars);
+    $ttt = new \WP_Query( $q_vars );
+    $iids = [];
+    foreach($ttt->posts as $tt){
+        $iids[] = $tt->ID;
+        // $iids[$tt->ID] = $tt->post_title;
+    }
+
+    $shortcode->args['posts_per_page'] = $q_vars['posts_per_page'] ?? 1;
+    $shortcode->args['post__in'] = $iids;
+    unset( $shortcode->args['tax_query'] );
+    unset( $shortcode->args['term'] );
+    unset( $shortcode->args['meta_query'] );
+    // var_dump($shortcode->args);
+    // var_dump($iids);
+    // var_dump($wp_query->query_vars);
+    // var_dump($ttt->query_vars);
+    
+    return $shortcode->args;
+    
     // return $args;
-});
+}, 10, 2);
 add_filter('wpt_query_args-bk',function($args){
     global $wp_query;
     var_dump($wp_query->query_vars);
