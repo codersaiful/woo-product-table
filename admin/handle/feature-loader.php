@@ -18,6 +18,13 @@ class Feature_Loader
 {
     public function run()
     {
+        /**
+         * It's Admin panel Table's Action column feature
+         * Actually adding third-party plugin supported feature
+         * checkbox added by this Class/Object. 
+         * 
+         * @author Saiful Islam <codersaiful@gmail.com>
+         */
         $action = new Action_Feature();
         $action->run();
     }

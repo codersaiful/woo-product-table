@@ -42,6 +42,7 @@ div.ca-survey-form p.motivational-speek {
     display: flex;
     gap: 10px;
     align-items: center;
+    justify-content: space-around;
 }
 .ca-survey-form .ca_button {
     margin: 0;
@@ -70,10 +71,11 @@ div.ca-survey-form p.motivational-speek {
     float: left;
 }
 .ca-survey-form .ca_button#ca_skip {
-    background: #9e9e9e;
+    background: #9e9e9e52;
     border: none;
     color: #ffffff;
     font-weight: normal;
+    margin-left: auto;
 }
 .ca-survey-form .ca_button#ca_skip:hover {
     background: #2a2929;
@@ -106,7 +108,7 @@ div.ca-survey-form p.motivational-speek {
     background-color: #0093b8;
     line-height: 1.14285714;
 }
-.ca-email.common-target input {
+.common-target input {
     width: 100%;
     margin-bottom: 10px;
 }

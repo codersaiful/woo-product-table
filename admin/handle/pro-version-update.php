@@ -12,7 +12,7 @@ use CA_Framework\App\Notice as Notice;
  * @author Saiful Islam <codersaiful@gmail.com>
  */
 class Pro_Version_Update{
-    protected $request_min_pro = '8.1.7';
+    protected $request_min_pro = '8.2.4';
     public function run(){
         if( ! defined( 'WPT_PRO_DEV_VERSION' ) ) return;
 

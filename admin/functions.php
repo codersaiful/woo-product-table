@@ -126,7 +126,7 @@ function wpt_datewise_validation(){
     $prev_args = array(
         'post_type' => 'wpt_product_table',
         'date_query' => array(
-            'before' => '2022-3-15' 
+            'before' => '2022-3-15' //2022-3-15 //2014-3-15
           ),
     );
     
@@ -142,7 +142,7 @@ function wpt_datewise_validation(){
     $query = new WP_Query( $args );
     $total = $query->found_posts;
 
-     return $total <= 2; //Limitation upto 4 //limitation has changed upto 2
+     return $total <= 0; //Limitation upto 2 //limitation has changed upto 0
 }
 
 /**
@@ -399,7 +399,7 @@ if( ! function_exists( 'wpt_add_tabs' ) ){
 
     }
 }
-add_action( 'current_screen', 'wpt_add_tabs', 50 );
+// add_action( 'current_screen', 'wpt_add_tabs', 50 );
 
 function wpt_social_links(){
     ?>

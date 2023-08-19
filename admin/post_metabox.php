@@ -99,26 +99,7 @@ if( ! function_exists( 'wpt_shortcode_metabox_render' ) ){
                 All Pages
             </a>
         </p>
-<div class="wpt-tips-github">
-        
-    <p>
-        <b><?php echo esc_html__( 'Tips:', 'woo-product-table' ); ?></b>
-        
-        <span>
-            <?php echo esc_html__( 'If you want to be a Contributor, Go to ', 'woo-product-table' ); ?>
-            <a target="_blank" href="https://github.com/codersaiful/woo-product-table"><?php echo esc_html__( 'Github Repo', 'woo-product-table' ); ?></a>.
-            | 
-            <?php echo esc_html__( 'Any Ideas? Please ', 'woo-product-table' ); ?>
-            <a target="_blank" href="https://github.com/codersaiful/woo-product-table/discussions/new"><?php echo esc_html__( 'Send your Suggestion or Idea', 'woo-product-table' ); ?></a>
-            |
-            <a  target="_blank" href="https://wordpress.org/plugins/woo-product-table/#:~:text=Contributors%20%26%20Developers">Contributor at WP.org</a>
-            |
-            <a target="_blank" href="https://github.com/codersaiful/woo-product-table/graphs/contributors">Contributor at Github</a>
-        </span>
-        
-    </p>
-    <?php wpt_submit_issue_link(); ?>
-</div>
+
         <?php
     }
 }

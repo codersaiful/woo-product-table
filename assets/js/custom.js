@@ -249,7 +249,9 @@ jQuery(function($) {
         });
         //End of Pagination
         
-        $('table.wpt_product_table td select').trigger('change');
+        setTimeout(function(){
+			$('table.wpt_product_table td select').trigger('change');
+		}, 4000);
         function fixAfterAjaxLoad() {
             $('table.wpt_product_table td select').trigger('change');
             //$.getScript(include_url + "/js/mediaelement/mediaelement-and-player.min.js");
@@ -1738,7 +1740,8 @@ jQuery(function($) {
                 //$(this).children().first().attr('selected','selected');
             });
             $('#table_id_' + temp_number + ' select.filter_select').trigger('change');
-            //filterTableRow(temp_number);
+
+            $('.wpt-my-pagination-' + temp_number).show();//wpt_filter_reset
         });
         
         
@@ -1749,11 +1752,12 @@ jQuery(function($) {
             
             //Checking FilterBox
             var filterBoxYesNo = $('#table_id_' + temp_number + ' .wpt-mini-filter').html();
-
+            // console.log(filterBoxYesNo);
             /**
              * Uncheck All, If any change on filter button
              * @version 2.0
              */
+            let tableBodyobj = $('#table_id_' + temp_number + ' table#wpt_table tbody');
             
             var ClassArray =[];
             var serial = 0;
@@ -1767,8 +1771,24 @@ jQuery(function($) {
             });
             var finalClassSelctor = '.filter_row' + ClassArray.join(''); //Test will keep
             var hideAbleClass = '#table_id_' + temp_number + ' table tr.wpt_row';
+        
+            let foundRow = $(finalClassSelctor);
+            let foundFirstRow = foundRow.first();
+            let colSpanCount = tableBodyobj.find('tr').first().find('td.td_or_cell').length;
+            let foundRowCount = foundRow.length;
+            let notFundMsg = config_json.product_not_founded;
             
+            if(foundRowCount > 0){
+                $('.wpt-my-pagination-' + temp_number).hide();//wpt_filter_reset
+            }
+            if(foundRowCount < 1){
+                let newRotHtml = "<tr class='product-not-found-tr'><td colspan='" + colSpanCount + "'><div class='wpt_product_not_found'>" + notFundMsg + "</div></td></tr>";
+                $('#table_id_' + temp_number + ' table#wpt_table tbody').append(newRotHtml)
+            }else{
+                $('#table_id_' + temp_number + ' table#wpt_table tbody tr.product-not-found-tr').remove();
+            }
            
+
            if( filterBoxYesNo ){
                 $(hideAbleClass + ' wpt_check input.enabled.wpt_tabel_checkbox').removeClass('wpt_td_checkbox');
                 $(hideAbleClass).css('display','none');
@@ -2481,7 +2501,7 @@ jQuery(function($) {
                     thisButton.addClass('added');
             }).done(function(){
                 messageBox.val('');
-                $( document.body ).trigger( 'added_to_cart' );
+                // $( document.body ).trigger( 'added_to_cart' );
                 $( document.body ).trigger( 'updated_cart_totals' );
                 $( document.body ).trigger( 'wc_fragments_refreshed' );
                 $( document.body ).trigger( 'wc_fragments_refresh' );
@@ -2668,6 +2688,10 @@ jQuery(function($) {
                 checkBoxSelector.addClass('disabled');
             }
             enable_disable_class();
+
+            var skuTDobj = $('#table_id_' + temp_number + ' #product_id_' + product_id + ' .td_or_cell.wpt_sku');
+            var sku = skuTDobj.data('sku');
+            skuTDobj.find('div.wpt_sku').html(sku);
             
         });
         $(document).on( 'found_variation', 'div.advance_table_wrapper table.advance_table.wpt_product_table form.cart', function( event, variation ) {
@@ -2685,7 +2709,9 @@ jQuery(function($) {
                 var targetElement = $('#table_id_' + temp_number + ' #product_id_' + product_id + ' wpt_' + td_name);
                 return targetElement;
             }
-            
+            var sku = variation.sku;
+            var skuTDobj = $('#table_id_' + temp_number + ' #product_id_' + product_id + ' div.wpt_sku');
+            skuTDobj.html(sku);
 
             //Adding selected variation ID adding at row
             thisRow.attr('data-variation_id', variation.variation_id );

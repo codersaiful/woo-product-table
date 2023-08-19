@@ -893,49 +893,137 @@ jQuery.fn.extend({
         alert("Sorry");
     });
     
-    var saveChangeText = $('button.button[name="wpt_post_submit"]').text(); //Save Change
-    var myHtml = '<div class="wrapper_wpt_ajax_update ultraaddons-button-wrapper">';
+
+    $(document.body).on('submit', 'form#wpt-main-configuration-form', function (e){
+
+        let submitBtn = $(this).find('button.configure_submit');
+        let submitBtnInForm = submitBtn.not('.float-btn');
+        let submitBtnIcon = submitBtn.find('span i');
+        submitBtn.find('strong.form-submit-text').text('Saving...');
+        submitBtnIcon.attr('class', 'wpt-spin5 animate-spin');
+        // submitBtnIcon.attr('class', 'wpt-floppy');
+        
+        
+    });
+
+    
+
+    /**
+     * This is for Product Table Configure page Floating button.
+     * actually for configure page and post edit page,
+     * we did it separately.
+     * Here for configure, and for post edit, we did it at the bottom of this following section.
+     * 
+     * @since 3.4.2.1
+     */
+    
+    var colSetsLen = $('form#wpt-main-configuration-form').length;
+    console.log(colSetsLen);
+    if( colSetsLen > 0 ){
+
+        var saveChangeText = 'Save';
+        var btnHtml = '<div class="">';
+        btnHtml += '<button type="submit" name="configure_submit" class="float-btn wpt-btn wpt-has-icon configure_submit"><span><i class="wpt-floppy"></i></span><strong>' + saveChangeText + '</strong></button>';
+        btnHtml += '</div>';
+
+        $('#wpt-main-configuration-form').append(btnHtml);
+
+        $(window).on('scroll',function(){
+            console.log(222222);
+            let targetElement = $('.float-btn');
+            // if(targetElement.length < 1) return;
+            
+            let bodyHeight = $('#wpbody').height();
+            let scrollTop = $(this).scrollTop();
+            let screenHeight = $(this).height();
+    
+            let configFormElement = $('form#wpt-main-configuration-form');
+            if(configFormElement.length < 1) return;
+    
+            let conPass = bodyHeight - screenHeight - 100 - targetElement.height();
+            let leftWill = configFormElement.width() - targetElement.width() - 20;
+            
+    
+            // targetElement.css({
+            //     left: leftWill,
+            //     right: 'unset'
+            // });
+            if(scrollTop < conPass){
+                targetElement.addClass('stick_on_scroll-on');
+            }else{
+                targetElement.removeClass('stick_on_scroll-on');
+            }
+            
+            if(scrollTop > 100 && colSetsLen > 0){
+                targetElement.attr('id','stick_on_scroll-on');
+            }else if(colSetsLen > 0){
+                targetElement.removeAttr('id');
+            }
+            
+    
+        });
+
+    } 
+    
+
+    var postColSetsLen = $('#column_settings').length;
+
+    /**
+     * This is for Product Table post Edit and Add new page.
+     * actually for configure page and post edit page,
+     * we did it separately.
+     * Here for Product Table edit, and for configure page, we did it at the up of this comment.
+     */
+    
+    var status = $('#original_post_status').val();
+    console.log(status, postColSetsLen);
+    if( postColSetsLen > 0 && status === 'publish'){
+        var saveChangeText = $('button.button[name="wpt_post_submit"]').text(); //Save Change
+        var myHtml = '<div class="wrapper_wpt_ajax_update ultraaddons-button-wrapper">';
         myHtml += '<button type="submit" name="wpt_post_submit" data-title="hello" class="stick_on_scroll button-primary button-primary primary button wpt_ajax_update">'+ saveChangeText +'</button>';
         myHtml += '</div>';
-    var status = $('#original_post_status').val();
-    var colSetsLen = $('#column_settings').length;
-    if( colSetsLen > 0 && status === 'publish'){
         $('#wpt_configuration_form').append(myHtml);
-    }
-    $(window).on('scroll',function(){
-        
-        let targetElement = $('.stick_on_scroll');
-        
-        
-        let bodyHeight = $('#wpbody').height();
-        let scrollTop = $(this).scrollTop();
-        let screenHeight = $(this).height();
-
-        let configFormElement = $('#wpt_configuration_form');
-        if(configFormElement.length < 1) return;
-
-        let conPass = bodyHeight - screenHeight - 300 - targetElement.height();
-        let leftWill = configFormElement.width() - targetElement.width() - 20;
-        
-
-        targetElement.css({
-            left: leftWill,
-            right: 'unset'
+        $(window).on('scroll',function(){
+            console.log(88888888888);
+            let targetElement = $('.stick_on_scroll');
+            if(targetElement.length < 1) return;
+            
+            
+            let bodyHeight = $('#wpbody').height();
+            let scrollTop = $(this).scrollTop();
+            let screenHeight = $(this).height();
+    
+            let configFormElement = $('#wpt_configuration_form');
+            if(configFormElement.length < 1) return;
+    
+            let conPass = bodyHeight - screenHeight - 300 - targetElement.height();
+            let leftWill = configFormElement.width() - targetElement.width() - 20;
+            
+    
+            targetElement.css({
+                left: leftWill,
+                right: 'unset'
+            });
+            if(scrollTop < conPass){
+                targetElement.attr('id','stick_on_scroll-on');
+            }else{
+                targetElement.removeAttr('id');
+            }
+            
+            if(scrollTop > 100 && postColSetsLen > 0){
+                targetElement.attr('id','stick_on_scroll-on');
+            }else if(postColSetsLen > 0){
+                targetElement.removeAttr('id');
+            }
+            
+    
         });
-        if(scrollTop < conPass){
-            targetElement.attr('id','stick_on_scroll-on');
-        }else{
-            targetElement.removeAttr('id');
-        }
-        
-        if(scrollTop > 100 && colSetsLen > 0){
-            targetElement.attr('id','stick_on_scroll-on');
-        }else if(colSetsLen > 0){
-            targetElement.removeAttr('id');
-        }
-        
 
-    });
+
+    }
+    
+
+
 })(jQuery);
 
 /**

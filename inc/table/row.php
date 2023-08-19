@@ -214,7 +214,7 @@ class Row extends Table_Base{
         $this->tr_class = Table_Attr::tr_class( $this );
 
         global $product;
-        $this->row_attr = $this->apply_filter( 'wpt_table_row_attr', $this->row_attr );
+        $this->row_attr = apply_filters('wpt_table_row_attr', $this->row_attr, $this);
         
         /**
          * Total Row Handle from Here

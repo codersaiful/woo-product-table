@@ -89,7 +89,7 @@ class Deactive_Form
     protected $assignScreen = false;
     protected $screen;
     protected $screenID;
-    public $dev_version = '1.0.0';
+    public $dev_version = WPT_DEV_VERSION;
 
     protected $form_top_message;
 
@@ -211,6 +211,11 @@ class Deactive_Form
         $site_url = get_site_url();
         $blog_name = get_bloginfo( 'name' );
         $plugin_name = $this->data['name'] ?? 'CA Plugin';
+        $email = '';
+        if(function_exists('wp_get_current_user')){
+            $current_user = wp_get_current_user();
+            // $email = $current_user->user_email; //Has been removed
+        }
 ?>
         <div id="<?php echo esc_attr( $this->prefix ); ?>-survey-form-wrap" class="ca-survey-form-wrap">
             <div id="<?php echo esc_attr( $this->prefix ); ?>-survey-form" class="ca-survey-form">
@@ -231,11 +236,15 @@ class Deactive_Form
                         <p>For support queries <a href="<?php echo esc_url( $this->support_url ); ?>" target="_blank">Submit Ticket</a></p>
                     </div>
                     <div class="ca-email common-target" style="display:none;">
-                        <input type="email" id="ca_email" name="Email" value="" placeholder="(Optional) Please write your email, We will contact with you.">
+                        <input type="email" id="ca_email" name="Email" value="<?php echo esc_attr( $email ); ?>" placeholder="(Optional) Please write your email, We will contact with you.">
                     </div>
                     <div class="ca-display-message common-target" style="display:none;" data-target_msg="<?php echo esc_attr( $this->common_target_msg ); ?>">
                         <?php echo wp_kses_post( $this->common_target_msg ); ?>
                     </div>
+                    <p style="color: #5c5c5c;padding:0;margin: 0 0 8px 0;font-size: 13px;">
+                        Submission will send some basic data to Plugin Author as a servey. 
+                        Such: <b>your site url, site title, this plugin version</b> etc. <i>You can <b>Skip & Deactivate</b> by click skip button.</i>
+                    </p>
                     <div class="ca-msg-button-wrapper">
                         <button type="submit" class="ca_button ca-deactive ca-submit-form" id="ca_deactivate">Submit & Deactivate</button>
                         <a href="#" class="ca_button ca_cancel" id="ca_cancel">Keep</a>

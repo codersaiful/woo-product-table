@@ -13,6 +13,7 @@ if( !function_exists( 'wpt_admin_enqueue' ) ){
         * @since 3.1.8.2
         */
        wp_enqueue_style( 'wpt-fontello', WPT_Product_Table::getPath('BASE_URL') . 'assets/fontello/css/fontello.css', array(), WPT_Product_Table::getVersion(), 'all' );
+       wp_enqueue_style( 'wpt-fontello-animate', WPT_Product_Table::getPath('BASE_URL') . 'assets/fontello/css/animation.css', array(), WPT_Product_Table::getVersion(), 'all' );
 
 
         /**

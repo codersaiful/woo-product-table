@@ -3,6 +3,7 @@ namespace WOO_PRODUCT_TABLE\Core;
 
 class Base{
     public $_root = __CLASS__;
+    public $plugin_prefix = 'wpt';
     public $dev_version = WPT_DEV_VERSION;
     public $base_url = WPT_BASE_URL;
     public $base_dir = WPT_BASE_DIR;

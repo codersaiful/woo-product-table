@@ -57,7 +57,7 @@ if( !function_exists( 'wpt_admin_menu' ) ){
         // add_submenu_page( 'edit.php?post_type=wpt_product_table', 'How to Start Product Table', "How to", WPT_CAPABILITY, 'wpt-getting-start', 'wpt_getting_start' );
     }
 }
-add_action( 'admin_menu', 'wpt_admin_menu' );
+// add_action( 'admin_menu', 'wpt_admin_menu' );
 
 if( !function_exists( 'wpt_getting_start' ) ){
     
@@ -90,7 +90,7 @@ if( !function_exists( 'wpt_pro_features_content' ) ){
         include __DIR__ . '/pro-features-html.php';
     }
 }
-
+//##Unused Function - I will delete it asap
 if( !function_exists( 'wpt_browse_all_plugin_list' ) ){
     
     /**

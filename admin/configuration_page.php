@@ -1,6 +1,6 @@
 <?php
 
-
+//##Unused totally unused page
 if( !function_exists( 'wpt_configuration_page' ) ){
     /**
      * For Configuration Page
@@ -65,7 +65,7 @@ if( !function_exists( 'wpt_configuration_page' ) ){
                 <?php 
                 // do_action( 'wpt_offer_here' );
                  ?>
-                    <form action="" method="POST">
+                    <form action="" method="POST" id="wpt-main-configuration-form">
                     
                         <?php 
                     /**

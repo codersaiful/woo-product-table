@@ -143,7 +143,6 @@ body.wpt-footer-cart-expand span.wpt-fcart-coll-expand {
     white-space: nowrap;
     border-radius: 1px;
     float: none;
-    line-height: 90%;
 }
 .lister-ins li {
     border-bottom: 1px solid #0000000f;
@@ -230,6 +229,26 @@ body.wpt-footer-cart-expand .wpt-cart-contents span.count {
     line-height: 19px;
     padding-bottom: 4px;
     padding-top: 4px;
+    display: flex;
+    flex-direction: revert;
+    justify-content: space-between;
+    gap: 10px;
+    align-items: self-end;
+}
+span.wpt-vc-right {
+    width: 66px;
+}
+/* span.wpt-vc-left {
+    display: flex;
+    align-items: self-end;
+} */
+.lister-ins>ul>li i.wpt-cart-remove.wpt-trash-empty {
+    margin-bottom: auto;
+}
+.lister-ins>ul>li.wpt-cart-subtotal {
+    font-weight: bold;
+    color: black;
+    border-top: 1px solid #01010159;
 }
 .wpt-fcart-anim::after {
     content: "";

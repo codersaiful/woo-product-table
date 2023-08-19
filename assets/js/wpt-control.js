@@ -573,6 +573,14 @@ jQuery(function($) {
 
         });
 
+        $(document.body).on('mouseover','.wpt-new-footer-cart.wpt-foooter-cart-stats-on a.wpt-view-n',function(){
+            $('body').toggleClass('wpt-footer-cart-expand');
+            if($('body').hasClass('wpt-footer-cart-expand')){
+                $('.wpt-lister').fadeIn('medium');
+            }else{
+                $('.wpt-lister').fadeOut('medium');
+            }
+        });
 
     });
 });

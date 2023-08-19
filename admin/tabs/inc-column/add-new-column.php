@@ -68,8 +68,11 @@
                 </tr>
             </tbody>
         </table>
-        <div class="ultraaddons-button-wrapper">
-            <button class="button-primary button-primary primary button add_new_column_button"><?php esc_html_e( 'Add New Column', 'woo-product-table' );?></button>
-        </div>
+        <button class="wpt-btn wpt-btn-small wpt-has-icon add_new_column_button">
+            <span><i class="wpt-plus"></i></span>
+            <strong class="form-submit-text">
+                <?php esc_html_e( 'Add New Column', 'woo-product-table' );?>
+            </strong>
+        </button>
     </div>
 </div>
