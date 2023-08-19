@@ -8,6 +8,9 @@
 body.wpt-zero-body #wpcontent {
     padding-left: 0;
 }
+body.tracker-added.allow-tracker-body #wpbody-content {
+    display: none;
+}
 .wpt_wrap .fieldwrap,.wpt_wrap .fieldwrap form, #wpt-main-configuration-form{
     width: 100%;
     display: block;
