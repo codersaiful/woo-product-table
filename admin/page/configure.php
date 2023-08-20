@@ -124,6 +124,47 @@ $wrapper_class = isset($settings['module']) ? $settings['module'] : '';
             </div>
 
         </form>
+
+        <div class="wpt-section-panel supported-terms wpt-recomendation-area" id="wpt-recomendation-area">
+            <table class="wpt-my-table universal-setting">
+                <thead>
+                    <tr>
+                        <th class="wpt-inside">
+                            <div class="wpt-table-header-inside">
+                                <h3><?php echo esc_html__('Recommendation Area', 'wpt'); ?> <small class="wpt-small-title">To increase Sale</small></h3>
+                            </div>
+
+                        </th>
+                        <th>
+                            <div class="wpt-table-header-right-side"></div>
+                        </th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                <tr>
+                    <td>
+                        <div class="wqpmb-form-control">
+                            <div class="form-label col-lg-12">
+                            <?php do_action( 'wpt_plugin_recommend_here' ); ?>
+                            </div>
+                            <div class="form-label col-lg-12">
+                                <?php wpt_submit_issue_link(); ?>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="wqpmb-form-info">
+                            
+                            <?php wpt_social_links(); ?>
+                            <p>Highly Recommeded these plugin. Which will help you to increase your WooCommerce sale.</p>
+                        </div> 
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+        </div> <!--/.wpt-recomendation-area -->
     </div>
 
 </div> <!-- ./wrap wpt_wrap wpt-content -->

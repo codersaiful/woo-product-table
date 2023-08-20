@@ -2341,3 +2341,45 @@ span.wpt-design-collaps:hover {
 div.wpt_tab_content table th {
     position: relative;
 }
+
+/* recommendation area  */
+#wpt-recomendation-area .ca-reuire-plugin-notice.anwwhere-notice {
+    border: 1px solid #ebebeb;
+    margin: 10px 0;
+    background: rgb(255 255 255 / 3%);
+}
+#wpt-recomendation-area .ca-reuire-plugin-notice.activate a.ca-button {
+    background: #4caf50;
+    border-color: #38823b;
+    text-transform: uppercase !important;
+    padding: 6px 10px !important;
+    border-left: 27px solid #38823b;
+    position: relative;
+}
+#wpt-recomendation-area .ca-reuire-plugin-notice.activate a.ca-button:hover {
+    background: #9C27B0;
+    border-color: #7c1b8c;
+    text-transform: uppercase !important;
+    padding: 6px 10px !important;
+    border-left: 27px solid #7c1b8c;
+    position: relative;
+}
+#wpt-recomendation-area .ca-reuire-plugin-notice.activate a.ca-button:before {
+    content: "☀";
+    position: absolute;
+    top: 3px;
+    left: -20px;
+    color: #ffffff;
+}
+#wpt-recomendation-area .anwwhere-notice.anywhere-required-plugin {
+    justify-content: space-between;
+}
+#wpt-recomendation-area p.ca-require-plugin-msg {
+    font-size: 14px;
+}
+small.wpt-small-title {
+    font-size: 17px;
+    color: #9f9f9f;
+    font-weight: normal;
+    white-space: nowrap;
+}
