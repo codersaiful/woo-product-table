@@ -1108,6 +1108,8 @@ if( ! function_exists( 'wpt_args_manipulation_frontend' ) ){
      */
     function wpt_args_manipulation_frontend( $args ){
 
+
+        
         /**
          * This is an extra and hidden feature
          * which has no any option,
@@ -1158,6 +1160,23 @@ if( ! function_exists( 'wpt_args_manipulation_frontend' ) ){
     }
 }
 add_filter( 'wpto_table_query_args', 'wpt_args_manipulation_frontend' );
+
+add_action('get_header',function(){
+    global $wp_query;
+    // if(empty($wp_query->posts)) return;
+    // $arrr = [];
+    // foreach($wp_query->posts as $ppost){
+    //     $arrr[$ppost->ID] = $ppost->post_title;
+    // }
+    // var_dump($arrr);
+    $aaaaaaaaa = new \WP_Query($wp_query->query_vars);
+    $arrr2 = [];
+    foreach($aaaaaaaaa->posts as $ppost){
+        $arrr2[$ppost->ID] = $ppost->post_title;
+    }
+    var_dump($arrr2);
+});
+
 
 
 if( ! function_exists( 'wpt_args_manage_by_get_args' ) ){
