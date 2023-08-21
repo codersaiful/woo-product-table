@@ -165,6 +165,9 @@ $wrapper_class = isset($settings['module']) ? $settings['module'] : '';
             </table>
 
         </div> <!--/.wpt-recomendation-area -->
+        <?php
+        do_action('wpt_addon_license_area');
+        ?>
     </div>
 
 </div> <!-- ./wrap wpt_wrap wpt-content -->
