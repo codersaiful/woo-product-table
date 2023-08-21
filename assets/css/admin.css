@@ -2341,3 +2341,6 @@ span.wpt-design-collaps:hover {
 div.wpt_tab_content table th {
     position: relative;
 }
+.wpt_column_setting_extra>div>label {
+    display: inline !important;
+}
