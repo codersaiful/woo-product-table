@@ -183,19 +183,15 @@ if( ! function_exists( 'wpt_checkbox_validation' ) ){
      */
     function wpt_checkbox_validation( $bool, $enabled_column_array,$column_settings ){
 
-        $arrrrr = array();
-        if( !is_array( $enabled_column_array ) || !is_array( $column_settings ) ) return false;
-        
+        if( ! is_array( $enabled_column_array ) || !is_array( $column_settings ) ) return false;
         
         if( isset( $enabled_column_array['check'] ) ){
+            if( ! is_user_logged_in() && isset( $column_settings['check']['only_login_user'] ) ) return false;
+            if( ! is_user_logged_in() && isset( $column_settings['action']['only_login_user'] ) ) return false;
             return true;
         }
-        
-        foreach( $column_settings as $key => $e_stng ){
-            if( isset( $e_stng['items'] ) && is_array( $e_stng['items'] ) && in_array( 'check', $e_stng['items'] ) ) return true;
-        }
 
-        return $bool;
+        return false;
    }
 }
 add_filter( 'wpto_checkbox_validation', 'wpt_checkbox_validation', 10, 3);
