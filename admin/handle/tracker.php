@@ -282,8 +282,8 @@ class Tracker extends Base
                     </div>
                 </div>
                 <ul class="important-link-tracker">
-                    <li class="link"><a href="https://codeastrology.com/data-policy/<?php echo esc_attr( $this->privacy_url ); ?>" target="_blank">Powerby CodeAstrology</a></li>
-                    <li class="link"><a href="https://codeastrology.com/privacy-policy/" target="_blank">Privacey Policy</a></li>
+                    <li class="link"><a href="https://codeastrology.com/data-policy/<?php echo esc_attr( $this->privacy_url ); ?>" target="_blank">Powered by CodeAstrology</a></li>
+                    <li class="link"><a href="https://codeastrology.com/privacy-policy/" target="_blank">Privacy Policy</a></li>
                     <li class="link"><a href="https://codeastrology.com/terms-of-service/" target="_blank">Terms and Conditions</a></li>
                 </ul>
             </div>
