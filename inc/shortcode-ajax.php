@@ -195,6 +195,17 @@ class Shortcode_Ajax extends Shortcode{
             Args::manage($this);
         }
         
+        /**
+         * wpt_load action hook 
+         * added for ajax shortcode part
+         * 
+         * Based on this action hook, we have also called a functin on pro version 
+         * at @version 8.3.0.0 at includes/functions.php file
+         * 
+         * @since 3.4.3.0
+         * @author Saiful Islam <codersaiful@gmail.com>
+         */
+        $this->do_action('wpt_load');
 
         /**
          * set_product_loop() is importants obviously
