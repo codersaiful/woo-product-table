@@ -902,7 +902,8 @@ class Shortcode extends Shortcode_Base{
         // if( ! $this->args_organized ){
             
         // }
-        // var_dump($this->args);
+        // var_dump($this);
+        // $this->do_action( 'wpt_loaded' );
         return new \WP_Query( $this->args );
     }
 
