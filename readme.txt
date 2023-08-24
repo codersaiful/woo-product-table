@@ -463,7 +463,7 @@ You can easily show specific category products. While creating new table click o
   * Empty Cart buttin fixed.
   * Fontello added. Some cutom icon added to our table.
   * Added Action_Hook wpt_load for staring product table anywhere.
-  * Added Action_Hook wpt_loaded at the end product table anywhere.
+  * Added Action_Hook wpt_after_table at the end product table anywhere.
 
 = 3.1.7 =
   * Audio file issue fixed in table.
