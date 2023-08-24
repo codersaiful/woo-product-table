@@ -293,6 +293,13 @@ You can easily show specific category products. While creating new table click o
 
 == Changelog ==
 
+= 3.4.3 =
+* Speed optimized for product table using shortcode.
+* Plugin init loaded on 'plugins_loaded' hook
+* Fixed: sku search issue fixed for variable and variation product.
+* Bug fixed 
+* Code Optimized
+
 = 3.4.2 =
 * Added: new filter hook `wpt_subtotal_text` added for Subtotal text of footer cart.
 * Added: Footer added sub total and line total with class markup, so that user can easily handle.
