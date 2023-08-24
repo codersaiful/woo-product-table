@@ -297,6 +297,7 @@ You can easily show specific category products. While creating new table click o
 * Speed optimized for product table using shortcode.
 * Plugin init loaded on 'plugins_loaded' hook
 * Fixed: sku search issue fixed for variable and variation product.
+* Fixed: conditional checkbox and conditional Add to cart button - issue fix for All to cart all selected.
 * Bug fixed 
 * Code Optimized
 
