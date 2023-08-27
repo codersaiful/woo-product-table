@@ -67,4 +67,4 @@ $variations_attr = is_string( $variations_attr ) ? $variations_attr : '';
 <?php endif; ?>
 </form>
 <?php
-// do_action( 'wpt_action_variation', $product ); //Sepcially for Min Max Plugin
+do_action( 'wpt_action_variation', $product ); //Sepcially for Min Max Plugin
