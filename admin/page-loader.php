@@ -52,6 +52,7 @@ class Page_Loader extends Base
 
         
         add_submenu_page( $this->main_slug, esc_html__( 'Browse Plugins', 'woo-product-table' ),  __( 'Browse Plugins', 'woo-product-table' ), WPT_CAPABILITY, 'wpt-browse-plugins',[$this, 'browse_plugins_html'] );
+        add_submenu_page( $this->main_slug, esc_html__( 'Addons', 'woo-product-table' ),  __( 'Addons', 'woo-product-table' ), WPT_CAPABILITY, 'wpt-addons-list',[$this, 'addons_list_html'] );
         add_submenu_page( $this->main_slug, esc_html__( 'Issue Submit', 'woo-product-table' ),  __( 'Issue Submit', 'woo-product-table' ), WPT_CAPABILITY, 'https://github.com/codersaiful/woo-product-table/issues/new' );
         if( ! $this->is_pro ){
             add_submenu_page( $this->main_slug, esc_html__( 'Try Pro Version', 'woo-product-table' ),  esc_html__( 'Try Pro Version', 'woo-product-table' ), WPT_CAPABILITY, 'https://try.wooproducttable.com/wp-admin/?utm=PluginDashboard' );
@@ -119,6 +120,15 @@ class Page_Loader extends Base
             include $this->page_folder_dir . 'premium-link-header.php';
         }
         include $this->page_folder_dir . 'browse-plugins.php';
+    }
+    public function addons_list_html()
+    {
+        $this->topbar_sub_title = __( 'Addons','woo-product-table' );
+        include $this->topbar_file;
+        if( ! $this->is_pro ){
+            include $this->page_folder_dir . 'premium-link-header.php';
+        }
+        include $this->page_folder_dir . 'addons-list.php';
     }
     public function html_tutorial_page()
     {
