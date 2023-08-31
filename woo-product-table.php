@@ -501,6 +501,9 @@ class WPT_Product_Table{
         $compatible = new WOO_PRODUCT_TABLE\Compatible\Compatible_Loader();
         $compatible->run(); 
 
+        $gutt = new WOO_PRODUCT_TABLE\Gutt\Block_Control();
+        $gutt->run();
+
         /**
          * Include WPML Integration
          * 
