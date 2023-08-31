@@ -340,7 +340,7 @@ jQuery.fn.extend({
             var prevClass = prev.attr('class');
             var next = thisElement.next();
             var nextClass = next.attr('class');
-            console.log(target);
+
             //console.log(typeof prev, typeof next, typeof thisElement);
             if( target == 'next' && typeof next.html() !== 'undefined'){
                 thisElement.before('<li class="' + nextClass + '">'+next.html()+'</li>');
@@ -918,7 +918,7 @@ jQuery.fn.extend({
      */
     
     var colSetsLen = $('form#wpt-main-configuration-form').length;
-    console.log(colSetsLen);
+
     if( colSetsLen > 0 ){
 
         var saveChangeText = 'Save';
@@ -929,7 +929,7 @@ jQuery.fn.extend({
         $('#wpt-main-configuration-form').append(btnHtml);
 
         $(window).on('scroll',function(){
-            console.log(222222);
+
             let targetElement = $('.float-btn');
             // if(targetElement.length < 1) return;
             
@@ -976,7 +976,7 @@ jQuery.fn.extend({
      */
     
     var status = $('#original_post_status').val();
-    console.log(status, postColSetsLen);
+
     if( postColSetsLen > 0 && status === 'publish'){
         var saveChangeText = $('button.button[name="wpt_post_submit"]').text(); //Save Change
         var myHtml = '<div class="wrapper_wpt_ajax_update ultraaddons-button-wrapper">';
@@ -984,7 +984,7 @@ jQuery.fn.extend({
         myHtml += '</div>';
         $('#wpt_configuration_form').append(myHtml);
         $(window).on('scroll',function(){
-            console.log(88888888888);
+
             let targetElement = $('.stick_on_scroll');
             if(targetElement.length < 1) return;
             
