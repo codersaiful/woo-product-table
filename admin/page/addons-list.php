@@ -64,7 +64,7 @@
 
     .col-md-4 {
         flex: 0 0 auto;
-        width: 300px;
+        width: 380px;
     }
 
     .fadeInUp {
@@ -174,6 +174,9 @@
     h2.wpt-heading-title.wpt-size-default {
         font-size: 3em;
     }
+    a.get-addons-btn{
+        width: fit-content;
+    }
 </style>
 
 <div class="wrap wpt_wrap wpt-content">
@@ -201,12 +204,15 @@
                                         With the Group Products By Category plugin, you can transform your product listings into a well-structured and visually appealing format. Gone are the days of scrolling through an endless list of products – now you can effortlessly group products based on their respective categories, creating a clear hierarchy that helps customers navigate and explore your offerings more efficiently.
                                         </p>
                                     </div>
-                                    <a target="_blank"  href="https://wooproducttable.com/doc/pre-sale/" class="wpt-button reset">
-                                        See More<i class="arrow_right"></i>
+                                    <a target="_blank"  href="https://wooproducttable.com/doc/pre-sale/" class="wpt-btn wpt-btn-small wpt-has-icon get-addons-btn">
+                                        <span><i class="wpt-ok"></i></span>
+                                        <strong class="form-submit-text">Get it now</strong>
                                     </a>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+
+                            <!-- Always to be end the following .col-md-4 Don't copy it-->
+                            <div class="col-md-4 coming-soon-area">
                                 <div class="categories_guide_item wow fadeInUp">
                                     <img width="34" height="32" src="https://wooproducttable.com/wp-content/uploads/2022/06/briefcase-1.png" class="attachment-full size-full wp-post-image" alt="" loading="lazy" srcset="https://wooproducttable.com/wp-content/uploads/2022/06/briefcase-1.png 34w, https://wooproducttable.com/wp-content/uploads/2022/06/briefcase-1-16x16.png 16w, https://wooproducttable.com/wp-content/uploads/2022/06/briefcase-1-18x18.png 18w, https://wooproducttable.com/wp-content/uploads/2022/06/briefcase-1-20x20.png 20w" sizes="(max-width: 34px) 100vw, 34px">
                                     <div class="doc_tag_title">
@@ -217,9 +223,22 @@
                                         An addon of Woo Product Table plugin. This will help you to display variable and simple products together. This plugin will convert every variation as a row and display it among the simple products. Make sure you have installed our main (Woo Product Table) plugin.
                                         </p>
                                     </div>
-                                    <a target="_blank"  href="https://wooproducttable.com/doc/gating-start/" class="wpt-button reset">
-                                        See More<i class="arrow_right"></i>
+                                    <a target="_blank"  href="https://wooproducttable.com/doc/pre-sale/" class="wpt-btn wpt-btn-small wpt-has-icon get-addons-btn">
+                                        <span><i class="wpt-ok"></i></span>
+                                        <strong class="form-submit-text">Get it now</strong>
                                     </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="categories_guide_item wow fadeInUp">
+                                    <img width="34" height="32" src="https://wooproducttable.com/wp-content/uploads/2022/06/briefcase-1.png" class="attachment-full size-full wp-post-image" alt="" loading="lazy" srcset="https://wooproducttable.com/wp-content/uploads/2022/06/briefcase-1.png 34w, https://wooproducttable.com/wp-content/uploads/2022/06/briefcase-1-16x16.png 16w, https://wooproducttable.com/wp-content/uploads/2022/06/briefcase-1-18x18.png 18w, https://wooproducttable.com/wp-content/uploads/2022/06/briefcase-1-20x20.png 20w" sizes="(max-width: 34px) 100vw, 34px">
+                                    <div class="doc_tag_title">
+                                        <h4>Comming Soon <i class="wpt-spin4 animate-spin"></i></h4>
+                                    </div>
+                                    <div>
+                                        <h2>More addons for Woo Product table has been cominng.<i class="wpt-spin5 animate-spin"></i></h2>
+                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>
