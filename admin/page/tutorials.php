@@ -82,14 +82,14 @@
         flex-wrap: wrap;
     }
 
-    .categories_guide_item .doc_tag_title {
+    /* .categories_guide_item .doc_tag_title {
         margin-bottom: 24px;
-    }
-
+    } */
+/* 
     .categories_guide_item .tag_list {
         margin-bottom: 42px;
         margin-top: 22px;
-    }
+    } */
 
     .tag_list li {
         margin-top: 15px;
@@ -224,10 +224,6 @@
                                         <li>
                                             <a target="_blank"  href="https://wooproducttable.com/doc/gating-start/how-to-create-woocommerce-product-table/">
                                                 <i class="icon_document_alt"></i> How to create WooCommerce Product Table? </a>
-                                        </li>
-                                        <li>
-                                            <a target="_blank"  href="https://wooproducttable.com/doc/gating-start/where-is-my-plugin-purchase-code/">
-                                                <i class="icon_document_alt"></i> Where is my plugin purchase code? (Only for CodeCanyon user) </a>
                                         </li>
                                         <li>
                                             <a target="_blank"  href="https://wooproducttable.com/doc/gating-start/get-automatic-updates-from-codecanyon/">
