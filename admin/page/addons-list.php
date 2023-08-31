@@ -37,10 +37,10 @@
 
     .home-docs .col-md-4 {
         display: flex;
-        transition: transform 1.5s ease;
+        transition: transform 0.3s ease;
     }
     .home-docs .col-md-4:hover {
-        transform: scale(1.1);
+        transform: scale(1.01);
     }
 
     .home-docs .categories_guide_item {
