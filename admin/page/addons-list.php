@@ -82,9 +82,9 @@
         flex-wrap: wrap;
     }
 
-    /* .categories_guide_item .doc_tag_title {
+    .categories_guide_item .doc_tag_title {
         margin-bottom: 24px;
-    } */
+    }
 
     .categories_guide_item .tag_list {
         margin-bottom: 42px;
@@ -119,7 +119,7 @@
     }
 
     .doc_tag_title h4 {
-        font-size: 25px;
+        font-size: 20px;
         line-height: 26px;
         margin-bottom: 20px;
     }
@@ -174,10 +174,6 @@
     h2.wpt-heading-title.wpt-size-default {
         font-size: 3em;
     }
-    .wpt-addons-desc p {
-        font-size: 16px;
-        line-height: 25px;
-    }
 </style>
 
 <div class="wrap wpt_wrap wpt-content">
@@ -200,9 +196,9 @@
                                         <h4>Group Products By Category</h4>
                                     </div>
 
-                                    <div class="wpt-addons-desc">
+                                    <div>
                                         <p>
-                                        You can effortlessly group products based on their respective categories, creating a clear hierarchy that helps customers navigate and explore your offerings more efficiently.
+                                        With the Group Products By Category plugin, you can transform your product listings into a well-structured and visually appealing format. Gone are the days of scrolling through an endless list of products – now you can effortlessly group products based on their respective categories, creating a clear hierarchy that helps customers navigate and explore your offerings more efficiently.
                                         </p>
                                     </div>
                                     <a target="_blank"  href="https://wooproducttable.com/doc/pre-sale/" class="wpt-button reset">
@@ -216,12 +212,12 @@
                                     <div class="doc_tag_title">
                                         <h4>Simple and Variation Products</h4>
                                     </div>
-                                    <div class="wpt-addons-desc">
+                                    <div>
                                         <p>
-                                        This will help you to display variable and simple products together. This plugin will convert every variation as a row and display it among the simple products.
+                                        An addon of Woo Product Table plugin. This will help you to display variable and simple products together. This plugin will convert every variation as a row and display it among the simple products. Make sure you have installed our main (Woo Product Table) plugin.
                                         </p>
                                     </div>
-                                    <a target="_blank"  href="https://codeastrology.com/downloads/simple-and-variation-products/" class="wpt-button reset">
+                                    <a target="_blank"  href="https://wooproducttable.com/doc/gating-start/" class="wpt-button reset">
                                         See More<i class="arrow_right"></i>
                                     </a>
                                 </div>
