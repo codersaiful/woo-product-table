@@ -27,6 +27,7 @@
     .wpt-6539 .wpt-element.wpt-element-727a4d7a {
         text-align: center;
     }
+
     .elementor *,
     .elementor :after,
     .elementor :before {
@@ -36,6 +37,10 @@
 
     .home-docs .col-md-4 {
         display: flex;
+        transition: transform 1.5s ease;
+    }
+    .home-docs .col-md-4:hover {
+        transform: scale(1.1);
     }
 
     .home-docs .categories_guide_item {
@@ -49,7 +54,8 @@
         transition: background .3s, border .3s, border-radius .3s, box-shadow .3s;
         transition: background .3s, border .3s, border-radius .3s, box-shadow .3s, -webkit-box-shadow .3s;
     }
-    .wpt-widget-container-flued .tuts-box-wrapper{
+
+    .wpt-widget-container-flued .tuts-box-wrapper {
         display: flex;
         gap: 25px;
         flex-wrap: wrap;
@@ -82,9 +88,9 @@
         flex-wrap: wrap;
     }
 
-    .categories_guide_item .doc_tag_title {
+    /* .categories_guide_item .doc_tag_title {
         margin-bottom: 24px;
-    }
+    } */
 
     .categories_guide_item .tag_list {
         margin-bottom: 42px;
@@ -119,7 +125,7 @@
     }
 
     .doc_tag_title h4 {
-        font-size: 20px;
+        font-size: 24px;
         line-height: 26px;
         margin-bottom: 20px;
     }
@@ -155,15 +161,18 @@
     .wpt-widget-text-editor .wpt-drop-cap-letter {
         display: inline-block
     }
+
     .home-docs .container-flued>.row {
         display: flex;
         align-items: stretch;
         gap: 25px;
     }
+
     .home-docs .col-md-4 a {
         text-decoration: none;
         margin-top: auto;
     }
+
     .home-docs .col-md-4 a.wpt-button.reset {
         text-decoration: none;
         margin-top: auto;
@@ -171,46 +180,45 @@
         text-align: center;
         text-transform: none;
     }
+
     h2.wpt-heading-title.wpt-size-default {
         font-size: 3em;
     }
-    a.get-addons-btn{
+
+    a.get-addons-btn {
         width: fit-content;
+    }
+    .wpt-addons-desc p {
+        font-size: 16px;
+        line-height: 1.6;
     }
 </style>
 
 <div class="wrap wpt_wrap wpt-content">
     <h1 class="wp-heading "></h1>
     <div class="fieldwrap">
-
         <div class="wpt-section-panel no-background wpt-clearfix">
-            
-
-
-
-        <div class="wpt-element wpt-element-119e904b home-docs wpt-widget wpt-widget-Docly_single_doc" data-id="119e904b" data-element_type="widget" data-widget_type="Docly_single_doc.default">
+            <div class="wpt-element wpt-element-119e904b home-docs wpt-widget wpt-widget-Docly_single_doc" data-id="119e904b" data-element_type="widget" data-widget_type="Docly_single_doc.default">
                 <div class="wpt-widget-container-flued">
                     <div class="container-flued">
                         <div class="tuts-box-wrapper">
                             <div class="col-md-4">
                                 <div class="categories_guide_item wow fadeInUp">
-                                    <img loading="lazy" width="39" height="40" src="https://wooproducttable.com/wp-content/uploads/2022/06/Channel.png" class="attachment-full size-full wp-post-image" alt="" srcset="https://wooproducttable.com/wp-content/uploads/2022/06/Channel.png 39w, https://wooproducttable.com/wp-content/uploads/2022/06/Channel-16x16.png 16w, https://wooproducttable.com/wp-content/uploads/2022/06/Channel-18x18.png 18w, https://wooproducttable.com/wp-content/uploads/2022/06/Channel-20x20.png 20w" sizes="(max-width: 39px) 100vw, 39px">
+                                <img width="34" height="32" src="https://wooproducttable.com/wp-content/uploads/2022/06/briefcase-1.png" class="attachment-full size-full wp-post-image" alt="" loading="lazy" srcset="https://wooproducttable.com/wp-content/uploads/2022/06/briefcase-1.png 34w, https://wooproducttable.com/wp-content/uploads/2022/06/briefcase-1-16x16.png 16w, https://wooproducttable.com/wp-content/uploads/2022/06/briefcase-1-18x18.png 18w, https://wooproducttable.com/wp-content/uploads/2022/06/briefcase-1-20x20.png 20w" sizes="(max-width: 34px) 100vw, 34px">
                                     <div class="doc_tag_title">
                                         <h4>Group Products By Category</h4>
                                     </div>
-
-                                    <div>
+                                    <div class="wpt-addons-desc">
                                         <p>
-                                        With the Group Products By Category plugin, you can transform your product listings into a well-structured and visually appealing format. Gone are the days of scrolling through an endless list of products – now you can effortlessly group products based on their respective categories, creating a clear hierarchy that helps customers navigate and explore your offerings more efficiently.
+                                            Gone are the days of scrolling through an endless list of products – now you can effortlessly group products based on their respective categories, creating a clear hierarchy that helps customers navigate and explore your offerings more efficiently.
                                         </p>
                                     </div>
-                                    <a target="_blank"  href="https://wooproducttable.com/doc/pre-sale/" class="wpt-btn wpt-btn-small wpt-has-icon get-addons-btn">
+                                    <a target="_blank" href="https://codeastrology.com/downloads/group-products-by-category/" class="wpt-btn wpt-btn-small wpt-has-icon get-addons-btn">
                                         <span><i class="wpt-ok"></i></span>
                                         <strong class="form-submit-text">Get it now</strong>
                                     </a>
                                 </div>
                             </div>
-
                             <!-- Always to be end the following .col-md-4 Don't copy it-->
                             <div class="col-md-4 coming-soon-area">
                                 <div class="categories_guide_item wow fadeInUp">
@@ -218,12 +226,12 @@
                                     <div class="doc_tag_title">
                                         <h4>Simple and Variation Products</h4>
                                     </div>
-                                    <div>
+                                    <div class="wpt-addons-desc">
                                         <p>
-                                        An addon of Woo Product Table plugin. This will help you to display variable and simple products together. This plugin will convert every variation as a row and display it among the simple products. Make sure you have installed our main (Woo Product Table) plugin.
+                                            This will help you to display variable and simple products together. This plugin will convert every variation as a row and display it among the simple products.Now customers will get a more visual presentation.
                                         </p>
                                     </div>
-                                    <a target="_blank"  href="https://wooproducttable.com/doc/pre-sale/" class="wpt-btn wpt-btn-small wpt-has-icon get-addons-btn">
+                                    <a target="_blank" href="https://codeastrology.com/downloads/simple-and-variation-products/" class="wpt-btn wpt-btn-small wpt-has-icon get-addons-btn">
                                         <span><i class="wpt-ok"></i></span>
                                         <strong class="form-submit-text">Get it now</strong>
                                     </a>
@@ -235,24 +243,16 @@
                                     <div class="doc_tag_title">
                                         <h4>Comming Soon <i class="wpt-spin4 animate-spin"></i></h4>
                                     </div>
-                                    <div>
-                                        <h2>More addons for Woo Product table has been cominng.<i class="wpt-spin5 animate-spin"></i></h2>
+                                    <div class="wpt-addons-desc">
+                                        <p>More add-ons for <b>Woo Product Table</b> have been coming...<i class="wpt-spin5 animate-spin"></i></p>
                                     </div>
-                                    
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
-
-
-
-
         </div>
     </div>
 
 </div>
-
-
