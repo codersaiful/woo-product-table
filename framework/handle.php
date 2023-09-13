@@ -50,11 +50,12 @@ if( ! class_exists( 'WPT_Required' ) ){
          */
         public static function display_notice()
         {
-                if(time() > 1692167603 + 864000) return;
+
+                if(time() > 1694587433 + 864000) return;
                 if( defined( 'WPT_PRO_DEV_VERSION' ) ) return;
                 
-                $temp_numb = rand(1,10);
-                // var_dump($temp_numb);
+                $temp_numb = rand(1,5);
+
                 /**
                  * small notice for pro plugin,
                  * charect:
@@ -71,20 +72,35 @@ if( ! class_exists( 'WPT_Required' ) ){
                 // if($temp_numb == 3) $small_notc->show();
                 
 
-
-                $target = 'https://codeastrology.com/coupons/?campaign=SPECIAL60F10DAYS&ref=1&utm_source=Default_Offer_LINK';
-                $my_message = '<b><i>COUPON CODE: SPECIAL60F10DAYS - up to 60% OFF</i></b> A coupon code for you for <b>Woo Product Table Pro)</b> Plugin';
-                $offerNc = new Notice('wpt_SPECIAL60F10DAYS_offer');
+                $coupon_Code = 'CA60PERCENT';
+                $target = 'https://wooproducttable.com/pricing/?discount=' . $coupon_Code . '&campaign=' . $coupon_Code . '&ref=1&utm_source=Default_Offer_LINK';
+                $my_message = 'Make Product Table easily with discount offer.<br><b class="ca-button ca-button-type-success"><i>COUPON CODE: ' . $coupon_Code . ' - up to  60% OFF</i></b> A coupon code for you for <b>Woo Product Table Pro)</b> Plugin';
+                $offerNc = new Notice('wpt_'.$coupon_Code.'_offer');
                 $offerNc->set_title( 'SPECIAL OFFER for 10 days' )
-                ->set_diff_limit(35)
+                ->set_diff_limit(3)
                 ->set_type('offer')
                 ->set_img( WPT_BASE_URL. 'assets/images/wpt-logo-sk.png')
                 ->set_img_target( $target )
                 ->set_message( $my_message )
                 ->add_button([
-                    'text' => 'Claim Discount',
-                    'type' => 'error',
+                    'text' => 'Full Pricing',
+                    'type' => 'success',
                     'link' => $target,
+                ]);
+                $offerNc->add_button([
+                    'text' => 'Unlimited Access(Lifetime)',
+                    'type' => 'offer',
+                    'link' => 'https://codeastrology.com/checkout?edd_action=add_to_cart&download_id=6553&edd_options%5Bprice_id%5D=6&discount=' . $coupon_Code,
+                ]);
+                $offerNc->add_button([
+                    'text' => 'Unlimited Access(Yearly)',
+                    'type' => 'offer',
+                    'link' => 'https://codeastrology.com/checkout?edd_action=add_to_cart&download_id=6553&edd_options%5Bprice_id%5D=3&discount=' . $coupon_Code,
+                ]);
+                $offerNc->add_button([
+                    'text' => 'All Products',
+                    'type' => 'error',
+                    'link' => 'https://codeastrology.com/downloads/?discount=' . $coupon_Code,
                 ]);
                 // if( method_exists($offerNc, 'set_location') ){
                 //     $offerNc->set_location('wpt_offer_here'); //wpt_premium_image_bottom

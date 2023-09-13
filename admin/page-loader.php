@@ -214,7 +214,7 @@ class Page_Loader extends Base
         <div class="error wpt-renew-license-notice">
             <div class="wpt-license-notice-inside">
             <img src="<?php echo esc_url( $wpt_logo ); ?>" class="wpt-license-brand-logo">
-                Your License of <strong>Woo Product Table pro</strong> has been expired at <span><?php echo esc_html( $expired_date ); ?></span>
+                Your License of <strong>Woo Product Table pro</strong> has been expired at <span style="color: #d00;font-weight:bold;"><?php echo esc_html( $expired_date ); ?></span>
                 %1$s <a href="%2$s" target="_blank">%3$s</a>
             </div>
         </div>'
