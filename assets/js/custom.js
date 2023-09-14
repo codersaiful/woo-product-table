@@ -2301,12 +2301,11 @@ jQuery(function($) {
             ];
             var number_class = $('td'+target_class + '>.text_with_number');//.find('.text_with_number');
             var content_type = 'normal';
-            if(target_class.search('.wpt_price') != -1){
-                content_type = 'price';
-            }else if(number_class.length > 0 || target_class.search('.wpt_serial_number') != -1 || target_class.search('.wpt_product_id') != -1 || target_class.search('.wpt_total') != -1 ){
+            if(number_class.length > 0 || target_class.search('.wpt_serial_number') != -1 || target_class.search('.wpt_product_id') != -1 || target_class.search('.wpt_total') != -1 ){
                 content_type = 'number';
+            }else if(target_class.search('.wpt_price') != -1){
+                content_type = 'price';
             }
-            //wpt_serial_number
                         
             var sort_type = $(this).attr('data-sort_type');
                 
