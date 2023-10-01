@@ -217,7 +217,7 @@ class Page_Loader extends Base
                 Your License of <strong>Woo Product Table pro</strong> has been expired at <span style="color: #d00;font-weight:bold;"><?php echo esc_html( $expired_date ); ?></span>
                 %1$s <a href="%2$s" target="_blank">%3$s</a>
             </div>
-        </div>'
+        </div>
         <?php
         $full_message = ob_get_clean();
         printf( $full_message, $message, $link, $link_label );
