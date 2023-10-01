@@ -103,7 +103,7 @@ jQuery(function($) {
             var thisButton = $(this);
             var thisPagination = thisButton.closest('.wpt_my_pagination');
             var page_number = $(thisButton).text();
-            // console.log(page_number)
+
             var table_id = thisPagination.data('table_id');
             
             var data = {
@@ -137,14 +137,6 @@ jQuery(function($) {
             var targetTableArgs = targetTable.attr( 'data-data_json' );
                 targetTableArgs = JSON.parse(targetTableArgs);
 
-            // let newArgs = $(this).parents('mypagi').attr('myjson');   
-            // // console.log(typeof newArgs, newArgs);
-            // if( typeof newArgs !== 'undefined' && typeof newArgs === 'string' ){
-            //     targetTableArgs = JSON.parse(newArgs);
-            // }else{
-            //     targetTableArgs = JSON.parse(targetTableArgs);
-            // }
-            // // console.log(targetTableArgs);
                 
            
             var targetTableBody = $('#table_id_' + temp_number + ' table#wpt_table tbody');
@@ -179,7 +171,6 @@ jQuery(function($) {
             }else{
                 return;
             }
-            // console.log(targetTableArgs,data);
             
 
             $.ajax({
@@ -307,7 +298,7 @@ jQuery(function($) {
             }
             return temp_cjson;
         }
-        //console.log(config_json);
+
         var footer_cart = config_json.footer_cart;
         var footer_cart_size = config_json.footer_cart_size;
         var footer_possition = config_json.footer_possition;
@@ -407,7 +398,6 @@ jQuery(function($) {
                 });
 
                 if('undefined' !== typeof finalImgObject){
-                    console.log(fullObject);
                     final_image_url = finalImgObject.full_src;
                     image_width = finalImgObject.full_src_w;
                     IMG_Generator(thisImg,final_image_url, image_width);
@@ -1480,7 +1470,7 @@ jQuery(function($) {
             //Generating Custom Field/Meqa Query for Query Args inside wp_query
             var final_custom_field = {};
             Object.keys(custom_field).forEach(function(key,bbb){
-                console.log(key,bbb);
+
                 if(Object.keys(custom_field[key]).length > 0){ //custom_field[key] !== null && 
                     var compare = multiple_attr[key];
                     
@@ -1571,7 +1561,7 @@ jQuery(function($) {
                     if( actionType === 'query' ){
                         $('#wpt_load_more_wrapper_' + temp_number).remove();
                         targetTableBody.html( data );
-                        //console.log(data,data.match('wpt_product_not_found'));
+
                         
                         $('#table_id_' + temp_number + ' .wpt_table_tag_wrapper .wpt_product_not_found').remove();
                         if(data.match('wpt_product_not_found')){
@@ -1691,14 +1681,6 @@ jQuery(function($) {
             
         });
 
-        $(document.body).on('click','h1.entry-title-BACKUP',function(){
-            var temp_number = '19541';
-            var newjsonData = $('#table_id_' + temp_number + ' mypagi').attr('myjson');
-            var thisNewPagiWrappers = $('#table_id_' + temp_number + ' .wpt_table_pagination').attr('data-whole_data');
-            // console.log('newjsonData',JSON.parse(newjsonData));
-            console.log('thisNewPagiWrappers',JSON.parse(thisNewPagiWrappers));
-                    
-        });
         
         function loadPaginationLinks($data,temp_number){
             var targetTable = $('#table_id_' + temp_number + ' table#wpt_table');
@@ -1752,7 +1734,7 @@ jQuery(function($) {
             
             //Checking FilterBox
             var filterBoxYesNo = $('#table_id_' + temp_number + ' .wpt-mini-filter').html();
-            // console.log(filterBoxYesNo);
+
             /**
              * Uncheck All, If any change on filter button
              * @version 2.0
@@ -1763,7 +1745,7 @@ jQuery(function($) {
             var serial = 0;
             $('#table_id_' + temp_number + ' .wpt-mini-filter select.filter_select').each(function(){
                 var currentClass = $(this).val();
-                
+
                 if(currentClass !==''){
                     ClassArray[serial] = '.' + currentClass;
                     serial++;
@@ -1829,7 +1811,7 @@ jQuery(function($) {
  
         $('body').on('change', '.wpt_row input.input-text.qty.text', inputBoxChangeHandle);
         function inputBoxChangeHandle() {
-            // console.log(2222);
+
             var temp_number = $(this).parents('tr.wpt_row').data('temp_number');
             var Qty_Val = $(this).val();
             var product_id = $(this).parents('tr').data('product_id');
@@ -1904,7 +1886,6 @@ jQuery(function($) {
 
         upateGlobalCheckboxCount();
         function upateGlobalCheckboxCount(){
-            // console.log('upateGlobalCheckboxCount()');
             
             var add_cart_text = $('.wpt-wrap').data('basic_settings').add_to_cart;
             var currentAllSelectedButtonSelector = $('body a.wpt-global-added-to-cart>span');
@@ -2008,21 +1989,6 @@ jQuery(function($) {
             updateCheckBoxCount(temp_number);
         });
         
-//        $(document).on('wpt_count_updated',function(aaa,args){
-//            //console.log(args);
-//            var btn = args['button_object'];
-//            var itemAmount = args['itemAmount'];
-//            var button_text = args['button_text'];
-//            var custom_text = 'Pay now';
-//             itemAmount = parseInt( itemAmount );
-//            if( itemAmount > 0 ){
-//                btn.html( custom_text);
-//                //btn.html( custom_text + ' [ ' + itemAmount + ' ' + args['itemText'] + ' ]');;
-//            }else{
-//                btn.html( button_text + ' [ ' + itemAmount + ' ' + args['itemText'] + ' ]');
-//            }
-//            
-//        });
         
         $('body').on('click', 'input.wpt_check_universal,input.enabled.wpt_tabel_checkbox.wpt_td_checkbox', function() { //wpt_td_checkbox
             var temp_number = $(this).data('temp_number');
@@ -2217,7 +2183,7 @@ jQuery(function($) {
                 var temp_number = $(this).data('temp_number');
                 var config_json = getConfig_json( temp_number );
                 var key =  $(this).data('key');
-                //console.log(key);
+
                 var label =  $(this).data('label');
                 var taxArray = new Array();
                 var taxValArray = new Array();
@@ -2338,7 +2304,7 @@ jQuery(function($) {
 
                 var contentHTMLArray = [];
                 var currentColumnObject = $(target_table_wrapper_id + ' table tbody td' + target_class);
-                // console.log(currentColumnObject);
+
                 currentColumnObject.each(function(index){
                     
                     
