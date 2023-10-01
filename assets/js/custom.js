@@ -1763,12 +1763,13 @@ jQuery(function($) {
             if(foundRowCount > 0){
                 $('.wpt-my-pagination-' + temp_number).hide();//wpt_filter_reset
             }
+            //if not found available from before, we will remove it first.
+            $('#table_id_' + temp_number + ' table#wpt_table tbody tr.product-not-found-tr').remove();
             if(foundRowCount < 1){
                 let newRotHtml = "<tr class='product-not-found-tr'><td colspan='" + colSpanCount + "'><div class='wpt_product_not_found'>" + notFundMsg + "</div></td></tr>";
                 $('#table_id_' + temp_number + ' table#wpt_table tbody').append(newRotHtml)
-            }else{
-                $('#table_id_' + temp_number + ' table#wpt_table tbody tr.product-not-found-tr').remove();
             }
+            //here was remove notFound on else. we remove it becuase, we have added at the begining always
            
 
            if( filterBoxYesNo ){
