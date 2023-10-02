@@ -30,6 +30,18 @@
             return $type;
         });
 
+        /**
+         * If any product is out of stock then quantity box will hide and stock status will show
+         * @since 3.4.3.0
+         * @author Fazle Bari <fazlebarisn@gmail.com> 
+         */
+        $product_type = $product->get_type();
+        $stock = $product->stock_status;
+        if( 'outofstock' == $stock && ($product_type == 'variation' || $product_type == 'simple')){ // 
+            echo wc_get_stock_html( $product );
+            return;
+        }
+
         woocommerce_quantity_input( $t_args , $product, true );
         ?>
     </div>
