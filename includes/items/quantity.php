@@ -36,7 +36,7 @@
          * @author Fazle Bari <fazlebarisn@gmail.com> 
          */
         $product_type = $product->get_type();
-        $stock = $product->stock_status;
+        $stock = $data['stock_status'] ?? '';
         if( 'outofstock' == $stock && ($product_type == 'variation' || $product_type == 'simple')){ // 
             echo wc_get_stock_html( $product );
             return;
