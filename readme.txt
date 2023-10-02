@@ -293,6 +293,10 @@ You can easily show specific category products. While creating new table click o
 
 == Changelog ==
 
+= 3.4.4 =
+* Compatibility: Compabile with HPOS.
+* Bug Fixed.
+
 = 3.4.3 =
 * Speed optimized for product table using shortcode.
 * Plugin init loaded on 'plugins_loaded' hook
