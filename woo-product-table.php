@@ -123,6 +123,7 @@ $column_array = array(
     'product_id'    => __( 'ID', 'woo-product-table' ),
     'serial_number' => __( 'SL', 'woo-product-table' ),
     'action'        => __( 'Action', 'woo-product-table' ),
+    'buy_link'        => __( 'Buy Link', 'woo-product-table' ),
 );
 
 $column_array = apply_filters( 'wpto_default_column_arr', $column_array );
