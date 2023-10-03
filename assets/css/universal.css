@@ -1821,6 +1821,7 @@ body[class^="wpt-"]:before, body[class*=" wpt-"]:before {
     display: none;
 }
 
+.wpt_buy_link span.wpt-cart-remove,
 .wpt_buy_link span.wpt_ccount {
     display: none;
 }
