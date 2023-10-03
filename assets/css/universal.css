@@ -1820,3 +1820,7 @@ td.wpt-replace-td-in-tr.wpt-mobile-label-show a.wpt_product_title_in_td{
 body[class^="wpt-"]:before, body[class*=" wpt-"]:before {
     display: none;
 }
+
+.wpt_buy_link span.wpt_ccount {
+    display: none;
+}
