@@ -509,6 +509,7 @@ a.button.wpt_woo_add_cart_button>span.wpt_ccount  i.animate-spin::before{
     padding: 0;
 }
 
+.wpt_buy_link span.wpt_ccount,
 a.button.product_type_simple.add_to_cart_button.ajax_add_to_cart>span.wpt_ccount,
 a.product_type_variation>span.wpt_ccount, 
 button.single_add_to_cart_button>span.wpt_ccount, 
@@ -1821,7 +1822,3 @@ body[class^="wpt-"]:before, body[class*=" wpt-"]:before {
     display: none;
 }
 
-.wpt_buy_link span.wpt-cart-remove,
-.wpt_buy_link span.wpt_ccount {
-    display: none;
-}
