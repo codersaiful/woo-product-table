@@ -6,21 +6,21 @@
 		<div class="row" style="align-items: inherit;flex-wrap: wrap;margin:0;">
 			<div class="wpt-pic-col col-lg-8">
 				<div class="col-lg-2">
-					<a href="https://wooproducttable.com/?utm_source=wordpress_org&amp;utm_campaign=organic&amp;utm_medium=organic&amp;utm_content=premium_explore_logo&amp;partner=wordpress_org" target="_blank">
+					<a href="https://codeastrology.com/coupons/?discount=CYBERSECURITY50&campaign=CYBERSECURITY50&ref=1&utm_source=Default_Offer_LINK" target="_blank">
 						<i class="premium_adv"></i>
 					</a>
 				</div>
 				<div class="col-lg-4">
-					<h2>Running Discount</h2>
-					<p>Enjoy all awesome feature.</p>
+					<h2>Cyber Security Month</h2>
+					<p>Checkout our Offer.</p>
 				</div>
 				<div class="col-lg-6">
-					<a href="https://wooproducttable.com/pricing/?utm_source=wordpress_org&amp;utm_campaign=organic&amp;utm_medium=organic&amp;utm_content=premium_explore&amp;partner=wordpress_org" class="wpt-btn white round" style="color:black;background-color:white;" target="_blank">Get Premium Offer</a>
+					<a href="https://codeastrology.com/coupons/?discount=CYBERSECURITY50&campaign=CYBERSECURITY50&ref=1&utm_source=Default_Offer_LINK" class="wpt-btn white round" style="color:black;background-color:white;" target="_blank">Get Offer and Bundle</a>
 				</div>
 			</div>
 			<div class="wpt-sup-col col-lg-4">
 				<div class="half-containers money-back">
-					<a href="https://wooproducttable.com/?utm_source=wordpress_org&amp;utm_campaign=organic&amp;utm_medium=organic&amp;utm_content=money_back&amp;partner=wordpress_org" target="_blank">
+					<a href="https://codeastrology.com/coupons/?discount=CYBERSECURITY50&campaign=CYBERSECURITY50&ref=1&utm_source=Default_Offer_LINK" target="_blank">
 						<span>Money Back Guarantee</span>
 					</a>
 					<p style="text-align: center;padding:15px;">100% No-Risk 30-Days Money Back Guarantee</p>
@@ -131,7 +131,7 @@ $white_logo = WPT_BASE_URL . 'assets/images/brand/header-logo-white-x.png';
         text-transform: uppercase;
         letter-spacing: -0.025em;
         line-height: 1;
-        color: #c0f !important;
+        color: #FFC107 !important;
     }
     .wpt-premium-notice-panel .wpt-pic-col p {
         font-size: 16px;
