@@ -73,7 +73,7 @@ if( ! class_exists( 'WPT_Required' ) ){
                 
 
                 $coupon_Code = 'CYBERSECURITY50';
-                $target = 'https://wooproducttable.com/pricing/?discount=' . $coupon_Code . '&campaign=' . $coupon_Code . '&ref=1&utm_source=Default_Offer_LINK';
+                $target = 'https://codeastrology.com/coupons/?discount=' . $coupon_Code . '&campaign=' . $coupon_Code . '&ref=1&utm_source=Default_Offer_LINK';
                 $my_message = 'Make Product Table easily with discount offer.<br><b class="ca-button ca-button-type-success">COUPON CODE: <i>' . $coupon_Code . '</i> - up to  60% OFF</b> A coupon code for you for <b>Woo Product Table Pro)</b> Plugin';
                 $offerNc = new Notice('wpt_'.$coupon_Code.'_offer');
                 $offerNc->set_title( '50% Discount - Sale Offer' )
