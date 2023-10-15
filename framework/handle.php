@@ -76,7 +76,7 @@ if( ! class_exists( 'WPT_Required' ) ){
                 $target = 'https://codeastrology.com/coupons/?discount=' . $coupon_Code . '&campaign=' . $coupon_Code . '&ref=1&utm_source=Default_Offer_LINK';
                 $my_message = 'Make Product Table easily with discount offer.<br><b class="ca-button ca-button-type-success">COUPON CODE: <i>' . $coupon_Code . '</i> - up to  60% OFF</b> A coupon code for you for <b>Woo Product Table Pro)</b> Plugin';
                 $offerNc = new Notice('wpt_'.$coupon_Code.'_offer');
-                $offerNc->set_title( '50% Discount - Sale Offer' )
+                $offerNc->set_title( '50% Discount - Cyber Security Month' )
                 ->set_diff_limit(3)
                 ->set_type('offer')
                 ->set_img( WPT_BASE_URL. 'assets/images/wpt-logo-sk.png')
@@ -100,7 +100,7 @@ if( ! class_exists( 'WPT_Required' ) ){
                 $offerNc->add_button([
                     'text' => 'Full Pricing',
                     'type' => 'offer',
-                    'link' => $target,
+                    'link' => 'https://wooproducttable.com/pricing/',
                 ]);
                 
                 // if( method_exists($offerNc, 'set_location') ){
