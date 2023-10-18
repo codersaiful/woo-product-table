@@ -113,6 +113,9 @@ Our most valuable feature is search & filter. Customers can filter products by a
 This is an awesome feature of our plugin. you can display your table on your archive pages.
 You can display a table on every archive page or you can choose some specific archive pages to display specific tables. All you have to do is, select and turn on the table for archive pages. 
 
+**Variation Table for Variable Product**<br>
+Automatically or Manually show all variation as a table for Variable product. See: [Example 1](https://demo.wooproducttable.com/product/samsung-galaxy/), [Example 2](https://demo.wooproducttable.com/product-variation-table-with-product-details/), [Example 3](https://demo.wooproducttable.com/show-variation-name-in-a-single-column/)
+
 **Quick Cart Update**<br>
 Add a product to the cart, you don’t have to click any button anymore. You just need to update the quantity and that product will automatically add to the cart. The cart will auto-update by Increasing or decreasing quantity.
 
@@ -137,6 +140,25 @@ Our [YouTube Playlist](https://www.youtube.com/channel/UCnrFzReNAohkHglbF91ZEYA/
 
 **Important feature ( Pro and Free )**
 
+* WPML/Loco Translate/Multi Languag
+* Product Table to any page and where using shortcode.
+* Advance Search and filter option - Search from whole site
+* Multi-level Query to show product as table. such as: Category, taxonomy, tag, menu-order, price limit. Anything.
+* No need code edit knowledge
+* Table template feature 
+* Variation Table for Variable Product
+* Show custom field in table
+* Filter with custom field
+* Product search by sku 
+* Product filter by sku 
+* WooCommerce Product Table
+* Quick Order Table
+* WooCommerce Shop page as Table
+* WooCommerce Archive as Table
+* WooCommerce Cateogry as Table
+* WooCommerce Tag as Table
+* WooCommerce Taxonomy as Table
+* Any type customization possible by Existing [Filter and Action hook](https://wooproducttable.com/plugin-api/).
 * Add custom column
 * Design columns individually 
 * Columns only for login user
@@ -157,6 +179,8 @@ Our [YouTube Playlist](https://www.youtube.com/channel/UCnrFzReNAohkHglbF91ZEYA/
 * Product Sorting by values 
 * Showing Popup Notices
 * Redirect to Checkout Page
+* WC Product Table Lite
+* woo product table
 
 💥💥💥 [Checkout Which Features Are Free And Which Are Not.](https://wooproducttable.com/pricing/)
 
