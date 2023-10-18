@@ -87,11 +87,11 @@ if( ! class_exists( 'WPT_Required' ) ){
                     'type' => 'success',
                     'link' => 'https://wooproducttable.com/pricing/?discount=' . $coupon_Code,
                 ]);
-                $offerNc->add_button([
-                    'text' => 'Save Extra 35% on Bundle',
-                    'type' => 'offer',
-                    'link' => 'https://codeastrology.com/downloads/bundle-woo-product-table-min-max-step-control/?discount=' . $coupon_Code,
-                ]);
+                // $offerNc->add_button([
+                //     'text' => 'Save Extra 35% on Bundle',
+                //     'type' => 'offer',
+                //     'link' => 'https://codeastrology.com/downloads/bundle-woo-product-table-min-max-step-control/?discount=' . $coupon_Code,
+                // ]);
                 $offerNc->add_button([
                     'text' => 'Unlimited Access(Lifetime) with Discount',
                     'type' => 'error',
