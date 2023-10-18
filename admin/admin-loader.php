@@ -37,8 +37,8 @@ class Admin_Loader extends Base{
 
     public function admin_init(){
 
-        $tracker = new Tracker();
-        $tracker->run();
+        // $tracker = new Tracker();
+        // $tracker->run();
         
     }
 }
