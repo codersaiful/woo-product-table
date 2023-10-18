@@ -2398,3 +2398,19 @@ div.wpt_tab_content table th {
 .wpt_column_setting_extra>div>label {
     display: inline !important;
 }
+
+.fieldwrap .anywhere-notice .ca-msg-text p {
+    display: none;
+}
+
+.fieldwrap .anywhere-notice.ca-notice.notice-offer .ca-msg-text p.ca-links-collection {
+    display: block;
+}
+
+.fieldwrap .anywhere-notice.ca-notice.notice-offer .ca-msg-text h1 {
+    color: red;
+}
+
+.fieldwrap .anywhere-notice.ca-notice.notice-offer .ca-msg-text p.ca-links-collection a {
+    background: #4CAF50;
+}

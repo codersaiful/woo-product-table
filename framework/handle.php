@@ -74,9 +74,9 @@ if( ! class_exists( 'WPT_Required' ) ){
 
                 $coupon_Code = 'CYBERSECURITY50';
                 $target = 'https://codeastrology.com/coupons/?discount=' . $coupon_Code . '&campaign=' . $coupon_Code . '&ref=1&utm_source=Default_Offer_LINK';
-                $my_message = 'Make Product Table easily with discount offer.<br><b class="ca-button ca-button-type-success">COUPON CODE: <i>' . $coupon_Code . '</i> - up to  60% OFF</b> A coupon code for you for <b>Woo Product Table Pro)</b> Plugin';
+                $my_message = 'Make Product Table easily with discount offer. <b class="ca-button ca-button-type-success">COUPON CODE: <i>' . $coupon_Code . '</i> - up to  65% OFF</b> A coupon code for you for <b>(Woo Product Table Pro)</b> Plugin';
                 $offerNc = new Notice('wpt_'.$coupon_Code.'_offer');
-                $offerNc->set_title( '50% Discount - Cyber Security Month' )
+                $offerNc->set_title( 'upto 65% Discount - Cyber Security Month' )
                 ->set_diff_limit(3)
                 ->set_type('offer')
                 ->set_img( WPT_BASE_URL. 'assets/images/wpt-logo-sk.png')
@@ -85,7 +85,7 @@ if( ! class_exists( 'WPT_Required' ) ){
                 ->add_button([
                     'text' => 'Claim Coupon',
                     'type' => 'success',
-                    'link' => 'https://codeastrology.com/coupons/?discount=' . $coupon_Code,
+                    'link' => 'https://wooproducttable.com/pricing/?discount=' . $coupon_Code,
                 ]);
                 $offerNc->add_button([
                     'text' => 'Save Extra 35% on Bundle',
@@ -93,19 +93,16 @@ if( ! class_exists( 'WPT_Required' ) ){
                     'link' => 'https://codeastrology.com/downloads/bundle-woo-product-table-min-max-step-control/?discount=' . $coupon_Code,
                 ]);
                 $offerNc->add_button([
-                    'text' => 'Unlimited Access(Lifetime)',
+                    'text' => 'Unlimited Access(Lifetime) with Discount',
                     'type' => 'error',
                     'link' => 'https://codeastrology.com/checkout?edd_action=add_to_cart&download_id=6553&edd_options%5Bprice_id%5D=6&discount=' . $coupon_Code,
                 ]);
-                $offerNc->add_button([
-                    'text' => 'Full Pricing',
-                    'type' => 'offer',
-                    'link' => 'https://wooproducttable.com/pricing/',
-                ]);
                 
-                // if( method_exists($offerNc, 'set_location') ){
-                //     $offerNc->set_location('wpt_offer_here'); //wpt_premium_image_bottom
-                // }
+                //location a dekhale notice bar a obbossoi dekhabe.
+                if( method_exists($offerNc, 'set_location') && $temp_numb == 3 ){ //$temp_numb == 5
+                    $offerNc->set_location('wpt_premium_image_bottom'); //wpt_premium_image_bottom
+                    $offerNc->show();
+                }
                 if($temp_numb == 5) $offerNc->show();
                 
                 
