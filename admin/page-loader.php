@@ -47,13 +47,14 @@ class Page_Loader extends Base
     }
     public function admin_menu()
     {
-        add_submenu_page( $this->main_slug, esc_html__( 'Configuration', 'woo-product-table' ),  esc_html__( 'Configure', 'woo-product-table' ), WPT_CAPABILITY, 'woo-product-table-config', [$this, 'configure_page_render'] );
-        add_submenu_page( $this->main_slug, esc_html__( 'Tutorials', 'woo-product-table' ),  __( 'Tutorial', 'woo-product-table' ), WPT_CAPABILITY, 'wpt-live-support', [$this, 'html_tutorial_page'] );
+        $proString = $this->is_pro ? esc_html__( ' Pro', 'woo-product-table' ) : '';
+        add_submenu_page( $this->main_slug, esc_html__( 'Configuration ', 'woo-product-table' ) . $proString,  esc_html__( 'Configure', 'woo-product-table' ), WPT_CAPABILITY, 'woo-product-table-config', [$this, 'configure_page_render'] );
+        add_submenu_page( $this->main_slug, esc_html__( 'Tutorials', 'woo-product-table' ). $proString,  __( 'Tutorial', 'woo-product-table' ), WPT_CAPABILITY, 'wpt-live-support', [$this, 'html_tutorial_page'] );
 
         
-        add_submenu_page( $this->main_slug, esc_html__( 'Browse Plugins', 'woo-product-table' ),  __( 'Browse Plugins', 'woo-product-table' ), WPT_CAPABILITY, 'wpt-browse-plugins',[$this, 'browse_plugins_html'] );
-        add_submenu_page( $this->main_slug, esc_html__( 'Addons', 'woo-product-table' ),  __( 'Addons', 'woo-product-table' ), WPT_CAPABILITY, 'wpt-addons-list',[$this, 'addons_list_html'] );
-        add_submenu_page( $this->main_slug, esc_html__( 'Issue Submit', 'woo-product-table' ),  __( 'Issue Submit', 'woo-product-table' ), WPT_CAPABILITY, 'https://github.com/codersaiful/woo-product-table/issues/new' );
+        add_submenu_page( $this->main_slug, esc_html__( 'Browse Plugins', 'woo-product-table' ). $proString,  __( 'Browse Plugins', 'woo-product-table' ), WPT_CAPABILITY, 'wpt-browse-plugins',[$this, 'browse_plugins_html'] );
+        add_submenu_page( $this->main_slug, esc_html__( 'Addons', 'woo-product-table' ). $proString,  __( 'Addons', 'woo-product-table' ), WPT_CAPABILITY, 'wpt-addons-list',[$this, 'addons_list_html'] );
+        add_submenu_page( $this->main_slug, esc_html__( 'Issue Submit', 'woo-product-table' ). $proString,  __( 'Issue Submit', 'woo-product-table' ), WPT_CAPABILITY, 'https://github.com/codersaiful/woo-product-table/issues/new' );
         if( ! $this->is_pro ){
             add_submenu_page( $this->main_slug, esc_html__( 'Try Pro Version', 'woo-product-table' ),  esc_html__( 'Try Pro Version', 'woo-product-table' ), WPT_CAPABILITY, 'https://try.wooproducttable.com/wp-admin/?utm=PluginDashboard' );
             add_submenu_page( $this->main_slug, esc_html__( 'GET PRO VERSION', 'woo-product-table' ),  __( '<i>Get <strong>Pro</strong></i>', 'woo-product-table' ), WPT_CAPABILITY, 'https://wooproducttable.com/pricing/' );
