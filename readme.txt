@@ -319,6 +319,11 @@ You can easily show specific category products. While creating new table click o
 
 == Changelog ==
 
+= 3.4.5 =
+* Fixed: JavaScript confliction issue fixed.
+* Bug fixed 
+* Code Optimized
+
 = 3.4.4 =
 * Added: new column/item added name: Buy Link.
 * Compatibility: Compabile with HPOS.

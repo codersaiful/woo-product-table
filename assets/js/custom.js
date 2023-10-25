@@ -986,7 +986,12 @@ jQuery(function($) {
                 targetAttributeObject['product_id'] = product_id;
                 targetAttributeObject['temp_number'] = temp_number;
                 targetAttributeObject['table_id'] = temp_number;
-                $(document.body).trigger('wpt_changed_variations',targetAttributeObject);
+                try{
+                    console.log(targetAttributeObject);
+                    $(document.body).trigger('wpt_changed_variations',targetAttributeObject);
+                }catch(error){
+                    console.log("Variation ID not founded. To see error, Please console.log(error) here.");
+                }
             } else {
                 //Return to Previous HTML Image
 
