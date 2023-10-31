@@ -1646,7 +1646,7 @@ if( !function_exists( 'wpto_admin_configuration_form_top_free' ) ){
                     <td>
                         <div class="wpt-form-control">
                             <div class="form-label col-lg-6">
-                                <label class="wpt_label wpt_advance_search_on_of" for="wpt_table_on_archive">Table on Archives</label>
+                                <label class="wpt_label wpt_advance_search_on_of" for="wpt_table_on_archive">Table on Shop/Archives/Taxonomy</label>
                             </div>
                             <div class="form-field col-lg-6">
                                 <select name="data[archive_table_id]" class="wpt_fullwidth ua_input wpt_table_on_archive">
@@ -1667,7 +1667,7 @@ if( !function_exists( 'wpto_admin_configuration_form_top_free' ) ){
                     <td>
                         <div class="wpt-form-info">
                             <a href="https://wooproducttable.com/docs/doc/table-options/product-table-woocommerce-archive-category-tag-attribute-page/" target="_blank" class="wpt-doc-lick">Helper doc</a>
-                            <p>Enable Table on Archive Page. Such as: Archive Page, Tag Page, Taxonomy Page. First Select a table and check [On] to show in shop/archive page.</p>
+                            <p>Enable Table on Shop/Archive/Taxonomy Page. Such as: Archive Page, Tag Page, Taxonomy Page. First Select a table and check [On] to show in shop/archive page.</p>
                             <p class="wpt-tips">
                                 <b>Notice:</b>
                                 <span>Product table will display products according to WooCommerce default query and Advance Search box is not available on Archive page.</span>
