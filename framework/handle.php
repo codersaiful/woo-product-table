@@ -50,11 +50,12 @@ if( ! class_exists( 'WPT_Required' ) ){
          */
         public static function display_notice()
         {
-                //Today: 18.10.2023 - 1697365177 and added 20 days seccond - 1728000
-                if(time() > (1697610263 + 1728000)) return;
+
+                //Today: 31.10.2023 - 1698724145 and added 20 days seccond - 1728000 (little change actually)
+                if(time() > (1698724145 + 2728000)) return;
                 if( defined( 'WPT_PRO_DEV_VERSION' ) ) return;
                 
-                $temp_numb = rand(2,5);
+                $temp_numb = rand(2,10);
 
                 /**
                  * small notice for pro plugin,
