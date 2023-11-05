@@ -1822,3 +1822,7 @@ body[class^="wpt-"]:before, body[class*=" wpt-"]:before {
     display: none;
 }
 
+.inner-available .item_inside_cell.wpt_category,
+.wpt_product_title .item_inside_cell.wpt_category {
+    display: inline-block;
+}
