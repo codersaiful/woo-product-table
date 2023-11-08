@@ -233,7 +233,7 @@ class Args{
         }
 
 
-        if( ! empty( self::$args['tax_query'] ) && $shortcode->basics['query_relation'] ){
+        if( ! empty( self::$args['tax_query'] ) && isset( $shortcode->basics['query_relation'] ) && $shortcode->basics['query_relation'] ){
             $query_rel = $shortcode->basics['query_relation'] ?? 'OR';
             self::$args['tax_query']['relation'] = $query_rel == 'AND' ? $query_rel : 'OR';
         }
