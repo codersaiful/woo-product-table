@@ -1715,6 +1715,16 @@ jQuery(function($) {
          */
         $('body').on('change','select.filter_select',function(){
             var temp_number = $(this).data('temp_number');
+
+            /**
+             * I did it for specially Variable page's variation table.
+             * If found .wpt-variable-product-options then then we will remove auto current page filter
+             * because, this time we will load from page reload.
+             */
+            var paginatedMiniFilter = $('.wpt-variable-product-options').length;
+            if( paginatedMiniFilter > 0 ){
+                return;
+            }
             filterTableRow(temp_number);
             
         });
