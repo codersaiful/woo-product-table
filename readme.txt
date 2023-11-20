@@ -234,6 +234,7 @@ With a Product Table Plugin, you can feel confident that your business processes
 * [unikforceit](https://github.com/unikforceit) (42 commits )
 * [fatimakhatungit](https://github.com/fatimakhatungit) (38 commits )
 * [rafiul](https://github.com/rafiul) (29 commits )
+* [mdibrahimk48](https://github.com/mdibrahimk48) (5 commits )
 * [tanyabouman](https://github.com/tanyabouman) (4 commits )
 * [zbandhan](https://github.com/zbandhan) (1 commits )
 * 👉 [You can join here](https://github.com/codersaiful/woo-product-table/fork)
@@ -316,6 +317,9 @@ You can easily show specific category products. While creating new table click o
 25. Manually responsive for mobile devices
 
 == Changelog ==
+
+= 3.4.6 =
+* Fixed: Asc Desc icon fixed (Table Title)
 
 = 3.4.5 =
 * Added: new filter hook for description colun has been added. `wpto_product_description` filter added. [Code Example](https://gist.github.com/codersaiful/6053bf6b2160b90144fef9748ef28e5c)
