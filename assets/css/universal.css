@@ -384,11 +384,11 @@ div.wpt_column_sort table#wpt_table.wpt_product_table tr>th.wpt_check::after{
     display: none;
 }
 div.wpt_column_sort table#wpt_table.wpt_product_table tr>th.this_column_sorted[data-sort_type="ASC"]::after{
-    content: '\f161';
+    content: '\e823';
     opacity: 1;
 }
 div.wpt_column_sort table#wpt_table.wpt_product_table tr>th.this_column_sorted[data-sort_type="DESC"]::after{
-    content: '\f160';
+    content: '\e822';
     opacity: 1;
 }
 body.wpt_table_body .wpt-wrap table thead tr.wpt_table_header_row th i{
