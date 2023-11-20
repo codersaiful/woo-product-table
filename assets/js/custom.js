@@ -1154,6 +1154,7 @@ jQuery(function($) {
                 
                 var currentAddToCartSelector = $('#table_id_' + temp_number + ' #product_id_' + product_id + ' .wpt_action a.wpt_woo_add_cart_button');
                 var currentCustomMessage = $('#table_id_' + temp_number + ' #product_id_' + product_id + ' .wpt_message .message').val();
+                var additional_json = thisRow.attr('additional_json');
                 var currentVariaionId = thisRow.attr('data-variation_id');//currentAddToCartSelector.data('variation_id');
 
                 var currentVariaion;
@@ -1176,6 +1177,7 @@ jQuery(function($) {
                     variation_id: currentVariaionId, 
                     variation: currentVariaion,
                     wpt_custom_message: currentCustomMessage,
+                    additional_json:additional_json
                 };
                 var items = $('#table_id_' + temp_number + ' tr#product_id_' + product_id).attr('data-quantity');
                 items = parseFloat(items);
@@ -1204,7 +1206,7 @@ jQuery(function($) {
                 showAlert(config_json.please_choose_items);
                 return false;
             }
-            
+
             uncheckAllCheck(temp_number);
             currentAllSelectedButtonSelector.html(add_cart_text + ' [ ' + config_json.loading_more_text + ' ]');
             $.ajax({
@@ -2549,15 +2551,20 @@ jQuery(function($) {
                 
                 var form = $(fullSelcetor);
                 var title = $(this).parents('tr').data('title');
+                var additional_json = $(this).parents('tr').attr('additional_json');
                 var url = form.attr('action');//ajax_url;//
 
                 let eachProductData = 'product_id=' + product_id + '&' + form.serialize();
 
                 var obj = {};
+                console.log(eachProductData);
                 eachProductData.replace(/([^=&]+)=([^&]*)/g, function(m, key, value) {
                     obj[decodeURIComponent(key)] = decodeURIComponent(value);
                 });
-
+                if(additional_json !== ''){
+                    obj['additional_json'] = additional_json;
+                }
+                
 
                 products_data[product_id] = obj;
 
