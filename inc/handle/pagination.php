@@ -15,7 +15,13 @@ class Pagination{
      * @return void
      */
     public static function render( Shortcode $shortcode ){
+        $pagi_class_args = apply_filters('wpt_pagination_class_arr', [
+            'wpt_my_pagination',
+            'wpt-my-pagination-' . $shortcode->table_id,
+            'wpt_table_pagination'
+        ], $shortcode->table_id);
 
+        $pagi_class = implode( ' ', $pagi_class_args );
         /**
          * Pagination's this part/method, only need when pagination will number.
          * and in our plugin, pagination value 'on' means number. for other,
@@ -26,7 +32,7 @@ class Pagination{
          //Actually I have to check.
         // if( 'on' !== $shortcode->pagination ) return;
         ?>
-        <div data-base_link="<?php echo esc_attr( $shortcode->pagination_base_url ); ?>" class='wpt_my_pagination wpt-my-pagination-<?php echo $shortcode->table_id; ?> wpt_table_pagination' data-table_id='<?php echo $shortcode->table_id; ?>'>
+        <div data-base_link="<?php echo esc_attr( $shortcode->pagination_base_url ); ?>" class='<?php echo esc_attr( $pagi_class ); ?>' data-table_id='<?php echo $shortcode->table_id; ?>'>
         <?php 
         echo self::get_paginate_links( $shortcode );
         ?>

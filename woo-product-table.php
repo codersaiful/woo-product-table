@@ -7,11 +7,11 @@
  * Author URI: https://wooproducttable.com/?utm_source=WPT+Plugin+Dashboard&utm_medium=Free+Version
  * Tags: wooproducttable, woocommerce product list,woocommerce product table, wc product table, product grid view, inventory, shop product table
  * 
- * Version: 3.4.3
+ * Version: 3.4.5
  * Requires at least:    4.0.0
- * Tested up to:         6.3
+ * Tested up to:         6.4.2
  * WC requires at least: 5.0.0
- * WC tested up to: 	 8.0.2
+ * WC tested up to: 	 8.3.1
  * 
  * 
  * Text Domain: woo-product-table
@@ -33,7 +33,7 @@ if( ! defined( 'WPT_PLUGIN_BASE_FOLDER' ) ){
 }
 
 if( ! defined( 'WPT_DEV_VERSION' ) ){
-    define( 'WPT_DEV_VERSION', '3.4.3.0' );
+    define( 'WPT_DEV_VERSION', '3.4.5.0' );
 }
 
 if( ! defined( 'WPT_CAPABILITY' ) ){
@@ -123,6 +123,7 @@ $column_array = array(
     'product_id'    => __( 'ID', 'woo-product-table' ),
     'serial_number' => __( 'SL', 'woo-product-table' ),
     'action'        => __( 'Action', 'woo-product-table' ),
+    'buy_link'        => __( 'Buy Link', 'woo-product-table' ),
 );
 
 $column_array = apply_filters( 'wpto_default_column_arr', $column_array );
@@ -368,6 +369,15 @@ class WPT_Product_Table{
    
    
    public function __construct() {
+
+        // Declare compatibility with custom order tables for WooCommerce.
+        add_action( 'before_woocommerce_init', function(){
+                if (class_exists('\Automattic\WooCommerce\Utilities\FeaturesUtil')) {
+                    \Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility('custom_order_tables', __FILE__, true);
+                }
+            }
+        );
+
 
         /**
          * Including CA_Framework

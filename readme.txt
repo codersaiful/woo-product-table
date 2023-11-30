@@ -1,10 +1,10 @@
 === Product Table for WooCommerce by CodeAstrology (wooproducttable.com) ===
-Contributors: codersaiful,codeastrology,ultraaddons,unikforce,rafiul17,fazlebari,phpcoderhannan,fatimakhatungit
+Contributors: codersaiful,codeastrology,mdibrahimk48,ultraaddons,unikforce,rafiul17,fazlebari,phpcoderhannan,fatimakhatungit
 Donate link: https://donate.stripe.com/4gw2bB2Pzdjd8mYfYZ
 Tags: wc product table, wooproducttable, woo product table,woocommerce product table, product table, wc table, quick order table, wholesale table, restaurants table,woo-product-table
 Requires at least: 4.0.0
-Tested up to: 6.3
-Stable tag: 3.4.3
+Tested up to: 6.4.2
+Stable tag: 3.4.5
 Requires PHP: 5.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -111,6 +111,9 @@ Our most valuable feature is search & filter. Customers can filter products by a
 This is an awesome feature of our plugin. you can display your table on your archive pages.
 You can display a table on every archive page or you can choose some specific archive pages to display specific tables. All you have to do is, select and turn on the table for archive pages. 
 
+**Variation Table for Variable Product**<br>
+Automatically or Manually show all variation as a table for Variable product. See: [Example 1](https://demo.wooproducttable.com/product/samsung-galaxy/), [Example 2](https://demo.wooproducttable.com/product-variation-table-with-product-details/), [Example 3](https://demo.wooproducttable.com/show-variation-name-in-a-single-column/)
+
 **Quick Cart Update**<br>
 Add a product to the cart, you don’t have to click any button anymore. You just need to update the quantity and that product will automatically add to the cart. The cart will auto-update by Increasing or decreasing quantity.
 
@@ -135,6 +138,25 @@ Our [YouTube Playlist](https://www.youtube.com/channel/UCnrFzReNAohkHglbF91ZEYA/
 
 **Important feature ( Pro and Free )**
 
+* WPML/Loco Translate/Multi Languag
+* Product Table to any page and where using shortcode.
+* Advance Search and filter option - Search from whole site
+* Multi-level Query to show product as table. such as: Category, taxonomy, tag, menu-order, price limit. Anything.
+* No need code edit knowledge
+* Table template feature 
+* Variation Table for Variable Product
+* Show custom field in table
+* Filter with custom field
+* Product search by sku 
+* Product filter by sku 
+* WooCommerce Product Table
+* Quick Order Table
+* WooCommerce Shop page as Table
+* WooCommerce Archive as Table
+* WooCommerce Cateogry as Table
+* WooCommerce Tag as Table
+* WooCommerce Taxonomy as Table
+* Any type customization possible by Existing [Filter and Action hook](https://wooproducttable.com/plugin-api/).
 * Add custom column
 * Design columns individually 
 * Columns only for login user
@@ -155,6 +177,8 @@ Our [YouTube Playlist](https://www.youtube.com/channel/UCnrFzReNAohkHglbF91ZEYA/
 * Product Sorting by values 
 * Showing Popup Notices
 * Redirect to Checkout Page
+* WC Product Table Lite
+* woo product table
 
 💥💥💥 [Checkout Which Features Are Free And Which Are Not.](https://wooproducttable.com/pricing/)
 
@@ -210,6 +234,7 @@ With a Product Table Plugin, you can feel confident that your business processes
 * [unikforceit](https://github.com/unikforceit) (42 commits )
 * [fatimakhatungit](https://github.com/fatimakhatungit) (38 commits )
 * [rafiul](https://github.com/rafiul) (29 commits )
+* [mdibrahimk48](https://github.com/mdibrahimk48) (5 commits )
 * [tanyabouman](https://github.com/tanyabouman) (4 commits )
 * [zbandhan](https://github.com/zbandhan) (1 commits )
 * 👉 [You can join here](https://github.com/codersaiful/woo-product-table/fork)
@@ -292,6 +317,30 @@ You can easily show specific category products. While creating new table click o
 25. Manually responsive for mobile devices
 
 == Changelog ==
+
+= 3.4.6 =
+* Fixed: Asc/Desc icon fixed (Table Title)
+* Fixed: additional_json issue on all selected item add has been fixed.
+* Admin area organized and Optimized.
+
+= 3.4.5 =
+* Added: new filter hook for description colun has been added. `wpto_product_description` filter added. [Code Example](https://gist.github.com/codersaiful/6053bf6b2160b90144fef9748ef28e5c)
+* Fixed: JavaScript confliction issue fixed.
+* Bug fixed 
+* Code Optimized
+
+= 3.4.4 =
+* Added: new column/item added name: Buy Link.
+* Compatibility: Compabile with HPOS.
+* Bug Fixed.
+
+= 3.4.3 =
+* Speed optimized for product table using shortcode.
+* Plugin init loaded on 'plugins_loaded' hook
+* Fixed: sku search issue fixed for variable and variation product.
+* Fixed: conditional checkbox and conditional Add to cart button - issue fix for All to cart all selected.
+* Bug fixed 
+* Code Optimized
 
 = 3.4.2 =
 * Added: new filter hook `wpt_subtotal_text` added for Subtotal text of footer cart.
@@ -455,7 +504,7 @@ You can easily show specific category products. While creating new table click o
   * Empty Cart buttin fixed.
   * Fontello added. Some cutom icon added to our table.
   * Added Action_Hook wpt_load for staring product table anywhere.
-  * Added Action_Hook wpt_loaded at the end product table anywhere.
+  * Added Action_Hook wpt_after_table at the end product table anywhere.
 
 = 3.1.7 =
   * Audio file issue fixed in table.

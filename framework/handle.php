@@ -50,11 +50,13 @@ if( ! class_exists( 'WPT_Required' ) ){
          */
         public static function display_notice()
         {
-                if(time() > 1692167603 + 864000) return;
+
+                //Today: 12.11.2023 - 1698724145 and added 20 days seccond - 1728000 (little change actually)
+                if(time() > (1699862697 + 2728000)) return;
                 if( defined( 'WPT_PRO_DEV_VERSION' ) ) return;
                 
-                $temp_numb = rand(1,10);
-                // var_dump($temp_numb);
+                $temp_numb = rand(2,10);
+
                 /**
                  * small notice for pro plugin,
                  * charect:
@@ -71,23 +73,39 @@ if( ! class_exists( 'WPT_Required' ) ){
                 // if($temp_numb == 3) $small_notc->show();
                 
 
-
-                $target = 'https://codeastrology.com/coupons/?campaign=SPECIAL60F10DAYS&ref=1&utm_source=Default_Offer_LINK';
-                $my_message = '<b><i>COUPON CODE: SPECIAL60F10DAYS - up to 60% OFF</i></b> A coupon code for you for <b>Woo Product Table Pro)</b> Plugin';
-                $offerNc = new Notice('wpt_SPECIAL60F10DAYS_offer');
-                $offerNc->set_title( 'SPECIAL OFFER for 10 days' )
-                ->set_diff_limit(35)
+                $coupon_Code = 'BLACKFRIDAY2023';
+                $target = 'https://wooproducttable.com/pricing/?discount=' . $coupon_Code . '&campaign=' . $coupon_Code . '&ref=1&utm_source=Default_Offer_LINK';
+                $my_message = 'Make Product Table easily with Black Friday offer. <b class="ca-button ca-button-type-success">COUPON CODE: <i>' . $coupon_Code . '</i> - for </b>(Woo Product Table Pro)</b> Plugin';
+                $offerNc = new Notice('wpt_'.$coupon_Code.'_offer');
+                $offerNc->set_title( 'BLACK FRIDAY OFFER 🍋 🍌' )
+                ->set_diff_limit(3)
                 ->set_type('offer')
-                ->set_img( WPT_BASE_URL. 'assets/images/wpt-logo-sk.png')
+                ->set_img( WPT_BASE_URL. 'assets/images/round-logo.png')
                 ->set_img_target( $target )
                 ->set_message( $my_message )
                 ->add_button([
-                    'text' => 'Claim Discount',
-                    'type' => 'error',
-                    'link' => $target,
+                    'text' => 'Claim Coupon',
+                    'type' => 'success',
+                    'link' => 'https://wooproducttable.com/pricing/?discount=' . $coupon_Code,
                 ]);
-                // if( method_exists($offerNc, 'set_location') ){
-                //     $offerNc->set_location('wpt_offer_here'); //wpt_premium_image_bottom
+                
+                $offerNc->add_button([
+                    'text' => 'Unlimited Access(Lifetime) with Discount',
+                    'type' => 'error',
+                    'link' => 'https://codeastrology.com/checkout?edd_action=add_to_cart&download_id=6553&edd_options%5Bprice_id%5D=6&discount=' . $coupon_Code,
+                ]);
+                
+                $offerNc->add_button([
+                    'text' => 'Checkout Coupon',
+                    'type' => 'offer',
+                    'link' => 'https://codeastrology.com/coupons/?discount=' . $coupon_Code . '&campaign=' . $coupon_Code . '&ref=1&utm_source=Default_Offer_LINK',
+                ]);
+
+                //location a dekhale notice bar a obbossoi dekhabe.
+                //somossa hocche
+                // if( method_exists($offerNc, 'set_location') && $temp_numb == 3 ){ //$temp_numb == 5
+                //     $offerNc->set_location('wpt_premium_image_bottom'); //wpt_premium_image_bottom
+                //     $offerNc->show();
                 // }
                 if($temp_numb == 5) $offerNc->show();
                 

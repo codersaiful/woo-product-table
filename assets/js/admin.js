@@ -340,7 +340,7 @@ jQuery.fn.extend({
             var prevClass = prev.attr('class');
             var next = thisElement.next();
             var nextClass = next.attr('class');
-            console.log(target);
+
             //console.log(typeof prev, typeof next, typeof thisElement);
             if( target == 'next' && typeof next.html() !== 'undefined'){
                 thisElement.before('<li class="' + nextClass + '">'+next.html()+'</li>');
@@ -918,7 +918,7 @@ jQuery.fn.extend({
      */
     
     var colSetsLen = $('form#wpt-main-configuration-form').length;
-    console.log(colSetsLen);
+
     if( colSetsLen > 0 ){
 
         var saveChangeText = 'Save';
@@ -929,8 +929,9 @@ jQuery.fn.extend({
         $('#wpt-main-configuration-form').append(btnHtml);
 
         $(window).on('scroll',function(){
-            console.log(222222);
+
             let targetElement = $('.float-btn');
+            let topbarElement = $('div.wpt-header.wpt-clearfix');
             // if(targetElement.length < 1) return;
             
             let bodyHeight = $('#wpbody').height();
@@ -953,7 +954,13 @@ jQuery.fn.extend({
             }else{
                 targetElement.removeClass('stick_on_scroll-on');
             }
-            
+            if(scrollTop > 90){
+                configFormElement.addClass('topbar-fixed-on-scroll-main-element');
+                topbarElement.addClass('topbar-fixed-on-scroll');
+            }else{
+                configFormElement.removeClass('topbar-fixed-on-scroll-main-element');
+                topbarElement.removeClass('topbar-fixed-on-scroll');
+            }
             if(scrollTop > 100 && colSetsLen > 0){
                 targetElement.attr('id','stick_on_scroll-on');
             }else if(colSetsLen > 0){
@@ -976,7 +983,7 @@ jQuery.fn.extend({
      */
     
     var status = $('#original_post_status').val();
-    console.log(status, postColSetsLen);
+
     if( postColSetsLen > 0 && status === 'publish'){
         var saveChangeText = $('button.button[name="wpt_post_submit"]').text(); //Save Change
         var myHtml = '<div class="wrapper_wpt_ajax_update ultraaddons-button-wrapper">';
@@ -984,7 +991,7 @@ jQuery.fn.extend({
         myHtml += '</div>';
         $('#wpt_configuration_form').append(myHtml);
         $(window).on('scroll',function(){
-            console.log(88888888888);
+
             let targetElement = $('.stick_on_scroll');
             if(targetElement.length < 1) return;
             
@@ -1009,7 +1016,7 @@ jQuery.fn.extend({
             }else{
                 targetElement.removeAttr('id');
             }
-            
+
             if(scrollTop > 100 && postColSetsLen > 0){
                 targetElement.attr('id','stick_on_scroll-on');
             }else if(postColSetsLen > 0){
@@ -1022,6 +1029,66 @@ jQuery.fn.extend({
 
     }
     
+
+
+    /**
+     * Tab Area Handle
+     */
+    configureTabAreaAdded('#wpt-main-configuration-form'); //Specially for Configure Page
+    configureTabAreaAdded('.fieldwrap.wpt_result_footer.ultraaddons.pro_version'); //From inside on Edit Table
+    function configureTabAreaAdded( mainSelector = '#wpt-main-configuration-form' ){
+        var tabSerial = 0;
+        var tabArray = new Array();
+        var tabHtml = ""
+        var tabArea = $(mainSelector + ' .wpt-configure-tab-wrapper');
+        if(tabArea.length < 1){
+            $(mainSelector).prepend('<div class="wpt-configure-tab-wrapper wpt-section-panel no-background"></div>');
+            tabArea = $(mainSelector + ' .wpt-configure-tab-wrapper');
+        }
+        var sectionPanel = $(mainSelector + ' div.wpt-section-panel');
+        sectionPanel.each(function(index, content){
+            
+            let table = $(this).find('table');
+            let tableCount = table.length;
+            if(tableCount > 0){
+                
+                let firstTable = table.first();
+                let tableId = $(this).attr('id');
+                let tableTitle = firstTable.find('thead tr th:first-child h3').text();
+                tabArray[tableId] = tableTitle;
+
+                if(tabSerial !== 0){
+                    $(this).hide();
+                    tabHtml += "<a href='#" + tableId + "' class='tab-button wpt-button'>" + tableTitle + "</a>"
+                }else{
+                    $(this).addClass('active');
+                    tabHtml += "<a href='#" + tableId + "' class='tab-button wpt-button active'>" + tableTitle + "</a>"
+                }
+
+                tabSerial++;
+
+            }
+            
+        });
+        if(tabSerial > 1){
+            tabHtml += "<a href='#show-all' class='tab-button wpt-button'>Show All</a>";
+            tabArea.html(tabHtml);
+        }
+        
+        $(document.body).on('click','.wpt-configure-tab-wrapper a.tab-button',function(e){
+            e.preventDefault();
+            $('.wpt-configure-tab-wrapper a').removeClass('active');
+            $(this).addClass('active');
+            $(mainSelector + ' div.wpt-section-panel.active').hide();
+            let target = $(this).attr('href');
+            if(target == '#show-all'){
+                sectionPanel.fadeIn();
+                return;
+            }
+            $(mainSelector + ' ' + target).fadeIn().addClass('active');
+            
+        });
+    }
 
 
 })(jQuery);

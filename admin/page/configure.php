@@ -50,14 +50,15 @@ $wrapper_class = isset($settings['module']) ? $settings['module'] : '';
     <div class="fieldwrap">
         <form action="" method="POST"  id="wpt-main-configuration-form">
 
-            <div class="wpt-section-panel no-background wpt-full-form-submit-wrapper">
+            <div class="wpt-configure-tab-wrapper wpt-section-panel no-background"></div>
+            <!-- <div class="wpt-section-panel no-background wpt-full-form-submit-wrapper">
                 <button name="configure_submit" type="submit" class="wpt-btn wpt-has-icon configure_submit">
                     <span><i class="wpt-floppy"></i></span>
                     <strong class="form-submit-text">
                         <?php echo esc_html__('Save Change', 'wpt'); ?>
                     </strong>
                 </button>
-            </div>
+            </div> -->
 
             <?php
             /**

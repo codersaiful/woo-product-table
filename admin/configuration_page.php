@@ -1,5 +1,10 @@
 <?php
-
+/**
+ * This page is not depreciated.
+ * File has transferred to woo-product-table/admin/page/configure.php file
+ * 
+ * @since 3.0.0
+ */
 //##Unused totally unused page
 if( !function_exists( 'wpt_configuration_page' ) ){
     /**

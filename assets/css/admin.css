@@ -1577,7 +1577,7 @@ form#wpt-main-configuration-form  #stick_on_scroll-on {
     border-radius: unset;
     z-index: 99999;
     display: none;
-    top: 80px;
+    top: 150px;
     left: unset;
     margin: 0;
     opacity: 1;
@@ -2227,6 +2227,66 @@ div.wpt-content p.wpt-issue-submit a:hover {
     align-items: center;
     flex: 1 100%;
 }
+
+/********Configure Tab Area Start*********/
+
+.wpt_tab_content.tab-content .wpt-section-panel {
+    margin: 0;
+    margin-top: 15px;
+}
+
+.wpt_tab_content.tab-content .wpt-section-panel .wpt-table-header-inside {
+    padding: 0;
+}
+
+.wpt_tab_content.tab-content .wpt-section-panel table.wpt-my-table tr.divider-row>td {
+    padding-top: 2px !important;
+}
+
+.wpt_tab_content.tab-content .wpt-configure-tab-wrapper.wpt-section-panel {
+    padding: 0 32px;
+    margin-top: 0;
+}
+
+.wpt_tab_content.tab-content .wpt-configure-tab-wrapper.wpt-section-panel a.tab-button.wpt-button {
+    border: 1px solid #ddd;
+}
+
+.wpt-configure-tab-wrapper.wpt-section-panel a {
+    color: black;
+    background: white;
+    box-shadow: 1px 1px 8px 0 rgba(170, 157, 137, 0.14);
+    border: 1px solid white;
+    border-right-color: #cececea3;
+    display: inline-block;
+    margin-bottom: 2px;
+}
+.wpt-configure-tab-wrapper.wpt-section-panel a:last-child{
+    border-right-color: white;
+}
+
+.wpt-configure-tab-wrapper.wpt-section-panel a.active {
+    background-color: #4caf50;
+    color: white;
+    border: 1px solid #4caf50;
+}
+
+.topbar-fixed-on-scroll-main-element .wpt-configure-tab-wrapper.wpt-section-panel.backup {
+    position: fixed;
+    top: 130px;
+    z-index: 999;
+    background: white !important;
+    width: 87%;
+    display: inline-flex;
+    clear: both;
+    box-sizing: border-box;
+    box-shadow: 0px 9px 13px 0 #0000004a;
+}
+/********Configure Tab Area End*********/
+
+
+
+
 .wpt-plugin-recommend-area .anywhere-notice.ca-notice.notice-success[data-notice_id="black-friday-22"]:hover {
     background: #007694;
     
@@ -2308,7 +2368,61 @@ span.wpt-help-icon.wpt-help-focused{
 
     }
 }
+.wpt-renew-license-notice>div {
+    background: white;
+    padding: 10px 15px;
+    display: block !important;
+    clear: both;
+    border-left: 5px solid #d00;
+    margin: 13px 0 0 0;
+    box-sizing: border-box;
+    height: max-content;
+    line-height: 30px;
+}
 
+.wpt-renew-license-notice {
+    display: block;
+    clear: both;
+    height: max-content;
+    background: transparent;
+}
+.error.wpt-renew-license-notice {
+    border: 0 none !important;
+    padding: 0;
+}
+.wpt-renew-license-notice a {
+    background: #E91E63;
+    border-color: #E91E63;
+    text-transform: uppercase !important;
+    padding: 6px 10px !important;
+    border-left: 27px solid #7a052d;
+    position: relative;
+    color: white;
+    text-decoration: none;
+    white-space: nowrap;
+}
+.wpt-renew-license-notice a:hover {
+    
+    background: #4caf50;
+    border-color: #38823b;
+    text-transform: uppercase !important;
+    padding: 6px 10px !important;
+    border-left: 27px solid #38823b;
+    position: relative;
+}
+.wpt-renew-license-notice a::before {
+    content: "☀";
+    position: absolute;
+    top: -2px;
+    left: -20px;
+    color: rgb(255, 255, 255);
+}
+img.wpt-license-brand-logo {
+    width: 25px;
+    height: auto;
+    display: inline-block;
+    margin-bottom: -8px;
+}
 a.wpt-doc-lick{
     text-decoration: none;
     padding: 5px;
@@ -2343,4 +2457,48 @@ div.wpt_tab_content table th {
 }
 .wpt_column_setting_extra>div>label {
     display: inline !important;
+}
+
+.fieldwrap .anywhere-notice .ca-msg-text p {
+    display: none;
+}
+
+.fieldwrap .anywhere-notice.ca-notice.notice-offer .ca-msg-text p.ca-links-collection {
+    display: block;
+}
+
+.fieldwrap .anywhere-notice.ca-notice.notice-offer .ca-msg-text h1 {
+    color: red;
+}
+
+.fieldwrap .anywhere-notice.ca-notice.notice-offer .ca-msg-text p.ca-links-collection a {
+    background: #4CAF50;
+}
+
+
+
+/* black Friday offer  */
+.notice.ca-notice.notice-offer[data-notice_id="wpt_BLACKFRIDAY2023_offer"] {background: black;color: #607D8B;}
+.notice.ca-notice.notice-offer[data-notice_id="wpt_BLACKFRIDAY2023_offer"] a.ca-logo-link img, 
+.notice.ca-notice.notice-offer[data-notice_id="wpt_BLACKFRIDAY2023_offer"] a.ca-logo-link img,
+.notice.ca-notice.notice-offer[data-notice_id="wpt_BLACKFRIDAY2023_offer"] img, 
+.notice.ca-notice.notice-offer[data-notice_id="wpt_BLACKFRIDAY2023_offer"] a {
+    border: 0 none !important;
+}
+.notice.ca-notice.notice-offer[data-notice_id="wpt_BLACKFRIDAY2023_offer"] .ca-msg-text h1 {
+    color: #ff0000;
+    font-size: 19px;
+}
+.notice.ca-notice.notice-offer[data-notice_id="wpt_BLACKFRIDAY2023_offer"] .ca-msg-text p>b:last-child {
+    color: red;
+}
+.notice.ca-notice.notice-offer[data-notice_id="wpt_BLACKFRIDAY2023_offer"] .ca-msg-text p>b>i {
+    color: #4CAF50;
+}
+.notice.ca-notice.notice-offer[data-notice_id="wpt_BLACKFRIDAY2023_offer"] .ca-msg-text p {
+    padding-bottom: 5px;
+}
+
+.fieldwrap .anywhere-notice.ca-notice.notice-offer .ca-msg-text p.ca-links-collection {
+    display: none;
 }

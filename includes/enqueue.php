@@ -121,7 +121,7 @@ if( ! function_exists( 'wpt_datatables_enqueue' ) ){
     
     /**
      * DataTable enable disable function using enqueue
-     * Used hook wpt_loaded
+     * Used hook wpt_after_table
      * 
      * @since 3.1.9.0
      * @author Saiful Islam <codersaiful@gmail.com>
@@ -164,7 +164,7 @@ if( ! function_exists( 'wpt_datatables_enqueue' ) ){
 
    }
 }
-add_action( 'wpt_loaded', 'wpt_datatables_enqueue', 99 ); //wp_enqueue_scripts
+add_action( 'wpt_after_table', 'wpt_datatables_enqueue', 99 ); //wp_enqueue_scripts
 
 function wpt_datatable_wise_arg_manage( $args, $table_ID ){
     $condtion = get_post_meta( $table_ID, 'conditions', true );
