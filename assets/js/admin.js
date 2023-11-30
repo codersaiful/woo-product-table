@@ -1070,7 +1070,9 @@ jQuery.fn.extend({
             }
             
         });
-        tabArea.html(tabHtml);
+        if(tabSerial > 1){
+            tabArea.html(tabHtml);
+        }
         
         $(document.body).on('click','.wpt-configure-tab-wrapper a.tab-button',function(e){
             e.preventDefault();
