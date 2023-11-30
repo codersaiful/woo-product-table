@@ -321,6 +321,7 @@ You can easily show specific category products. While creating new table click o
 = 3.4.6 =
 * Fixed: Asc/Desc icon fixed (Table Title)
 * Fixed: additional_json issue on all selected item add has been fixed.
+* Admin area organized and Optimized.
 
 = 3.4.5 =
 * Added: new filter hook for description colun has been added. `wpto_product_description` filter added. [Code Example](https://gist.github.com/codersaiful/6053bf6b2160b90144fef9748ef28e5c)
