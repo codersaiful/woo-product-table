@@ -931,6 +931,7 @@ jQuery.fn.extend({
         $(window).on('scroll',function(){
 
             let targetElement = $('.float-btn');
+            let topbarElement = $('div.wpt-header.wpt-clearfix');
             // if(targetElement.length < 1) return;
             
             let bodyHeight = $('#wpbody').height();
@@ -953,7 +954,13 @@ jQuery.fn.extend({
             }else{
                 targetElement.removeClass('stick_on_scroll-on');
             }
-            
+            if(scrollTop > 200){
+                configFormElement.addClass('topbar-fixed-on-scroll-main-element');
+                topbarElement.addClass('topbar-fixed-on-scroll');
+            }else{
+                configFormElement.removeClass('topbar-fixed-on-scroll-main-element');
+                topbarElement.removeClass('topbar-fixed-on-scroll');
+            }
             if(scrollTop > 100 && colSetsLen > 0){
                 targetElement.attr('id','stick_on_scroll-on');
             }else if(colSetsLen > 0){
@@ -1009,7 +1016,7 @@ jQuery.fn.extend({
             }else{
                 targetElement.removeAttr('id');
             }
-            
+
             if(scrollTop > 100 && postColSetsLen > 0){
                 targetElement.attr('id','stick_on_scroll-on');
             }else if(postColSetsLen > 0){

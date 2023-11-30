@@ -1577,7 +1577,7 @@ form#wpt-main-configuration-form  #stick_on_scroll-on {
     border-radius: unset;
     z-index: 99999;
     display: none;
-    top: 80px;
+    top: 150px;
     left: unset;
     margin: 0;
     opacity: 1;
@@ -2258,6 +2258,8 @@ div.wpt-content p.wpt-issue-submit a:hover {
     box-shadow: 1px 1px 8px 0 rgba(170, 157, 137, 0.14);
     border: 1px solid white;
     border-right-color: #cececea3;
+    display: inline-block;
+    margin-bottom: 2px;
 }
 .wpt-configure-tab-wrapper.wpt-section-panel a:last-child{
     border-right-color: white;
@@ -2267,6 +2269,18 @@ div.wpt-content p.wpt-issue-submit a:hover {
     background-color: #4caf50;
     color: white;
     border: 1px solid #4caf50;
+}
+
+.topbar-fixed-on-scroll-main-element .wpt-configure-tab-wrapper.wpt-section-panel.backup {
+    position: fixed;
+    top: 130px;
+    z-index: 999;
+    background: white !important;
+    width: 87%;
+    display: inline-flex;
+    clear: both;
+    box-sizing: border-box;
+    box-shadow: 0px 9px 13px 0 #0000004a;
 }
 /********Configure Tab Area End*********/
 

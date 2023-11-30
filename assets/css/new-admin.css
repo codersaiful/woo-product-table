@@ -28,6 +28,20 @@ body .wpt-header, body .wpt-content {
     display: flow-root;
     /* flex-basis: 100%; */
 }
+.wpt-header.wpt-clearfix.topbar-fixed-on-scroll {
+    position: fixed;
+    width: 100%;
+    background: white;
+    z-index: 999;
+}
+@media (max-width: 992px) {
+    .wpt-header.wpt-clearfix.topbar-fixed-on-scroll {
+        top: 0;
+    }
+}
+.topbar-fixed-on-scroll-main-element{
+    margin-top: 250px;
+}
 .wpt-clearfix:before, .wpt-clearfix:after {
     display: table;
     content: " ";
