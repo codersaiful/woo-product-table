@@ -1059,10 +1059,10 @@ jQuery.fn.extend({
 
                 if(tabSerial !== 0){
                     $(this).hide();
-                    tabHtml += "<a href='#" + tableId + "' class='tab-button wpt-button'>" + tableTitle + "</a>"
+                    tabHtml += "<a href='#" + tableId + "' class='tab-button wpt-button link-" + tableId + "'>" + tableTitle + "</a>"
                 }else{
                     $(this).addClass('active');
-                    tabHtml += "<a href='#" + tableId + "' class='tab-button wpt-button active'>" + tableTitle + "</a>"
+                    tabHtml += "<a href='#" + tableId + "' class='tab-button wpt-button link-" + tableId + " active'>" + tableTitle + "</a>"
                 }
 
                 tabSerial++;
