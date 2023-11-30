@@ -954,7 +954,7 @@ jQuery.fn.extend({
             }else{
                 targetElement.removeClass('stick_on_scroll-on');
             }
-            if(scrollTop > 200){
+            if(scrollTop > 90){
                 configFormElement.addClass('topbar-fixed-on-scroll-main-element');
                 topbarElement.addClass('topbar-fixed-on-scroll');
             }else{
