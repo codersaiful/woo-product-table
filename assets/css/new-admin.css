@@ -167,6 +167,11 @@ table.wpt-my-table tr td label {
     background-color: #f6f6f6;
     /* background-color: #fbfaf9; */
 }
+
+.wpt_tab_content.tab-content .wpt-my-table > thead > tr > th:last-child,
+.wpt_tab_content.tab-content .wpt-my-table > tbody > tr > td:last-child {
+    display: none;
+}
 /* .wpt-my-table > thead > tr:hover > th:last-child, */
 .wpt-my-table > tbody > tr:hover > td:last-child {
     background-color: #fdfdfd;
