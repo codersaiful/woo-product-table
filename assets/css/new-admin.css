@@ -34,7 +34,7 @@ body .wpt-header, body .wpt-content {
     background: white;
     z-index: 999;
 }
-@media (max-width: 992px) {
+@media (max-width: 779px) {
     .wpt-header.wpt-clearfix.topbar-fixed-on-scroll {
         top: 0;
     }
