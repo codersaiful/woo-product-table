@@ -112,7 +112,8 @@ class Fragment extends Shortcode_Base{
         </a>
         
         <?php
-        return ob_get_clean();
+        $floating_cart_content = ob_get_clean();
+        return apply_filters( 'wpto_floating_cart_content', $floating_cart_content );
     }
     /**
      * We will use this method inside 
