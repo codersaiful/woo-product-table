@@ -2227,6 +2227,52 @@ div.wpt-content p.wpt-issue-submit a:hover {
     align-items: center;
     flex: 1 100%;
 }
+
+/********Configure Tab Area Start*********/
+
+.wpt_tab_content.tab-content .wpt-section-panel {
+    margin: 0;
+    margin-top: 15px;
+}
+
+.wpt_tab_content.tab-content .wpt-section-panel .wpt-table-header-inside {
+    padding: 0;
+}
+
+.wpt_tab_content.tab-content .wpt-section-panel table.wpt-my-table tr.divider-row>td {
+    padding-top: 2px !important;
+}
+
+.wpt_tab_content.tab-content .wpt-configure-tab-wrapper.wpt-section-panel {
+    padding: 0 32px;
+    margin-top: 0;
+}
+
+.wpt_tab_content.tab-content .wpt-configure-tab-wrapper.wpt-section-panel a.tab-button.wpt-button {
+    border: 1px solid #ddd;
+}
+
+.wpt-configure-tab-wrapper.wpt-section-panel a {
+    color: black;
+    background: white;
+    box-shadow: 1px 1px 8px 0 rgba(170, 157, 137, 0.14);
+    border: 1px solid white;
+    border-right-color: #cececea3;
+}
+.wpt-configure-tab-wrapper.wpt-section-panel a:last-child{
+    border-right-color: white;
+}
+
+.wpt-configure-tab-wrapper.wpt-section-panel a.active {
+    background-color: #4caf50;
+    color: white;
+    border: 1px solid #4caf50;
+}
+/********Configure Tab Area End*********/
+
+
+
+
 .wpt-plugin-recommend-area .anywhere-notice.ca-notice.notice-success[data-notice_id="black-friday-22"]:hover {
     background: #007694;
     
@@ -2414,24 +2460,6 @@ div.wpt_tab_content table th {
 .fieldwrap .anywhere-notice.ca-notice.notice-offer .ca-msg-text p.ca-links-collection a {
     background: #4CAF50;
 }
-
-.wpt-configure-tab-wrapper.wpt-section-panel a {
-    color: black;
-    background: white;
-    box-shadow: 1px 1px 8px 0 rgba(170, 157, 137, 0.14);
-    border: 1px solid white;
-    border-right-color: #cececea3;
-}
-.wpt-configure-tab-wrapper.wpt-section-panel a:last-child{
-    border-right-color: white;
-}
-
-.wpt-configure-tab-wrapper.wpt-section-panel a.active {
-    background-color: #4caf50;
-    color: white;
-    border: 1px solid #4caf50;
-}
-
 
 
 
