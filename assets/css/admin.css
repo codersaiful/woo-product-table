@@ -2415,6 +2415,26 @@ div.wpt_tab_content table th {
     background: #4CAF50;
 }
 
+.wpt-configure-tab-wrapper.wpt-section-panel a {
+    color: black;
+    background: white;
+    box-shadow: 1px 1px 8px 0 rgba(170, 157, 137, 0.14);
+    border: 1px solid white;
+    border-right-color: #cececea3;
+}
+.wpt-configure-tab-wrapper.wpt-section-panel a:last-child{
+    border-right-color: white;
+}
+
+.wpt-configure-tab-wrapper.wpt-section-panel a.active {
+    background-color: #4caf50;
+    color: white;
+    border: 1px solid #4caf50;
+}
+
+
+
+
 /* black Friday offer  */
 .notice.ca-notice.notice-offer[data-notice_id="wpt_BLACKFRIDAY2023_offer"] {background: black;color: #607D8B;}
 .notice.ca-notice.notice-offer[data-notice_id="wpt_BLACKFRIDAY2023_offer"] a.ca-logo-link img, 

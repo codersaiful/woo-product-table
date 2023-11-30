@@ -1024,6 +1024,55 @@ jQuery.fn.extend({
     
 
 
+    /**
+     * Tab Area Handle
+     */
+    var tabSerial = 0;
+    var tabArray = new Array();
+    var tabHtml = ""
+    var tabArea = $('#wpt-main-configuration-form .wpt-configure-tab-wrapper');
+    if(tabArea.length < 1){
+        $('#wpt-main-configuration-form').prepend('<div class="wpt-configure-tab-wrapper wpt-section-panel no-background"></div>');
+        tabArea = $('#wpt-main-configuration-form .wpt-configure-tab-wrapper');
+    }
+    var sectionPanel = $('#wpt-main-configuration-form div.wpt-section-panel');
+    sectionPanel.each(function(index, content){
+        
+        let table = $(this).find('table');
+        let tableCount = table.length;
+        if(tableCount > 0){
+            
+            let firstTable = table.first();
+            let tableId = $(this).attr('id');
+            let tableTitle = firstTable.find('thead tr th:first-child h3').text();
+            tabArray[tableId] = tableTitle;
+
+            if(tabSerial !== 0){
+                $(this).hide();
+                tabHtml += "<a href='#" + tableId + "' class='tab-button wpt-button'>" + tableTitle + "</a>"
+            }else{
+                $(this).addClass('active');
+                tabHtml += "<a href='#" + tableId + "' class='tab-button wpt-button active'>" + tableTitle + "</a>"
+            }
+
+            tabSerial++;
+
+        }
+        
+    });
+    tabArea.html(tabHtml);
+    
+    $(document.body).on('click','.wpt-configure-tab-wrapper a.tab-button',function(e){
+        e.preventDefault();
+        $('.wpt-configure-tab-wrapper a').removeClass('active');
+        $('#wpt-main-configuration-form div.wpt-section-panel.active').hide();
+        let target = $(this).attr('href');
+        $('#wpt-main-configuration-form ' + target).fadeIn().addClass('active');
+        $(this).addClass('active');
+    });
+
+
+
 })(jQuery);
 
 /**
