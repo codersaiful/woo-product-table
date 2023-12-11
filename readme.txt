@@ -93,7 +93,7 @@ Please Visit our demo site to see all our demo tables. [All Demo](https://demo.w
 
 https://www.youtube.com/shorts/Qq8Ck8yqQ5U
 
-<h2>Our main features ( Pro and Free )</h2>
+<h2>Our Main Features</h2>
 
 **WPML/Loco Translate/Multi Language**<br>
 Totally supported with WPML or any other Local language supported. here can use any plugin of multi language.
@@ -234,7 +234,7 @@ With a Product Table Plugin, you can feel confident that your business processes
 * [unikforceit](https://github.com/unikforceit) (42 commits )
 * [fatimakhatungit](https://github.com/fatimakhatungit) (38 commits )
 * [rafiul](https://github.com/rafiul) (29 commits )
-* [mdibrahimk48](https://github.com/mdibrahimk48) (5 commits )
+* [mdibrahimk48](https://github.com/mdibrahimk48) (10 commits )
 * [tanyabouman](https://github.com/tanyabouman) (4 commits )
 * [zbandhan](https://github.com/zbandhan) (1 commits )
 * 👉 [You can join here](https://github.com/codersaiful/woo-product-table/fork)
