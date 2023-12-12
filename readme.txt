@@ -4,7 +4,7 @@ Donate link: https://donate.stripe.com/4gw2bB2Pzdjd8mYfYZ
 Tags: wc product table, wooproducttable, woo product table,woocommerce product table, product table, wc table, quick order table, wholesale table, restaurants table,woo-product-table
 Requires at least: 4.0.0
 Tested up to: 6.4.2
-Stable tag: 3.4.5
+Stable tag: 3.4.6
 Requires PHP: 5.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -322,6 +322,7 @@ You can easily show specific category products. While creating new table click o
 * Fixed: Asc/Desc icon fixed (Table Title)
 * Fixed: additional_json issue on all selected item add has been fixed.
 * Admin area organized and Optimized.
+* Removed: Black Friday offer notice has been removed.
 
 = 3.4.5 =
 * Added: new filter hook for description colun has been added. `wpto_product_description` filter added. [Code Example](https://gist.github.com/codersaiful/6053bf6b2160b90144fef9748ef28e5c)

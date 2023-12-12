@@ -51,6 +51,7 @@ if( ! class_exists( 'WPT_Required' ) ){
         public static function display_notice()
         {
 
+                return;
                 //Today: 12.11.2023 - 1698724145 and added 20 days seccond - 1728000 (little change actually)
                 if(time() > (1699862697 + 2728000)) return;
                 if( defined( 'WPT_PRO_DEV_VERSION' ) ) return;
