@@ -318,6 +318,9 @@ You can easily show specific category products. While creating new table click o
 
 == Changelog ==
 
+= 3.4.7 =
+* Fixed: Search Result has been fixed based on 'relevance'.
+
 = 3.4.6 =
 * Fixed: Asc/Desc icon fixed (Table Title)
 * Fixed: additional_json issue on all selected item add has been fixed.

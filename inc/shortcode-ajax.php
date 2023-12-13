@@ -178,6 +178,16 @@ class Shortcode_Ajax extends Shortcode{
         if( isset( $this->args['s'] ) ){
 
             $this->args['wpt_query_type'] = 'search';
+
+            /**
+             * Very important, beased on this, 
+             * most relavant will show at the begining.
+             * 
+             * @since 3.4.6.0
+             * @author Saiful Islam <codersaiful@gmail.com>
+             * line: $this->args['orderby'] = 'relevance';
+             */
+            $this->args['orderby'] = 'relevance';
             unset( $this->args['suppress_filters'] );
         }
         
