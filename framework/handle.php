@@ -54,8 +54,8 @@ if( ! class_exists( 'WPT_Required' ) ){
                 // return;
                 //Today: 21.12.2023 - 1703142634 and added 9 days seccond - 777600 (little change actually)
                 if(time() > (1703142634 + 777600)) return;
-                // if( defined( 'WPT_PRO_DEV_VERSION' ) ) return;
-                $temp_numb = rand(2,10);
+                if( defined( 'WPT_PRO_DEV_VERSION' ) ) return;
+                $temp_numb = rand(2,15);
 
                 /**
                  * small notice for pro plugin,
