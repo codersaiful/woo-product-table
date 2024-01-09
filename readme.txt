@@ -78,13 +78,14 @@ https://www.youtube.com/watch?v=yPjFmCHn36Y
 
 Please Visit our demo site to see all our demo tables. [All Demo](https://demo.wooproducttable.com/) 
 
-** Customization of Table Data **
+**Customization of Table Data**
 Using filter hook, User able to change any TD data, using filter hook.<br>
 Example Code:<br>
+
 `add_filter('wpt_td_content', function($content, $Row, $column_key){
   //$product_id = $Row->product_id;
   //$product_id = $Row->td_keyword;
-  //vard_dump($Row); //Checkout to get all others property of this $Row object.
+  //var_dump($Row); //Checkout to get all others property of this $Row object.
   if($column_key == '_price'){
       $content = "BDT $content" . ' taka';
   }
