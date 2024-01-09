@@ -362,9 +362,32 @@ class Row extends Table_Base{
             data-sku="<?php echo esc_attr( $this->product_sku ); ?>"
             class="<?php echo esc_attr( $tag_class ); ?>">
                 <?php 
+                ob_start();
                 if( is_file( $file ) ){
                     include $file;
                 }
+                $td_content = ob_get_clean();
+                /**
+                 * By this filter hook `wpt_td_content` 
+                 * user able to change Whole content of TD Content of Each Row.
+                 * 
+                 * Usase:
+                 * 
+                 add_filter('wpt_td_content', function($content, $Row, $column_key){
+                    //$product_id = $Row->product_id;
+                    //$product_id = $Row->td_keyword;
+                    //vard_dump($Row); //Checkout to get all others property of this $Row object.
+                    if($column_key == '_price'){
+                        $content = "BDT $content" . ' taka';
+                    }
+                    return $content;
+                 }, 10, 3);
+                 * 
+                 * @Hook `wpt_td_content`
+                 * @since 3.4.7.2 
+                 * @author Saiful Islam <codersaiful@gmail.com>
+                 */
+                echo apply_filters( 'wpt_td_content', $td_content, $this, $keyword );
                 ?>
             </<?php echo esc_html( $tag ); ?>>
             
@@ -487,10 +510,56 @@ class Row extends Table_Base{
 
         do_action( 'wpto_item_top', $keyword, $table_ID, $settings, $column_settings, $parent_column_settings, $product );
                 
-
+        ob_start();
         if( is_file( $file ) ){
             include $file;
         }
+
+        $td_content = ob_get_clean();
+
+        /**
+         * By this filter hook `wpt_item_content` 
+         * user able to change Whole content of TD Content of Each Row.
+         * 
+         * Usase:
+         * 
+         add_filter('wpt_item_content', function($content, $Row, $item_key){
+            //$product_id = $Row->product_id;
+            //$product_id = $Row->td_keyword;
+            //vard_dump($Row); //Checkout to get all others property of this $Row object.
+            if($item_key == '_price'){
+                $content = "BDT $content" . ' taka';
+            }
+            return $content;
+            }, 10, 3);
+        * 
+        * @Hook `wpt_item_content`
+        * @since 3.4.7.2 
+        * @author Saiful Islam <codersaiful@gmail.com>
+        */
+        $td_content = apply_filters( 'wpt_item_content', $td_content, $this, $keyword, $parent_keyword );
+
+        /**
+         * By this filter hook `wpt_td_content` 
+         * user able to change Whole content of TD Content of Each Row.
+         * 
+         * Usase:
+         * 
+         add_filter('wpt_td_content', function($content, $Row, $column_key){
+            //$product_id = $Row->product_id;
+            //$product_id = $Row->td_keyword;
+            //vard_dump($Row); //Checkout to get all others property of this $Row object.
+            if($column_key == '_price'){
+                $content = "BDT $content" . ' taka';
+            }
+            return $content;
+            }, 10, 3);
+        * 
+        * @Hook `wpt_td_content`
+        * @since 3.4.7.2 
+        * @author Saiful Islam <codersaiful@gmail.com>
+        */
+        echo apply_filters( 'wpt_td_content', $td_content, $this, $keyword );
 
         do_action( 'wpto_column_top', $keyword, $this->table_id, $settings, $this->column_settings, $product );
         do_action( 'wpt_column_top', $keyword, $this );

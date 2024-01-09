@@ -76,8 +76,22 @@ https://www.youtube.com/watch?v=yPjFmCHn36Y
 * [Quotation Table](https://demo.wooproducttable.com/demo-list/send-your-quotation/) <br>Users can send quotations using our plugin. Here is the demo table for that.
 
 
-
 Please Visit our demo site to see all our demo tables. [All Demo](https://demo.wooproducttable.com/) 
+
+** Customization of Table Data **
+Using filter hook, User able to change any TD data, using filter hook.<br>
+Example Code:<br>
+`add_filter('wpt_td_content', function($content, $Row, $column_key){
+  //$product_id = $Row->product_id;
+  //$product_id = $Row->td_keyword;
+  //vard_dump($Row); //Checkout to get all others property of this $Row object.
+  if($column_key == '_price'){
+      $content = "BDT $content" . ' taka';
+  }
+  return $content;
+}, 10, 3);`
+
+[Filter and Action Hook list](https://wooproducttable.com/plugin-api/) 
 
 ** 🏆Product Table Has Received 5 (⭐⭐⭐⭐⭐ ) Reviews. Let's See What Our Users Said:**
 
@@ -319,7 +333,10 @@ You can easily show specific category products. While creating new table click o
 == Changelog ==
 
 = 3.4.7 =
+* Added: New filter hook added for Table Row and inner Item. hook: `wpt_td_content`.
+* Added: New filter hook added for Inner Item. hook: `wpt_item_content`.
 * Fixed: Search Result has been fixed based on 'relevance'.
+* Fixed: Sorting Icon fixed and updated to latest icon.
 
 = 3.4.6 =
 * Fixed: Asc/Desc icon fixed (Table Title)
