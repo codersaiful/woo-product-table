@@ -359,7 +359,7 @@ div.wpt_column_sort table#wpt_table.wpt_product_table tr>th.this_column_sorted[d
 } */
 div.wpt_column_sort table#wpt_table.wpt_product_table tr>th::after{
     content: '\f0dc';
-    font-family: "fontello";
+    font-family: "wptfontelo";
     font-style: normal;
     font-weight: normal;
     speak: never;

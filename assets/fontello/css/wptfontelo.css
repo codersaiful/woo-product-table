@@ -1,3 +1,58 @@
+@font-face {
+  font-family: 'wptfontelo';
+  src: url('../font/wptfontelo.eot?92927529');
+  src: url('../font/wptfontelo.eot?92927529#iefix') format('embedded-opentype'),
+       url('../font/wptfontelo.woff2?92927529') format('woff2'),
+       url('../font/wptfontelo.woff?92927529') format('woff'),
+       url('../font/wptfontelo.ttf?92927529') format('truetype'),
+       url('../font/wptfontelo.svg?92927529#wptfontelo') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+/*
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'wptfontelo';
+    src: url('../font/wptfontelo.svg?92927529#wptfontelo') format('svg');
+  }
+}
+*/
+[class^="wpt-"]:before, [class*=" wpt-"]:before {
+  font-family: "wptfontelo";
+  font-style: normal;
+  font-weight: normal;
+  speak: never;
+
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+
+  /* Font smoothing. That was taken from TWBS */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
 
 .wpt-cart:before { content: '\e800'; } /* '' */
 .wpt-basket:before { content: '\e801'; } /* '' */
@@ -7,6 +62,7 @@
 .wpt-basket-alt:before { content: '\e805'; } /* '' */
 .wpt-basket-3:before { content: '\e806'; } /* '' */
 .wpt-grid:before { content: '\e807'; } /* '' */
+.wpt-note-music:before { content: '\e807'; } /* '' */
 .wpt-gift:before { content: '\e808'; } /* '' */
 .wpt-th-large-outline:before { content: '\e809'; } /* '' */
 .wpt-th-large:before { content: '\e80a'; } /* '' */
@@ -62,8 +118,22 @@
 .wpt-home:before { content: '\e83c'; } /* '' */
 .wpt-user:before { content: '\e83d'; } /* '' */
 .wpt-twitter:before { content: '\e83e'; } /* '' */
+.wpt-wordpress:before { content: '\e83f'; } /* '' */
+.wpt-youtube:before { content: '\e840'; } /* '' */
+.wpt-videocam:before { content: '\e841'; } /* '' */
+.wpt-arrow-combo:before { content: '\e842'; } /* '' */
+.wpt-search:before { content: '\e843'; } /* '' */
+.wpt-music:before { content: '\e844'; } /* '' */
+.wpt-search-1:before { content: '\e845'; } /* '' */
+.wpt-search-2:before { content: '\e846'; } /* '' */
+.wpt-home-1:before { content: '\e847'; } /* '' */
+.wpt-sort-alphabet:before { content: '\e848'; } /* '' */
+.wpt-cog-alt:before { content: '\e849'; } /* '' */
+.wpt-cog:before { content: '\e84a'; } /* '' */
+.wpt-feather:before { content: '\e84b'; } /* '' */
 .wpt-globe-inv:before { content: '\f019'; } /* '' */
 .wpt-linkedin:before { content: '\f05c'; } /* '' */
+.wpt-ok-circled:before { content: '\f06d'; } /* '' */
 .wpt-github-circled:before { content: '\f09b'; } /* '' */
 .wpt-table:before { content: '\f0ce'; } /* '' */
 .wpt-desktop:before { content: '\f108'; } /* '' */
@@ -71,7 +141,11 @@
 .wpt-tablet:before { content: '\f10a'; } /* '' */
 .wpt-mobile:before { content: '\f10b'; } /* '' */
 .wpt-github:before { content: '\f113'; } /* '' */
+.wpt-mic:before { content: '\f130'; } /* '' */
+.wpt-doc-sheet:before { content: '\f15c'; } /* '' */
 .wpt-youtube-play:before { content: '\f16a'; } /* '' */
+.wpt-file-pdf:before { content: '\f1c1'; } /* '' */
+.wpt-file-excel:before { content: '\f1c3'; } /* '' */
 .wpt-plug:before { content: '\f1e6'; } /* '' */
 .wpt-brush:before { content: '\f1fc'; } /* '' */
 .wpt-cart-plus:before { content: '\f217'; } /* '' */
