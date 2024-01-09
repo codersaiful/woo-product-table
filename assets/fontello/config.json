@@ -477,7 +477,7 @@
     {
       "uid": "39e2e6682c28e1e3b5f49825a19717c4",
       "css": "note-music",
-      "code": 59399,
+      "code": 59316,
       "src": "entypo"
     },
     {
@@ -587,6 +587,30 @@
       "css": "ok-circled",
       "code": 61549,
       "src": "mfglabs"
+    },
+    {
+      "uid": "7e89c12b577c31bc91bfb61bb597f01f",
+      "css": "down-dir",
+      "code": 59468,
+      "src": "entypo"
+    },
+    {
+      "uid": "401b644723fb2f20b0df30cce7745c18",
+      "css": "up-dir",
+      "code": 59469,
+      "src": "entypo"
+    },
+    {
+      "uid": "8ax1xqcbzz1hobyd4i7f0unwib1bztip",
+      "css": "down-dir-1",
+      "code": 59470,
+      "src": "modernpics"
+    },
+    {
+      "uid": "6ipws8y9gej6vbloufvhi5qux7rluf64",
+      "css": "up-dir-1",
+      "code": 59471,
+      "src": "modernpics"
     }
   ]
 }
