@@ -1194,13 +1194,13 @@ body.wpt_admin_body .ultraaddons-panel td p {
 .wpt-pro-only-featues:before {
     content: "Premium";
     z-index: 99;
-    background: #ff00001f;
-    color: white;
+    color: #ffffff;
     text-align: center;
     position: absolute;
-    background: #FF5722;
+    background: #7b7b7b;
     padding: 6px 15px;
-    box-shadow: 8px 4px 4px 0 #00000038;
+    box-shadow: 3px 1px 4px 0 #00000000;
+    width: 55px;
 }
 select.wpt_table_on_archive {
     margin-bottom: 15px;
@@ -1577,7 +1577,7 @@ form#wpt-main-configuration-form  #stick_on_scroll-on {
     border-radius: unset;
     z-index: 99999;
     display: none;
-    top: 150px;
+    top: 450px;
     left: unset;
     margin: 0;
     opacity: 1;
@@ -1869,7 +1869,6 @@ p.lang-area-title {margin: 0;}
     height: 75px;
     width: 75px;
     border: 3px solid #ffffff;
-    box-shadow: 4px 4px 14px 9px #00000014;
 }
 .anywhere-notice.ca-notice .ca-notice-dismiss{display: none !important;}
 .notice.ca-notice.notice-offer .ca-msg-text p.ca-links-collection a {
@@ -2478,24 +2477,28 @@ div.wpt_tab_content table th {
 
 
 /* black Friday offer  */
-.notice.ca-notice.notice-offer[data-notice_id="wpt_BLACKFRIDAY2023_offer"] {background: black;color: #607D8B;}
-.notice.ca-notice.notice-offer[data-notice_id="wpt_BLACKFRIDAY2023_offer"] a.ca-logo-link img, 
-.notice.ca-notice.notice-offer[data-notice_id="wpt_BLACKFRIDAY2023_offer"] a.ca-logo-link img,
-.notice.ca-notice.notice-offer[data-notice_id="wpt_BLACKFRIDAY2023_offer"] img, 
-.notice.ca-notice.notice-offer[data-notice_id="wpt_BLACKFRIDAY2023_offer"] a {
+.notice.ca-notice.notice-offer[data-notice_id="wpt_CHRISTMAS2023_offer"] {
+    background: #ffffff8f;
+    color: #6e6e6e;
+    box-shadow: 1px -1px 30px #0000000a;
+}
+.notice.ca-notice.notice-offer[data-notice_id="wpt_CHRISTMAS2023_offer"] a.ca-logo-link img, 
+.notice.ca-notice.notice-offer[data-notice_id="wpt_CHRISTMAS2023_offer"] a.ca-logo-link img,
+.notice.ca-notice.notice-offer[data-notice_id="wpt_CHRISTMAS2023_offer"] img, 
+.notice.ca-notice.notice-offer[data-notice_id="wpt_CHRISTMAS2023_offer"] a {
     border: 0 none !important;
 }
-.notice.ca-notice.notice-offer[data-notice_id="wpt_BLACKFRIDAY2023_offer"] .ca-msg-text h1 {
+.notice.ca-notice.notice-offer[data-notice_id="wpt_CHRISTMAS2023_offer"] .ca-msg-text h1 {
     color: #ff0000;
     font-size: 19px;
 }
-.notice.ca-notice.notice-offer[data-notice_id="wpt_BLACKFRIDAY2023_offer"] .ca-msg-text p>b:last-child {
+.notice.ca-notice.notice-offer[data-notice_id="wpt_CHRISTMAS2023_offer"] .ca-msg-text p>b:last-child {
     color: red;
 }
-.notice.ca-notice.notice-offer[data-notice_id="wpt_BLACKFRIDAY2023_offer"] .ca-msg-text p>b>i {
+.notice.ca-notice.notice-offer[data-notice_id="wpt_CHRISTMAS2023_offer"] .ca-msg-text p>b>i {
     color: #4CAF50;
 }
-.notice.ca-notice.notice-offer[data-notice_id="wpt_BLACKFRIDAY2023_offer"] .ca-msg-text p {
+.notice.ca-notice.notice-offer[data-notice_id="wpt_CHRISTMAS2023_offer"] .ca-msg-text p {
     padding-bottom: 5px;
 }
 

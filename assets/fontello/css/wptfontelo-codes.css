@@ -1,4 +1,5 @@
 
+.wpt-note-music:before { content: '\e7b4'; } /* '' */
 .wpt-cart:before { content: '\e800'; } /* '' */
 .wpt-basket:before { content: '\e801'; } /* '' */
 .wpt-bag:before { content: '\e802'; } /* '' */
@@ -62,8 +63,26 @@
 .wpt-home:before { content: '\e83c'; } /* '' */
 .wpt-user:before { content: '\e83d'; } /* '' */
 .wpt-twitter:before { content: '\e83e'; } /* '' */
+.wpt-wordpress:before { content: '\e83f'; } /* '' */
+.wpt-youtube:before { content: '\e840'; } /* '' */
+.wpt-videocam:before { content: '\e841'; } /* '' */
+.wpt-arrow-combo:before { content: '\e842'; } /* '' */
+.wpt-search:before { content: '\e843'; } /* '' */
+.wpt-music:before { content: '\e844'; } /* '' */
+.wpt-search-1:before { content: '\e845'; } /* '' */
+.wpt-search-2:before { content: '\e846'; } /* '' */
+.wpt-home-1:before { content: '\e847'; } /* '' */
+.wpt-sort-alphabet:before { content: '\e848'; } /* '' */
+.wpt-cog-alt:before { content: '\e849'; } /* '' */
+.wpt-cog:before { content: '\e84a'; } /* '' */
+.wpt-feather:before { content: '\e84b'; } /* '' */
+.wpt-down-dir:before { content: '\e84c'; } /* '' */
+.wpt-up-dir:before { content: '\e84d'; } /* '' */
+.wpt-down-dir-1:before { content: '\e84e'; } /* '' */
+.wpt-up-dir-1:before { content: '\e84f'; } /* '' */
 .wpt-globe-inv:before { content: '\f019'; } /* '' */
 .wpt-linkedin:before { content: '\f05c'; } /* '' */
+.wpt-ok-circled:before { content: '\f06d'; } /* '' */
 .wpt-github-circled:before { content: '\f09b'; } /* '' */
 .wpt-table:before { content: '\f0ce'; } /* '' */
 .wpt-desktop:before { content: '\f108'; } /* '' */
@@ -71,7 +90,11 @@
 .wpt-tablet:before { content: '\f10a'; } /* '' */
 .wpt-mobile:before { content: '\f10b'; } /* '' */
 .wpt-github:before { content: '\f113'; } /* '' */
+.wpt-mic:before { content: '\f130'; } /* '' */
+.wpt-doc-sheet:before { content: '\f15c'; } /* '' */
 .wpt-youtube-play:before { content: '\f16a'; } /* '' */
+.wpt-file-pdf:before { content: '\f1c1'; } /* '' */
+.wpt-file-excel:before { content: '\f1c3'; } /* '' */
 .wpt-plug:before { content: '\f1e6'; } /* '' */
 .wpt-brush:before { content: '\f1fc'; } /* '' */
 .wpt-cart-plus:before { content: '\f217'; } /* '' */

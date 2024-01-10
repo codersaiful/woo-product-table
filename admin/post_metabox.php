@@ -295,8 +295,9 @@ if( ! function_exists( 'wpt_shortcode_configuration_metabox_save_meta' ) ){
                 'options' => 'wp_kses_post'
             ),
             'column_settings_mobile' => array(
-                'filter' => FILTER_SANITIZE_STRING,
+                'filter' => FILTER_CALLBACK,
                 'flags' => FILTER_REQUIRE_ARRAY,
+                'options' => 'wp_kses_post'
             ),
             'basics' => array(
                 'filter' => FILTER_SANITIZE_STRING,

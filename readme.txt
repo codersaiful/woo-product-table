@@ -4,7 +4,7 @@ Donate link: https://donate.stripe.com/4gw2bB2Pzdjd8mYfYZ
 Tags: wc product table, wooproducttable, woo product table,woocommerce product table, product table, wc table, quick order table, wholesale table, restaurants table,woo-product-table
 Requires at least: 4.0.0
 Tested up to: 6.4.2
-Stable tag: 3.4.5
+Stable tag: 3.4.6
 Requires PHP: 5.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -76,8 +76,23 @@ https://www.youtube.com/watch?v=yPjFmCHn36Y
 * [Quotation Table](https://demo.wooproducttable.com/demo-list/send-your-quotation/) <br>Users can send quotations using our plugin. Here is the demo table for that.
 
 
-
 Please Visit our demo site to see all our demo tables. [All Demo](https://demo.wooproducttable.com/) 
+
+**Customization of Table Data**
+Using filter hook, User able to change any TD data, using filter hook.<br>
+Example Code:<br>
+
+`add_filter('wpt_td_content', function($content, $Row, $column_key){
+  //$product_id = $Row->product_id;
+  //$product_id = $Row->td_keyword;
+  //var_dump($Row); //Checkout to get all others property of this $Row object.
+  if($column_key == '_price'){
+      $content = "BDT $content" . ' taka';
+  }
+  return $content;
+}, 10, 3);`
+
+[Filter and Action Hook list](https://wooproducttable.com/plugin-api/) 
 
 ** 🏆Product Table Has Received 5 (⭐⭐⭐⭐⭐ ) Reviews. Let's See What Our Users Said:**
 
@@ -93,7 +108,7 @@ Please Visit our demo site to see all our demo tables. [All Demo](https://demo.w
 
 https://www.youtube.com/shorts/Qq8Ck8yqQ5U
 
-<h2>Our main features ( Pro and Free )</h2>
+<h2>Our Main Features</h2>
 
 **WPML/Loco Translate/Multi Language**<br>
 Totally supported with WPML or any other Local language supported. here can use any plugin of multi language.
@@ -234,7 +249,7 @@ With a Product Table Plugin, you can feel confident that your business processes
 * [unikforceit](https://github.com/unikforceit) (42 commits )
 * [fatimakhatungit](https://github.com/fatimakhatungit) (38 commits )
 * [rafiul](https://github.com/rafiul) (29 commits )
-* [mdibrahimk48](https://github.com/mdibrahimk48) (5 commits )
+* [mdibrahimk48](https://github.com/mdibrahimk48) (10 commits )
 * [tanyabouman](https://github.com/tanyabouman) (4 commits )
 * [zbandhan](https://github.com/zbandhan) (1 commits )
 * 👉 [You can join here](https://github.com/codersaiful/woo-product-table/fork)
@@ -318,10 +333,17 @@ You can easily show specific category products. While creating new table click o
 
 == Changelog ==
 
+= 3.4.7 =
+* Added: New filter hook added for Table Row and inner Item. hook: `wpt_td_content`.
+* Added: New filter hook added for Inner Item. hook: `wpt_item_content`.
+* Fixed: Search Result has been fixed based on 'relevance'.
+* Fixed: Sorting Icon fixed and updated to latest icon.
+
 = 3.4.6 =
 * Fixed: Asc/Desc icon fixed (Table Title)
 * Fixed: additional_json issue on all selected item add has been fixed.
 * Admin area organized and Optimized.
+* Removed: Black Friday offer notice has been removed.
 
 = 3.4.5 =
 * Added: new filter hook for description colun has been added. `wpto_product_description` filter added. [Code Example](https://gist.github.com/codersaiful/6053bf6b2160b90144fef9748ef28e5c)

@@ -63,7 +63,12 @@ class Table_Attr{
     }
 
     public static function tr_class( Row $row  ){
-
+        $stock_amount = $row->product_data['stock_quantity'] ?? '';
+        $stock_status = $row->product_data['stock_status'];
+        if( is_numeric( $stock_amount ) && $stock_amount > 0 && $stock_amount < 1 ){
+            $stock_status = 'instock';
+        }
+        
         $row->tr_class = [
             "visible_row",
             "wpt_row",
@@ -75,7 +80,7 @@ class Table_Attr{
             $row->taxonomy_class,
             $row->product_type,
             "product_type_" . $row->product_type,
-            "stock_status_" . $row->product_data['stock_status'],
+            "stock_status_" . $stock_status,
             "backorders_" . $row->product_data['backorders'],
             "sku_" . $row->product_data['sku'],
             "status_" . $row->product_data['status'],
