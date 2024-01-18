@@ -338,7 +338,7 @@ You can easily show specific category products. While creating new table click o
 * Added: New filter hook added for Inner Item. hook: `wpt_item_content`.
 * Fixed: Search Result has been fixed based on 'relevance'.
 * Fixed: Sorting Icon fixed and updated to latest icon.
-* Added: Displaying tabl without atts - feature added. It's actually for sample table.
+* Added: Displaying table without atts - feature added. It's actually for sample table.
 
 = 3.4.6 =
 * Fixed: Asc/Desc icon fixed (Table Title)
