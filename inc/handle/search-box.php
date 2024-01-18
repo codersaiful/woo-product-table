@@ -19,7 +19,7 @@ class Search_Box{
     public static $fields;
     public static function render( Shortcode $shortcode ){
         $behavior = $shortcode->atts['behavior'] ?? '';
-        if( $behavior !== 'normal' && ( is_shop() || is_product_taxonomy() || is_product_category() ) ) return;
+        // if( $behavior !== 'normal' && ( is_shop() || is_product_taxonomy() || is_product_category() ) ) return;
         self::$reset_button = "<button class='wpt-query-reset-button' title='" . __('Reset','woo-product-table') . "'> <i class='wpt-spin3'></i></button>"; //end of .search_single
         self::$cf_search_box = $shortcode->search_n_filter['cf_search_box'] ?? '';
         self::$taxonomy_keywords = $shortcode->search_n_filter['taxonomy_keywords'] ?? [];
