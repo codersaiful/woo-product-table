@@ -274,6 +274,8 @@ class Shortcode extends Shortcode_Base{
         extract( shortcode_atts( $pairs, $atts ) );
         
         $this->assing_property($atts);
+        
+        
 
         //Obviously should load on after starup. Even already checked on overr there
         $this->startup_loader($atts);
@@ -505,7 +507,7 @@ class Shortcode extends Shortcode_Base{
         set_query_var( $this->req_post_type, $this->table_id );
 
         $this->is_table = $this->table_id && $this->post_type == $this->req_post_type && $this->status == 'publish';
-        if( ! $this->is_table ){
+        if( ! $this->is_table && ! empty( $this->atts ) ){
             return Msg::not_found($this);
         }
 
@@ -698,8 +700,51 @@ class Shortcode extends Shortcode_Base{
         $this->is_column_label = $this->table_style['tr.wpt_table_head th']['auto-responsive-column-label'] ?? false;
 
         $this->assing_property = true;
-
+        if( empty( $this->atts ) ){
+            $this->fake_assing_property();//Msg::not_found($this);
+        }
         return $this;
+    }
+
+    /**
+     * Sometime user just page shortcode [Product_Table]
+     * without atts,
+     * then we will use this actually
+     *
+     * @return void
+     */
+    public function fake_assing_property(){
+        $this->fake_property = true;
+        
+        $this->args = [
+            'post_type' => 'product',
+            'posts_per_page'    => 30,
+            'wpt_query_type'    => 'default',
+            'pagination'    => '1',
+            'suppress_filters'    => '1',
+            'orderby'    => 'menu_order',
+            'order'    => 'DESC',
+            'paged'    => $this->args['paged'] ?? 1,
+        ];
+        $this->_enable_cols = [
+            // '_price'    => '_price',
+            'product_title'    => 'product_title',
+            'stock'    => 'stock',
+            'price'    => 'price',
+            'category'    => 'category',
+            'short_description'    => 'short_description',
+            // 'quantity'    => 'quantity',
+            // 'action'    => 'action',
+        ];
+        foreach($this->_enable_cols as $en_col_key => $en_col){
+            $this->column_settings[$en_col_key] = [
+                'type' => 'default',
+                'type_name' => 'Default',
+                'tag_class' => "auto_item_$en_col_key item_$en_col_key",
+            ];
+        }
+
+        $this->is_table_head = true;
     }
 
     public function enqueue(){
