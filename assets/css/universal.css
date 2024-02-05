@@ -1639,7 +1639,13 @@ div.wpt_notice_board>div:after {
     line-height: 8px;
     padding: 7px;
 }
-
+div.wc-block-components-notice-banner:after,
+div.wpt_notice_board>div.wc-block-components-notice-banner:after{
+    position: inherit;
+    right: inherit;
+    top: auto;
+    display: none;
+}
 .wpt_edit_table {
     display: flex;
     justify-content: flex-start;

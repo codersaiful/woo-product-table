@@ -8,7 +8,7 @@ jQuery(function($) {
     'use strict';
     $(document).ready(function() {
 
-        var notice_timeout = 3000; //In mili second
+        var notice_timeout = 2000; //In mili second
         if(WPT_DATA.notice_timeout){
             notice_timeout = WPT_DATA.notice_timeout;
         }
@@ -328,10 +328,10 @@ jQuery(function($) {
                     var eachNoticeInnter = $(response);
                     eachNoticeInnter.css('display','none');
                     if(response !== ''){
-                        noticeBoard.prepend(eachNoticeInnter);
+                        noticeBoard.append(eachNoticeInnter);
                         eachNoticeInnter.fadeIn();  
                         setTimeout(function(){
-                            eachNoticeInnter.fadeOut('slow');
+                            eachNoticeInnter.fadeOut('medium');
                             eachNoticeInnter.remove(); 
                         },notice_timeout); //Detault 3000
                     }
@@ -345,7 +345,7 @@ jQuery(function($) {
         }
         
         $('body').on('click','div.wpt_notice_board>div',function(){
-            $(this).fadeOut('slow');
+            $(this).fadeOut('medium');
         });
         
         /**
