@@ -341,6 +341,8 @@ You can easily show specific category products. While creating new table click o
 * Fixed: Search Result has been fixed based on 'relevance'.
 * Fixed: Sorting Icon fixed and updated to latest icon.
 * Added: Displaying table without atts - feature added. It's actually for sample table.
+* Bug fixed 
+* Code Optimized
 
 = 3.4.6 =
 * Fixed: Asc/Desc icon fixed (Table Title)
