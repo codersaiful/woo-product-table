@@ -333,10 +333,9 @@ You can easily show specific category products. While creating new table click o
 
 == Changelog ==
 
-= 3.4.8 =
-* Fixed: pagination issue for some specific theme has been fixed. 
-
 = 3.4.7 =
+* Fixed: added to cart block notice text color issue fixed.
+* Fixed: pagination issue for some specific theme has been fixed. 
 * Added: New filter hook added for Table Row and inner Item. hook: `wpt_td_content`.
 * Added: New filter hook added for Inner Item. hook: `wpt_item_content`.
 * Fixed: Search Result has been fixed based on 'relevance'.
