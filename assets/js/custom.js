@@ -2517,6 +2517,7 @@ jQuery(function($) {
         
         //div.normal_table_wrapper table.normal_table
         $('div.advance_table_wrapper a.button.add_to_cart_all_selected').click(function() {
+            
             WPT_BlankNotice();
             var temp_number = $(this).data('temp_number');
             var allMessageBox = $('#table_id_' + temp_number + ' .wpt_custom_message');
@@ -2557,7 +2558,7 @@ jQuery(function($) {
                 let eachProductData = 'product_id=' + product_id + '&' + form.serialize();
 
                 var obj = {};
-                console.log(eachProductData);
+
                 eachProductData.replace(/([^=&]+)=([^&]*)/g, function(m, key, value) {
                     obj[decodeURIComponent(key)] = decodeURIComponent(value);
                 });
