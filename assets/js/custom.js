@@ -2608,6 +2608,8 @@ jQuery(function($) {
                     $( document ).trigger( 'wc_fragments_refreshed' );
                 },
                 success: function( response ) {
+                    $('.wpt-search-full-wrapper').html(response);
+                    return;
 
                     $( document.body ).trigger( 'added_to_cart' ); //Trigger and sent added_to_cart event
                     $( document.body ).trigger( 'updated_cart_totals' );

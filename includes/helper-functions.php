@@ -368,6 +368,7 @@ add_action( 'wp_ajax_wpt_fragment_empty_cart', 'wpt_fragment_empty_cart' );
 add_action( 'wp_ajax_nopriv_wpt_fragment_empty_cart', 'wpt_fragment_empty_cart' );
 
 
+
 if( ! function_exists( 'wpt_ajax_multiple_add_to_cart' ) ){
 
     /**
@@ -394,8 +395,8 @@ if( ! function_exists( 'wpt_ajax_multiple_add_to_cart' ) ){
         die();
     }
 }
-add_action( 'wp_ajax_wpt_ajax_mulitple_add_to_cart', 'wpt_ajax_multiple_add_to_cart' );
-add_action( 'wp_ajax_nopriv_wpt_ajax_mulitple_add_to_cart', 'wpt_ajax_multiple_add_to_cart' );
+// add_action( 'wp_ajax_wpt_ajax_mulitple_add_to_cart', 'wpt_ajax_multiple_add_to_cart' );
+// add_action( 'wp_ajax_nopriv_wpt_ajax_mulitple_add_to_cart', 'wpt_ajax_multiple_add_to_cart' );
 
 if( ! function_exists( 'wpt_adding_to_cart' ) ){
 
@@ -443,6 +444,87 @@ if( ! function_exists( 'wpt_print_notice' ) ){
 }
 add_action('wp_ajax_wpt_print_notice', 'wpt_print_notice');
 add_action('wp_ajax_nopriv_wpt_print_notice', 'wpt_print_notice');
+
+if( ! function_exists( 'wpt_ajax_multiple_add_to_cart_suppert_fast' ) ){
+
+    /**
+     * To use in Action Hook for Ajax
+     * for Multiple product adding to cart by One click
+     * 
+     * @since 1.0.4
+     * @version 1.0.4
+     * @date 3.5.2018
+     * return Void
+     */
+    function wpt_ajax_multiple_add_to_cart_suppert_fast() {
+
+        //set_cart_contents
+
+        $data = filter_input_array(INPUT_POST);
+        $data = array_filter( $data );
+        
+        $products = $data['products'] ?? [];
+        // dd($data);
+        if( ! is_array( $products ) ) die();
+        $cart = WC()->cart;
+        // dd($cart->cart_contents);
+        // die();
+        foreach( $products as $product ){
+            $product_id = isset($product['product_id']) ? $product['product_id'] : 0;
+            $quantity = isset($product['quantity']) ? $product['quantity'] : 1;
+            $variation_id = isset($product['variation_id']) ? $product['variation_id'] : 0;
+
+            $variation = false;
+            $cart_item_data = [];
+
+            // Generate a ID based on product ID, variation ID, variation data, and other cart item data.
+			$cart_id = $cart->generate_cart_id( $product_id, $variation_id, $variation, $cart_item_data );
+            // Find the cart item key in the existing cart.
+			$cart_item_key = $cart->find_product_in_cart( $cart_id );
+            
+            if ( $cart_item_key ) {
+				$new_quantity = $quantity + $cart->cart_contents[ $cart_item_key ]['quantity'];
+				$cart->set_quantity( $cart_item_key, $new_quantity, false );
+			} else {
+				$cart_item_key = $cart_id;
+
+                $product_data = wc_get_product( $variation_id ? $variation_id : $product_id );
+				// Add item after merging with $cart_item_data - hook to allow plugins to modify cart item.
+				$cart->cart_contents[ $cart_item_key ] = apply_filters(
+					'woocommerce_add_cart_item',
+					array_merge(
+						$cart_item_data,
+						array(
+							'key'          => $cart_item_key,
+							'product_id'   => $product_id,
+							'variation_id' => $variation_id,
+							'variation'    => $variation,
+							'quantity'     => $quantity,
+							'data'         => $product_data,
+							'data_hash'    => wc_get_cart_item_data_hash( $product_data ),
+						)
+					),
+					$cart_item_key
+				);
+                do_action( 'woocommerce_add_to_cart', $cart_item_key, $product_id, $quantity, $variation_id, $variation, $cart_item_data );
+			}
+
+            // dd($cart->cart_contents);
+			// $cart->cart_contents = apply_filters( 'woocommerce_cart_contents_changed', $cart->cart_contents );
+
+        }
+        
+        dd($cart->cart_contents);
+        // dd($cart->set_cart_contents( $cart->cart_contents ));
+
+        die();
+    }
+}
+add_action( 'wp_ajax_wpt_ajax_mulitple_add_to_cart', 'wpt_ajax_multiple_add_to_cart_suppert_fast' );
+add_action( 'wp_ajax_nopriv_wpt_ajax_mulitple_add_to_cart', 'wpt_ajax_multiple_add_to_cart_suppert_fast' );
+
+
+
 
 if( ! function_exists( 'wpt_adding_to_cart_multiple_items' ) ){
 
