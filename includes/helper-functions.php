@@ -477,34 +477,37 @@ if( ! function_exists( 'wpt_ajax_multiple_add_to_cart_suppert_fast' ) ){
             $cart_item_data = [];
 
             // Generate a ID based on product ID, variation ID, variation data, and other cart item data.
-			$cart_id = $cart->generate_cart_id( $product_id, $variation_id, $variation, $cart_item_data );
+			// $cart_id = $cart->generate_cart_id( $product_id, $variation_id, $variation, $cart_item_data );
+
+
+			$cart_id = wpt_find_cart_id( $product_id, $variation_id );
             // Find the cart item key in the existing cart.
 			$cart_item_key = $cart->find_product_in_cart( $cart_id );
-            
+            // dd($cart_item_key);
             if ( $cart_item_key ) {
+                $cart_item_data = $cart->cart_contents[ $cart_item_key ] ?? [];
 				$new_quantity = $quantity + $cart->cart_contents[ $cart_item_key ]['quantity'];
 				$cart->set_quantity( $cart_item_key, $new_quantity, false );
+
+                do_action( 'woocommerce_add_to_cart', $cart_item_key, $product_id, $quantity, $variation_id, $variation, $cart_item_data );
+
+                // dd($cart_item_data);
 			} else {
 				$cart_item_key = $cart_id;
 
+                $cart_item_data = $cart->cart_contents[ $cart_item_key ] ?? [];
+                // dd($cart_item_key);
                 $product_data = wc_get_product( $variation_id ? $variation_id : $product_id );
 				// Add item after merging with $cart_item_data - hook to allow plugins to modify cart item.
-				$cart->cart_contents[ $cart_item_key ] = apply_filters(
-					'woocommerce_add_cart_item',
-					array_merge(
-						$cart_item_data,
-						array(
-							'key'          => $cart_item_key,
-							'product_id'   => $product_id,
-							'variation_id' => $variation_id,
-							'variation'    => $variation,
-							'quantity'     => $quantity,
-							'data'         => $product_data,
-							'data_hash'    => wc_get_cart_item_data_hash( $product_data ),
-						)
-					),
-					$cart_item_key
-				);
+				$cart->cart_contents[ $cart_item_key ] = array(
+                    'key'          => $cart_item_key,
+                    'product_id'   => $product_id,
+                    'variation_id' => $variation_id,
+                    'variation'    => $variation,
+                    'quantity'     => $quantity,
+                    'data'         => $product_data,
+                    'data_hash'    => wc_get_cart_item_data_hash( $product_data ),
+                );
                 do_action( 'woocommerce_add_to_cart', $cart_item_key, $product_id, $quantity, $variation_id, $variation, $cart_item_data );
 			}
 
@@ -522,6 +525,10 @@ if( ! function_exists( 'wpt_ajax_multiple_add_to_cart_suppert_fast' ) ){
 add_action( 'wp_ajax_wpt_ajax_mulitple_add_to_cart', 'wpt_ajax_multiple_add_to_cart_suppert_fast' );
 add_action( 'wp_ajax_nopriv_wpt_ajax_mulitple_add_to_cart', 'wpt_ajax_multiple_add_to_cart_suppert_fast' );
 
+
+function wpt_find_cart_id( $product_id = 0, $variation_id = 0 ){
+    return md5( $product_id . '_' . $variation_id );
+}
 
 
 
