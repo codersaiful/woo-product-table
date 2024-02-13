@@ -512,7 +512,7 @@ if( ! function_exists( 'wpt_ajax_multiple_add_to_cart_suppert_fast' ) ){
 			// $cart->cart_contents = apply_filters( 'woocommerce_cart_contents_changed', $cart->cart_contents );
 
         }
-        WC_AJAX::get_refreshed_fragments();
+        // WC_AJAX::get_refreshed_fragments();
         // dd($cart->cart_contents);
         // dd($cart->set_cart_contents( $cart->cart_contents ));
 
