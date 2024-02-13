@@ -2608,6 +2608,8 @@ jQuery(function($) {
                     $( document ).trigger( 'wc_fragments_refreshed' );
                 },
                 success: function( response ) {
+                    console.log('HHHHHHHHHHHHHHH');
+                    console.log(response);
                     $('.wpt-search-full-wrapper').html(response);
                     return;
 

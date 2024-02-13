@@ -467,8 +467,7 @@ if( ! function_exists( 'wpt_ajax_multiple_add_to_cart_suppert_fast' ) ){
         // dd($data);
         if( ! is_array( $products ) ) die();
         $cart = WC()->cart;
-        // dd($cart->cart_contents);
-        // die();
+        
         foreach( $products as $product ){
             $product_id = isset($product['product_id']) ? $product['product_id'] : 0;
             $quantity = isset($product['quantity']) ? $product['quantity'] : 1;
@@ -513,8 +512,8 @@ if( ! function_exists( 'wpt_ajax_multiple_add_to_cart_suppert_fast' ) ){
 			// $cart->cart_contents = apply_filters( 'woocommerce_cart_contents_changed', $cart->cart_contents );
 
         }
-        
-        dd($cart->cart_contents);
+        WC_AJAX::get_refreshed_fragments();
+        // dd($cart->cart_contents);
         // dd($cart->set_cart_contents( $cart->cart_contents ));
 
         die();
