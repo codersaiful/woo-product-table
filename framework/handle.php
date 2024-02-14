@@ -52,7 +52,7 @@ if( ! class_exists( 'WPT_Required' ) ){
         {
                 if( ! is_admin() ) return;
                 // return;
-                //Today: 21.12.2023 - 1703142634 and added 9 days seccond - 777600 (little change actually)
+                //Today: 14.2.2024 - 1707890302 and added 20 days seccond - 1664000 (little change actually)
                 if( time() > ( 1707890302 + 1664000 ) ) return;
 
 
