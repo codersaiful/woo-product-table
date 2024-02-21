@@ -90,9 +90,15 @@ td.wpt_thumbnails_no_action img {
     top: 3px;
     left: 21%;
 }
-td.wpt_thumbnails img.lazyloaded + .lazyloaded,td.wpt_thumbnails img.ls-is-cached.lazyloaded + img.ls-is-cached.lazyloaded, td.wpt_thumbnails img.ls-is-cached + .ls-is-cached {
+div.wpt_thumbnails img.lazyloaded + .lazyloaded,
+div.wpt_thumbnails img.ls-is-cached.lazyloaded + img.ls-is-cached.lazyloaded, 
+div.wpt_thumbnails img.ls-is-cached + .ls-is-cached,
+td.wpt_thumbnails img.lazyloaded + .lazyloaded,
+td.wpt_thumbnails img.ls-is-cached.lazyloaded + img.ls-is-cached.lazyloaded, 
+td.wpt_thumbnails img.ls-is-cached + .ls-is-cached {
     display: none;
 }
+
 th.wpt_total, td.wpt_total,
 th.wpt_price, td.wpt_price{
     text-align: center;
