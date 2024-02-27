@@ -19,7 +19,8 @@ if($title_variation == 'link'){
 } elseif($title_variation == 'yith'){
     $wpt_single_product_title .= "<a class='wpt_product_title_in_td yith-wcqv-button' data-product_id=" . $data['id'] . " href='#'>" . $the_title . "</a>";
 }elseif($title_variation == 'ca_quick_view'){ //Quick View by Code Astrology //https://wordpress.org/plugins/ca-quick-view/
-    $wpt_single_product_title .= "<a class='wpt_product_title_in_td caqv-open-modal' data-id=" . $data['id'] . " >" . $the_title . "</a>";
+    $class_name = class_exists('CAWQV_PLUGIN_LITE') ? 'caqv-open-modal' : 'caqv-open-modal-notfound';
+    $wpt_single_product_title .= "<a class='wpt_product_title_in_td {$class_name}' data-id=" . $data['id'] . " >" . $the_title . "</a>";
 }else{
     $wpt_single_product_title .= "<span class='wpt_product_title_in_td'>" . $the_title . "</span>";
 }

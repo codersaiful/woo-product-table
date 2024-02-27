@@ -582,5 +582,16 @@ jQuery(function($) {
             }
         });
 
+        
+        $(document.body).on('click','.caqv-open-modal-notfound',function(){
+            // Show an alert
+            alert('Quick View by CodeAstrology plugin is required.\nPlease Install and Actvate it.\nPlugin will load on new tab.');
+
+            // Open another page in a new tab
+            var newPageUrl = 'https://wordpress.org/plugins/ca-quick-view/'; // Replace with the actual URL
+            window.open(newPageUrl, '_blank');
+        });
+
+
     });
 });
