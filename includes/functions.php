@@ -1,8 +1,14 @@
 <?php
-/*************
- * WPT
- * MAIN MODULE
+/**
+ * Only fir developer 
  */
+if( !function_exists('dd') ){
+    function dd($val){
+        echo '<pre>';
+            var_dump($val);
+        echo '</pre>';
+    }
+}
 
 if( !function_exists( 'wpt_column_setting_for_tax_cf' ) ){
     

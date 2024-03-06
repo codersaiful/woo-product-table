@@ -307,7 +307,7 @@ class Shortcode_Ajax extends Shortcode{
         $this->argsOrganize()->table_body();
         die();
         //***************************/
-        
+        $output['div>.other_output'] = ob_get_clean(); //Something some theme/plugin use enqueue on wc filter/action hook, that to publish on another selector.
         wp_send_json( $output );
         
         die();

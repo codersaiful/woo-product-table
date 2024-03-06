@@ -3,8 +3,8 @@ Contributors: codersaiful,codeastrology,mdibrahimk48,ultraaddons,unikforce,rafiu
 Donate link: https://donate.stripe.com/4gw2bB2Pzdjd8mYfYZ
 Tags: wc product table, wooproducttable, woo product table,woocommerce product table, product table, wc table, quick order table, wholesale table, restaurants table,woo-product-table
 Requires at least: 4.0.0
-Tested up to: 6.4.2
-Stable tag: 3.4.6
+Tested up to: 6.4.3
+Stable tag: 3.4.7
 Requires PHP: 5.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -334,11 +334,15 @@ You can easily show specific category products. While creating new table click o
 == Changelog ==
 
 = 3.4.7 =
+* Fixed: added to cart block notice text color issue fixed.
+* Fixed: pagination issue for some specific theme has been fixed. 
 * Added: New filter hook added for Table Row and inner Item. hook: `wpt_td_content`.
 * Added: New filter hook added for Inner Item. hook: `wpt_item_content`.
 * Fixed: Search Result has been fixed based on 'relevance'.
 * Fixed: Sorting Icon fixed and updated to latest icon.
-* Added: Displaying tabl without atts - feature added. It's actually for sample table.
+* Added: Displaying table without atts - feature added. It's actually for sample table.
+* Bug fixed 
+* Code Optimized
 
 = 3.4.6 =
 * Fixed: Asc/Desc icon fixed (Table Title)

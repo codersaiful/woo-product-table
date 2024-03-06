@@ -409,6 +409,10 @@ div.wpt_notice_board>div:after {
 div.wpt_notice_board>div:hover:after {
     background: var(--wpt_primary_deepest)
 }
+.wc-block-components-notice-banner__content {
+    color: var(--wpt_primary);
+}
+
 
 div.wpt_column_sort table#wpt_table.wpt_product_table tr>th.this_column_sorted {
     background-color: var(--wpt_sorted_head_bg);

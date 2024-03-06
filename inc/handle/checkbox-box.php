@@ -19,7 +19,16 @@ class Checkbox_Box{
         // $text = ! empty( $text ) ? __( $text, 'woo-product-table' ) : __( 'Add to cart', 'woo-product-table' );
         $selected_text = ! empty( $selected_text ) ? __( $selected_text, 'woo-product-table' ) : __( 'Add to Cart (Selected)','woo-product-table' );
         $check_uncheck_text = ! empty( $check_uncheck_text ) ? __( $check_uncheck_text, 'woo-product-table' ) : __( 'Select All','woo-product-table' );
-        
+
+        /**
+         * Some site can be slow, then we will
+         * use filter hook 'wpt_multi_cart_faster'
+         * for adding fast in cart but without checkout all other
+         * 
+         * Just doing it faster.
+         */
+        $faster_carting = apply_filters( 'wpt_multi_cart_faster', '', $shortcode->table_id );
+        $faster_carting = is_string( $faster_carting ) && ! empty( $faster_carting ) ? $faster_carting : '';
         ?>
         <div class='all_check_header_footer all_check_<?php echo esc_attr( $position ); ?> check_<?php echo esc_attr( $position ); ?>_<?php echo esc_attr( $shortcode->table_id ); ?>'>
 

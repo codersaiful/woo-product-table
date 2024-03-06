@@ -8,7 +8,7 @@ jQuery(function($) {
     'use strict';
     $(document).ready(function() {
 
-        var notice_timeout = 3000; //In mili second
+        var notice_timeout = 2000; //In mili second
         if(WPT_DATA.notice_timeout){
             notice_timeout = WPT_DATA.notice_timeout;
         }
@@ -328,10 +328,10 @@ jQuery(function($) {
                     var eachNoticeInnter = $(response);
                     eachNoticeInnter.css('display','none');
                     if(response !== ''){
-                        noticeBoard.prepend(eachNoticeInnter);
+                        noticeBoard.append(eachNoticeInnter);
                         eachNoticeInnter.fadeIn();  
                         setTimeout(function(){
-                            eachNoticeInnter.fadeOut('slow');
+                            eachNoticeInnter.fadeOut('medium');
                             eachNoticeInnter.remove(); 
                         },notice_timeout); //Detault 3000
                     }
@@ -345,7 +345,7 @@ jQuery(function($) {
         }
         
         $('body').on('click','div.wpt_notice_board>div',function(){
-            $(this).fadeOut('slow');
+            $(this).fadeOut('medium');
         });
         
         /**
@@ -1827,7 +1827,7 @@ jQuery(function($) {
         // $(document).on('keyup','.wpt_row input.input-text.qty.text', inputBoxChangeHandle);
         $(document).on('keyup','.wpt_row input.input-text.qty.text', oneSecondDelay(inputBoxChangeHandle,1500));
  
-        $('body').on('change', '.wpt_row input.input-text.qty.text', inputBoxChangeHandle);
+        $(document.body).on('change', '.wpt_row input.input-text.qty.text', inputBoxChangeHandle);
         function inputBoxChangeHandle() {
 
             var temp_number = $(this).parents('tr.wpt_row').data('temp_number');
@@ -1840,7 +1840,7 @@ jQuery(function($) {
                 Qty_Val = 0;
             }
 
-            $( thisRow + ' input.input-text.qty.text').val(Qty_Val); // input.input-text.qty.text
+            // $( thisRow + ' input.input-text.qty.text').val(Qty_Val); // input.input-text.qty.text
             $( thisRow ).attr('data-quantity', Qty_Val);
             $( thisRow + ' .wpt_action a.wpt_woo_add_cart_button').attr('data-quantity', Qty_Val);
             $( thisRow + ' .wpt_action a.add_to_cart_button').attr('data-quantity', Qty_Val);
@@ -2517,6 +2517,7 @@ jQuery(function($) {
         
         //div.normal_table_wrapper table.normal_table
         $('div.advance_table_wrapper a.button.add_to_cart_all_selected').click(function() {
+            
             WPT_BlankNotice();
             var temp_number = $(this).data('temp_number');
             var allMessageBox = $('#table_id_' + temp_number + ' .wpt_custom_message');
@@ -2557,7 +2558,7 @@ jQuery(function($) {
                 let eachProductData = 'product_id=' + product_id + '&' + form.serialize();
 
                 var obj = {};
-                console.log(eachProductData);
+
                 eachProductData.replace(/([^=&]+)=([^&]*)/g, function(m, key, value) {
                     obj[decodeURIComponent(key)] = decodeURIComponent(value);
                 });

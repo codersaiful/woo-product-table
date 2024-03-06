@@ -19,8 +19,8 @@ if ($thumb_variation == 'quick_view') {
     $tag_end = "</div>";
 
 }elseif($thumb_variation == 'ca_quick_view') {
-    
-    $tag_start = "<div data-id='{$id}' class='caqv-open-modal'>";
+    $class_name = class_exists('CAWQV_PLUGIN_LITE') ? 'caqv-open-modal' : 'caqv-open-modal-notfound';
+    $tag_start = "<div data-id='{$id}' class='{$class_name}'>";
     $tag_end = "</div>";
 
 }elseif ($thumb_variation == 'url') {
