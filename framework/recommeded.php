@@ -10,28 +10,6 @@ class Recommeded
 {
     public static function check()
     {
-        // $blackf22ID = 'black-friday-22-y';
-        // $blackf22 = new Notice($blackf22ID);
-        // $blackf22->set_message("");
-        // $blackf22->set_img( 'https://codeastrology.com/wp-content/uploads/2022/11/black-friday-notice.png');
-        // $blackf22->set_img_target('https://codeastrology.com/coupons/?coupons=BLACKFRIDAY22');
-        // $blackf22->set_diff_limit(55);
-        // $blackf22->add_button([
-        //     'text' => 'Claim Discount',
-        //     'type' => '',
-        //     'link' => '_blank',
-        // ]);
-        // if( method_exists($blackf22, 'set_location') ){
-        //     $blackf22->set_location('wpt_plugin_recommend_here'); //wpt_premium_image_bottom
-        // }
-        // $blackf22->set_type('offer');
-        // $blackf22->set_title('Woo Product Table.');
-        // $blacf_count = get_option($blackf22ID, 0);
-        // if($blacf_count < 2 ){
-        //     $blacf_count++;
-        //     update_option($blackf22ID, $blacf_count);
-        //     $blackf22->show();
-        // }
         
 
         $this_plugin = __( 'It\'s', 'woo-product-table' );
@@ -51,6 +29,27 @@ class Recommeded
         }
         
         
+
+        $pssg_req_slug = 'product-sync-master-sheet/product-sync-master-sheet.php';
+        $pssg_tar_slug = WPT_PLUGIN_BASE_FILE;
+        $req_pssg = new Require_Control($pssg_req_slug,$pssg_tar_slug);
+        $req_pssg->set_args( ['Name' => 'Product Stock Sync with Google Sheet for WooCommerce'] )
+        ->set_download_link('https://wordpress.org/plugins/product-sync-master-sheet/')
+        ->set_this_download_link('https://wordpress.org/plugins/woo-product-table/');
+        $pssg_message = __('Help you to connect your WooCommerce website with Google Sheet as well as Manage your Stock easy from one menu with Advance Filter','woo-product-table');
+        $req_pssg->set_message($pssg_message);
+        $req_pssg->get_full_this_plugin_name($this_plugin);
+        // var_dump(method_exists($req_pssg, 'set_location'),$req_pssg);
+        // ->set_required();
+        if( method_exists($req_pssg, 'set_location') ){
+            $req_pssg->set_location('wpto_column_setting_form_quantity'); //wpt_premium_image_bottom
+            // $req_pssg->set_location('wpto_column_setting_form_inside_quantity'); //wpt_premium_image_bottom
+            $req_pssg->run();
+
+            $req_pssg->get_full_this_plugin_name($this_plugin2);
+            $req_pssg->set_location('wpt_plugin_recommend_here');
+            $req_pssg->run();
+        }
 
         $mmp_req_slug = 'woo-min-max-quantity-step-control-single/wcmmq.php';
         $mmp_tar_slug = WPT_PLUGIN_BASE_FILE;
