@@ -333,6 +333,11 @@ You can easily show specific category products. While creating new table click o
 
 == Changelog ==
 
+= 3.4.9 =
+* Variation List showing on Shop Page for Variable product issue has been fixed
+* Bug fixed 
+* Code Optimized
+
 = 3.4.8 =
 * Bug fixed 
 * Code Optimized
