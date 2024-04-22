@@ -41,6 +41,13 @@ class Column_Doc_Link extends Base
                     'url' => 'https://demo.wooproducttable.com/demo-list/audio-table/',
                 ]
             ],
+
+            'all_content' => [
+                [
+                    'title' => 'Tutoiral - How to use?',   
+                    'url' => 'https://wooproducttable.com/docs/doc/advance-uses/add-multiple-content-column/',
+                ],
+            ],
             
             // ekhane column type or column keyword diye dite hobe
 
