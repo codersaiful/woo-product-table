@@ -27,5 +27,8 @@ class Feature_Loader
          */
         $action = new Action_Feature();
         $action->run();
+
+        $doc_link = new Column_Doc_Link();
+        $doc_link->run();
     }
 }
