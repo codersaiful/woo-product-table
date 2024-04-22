@@ -324,7 +324,7 @@ jQuery(function($) {
                     action: 'wpt_print_notice'
                 },
                 success: function(response){
-                    if( config_json.popup_notice !== '1' ) return;
+                    if( config_json.popup_notice !== '1' || config_json.popup_notice == 'no' ) return;
                     var eachNoticeInnter = $(response);
                     eachNoticeInnter.css('display','none');
                     if(response !== ''){
@@ -2476,7 +2476,7 @@ jQuery(function($) {
                 thisTable.removeClass('loading');
                 var notice = $('.woocommerce-message,.woocommerce-error', data); //.woocommerce-error
 
-                if(config_json.popup_notice === '1'){
+                if(config_json.popup_notice === '1' || config_json.popup_notice == 'no'){
                     Advance_NoticeBoard(notice);//Gettince Notice
                 }
                     
