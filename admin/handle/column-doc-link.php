@@ -92,7 +92,7 @@ class Column_Doc_Link extends Base
             $title = $doc['title'] ?? 'Doc';
             $url = $doc['url'] ?? '#';
             ?>
-            🌐 <a href="<?php echo esc_url( $url ); ?>" title="Tutorial for <?php echo esc_attr( $target_keyword ); ?>" target="_blank"><?php echo esc_html( $title ); ?></a> | 
+             🌐 <a href="<?php echo esc_url( $url ); ?>" title="Tutorial for <?php echo esc_attr( $target_keyword ); ?>" target="_blank"><?php echo esc_html( $title ); ?></a> 
             <?php
 
         }
