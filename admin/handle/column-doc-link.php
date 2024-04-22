@@ -31,7 +31,7 @@ class Column_Doc_Link extends Base
     public function run()
     {
         $this->links = [
-            'my_extrem_audio' => [
+            'audio' => [
                 [
                     'title' => 'Tutoiral - How can create?',   
                     'url' => 'https://wooproducttable.com/docs/doc/tutorials/how-to-create-a-audio-table-using-woo-product-table/',
@@ -41,11 +41,25 @@ class Column_Doc_Link extends Base
                     'url' => 'https://demo.wooproducttable.com/demo-list/audio-table/',
                 ]
             ],
+            
+            // ekhane column type or column keyword diye dite hobe
+
             //Example for Custom Link
-            // 'my_sample_column_keyword' => [
+            // 'type_or_column_keyword' => [
             //     [
             //         'title' => 'Tutoiral Doc',
             //         'url' => 'https://wooproducttable.com/sample-doc/',
+            //     ]
+            // ],
+
+            // 'product_title' => [
+            //     [
+            //         'title' => 'Tutoiral - How can create?',   
+            //         'url' => 'https://wooproducttable.com/docs/doc/tutorials/how-to-create-a-audio-table-using-woo-product-table/',
+            //     ],
+            //     [
+            //         'title' => 'Demo Table',
+            //         'url' => 'https://demo.wooproducttable.com/demo-list/audio-table/',
             //     ]
             // ],
         ];
@@ -56,20 +70,22 @@ class Column_Doc_Link extends Base
 
     public function add_doc_link( $keyword, $_device_name, $column_settings )
     {
-        // var_dump($keyword);
-        if( ! isset($this->links[$keyword]) || ! is_array( $this->links[$keyword] ) ) return;
+        if( empty( $column_settings['type'] )) return;
+        $target_keyword =  $column_settings['type'] == 'default' ? $keyword : $column_settings['type'];
 
-        $this->links[$keyword] = apply_filters( 'wpt_pro_column_doc_link', $this->links[$keyword], $keyword, $_device_name, $column_settings );
+        if( ! isset($this->links[$target_keyword]) || ! is_array( $this->links[$target_keyword] ) ) return;
 
-        if( empty( $this->links[$keyword] ) ) return;
+        $this->links[$target_keyword] = apply_filters( 'wpt_pro_column_doc_link', $this->links[$target_keyword], $target_keyword, $_device_name, $column_settings );
 
-        $docs = $this->links[$keyword];
+        if( empty( $this->links[$target_keyword] ) ) return;
+        
+        $docs = $this->links[$target_keyword];
         if( ! isset( $docs[0]['title'] ) ) return;
         foreach( $docs as $doc ) {
             $title = $doc['title'] ?? 'Doc';
             $url = $doc['url'] ?? '#';
             ?>
-            🌐 <a href="<?php echo esc_url( $url ); ?>" target="_blank"><?php echo esc_html( $title ); ?></a> | 
+            🌐 <a href="<?php echo esc_url( $url ); ?>" title="Tutorial for <?php echo esc_attr( $target_keyword ); ?>" target="_blank"><?php echo esc_html( $title ); ?></a> | 
             <?php
 
         }
