@@ -2436,9 +2436,14 @@ a.wpt-doc-lick{
 }
 .wpt-doc-column-link a{
     text-decoration: none;
-    color: #42b9cc;
+    color: #9E9E9E;
     font-style: oblique;
     font-size: 13px;
+}
+/* make more deep: .wpt-doc-column-link a */
+
+.wpt-doc-column-link a:hover {  
+    color: #525252;
 }
 
 .wpt-doc-column-link {
