@@ -62,6 +62,7 @@ class Column_Doc_Link extends Base
             // 'product_title' => [
             //     [
             //         'title' => 'Tutoiral - How can create?',   
+            //         'message' => 'This is test message', //It will display at the begining of the link
             //         'url' => 'https://wooproducttable.com/docs/doc/tutorials/how-to-create-a-audio-table-using-woo-product-table/',
             //     ],
             //     [
@@ -88,16 +89,26 @@ class Column_Doc_Link extends Base
         
         $docs = $this->links[$target_keyword];
         if( ! isset( $docs[0]['title'] ) ) return;
+        ?>
+        <div class="wpt-doc-column-link">
+        <?php
         foreach( $docs as $doc ) {
             $title = $doc['title'] ?? 'Doc';
             $url = $doc['url'] ?? '#';
+            $message = $doc['message'] ?? '';
+            if( ! empty( $message )){
+                $message = '<span>' . $message . '</span>';
+                echo wp_kses_post( $message );
+            }
             ?>
-             🌐 <a href="<?php echo esc_url( $url ); ?>" title="Tutorial for <?php echo esc_attr( $target_keyword ); ?>" target="_blank"><?php echo esc_html( $title ); ?></a> 
+            <a href="<?php echo esc_url( $url ); ?>" title="Tutorial for <?php echo esc_attr( $target_keyword ); ?>" target="_blank">
+                🌐 <?php echo esc_html( $title ); ?>
+            </a> 
             <?php
 
         }
         ?>
-        
+        </div>
         <?php 
     }
 }
