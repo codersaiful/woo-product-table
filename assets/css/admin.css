@@ -2428,6 +2428,23 @@ a.wpt-doc-lick{
     color: #42b9cc;
     font-style: oblique;
 }
+.wpt-doc-column-link {
+    margin-top: -10px !important;
+}
+.wpt-doc-column-link>span {
+    color: #bfbfbf;
+}
+.wpt-doc-column-link a{
+    text-decoration: none;
+    color: #42b9cc;
+    font-style: oblique;
+    font-size: 13px;
+}
+
+.wpt-doc-column-link {
+    display: flex;
+    gap: 10px;
+}
 .add-new-column-doc>a{
     color: #23282d;
     text-decoration: underline;
