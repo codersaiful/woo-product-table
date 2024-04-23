@@ -33,7 +33,7 @@ class Column_Doc_Link extends Base
         $this->links = [
             'audio' => [
                 [
-                    'title' => 'Tutoiral - How can create?',   
+                    'title' => 'Tutorial - How can create?',   
                     'url' => 'https://wooproducttable.com/docs/doc/tutorials/how-to-create-a-audio-table-using-woo-product-table/',
                 ],
                 [
@@ -44,8 +44,20 @@ class Column_Doc_Link extends Base
 
             'all_content' => [
                 [
-                    'title' => 'Tutoiral - How to use?',   
+                    'title' => 'Tutorial - How to use?',   
                     'url' => 'https://wooproducttable.com/docs/doc/advance-uses/add-multiple-content-column/',
+                ],
+            ],
+
+
+            'variation_name' => [
+                [
+                    'title' => 'Tutorial - How to create variation?',   
+                    'url' => 'https://wooproducttable.com/docs/doc/table-options/show-variation-name-in-a-single-column/',
+                ],
+                [
+                    'title' => 'Explore Demo',   
+                    'url' => 'https://demo.wooproducttable.com/',
                 ],
             ],
             
