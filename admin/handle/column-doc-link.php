@@ -52,7 +52,7 @@ class Column_Doc_Link extends Base
 
             'variation_name' => [
                 [
-                    'title' => 'Tutorial - How to create variation?',   
+                    'title' => 'Tutorial - How to use variation?',   
                     'url' => 'https://wooproducttable.com/docs/doc/table-options/show-variation-name-in-a-single-column/',
                 ],
                 [
