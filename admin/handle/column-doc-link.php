@@ -49,7 +49,6 @@ class Column_Doc_Link extends Base
                 ],
             ],
 
-
             'variation_name' => [
                 [
                     'title' => 'Tutorial - How to use variation?',   
@@ -58,6 +57,27 @@ class Column_Doc_Link extends Base
                 [
                     'title' => 'Explore Demo',   
                     'url' => 'https://demo.wooproducttable.com/',
+                ],
+            ],
+            'audio_player' => [
+                [
+                    'title' => 'Tutorial - How to create audio player table?',   
+                    'url' => 'https://wooproducttable.com/docs/doc/tutorials/create-an-audio-player-table/',
+                ],
+                [
+                    'title' => 'Explore demo',   
+                    'url' => 'https://demo.wooproducttable.com/demo-list/online-music-sale/',
+                ],
+            ],
+
+            'category' => [
+                [
+                    'title' => 'Helper doc',   
+                    'url' => 'https://wooproducttable.com/docs/doc/table-options/show-products-by-categories-tag/',
+                ],
+                [
+                    'title' => 'Tutorial - Sort products by category',   
+                    'url' => 'https://wooproducttable.com/docs/doc/search-and-filter/how-to-sort-products-using-tags-or-custom-taxonomy/',
                 ],
             ],
             
