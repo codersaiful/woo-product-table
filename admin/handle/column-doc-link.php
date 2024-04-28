@@ -49,14 +49,26 @@ class Column_Doc_Link extends Base
                 ],
             ],
 
-            'variation_name' => [
+            'single_variation' => [
                 [
-                    'title' => 'Tutorial - How to use variation?',   
+                    'title' => 'Tutorial - How to use Single Variation?',   
                     'url' => 'https://wooproducttable.com/docs/doc/table-options/show-variation-name-in-a-single-column/',
+                    'position' => 'inside', //Position inside and front available //front//inside
                 ],
                 [
-                    'title' => 'Explore Demo',   
-                    'url' => 'https://demo.wooproducttable.com/',
+                    'title' => 'Demo',   
+                    'url' => 'https://demo.wooproducttable.com/show-variation-name-in-a-single-column',
+                    'position' => 'inside',
+                ],
+            ],
+            'variation_name' => [
+                [
+                    'title' => 'Tutorial - How to use Variation Names column?',   
+                    'url' => 'https://wooproducttable.com/docs/doc/table-options/woocommerce-products-variables-show-as-individual-row/',
+                ],
+                [
+                    'title' => 'Demo',   
+                    'url' => 'https://demo.wooproducttable.com/product-variant-in-separate-row/',
                 ],
             ],
             'audio_player' => [
@@ -65,7 +77,7 @@ class Column_Doc_Link extends Base
                     'url' => 'https://wooproducttable.com/docs/doc/tutorials/create-an-audio-player-table/',
                 ],
                 [
-                    'title' => 'Explore demo',   
+                    'title' => 'Demo',   
                     'url' => 'https://demo.wooproducttable.com/demo-list/online-music-sale/',
                 ],
             ],
@@ -74,10 +86,12 @@ class Column_Doc_Link extends Base
                 [
                     'title' => 'Helper doc',   
                     'url' => 'https://wooproducttable.com/docs/doc/table-options/show-products-by-categories-tag/',
+                    'position' => 'inside',
                 ],
                 [
                     'title' => 'Tutorial - Sort products by category',   
                     'url' => 'https://wooproducttable.com/docs/doc/search-and-filter/how-to-sort-products-using-tags-or-custom-taxonomy/',
+                    'position' => 'inside',
                 ],
             ],
             
@@ -104,7 +118,7 @@ class Column_Doc_Link extends Base
             // ],
         ];
         add_action( 'wpto_column_basic_form', [$this, 'add_doc_link'], 10, 3 );
-        // add_action( 'wpto_column_setting_form', [$this, 'add_doc_link'], 10, 3 );
+        add_action( 'wpto_column_setting_form', [$this, 'add_inside_doc_link'], 10, 3 );
 
     }
 
@@ -113,18 +127,35 @@ class Column_Doc_Link extends Base
         if( empty( $column_settings['type'] )) return;
         $target_keyword =  $column_settings['type'] == 'default' ? $keyword : $column_settings['type'];
 
-        if( ! isset($this->links[$target_keyword]) || ! is_array( $this->links[$target_keyword] ) ) return;
 
-        $this->links[$target_keyword] = apply_filters( 'wpt_pro_column_doc_link', $this->links[$target_keyword], $target_keyword, $_device_name, $column_settings );
+        $this->manage_doc_link( $target_keyword, 'front' );
+    }
+
+    public function add_inside_doc_link( $keyword, $_device_name, $column_settings )
+    {
+        $settings = $column_settings[$keyword] ?? [];
+
+        if( empty( $settings['type'] )) return;
+        $target_keyword =  $settings['type'] == 'default' ? $keyword : $settings['type'];
+
+
+        $this->manage_doc_link( $target_keyword, 'inside' );
+    }
+    public function manage_doc_link( $target_keyword, $position = 'front' )
+    {
+        
+        if( ! isset($this->links[$target_keyword]) || ! is_array( $this->links[$target_keyword] ) ) return;
 
         if( empty( $this->links[$target_keyword] ) ) return;
         
         $docs = $this->links[$target_keyword];
         if( ! isset( $docs[0]['title'] ) ) return;
         ?>
-        <div class="wpt-doc-column-link">
+        <div class="wpt-doc-column-link <?php echo esc_attr( $position ); ?>">
         <?php
         foreach( $docs as $doc ) {
+            $link_position = $doc['position'] ?? 'front';
+            if( $position != $link_position ) continue;
             $title = $doc['title'] ?? 'Doc';
             $url = $doc['url'] ?? '#';
             $message = $doc['message'] ?? '';

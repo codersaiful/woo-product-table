@@ -2428,7 +2428,7 @@ a.wpt-doc-lick{
     color: #42b9cc;
     font-style: oblique;
 }
-.wpt-doc-column-link {
+.wpt-doc-column-link.front {
     margin-top: -10px !important;
 }
 .wpt-doc-column-link>span {
