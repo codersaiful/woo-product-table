@@ -501,7 +501,7 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
                             <select name="<?php echo esc_attr( $field_name ); ?>[popup_notice]" id="wpt_table_popup_notice" class="wpt_fullwidth ua_input" >
                                 <?php wpt_default_option( $page ) ?>
                                 <option value="1" <?php wpt_selected( 'popup_notice', '1', $current_config_value ); ?>><?php esc_html_e( 'Show', 'woo-product-table' ); ?></option>
-                                <option value="0" <?php wpt_selected( 'popup_notice', '0', $current_config_value ); ?>><?php esc_html_e( 'Hide', 'woo-product-table' ); ?></option>
+                                <option value="no" <?php wpt_selected( 'popup_notice', 'no', $current_config_value ); ?>><?php esc_html_e( 'Hide', 'woo-product-table' ); ?></option>
                             </select>
                         </div>
                     </div>

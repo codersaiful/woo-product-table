@@ -2428,6 +2428,28 @@ a.wpt-doc-lick{
     color: #42b9cc;
     font-style: oblique;
 }
+.wpt-doc-column-link.front {
+    margin-top: -10px !important;
+}
+.wpt-doc-column-link>span {
+    color: #bfbfbf;
+}
+.wpt-doc-column-link a{
+    text-decoration: none;
+    color: #9E9E9E;
+    font-style: oblique;
+    font-size: 13px;
+}
+/* make more deep: .wpt-doc-column-link a */
+
+.wpt-doc-column-link a:hover {  
+    color: #525252;
+}
+
+.wpt-doc-column-link {
+    display: flex;
+    gap: 10px;
+}
 .add-new-column-doc>a{
     color: #23282d;
     text-decoration: underline;

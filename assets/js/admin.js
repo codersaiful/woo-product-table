@@ -389,6 +389,7 @@ jQuery.fn.extend({
         var selectLinkTab = $(selectLinkTabSelector);
         var selectTabContent = $(selectTabContentSelector);
         var tabName = window.location.hash.substr(1);
+        setLastActiveTab(tabName);
         if (tabName) {
             removingActiveClass();
             $('body.wpt_admin_body #wpt_configuration_form #' + tabName).addClass('tab-content-active');
@@ -398,16 +399,48 @@ jQuery.fn.extend({
         $('body.wpt_admin_body').on('click','#wpt_configuration_form a.wpt_nav_tab',function(e){
             e.preventDefault(); //Than prevent for click action of hash keyword
             var targetTabContent = $(this).data('tab');//getting data value from data-tab attribute
-            
+            setLastActiveTab(targetTabContent);
             // Detect if pushState is available
             if(history.pushState) {
               history.pushState(null, null, $(this).attr('href'));
             }
+            
             removingActiveClass();
             $(this).addClass('nav-tab-active');
             $('body.wpt_admin_body  #wpt_configuration_form #' + targetTabContent).addClass('tab-content-active');
             return false;
         });
+
+        /**
+         * Sets the value of the input element with the ID 'wpt-last-active-tab' to the provided tabName.
+         * 
+         * related code: 
+         * 1. post_metabox.php
+         * 2. post_metabox_form.php
+         * 
+         * Hooked: add_filter('redirect_post_location', 'wpt_redirect_after_save', 10, 2);
+         *
+         * @param {string} tabName - The name of the tab to set as the last active tab.
+         * @return {void} This function does not return anything.
+         */
+        function setLastActiveTab(tabName) {
+
+            $('input#wpt-last-active-tab').attr('value',tabName);
+            //and
+            if( tabName == '' ){
+                return;
+            }
+            // Get the current URL
+            var currentUrl = window.location.href;
+            
+            // Replace the value of 'wpt_active_tab'
+            var newUrl = currentUrl.replace(/(wpt_active_tab=)[^\&]+/, '$1' + tabName);
+
+            // Replace the current URL with the new URL
+            // Change the URL without reloading the page
+            history.replaceState(null, null, newUrl);
+        }
+
 
         /**
          * Removing current active nav_tab and tab_content element

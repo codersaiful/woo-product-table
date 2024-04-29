@@ -39,17 +39,29 @@
     );
     $additional_data = apply_filters( 'wpto_additional_variable', $additional_variable, $post );
     
+    $wpt_active_tab = $_GET['wpt_active_tab'] ?? 'column_settings';
+    if( empty( $wpt_active_tab ) ){
+        $wpt_active_tab = 'column_settings';
+    }
     echo '<nav class="nav-tab-wrapper">';
-    $active_nav = 'nav-tab-active';
+    
     foreach ($tab_array as $nav => $title) {
+        $active_nav = $nav == $wpt_active_tab ? 'nav-tab-active' : '';
         echo "<a href='#{$nav}' data-tab='{$nav}' class='wpt_nav_for_{$nav} wpt_nav_tab nav-tab " . esc_attr( $active_nav ) . "'>" . wp_kses_post( $title ). "</a>";
-        $active_nav = false;
     }
     echo '</nav>';
-
+    ?> 
+    <!-- actually to store last active tab, we will use this. 
+    See from post_metabox.php file and admin.js file
+    using: setLastActiveTab(tabName); from js code
+  -->
+    <!--  add_filter('redirect_post_location', 'wpt_redirect_after_save', 10, 2); see from post_metabox.php file -->
+    <input type="hidden" name="wpt_last_active_tab" id="wpt-last-active-tab" value="">
+    <?php 
     //Now start for Tab Content
     $active_tab_content = 'tab-content-active';
     foreach ($tab_array as $tab => $title) {
+        $active_tab_content = $tab == $wpt_active_tab ? 'tab-content-active' : '';
         echo '<div class="wpt_tab_content tab-content ' . esc_attr( $active_tab_content ) . '" id="' . esc_attr( $tab ) . '">';
         echo '<div class="fieldwrap">';
         
@@ -95,7 +107,6 @@
         
         echo '</div>'; //End of .fieldwrap
         echo '</div>'; //End of Tab content div
-        $active_tab_content = false; //Active tab content only for First
     }
     ?>
 

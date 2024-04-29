@@ -27,5 +27,15 @@ class Feature_Loader
          */
         $action = new Action_Feature();
         $action->run();
+
+        /**
+         * I have added new Column Doc Link
+         * now added for column: my_extream_adio
+         * in next time, we will add more one by one
+         * 
+         * @author Saiful Islam <codersaiful@gmail.com>
+         */
+        $doc_link = new Column_Doc_Link();
+        $doc_link->run();
     }
 }

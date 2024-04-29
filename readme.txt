@@ -3,8 +3,8 @@ Contributors: codersaiful,codeastrology,mdibrahimk48,ultraaddons,unikforce,rafiu
 Donate link: https://donate.stripe.com/4gw2bB2Pzdjd8mYfYZ
 Tags: wc product table, wooproducttable, woo product table,woocommerce product table, product table, wc table, quick order table, wholesale table, restaurants table,woo-product-table
 Requires at least: 4.0.0
-Tested up to: 6.4.3
-Stable tag: 3.4.7
+Tested up to: 6.5.0
+Stable tag: 3.4.8
 Requires PHP: 5.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -332,6 +332,15 @@ You can easily show specific category products. While creating new table click o
 25. Manually responsive for mobile devices
 
 == Changelog ==
+
+= 3.4.9 =
+* Variation List showing on Shop Page for Variable product issue has been fixed
+* Bug fixed 
+* Code Optimized
+
+= 3.4.8 =
+* Bug fixed 
+* Code Optimized
 
 = 3.4.7 =
 * Fixed: added to cart block notice text color issue fixed.

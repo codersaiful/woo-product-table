@@ -50,35 +50,41 @@ if( ! class_exists( 'WPT_Required' ) ){
          */
         public static function display_notice()
         {
+                /**
+                 * eTa muloto seisob kustomer er jonno
+                 * jara oofer message dekhe khub birokto hoyeche, eTa tader jonno. 
+                 * 
+                 * add_filter('wpt_offer_show', '__return_false'); 
+                 * taholei offer showing off hoye jabe.
+                 */
+                $return_true = apply_filters( 'wpt_offer_show', true );
+                if( !$return_true ) return;
+                if( defined( 'WPT_PRO_DEV_VERSION' ) ) return;
                 if( ! is_admin() ) return;
-                // return;
-                //Today: 14.2.2024 - 1707890302 and added 20 days seccond - 1664000 (little change actually)
-                if( time() > ( 1707890302 + 1664000 ) ) return;
 
+                $temp_numb =  rand(2,5);
 
-                if( defined( 'WPT_PRO_DEV_VERSION' ) ){
-                    self::display_notice_on_pro();
-                    return;
-                };
-
-                $temp_numb = rand(2,15);
-
-                $coupon_Code = 'SPECIAL_OFFER_FEB_2024';
+                $coupon_Code = 'FLASH_SALE_2024';
                 $target = 'https://wooproducttable.com/pricing/?discount=' . $coupon_Code . '&campaign=' . $coupon_Code . '&ref=1&utm_source=Default_Offer_LINK';
-                $my_message = 'Make Product Table easily with Discount by <b>(Woo Product Table Pro)</b> Plugin'; //<b class="ca-button ca-button-type-success">COUPON CODE: <i>' . $coupon_Code . '</i> - for </b>
+                $my_message = 'Product Table Primium version on Sale <b>(Woo Product Table Pro)</b> Plugin. Take it First!'; 
                 $offerNc = new Notice('wpt_'.$coupon_Code.'_offer');
-                $offerNc->set_title( 'SPECIAL OFFER UPTO 70% 🍌' )
+                $offerNc->set_title( 'FLASH SALE UPTO 70%' )
                 ->set_diff_limit(5)
                 ->set_type('offer')
                 ->set_img( WPT_BASE_URL. 'assets/images/round-logo.png')
                 ->set_img_target( $target )
                 ->set_message( $my_message )
                 ->add_button([
-                    'text' => 'Click Here to get Discount',
-                    'type' => 'error',
+                    'text' => 'Claim Discount',
+                    'type' => 'offer',
                     'link' => 'https://wooproducttable.com/pricing/?discount=' . $coupon_Code,
                 ]);
                 
+                $offerNc->add_button([
+                    'text'  => 'Stock Sync',
+                    'link'  => 'https://codeastrology.com/downloads/category/premium/'
+                ]);
+
                 if($temp_numb == 5) $offerNc->show();
                 
                 
