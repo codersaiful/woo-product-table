@@ -163,6 +163,56 @@ function wpt_array_filter_recursive($array) {
     return $array;
  }
 
+add_filter('redirect_post_location', 'wpt_redirect_after_save', 10, 2);
+
+/**
+ * actually redirect to last active tab, we will use this. 
+ * See from post_metabox.php file and admin.js file 
+ * using: setLastActiveTab(tabName); from js code
+ * 
+ * value taken from <input type="text" name="wpt_last_active_tab" id="wpt-last-active-tab" value=""> file post_metabox_form.php 
+ * 
+ * @since 3.4.8.0
+ * @link https://github.com/codersaiful/woo-product-table/issues/321
+ * 
+ * Redirects the user after saving a post based on specific conditions.
+ * @author Saiful Islam <codersaiful@gmail.com>
+ *
+ * @param string $location The URL to redirect to.
+ * @param int $post_id The ID of the post being saved.
+ * @return string The updated redirect URL.
+ */
+function wpt_redirect_after_save($location, $post_id) {
+    /*
+    * We need to verify this came from our screen and with proper authorization,
+    * because the save_post action can be triggered at other times.
+    */
+
+    if ( ! isset( $_POST['wpt_shortcode_nonce_value'] ) ) { // Check if our nonce is set.
+        return;
+    }
+
+    // verify this came from the our screen and with proper authorization,
+    // because save_post can be triggered at other times
+    if( ! wp_verify_nonce( $_POST['wpt_shortcode_nonce_value'], plugin_basename(__FILE__) ) ) {
+        return;
+    }
+
+    $wpt_last_active_tab = $_POST['wpt_last_active_tab'] ?? 'column_settings';
+    if( empty( $wpt_last_active_tab ) ){
+        $wpt_last_active_tab = 'column_settings';
+    }
+
+    // Check if it's the desired post type
+    if (get_post_type($post_id) == 'wpt_product_table') {
+        // Append the desired anchor to the redirect location
+        $location = add_query_arg('message', 'updated', $location) . '#' . $wpt_last_active_tab;
+        $location = add_query_arg('wpt_active_tab', $wpt_last_active_tab, $location);
+    }
+    return $location;
+}
+
+
 if( ! function_exists( 'wpt_shortcode_configuration_metabox_save_meta' ) ){
 
     function wpt_shortcode_configuration_metabox_save_meta( $post_id, $post ) { // save the data
