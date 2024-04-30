@@ -389,8 +389,8 @@ jQuery.fn.extend({
         var selectLinkTab = $(selectLinkTabSelector);
         var selectTabContent = $(selectTabContentSelector);
         var tabName = window.location.hash.substr(1);
-        setLastActiveTab(tabName);
         if (tabName) {
+            setLastActiveTab(tabName);
             removingActiveClass();
             $('body.wpt_admin_body #wpt_configuration_form #' + tabName).addClass('tab-content-active');
             $('body.wpt_admin_body #wpt_configuration_form .nav-tab-wrapper a.wpt_nav_tab.wpt_nav_for_' + tabName).addClass('nav-tab-active');
@@ -402,7 +402,7 @@ jQuery.fn.extend({
             setLastActiveTab(targetTabContent);
             // Detect if pushState is available
             if(history.pushState) {
-              history.pushState(null, null, $(this).attr('href'));
+            //   history.pushState(null, null, $(this).attr('href'));
             }
             
             removingActiveClass();
