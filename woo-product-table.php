@@ -446,6 +446,15 @@ class WPT_Product_Table{
          * @author Saiful Islam <codersaiful@gmail.com>
          */
         include_once $dir . '/autoloader.php';
+
+        /**
+         * Include Functions
+         * it was bottom site of this method,
+         * I have bring at the begining of this method.
+         * 
+         * @since 3.4.9.0 
+         */
+        include_once $this->path('BASE_DIR','includes/functions.php');
         //why this file outside of is_admin() actually if we want to show preview, need load outside.
        include_once $this->path('BASE_DIR','admin/wpt_product_table_post.php');
        if( is_admin() ){
@@ -501,7 +510,7 @@ class WPT_Product_Table{
          */
         //include_once $this->path('BASE_DIR','includes/wpt_product_table_post.php');
         include_once $this->path('BASE_DIR','includes/enqueue.php');
-        include_once $this->path('BASE_DIR','includes/functions.php');
+        
         include_once $this->path('BASE_DIR','includes/helper-functions.php'); 
         include_once $this->path('BASE_DIR','includes/shortcode.php');
 
