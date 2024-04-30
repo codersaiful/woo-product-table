@@ -200,12 +200,12 @@ class Page_Loader extends Base
 
     public function license_activation_message()
     {
-
+        
         if( ! empty( $_GET['page'] ) && $_GET['page'] === 'woo-product-table-license' ) return;
         if(empty($this->item_id)) return;
         $wpt_logo = WPT_ASSETS_URL . 'images/logo.png';
 
-        if( empty( $this->license_status ) || $this->license_status === 'invalid' || $this->license_status === 'site_inactive' ){
+        if( empty( $this->license_status ) || $this->license_status === 'invalid' || $this->license_status === 'site_inactive' || $this->license_status === 'inactive' ){
             $wpt_logo = WPT_ASSETS_URL . 'images/logo.png';
             
             $link_label = __( 'Activate License', 'wpt_pro' );
