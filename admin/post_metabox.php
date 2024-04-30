@@ -206,7 +206,7 @@ function wpt_redirect_after_save($location, $post_id) {
     // Check if it's the desired post type
     if (get_post_type($post_id) == 'wpt_product_table') {
         // Append the desired anchor to the redirect location
-        $location = add_query_arg('message', 'updated', $location) . '#' . $wpt_last_active_tab;
+        $location = add_query_arg('message', 'updated', $location);
         $location = add_query_arg('wpt_active_tab', $wpt_last_active_tab, $location);
     }
     return $location;

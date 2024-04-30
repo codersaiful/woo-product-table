@@ -56,7 +56,7 @@
     using: setLastActiveTab(tabName); from js code
   -->
     <!--  add_filter('redirect_post_location', 'wpt_redirect_after_save', 10, 2); see from post_metabox.php file -->
-    <input type="hidden" name="wpt_last_active_tab" id="wpt-last-active-tab" value="">
+    <input type="hidden" name="wpt_last_active_tab" id="wpt-last-active-tab" value="<?php echo esc_attr( $wpt_active_tab ) ?>">
     <?php 
     //Now start for Tab Content
     $active_tab_content = 'tab-content-active';
