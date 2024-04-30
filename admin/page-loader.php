@@ -159,6 +159,9 @@ class Page_Loader extends Base
         $this->license_status_key = 'wpt_pro_license_status';
         $this->license_status = get_option( $this->license_status_key );
         $this->license_data = get_option($this->license_data_key);
+
+        $this->license_activation_message();
+
         /**
          * Actually if not found lisen data, we will return null here
          * 
@@ -166,7 +169,7 @@ class Page_Loader extends Base
          * @author Saiful Islam <codersaiful@gmail.com>
          */
         if( empty( $this->license_status ) || empty( $this->license_data ) ) return;
-        $this->license_activation_message();
+        
         $expires = isset($this->license_data->expires) ? $this->license_data->expires : '';
         $this->item_id = isset($this->license_data->item_id) ? $this->license_data->item_id : '';
         if('lifetime' == $expires) return;
@@ -202,7 +205,7 @@ class Page_Loader extends Base
 
     public function license_activation_message()
     {
-        if( $this->license_status == 'valid' ){
+        if( $this->license_status !== 'valid' ){
             
         }
     }
