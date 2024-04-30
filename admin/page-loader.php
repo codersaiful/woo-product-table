@@ -209,7 +209,7 @@ class Page_Loader extends Base
         $expired_date = date( 'd M, Y', $this->exp_timestamp );
         $link_label = __( 'Renew License', 'wpt_pro' );
         $link = "https://codeastrology.com/checkout/?edd_license_key={$this->license_key}&download_id={$this->item_id}";
-		$message = esc_html__( ' Renew it to get latest update.', 'wpt_pro' ) . '</strong>';
+		$message = esc_html__( ' Renew it to enable pro features.', 'wpt_pro' ) . '</strong>';
         ob_start();
         ?>
         <div class="error wpt-renew-license-notice">
