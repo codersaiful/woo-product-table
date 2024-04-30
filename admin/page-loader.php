@@ -166,7 +166,7 @@ class Page_Loader extends Base
          * @author Saiful Islam <codersaiful@gmail.com>
          */
         if( empty( $this->license_status ) || empty( $this->license_data ) ) return;
-
+        $this->license_activation_message();
         $expires = isset($this->license_data->expires) ? $this->license_data->expires : '';
         $this->item_id = isset($this->license_data->item_id) ? $this->license_data->item_id : '';
         if('lifetime' == $expires) return;
@@ -198,9 +198,14 @@ class Page_Loader extends Base
             add_action( 'admin_notices', [$this, 'renew_license_notice'] );
         }
         
-
     }
 
+    public function license_activation_message()
+    {
+        if( $this->license_status == 'valid' ){
+            
+        }
+    }
     public function renew_license_notice()
     {
 
