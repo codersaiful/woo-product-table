@@ -1046,7 +1046,6 @@ if( !function_exists( 'wpt_configure_external_part' ) ){
      * @return void
      */
     function wpt_configure_external_part( $settings,$current_config_value,$field_name ){
-        return;
         $display = '';
         if( ! defined( 'YITH_YWRAQ_VERSION' ) ){
             $display = 'display:none';
