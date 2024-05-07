@@ -59,12 +59,6 @@ class Page_Loader extends Base
         if( ! $this->is_pro ){
             add_submenu_page( $this->main_slug, esc_html__( 'GET PRO VERSION', 'woo-product-table' ),  __( 'Get <strong>Pro</strong>', 'woo-product-table' ), 'read', 'https://wooproducttable.com/pricing/' );
         }
-        // var_dump($this->license);
-
-        //License Menu if pro version is getter or equal V2.0.8.4
-        // if( is_object( $this->license ) && version_compare($this->pro_version, '2.0.8.4', '>=')){
-        //     add_submenu_page( $this->main_slug, __('Min Max Control License', 'wcmmq_pro'), __( 'License', 'wcmmq_pro' ), $capability, 'wcmmq-license', [$this->license, 'license_page'] );
-        // }
 
     }
 
@@ -159,6 +153,10 @@ class Page_Loader extends Base
         $this->license_status_key = 'wpt_pro_license_status';
         $this->license_status = get_option( $this->license_status_key );
         $this->license_data = get_option($this->license_data_key);
+
+        
+        add_action( 'admin_notices', [$this, 'license_activation_message'] );
+
         /**
          * Actually if not found lisen data, we will return null here
          * 
@@ -166,7 +164,7 @@ class Page_Loader extends Base
          * @author Saiful Islam <codersaiful@gmail.com>
          */
         if( empty( $this->license_status ) || empty( $this->license_data ) ) return;
-
+        
         $expires = isset($this->license_data->expires) ? $this->license_data->expires : '';
         $this->item_id = isset($this->license_data->item_id) ? $this->license_data->item_id : '';
         if('lifetime' == $expires) return;
@@ -198,9 +196,35 @@ class Page_Loader extends Base
             add_action( 'admin_notices', [$this, 'renew_license_notice'] );
         }
         
-
     }
 
+    public function license_activation_message()
+    {
+        
+        if( ! empty( $_GET['page'] ) && $_GET['page'] === 'woo-product-table-license' ) return;
+        if(empty($this->item_id)) return;
+        $wpt_logo = WPT_ASSETS_URL . 'images/logo.png';
+
+        if( empty( $this->license_status ) || $this->license_status === 'invalid' || $this->license_status === 'site_inactive' || $this->license_status === 'inactive' ){
+            $wpt_logo = WPT_ASSETS_URL . 'images/logo.png';
+            
+            $link_label = __( 'Activate License', 'wpt_pro' );
+            $link = admin_url('edit.php?post_type=wpt_product_table&page=woo-product-table-license');
+            $message = esc_html__( ' Please Activate License to get Pro Feature', 'wpt_pro' );
+            ob_start();
+            ?>
+            <div class="error wpt-renew-license-notice">
+                <div class="wpt-license-notice-inside">
+                <img src="<?php echo esc_url( $wpt_logo ); ?>" class="wpt-license-brand-logo">
+                    Your License of <strong>Woo Product Table pro</strong> is <span style="color: #d00;font-weight:bold;">Invalid/Inactive</span>
+                    %1$s <a href="%2$s">%3$s</a>
+                </div>
+            </div>
+            <?php
+            $full_message = ob_get_clean();
+            printf( $full_message, $message, $link, $link_label );      
+        }
+    }
     public function renew_license_notice()
     {
 
@@ -209,7 +233,7 @@ class Page_Loader extends Base
         $expired_date = date( 'd M, Y', $this->exp_timestamp );
         $link_label = __( 'Renew License', 'wpt_pro' );
         $link = "https://codeastrology.com/checkout/?edd_license_key={$this->license_key}&download_id={$this->item_id}";
-		$message = esc_html__( ' Renew it to get latest update.', 'wpt_pro' ) . '</strong>';
+		$message = esc_html__( ' Renew it to enable pro features.', 'wpt_pro' ) . '</strong>';
         ob_start();
         ?>
         <div class="error wpt-renew-license-notice">

@@ -45,6 +45,7 @@ if( defined( 'YITH_YWRAQ_PREMIUM' ) && function_exists( 'yith_ywraq_render_butto
 
     return;
 }
+
 $wpt_nonce = wp_create_nonce( 'add-request-quote-' . $data['id'] );
 $default_quantity = apply_filters( 'woocommerce_quantity_input_min', 1, $product );
 $quote_class = 'enabled';
@@ -53,13 +54,15 @@ if( $product->get_type() == 'variable' ){
 }
 
 $c_product_id = $data['id'];
-$Add_to_Quote = $config_value['yith_add_to_quote_text'];//'Add to Quote';
-$data_message = '{"text":"'. $Add_to_Quote .'","adding":"' . $config_value['yith_add_to_quote_adding'] . '","added":"' . $config_value['yith_add_to_quote_added'] . '"}';
+$Add_to_Quote = $config_value['yith_add_to_quote_text'] ?? __('Add to Quote', 'woo-product-table');//'Add to Quote';
+$adding = $config_value['yith_add_to_quote_adding'] ?? __('Adding...', 'woo-product-table');//'Adding...';
+$added = $config_value['yith_add_to_quote_added'] ?? __('Added', 'woo-product-table');//'Added';
+$data_message = '{"text":"'. $Add_to_Quote .'","adding":"' . $adding . '","added":"' . $added . '"}';
 
 $q_final_class = "{$quote_class} yith_request_temp_{$temp_number}_id_{$data['id']} wpt_yith_add_to_quote_request wpt_add-request-quote-button";
 
 ?>
-<a data-yith_browse_list='<?php echo esc_attr( $config_value['yith_browse_list'] ); ?>' 
+<a data-yith_browse_list='<?php echo esc_attr( $config_value['yith_browse_list'] ?? __('Browse the list', 'woo-product-table') ); ?>' 
    data-response_msg='' 
    data-msg='<?php echo esc_attr( $data_message ); ?>' 
    data-wp_nonce='<?php echo esc_attr( $wpt_nonce ); ?>' 

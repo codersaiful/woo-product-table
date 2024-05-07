@@ -189,13 +189,13 @@ function wpt_redirect_after_save($location, $post_id) {
     */
 
     if ( ! isset( $_POST['wpt_shortcode_nonce_value'] ) ) { // Check if our nonce is set.
-        return;
+        return $location;
     }
 
     // verify this came from the our screen and with proper authorization,
     // because save_post can be triggered at other times
     if( ! wp_verify_nonce( $_POST['wpt_shortcode_nonce_value'], plugin_basename(__FILE__) ) ) {
-        return;
+        return $location;
     }
 
     $wpt_last_active_tab = $_POST['wpt_last_active_tab'] ?? 'column_settings';

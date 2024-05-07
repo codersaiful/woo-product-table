@@ -1,6 +1,7 @@
 <?php
 /**
  * Plugin Name: Product Table for WooCommerce by CodeAstrology (WooproductTable)
+ * Requires Plugins: woocommerce
  * Plugin URI: https://wooproducttable.com/pricing/?utm_source=WPT+Plugin+Dashboard&utm_medium=Free+Version
  * Description: (WooProductTable - woo product table) WooCommerce product table plugin helps you to display your products in a searchable table layout with filters. Boost conversions & sales. Woo Product Table is best for Wholesale. wooproducttable, woo-product-table
  * Author: CodeAstrology Team
@@ -11,7 +12,7 @@
  * Requires at least:    4.0.0
  * Tested up to:         6.5.2
  * WC requires at least: 5.0.0
- * WC tested up to: 	 8.7.2
+ * WC tested up to: 	 8.8.3
  * 
  * 
  * Text Domain: woo-product-table
@@ -446,6 +447,15 @@ class WPT_Product_Table{
          * @author Saiful Islam <codersaiful@gmail.com>
          */
         include_once $dir . '/autoloader.php';
+
+        /**
+         * Include Functions
+         * it was bottom site of this method,
+         * I have bring at the begining of this method.
+         * 
+         * @since 3.4.9.0 
+         */
+        include_once $this->path('BASE_DIR','includes/functions.php');
         //why this file outside of is_admin() actually if we want to show preview, need load outside.
        include_once $this->path('BASE_DIR','admin/wpt_product_table_post.php');
        if( is_admin() ){
@@ -501,7 +511,7 @@ class WPT_Product_Table{
          */
         //include_once $this->path('BASE_DIR','includes/wpt_product_table_post.php');
         include_once $this->path('BASE_DIR','includes/enqueue.php');
-        include_once $this->path('BASE_DIR','includes/functions.php');
+        
         include_once $this->path('BASE_DIR','includes/helper-functions.php'); 
         include_once $this->path('BASE_DIR','includes/shortcode.php');
 

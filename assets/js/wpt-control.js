@@ -118,6 +118,7 @@ jQuery(function($) {
             var thisButton = $(this);
             var thisPagination = thisButton.closest('.wpt_my_pagination');
             var page_number = $(thisButton).text();
+            page_number = parseInt(page_number.replace(/,/g, ''), 10);
             var others = {
                 page_number: page_number,
                 isMob: isMob,

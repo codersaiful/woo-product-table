@@ -1046,12 +1046,15 @@ if( !function_exists( 'wpt_configure_external_part' ) ){
      * @return void
      */
     function wpt_configure_external_part( $settings,$current_config_value,$field_name ){
-        if( ! defined( 'YITH_WCQV_VERSION' ) ) return;
+        $display = '';
+        if( ! defined( 'YITH_YWRAQ_VERSION' ) ){
+            $display = 'display:none';
+        }
 
         $page = isset( $settings['page'] ) ? $settings['page'] : 'not_set_page';
         
         ?>
-<div class="wpt-section-panel basic-settings yith <?php echo esc_attr( $page ); ?>" id="wpt-yith-settings">
+<div class="wpt-section-panel basic-settings yith <?php echo esc_attr( $page ); ?>" id="wpt-yith-settings" style="<?php echo esc_attr( $display ); ?>">
     <table class="wpt-my-table basic-setting-table">
         <thead>
             <tr>
@@ -1074,7 +1077,7 @@ if( !function_exists( 'wpt_configure_external_part' ) ){
                             <label for="wpt_table_quick_view_btn_text" class="wpt_label"><?php echo sprintf(esc_html__( '%s[Quick View]%s - Button Text', 'woo-product-table' ), '<b>', '</b>' ); ?></label>
                         </div>
                         <div class="form-field col-lg-6">
-                            <input name="<?php echo esc_attr( $field_name ); ?>[quick_view_btn_text]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['quick_view_btn_text'] ); ?>" id="wpt_table_quick_view_btn_text" type="text" placeholder="<?php esc_attr_e( 'eg: Quick View', 'woo-product-table' ); ?>">
+                            <input name="<?php echo esc_attr( $field_name ); ?>[quick_view_btn_text]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['quick_view_btn_text'] ?? __( 'Quick View', 'woo-product-table' ) ); ?>" id="wpt_table_quick_view_btn_text" type="text" placeholder="<?php esc_attr_e( 'eg: Quick View', 'woo-product-table' ); ?>">
                         </div>
                     </div>
                 </td>
@@ -1092,7 +1095,7 @@ if( !function_exists( 'wpt_configure_external_part' ) ){
                             <label for="wpt_table_yith_browse_list" class="wpt_label"><?php echo sprintf(esc_html__( '%s[Browse Quote list]%s - text ', 'woo-product-table' ), '<b>', '</b>' ); ?></label>
                         </div>
                         <div class="form-field col-lg-6">
-                            <input name="<?php echo esc_attr( $field_name ); ?>[yith_browse_list]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['yith_browse_list'] ); ?>" id="wpt_table_yith_browse_list" type="text" placeholder="<?php esc_attr_e( 'Browse the list - text write here', 'woo-product-table' ); ?>">
+                            <input name="<?php echo esc_attr( $field_name ); ?>[yith_browse_list]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['yith_browse_list'] ?? __( 'Browse the list', 'woo-product-table' ) ); ?>" id="wpt_table_yith_browse_list" type="text" placeholder="<?php esc_attr_e( 'Browse the list - text write here', 'woo-product-table' ); ?>">
                         </div>
                     </div>
                 </td>
@@ -1110,7 +1113,7 @@ if( !function_exists( 'wpt_configure_external_part' ) ){
                             <label for="wpt_table_yith_add_to_quote_text" class="wpt_label"><?php echo sprintf(esc_html__( '%s[Add to Quote]%s - button text', 'woo-product-table' ), '<b>', '</b>' ); ?></label>
                         </div>
                         <div class="form-field col-lg-6">
-                            <input name="<?php echo esc_attr( $field_name ); ?>[yith_add_to_quote_text]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['yith_add_to_quote_text'] ); ?>" id="wpt_table_yith_add_to_quote_text" type="text" placeholder="<?php esc_attr_e( 'Add to Quote text write here', 'woo-product-table' ); ?>">
+                            <input name="<?php echo esc_attr( $field_name ); ?>[yith_add_to_quote_text]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['yith_add_to_quote_text'] ?? __( 'Add to Quote', 'woo-product-table' ) ); ?>" id="wpt_table_yith_add_to_quote_text" type="text" placeholder="<?php esc_attr_e( 'Add to Quote text write here', 'woo-product-table' ); ?>">
                         </div>
                     </div>
                 </td>
@@ -1127,7 +1130,7 @@ if( !function_exists( 'wpt_configure_external_part' ) ){
                             <label for="wpt_table_yith_add_to_quote_adding" class="wpt_label"><?php echo sprintf(esc_html__( '%s[Quote Adding]%s - text', 'woo-product-table' ), '<b>', '</b>' ); ?></label>
                         </div>
                         <div class="form-field col-lg-6">
-                            <input name="<?php echo esc_attr( $field_name ); ?>[yith_add_to_quote_adding]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['yith_add_to_quote_adding'] ); ?>" id="wpt_table_yith_add_to_quote_adding" type="text" placeholder="<?php esc_attr_e( 'Adding text write here', 'woo-product-table' ); ?>">
+                            <input name="<?php echo esc_attr( $field_name ); ?>[yith_add_to_quote_adding]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['yith_add_to_quote_adding'] ?? __( 'Adding', 'woo-product-table' ) ); ?>" id="wpt_table_yith_add_to_quote_adding" type="text" placeholder="<?php esc_attr_e( 'Adding text write here', 'woo-product-table' ); ?>">
                         </div>
                     </div>
                 </td>
@@ -1145,7 +1148,7 @@ if( !function_exists( 'wpt_configure_external_part' ) ){
                             <label for="wpt_table_yith_add_to_quote_added" class="wpt_label"><?php echo sprintf(esc_html__( '%s[Quote Added]%s - text ', 'woo-product-table' ), '<b>', '</b>' ); ?></label>
                         </div>
                         <div class="form-field col-lg-6">
-                            <input name="<?php echo esc_attr( $field_name ); ?>[yith_add_to_quote_added]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['yith_add_to_quote_added'] ); ?>" id="wpt_table_yith_add_to_quote_added" type="text" placeholder="<?php esc_attr_e( 'Quote Added text write here', 'woo-product-table' ); ?>">
+                            <input name="<?php echo esc_attr( $field_name ); ?>[yith_add_to_quote_added]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['yith_add_to_quote_added'] ?? __( 'Quote Added', 'woo-product-table' ) ); ?>" id="wpt_table_yith_add_to_quote_added" type="text" placeholder="<?php esc_attr_e( 'Quote Added text write here', 'woo-product-table' ); ?>">
                         </div>
                     </div>
                 </td>
