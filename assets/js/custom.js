@@ -996,7 +996,7 @@ jQuery(function($) {
                 //Return to Previous HTML Image
 
                 targetThumbs.attr('src', targetThumbsSRC);
-                targetThumbs.attr('srcset', targetThumbsSRCSET);
+                targetThumbs.attr('srcset', '');
                 //Unset variation ID data //Added at 4.0.20
                 targetThumbs.removeAttr('data-variation_id');
                 

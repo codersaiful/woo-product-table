@@ -337,6 +337,7 @@ You can easily show specific category products. While creating new table click o
 * Fixed: YITH qutoe request button quantity issue solved.
 * Variation List showing on Shop Page for Variable product issue has been fixed
 * Fixed: last-active-tab issue has been fixed.
+* Fixed: variation default image issue has been fixed.
 * Bug fixed 
 * Code Optimized
 
