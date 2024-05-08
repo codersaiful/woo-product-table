@@ -49,6 +49,10 @@ class Recommeded
             $req_pssg->get_full_this_plugin_name($this_plugin2);
             $req_pssg->set_location('wpt_plugin_recommend_here');
             $req_pssg->run();
+
+            $req_pssg->get_full_this_plugin_name($this_plugin2);
+            $req_pssg->set_location('wpt_sync_plugin_recommendation');
+            $req_pssg->run();
         }
 
         $mmp_req_slug = 'woo-min-max-quantity-step-control-single/wcmmq.php';
