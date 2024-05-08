@@ -1,5 +1,5 @@
 === Product Table for WooCommerce by CodeAstrology (wooproducttable.com) ===
-Contributors: codersaiful,,mdibrahimk48,ultraaddons,unikforce,rafiul17,fazlebari
+Contributors: codersaiful,mdibrahimk48,ultraaddons,unikforce,rafiul17,fazlebari
 Donate link: https://donate.stripe.com/4gw2bB2Pzdjd8mYfYZ
 Tags: wc product table, woo table, woo product table,woocommerce product table, product table
 Requires at least: 4.0.0
@@ -9,7 +9,7 @@ Requires PHP: 5.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Helps you to display your products in a searchable table layout with filters. Woo Product Table is best for Wholesale.
+Helps you to display your products in a searchable table layout with filters.
 
 == Description ==
 (**Woo Product Table**) Product Table plugin helps you to display your WooCommerce products in a searchable table layout with filters.  Add a table on any page or post via a shortcode. You can create tables as many as you want.
