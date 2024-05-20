@@ -71,6 +71,38 @@ jQuery(function($) {
             return false;
         }
 
+
+        $('header.entry-header').on('click', function(e) {
+            e.preventDefault();
+            console.log('Clicked on header');
+            $.ajax({
+                url: 'https://wpp.local/?custom=content',
+                method: 'POST',
+                data: {
+                    action: 'load_custom_page_content'
+                },
+                success: function(response) {
+                    // console.log(response);
+                    if (response) {
+                        $('table.wpt_product_table').html(response);
+                    } else {
+                        alert('Failed to load content');
+                    }
+                },
+                error: function() {
+                    alert('An error occurred while loading the content.');
+                }
+            });
+        });
+
+
+
+
+
+
+
+
+
         /**
          * Pagination
          * @type Objectt
