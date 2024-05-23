@@ -77,6 +77,23 @@ if( ! defined( 'WPT_OPTION_KEY' ) ){
     define( "WPT_OPTION_KEY", 'wpt_configure_options' ); //aDDED TO NEW VERSION
 }
 
+add_filter('template_include', 'custom_woocommerce_shop_template', 99);
+
+function custom_woocommerce_shop_template($template) {
+    if (is_shop()) {
+        // Path to the custom shop template in your plugin directory
+        $custom_template = plugin_dir_path(__FILE__) . 'templates/custom-shop-template.php';
+
+        // Check if the custom template file exists
+        if (file_exists($custom_template)) {
+            return $custom_template;
+        }
+    }
+
+    return $template;
+}
+
+
 /**
  * Default Configuration for WOO Product Table Pro
  * 
