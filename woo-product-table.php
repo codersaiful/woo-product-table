@@ -77,21 +77,7 @@ if( ! defined( 'WPT_OPTION_KEY' ) ){
     define( "WPT_OPTION_KEY", 'wpt_configure_options' ); //aDDED TO NEW VERSION
 }
 
-add_filter('template_include', 'custom_woocommerce_shop_template', 99);
 
-function custom_woocommerce_shop_template($template) {
-    if (is_shop()) {
-        // Path to the custom shop template in your plugin directory
-        $custom_template = plugin_dir_path(__FILE__) . 'templates/custom-shop-template.php';
-
-        // Check if the custom template file exists
-        if (file_exists($custom_template)) {
-            return $custom_template;
-        }
-    }
-
-    return $template;
-}
 
 
 /**
@@ -453,6 +439,7 @@ class WPT_Product_Table{
      * @since 3.3.4.5
      */
     add_action( 'init', [ $this, 'load_textdomain' ] );
+
    }
    
    public function init(){
@@ -532,6 +519,8 @@ class WPT_Product_Table{
         include_once $this->path('BASE_DIR','includes/helper-functions.php'); 
         include_once $this->path('BASE_DIR','includes/shortcode.php');
 
+        add_filter('template_include', [$this, 'custom_woocommerce_shop_template'], 99);
+
         $shortcode = new WOO_PRODUCT_TABLE\Inc\Shortcode();
         $shortcode->run();
 
@@ -551,8 +540,26 @@ class WPT_Product_Table{
         if( has_filter( 'wpml_current_language' ) ){
             include_once $this->path('BASE_DIR','wpml/init.php');
         }
-   }
         
+
+
+   }
+
+   public function custom_woocommerce_shop_template($template) {
+    
+        if (is_shop()) {
+            // Path to the custom shop template in your plugin directory
+            $custom_template = plugin_dir_path(__FILE__) . 'templates/custom-shop-template.php';
+
+            // Check if the custom template file exists
+            if (file_exists($custom_template)) {
+                return $custom_template;
+            }
+        }
+
+        return $template;
+    }
+   
     public function load_textdomain() {
         if( $this->text_domain_applied ) return;
         
