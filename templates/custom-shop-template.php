@@ -67,7 +67,22 @@ if ( woocommerce_product_loop() ) {
  *
  * @hooked woocommerce_output_content_wrapper_end - 10 (outputs closing divs for the content)
  */
-do_action( 'woocommerce_after_main_content' );
+// do_action( 'woocommerce_after_main_content' );
 
 
 do_action('wp_footer');
+
+
+// do_action('wp_head');
+
+// echo do_shortcode("[Product_Table id='2671' name='Shop Page table']");
+
+// /**
+//  * Hook: woocommerce_after_main_content.
+//  *
+//  * @hooked woocommerce_output_content_wrapper_end - 10 (outputs closing divs for the content)
+//  */
+// // do_action( 'woocommerce_after_main_content' );
+
+
+// do_action('wp_footer');
