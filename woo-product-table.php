@@ -520,6 +520,7 @@ class WPT_Product_Table{
         include_once $this->path('BASE_DIR','includes/shortcode.php');
 
         add_filter('template_include', [$this, 'custom_woocommerce_shop_template'], 99);
+        add_action('wpt_after_table', [$this, 'wpt_after_table'] );
 
         $shortcode = new WOO_PRODUCT_TABLE\Inc\Shortcode();
         $shortcode->run();
@@ -547,7 +548,8 @@ class WPT_Product_Table{
 
    public function custom_woocommerce_shop_template($template) {
     
-        if (is_shop()) {
+        if (is_shop() && isset( $_GET['custom'] ) && $_GET['custom'] == 'custom_template') {
+            
             // Path to the custom shop template in your plugin directory
             $custom_template = plugin_dir_path(__FILE__) . 'templates/custom-shop-template.php';
 
@@ -560,6 +562,14 @@ class WPT_Product_Table{
         return $template;
     }
    
+    public function wpt_after_table( $shortcode )
+    {
+        if( ! is_shop()) return;
+        ?>
+        <button class="shoppage_loadmore_button" page="1">Load More</button>
+        <?php 
+    }
+
     public function load_textdomain() {
         if( $this->text_domain_applied ) return;
         

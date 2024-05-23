@@ -268,7 +268,7 @@ class Shortcode extends Shortcode_Base{
         // $add_to_cart->run();
 
         // add_action('template_redirect', [$this,'custom_content_template_redirect']);
-        add_action('template_include', [$this,'load_custom_template_from_plugin']);
+        // add_filter('template_include', [$this,'load_custom_template_from_plugin']);
 
     }
     function custom_content_template_redirect() {
@@ -321,27 +321,7 @@ class Shortcode extends Shortcode_Base{
 
         ob_start();
         
-        ?>
-
-
-
-                <!-- data-config_json attr is important for custom.js-->
-                <table 
-                data-page_number="<?php echo esc_attr( $this->page_number + 1 ); ?>"
-                data-temp_number="<?php echo esc_attr( $this->table_id ); ?>"
-                data-config_json="<?php echo esc_attr( wp_json_encode( $this->_config ) ); ?>"
-                data-data_json=""
-                data-data_json_backup=""
-                id="wpt_table"
-                class="<?php echo esc_attr( Table_Attr::table_class( $this ) ); ?>">
-
-                <?php $this->table_head(); ?>
-                <?php $this->table_body(); ?>
-                </table>
-
-        
-        <?php 
-
+        $this->table_body();
 
         /**
          * It's important to make new table always
