@@ -110,11 +110,14 @@ jQuery(function($) {
                         $(document.body).trigger('wpt_ajax_loaded');
                         $(document.body).trigger('wpt_ajax_load_data', data);
                     } else {
-                        alert('Failed to load content');
+                        $('.wpt-shop-page-loader-wrapper').remove();
+                        console.log('Failed to load content');
                     }
                 },
                 error: function() {
-                    alert('An error occurred while loading the content.');
+                    $('.wpt_table_tag_wrapper').removeClass('wpt-ajax-loading');
+                    $('.wpt-shop-page-loader-wrapper').remove();
+                    console.log('An error occurred while loading the content.');
                 }
             });
         });
