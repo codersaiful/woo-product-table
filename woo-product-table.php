@@ -566,7 +566,10 @@ class WPT_Product_Table{
     {
         if( ! is_shop()) return;
         ?>
-        <button class="shoppage_loadmore_button" page="1">Load More</button>
+        <div class="wpt-shop-page-loader-wrapper" style="text-align:center;">
+            <button class="shoppage_loadmore_button" page="1">Load More</button>
+        </div>
+        
         <?php 
     }
 
