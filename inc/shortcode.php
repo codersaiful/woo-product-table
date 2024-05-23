@@ -239,9 +239,11 @@ class Shortcode extends Shortcode_Base{
     public $found_products;
     public $product_loop;
 
+
     public function run(){
 
         add_shortcode( $this->shortcde_text, [$this, 'shortcode'] );
+        add_shortcode( 'Product_Table_Empty', [$this, 'shortcode_empty'] );
 
         /**
          * All lf our Ajax for our Table/Shortcode will handle from
@@ -265,7 +267,92 @@ class Shortcode extends Shortcode_Base{
         // $add_to_cart = new Add_To_Cart();
         // $add_to_cart->run();
 
+        // add_action('template_redirect', [$this,'custom_content_template_redirect']);
+        add_action('template_include', [$this,'load_custom_template_from_plugin']);
+
     }
+    function custom_content_template_redirect() {
+        dd(locate_template('custom-template.php'));
+        if (isset($_GET['custom']) && $_GET['custom'] === 'content') {
+            // Locate the custom template file
+            $template = locate_template('custom-template.php');
+            if ($template) {
+                // dd($template);
+                // Include the custom template file
+                include($template);
+                exit; // Exit to prevent further processing
+            }
+        }
+    }
+    function load_custom_template_from_plugin($template) {
+        if (isset($_GET['custom']) && $_GET['custom'] === 'content') {
+            // Construct the path to the custom template in your plugin directory
+            $custom_template = plugin_dir_path(__FILE__) . 'custom-template.php';
+            
+            // Check if the custom template file exists
+            if (file_exists($custom_template)) {
+                return $custom_template;
+            }
+        }
+        
+        // Return the default template if the custom parameter is not set
+        return $template;
+    }
+
+    public function shortcode_empty($atts){
+
+        $this->atts = $atts;
+
+        $pairs = array( 'exclude' => false );
+        extract( shortcode_atts( $pairs, $atts ) );
+        
+        $this->assing_property($atts);
+        
+        
+
+        //Obviously should load on after starup. Even already checked on overr there
+        $this->startup_loader($atts);
+        
+
+        $this->do_action('wpt_load');
+
+        if( $this->error_name ) Msg::handle($this);
+        if( ! $this->table_display ) return;
+
+        ob_start();
+        
+        ?>
+
+
+
+                <!-- data-config_json attr is important for custom.js-->
+                <table 
+                data-page_number="<?php echo esc_attr( $this->page_number + 1 ); ?>"
+                data-temp_number="<?php echo esc_attr( $this->table_id ); ?>"
+                data-config_json="<?php echo esc_attr( wp_json_encode( $this->_config ) ); ?>"
+                data-data_json=""
+                data-data_json_backup=""
+                id="wpt_table"
+                class="<?php echo esc_attr( Table_Attr::table_class( $this ) ); ?>">
+
+                <?php $this->table_head(); ?>
+                <?php $this->table_body(); ?>
+                </table>
+
+        
+        <?php 
+
+
+        /**
+         * It's important to make new table always
+         * Actually we have created it based on already created condition actually
+         * 
+         * All checked property should make defatul here
+         */
+        $this->product_loop = null;
+        return ob_get_clean();
+    }
+
     public function shortcode($atts){
 
         $this->atts = $atts;
