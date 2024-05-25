@@ -108,7 +108,7 @@ jQuery(function($) {
                         };
                         $(document.body).trigger('wc_fragments_refreshed');
                         $(document.body).trigger('wpt_ajax_loaded');
-                        $(document.body).trigger('wpt_ajax_load_data', data);
+                        // $(document.body).trigger('wpt_ajax_load_data', data);
                     } else {
                         $('.wpt-shop-page-loader-wrapper').remove();
                         console.log('Failed to load content');

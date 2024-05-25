@@ -555,6 +555,7 @@ class WPT_Product_Table{
 
             // Check if the custom template file exists
             if (file_exists($custom_template)) {
+                header('Access-Control-Allow-Origin: *');
                 return $custom_template;
             }
         }
