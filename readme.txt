@@ -333,6 +333,9 @@ You can easily show specific category products. While creating new table click o
 
 == Changelog ==
 
+= 3.5.0 =
+* Fixed: Quote Request premium version issue fixed.
+
 = 3.4.9 =
 * Fixed: YITH qutoe request button quantity issue solved.
 * Variation List showing on Shop Page for Variable product issue has been fixed
