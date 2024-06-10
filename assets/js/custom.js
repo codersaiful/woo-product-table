@@ -1839,7 +1839,7 @@ jQuery(function($) {
             if(outofstockVal){
                 Qty_Val = 0;
             }
-
+            $(thisRow).find('.yith-ywraq-add-to-quote input.input-text.qty.text').val(Qty_Val);
             // $( thisRow + ' input.input-text.qty.text').val(Qty_Val); // input.input-text.qty.text
             $( thisRow ).attr('data-quantity', Qty_Val);
             $( thisRow + ' .wpt_action a.wpt_woo_add_cart_button').attr('data-quantity', Qty_Val);
