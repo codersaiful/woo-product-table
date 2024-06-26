@@ -140,7 +140,7 @@ class Page_Loader extends Base
 
     public function product_quick_edit()
     {
-        $this->topbar_sub_title = __( 'Product Bul Edit','woo-product-table' );
+        $this->topbar_sub_title = __( 'Product Bulk Edit','woo-product-table' );
         include $this->topbar_file;
         include $this->page_folder_dir . 'product-bulk-edit.php';
         
