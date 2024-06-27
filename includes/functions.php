@@ -63,6 +63,18 @@ if( ! function_exists( 'wpt_detect_current_device' ) ){
         return $device;
     }
 }
+if( ! function_exists( 'wpt_extra_variation_title' ) ){
+
+    function wpt_extra_variation_title($product_type, $data){
+        if( $product_type !== 'variation' ) return;
+
+        $attribtues = $data['attributes'] ?? [];
+        if( ! is_array( $attribtues ) ) return;
+        if( count( $attribtues ) <= 2 ) return;
+        $ext = implode(', ', $attribtues);
+        return ! empty( $ext ) ? ' - ' . ucwords( $ext ) : '';
+    }
+}
 
 if( ! function_exists( 'wpt_col_settingwise_device' ) ){
     
@@ -211,13 +223,16 @@ if( ! function_exists( 'wpt_product_title_column_add' ) ){
         
         $variation_in_title =  $column_settings['product_title']['variation_in_title'] ?? '';
         $variation_in_title = $variation_in_title == 'on' ? 'checked="checked"' : '';
+        $variation_title_hide =  $column_settings['product_title']['variation_title_hide'] ?? '';
+        $variation_title_hide = $variation_title_hide == 'on' ? 'checked="checked"' : '';
 
         $description_off =  isset( $column_settings['description_off'] ) ? $column_settings['description_off'] : 'on';
         $description_off = $description_off == 'off' ? 'checked="checked"' : '';
        ?>
         <div class="description_off_wrapper">
             <label for="description_off<?php echo esc_attr( $_device_name ); ?>"><input id="description_off<?php echo esc_attr( $_device_name ); ?>" title="Disable Deactivate Description from Title Column" name="column_settings<?php echo esc_attr( $_device_name ); ?>[description_off]" id="description_off" class="description_off" type="checkbox" value="off" <?php echo esc_attr( $description_off ); ?>> <?php echo esc_html__( 'Disable Description', 'woo-product-table' ); ?></label>
-            <label for="variation_in_title<?php echo esc_attr( $_device_name ); ?>"><input id="variation_in_title<?php echo esc_attr( $_device_name ); ?>" title="Show variation names with title" name="column_settings<?php echo esc_attr( $_device_name ); ?>[product_title][variation_in_title]" id="variation_in_title" class="variation_in_title" type="checkbox" <?php echo esc_attr( $variation_in_title ); ?>> <?php echo esc_html__( 'Show Variation Name With Title', 'woo-product-table' ); ?></label>
+            <label for="variation_in_title<?php echo esc_attr( $_device_name ); ?>" style="display:none;"><input id="variation_in_title<?php echo esc_attr( $_device_name ); ?>" title="Show variation names with title" name="column_settings<?php echo esc_attr( $_device_name ); ?>[product_title][variation_in_title]" id="variation_in_title" class="variation_in_title" type="checkbox" <?php echo esc_attr( $variation_in_title ); ?>> <?php echo esc_html__( 'Show Variation Name With Title', 'woo-product-table' ); ?></label>
+            <label for="variation_title_hide<?php echo esc_attr( $_device_name ); ?>" style="color: #607D8B;margin: 0 10px;font-weight: normal;"><input id="variation_title_hide<?php echo esc_attr( $_device_name ); ?>" title="Hide variation names from title" name="column_settings<?php echo esc_attr( $_device_name ); ?>[product_title][variation_title_hide]" id="variation_title_hide" class="variation_title_hide" type="checkbox" <?php echo esc_attr( $variation_title_hide ); ?>> <?php echo esc_html__( 'Hide Variation Name From Title', 'woo-product-table' ); ?></label>
         </div>
         <div class="title_variation">
             <label for="link<?php echo esc_attr( $_device_name ); ?>"><input type="radio" id="link<?php echo esc_attr( $_device_name ); ?>" name="column_settings<?php echo esc_attr( $_device_name ); ?>[title_variation]" value="link" <?php echo !$title_variation || $title_variation == 'link' ? 'checked' : ''; ?>> <?php echo esc_html__( 'Link Enable', 'woo-product-table' ); ?></label>
