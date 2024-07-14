@@ -81,7 +81,7 @@ if( ! class_exists( 'WPT_Required' ) ){
                 ]);
                 
                 $offerNc->add_button([
-                    'text'  => 'Stock Sync',
+                    'text'  => 'WordPress Plugins',
                     'link'  => 'https://codeastrology.com/downloads/category/premium/'
                 ]);
 
