@@ -82,7 +82,7 @@ if( ! function_exists( 'wpt_texonomy_search_generator' ) ){
 		'orderby'           => 'name',
 		'order'             => $tx_order,//'ASC', //$config_value['sort_searchbox_filter'],//
 		'show_count'        => 0,
-		'hide_empty'        => 1,
+		'hide_empty'        => 0,
 		'child_of'          => 0,
 		'exclude'           => '',
 		'echo'              => 0,//1,
@@ -149,7 +149,17 @@ if( ! function_exists( 'wpt_texonomy_search_generator' ) ){
                 return 0;
             });
         }
-       
+        // Example usage
+$taxonomy = $texonomy_keyword; // Replace with your taxonomy key
+
+// $all_sub_taxonomies = get_all_sub_taxonomies($taxonomy, 17);
+$all_sub_taxonomies = get_all_sub_taxonomies($taxonomy, 113);
+dd($all_sub_taxonomies);
+    //    dd($defaults);
+    //    dd($customized_texonomy_boj);
+       $defaults['depth'] = 2;
+    //    $defaults['tab_index'] = 2;
+    $customized_texonomy_boj = [];
         $html .= wpt_wp_dropdown_categories( $defaults, $customized_texonomy_boj );
 
         $html .= "</div>"; //End of .search_single
@@ -157,6 +167,33 @@ if( ! function_exists( 'wpt_texonomy_search_generator' ) ){
         return $html;
     }
 }
+
+function get_all_sub_taxonomies($taxonomy, $parent_term_id = 0) {
+    $sub_taxonomies = [];
+
+    // Get the direct children of the parent term
+    $child_terms = get_terms([
+        'taxonomy' => $taxonomy,
+        'parent'   => $parent_term_id,
+        'hide_empty' => false, // Change to true if you want to hide empty terms
+    ]);
+
+    // dd($parent_term_id);
+    // Add the child terms to the sub_taxonomies array
+    foreach ($child_terms as $child_term) {
+        // dd($child_term);
+        $sub_taxonomies[] = $child_term;
+
+        // // Recursively get sub-terms of the current child term
+        // $sub_sub_taxonomies = get_all_sub_taxonomies($taxonomy, $child_term->term_id);
+        // $sub_taxonomies = array_merge($sub_taxonomies, $sub_sub_taxonomies);
+    }
+
+    return $sub_taxonomies;
+}
+
+
+
 
 if( ! function_exists( 'wpt_sorting_array' ) ){
 
