@@ -24,17 +24,17 @@ Check following steps:
 - Activate WooCommerce Plugin and import some product. Sample Product available in "WooCommerce" Plugins folder. sample directory `C:\wamp64\www\{wordpress-site}\wp-content\plugins\woocommerce\sample-data\sample_products.csv`. Check [How to import](https://woocommerce.com/document/product-csv-importer-exporter/).
 - Clone `woo-product-table` repository to your Plugins directory. Repository [Clone Tutorial](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository).
   - Go to `plugins` like `C:\wamp64\www\{wordpress-site}\wp-content\plugins` 
-  - open comand tool. such as Git Bash. A screenshot:<br>
+  - open command-line tool, such as Git Bash. A screenshot:<br>
   ![image](https://user-images.githubusercontent.com/6463919/197454363-660a92ee-d9f1-45f3-8869-21546fd30084.png)
   - write `git clone https://github.com/codersaiful/woo-product-table.git` And press ENTER.
   - I recommend you to pull latest branch but you can pull master branch also AND *Obviously create new branch from this branch with your name/username etc*.
   - After fix, push. We will check and merge.
-  - RECOMMENDED: Everytime pull latest version.
+  - RECOMMENDED: Every time pull the latest version.
 - Now open your Localhost WordPress site's code via any code Editor. like [VS Code](https://code.visualstudio.com/), [Netbeans](https://netbeans.apache.org/) etc.
 - I strongly recommend to open your main WordPress CMS folder via CODE EDITOR. Your site's probable directory is: `C:\wamp64\www\{wordpress-site}`.
 - **Woo Product Table** plugin directory is: `C:\wamp64\www\{wordpress-site}\wp-content\plugins\woo-product-table`
 - Go to Dashboard -> Plugins and Activate **Product Table Plugin for WooCommerce by CodeAstrology*
-- Check all functionality and Findout issue. Or Making a new **Features** for Product Table Plugins.
+- Check all functionality and Find out issue. Or Making a new **Features** for Product Table Plugins.
 - Creating a table: Dashboard -> Product Table -> Add New -> put name, set some columns and **Publish** Post. Then copy that shortcode and Paste to your desired page.
 - Create a new issue on this ripository and add Label `hacktoberfest`, `good first issue`, `hacktobarfest2022` and `codeastrology`
 
@@ -114,7 +114,7 @@ function your_function_name() {
 // Your code
 }
 ```
-## Start Procedure of adding new Collumn
+## Start Procedure of adding new Column
 First we have to our custom column in default column array using ```wpto_default_column_arr``` filter.
 ```php
 <?php
