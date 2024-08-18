@@ -518,6 +518,11 @@ jQuery(function($) {
             e.preventDefault();
             
             var thisButton = $(this);
+
+            if(thisButton.hasClass('disabled')){
+                return;
+            }
+
             //Adding disable and Loading class
             thisButton.addClass('disabled');
             // thisButton.addClass('loading');
@@ -2441,6 +2446,9 @@ jQuery(function($) {
             WPT_BlankNotice();
             var product_id = $(this).parents('tr').data('product_id');
             var thisButton = $('tr#product_id_' + product_id + ' .wpt_action button.single_add_to_cart_button');
+            if(thisButton.hasClass('disabled')){
+                return;
+            }
             var thisTable = $(this).parents('div.wpt-wrap');
             var table_id = $(this).parents('div.wpt-wrap').attr('id');
             
