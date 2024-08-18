@@ -40,7 +40,7 @@ class Checkbox_Box{
             id='wpt_check_uncheck_button_<?php echo esc_attr( $shortcode->table_id ); ?>' type='checkbox'>
             <label for='wpt_check_uncheck_button_<?php echo esc_attr( $shortcode->table_id ); ?>'>
             <?php echo wp_kses_post( $check_uncheck_text ) ?>
-            </lable>
+            </label>
             <?php } ?>
         </span>
             <?php
