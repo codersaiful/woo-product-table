@@ -81,7 +81,7 @@ if( ! class_exists( 'WPT_Required' ) ){
                 ]);
                 
                 $offerNc->add_button([
-                    'text'  => 'Stock Sync',
+                    'text'  => 'WordPress Plugins',
                     'link'  => 'https://codeastrology.com/downloads/category/premium/'
                 ]);
 
@@ -99,7 +99,7 @@ if( ! class_exists( 'WPT_Required' ) ){
             $target = 'https://codeastrology.com/downloads/?discount=' . $coupon_Code . '&campaign=' . $coupon_Code . '&ref=1&utm_source=Default_Offer_LINK';
             $my_message = 'Speciall Discount on All CodeAstrology Products'; 
             $offerNc = new Notice('wpt_'.$coupon_Code.'_offer');
-            $offerNc->set_title( 'SPECIAL OFFER 🍌' )
+            $offerNc->set_title( 'SPECIAL OFFER' )
             ->set_diff_limit(10)
             ->set_type('offer')
             ->set_img( WPT_BASE_URL. 'assets/images/brand/social/web.png')

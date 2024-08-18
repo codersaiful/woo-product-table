@@ -745,6 +745,10 @@ small.wpt-small-title {
     div#wpt-recomendation-area .ca-notice.ca-reuire-plugin-notice.anwwhere-notice[data-notice_id='woo-product-table']{
         background-image: url('../images/products/woo-product-table.png');
     }
+
+    div#wpt-recomendation-area .ca-notice.ca-reuire-plugin-notice.anwwhere-notice[data-notice_id='product-sync-master-sheet']{
+        background-image: url('../images/products/product-sync-master-sheet.png');
+    }
     div#wpt-recomendation-area .ca-notice.ca-reuire-plugin-notice.anwwhere-notice[data-notice_id='woo-min-max-quantity-step-control-single']{
         background-image: url('../images/products/woo-min-max-quantity-step-control-single.png');
     }

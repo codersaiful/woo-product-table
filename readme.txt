@@ -1,15 +1,15 @@
 === Product Table for WooCommerce by CodeAstrology (wooproducttable.com) ===
-Contributors: codersaiful,,mdibrahimk48,ultraaddons,unikforce,rafiul17,fazlebari
+Contributors: codersaiful,mdibrahimk48,ultraaddons,unikforce,rafiul17,fazlebari
 Donate link: https://donate.stripe.com/4gw2bB2Pzdjd8mYfYZ
 Tags: wc product table, woo table, woo product table,woocommerce product table, product table
 Requires at least: 4.0.0
-Tested up to: 6.5.0
-Stable tag: 3.4.8
+Tested up to: 6.5.5
+Stable tag: 3.5.0
 Requires PHP: 5.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Helps you to display your products in a searchable table layout with filters. Woo Product Table is best for Wholesale.
+Helps you to display your products in a searchable table layout with filters.
 
 == Description ==
 (**Woo Product Table**) Product Table plugin helps you to display your WooCommerce products in a searchable table layout with filters.  Add a table on any page or post via a shortcode. You can create tables as many as you want.
@@ -333,10 +333,17 @@ You can easily show specific category products. While creating new table click o
 
 == Changelog ==
 
+= 3.5.0 =
+* Fixed: Quote Request premium version issue fixed.
+* Fixed: variation title issue fixed.
+* Bug fixed 
+* Code Optimized
+
 = 3.4.9 =
 * Fixed: YITH qutoe request button quantity issue solved.
 * Variation List showing on Shop Page for Variable product issue has been fixed
 * Fixed: last-active-tab issue has been fixed.
+* Fixed: variation default image issue has been fixed.
 * Bug fixed 
 * Code Optimized
 

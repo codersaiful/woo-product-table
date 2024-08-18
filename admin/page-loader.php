@@ -59,6 +59,7 @@ class Page_Loader extends Base
         if( ! $this->is_pro ){
             add_submenu_page( $this->main_slug, esc_html__( 'GET PRO VERSION', 'woo-product-table' ),  __( 'Get <strong>Pro</strong>', 'woo-product-table' ), 'read', 'https://wooproducttable.com/pricing/' );
         }
+        add_submenu_page( $this->main_slug, esc_html__( 'Product Bulk Edit', 'woo-product-table' ) . $proString,  __( 'Bulk Edit', 'woo-product-table' ), WPT_CAPABILITY, 'wpt-product-quick-edit', [$this, 'product_quick_edit'] );
 
     }
 
@@ -135,6 +136,14 @@ class Page_Loader extends Base
             include $this->page_folder_dir . 'premium-link-header.php';
         }
         include $this->page_folder_dir . 'tutorials.php';
+    }
+
+    public function product_quick_edit()
+    {
+        $this->topbar_sub_title = __( 'Product Bulk Edit','woo-product-table' );
+        include $this->topbar_file;
+        include $this->page_folder_dir . 'product-bulk-edit.php';
+        
     }
 
     /**

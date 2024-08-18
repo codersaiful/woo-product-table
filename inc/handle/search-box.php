@@ -92,6 +92,16 @@ class Search_Box{
 
         $html .=  apply_filters('end_part_advance_search_box','',$shortcode->table_id);
         
+        ob_start();
+        /**
+         * Used following hook to insert two insert other field
+         * such:
+         * Order By, Order and On sale
+         * 
+         * @author Saiful Islam <codersaiful@gmail.com>
+         */
+        do_action('wpt_search_box_bottom', $shortcode->table_id);
+        $html .= ob_get_clean();
         /**
          * Query by URL
          */

@@ -3,8 +3,10 @@ $wpt_single_product_title = false;
 
 
 $the_title = $product->get_title();
-if(isset($settings['variation_in_title'])){
+
+if( $product_type == 'variation' && ! isset($settings['variation_title_hide']) ){
     $the_title = get_the_title();
+    $the_title .= wpt_extra_variation_title( $product_type, $data );
 }
 
 $title_variation = isset( $column_settings['title_variation'] ) ? $column_settings['title_variation'] : 'link';
