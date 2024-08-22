@@ -333,6 +333,9 @@ You can easily show specific category products. While creating new table click o
 
 == Changelog ==
 
+= 3.5.1 =
+* Fixed: Avada Forn Entries table issue fixed.
+
 = 3.5.0 =
 * Fixed: Quote Request premium version issue fixed.
 * Fixed: variation title issue fixed.

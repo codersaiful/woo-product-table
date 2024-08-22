@@ -7,7 +7,10 @@ if( !function_exists( 'wpt_admin_enqueue' ) ){
      * @update 1.0.3
      */
     function wpt_admin_enqueue(){
-        
+        global $current_screen;
+        $s_id = isset( $current_screen->id ) ? $current_screen->id : '';
+        if( strpos( $s_id, 'wpt') === false ) return;
+
         /**
         * Customized fontello file
         * @since 3.1.8.2
