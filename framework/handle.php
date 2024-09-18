@@ -50,43 +50,50 @@ if( ! class_exists( 'WPT_Required' ) ){
          */
         public static function display_notice()
         {
-                /**
-                 * eTa muloto seisob kustomer er jonno
-                 * jara oofer message dekhe khub birokto hoyeche, eTa tader jonno. 
-                 * 
-                 * add_filter('wpt_offer_show', '__return_false'); 
-                 * taholei offer showing off hoye jabe.
-                 */
-                $return_true = apply_filters( 'wpt_offer_show', true );
-                if( !$return_true ) return;
-                if( defined( 'WPT_PRO_DEV_VERSION' ) ) return;
-                if( ! is_admin() ) return;
+            if( ! is_admin() ) return;
 
-                $temp_numb =  rand(2,5);
+            $last_date = '30 sept 2024'; //Last date string to show offer
+            $last_date_timestamp = strtotime( $last_date );
+            
+            if( time() > $last_date_timestamp ) return;
+            
+            /**
+             * eTa muloto seisob kustomer er jonno
+             * jara oofer message dekhe khub birokto hoyeche, eTa tader jonno. 
+             * 
+             * add_filter('wpt_offer_show', '__return_false'); 
+             * taholei offer showing off hoye jabe.
+             */
+            $return_true = apply_filters( 'wpt_offer_show', true );
+            if( !$return_true ) return;
+            if( defined( 'WPT_PRO_DEV_VERSION' ) ) return;
+            
 
-                $coupon_Code = '20DAYSDEAL';
-                $target = 'https://wooproducttable.com/pricing/?discount=' . $coupon_Code . '&campaign=' . $coupon_Code . '&ref=1&utm_source=Default_Offer_LINK';
-                $my_message = 'Product Table Primium version on COUPON <b>(Woo Product Table Pro)</b> Plugin. Offer Upto 30 Sept. 2024'; 
-                $offerNc = new Notice('wpt_'.$coupon_Code.'_offer');
-                $offerNc->set_title( 'Special Offer for you' )
-                ->set_diff_limit(5)
-                ->set_type('offer')
-                ->set_img( WPT_BASE_URL. 'assets/images/round-logo.png')
-                ->set_img_target( $target )
-                ->set_message( $my_message )
-                ->add_button([
-                    'text' => 'Claim Discount',
-                    'type' => 'offer',
-                    'link' => 'https://wooproducttable.com/pricing/?discount=' . $coupon_Code,
-                ]);
-                
-                $offerNc->add_button([
-                    'text'  => 'Helpful WooCommerce Plugins',
-                    'link'  => 'https://codeastrology.com/downloads/category/premium/?discount=' . $coupon_Code,
-                ]);
+            $temp_numb =  rand(2,5);
 
-                if($temp_numb == 5) $offerNc->show();
-                
+            $coupon_Code = '20DAYSDEAL';
+            $target = 'https://wooproducttable.com/pricing/?discount=' . $coupon_Code . '&campaign=' . $coupon_Code . '&ref=1&utm_source=Default_Offer_LINK';
+            $my_message = 'Product Table Primium version on COUPON <b>(Woo Product Table Pro)</b> Plugin. Offer Upto 30 Sept. 2024'; 
+            $offerNc = new Notice('wpt_'.$coupon_Code.'_offer');
+            $offerNc->set_title( 'COUPON for Woo Product Table' )
+            ->set_diff_limit(5)
+            ->set_type('offer')
+            ->set_img( WPT_BASE_URL. 'assets/images/round-logo.png')
+            ->set_img_target( $target )
+            ->set_message( $my_message )
+            ->add_button([
+                'text' => 'Claim Discount',
+                'type' => 'offer',
+                'link' => 'https://wooproducttable.com/pricing/?discount=' . $coupon_Code,
+            ]);
+            
+            $offerNc->add_button([
+                'text'  => 'Helpful WooCommerce Plugins',
+                'link'  => 'https://codeastrology.com/downloads/category/premium/?discount=' . $coupon_Code,
+            ]);
+
+            if($temp_numb == 5) $offerNc->show();
+            
                 
 
         }
