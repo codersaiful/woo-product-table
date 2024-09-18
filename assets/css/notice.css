@@ -1,0 +1,145 @@
+
+
+
+
+.notice.ca-notice.notice-offer {
+    background: #ffffff;
+    border: 0 none;
+    /* padding-bottom: 5px; */
+}
+.anywhere-notice.ca-notice.notice-offer {
+    padding: 3px 10px;
+    border: 0 none;
+}
+
+.notice.ca-notice.notice-offer .ca-msg-text p {
+    font-size: 16px;
+    padding: 0;
+    margin: 0;
+}
+.anywhere-notice.ca-notice.notice-offer .ca-msg-text p{font-size: 20px;}
+.notice.ca-notice.notice-offer .ca-msg-text h1 {
+    color: #e91e63;
+    padding: 0;
+    margin: 0;
+    font-size: 15px;
+}
+.notice.ca-notice.notice-offer .ca-msg-text p.ca-links-collection {
+    clear: both;
+    margin: 5px 0 10px 0;
+}
+.notice.ca-notice.notice-offer a.ca-logo-link img,
+.notice.ca-notice.notice-offer a.ca-logo-link img, .anywhere-notice.ca-notice.notice-offer .ca-logo img {
+    border-radius: 50%;
+    height: 75px;
+    width: 75px;
+    border: 3px solid #ffffff;
+}
+.anywhere-notice.ca-notice .ca-notice-dismiss{display: none !important;}
+.notice.ca-notice.notice-offer .ca-msg-text p.ca-links-collection a {
+    padding: 5px 15px;
+    margin: 0;
+    clear: both;
+}
+.anywhere-notice {}
+
+.anywhere-notice h1 {
+    font-size: 16px;
+    padding: 0;
+    margin: 0;
+}
+
+.anywhere-notice .ca-msg-text {
+    padding: 0;
+    margin: 0;
+}
+
+.anywhere-notice .ca-msg-text p {
+    padding: 0;
+    margin: 0;
+    font-size: 14px !important;
+    color: #007694;
+    float: left;
+    display: inherit;
+    width: fit-content;
+    /* background: gainsboro; */
+}
+
+.anywhere-notice p.ca-links-collection {
+    /* background: red; */
+    width: fit-content;
+    float: right;
+    position: absolute;
+    right: 15px;
+    top: 40%;
+}
+
+.anywhere-notice p.ca-links-collection a.ca-button {
+    padding: 5px 12px;
+    background: #ff9800;
+}
+
+
+
+
+
+.wpt-plugin-recommend-area .anywhere-notice.ca-notice.notice-success[data-notice_id="black-friday-22"] {
+    background: black;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1 100%;
+}
+
+
+
+.fieldwrap .anywhere-notice .ca-msg-text p {
+    display: none;
+}
+
+.fieldwrap .anywhere-notice.ca-notice.notice-offer .ca-msg-text p.ca-links-collection {
+    display: block;
+}
+
+.fieldwrap .anywhere-notice.ca-notice.notice-offer .ca-msg-text h1 {
+    color: red;
+}
+
+.fieldwrap .anywhere-notice.ca-notice.notice-offer .ca-msg-text p.ca-links-collection a {
+    background: #4CAF50;
+}
+
+
+
+
+
+/* black Friday offer  */
+.notice.ca-notice.notice-offer[data-notice_id="wpt_20DAYSDEAL_offer"] {
+    /* background: #ffffff8f; */
+    color: #6e6e6e;
+    box-shadow: 1px -1px 30px #0000000a;
+}
+.notice.ca-notice.notice-offer[data-notice_id="wpt_20DAYSDEAL_offer"] a.ca-logo-link img, 
+.notice.ca-notice.notice-offer[data-notice_id="wpt_20DAYSDEAL_offer"] a.ca-logo-link img,
+.notice.ca-notice.notice-offer[data-notice_id="wpt_20DAYSDEAL_offer"] img, 
+.notice.ca-notice.notice-offer[data-notice_id="wpt_20DAYSDEAL_offer"] a {
+    border: 0 none !important;
+}
+.notice.ca-notice.notice-offer[data-notice_id="wpt_20DAYSDEAL_offer"] .ca-msg-text h1 {
+    color: #ff0000;
+    font-size: 19px;
+}
+.notice.ca-notice.notice-offer[data-notice_id="wpt_20DAYSDEAL_offer"] .ca-msg-text p>b:last-child {
+    color: red;
+}
+.notice.ca-notice.notice-offer[data-notice_id="wpt_20DAYSDEAL_offer"] .ca-msg-text p>b>i {
+    color: #4CAF50;
+}
+.notice.ca-notice.notice-offer[data-notice_id="wpt_20DAYSDEAL_offer"] .ca-msg-text p {
+    padding-bottom: 5px;
+}
+
+.fieldwrap .anywhere-notice.ca-notice.notice-offer .ca-msg-text p.ca-links-collection {
+    display: none;
+}

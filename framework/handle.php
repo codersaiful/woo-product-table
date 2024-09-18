@@ -64,11 +64,11 @@ if( ! class_exists( 'WPT_Required' ) ){
 
                 $temp_numb =  rand(2,5);
 
-                $coupon_Code = 'FLASH_SALE_2024';
+                $coupon_Code = '20DAYSDEAL';
                 $target = 'https://wooproducttable.com/pricing/?discount=' . $coupon_Code . '&campaign=' . $coupon_Code . '&ref=1&utm_source=Default_Offer_LINK';
-                $my_message = 'Product Table Primium version on Sale <b>(Woo Product Table Pro)</b> Plugin. Take it First!'; 
+                $my_message = 'Product Table Primium version on COUPON <b>(Woo Product Table Pro)</b> Plugin. Offer Upto 30 Sept. 2024'; 
                 $offerNc = new Notice('wpt_'.$coupon_Code.'_offer');
-                $offerNc->set_title( 'FLASH SALE UPTO 70%' )
+                $offerNc->set_title( 'Special Offer for you' )
                 ->set_diff_limit(5)
                 ->set_type('offer')
                 ->set_img( WPT_BASE_URL. 'assets/images/round-logo.png')
@@ -81,8 +81,8 @@ if( ! class_exists( 'WPT_Required' ) ){
                 ]);
                 
                 $offerNc->add_button([
-                    'text'  => 'WordPress Plugins',
-                    'link'  => 'https://codeastrology.com/downloads/category/premium/'
+                    'text'  => 'Helpful WooCommerce Plugins',
+                    'link'  => 'https://codeastrology.com/downloads/category/premium/?discount=' . $coupon_Code,
                 ]);
 
                 if($temp_numb == 5) $offerNc->show();

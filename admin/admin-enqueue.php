@@ -9,7 +9,12 @@ if( !function_exists( 'wpt_admin_enqueue' ) ){
     function wpt_admin_enqueue(){
         global $current_screen;
         $s_id = isset( $current_screen->id ) ? $current_screen->id : '';
-        if( strpos( $s_id, 'wpt') === false ) return;
+        
+        if( strpos( $s_id, 'wpt') === false ){
+            //Actually Admin css file need, when there is no wpt on screen
+            wp_enqueue_style( 'wpt-admin-notice', WPT_Product_Table::getPath( 'BASE_URL' ) . 'assets/css/notice.css', array(), WPT_DEV_VERSION, 'all' );
+            return;
+        }
 
         /**
         * Customized fontello file
