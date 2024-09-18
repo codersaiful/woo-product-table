@@ -398,6 +398,9 @@ class Shortcode_Ajax extends Shortcode{
      * need to send $_POST method
      * Where NEED Available $_POST['table_id']
      * 
+     * new added atts other than table_id
+     * added from wpt-control.js file
+     * as well as shortcode.php by basic_settings 
      * 
      * @param string $method To be $_POST['table_id'] 
      * @return void
@@ -405,7 +408,8 @@ class Shortcode_Ajax extends Shortcode{
     public function set_atts(){
         $table_id = $_POST['table_id'] ?? 0;
         $table_id = (int) $table_id;
-        $atts = ['id'=> $table_id];
+        $atts = $_POST['atts'] ?? [];
+        $atts['id'] = $table_id;
         return $atts;
     }
 

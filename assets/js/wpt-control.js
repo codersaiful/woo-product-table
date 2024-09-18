@@ -33,6 +33,7 @@ jQuery(function($) {
             var thisTable = $('#table_id_' + table_id);
             var TableTagWrap = $('#table_id_' + table_id + ' .wpt_table_tag_wrapper');
             var SearchWrap = $('#table_id_' + table_id + ' .wpt-search-full-wrapper');
+            var data_json = thisTable.data('basic_settings');
             if( thisTable.length < 1 ){
                 console.log("Error on: ajaxTableLoad. Table not found!");
                 return;
@@ -43,6 +44,7 @@ jQuery(function($) {
                 table_id: table_id,
                 others: others,
                 args: args,
+                atts: data_json.atts //Available ATTS also here
             };
             
             TableTagWrap.addClass('wpt-ajax-loading'); //.wpt-wrap.wpt-ajax-loading
