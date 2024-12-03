@@ -439,7 +439,7 @@ class WPT_Product_Table{
    }
    
    public function init(){
-
+        do_action( 'wpt_load' );
         $dir = dirname( __FILE__ ); //dirname( __FILE__ )
         /**
          * Include Autoloader
@@ -534,6 +534,8 @@ class WPT_Product_Table{
         if( has_filter( 'wpml_current_language' ) ){
             include_once $this->path('BASE_DIR','wpml/init.php');
         }
+
+        do_action( 'wpt_loaded' );
    }
         
     public function load_textdomain() {

@@ -9,6 +9,9 @@ if( ! class_exists( 'WPT_Required' ) ){
 
     class WPT_Required
     {
+
+        public static $coupon_Code;
+
         public static $stop_next = 0;
         public function __construct()
         {
@@ -36,6 +39,19 @@ if( ! class_exists( 'WPT_Required' ) ){
             self::$stop_next += $req_wc_next;
             
             if( ! $req_wc_next ){
+                // add_action('wpt_loaded', function(){
+                //     if( ! is_admin() ) return;
+
+                //     global $current_screen;
+                //     $s_id = isset( $current_screen->id ) ? $current_screen->id : '';
+                //     // self::Notice( 5 );
+                //     if( strpos( $s_id, 'product_table') === false ){
+                //         self::Notice( 5, $s_id . ' - ');
+                //         return;
+                //     }
+                // }, 10);
+
+
                 self::display_notice();
                 self::display_common_notice();
             }
@@ -52,10 +68,26 @@ if( ! class_exists( 'WPT_Required' ) ){
         {
             if( ! is_admin() ) return;
 
-            $last_date = '30 sept 2024'; //Last date string to show offer
+            $return_true = apply_filters( 'wpt_offer_show', true );
+            if( !$return_true ) return;
+
+            $last_date = '31 Dec 2024'; //Last date string to show offer
             $last_date_timestamp = strtotime( $last_date );
             
             if( time() > $last_date_timestamp ) return;
+
+
+            //Only when in product table page, So it will show always
+            $s_id = $_SERVER['REQUEST_URI'] ?? '';
+            if( strpos( $s_id, 'product_table') !== false ){
+                if( defined( 'WPT_PRO_DEV_VERSION' ) ){
+                    self::OtherOffer();
+                }else{
+                    self::Notice( 5);
+                }
+
+                return;
+            }
             
             /**
              * eTa muloto seisob kustomer er jonno
@@ -64,19 +96,101 @@ if( ! class_exists( 'WPT_Required' ) ){
              * add_filter('wpt_offer_show', '__return_false'); 
              * taholei offer showing off hoye jabe.
              */
-            $return_true = apply_filters( 'wpt_offer_show', true );
-            if( !$return_true ) return;
-            if( defined( 'WPT_PRO_DEV_VERSION' ) ) return;
+            $temp_numb = rand(4,5);
+            if( defined( 'WPT_PRO_DEV_VERSION' ) ){
+                self::OtherOffer( $temp_numb);
+                return;
+            }
             
 
-            $temp_numb =  rand(2,5);
 
-            $coupon_Code = '20DAYSDEAL';
+            self::Notice( $temp_numb);
+            
+            
+                
+
+        }
+
+        protected static function OtherOffer( $probability = 5 )
+        {
+            if( $probability !== 5 ) return;
+            $fullArgs = [
+                [
+                    'title' => 'BLACKFRIDAY - Sync master sheet',
+                    'coupon_code' => 'BLACKFRIDAY2024',
+                    'target_url' => 'https://codeastrology.com/downloads/product-sync-master-sheet-premium/?discount=BLACKFRIDAY2024&campaign=BLACKFRIDAY2024&ref=1&utm_source=Default_Offer_LINK',
+                    'img_url' => WPT_BASE_URL. 'assets/images/products/product-sync-master-sheet.png',
+                    'message' => 'Seamlessly connect your WooCommerce store with Google Sheets via the Google Sheets API. Also sync with multiple website.', 
+                    'button_text' => 'Start to Sync with Google Sheets',
+                ],
+                
+                [
+                    'title' => 'Offer - Min Max Control (PRO)',
+                    'coupon_code' => 'BLACKFRIDAY2024',
+                    'target_url' => 'https://wooproducttable.com/pricing/?discount=BLACKFRIDAY2024&campaign=BLACKFRIDAY2024&ref=1&utm_source=Default_Offer_LINK',
+                    'img_url' => WPT_BASE_URL. 'assets/images/products/woo-min-max-quantity-step-control-single.png',
+                    'message' => 'Toffers to display specific products with minimum, maximum quantity.', 
+                    'button_text' => 'Ok, Start Now!',
+                ],
+                [
+                    'title' => 'BLACKFRIDAY - CodeAstrology all plugins',
+                    'coupon_code' => 'BLACKFRIDAY2024',
+                    'target_url' => 'https://codeastrology.com/downloads/category/premium/?discount=BLACKFRIDAY2024&campaign=BLACKFRIDAY2024&ref=1&utm_source=Default_Offer_LINK',
+                    'img_url' => WPT_BASE_URL. 'assets/images/brand/header-logo.png',
+                    'message' => 'Control WooCommerce products to Show as Table, To Sync with Google Sheet, to control quantity with minimum, maximum quantity.', 
+                    'button_text' => 'Checkout our Plugins',
+                ],
+                [
+                    'title' => 'Get all Free Plugins for WooCommrce',
+                    'coupon_code' => 'BLACKFRIDAY2024',
+                    'target_url' => 'https://codeastrology.com/downloads/category/free-products/?discount=BLACKFRIDAY2024&campaign=BLACKFRIDAY2024&ref=1&utm_source=Default_Offer_LINK',
+                    'img_url' => WPT_BASE_URL. 'assets/images/brand/header-logo.png',
+                    'message' => 'Control WooCommerce products to Show as Table, To Sync with Google Sheet, to control quantity with minimum, maximum quantity.', 
+                    'button_text' => 'Get it Now',
+                ],
+
+            ];
+            
+            $rand_args = $fullArgs[rand(0, count($fullArgs) - 1)];
+            self::GetCustomOffer( $rand_args );
+
+            
+        }
+
+        protected static function GetCustomOffer( $args = ['title' => '', 'coupon_code' => 'BLACKFRIDAY2024', 'target_url' => '', 'img_url' => '', 'message' => '', 'button_text' => ''  ] )
+        {
+
+            $coupon_code = $args['coupon_code'] ?? 'BLACKFRIDAY2024';
+            $target = $args['target_url'] ?? 'https://wooproducttable.com/pricing/?discount=' . $coupon_code . '&campaign=' . $coupon_code . '&ref=1&utm_source=Default_Offer_LINK';
+            $img_url = $args['img_url'] ?? WPT_BASE_URL. 'assets/images/round-logo.png';
+            $message = $args['message'] ?? ''; 
+            $message .= '<br>Coupon Code: ' . $coupon_code;
+            $button_text = $args['button_text'] ?? 'Claim Discount';
+            $title = $args['title'] ?? 'BLACKFRIDAY2024 for Woo Product Table';
+
+            $offerNc = new Notice('wpt_'.$coupon_code.'_offer');
+            $offerNc->set_title( $title )
+            ->set_diff_limit(1)
+            ->set_type('offer')
+            ->set_img( $img_url)
+            ->set_img_target( $target )
+            ->set_message( $message )
+            ->add_button([
+                'text' => $button_text,
+                'type' => 'offer',
+                'link' => $target,
+            ]);
+
+            $offerNc->show();
+        }
+        protected static function Notice( $temp_numb)
+        {
+            $coupon_Code = 'BLACKFRIDAY2024';
             $target = 'https://wooproducttable.com/pricing/?discount=' . $coupon_Code . '&campaign=' . $coupon_Code . '&ref=1&utm_source=Default_Offer_LINK';
             $my_message = 'Product Table Primium version on COUPON <b>(Woo Product Table Pro)</b> Plugin. Offer Upto 30 Sept. 2024'; 
             $offerNc = new Notice('wpt_'.$coupon_Code.'_offer');
-            $offerNc->set_title( 'COUPON for Woo Product Table' )
-            ->set_diff_limit(5)
+            $offerNc->set_title( 'BLACKFRIDAY2024 for Woo Product Table' )
+            ->set_diff_limit(2)
             ->set_type('offer')
             ->set_img( WPT_BASE_URL. 'assets/images/round-logo.png')
             ->set_img_target( $target )
@@ -93,9 +207,6 @@ if( ! class_exists( 'WPT_Required' ) ){
             ]);
 
             if($temp_numb == 5) $offerNc->show();
-            
-                
-
         }
 
         private static function display_notice_on_pro()

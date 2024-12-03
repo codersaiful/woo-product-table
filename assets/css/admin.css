@@ -1978,19 +1978,6 @@ span.wpt-expand {
     cursor: pointer;
     font-size: 15px;
 }
-li#menu-posts-wpt_product_table ul.wp-submenu.wp-submenu-wrap li>a>i {
-    color: white;
-    display: block;
-    background: #4caf50;
-    padding: 7px;
-    font-size: 120%;
-    transition: all .3s;
-}
-li#menu-posts-wpt_product_table ul.wp-submenu.wp-submenu-wrap:hover li>a>i {
-    color: #ff2626;
-    background: #000000;
-    padding-left: 18px;
-}
 
 label.switch.switch-big {
     width: 200px !important;
