@@ -157,7 +157,7 @@ if( ! class_exists( 'WPT_Required' ) ){
                     'button_text' => 'Free Download Now',
                 ],
                 [
-                    'plugin_id' => 'wc-quantity-plus-minus-button/wc-quantity-plus-minus-button.php',
+                    'plugin_id' => 'wc-quantity-plus-minus-button/init.php',
                     'title' => 'Quantity Plus Minus Button for WooCommerce by CodeAstrology',
                     'coupon_code' => 'BLACKFRIDAY2024',
                     'target_url' => 'https://wordpress.org/plugins/wc-quantity-plus-minus-button/',
@@ -175,7 +175,7 @@ if( ! class_exists( 'WPT_Required' ) ){
                     'button_text' => 'Free Download Now',
                 ],
                 [
-                    'plugin_id' => 'woo-product-table/woo-product-table.php',
+                    'plugin_id' => 'codeastrology/all-plugins-premium',
                     'title' => 'BLACKFRIDAY - CodeAstrology all plugins',
                     'coupon_code' => 'BLACKFRIDAY2024',
                     'target_url' => 'https://codeastrology.com/downloads/category/premium/?discount=BLACKFRIDAY2024&campaign=BLACKFRIDAY2024&ref=1&utm_source=Default_Offer_LINK',
@@ -184,13 +184,13 @@ if( ! class_exists( 'WPT_Required' ) ){
                     'button_text' => 'Checkout our Plugins',
                 ],
                 [
-                    'plugin_id' => 'woo-product-table/woo-product-table.php',
+                    'plugin_id' => 'codeastrology/all-plugins-free',
                     'title' => 'Get all Free Plugins for WooCommrce',
                     'coupon_code' => 'BLACKFRIDAY2024',
                     'target_url' => 'https://codeastrology.com/downloads/category/free-products/?discount=BLACKFRIDAY2024&campaign=BLACKFRIDAY2024&ref=1&utm_source=Default_Offer_LINK',
                     'img_url' => WPT_BASE_URL. 'assets/images/brand/animated-logo.gif',
                     'message' => 'Control WooCommerce products to Show as Table, To Sync with Google Sheet, to control quantity with minimum, maximum quantity.', 
-                    'button_text' => 'Get it Now',
+                    'button_text' => 'Get it Free',
                 ],
 
             ];

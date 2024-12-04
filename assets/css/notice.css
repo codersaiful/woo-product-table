@@ -61,9 +61,11 @@ li#menu-posts-wpt_product_table.wp-has-current-submenu .wp-menu-name {
 .notice.ca-notice.notice-offer .ca-msg-text p {
     font-size: 16px;
     padding: 0;
-    margin: 0;
     color: #607D8B;
-    /* margin-bottom: 10px; */
+    margin: 0;
+    display: flex;
+    gap: 12px;
+    flex-flow: row wrap;
 }
 .anywhere-notice.ca-notice.notice-offer .ca-msg-text p{font-size: 20px;}
 .notice.ca-notice.notice-offer .ca-msg-text h1 {
@@ -102,9 +104,16 @@ li#menu-posts-wpt_product_table.wp-has-current-submenu .wp-menu-name {
     clear: both;
     border: 0 none;
     color: #f5fff6;
+    white-space: nowrap;
+    display: inline-block;
+}
+.ca-msg-text {
+    width: 70%;
 }
 .ca-notice-content {
     gap: 25px;
+    flex-flow: row wrap-reverse;
+    align-items: center;
 }
 .anywhere-notice {}
 
