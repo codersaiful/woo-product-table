@@ -39,21 +39,8 @@ if( ! class_exists( 'WPT_Required' ) ){
             self::$stop_next += $req_wc_next;
             
             if( ! $req_wc_next ){
-                // add_action('wpt_loaded', function(){
-                //     if( ! is_admin() ) return;
-
-                //     global $current_screen;
-                //     $s_id = isset( $current_screen->id ) ? $current_screen->id : '';
-                //     // self::Notice( 5 );
-                //     if( strpos( $s_id, 'product_table') === false ){
-                //         self::Notice( 5, $s_id . ' - ');
-                //         return;
-                //     }
-                // }, 10);
-
-
                 self::display_notice();
-                self::display_common_notice();
+                // self::display_common_notice();
             }
 
             return self::$stop_next;
@@ -81,9 +68,10 @@ if( ! class_exists( 'WPT_Required' ) ){
             $s_id = $_SERVER['REQUEST_URI'] ?? '';
             if( strpos( $s_id, 'product_table') !== false ){
                 if( defined( 'WPT_PRO_DEV_VERSION' ) ){
-                    self::OtherOffer();
+                    self::OtherOffer(5, $s_id);
+                    return;
                 }else{
-                    self::Notice( 5);
+                    self::AllOfferWithOwnOffer(5, $s_id);
                 }
 
                 return;
@@ -101,22 +89,34 @@ if( ! class_exists( 'WPT_Required' ) ){
                 self::OtherOffer( $temp_numb);
                 return;
             }
-            
-
-
-            self::Notice( $temp_numb);
-            
-            
-                
+            self::AllOfferWithOwnOffer( $temp_numb );
 
         }
 
-        protected static function OtherOffer( $probability = 5 )
+        /**
+         * It will show other plugin offer also this plugin's offer
+         *
+         * @param integer $probability
+         * @param string $extra_for_id
+         * @return void
+         */
+        protected static function AllOfferWithOwnOffer( $probability = 5, $extra_for_id = '' )
+        {
+
+            $extra_for_id = $extra_for_id ? $extra_for_id : '';
+            $this_rand = rand(1,5);
+            if( $this_rand > 2 ){
+                self::Notice( $probability);
+            }else{
+                self::OtherOffer( $probability, $extra_for_id);
+            }
+        }
+        protected static function OtherOffer( $probability = 5, $extra_for_id = '' )
         {
             if( $probability !== 5 ) return;
             $fullArgs = [
                 [
-                    'title' => 'BLACKFRIDAY - Sync master sheet',
+                    'title' => 'BLACKFRIDAY - Sync master sheet Premium (with Google Sheet)',
                     'coupon_code' => 'BLACKFRIDAY2024',
                     'target_url' => 'https://codeastrology.com/downloads/product-sync-master-sheet-premium/?discount=BLACKFRIDAY2024&campaign=BLACKFRIDAY2024&ref=1&utm_source=Default_Offer_LINK',
                     'img_url' => WPT_BASE_URL. 'assets/images/products/product-sync-master-sheet.png',
@@ -125,11 +125,11 @@ if( ! class_exists( 'WPT_Required' ) ){
                 ],
                 
                 [
-                    'title' => 'Offer - Min Max Control (PRO)',
+                    'title' => 'BLACKFRIDAY Offer - Min Max Control (PRO)',
                     'coupon_code' => 'BLACKFRIDAY2024',
                     'target_url' => 'https://wooproducttable.com/pricing/?discount=BLACKFRIDAY2024&campaign=BLACKFRIDAY2024&ref=1&utm_source=Default_Offer_LINK',
                     'img_url' => WPT_BASE_URL. 'assets/images/products/woo-min-max-quantity-step-control-single.png',
-                    'message' => 'Toffers to display specific products with minimum, maximum quantity.', 
+                    'message' => 'Offers to display specific products with minimum, maximum quantity.', 
                     'button_text' => 'Ok, Start Now!',
                 ],
                 [
@@ -153,23 +153,31 @@ if( ! class_exists( 'WPT_Required' ) ){
             
             $arr_index = rand(0, count($fullArgs) - 1);
             $rand_args = $fullArgs[$arr_index];
-            self::GetCustomOffer( $rand_args, $arr_index );
+            self::GetCustomOffer( $rand_args, $arr_index, $extra_for_id );
 
             
         }
 
-        protected static function GetCustomOffer( $args = ['title' => '', 'coupon_code' => '', 'target_url' => '', 'img_url' => '', 'message' => '', 'button_text' => ''  ], $arr_index = false )
+        protected static function GetCustomOffer( $args = ['title' => '', 'coupon_code' => '', 'target_url' => '', 'img_url' => '', 'message' => '', 'button_text' => ''  ], $arr_index = false, $extra_for_id = '' )
         {
 
+            /**
+             * proti index er jonno alada alada id generate hobe.
+             * jeno alada alada dissmiss korte hoy 
+             * ebong amader plugin bade jeno alada alada dismiss korte hoy.
+             * sejonno notun id generate korar jonno extra_for_id use korte hobe.
+             * sei bebostha korechi. 
+             */
             $coupon_code = $args['coupon_code'] ?? 'BLACKFRIDAY2024';
             $target = $args['target_url'] ?? 'https://wooproducttable.com/pricing/?discount=' . $coupon_code . '&campaign=' . $coupon_code . '&ref=1&utm_source=Default_Offer_LINK';
             $img_url = $args['img_url'] ?? WPT_BASE_URL. 'assets/images/round-logo.png';
             $message = $args['message'] ?? ''; 
             $message .= '<h4 class="notice-coupon-code">Coupon Code: ' . $coupon_code . '</h4>';
             $button_text = $args['button_text'] ?? 'Claim Discount';
-            $title = $args['title'] ?? 'BLACKFRIDAY2024 for Woo Product Table';
+            $title = $args['title'] ?? 'BLACKFRIDAY2024 OFFER for Woo Product Table';
             $notice_id = 'wpt_'.$coupon_code.'_offer';
             if( $arr_index !== false ) $notice_id = 'wpt_'.$coupon_code.'_offer_' . $arr_index;
+            if( ! empty( $extra_for_id ) ) $notice_id = $notice_id . '_' . $extra_for_id;
             $offerNc = new Notice($notice_id);
             $offerNc->set_title( $title )
             ->set_diff_limit(1)
@@ -181,6 +189,12 @@ if( ! class_exists( 'WPT_Required' ) ){
                 'text' => $button_text,
                 'type' => 'offer',
                 'link' => $target,
+            ]);
+
+            $offerNc->add_button([
+                'text' => 'Free Plugins',
+                'type' => 'warning',
+                'link' => 'https://profiles.wordpress.org/codersaiful/#content-plugins',
             ]);
 
             $offerNc->show();

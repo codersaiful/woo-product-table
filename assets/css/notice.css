@@ -87,22 +87,20 @@ li#menu-posts-wpt_product_table.wp-has-current-submenu .wp-menu-name {
     border-radius: 0 !important;
 }
 .notice.ca-notice.notice-offer .ca-msg-text .notice-coupon-code {
-    /* margin-top: -8px; */
     color: #673AB7;
-    /* background: black; */
-    /* padding: 5px; */
     display: inline-block;
     font-weight: bold;
     font-family: monospace;
     width: fit-content;
+    margin: 0;
 }
 .anywhere-notice.ca-notice .ca-notice-dismiss{display: none !important;}
+.notice.ca-notice.notice-offer .ca-msg-text p.ca-links-collection a.ca-button-type-offer {background-color: #4CAF50;}
 .notice.ca-notice.notice-offer .ca-msg-text p.ca-links-collection a {
     padding: 5px 15px;
     margin: 0;
     clear: both;
     border: 0 none;
-    background-color: #4CAF50;
     color: #f5fff6;
 }
 .ca-notice-content {
