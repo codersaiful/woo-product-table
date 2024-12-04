@@ -11,6 +11,10 @@ if( ! class_exists( 'WPT_Required' ) ){
     {
 
         public static $coupon_Code;
+        public static $current_plugin_ids = [
+            'woo-product-table/woo-product-table.php',
+            'woo-product-table-pro/woo-product-table-pro.php'
+        ];
 
         public static $stop_next = 0;
         public function __construct()
@@ -116,6 +120,7 @@ if( ! class_exists( 'WPT_Required' ) ){
             if( $probability !== 5 ) return;
             $fullArgs = [
                 [
+                    'plugin_id' => 'product-sync-master-sheet/product-sync-master-sheet.php',
                     'title' => 'BLACKFRIDAY - Sync master sheet Premium (with Google Sheet)',
                     'coupon_code' => 'BLACKFRIDAY2024',
                     'target_url' => 'https://codeastrology.com/downloads/product-sync-master-sheet-premium/?discount=BLACKFRIDAY2024&campaign=BLACKFRIDAY2024&ref=1&utm_source=Default_Offer_LINK',
@@ -125,6 +130,7 @@ if( ! class_exists( 'WPT_Required' ) ){
                 ],
                 
                 [
+                    'plugin_id' => 'woo-min-max-quantity-step-control-single/wcmmq.php',
                     'title' => 'BLACKFRIDAY Offer - Min Max Control (PRO)',
                     'coupon_code' => 'BLACKFRIDAY2024',
                     'target_url' => 'https://wooproducttable.com/pricing/?discount=BLACKFRIDAY2024&campaign=BLACKFRIDAY2024&ref=1&utm_source=Default_Offer_LINK',
@@ -133,6 +139,7 @@ if( ! class_exists( 'WPT_Required' ) ){
                     'button_text' => 'Ok, Start Now!',
                 ],
                 [
+                    'plugin_id' => 'ultraaddons-elementor-lite/init.php',
                     'title' => 'BLACKFRIDAY Offer - UltraAddons Elementor PRO',
                     'coupon_code' => 'BLACKFRIDAY2024',
                     'target_url' => 'https://ultraaddons.com/pricing/?discount=BLACKFRIDAY2024&campaign=BLACKFRIDAY2024&ref=1&utm_source=Default_Offer_LINK',
@@ -141,6 +148,7 @@ if( ! class_exists( 'WPT_Required' ) ){
                     'button_text' => 'Get it Now',
                 ],
                 [
+                    'plugin_id' => 'sheet-to-wp-table-for-google-sheet/sheet-to-wp-table-for-google-sheet.php',
                     'title' => 'Sheet to Table Live Sync for Google Sheet',
                     'coupon_code' => 'BLACKFRIDAY2024',
                     'target_url' => 'https://wordpress.org/plugins/sheet-to-wp-table-for-google-sheet/',
@@ -149,6 +157,7 @@ if( ! class_exists( 'WPT_Required' ) ){
                     'button_text' => 'Free Download Now',
                 ],
                 [
+                    'plugin_id' => 'wc-quantity-plus-minus-button/wc-quantity-plus-minus-button.php',
                     'title' => 'Quantity Plus Minus Button for WooCommerce by CodeAstrology',
                     'coupon_code' => 'BLACKFRIDAY2024',
                     'target_url' => 'https://wordpress.org/plugins/wc-quantity-plus-minus-button/',
@@ -157,6 +166,7 @@ if( ! class_exists( 'WPT_Required' ) ){
                     'button_text' => 'Free Download Now',
                 ],
                 [
+                    'plugin_id' => 'woo-min-max-quantity-step-control-single/wcmmq.php',
                     'title' => 'Min Max Control - Min Max Quantity & Step Control for WooCommerce',
                     'coupon_code' => 'BLACKFRIDAY2024',
                     'target_url' => 'https://wordpress.org/plugins/wc-quantity-plus-minus-button/',
@@ -165,6 +175,7 @@ if( ! class_exists( 'WPT_Required' ) ){
                     'button_text' => 'Free Download Now',
                 ],
                 [
+                    'plugin_id' => 'woo-product-table/woo-product-table.php',
                     'title' => 'BLACKFRIDAY - CodeAstrology all plugins',
                     'coupon_code' => 'BLACKFRIDAY2024',
                     'target_url' => 'https://codeastrology.com/downloads/category/premium/?discount=BLACKFRIDAY2024&campaign=BLACKFRIDAY2024&ref=1&utm_source=Default_Offer_LINK',
@@ -173,6 +184,7 @@ if( ! class_exists( 'WPT_Required' ) ){
                     'button_text' => 'Checkout our Plugins',
                 ],
                 [
+                    'plugin_id' => 'woo-product-table/woo-product-table.php',
                     'title' => 'Get all Free Plugins for WooCommrce',
                     'coupon_code' => 'BLACKFRIDAY2024',
                     'target_url' => 'https://codeastrology.com/downloads/category/free-products/?discount=BLACKFRIDAY2024&campaign=BLACKFRIDAY2024&ref=1&utm_source=Default_Offer_LINK',
