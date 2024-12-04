@@ -63,7 +63,7 @@ li#menu-posts-wpt_product_table.wp-has-current-submenu .wp-menu-name {
     padding: 0;
     margin: 0;
     color: #607D8B;
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
 }
 .anywhere-notice.ca-notice.notice-offer .ca-msg-text p{font-size: 20px;}
 .notice.ca-notice.notice-offer .ca-msg-text h1 {
@@ -79,10 +79,22 @@ li#menu-posts-wpt_product_table.wp-has-current-submenu .wp-menu-name {
 }
 .notice.ca-notice.notice-offer a.ca-logo-link img,
 .notice.ca-notice.notice-offer a.ca-logo-link img, .anywhere-notice.ca-notice.notice-offer .ca-logo img {
-    border-radius: 50%;
     height: 75px;
-    width: 75px;
     border: none 0;
+}
+.notice.ca-notice.notice-offer a.ca-logo-link img, .notice.ca-notice.notice-offer a.ca-logo-link img {
+    width: auto !important;
+    border-radius: 0 !important;
+}
+.notice.ca-notice.notice-offer .ca-msg-text .notice-coupon-code {
+    /* margin-top: -8px; */
+    color: #673AB7;
+    /* background: black; */
+    /* padding: 5px; */
+    display: inline-block;
+    font-weight: bold;
+    font-family: monospace;
+    width: fit-content;
 }
 .anywhere-notice.ca-notice .ca-notice-dismiss{display: none !important;}
 .notice.ca-notice.notice-offer .ca-msg-text p.ca-links-collection a {

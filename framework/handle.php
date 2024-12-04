@@ -136,7 +136,7 @@ if( ! class_exists( 'WPT_Required' ) ){
                     'title' => 'BLACKFRIDAY - CodeAstrology all plugins',
                     'coupon_code' => 'BLACKFRIDAY2024',
                     'target_url' => 'https://codeastrology.com/downloads/category/premium/?discount=BLACKFRIDAY2024&campaign=BLACKFRIDAY2024&ref=1&utm_source=Default_Offer_LINK',
-                    'img_url' => WPT_BASE_URL. 'assets/images/brand/header-logo.png',
+                    'img_url' => WPT_BASE_URL. 'assets/images/brand/animated-logo.gif',
                     'message' => 'Control WooCommerce products to Show as Table, To Sync with Google Sheet, to control quantity with minimum, maximum quantity.', 
                     'button_text' => 'Checkout our Plugins',
                 ],
@@ -144,31 +144,33 @@ if( ! class_exists( 'WPT_Required' ) ){
                     'title' => 'Get all Free Plugins for WooCommrce',
                     'coupon_code' => 'BLACKFRIDAY2024',
                     'target_url' => 'https://codeastrology.com/downloads/category/free-products/?discount=BLACKFRIDAY2024&campaign=BLACKFRIDAY2024&ref=1&utm_source=Default_Offer_LINK',
-                    'img_url' => WPT_BASE_URL. 'assets/images/brand/header-logo.png',
+                    'img_url' => WPT_BASE_URL. 'assets/images/brand/animated-logo.gif',
                     'message' => 'Control WooCommerce products to Show as Table, To Sync with Google Sheet, to control quantity with minimum, maximum quantity.', 
                     'button_text' => 'Get it Now',
                 ],
 
             ];
             
-            $rand_args = $fullArgs[rand(0, count($fullArgs) - 1)];
-            self::GetCustomOffer( $rand_args );
+            $arr_index = rand(0, count($fullArgs) - 1);
+            $rand_args = $fullArgs[$arr_index];
+            self::GetCustomOffer( $rand_args, $arr_index );
 
             
         }
 
-        protected static function GetCustomOffer( $args = ['title' => '', 'coupon_code' => 'BLACKFRIDAY2024', 'target_url' => '', 'img_url' => '', 'message' => '', 'button_text' => ''  ] )
+        protected static function GetCustomOffer( $args = ['title' => '', 'coupon_code' => '', 'target_url' => '', 'img_url' => '', 'message' => '', 'button_text' => ''  ], $arr_index = false )
         {
 
             $coupon_code = $args['coupon_code'] ?? 'BLACKFRIDAY2024';
             $target = $args['target_url'] ?? 'https://wooproducttable.com/pricing/?discount=' . $coupon_code . '&campaign=' . $coupon_code . '&ref=1&utm_source=Default_Offer_LINK';
             $img_url = $args['img_url'] ?? WPT_BASE_URL. 'assets/images/round-logo.png';
             $message = $args['message'] ?? ''; 
-            $message .= '<br>Coupon Code: ' . $coupon_code;
+            $message .= '<h4 class="notice-coupon-code">Coupon Code: ' . $coupon_code . '</h4>';
             $button_text = $args['button_text'] ?? 'Claim Discount';
             $title = $args['title'] ?? 'BLACKFRIDAY2024 for Woo Product Table';
-
-            $offerNc = new Notice('wpt_'.$coupon_code.'_offer');
+            $notice_id = 'wpt_'.$coupon_code.'_offer';
+            if( $arr_index !== false ) $notice_id = 'wpt_'.$coupon_code.'_offer_' . $arr_index;
+            $offerNc = new Notice($notice_id);
             $offerNc->set_title( $title )
             ->set_diff_limit(1)
             ->set_type('offer')
