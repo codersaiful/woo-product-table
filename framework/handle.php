@@ -104,8 +104,8 @@ if( ! class_exists( 'WPT_Required' ) ){
         {
 
             $extra_for_id = $extra_for_id ? $extra_for_id : '';
-            $this_rand = rand(1,5);
-            if( $this_rand > 2 ){
+            $this_rand = rand(1,9);
+            if( $this_rand <= 3 ){
                 self::Notice( $probability);
             }else{
                 self::OtherOffer( $probability, $extra_for_id);
@@ -133,6 +133,38 @@ if( ! class_exists( 'WPT_Required' ) ){
                     'button_text' => 'Ok, Start Now!',
                 ],
                 [
+                    'title' => 'BLACKFRIDAY Offer - UltraAddons Elementor PRO',
+                    'coupon_code' => 'BLACKFRIDAY2024',
+                    'target_url' => 'https://ultraaddons.com/pricing/?discount=BLACKFRIDAY2024&campaign=BLACKFRIDAY2024&ref=1&utm_source=Default_Offer_LINK',
+                    'img_url' => WPT_BASE_URL. 'assets/images/products/ultraaddons-elementor-lite.png',
+                    'message' => 'Give Floating Effects For Animations. Now you can create stunning floating animation using UltraAddons exclusive floating feature', 
+                    'button_text' => 'Get it Now',
+                ],
+                [
+                    'title' => 'Sheet to Table Live Sync for Google Sheet',
+                    'coupon_code' => 'BLACKFRIDAY2024',
+                    'target_url' => 'https://wordpress.org/plugins/sheet-to-wp-table-for-google-sheet/',
+                    'img_url' => 'https://s.w.org/plugins/geopattern-icon/sheet-to-wp-table-for-google-sheet.svg',
+                    'message' => 'Live Google Sheet Sync, Smart Caching for Instant Loading, Show Sheen your site by Shortcode.', 
+                    'button_text' => 'Free Download Now',
+                ],
+                [
+                    'title' => 'Quantity Plus Minus Button for WooCommerce by CodeAstrology',
+                    'coupon_code' => 'BLACKFRIDAY2024',
+                    'target_url' => 'https://wordpress.org/plugins/wc-quantity-plus-minus-button/',
+                    'img_url' => 'https://ps.w.org/wc-quantity-plus-minus-button/assets/icon-128x128.png',
+                    'message' => 'Add Quantity Plus Minus Button to your Product page and Shop Page for WooCommerce.', 
+                    'button_text' => 'Free Download Now',
+                ],
+                [
+                    'title' => 'Min Max Control - Min Max Quantity & Step Control for WooCommerce',
+                    'coupon_code' => 'BLACKFRIDAY2024',
+                    'target_url' => 'https://wordpress.org/plugins/wc-quantity-plus-minus-button/',
+                    'img_url' => 'https://ps.w.org/woo-min-max-quantity-step-control-single/assets/icon-128x128.png',
+                    'message' => 'Min Max Control - offers to set product minimum & maximum quantity and step.', 
+                    'button_text' => 'Free Download Now',
+                ],
+                [
                     'title' => 'BLACKFRIDAY - CodeAstrology all plugins',
                     'coupon_code' => 'BLACKFRIDAY2024',
                     'target_url' => 'https://codeastrology.com/downloads/category/premium/?discount=BLACKFRIDAY2024&campaign=BLACKFRIDAY2024&ref=1&utm_source=Default_Offer_LINK',
@@ -158,7 +190,7 @@ if( ! class_exists( 'WPT_Required' ) ){
             
         }
 
-        protected static function GetCustomOffer( $args = ['title' => '', 'coupon_code' => '', 'target_url' => '', 'img_url' => '', 'message' => '', 'button_text' => ''  ], $arr_index = false, $extra_for_id = '' )
+        protected static function GetCustomOffer( $args = ['title' => '', 'coupon_code' => '', 'target_url' => '', 'img_url' => '', 'message' => '', 'button_text' => '', 'coupon_show_bool' => true  ], $arr_index = false, $extra_for_id = '' )
         {
 
             /**
@@ -171,16 +203,23 @@ if( ! class_exists( 'WPT_Required' ) ){
             $coupon_code = $args['coupon_code'] ?? 'BLACKFRIDAY2024';
             $target = $args['target_url'] ?? 'https://wooproducttable.com/pricing/?discount=' . $coupon_code . '&campaign=' . $coupon_code . '&ref=1&utm_source=Default_Offer_LINK';
             $img_url = $args['img_url'] ?? WPT_BASE_URL. 'assets/images/round-logo.png';
-            $message = $args['message'] ?? ''; 
-            $message .= '<h4 class="notice-coupon-code">Coupon Code: ' . $coupon_code . '</h4>';
             $button_text = $args['button_text'] ?? 'Claim Discount';
+            $coupon_show_bool = $args['coupon_show_bool'] ?? true;
+            if( $button_text === 'Free Download Now' ){
+                $coupon_show_bool = false;
+            }
+            $message = $args['message'] ?? ''; 
+            if( $coupon_show_bool === true){
+                $message .= '<h4 class="notice-coupon-code">Coupon Code: ' . $coupon_code . '</h4>';
+            }
+            
             $title = $args['title'] ?? 'BLACKFRIDAY2024 OFFER for Woo Product Table';
             $notice_id = 'wpt_'.$coupon_code.'_offer';
             if( $arr_index !== false ) $notice_id = 'wpt_'.$coupon_code.'_offer_' . $arr_index;
             if( ! empty( $extra_for_id ) ) $notice_id = $notice_id . '_' . $extra_for_id;
             $offerNc = new Notice($notice_id);
             $offerNc->set_title( $title )
-            ->set_diff_limit(1)
+            ->set_diff_limit(4)
             ->set_type('offer')
             ->set_img( $img_url)
             ->set_img_target( $target )
@@ -206,7 +245,7 @@ if( ! class_exists( 'WPT_Required' ) ){
             $my_message = 'Product Table Primium version on COUPON <b>(Woo Product Table Pro)</b> Plugin. Offer Upto 30 Sept. 2024'; 
             $offerNc = new Notice('wpt_'.$coupon_Code.'_offer');
             $offerNc->set_title( 'BLACKFRIDAY2024 for Woo Product Table' )
-            ->set_diff_limit(2)
+            ->set_diff_limit(5)
             ->set_type('offer')
             ->set_img( WPT_BASE_URL. 'assets/images/round-logo.png')
             ->set_img_target( $target )
@@ -223,29 +262,6 @@ if( ! class_exists( 'WPT_Required' ) ){
             ]);
 
             if($temp_numb == 5) $offerNc->show();
-        }
-
-        private static function display_notice_on_pro()
-        {
-
-            $temp_numb = rand(1, 35);
-            $coupon_Code = 'SPECIAL_OFFER_' . date('M_Y');
-            $target = 'https://codeastrology.com/downloads/?discount=' . $coupon_Code . '&campaign=' . $coupon_Code . '&ref=1&utm_source=Default_Offer_LINK';
-            $my_message = 'Speciall Discount on All CodeAstrology Products'; 
-            $offerNc = new Notice('wpt_'.$coupon_Code.'_offer');
-            $offerNc->set_title( 'SPECIAL OFFER' )
-            ->set_diff_limit(10)
-            ->set_type('offer')
-            ->set_img( WPT_BASE_URL. 'assets/images/brand/social/web.png')
-            ->set_img_target( $target )
-            ->set_message( $my_message )
-            ->add_button([
-                'text' => 'Get WooCommerce Product with Discount',
-                'type' => 'success',
-                'link' => $target,
-            ]);
-
-            if($temp_numb == 35) $offerNc->show();
         }
 
         /**
