@@ -61,16 +61,16 @@ if( ! class_exists( 'WPT_Required' ) ){
             
             if( time() > $last_date_timestamp ) return;
 
-
+            $temp_numb = rand(4,5);
             //eta sudhu matro amader selected plugin er kkhetre always ba all time show korbe add
             //Only when in product table page, So it will show always
             $s_id = $_SERVER['REQUEST_URI'] ?? '';
             if( strpos( $s_id, 'product_table') !== false ){
                 if( defined( 'WPT_PRO_DEV_VERSION' ) ){
-                    self::OtherOffer(5, $s_id);
+                    self::OtherOffer($temp_numb, $s_id);
                     return;
                 }else{
-                    self::AllOfferWithOwnOffer(5, $s_id);
+                    self::AllOfferWithOwnOffer($temp_numb, $s_id);
                 }
 
                 return;
@@ -292,11 +292,15 @@ if( ! class_exists( 'WPT_Required' ) ){
             $title = $args['title'] ?? 'BLACKFRIDAY2024 OFFER for Woo Product Table';
             $plugin_id = $args['plugin_id'] ?? '';
             // Remove '/' and '.php'
+            
+            $extra_for_id = str_replace(['/','&','.','edit','wp-admin', 'php', '=','post_type', '?'], '', $extra_for_id);
+            $extra_for_id = preg_replace('/[^a-zA-Z]/', '', $extra_for_id);
             $cleaned_plugin_id = str_replace(['/', '.php'], '', $plugin_id);
-            $cleaned_plugin_id = substr($cleaned_plugin_id, 0, 30);
+            $cleaned_plugin_id = substr($cleaned_plugin_id, 0, 20);
             $notice_id = 'wpt_'.$coupon_code . $cleaned_plugin_id;
             if( $arr_index !== false ) $notice_id = $notice_id . '_' . $arr_index;
             if( ! empty( $extra_for_id ) ) $notice_id = $notice_id . '_' . $extra_for_id;
+            update_option( 'wpt_offer_index_saiful_checking', $notice_id );
             $offerNc = new Notice($notice_id);
             $offerNc->set_title( $title )
             ->set_diff_limit(5)
