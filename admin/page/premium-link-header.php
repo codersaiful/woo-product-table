@@ -6,7 +6,7 @@
 		<div class="row" style="align-items: inherit;flex-wrap: wrap;margin:0;">
 			<div class="wpt-pic-col col-lg-8">
 				<div class="col-lg-2">
-					<a href="https://codeastrology.com/coupons/?discount=CHRISTMAS2023&campaign=CHRISTMAS2023&ref=1&utm_source=Default_Offer_LINK" target="_blank">
+					<a href="https://codeastrology.com/coupons/?discount=BLACKFRIDAY2024&campaign=BLACKFRIDAY2024&ref=1&utm_source=Default_Offer_LINK" target="_blank">
 						<i class="premium_adv"></i>
 					</a>
 				</div>
@@ -15,12 +15,12 @@
 					<p>Checkout our Offer.</p>
 				</div>
 				<div class="col-lg-6">
-					<a href="https://codeastrology.com/coupons/?discount=CHRISTMAS2023&campaign=CHRISTMAS2023&ref=1&utm_source=Default_Offer_LINK" class="wpt-btn white round" style="color:black;background-color:white;" target="_blank">Get Offer and Bundle</a>
+					<a href="https://codeastrology.com/coupons/?discount=BLACKFRIDAY2024&campaign=BLACKFRIDAY2024&ref=1&utm_source=Default_Offer_LINK" class="wpt-btn white round" style="color:black;background-color:white;" target="_blank">Get Offer and Bundle</a>
 				</div>
 			</div>
 			<div class="wpt-sup-col col-lg-4">
 				<div class="half-containers money-back">
-					<a href="https://codeastrology.com/coupons/?discount=CHRISTMAS2023&campaign=CHRISTMAS2023&ref=1&utm_source=Default_Offer_LINK" target="_blank">
+					<a href="https://codeastrology.com/coupons/?discount=BLACKFRIDAY2024&campaign=BLACKFRIDAY2024&ref=1&utm_source=Default_Offer_LINK" target="_blank">
 						<span>Money Back Guarantee</span>
 					</a>
 					<p style="text-align: center;padding:15px;">100% No-Risk 30-Days Money Back Guarantee</p>
