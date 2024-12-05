@@ -10,7 +10,8 @@ if( ! class_exists( 'WPT_Required' ) ){
     class WPT_Required
     {
 
-        public static $coupon_code;
+        public static $coupon_code = 'BLACKFRIDAY2024';
+        public static $last_date = '31 Dec 2024';
 
         public static $stop_next = 0;
         public function __construct()
@@ -79,7 +80,7 @@ if( ! class_exists( 'WPT_Required' ) ){
              * add_filter('wpt_offer_show', '__return_false'); 
              * taholei offer showing off hoye jabe.
              */
-            $temp_numb = rand(2,8);
+            $temp_numb = rand(1,9);
             if( defined( 'WPT_PRO_DEV_VERSION' ) ){
                 self::OtherOffer( $temp_numb);
                 return;
@@ -100,7 +101,7 @@ if( ! class_exists( 'WPT_Required' ) ){
 
             $extra_for_id = $extra_for_id ? $extra_for_id : '';
             $this_rand = rand(1,9);
-            if( $this_rand <= 0 ){
+            if( $this_rand <= 3 ){
                 self::Notice( $probability);
             }else{
                 self::OtherOffer( $probability, $extra_for_id);
@@ -114,9 +115,9 @@ if( ! class_exists( 'WPT_Required' ) ){
                 [
                     'plugin_id' => 'woo-product-table/woo-product-table.php',
                     'title' => 'Woo Product Table - Product Table for WooCommerce by CodeAstrology',
-                    'coupon_code' => 'BLACKFRIDAY2024',
+                    'coupon_code' => self::$coupon_code,
                     'target_url' => 'https://wordpress.org/plugins/woo-product-table/',
-                    'img_url' => WPT_BASE_URL. 'assets/images/round-logo.png',
+                    'img_url' => 'https://ps.w.org/woo-product-table/assets/icon-256x256.png',
                     'message' => 'Helps you to display your products in a searchable table layout with filters.', 
                     'button_text' => 'Free Download Now',
                     'coupon_show_bool' => false,
@@ -124,9 +125,9 @@ if( ! class_exists( 'WPT_Required' ) ){
                 [
                     'plugin_id' => 'woo-product-table-pro/woo-product-table-pro.php',
                     'title' => 'Woo Product Table Pro - Product Table for WooCommerce by CodeAstrology',
-                    'coupon_code' => 'BLACKFRIDAY2024',
+                    'coupon_code' => self::$coupon_code,
                     'target_url' => 'https://wooproducttable.com/?discount=BLACKFRIDAY2024&campaign=BLACKFRIDAY2024&ref=1&utm_source=Default_Offer_LINK',
-                    'img_url' => WPT_BASE_URL. 'assets/images/round-logo.png',
+                    'img_url' => 'https://ps.w.org/woo-product-table/assets/icon-256x256.png',
                     'message' => 'Helps you to display your products in a searchable table layout with filters.', 
                     'button_text' => 'Get with Exclusive Features',
                     'coupon_show_bool' => true,
@@ -136,9 +137,9 @@ if( ! class_exists( 'WPT_Required' ) ){
                 [
                     'plugin_id' => 'product-sync-master-sheet-premium/init.php',
                     'title' => 'BLACKFRIDAY - Sync master sheet Premium (with Google Sheet)',
-                    'coupon_code' => 'BLACKFRIDAY2024',
+                    'coupon_code' => self::$coupon_code,
                     'target_url' => 'https://codeastrology.com/downloads/product-sync-master-sheet-premium/?discount=BLACKFRIDAY2024&campaign=BLACKFRIDAY2024&ref=1&utm_source=Default_Offer_LINK',
-                    'img_url' => WPT_BASE_URL. 'assets/images/products/product-sync-master-sheet.png',
+                    'img_url' => 'https://ps.w.org/product-sync-master-sheet/assets/icon-256x256.png',
                     'message' => 'Seamlessly connect your WooCommerce store with Google Sheets via the Google Sheets API. Also sync with multiple website.', 
                     'button_text' => 'Start to Sync with Google Sheets',
                 ],
@@ -146,9 +147,9 @@ if( ! class_exists( 'WPT_Required' ) ){
                 [
                     'plugin_id' => 'product-sync-master-sheet/product-sync-master-sheet.php',
                     'title' => 'Sync master sheet - Edit,Update, Stock Sync from Google Sheet also from another Website',
-                    'coupon_code' => 'BLACKFRIDAY2024',
-                    'target_url' => 'https://codeastrology.com/downloads/product-sync-master-sheet-premium/?discount=BLACKFRIDAY2024&campaign=BLACKFRIDAY2024&ref=1&utm_source=Default_Offer_LINK',
-                    'img_url' => WPT_BASE_URL. 'assets/images/products/product-sync-master-sheet.png',
+                    'coupon_code' => self::$coupon_code,
+                    'target_url' => 'https://wordpress.org/plugins/product-sync-master-sheet/',
+                    'img_url' => 'https://ps.w.org/product-sync-master-sheet/assets/icon-256x256.png',
                     'message' => 'Seamlessly connect your WooCommerce store with Google Sheets via the Google Sheets API. Also sync with multiple website.', 
                     'button_text' => 'Free Download Now',
                     'coupon_show_bool' => false,
@@ -158,7 +159,7 @@ if( ! class_exists( 'WPT_Required' ) ){
                 [
                     'plugin_id' => 'WC_Min_Max_Quantity/wcmmq.php',
                     'title' => 'BLACKFRIDAY Offer - Min Max Control (PRO)',
-                    'coupon_code' => 'BLACKFRIDAY2024',
+                    'coupon_code' => self::$coupon_code,
                     'target_url' => 'https://codeastrology.com/min-max-quantity/?discount=BLACKFRIDAY2024&campaign=BLACKFRIDAY2024&ref=1&utm_source=Default_Offer_LINK',
                     'img_url' => 'https://ps.w.org/woo-min-max-quantity-step-control-single/assets/icon-256x256.png',
                     'message' => 'Offers to display specific products with minimum, maximum quantity.', 
@@ -167,7 +168,7 @@ if( ! class_exists( 'WPT_Required' ) ){
                 [
                     'plugin_id' => 'woo-min-max-quantity-step-control-single/wcmmq.php',
                     'title' => 'Min Max Control - Min Max Quantity & Step Control for WooCommerce',
-                    'coupon_code' => 'BLACKFRIDAY2024',
+                    'coupon_code' => self::$coupon_code,
                     'target_url' => 'https://wordpress.org/plugins/wc-quantity-plus-minus-button/',
                     'img_url' => 'https://ps.w.org/woo-min-max-quantity-step-control-single/assets/icon-256x256.png',
                     'message' => 'Min Max Control - offers to set product minimum & maximum quantity and step.', 
@@ -178,7 +179,7 @@ if( ! class_exists( 'WPT_Required' ) ){
                 [
                     'plugin_id' => 'ultraaddons-elementor-lite/init.php',
                     'title' => 'BLACKFRIDAY Offer - UltraAddons Elementor PRO',
-                    'coupon_code' => 'BLACKFRIDAY2024',
+                    'coupon_code' => self::$coupon_code,
                     'target_url' => 'https://ultraaddons.com/pricing/?discount=BLACKFRIDAY2024&campaign=BLACKFRIDAY2024&ref=1&utm_source=Default_Offer_LINK',
                     'img_url' => WPT_BASE_URL. 'assets/images/products/ultraaddons-elementor-lite.png',
                     'message' => 'Give Floating Effects For Animations. Now you can create stunning floating animation using UltraAddons exclusive floating feature', 
@@ -187,16 +188,16 @@ if( ! class_exists( 'WPT_Required' ) ){
                 [
                     'plugin_id' => 'sheet-to-wp-table-for-google-sheet/sheet-to-wp-table-for-google-sheet.php',
                     'title' => 'Sheet to Table Live Sync for Google Sheet',
-                    'coupon_code' => 'BLACKFRIDAY2024',
+                    'coupon_code' => self::$coupon_code,
                     'target_url' => 'https://wordpress.org/plugins/sheet-to-wp-table-for-google-sheet/',
                     'img_url' => 'https://s.w.org/plugins/geopattern-icon/sheet-to-wp-table-for-google-sheet.svg',
-                    'message' => 'Show Google Sheet by Shortcode, Anywhere. Live Sync Google Sheet, Smart Caching for Instant Loading.', 
+                    'message' => 'Show your Google Sheet by Shortcode, Anywhere of your site. Live Sync Google Sheet, Smart Caching for Instant Loading.', 
                     'button_text' => 'Free Download Now',
                 ],
                 [
                     'plugin_id' => 'wc-quantity-plus-minus-button/init.php',
                     'title' => 'Quantity Plus Minus Button for WooCommerce by CodeAstrology',
-                    'coupon_code' => 'BLACKFRIDAY2024',
+                    'coupon_code' => self::$coupon_code,
                     'target_url' => 'https://wordpress.org/plugins/wc-quantity-plus-minus-button/',
                     'img_url' => 'https://ps.w.org/wc-quantity-plus-minus-button/assets/icon-128x128.png',
                     'message' => 'Add Quantity Plus Minus Button to your Product page and Shop Page for WooCommerce.', 
@@ -206,18 +207,18 @@ if( ! class_exists( 'WPT_Required' ) ){
                 [
                     'plugin_id' => 'codeastrology/all-plugins-premium',
                     'title' => 'BLACKFRIDAY - CodeAstrology all plugins',
-                    'coupon_code' => 'BLACKFRIDAY2024',
+                    'coupon_code' => self::$coupon_code,
                     'target_url' => 'https://codeastrology.com/downloads/category/premium/?discount=BLACKFRIDAY2024&campaign=BLACKFRIDAY2024&ref=1&utm_source=Default_Offer_LINK',
-                    'img_url' => WPT_BASE_URL. 'assets/images/brand/animated-logo.gif',
+                    'img_url' => 'https://i0.wp.com/codeastrology.com/wp-content/uploads/2022/02/Code-Astrology-animated-logo-1.gif',
                     'message' => 'Control WooCommerce products to Show as Table, To Sync with Google Sheet, to control quantity with minimum, maximum quantity.', 
                     'button_text' => 'Checkout our Plugins',
                 ],
                 [
                     'plugin_id' => 'codeastrology/all-plugins-free',
                     'title' => 'Get all Free Plugins for WooCommrce',
-                    'coupon_code' => 'BLACKFRIDAY2024',
+                    'coupon_code' => self::$coupon_code,
                     'target_url' => 'https://codeastrology.com/downloads/category/free-products/?discount=BLACKFRIDAY2024&campaign=BLACKFRIDAY2024&ref=1&utm_source=Default_Offer_LINK',
-                    'img_url' => WPT_BASE_URL. 'assets/images/brand/animated-logo.gif',
+                    'img_url' => 'https://i0.wp.com/codeastrology.com/wp-content/uploads/2022/02/Code-Astrology-animated-logo-1.gif',
                     'message' => 'Control WooCommerce products to Show as Table, To Sync with Google Sheet, to control quantity with minimum, maximum quantity.', 
                     'button_text' => 'Get it Free',
                 ],
@@ -236,7 +237,7 @@ if( ! class_exists( 'WPT_Required' ) ){
 
 
 
-            //Finally rearrange with new index 0,1,2,3,4,5,6,7,8,9
+            //Finally rearrange with new index 0,1,2,3,4,5,6,7,8,9 and so on | Specially for reindexing
             $fullArgs = array_values($fullArgs);
 
             //sob check korar por jodi empty hoy, taile null return kore dibo
@@ -263,7 +264,7 @@ if( ! class_exists( 'WPT_Required' ) ){
              */
             $coupon_code = $args['coupon_code'] ?? 'BLACKFRIDAY2024';
             $target = $args['target_url'] ?? 'https://wooproducttable.com/pricing/?discount=' . $coupon_code . '&campaign=' . $coupon_code . '&ref=1&utm_source=Default_Offer_LINK';
-            $img_url = $args['img_url'] ?? WPT_BASE_URL. 'assets/images/round-logo.png';
+            $img_url = $args['img_url'] ?? '';
             $button_text = $args['button_text'] ?? 'Claim Discount';
             $coupon_show_bool = $args['coupon_show_bool'] ?? true;
             if( $button_text === 'Free Download Now' ){
@@ -300,7 +301,7 @@ if( ! class_exists( 'WPT_Required' ) ){
             ]);
 
             $offerNc->add_button([
-                'text' => 'Free Plugins',
+                'text' => 'WordPress.org All Plugin',
                 'type' => 'warning',
                 'link' => 'https://profiles.wordpress.org/codersaiful/#content-plugins',
             ]);
