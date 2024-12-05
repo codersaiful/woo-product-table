@@ -132,7 +132,7 @@ if( ! class_exists( 'WPT_Required' ) ){
                     'coupon_code' => self::$coupon_code,
                     'target_url' => 'https://wooproducttable.com/?discount=BLACKFRIDAY2024&campaign=BLACKFRIDAY2024&ref=1&utm_source=Default_Offer_LINK',
                     'img_url' => 'https://ps.w.org/woo-product-table/assets/icon-256x256.png',
-                    'message' => 'Helps you to display your products in a searchable table layout with filters.', 
+                    'message' => 'Table for Variable Product, Table on Taxonomy/Category/Tag page, Custom Query, Query on any type taxonomy.', 
                     'button_text' => 'Get with Exclusive Features',
                     'coupon_show_bool' => true,
                 ],
@@ -279,7 +279,7 @@ if( ! class_exists( 'WPT_Required' ) ){
                 $message .= '<h4 class="notice-coupon-code">Coupon Code: ' . $coupon_code . '</h4>';
             }
             
-            $title = $args['title'] ?? 'BLACKFRIDAY2024 OFFER for Woo Product Table';
+            $title = $args['title'] ?? '';
             $plugin_id = $args['plugin_id'] ?? '';
             // Remove '/' and '.php'
             
@@ -316,9 +316,9 @@ if( ! class_exists( 'WPT_Required' ) ){
         {
             $coupon_Code = 'BLACKFRIDAY2024';
             $target = 'https://wooproducttable.com/pricing/?discount=' . $coupon_Code . '&campaign=' . $coupon_Code . '&ref=1&utm_source=Default_Offer_LINK';
-            $my_message = 'Product Table Primium version on COUPON <b>(Woo Product Table Pro)</b> Plugin. Offer Upto 30 Sept. 2024'; 
+            $my_message = 'Table for Variable Product, Table on Taxonomy/Category/Tag page, Custom Query, Query on any type taxonomy. '; 
             $offerNc = new Notice('wpt_'.$coupon_Code.'_offer');
-            $offerNc->set_title( 'BLACKFRIDAY2024 for Woo Product Table' )
+            $offerNc->set_title( 'BLACKFRIDAY2024 for Woo Product Table (PRO)' )
             ->set_diff_limit(5)
             ->set_type('offer')
             ->set_img( WPT_BASE_URL. 'assets/images/round-logo.png')
