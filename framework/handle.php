@@ -10,11 +10,7 @@ if( ! class_exists( 'WPT_Required' ) ){
     class WPT_Required
     {
 
-        public static $coupon_Code;
-        public static $current_plugin_ids = [
-            'woo-product-table/woo-product-table.php',
-            'woo-product-table-pro/woo-product-table-pro.php'
-        ];
+        public static $coupon_code;
 
         public static $stop_next = 0;
         public function __construct()
@@ -228,17 +224,6 @@ if( ! class_exists( 'WPT_Required' ) ){
 
             ];
 
-            //Array Filter with this own plugn's id. self::$current_plugin_ids
-            if(isset(self::$current_plugin_ids) && !empty(self::$current_plugin_ids)){
-                //If found $current_plugin_ids any value from $fullArgs['plugin_id'] then remove it from $fullArgs array.
-                $fullArgs = array_filter($fullArgs, function($item) {
-                    if(! isset($item['plugin_id'])) return true;
-
-                    $plugin_id = $item['plugin_id'];
-                    return !in_array($plugin_id, self::$current_plugin_ids);
-                });                                                         
-
-            }
 
             $active_plugins = apply_filters( 'active_plugins', get_option( 'active_plugins', array() ) );
             //Now I would like to filter $fullArgs array with active plugins actually if found $fullArgs['plugin_id'] then remove it from $fullArgs array.
