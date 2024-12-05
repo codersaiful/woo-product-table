@@ -286,7 +286,7 @@ if( ! class_exists( 'WPT_Required' ) ){
             $notice_id = 'wpt_'.$coupon_code . $cleaned_plugin_id;
             if( $arr_index !== false ) $notice_id = $notice_id . '_' . $arr_index;
             if( ! empty( $extra_for_id ) ) $notice_id = $notice_id . '_' . $extra_for_id;
-            update_option( 'wpt_offer_index_saiful_checking', $notice_id );
+
             $offerNc = new Notice($notice_id);
             $offerNc->set_title( $title )
             ->set_diff_limit(5)
