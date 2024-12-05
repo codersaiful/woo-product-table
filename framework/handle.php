@@ -12,11 +12,12 @@ if( ! class_exists( 'WPT_Required' ) ){
 
         public static $coupon_code = 'BLACKFRIDAY2024';
         public static $last_date = '31 Dec 2024';
+        public static $PRO_DEV_VERSION;
 
         public static $stop_next = 0;
         public function __construct()
         {
-            
+            self::$PRO_DEV_VERSION = defined( 'WPT_PRO_DEV_VERSION' );
         }
         public static function fail()
         {
@@ -35,7 +36,6 @@ if( ! class_exists( 'WPT_Required' ) ){
             
             if( ! $req_wc_next ){
                 self::display_notice();
-                // self::display_common_notice();
             }
 
             return self::$stop_next;
@@ -50,10 +50,10 @@ if( ! class_exists( 'WPT_Required' ) ){
         {
             if( ! is_admin() ) return;
 
-            $return_true = apply_filters( 'wpt_offer_show', true );
+            $return_true = apply_filters( 'wpt_offer_show_all', true );
             if( !$return_true ) return;
 
-            $last_date = '31 Dec 2024'; //Last date string to show offer
+            $last_date = self::$last_date; //Last date string to show offer
             $last_date_timestamp = strtotime( $last_date );
             
             if( time() > $last_date_timestamp ) return;
@@ -63,7 +63,7 @@ if( ! class_exists( 'WPT_Required' ) ){
             //Only when in product table page, So it will show always
             $s_id = $_SERVER['REQUEST_URI'] ?? '';
             if( strpos( $s_id, 'product_table') !== false ){
-                if( defined( 'WPT_PRO_DEV_VERSION' ) ){
+                if( self::$PRO_DEV_VERSION ){
                     self::OtherOffer($temp_numb, $s_id);
                     return;
                 }else{
@@ -73,6 +73,10 @@ if( ! class_exists( 'WPT_Required' ) ){
                 return;
             }
             
+
+            $return_true = apply_filters( 'wpt_offer_show', true );
+            if( !$return_true ) return;
+
             /**
              * eTa muloto seisob kustomer er jonno
              * jara oofer message dekhe khub birokto hoyeche, eTa tader jonno. 
@@ -81,7 +85,7 @@ if( ! class_exists( 'WPT_Required' ) ){
              * taholei offer showing off hoye jabe.
              */
             $temp_numb = rand(1,9);
-            if( defined( 'WPT_PRO_DEV_VERSION' ) ){
+            if( self::$PRO_DEV_VERSION ){
                 self::OtherOffer( $temp_numb);
                 return;
             }
@@ -332,32 +336,6 @@ if( ! class_exists( 'WPT_Required' ) ){
             ]);
 
             if($temp_numb == 5) $offerNc->show();
-        }
-
-        /**
-         * Common Notice for Product table, where no need Pro version.
-         *
-         * @return void
-         */
-        private static function display_common_notice()
-        {
-            return;
-
-            /**
-             * Notice for UltraAddons
-             */
-            if ( did_action( 'elementor/loaded' ) ) {
-            
-                $notc_ua = new Notice('ultraaddons');
-                $notc_ua->set_message( sprintf( __( 'There is a special Widget for Product Table at %s. You can try it.', 'woo-product-table' ), "<a href='https://wordpress.org/plugins/ultraaddons-elementor-lite/'>UltraAddons</a>" ) );
-                // ->add_button([
-                //     'type' => 'warning',
-                //     'text' => __( 'Download UltraAddons Elementor', 'woo-product-table' ),
-                //     'link' => 'https://wordpress.org/plugins/ultraaddons-elementor-lite/'
-                // ])
-                // $notc_ua->show();    
-
-            }
         }
     }
 }
