@@ -14,8 +14,11 @@ if( ! class_exists( 'WPT_Required' ) ){
         public static $last_date = '31 Dec 2024';
         public static $PRO_DEV_VERSION;
 
+        public static $css_file_url;
+        public static $css_version = '1.0.0';
+
         public static $stop_next = 0;
-        public function __construct()
+        public static function initialize()
         {
             self::$PRO_DEV_VERSION = defined( 'WPT_PRO_DEV_VERSION' );
         }
@@ -53,6 +56,9 @@ if( ! class_exists( 'WPT_Required' ) ){
             $return_true = apply_filters( 'wpt_offer_show_all', true );
             if( !$return_true ) return;
 
+            self::initialize();
+
+
             $last_date = self::$last_date; //Last date string to show offer
             $last_date_timestamp = strtotime( $last_date );
             
@@ -73,7 +79,6 @@ if( ! class_exists( 'WPT_Required' ) ){
                 return;
             }
             
-
             $return_true = apply_filters( 'wpt_offer_show', true );
             if( !$return_true ) return;
 
