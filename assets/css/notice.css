@@ -189,28 +189,28 @@ li#menu-posts-wpt_product_table.wp-has-current-submenu .wp-menu-name {
 
 
 /* black Friday offer  */
-.notice.ca-notice.notice-offer[data-notice_id="wpt_20DAYSDEAL_offer"] {
+.notice.ca-notice.notice-offer[data-notice_id="wpt_BLACKFRIDAY2024_offer"] {
     /* background: #ffffff8f; */
     color: #6e6e6e;
     box-shadow: 1px -1px 30px #0000000a;
 }
-.notice.ca-notice.notice-offer[data-notice_id="wpt_20DAYSDEAL_offer"] a.ca-logo-link img, 
-.notice.ca-notice.notice-offer[data-notice_id="wpt_20DAYSDEAL_offer"] a.ca-logo-link img,
-.notice.ca-notice.notice-offer[data-notice_id="wpt_20DAYSDEAL_offer"] img, 
-.notice.ca-notice.notice-offer[data-notice_id="wpt_20DAYSDEAL_offer"] a {
+.notice.ca-notice.notice-offer[data-notice_id="wpt_BLACKFRIDAY2024_offer"] a.ca-logo-link img, 
+.notice.ca-notice.notice-offer[data-notice_id="wpt_BLACKFRIDAY2024_offer"] a.ca-logo-link img,
+.notice.ca-notice.notice-offer[data-notice_id="wpt_BLACKFRIDAY2024_offer"] img, 
+.notice.ca-notice.notice-offer[data-notice_id="wpt_BLACKFRIDAY2024_offer"] a {
     border: 0 none !important;
 }
-.notice.ca-notice.notice-offer[data-notice_id="wpt_20DAYSDEAL_offer"] .ca-msg-text h1 {
+.notice.ca-notice.notice-offer[data-notice_id="wpt_BLACKFRIDAY2024_offer"] .ca-msg-text h1 {
     color: #ff0000;
     font-size: 19px;
 }
-.notice.ca-notice.notice-offer[data-notice_id="wpt_20DAYSDEAL_offer"] .ca-msg-text p>b:last-child {
+.notice.ca-notice.notice-offer[data-notice_id="wpt_BLACKFRIDAY2024_offer"] .ca-msg-text p>b:last-child {
     color: red;
 }
-.notice.ca-notice.notice-offer[data-notice_id="wpt_20DAYSDEAL_offer"] .ca-msg-text p>b>i {
+.notice.ca-notice.notice-offer[data-notice_id="wpt_BLACKFRIDAY2024_offer"] .ca-msg-text p>b>i {
     color: #4CAF50;
 }
-.notice.ca-notice.notice-offer[data-notice_id="wpt_20DAYSDEAL_offer"] .ca-msg-text p {
+.notice.ca-notice.notice-offer[data-notice_id="wpt_BLACKFRIDAY2024_offer"] .ca-msg-text p {
     padding-bottom: 5px;
 }
 
