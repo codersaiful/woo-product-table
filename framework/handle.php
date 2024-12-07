@@ -84,7 +84,8 @@ if( ! class_exists( 'WPT_Required' ) ){
              * add_filter('wpt_offer_show', '__return_false'); 
              * taholei offer showing off hoye jabe.
              */
-            $temp_numb = rand(1,9);
+            $rans_last_limt = defined('WC_MMQ_VERSION') ? 19 : 9;
+            $temp_numb = rand(1,$rans_last_limt);
             if( self::$PRO_DEV_VERSION ){
                 self::OtherOffer( $temp_numb);
                 return;
