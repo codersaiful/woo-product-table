@@ -2267,7 +2267,6 @@ jQuery(function($) {
             text = text * 100000;
 
             text = parseInt(text);
-            // console.log(text);
             return text;
         }
 
