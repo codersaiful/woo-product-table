@@ -333,6 +333,11 @@ You can easily show specific category products. While creating new table click o
 
 == Changelog ==
 
+= 3.5.7 =
+* Fixed: Table column's number sorting issue for floating number has been fixed.
+* Code Optimized
+* Bug fixed 
+
 = 3.5.6 =
 * Code Optimized
 * Bug fixed 

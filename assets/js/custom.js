@@ -2259,9 +2259,13 @@ jQuery(function($) {
          */
         function textToIntForSorting(text){
             text = text.replace(/[^0-9.]/g,'');
+            text = parseFloat(text);
             if(text == ''){
                 text = 0;
             }
+
+            text = text * 10000000;
+
             text = parseInt(text);
             return text;
         }
@@ -2339,7 +2343,9 @@ jQuery(function($) {
                     text = $.trim(text);
                     if(content_type == 'price'){
                         text = $(this).find('span.woocommerce-Price-amount.amount').last().text();
+                        // console.log(text);
                         text = textToIntForSorting(text);
+                        // console.log(text);
 
                     }else if(content_type == 'number'){
                         
@@ -2350,6 +2356,7 @@ jQuery(function($) {
                         
                         text = text + "_" + product_id;
                     }
+                    // console.log(text);
                     var thisRowObject = $('#table_id_'+ temp_number +' #product_id_' + product_id);
                     html = thisRowObject.prop('outerHTML');
                     //get_val is actually generated value
