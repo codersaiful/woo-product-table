@@ -418,6 +418,7 @@ class Shortcode extends Shortcode_Base{
             'add_to_cart'   => $this->add_to_cart_text,
             'site_url'      => site_url(),
             'ajax_action'   => $this->basics['ajax_action'] ?? '',
+            'atts'          => $this->atts
 
         ];
 

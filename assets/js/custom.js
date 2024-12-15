@@ -992,7 +992,7 @@ jQuery(function($) {
                 targetAttributeObject['temp_number'] = temp_number;
                 targetAttributeObject['table_id'] = temp_number;
                 try{
-                    console.log(targetAttributeObject);
+                    // console.log(targetAttributeObject);
                     $(document.body).trigger('wpt_changed_variations',targetAttributeObject);
                 }catch(error){
                     console.log("Variation ID not founded. To see error, Please console.log(error) here.");
@@ -2259,9 +2259,13 @@ jQuery(function($) {
          */
         function textToIntForSorting(text){
             text = text.replace(/[^0-9.]/g,'');
+            text = parseFloat(text);
             if(text == ''){
                 text = 0;
             }
+
+            text = text * 100000;
+
             text = parseInt(text);
             return text;
         }
@@ -2339,7 +2343,9 @@ jQuery(function($) {
                     text = $.trim(text);
                     if(content_type == 'price'){
                         text = $(this).find('span.woocommerce-Price-amount.amount').last().text();
+                        // console.log(text);
                         text = textToIntForSorting(text);
+                        // console.log(text);
 
                     }else if(content_type == 'number'){
                         
@@ -2350,6 +2356,7 @@ jQuery(function($) {
                         
                         text = text + "_" + product_id;
                     }
+                    // console.log(text);
                     var thisRowObject = $('#table_id_'+ temp_number +' #product_id_' + product_id);
                     html = thisRowObject.prop('outerHTML');
                     //get_val is actually generated value

@@ -1,0 +1,219 @@
+
+li#menu-posts-wpt_product_table ul.wp-submenu.wp-submenu-wrap li>a>i {
+    color: white;
+    display: block;
+    background: #4caf50;
+    padding: 7px;
+    font-size: 120%;
+    transition: all .3s;
+}
+li#menu-posts-wpt_product_table ul.wp-submenu.wp-submenu-wrap:hover li>a>i {
+    color: #ff2626;
+    background: #000000;
+    padding-left: 18px;
+}
+
+@keyframes wpt-gradient-animation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+li#menu-posts-wpt_product_table .wp-menu-name {
+    font-size: 97%;
+    background: linear-gradient(90deg, #515c4a4d, #2271b133, #4caf5033);
+    
+    /* background: linear-gradient(90deg, #b2ff7e4d, #ff758c0f, #e208ff99); */
+    /* background: linear-gradient(90deg, #b2ff7e4d, #ff758c0f, #e208ff99); */
+    background-size: 200% 200%; /* Ensure the gradient can animate smoothly */
+    /* -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; */
+     /* -webkit-background-clip: text; Clips the background to the text */
+     /* -webkit-text-fill-color: transparent; Makes the text itself transparent */
+    animation: wpt-gradient-animation 10s ease infinite; /* Applies the animation */
+}
+
+li#menu-posts-wpt_product_table.wp-has-current-submenu .wp-menu-name {
+    background: linear-gradient(90deg, #b2ff7e4d, #ff758c0f, #ffffff5c);
+    background-size: 200% 200%; /* Ensure the gradient can animate smoothly */
+    animation: wpt-gradient-animation 10s ease infinite; /* Applies the animation */
+}
+
+
+.notice.ca-notice.notice-offer {
+    background: #ffffff;
+    border: 0 none;
+    padding: 10px 25px  !important;
+    border-radius: 9px;
+    box-shadow: 0 2px 10px #64646424;
+}
+.anywhere-notice.ca-notice.notice-offer {
+    padding: 3px 10px;
+    border: 0 none;
+}
+
+.notice.ca-notice.notice-offer .ca-msg-text p {
+    font-size: 16px;
+    padding: 0;
+    color: #607D8B;
+    margin: 0;
+    display: flex;
+    gap: 12px;
+    flex-flow: row wrap;
+}
+.anywhere-notice.ca-notice.notice-offer .ca-msg-text p{font-size: 20px;}
+.notice.ca-notice.notice-offer .ca-msg-text h1 {
+    color: red;
+    padding: 0;
+    margin: 0;
+    font-size: 22px;
+    text-transform: inherit;
+}
+.notice.ca-notice.notice-offer .ca-msg-text p.ca-links-collection {
+    clear: both;
+    margin: 5px 0 10px 0;
+}
+.notice.ca-notice.notice-offer a.ca-logo-link img,
+.notice.ca-notice.notice-offer a.ca-logo-link img, .anywhere-notice.ca-notice.notice-offer .ca-logo img {
+    height: 75px;
+    border: none 0;
+}
+.notice.ca-notice.notice-offer a.ca-logo-link img, .notice.ca-notice.notice-offer a.ca-logo-link img {
+    width: auto !important;
+    border-radius: 0 !important;
+}
+.notice.ca-notice.notice-offer .ca-msg-text .notice-coupon-code {
+    color: #673AB7;
+    display: inline-block;
+    font-weight: bold;
+    font-family: monospace;
+    width: fit-content;
+    margin: 0;
+}
+.anywhere-notice.ca-notice .ca-notice-dismiss{display: none !important;}
+.notice.ca-notice.notice-offer .ca-msg-text p.ca-links-collection a.ca-button-type-offer {background-color: #4CAF50;}
+.notice.ca-notice.notice-offer .ca-msg-text p.ca-links-collection a {
+    padding: 5px 15px;
+    margin: 0;
+    clear: both;
+    border: 0 none;
+    color: #f5fff6;
+    white-space: nowrap;
+    display: inline-block;
+}
+.ca-msg-text {
+    width: 70%;
+}
+.ca-notice-content {
+    gap: 25px;
+    flex-flow: row wrap-reverse;
+    align-items: center;
+}
+.anywhere-notice {}
+
+.anywhere-notice h1 {
+    font-size: 16px;
+    padding: 0;
+    margin: 0;
+}
+
+.anywhere-notice .ca-msg-text {
+    padding: 0;
+    margin: 0;
+}
+
+.anywhere-notice .ca-msg-text p {
+    padding: 0;
+    margin: 0;
+    font-size: 14px !important;
+    color: #007694;
+    float: left;
+    display: inherit;
+    width: fit-content;
+    /* background: gainsboro; */
+}
+
+.anywhere-notice p.ca-links-collection {
+    /* background: red; */
+    width: fit-content;
+    float: right;
+    position: absolute;
+    right: 15px;
+    top: 40%;
+}
+
+.anywhere-notice p.ca-links-collection a.ca-button {
+    padding: 5px 12px;
+    background: #ff9800;
+}
+
+
+
+
+
+.wpt-plugin-recommend-area .anywhere-notice.ca-notice.notice-success[data-notice_id="black-friday-22"] {
+    background: black;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1 100%;
+}
+
+
+
+.fieldwrap .anywhere-notice .ca-msg-text p {
+    display: none;
+}
+
+.fieldwrap .anywhere-notice.ca-notice.notice-offer .ca-msg-text p.ca-links-collection {
+    display: block;
+}
+
+.fieldwrap .anywhere-notice.ca-notice.notice-offer .ca-msg-text h1 {
+    color: red;
+}
+
+.fieldwrap .anywhere-notice.ca-notice.notice-offer .ca-msg-text p.ca-links-collection a {
+    background: #4CAF50;
+}
+
+
+
+
+
+/* black Friday offer  */
+.notice.ca-notice.notice-offer[data-notice_id="wpt_BLACKFRIDAY2024_offer"] {
+    /* background: #ffffff8f; */
+    color: #6e6e6e;
+    box-shadow: 1px -1px 30px #0000000a;
+}
+.notice.ca-notice.notice-offer[data-notice_id="wpt_BLACKFRIDAY2024_offer"] a.ca-logo-link img, 
+.notice.ca-notice.notice-offer[data-notice_id="wpt_BLACKFRIDAY2024_offer"] a.ca-logo-link img,
+.notice.ca-notice.notice-offer[data-notice_id="wpt_BLACKFRIDAY2024_offer"] img, 
+.notice.ca-notice.notice-offer[data-notice_id="wpt_BLACKFRIDAY2024_offer"] a {
+    border: 0 none !important;
+}
+.notice.ca-notice.notice-offer[data-notice_id="wpt_BLACKFRIDAY2024_offer"] .ca-msg-text h1 {
+    color: #ff0000;
+    font-size: 19px;
+}
+.notice.ca-notice.notice-offer[data-notice_id="wpt_BLACKFRIDAY2024_offer"] .ca-msg-text p>b:last-child {
+    color: red;
+}
+.notice.ca-notice.notice-offer[data-notice_id="wpt_BLACKFRIDAY2024_offer"] .ca-msg-text p>b>i {
+    color: #4CAF50;
+}
+.notice.ca-notice.notice-offer[data-notice_id="wpt_BLACKFRIDAY2024_offer"] .ca-msg-text p {
+    padding-bottom: 5px;
+}
+
+.fieldwrap .anywhere-notice.ca-notice.notice-offer .ca-msg-text p.ca-links-collection {
+    display: none;
+}

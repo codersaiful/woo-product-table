@@ -3,8 +3,8 @@ Contributors: codersaiful,mdibrahimk48,ultraaddons,unikforce,rafiul17,fazlebari
 Donate link: https://donate.stripe.com/4gw2bB2Pzdjd8mYfYZ
 Tags: wc product table, woo table, woo product table,woocommerce product table, product table
 Requires at least: 4.0.0
-Tested up to: 6.5.5
-Stable tag: 3.5.0
+Tested up to: 6.7.1
+Stable tag: 3.5.7
 Requires PHP: 5.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -332,6 +332,30 @@ You can easily show specific category products. While creating new table click o
 25. Manually responsive for mobile devices
 
 == Changelog ==
+
+= 3.5.7 =
+* Fixed: Table column's number sorting issue for floating number has been fixed.
+* Code Optimized
+* Bug fixed 
+
+= 3.5.6 =
+* Code Optimized
+* Bug fixed 
+
+= 3.5.4 & 3.5.3 =
+* Added: two new action hook added 'wpt_load', 'wpt_loaded'.
+* Compatibility check with latest WooCommerce version.
+* Compatibility check with latest WordPress version.
+* Fixed: textdomain issue fixed on latest WordPress.
+* Bug fixed 
+
+= 3.5.2 =
+* Fixed: fixed 'var_dump_table' security issue.
+* Bug fixed 
+
+= 3.5.1 =
+* Fixed: Avada Form Entries table issue fixed.
+* Fixed: behaviour normal issue has been fixed.
 
 = 3.5.0 =
 * Fixed: Quote Request premium version issue fixed.

@@ -7,7 +7,14 @@ if( !function_exists( 'wpt_admin_enqueue' ) ){
      * @update 1.0.3
      */
     function wpt_admin_enqueue(){
+        global $current_screen;
+        $s_id = isset( $current_screen->id ) ? $current_screen->id : '';
         
+        if( strpos( $s_id, 'wpt') === false ){
+            wpt_admin_notice_css_file_load();
+            return;
+        }
+
         /**
         * Customized fontello file
         * @since 3.1.8.2
@@ -31,7 +38,7 @@ if( !function_exists( 'wpt_admin_enqueue' ) ){
         
         wp_enqueue_style( 'wpt-admin', WPT_Product_Table::getPath( 'BASE_URL' ) . 'assets/css/admin.css', array('select2'), WPT_DEV_VERSION, 'all' );
 
-
+        wpt_admin_notice_css_file_load();
 
         //jQuery file including. jQuery is a already registerd to WordPress
         wp_enqueue_script( 'jquery' );
@@ -61,6 +68,12 @@ if( !function_exists( 'wpt_admin_enqueue' ) ){
 }
 add_action( 'admin_enqueue_scripts', 'wpt_admin_enqueue', 99 );
 
+
+function wpt_admin_notice_css_file_load(){
+    //Actually Admin css file need, when there is no wpt on screen
+    wp_enqueue_style( 'wpt-admin-notice', WPT_Product_Table::getPath( 'BASE_URL' ) . 'assets/css/notice.css', array(), WPT_DEV_VERSION, 'all' );
+            
+}
 
 if( !function_exists( 'wpt_admin_js_fast_load' ) ){
     /**

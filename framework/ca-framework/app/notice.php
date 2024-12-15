@@ -199,6 +199,11 @@ if( ! class_exists( 'CA_Framework\Notice' ) ){
 
             if( ! is_admin() ) return;
 
+            //Same ID notice will not regen again within 30 seconds
+            $notice_right_now = get_transient( $this->notice_id . "_right_now" );
+            if( $notice_right_now ) return;
+            set_transient( $this->notice_id . "_right_now", true, 10 );
+
             //Control End Date
             if( ! empty( $this->end_date ) && strtotime($this->end_date) < current_time( 'timestamp' ) ) return;
 

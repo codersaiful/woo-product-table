@@ -111,6 +111,7 @@ foreach($terms as $term){
                     $newArrs = [];
                     if( is_array( $taxonomy_keywords ) && is_array( $allTerms ) ){
                         foreach( $taxonomy_keywords as $ky ){
+                            if( ! isset( $allTerms[$ky] ) ) continue;
                             $newArrs[$ky] = $allTerms[$ky];
                         }
                         $newArrs = array_merge($newArrs, $allTerms);
@@ -169,6 +170,7 @@ foreach($terms as $term){
                     $newArrs = [];
                     if( is_array( $selected ) && is_array( $tax_object ) ){
                         foreach( $selected as $ky ){
+                            if( ! isset( $tax_object[$ky] ) ) continue;
                             $newArrs[$ky] = $tax_object[$ky];
                         }
                         
@@ -248,6 +250,7 @@ foreach($terms as $term){
                     $newArrs = [];
                     if( is_array( $mini_filter_keywords ) && is_array( $allTerms ) ){
                         foreach( $mini_filter_keywords as $ky ){
+                            if( ! isset( $allTerms[$ky] ) ) continue;
                             $newArrs[$ky] = $allTerms[$ky];
                         }
                         $newArrs = array_merge($newArrs, $allTerms);

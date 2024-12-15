@@ -1127,8 +1127,8 @@ if( ! function_exists( 'wpt_args_manipulation_frontend' ) ){
      * @param type $column_array
      * @return type
      */
-    function wpt_args_manipulation_frontend( $args ){
-
+    function wpt_args_manipulation_frontend( $args, $table_ID, $atts ){
+        
         /**
          * This is an extra and hidden feature
          * which has no any option,
@@ -1138,7 +1138,9 @@ if( ! function_exists( 'wpt_args_manipulation_frontend' ) ){
          * 
          * @since 3.1.8.4
          */
-        $behavior = $args['behavior'] ?? '';
+        $behavior = $atts['behavior'] ?? '';
+        $args['behavior'] = $behavior;
+
         if( is_page() || is_single() || $behavior == 'normal' ){
             return $args;
         }
@@ -1178,7 +1180,7 @@ if( ! function_exists( 'wpt_args_manipulation_frontend' ) ){
         return $args;
     }
 }
-add_filter( 'wpto_table_query_args', 'wpt_args_manipulation_frontend' );
+add_filter( 'wpto_table_query_args', 'wpt_args_manipulation_frontend', 10, 3 );
 
 
 if( ! function_exists( 'wpt_args_manage_by_get_args' ) ){
