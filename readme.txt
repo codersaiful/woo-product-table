@@ -4,7 +4,7 @@ Donate link: https://donate.stripe.com/4gw2bB2Pzdjd8mYfYZ
 Tags: wc product table, woo table, woo product table,woocommerce product table, product table
 Requires at least: 4.0.0
 Tested up to: 6.7.1
-Stable tag: 3.5.6
+Stable tag: 3.5.7
 Requires PHP: 5.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
