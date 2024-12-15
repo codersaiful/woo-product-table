@@ -51,12 +51,14 @@ if( ! class_exists( 'WPT_Required' ) ){
          */
         public static function display_notice()
         {
+
             if( ! is_admin() ) return;
 
             $return_true = apply_filters( 'wpt_offer_show_all', true );
             if( !$return_true ) return;
 
             self::initialize();
+
 
 
             $last_date = self::$last_date; //Last date string to show offer
