@@ -992,7 +992,7 @@ jQuery(function($) {
                 targetAttributeObject['temp_number'] = temp_number;
                 targetAttributeObject['table_id'] = temp_number;
                 try{
-                    console.log(targetAttributeObject);
+                    // console.log(targetAttributeObject);
                     $(document.body).trigger('wpt_changed_variations',targetAttributeObject);
                 }catch(error){
                     console.log("Variation ID not founded. To see error, Please console.log(error) here.");
@@ -2264,9 +2264,10 @@ jQuery(function($) {
                 text = 0;
             }
 
-            text = text * 10000000;
+            text = text * 100000;
 
             text = parseInt(text);
+            // console.log(text);
             return text;
         }
 
