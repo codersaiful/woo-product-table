@@ -14,6 +14,9 @@
  * WC requires at least: 5.0.0
  * WC tested up to: 	 9.4.3
  * 
+ * GitHub Plugin URI: codersaiful/woo-product-table
+ * Primary Branch: master
+ * 
  * 
  * Text Domain: woo-product-table
  * Domain Path: /languages/
