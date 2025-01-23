@@ -16,9 +16,9 @@ Helps you to display your products in a searchable table layout with filters.
 [Doc](https://wooproducttable.com/documentation/) | [Demo Tables](https://demo.wooproducttable.com/) | [Get Premium](https://wooproducttable.com/pricing/) | [Try Live](https://wpprincipal.xyz/?site=wpt)
 
 (**Woo Product Table**) Product Table plugin helps you to display your WooCommerce products in a searchable table layout with filters.  Add a table on any page or post via a shortcode. You can create tables as many as you want.
-Create a table for restaurant order systems, Online music sell, product Wholesale, Course Booking, or Selling books any many more.
+Create a table for restaurant order systems, Online music sell, product Wholesale, Course Booking, or Selling books any many more. [Read more](https://wooproducttable.com)
 
-**Have a looks in short for WooCommerce Product Table**
+**Have a looks in short for Woo Product Table**
 
 https://www.youtube.com/watch?v=jZ9bx4VqB08
 
