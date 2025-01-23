@@ -49,7 +49,7 @@ class Page_Loader extends Base
     {
         $proString = $this->is_pro ? esc_html__( ' Pro', 'woo-product-table' ) : '';
         add_submenu_page( $this->main_slug, esc_html__( 'Configuration ', 'woo-product-table' ) . $proString,  esc_html__( 'Configure', 'woo-product-table' ), WPT_CAPABILITY, 'woo-product-table-config', [$this, 'configure_page_render'] );
-        add_submenu_page( $this->main_slug, esc_html__( 'Temp Pro Demo', 'woo-product-table' ),  esc_html__( 'Demo', 'woo-product-table' ), 'read', 'https://https://wpprincipal.xyz/?site=wpt&utm=PluginDashboard' );
+        add_submenu_page( $this->main_slug, esc_html__( 'Pro Demo', 'woo-product-table' ),  esc_html__( 'Pro Demo', 'woo-product-table' ), 'read', 'https://https://wpprincipal.xyz/?site=wpt&utm=PluginDashboard' );
         add_submenu_page( $this->main_slug, esc_html__( 'Tutorials', 'woo-product-table' ). $proString,  __( 'Tutorial', 'woo-product-table' ), 'read', 'wpt-live-support', [$this, 'html_tutorial_page'] );
 
         
