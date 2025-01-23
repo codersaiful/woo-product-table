@@ -12,7 +12,7 @@
  * Requires at least:    4.0.0
  * Tested up to:         6.7.1
  * WC requires at least: 5.0.0
- * WC tested up to: 	 9.4.3
+ * WC tested up to: 	 9.6.0
  * 
  * GitHub Plugin URI: codersaiful/woo-product-table
  * Primary Branch: master
