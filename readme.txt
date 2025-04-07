@@ -2,10 +2,10 @@
 Contributors: codersaiful,mdibrahimk48,ultraaddons,unikforce,rafiul17,fazlebari
 Donate link: https://donate.stripe.com/4gw2bB2Pzdjd8mYfYZ
 Tags: woo product table, wc product table, woo table, woocommerce product table, product table
-Requires at least: 4.0.0
-Tested up to: 6.7.1
-Stable tag: 3.5.7
-Requires PHP: 5.4
+Requires at least: 6.2
+Tested up to: 6.7.2
+Stable tag: 4.0.1
+Requires PHP: 7.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -335,6 +335,11 @@ You can easily show specific category products. While creating new table click o
 25. Manually responsive for mobile devices
 
 == Changelog ==
+
+= 4.0.1 =
+* Vulnerability issue fixed.  
+* Code Optimized
+* Bug fixed 
 
 = 3.5.7 =
 * *Fixed: Live demo link fixed.
