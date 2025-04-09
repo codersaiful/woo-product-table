@@ -19,6 +19,7 @@ jQuery(function($) {
         include_url = WPT_DATA.include_url,
         content_url = WPT_DATA.content_url,
         ajax_url = WPT_DATA.ajax_url,
+        ajaxurl = WPT_DATA.ajax_url,
         site_url = WPT_DATA.site_url;
 
         var config_json = $('#wpt_table').data('config_json');
