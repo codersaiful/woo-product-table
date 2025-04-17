@@ -336,6 +336,9 @@ You can easily show specific category products. While creating new table click o
 
 == Changelog ==
 
+= 4.0.2 =
+* Tested with latest WordPress version 6.8
+
 = 4.0.1 =
 * Vulnerability issue fixed.  
 * Code Optimized
