@@ -2040,40 +2040,47 @@ jQuery(function($) {
          * For Instance Search
          * @since 2.5
          */
-        $('.instance_search_input').keyup(function(){
-            var text,value_size,serial;
+        $('.instance_search_input').keyup(function () {
+            var text, value_size, serial;
             var temp = $(this).data('temp_number');
             var value = $(this).val();
             value = value.trim();
-            
+        
             value = value.split(' ');
-            value = value.filter(function(eachItem){
+            value = value.filter(function (eachItem) {
                 return eachItem !== '';
             });
             value_size = value.length;
-
-            
+        
             var target_table = '#table_id_' + temp + ' #wpt_table';
-            $(target_table + ' tr.visible_row').each(function(){
-                text = $(this).html();
+            $(target_table + ' tr.visible_row').each(function () {
+                text = $(this).text();
+                text = text.replace(/[\u200B-\u200D\uFEFF]/g, ''); // Removing Zero Width Space
                 text = text.toLowerCase();
                 serial = 0;
-                value.forEach(function(eachItem){
-                    if(text.match(eachItem.toLowerCase(),'i')){
-                        serial++;
+        
+                value.forEach(function (eachItem) {
+                    if (eachItem.length === 1) {
+                        // Match only at the start of words for single-character input
+                        if (text.match(new RegExp('\\b' + eachItem, 'i'))) {
+                            serial++;
+                        }
+                    } else {
+                        // Match anywhere in the text for multi-character input
+                        if (text.match(new RegExp(eachItem, 'i'))) {
+                            serial++;
+                        }
                     }
                 });
-                
-                if(value_size === serial){ //serial > 0 ||
-                    $(this).fadeIn();
+        
+                if (serial === value_size) { // All words must match
+                    $(this).fadeIn(100);
                     $(this).addClass('instance_search_applied');
-                }else{
-                    $(this).fadeOut();
+                } else {
+                    $(this).fadeOut(100);
                     $(this).removeClass('instance_search_applied');
                 }
-                
             });
-            
         });
         
         function emptyInstanceSearchBox(temp_number){
