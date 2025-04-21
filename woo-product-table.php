@@ -41,7 +41,7 @@ if( ! defined( 'WPT_PLUGIN_BASE_FOLDER' ) ){
 }
 
 if( ! defined( 'WPT_DEV_VERSION' ) ){
-    define( 'WPT_DEV_VERSION', '4.0.2.1' );
+    define( 'WPT_DEV_VERSION', '4.0.2.0' );
 }
 
 if( ! defined( 'WPT_CAPABILITY' ) ){

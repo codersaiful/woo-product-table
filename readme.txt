@@ -3,8 +3,8 @@ Contributors: codersaiful,mdibrahimk48,ultraaddons,unikforce,rafiul17,fazlebari
 Donate link: https://donate.stripe.com/4gw2bB2Pzdjd8mYfYZ
 Tags: woo product table, wc product table, woo table, woocommerce product table, product table
 Requires at least: 6.2
-Tested up to: 6.7.2
-Stable tag: 4.0.1
+Tested up to: 6.8
+Stable tag: 4.0.2
 Requires PHP: 7.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -338,6 +338,9 @@ You can easily show specific category products. While creating new table click o
 
 = 4.0.2 =
 * Tested with latest WordPress version 6.8
+* Fixed: Instance search issue has been fixed.
+* Code Optimized
+* Bug fixed 
 
 = 4.0.1 =
 * Vulnerability issue fixed.  
