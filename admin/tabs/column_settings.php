@@ -105,77 +105,42 @@ $_device_name = '';
         <br>
         <br>
     </div>
-    <nav class="inside-nav-tab-wrapper">
-        <a data-target="inside-desktop" data-device="desktop" class="wpt_inside_nav_tab nav-tab nav-tab-active"><?php echo esc_html__( 'Desktop','woo-product-table' ); ?></a>
-        <a data-target="inside-tablet" data-device="tablet" class="wpt_inside_nav_tab nav-tab"><?php echo esc_html__( 'Tablet','woo-product-table' ); ?></a>
-        <a data-target="inside-mobile" data-device="mobile" class="wpt_inside_nav_tab nav-tab"><?php echo esc_html__( 'Mobile','woo-product-table' ); ?></a>
-    </nav>
-    
+
     
     <div id="inside-desktop" class="inside_tab_content tab-content tab-content-active">
-<?php 
-$enabled_column_array = $enabled_column_array_name;
-
-$availe_column_list_file = __DIR__ . '/inc-column/available-column-list.php';
-include $availe_column_list_file;
-
-
-$column_list_file = __DIR__ . '/inc-column/column-list.php';
-include $column_list_file;
-
-
-?>
+        <h4><?php echo esc_html__( 'Desktop', 'woo-product-table' ); ?> <span>(Default)</span></h4>
+        <div class="inside_tab_content_inner"> 
+            <?php 
+            $column_section_desktop = __DIR__ . '/section/column-section-desktop.php'; 
+            include $column_section_desktop;
+            ?> 
+        </div>
+    </div>
+    <div id="inside-tablet" class="inside_tab_content tab-content  tab-content-active">
+    
+        <h4><?php echo esc_html__( 'Tablet', 'woo-product-table' ); ?> <span>(Optional)</span></h4>
+        <div class="inside_tab_content_inner">
+            <?php 
+            $column_section_tablet = __DIR__ . '/section/column-section-tablet.php'; 
+            include $column_section_tablet;
+            ?>
+        </div>
     </div>
     
-    
-    
-    <div id="inside-tablet" class="inside_tab_content tab-content">
-    
-<?php 
-
-
-
-
-$_device_name = '_tablet';
-
-$tablet_header_file = __DIR__ . '/inc-column/tablet-header.php';
-include $tablet_header_file;
-?>
-<p class="device_wise_col_message"><?php echo esc_html__( 'Set columns for tablet, otherwise desktop columns will be shown on tablet.', 'woo-product-table' ); ?></p>
-<?php
-$availe_column_list_file = __DIR__ . '/inc-column/available-column-list.php';
-include $availe_column_list_file;
-
-$column_list_file = __DIR__ . '/inc-column/column-list.php';
-include $column_list_file;
-
-
-?>
+    <div id="inside-mobile" class="inside_tab_content tab-content  tab-content-active">
+        <h4><?php echo esc_html__( 'Mobile', 'woo-product-table' ); ?> <span>(Optional)</h4>
+        <div class="inside_tab_content_inner">
+            <?php 
+            $column_section_mobile = __DIR__ . '/section/column-section-mobile.php'; 
+            include $column_section_mobile;
+            ?>
+        </div>
     </div>
     
-    
-    
-    
-    
-    <div id="inside-mobile" class="inside_tab_content tab-content">
-<?php 
-$_device_name = '_mobile';
-
-$tablet_header_file = __DIR__ . '/inc-column/mobile-header.php';
-include $tablet_header_file;
-?>
-<p class="device_wise_col_message"><?php echo esc_html__( 'Set columns for mobile, otherwise tablet columns will be shown on mobile.', 'woo-product-table' ); ?></p>
-<?php
-$availe_column_list_file = __DIR__ . '/inc-column/available-column-list.php';
-include $availe_column_list_file;
-
-$column_list_file = __DIR__ . '/inc-column/column-list.php';
-include $column_list_file;
 
 
-?>
-    </div>
-    
+
+
 </div>
 
 

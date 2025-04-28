@@ -1,5 +1,6 @@
 <?php 
 $columns_array = apply_filters( 'wpto_final_column_arr', $columns_array );
+// dd($columns_array);
 ?>
 <!-- Enable Active Collumn -->
 <div class="add_switch_col_wrapper">

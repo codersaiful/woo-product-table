@@ -376,13 +376,13 @@ jQuery.fn.extend({
          * 
          * @type String
          */
-        $('body').on('click','#wpt_configuration_form .inside-column-settings-wrapper .inside-nav-tab-wrapper a', function(){
-            $('.inside-nav-tab-wrapper a.nav-tab-active').removeClass('nav-tab-active');
-            $(this).addClass('nav-tab-active');
-            var target_tab = $(this).data('target');
-            $('.inside-column-settings-wrapper .inside_tab_content.tab-content-active').removeClass('tab-content-active');
-            $('.inside-column-settings-wrapper .inside_tab_content#'+target_tab).addClass('tab-content-active');
-        });
+        // $('body').on('click','#wpt_configuration_form .inside-column-settings-wrapper .inside-nav-tab-wrapper a', function(){
+        //     $('.inside-nav-tab-wrapper a.nav-tab-active').removeClass('nav-tab-active');
+        //     $(this).addClass('nav-tab-active');
+        //     var target_tab = $(this).data('target');
+        //     $('.inside-column-settings-wrapper .inside_tab_content.tab-content-active').removeClass('tab-content-active');
+        //     $('.inside-column-settings-wrapper .inside_tab_content#'+target_tab).addClass('tab-content-active');
+        // });
         /**************Admin Panel's Setting Tab Start Here For Tab****************/
         var selectLinkTabSelector = "body.wpt_admin_body #wpt_configuration_form a.wpt_nav_tab";
         var selectTabContentSelector = "body.wpt_admin_body #wpt_configuration_form .wpt_tab_content";
@@ -1174,6 +1174,15 @@ jQuery.fn.extend({
     $('.wpt_query_terms_each_tr.product_cat').addClass('active').removeClass('hide');
     $('span.wpt-query-selection-handle.wpt-qs-handle-product_cat').addClass('active'); 
     $('span.wpt-query-selection-handle.wpt-qs-handle-product_cat').attr('data-status', 'active');
+
+
+    $(document.body).on('click', '.inside_tab_content.tab-content>h4', function(e){
+
+        e.preventDefault();
+        var $this = $(this); 
+        $this.closest('.inside_tab_content').toggleClass('expanded');
+        $this.closest('.inside_tab_content').find('.inside_tab_content_inner').toggle(); // Changed from toggleFade() to toggle()
+    });
 
 
 })(jQuery);
