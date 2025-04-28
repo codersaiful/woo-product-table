@@ -2384,3 +2384,32 @@ div.wpt_tab_content table th {
 .wpt_column_setting_extra>div>label {
     display: inline !important;
 }
+
+
+/** Query Tab **/
+.wpt-query-terms-selection {
+    display: flex;
+    gap: 10px;
+}
+
+.wpt-query-terms-selection span.wpt-query-selection-handle {
+    background: #e5e5e557;
+    padding: 10px;
+    color: #0000004f;
+    cursor: pointer;
+}
+.wpt-query-terms-selection span.wpt-query-selection-handle[data-status="active"] {
+    background: #e5e5e5;
+    color: #000000;
+}
+.wpt-query-terms-selection span.wpt-query-selection-handle:hover {
+    background: #607D8B;
+    color: white;
+}
+tr.wpt_query_terms_each_tr.hide {
+    display: none;
+}
+span.wpt-query-selection-handle.type-pf-premium {
+    background: #ffe2e2;
+    color: #ff9c9c;
+}

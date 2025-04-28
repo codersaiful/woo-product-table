@@ -27,12 +27,14 @@
     );
     $supported_css_property = apply_filters( 'wpto_supported_css_property', $supported_css_property, $tab_array, $post );
 
-    $supported_terms    = array(
+    $supported_terms = $temp_basics_terms    = array(
         'product_cat'       =>  __( 'Product Categories', 'woo-product-table' ),
         'product_tag'       =>  __( 'Product Tags', 'woo-product-table' ),
     );
     $supported_terms    = apply_filters( 'wpt_supported_terms', $supported_terms, $tab_array, $post  );
 
+    $supported_terms    = array_merge( $temp_basics_terms, $supported_terms );
+    
     $additional_variable = array(
         'tab_array' => $tab_array,
         'css_property' => $supported_css_property,

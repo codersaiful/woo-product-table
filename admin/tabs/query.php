@@ -27,22 +27,89 @@ $data = isset( $meta_basics['data'] ) ? $meta_basics['data'] : false;
 
 <div class="section ultraaddons-panel">
     <div class="wpt_column">
-        <table class="ultraaddons-table">
+        <table class="ultraaddons-table wpt_query_terms_table">
+
+        <tr class="wpt_query_terms_selection">
+            <th colspan="2">
+                <label class="wpt_label" for="wpt_query_terms_selection"><?php esc_html_e( 'Terms', 'woo-product-table' ); ?></label>
+                <div class="wpt-query-terms-selection">
+                    <?php
+                    $supported_terms_labels = $supported_terms;
+                    $extra_class = '';
+            if(count($supported_terms) < 3 ){
+                $extra_class = 'premium';
+                $term_lists = get_object_taxonomies('product','objects');
+                $ourTermList = [];
+                foreach( $term_lists as $trm_key => $trm_object ){
+                    if( $trm_object->labels->singular_name == 'Tag' && $trm_key !== 'product_tag' ){
+                        $ourTermList[$trm_key] = $trm_key;
+                    }else{
+                        $ourTermList[$trm_key] = $trm_object->labels->singular_name;
+                    }
+                }
+                $supported_terms_labels = array_merge( $supported_terms_labels, $ourTermList );
+            }
+            
+
+                    $my_srl = 1;
+                    foreach( $supported_terms_labels as $key => $each ){
+
+                        $args = array(
+                            'hide_empty'    => false, 
+                            'orderby'       => 'count',
+                            'order'         => 'DESC',
+                        );
+                        
+                        $term_obj = get_terms( $key, $args );
+                        if( ! is_array( $term_obj ) || ( is_array($term_obj) && count($term_obj) < 1 ) ){
+                            continue;
+                        }
+
+                        
+
+                        $title = $each;
+                        $my_extr_class = 'ok';
+                        if($extra_class == 'premium' && $my_srl > 2 ){
+                            $my_extr_class = 'premium';
+                            $title = __( 'Premium Feature', 'woo-product-table' );
+                            $status = 'hide';
+                        }
+
+                        
+                    ?>
+                    <span title="<?php echo esc_attr( $title ); ?>" data-status='hide' class="wpt-query-selection-handle type-pf-<?php echo esc_attr( $my_extr_class ); ?> wpt-qs-handle-<?php echo esc_attr( $key ); ?>" data-key="<?php echo esc_attr( $key ); ?>"><?php echo esc_html( $each ); ?></span>
+                    
+                    <?php
+                        $my_srl++;
+                    }
+                    ?>
+                </div>
+            </th>
+        </tr>
+
             <?php
+        
+
         $args = array(
             'hide_empty'    => false, 
             'orderby'       => 'count',
             'order'         => 'DESC',
         );
+        // dd($supported_terms);
         foreach( $supported_terms as $key => $each ){
+            // dd($key, $each);
             $term_key = $key;
             $term_name = $each;
             $term_obj = get_terms( $term_key, $args );
+            if( ! is_array( $term_obj ) || ( is_array($term_obj) && count($term_obj) < 1 ) ){
+                continue;
+            }
             
             $selected_term_ids = isset( $data['terms'][$term_key] ) && !empty( $data['terms'][$term_key] ) ? $data['terms'][$term_key] : false;
             ?>
-            <tr>
-                <th><label for="wpt_term_<?php echo esc_attr( $term_key ); ?>"><?php echo esc_html( $term_name ); ?> Include</label></th>
+            <tr class="wpt_query_terms_each_tr <?php echo esc_attr( $term_key ); ?>" data-key="<?php echo esc_attr( $term_key ); ?>">
+                
+                <th><label for="wpt_term_<?php echo esc_attr( $term_key ); ?>"><?php echo esc_html( $term_name ); ?></label></th>
                 <td class="">
 
                     <?php
@@ -170,7 +237,7 @@ $data = isset( $meta_basics['data'] ) ? $meta_basics['data'] : false;
     </div>
 
 <?php 
-do_action( 'wpo_pro_feature_message', 'under_taxonomy_includes' );
+// do_action( 'wpo_pro_feature_message', 'under_taxonomy_includes' );
 /**
  * To add something 
  */
@@ -407,6 +474,6 @@ unset($catalog_orderby_options['menu_order']);
         </table>
     </div>
 
-    <?php do_action( 'wpo_pro_feature_message', 'pf_authorid_username_type' ); ?>
+    
     <?php do_action( 'wpto_admin_basic_tab_bottom', $meta_basics, $tab, $post, $tab_array ); ?>
 </div>
