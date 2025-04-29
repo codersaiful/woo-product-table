@@ -115,15 +115,19 @@ ul#wpt_keyword_hide_mobile li>span.handle.checkbox_handle
     width: 52px !important;
     background: #ffffff none !important;
 }
-ul#wpt_column_sortable li>span.handle.checkbox_handle>input.enabled,
-ul#wpt_keyword_hide_mobile li>span.handle.checkbox_handle>input.enabled
-{
+ul#wpt_column_sortable li>span.handle.checkbox_handle>input, 
+ul#wpt_column_sortable li>span.handle.checkbox_handle>input:focus, 
+ul#wpt_column_sortable li>span.handle.checkbox_handle>input.enabled, 
+ul#wpt_keyword_hide_mobile li>span.handle.checkbox_handle>input.enabled {
     margin-top: 0;
     padding: 0;
-    background: #26d4ff;
+    background: #ffffff00;
     position: absolute;
     top: 24px;
     left: 32%;
+    border: 0 none;
+    outline: 0 none;
+    box-shadow: 0 0 0 0px #f6fbff00;
 }
 ul#wpt_column_sortable li>span.handle.checkbox_handle>input,
 ul#wpt_keyword_hide_mobile li>span.handle.checkbox_handle>input
@@ -2055,6 +2059,7 @@ span.wpt-expand {
     padding: 5px 10px 5px 10px;
     cursor: pointer;
     font-size: 15px;
+    display: none;
 }
 
 label.switch.switch-big {
@@ -2600,6 +2605,15 @@ button#wpt-add-preset-column strong {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+.inside_tab_content_inner label {
+    color: #525c5e !important;
+    font-weight: 300;
+}
+ul#wpt_column_sortable li>span.handle.checkbox_handle>input.enabled:before, 
+ul#wpt_column_sortable li>span.handle.checkbox_handle>input.enabled:before, ul#wpt_keyword_hide_mobile li>span.handle.checkbox_handle>input.enabled:before {
+    content: '\e821';
+    font-family: 'wptfontelo';
 }
 .add-new-custom-column-wrapper.wpt-default-hide {display: none;}
 #wpt-switch-wrapper {
