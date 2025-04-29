@@ -1213,10 +1213,23 @@ jQuery.fn.extend({
     // When an item is selected
     $(document).on('click', '#wpt-dropdown-list li', function() {
         var selectedKeyword = $(this).data('column_keyword');
-        console.log('Selected:', selectedKeyword);
+
+        if ($(this).hasClass('item-enabled')) {
+            console.log('Already enabled. Deselect:', selectedKeyword);
+            // Your custom de-select logic here
+            // e.g., remove from active list, update UI, etc.
+            $(this).removeClass('item-enabled');
+        } else {
+            $(this).addClass('item-enabled');
+            console.log('New selection:', selectedKeyword);
+            // Your custom select logic here
+            // e.g., add to active list, mark as enabled, etc.
+        }
+
+        // console.log('Selected:', selectedKeyword);
         
         // Hide dropdown after selection
-        $dropdownContainer.hide();
+        // $dropdownContainer.hide();
         
         // You can call your custom function here if needed
         // yourCustomFunction(selectedKeyword);
@@ -1224,7 +1237,7 @@ jQuery.fn.extend({
 
     // Click outside to close dropdown
     $(document).on('click', function(e) {
-        if (!$(e.target).closest('#wpt-dropdown-container, #wpt-add-preset-column').length) {
+        if (!$(e.target).closest('.wpt-dropdown-container-insider, #wpt-add-preset-column').length) {
             $dropdownContainer.hide();
         }
     });
