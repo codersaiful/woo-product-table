@@ -22,7 +22,6 @@ $columns_array = apply_filters( 'wpto_final_column_arr', $columns_array );
 
         ?>
         <div class="section enable-available-cols switch-enable-available">
-            <h2><?php echo esc_html__( 'Click from Following list to add as Column.', 'woo-product-table' ); ?></h2>
             <ul id="wpt-switch-list">
                 <?php 
                 $available_column_array = $columns_array;

@@ -60,51 +60,7 @@ $_device_name = '';
 ?>
 
 <div class="inside-column-settings-wrapper">
-    <div class="inside-column-setting-header">
-        <h2><?php echo esc_html__( 'Device Wise Column Setting', 'woo-product-table' ); ?></h2>
-        
-        <div class="auto-responsive-area-wrapper">
-            <b for="responsive_switch-switcher">Auto Responsive</b>
-            <label class="switch switch-reverse"><!-- switch-big #2ab934a6 #2ab934a6 -->
-                <?php
-
-                /**
-                 * ********************
-                 * Managed at inc/shortcode.php file
-                 * like:
-                 * $responsive_switch = $this->basics['responsive_switch'] ?? false;
-                 * 
-                 * *****************************
-                 * @author Saiful Islam <codersaiful@gmail.com>
-                 * 
-                 * Newly Added (V 3.2.5.6) in Column Setting tab at BackEnd/Admin Panel. 
-                 * Why added this?
-                 * Actually: some thime, User don't want Auto Responsive and dont' want to add column for Mobile or Table,
-                 * Then we can handle by this feature.
-                 * 
-                 * Option added at column_settings.php file.
-                 * 
-                 * It's actually Manual Swtich for Auto Responsive Detect. If handle by this, than auto responsive device detect option
-                 * will not work.
-                 */
-
-                $meta_basics = get_post_meta( $post->ID, 'basics', true );
-                $responsive_switch = isset( $meta_basics['responsive_switch'] ) ? 'checked="checked"' : '';
-                // var_dump($responsive_switch);
-                ?>
-                <input name="basics[responsive_switch]" type="checkbox" id="responsive_switch-switcher" <?php echo esc_attr( $responsive_switch ); ?>>
-                <div class="slider round"><!--ADDED HTML -->
-                    <span class="on">Off</span><span class="off">On</span><!--END-->
-                </div>
-            </label>
-            <p class="warning">
-                <b>Tips:</b>
-                <span>If not set any column for mobile and tablet, our Plugin will generate a mobile responsive Table automatically. Turn off 'Auto Responsive' If you don't want an auto-responsive table.</span>
-            </p>
-        </div>
-        <br>
-        <br>
-    </div>
+    
 
     
     <div id="inside-desktop" class="inside_tab_content tab-content tab-content-active expanded">
@@ -141,8 +97,50 @@ $_device_name = '';
 
 
 
-</div>
 
+</div>
+<div class="inside-column-settings-wrapper">
+    <div class="inside-column-setting-header">
+
+        <div class="auto-responsive-area-wrapper" title="Tips: If not set any column for mobile and tablet, our Plugin will generate a mobile responsive Table automatically. Turn off 'Auto Responsive' If you don't want an auto-responsive table.">
+            <b for="responsive_switch-switcher">Auto Responsive</b>
+            <label class="switch switch-reverse"><!-- switch-big #2ab934a6 #2ab934a6 -->
+                <?php
+
+                /**
+                 * ********************
+                 * Managed at inc/shortcode.php file
+                 * like:
+                 * $responsive_switch = $this->basics['responsive_switch'] ?? false;
+                 * 
+                 * *****************************
+                 * @author Saiful Islam <codersaiful@gmail.com>
+                 * 
+                 * Newly Added (V 3.2.5.6) in Column Setting tab at BackEnd/Admin Panel. 
+                 * Why added this?
+                 * Actually: some thime, User don't want Auto Responsive and dont' want to add column for Mobile or Table,
+                 * Then we can handle by this feature.
+                 * 
+                 * Option added at column_settings.php file.
+                 * 
+                 * It's actually Manual Swtich for Auto Responsive Detect. If handle by this, than auto responsive device detect option
+                 * will not work.
+                 */
+
+                $meta_basics = get_post_meta( $post->ID, 'basics', true );
+                $responsive_switch = isset( $meta_basics['responsive_switch'] ) ? 'checked="checked"' : '';
+                // var_dump($responsive_switch);
+                ?>
+                <input name="basics[responsive_switch]" type="checkbox" id="responsive_switch-switcher" <?php echo esc_attr( $responsive_switch ); ?>>
+                <div class="slider round"><!--ADDED HTML -->
+                    <span class="on">Off</span><span class="off">On</span><!--END-->
+                </div>
+            </label>
+        </div>
+        <br>
+        <br>
+    </div>
+</div>
 
 <?php 
 
