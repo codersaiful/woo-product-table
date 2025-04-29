@@ -1309,9 +1309,11 @@ ul#wpt_column_sortable>li.wpt_sortable_peritem.enabled{display: flex;}
     border: 1px solid #707070;
 }
 li.switch-enable-item i {
-    font-size: 10px;
-    color: #d4d4d4;
+    font-size: 11px;
+    color: #939393;
     display: inline-block;
+    padding: 0 12px;
+    font-weight: normal;
 }
 .add_switch_col_wrapper .enable-available-cols ul li.switch-enable-item.item-disabled {
     background: #e4e4e459;
@@ -2521,8 +2523,22 @@ div#wpt-dropdown-container {
     padding: 10px;
     cursor: pointer;
     border-bottom: 1px solid #f1f1f1;
+    color: #4d4d4d;
+    font-weight: 200;
+    position: relative;
 }
-
+.wpt-dropdown-list li.item-enabled {
+    /* background: #4CAF50; */
+    /* color: white; */
+    font-weight: 500;
+    color: #4CAF50;
+}
+.wpt-dropdown-list li.item-enabled:after {
+    content: '\e811';
+    font-family: "wptfontelo";
+    position: absolute;
+    right: 10px;
+}
 .wpt-dropdown-list li:hover {
     background-color: #f0f0f0;
 }
