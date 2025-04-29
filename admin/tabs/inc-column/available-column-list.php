@@ -23,6 +23,12 @@ $columns_array = apply_filters( 'wpto_final_column_arr', $columns_array );
                     <?php 
                     /*********************/
                 $available_column_array = $columns_array;
+
+                // sort columns array by title
+                // rsort($available_column_array);
+                
+
+
                 // asort($available_column_array);
                 foreach( $available_column_array as $keyword => $title ){ 
                     $updated_title = isset( $updated_columns_array[$keyword] ) ? $updated_columns_array[$keyword] : $title;

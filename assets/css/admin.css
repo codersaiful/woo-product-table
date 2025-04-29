@@ -2566,5 +2566,5 @@ button#wpt-add-preset-column strong {
     font-weight: normal;
 }
 #wpt-switch-wrapper {
-    display: none;
+    /* display: none; */
 }
