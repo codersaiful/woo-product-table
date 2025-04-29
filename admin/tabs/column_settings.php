@@ -156,7 +156,7 @@ $_device_name = '';
         <br>
     </div>
 </div>
-
+<div class="add-new-custom-column-wrapper">
 <?php 
 
 /**
@@ -174,3 +174,4 @@ $add_new_col_file = __DIR__ . '/inc-column/add-new-column.php';
 
 include $add_new_col_file;
 ?>
+</div>

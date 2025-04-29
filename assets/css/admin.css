@@ -2550,18 +2550,20 @@ div#wpt-dropdown-container {
 .wpt-dropdown-list li:hover {
     background-color: #f0f0f0;
 }
+button#wpt-add-new-custom-column-btn,
 button#wpt-add-preset-column {
     background: #12121245;
     color: #ffffff;
     /* border: 1px solid #ddd; */
     box-shadow: 3px 3px 9px 0 #00000021;
 }
-
+button#wpt-add-new-custom-column-btn:hover,
 button#wpt-add-preset-column:hover {
     background: #ffffff;
     color: #515151;
 }
 
+button#wpt-add-new-custom-column-btn strong,
 button#wpt-add-preset-column strong {
     font-weight: normal;
 }
@@ -2569,7 +2571,13 @@ button#wpt-add-preset-column strong {
 .inside_tab_content.tab-content>h4>span.wpt-col-selected-pre-value {
     color: #ffffff5e;
 }
-
+.add-new-custom-column-wrapper {
+    position: fixed;
+    width: 100%;
+    background: black;
+    z-index: 99999;
+    height: 100%;
+}
 
 #wpt-switch-wrapper {
     display: none;

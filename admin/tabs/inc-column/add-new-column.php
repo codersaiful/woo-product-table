@@ -1,6 +1,6 @@
 
 <!-- Add new Custom Collumn -->
-<div class="add_new_col_wrapper">
+<div class="add_new_col_wrapper" data-device="">
     <div class="section ultraaddons-panel add_new_column">
         <h3 class="with-background dark-background slim-title"><?php echo esc_html__( 'Add New Column','woo-product-table' ); ?> <small style="color: orange; font-size: 12px;"></small></h3>
 

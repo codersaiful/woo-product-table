@@ -4,7 +4,7 @@ $columns_array = apply_filters( 'wpto_final_column_arr', $columns_array );
 ?>
 <!-- Enable Active Collumn -->
 <div class="add_switch_col_wrapper">
-    <div class="section ultraaddons-panel add_new_column add_new_column_main_wrapper">
+    <div class="section ultraaddons-panel add_new_column add_new_column_main_wrapper" data-device="<?php echo esc_attr( $_device_name ); ?>">
         <?php
         
         
@@ -14,7 +14,11 @@ $columns_array = apply_filters( 'wpto_final_column_arr', $columns_array );
         <div class="section-header">
             <button id="wpt-add-preset-column" class="wpt-btn wpt-btn-small wpt-has-icon wpt-add-preset-column">
                 <span><i class="wpt-plus"></i></span>
-                <strong class="form-submit-text">Manage Column</strong>
+                <strong class="form-submit-text">Manage Preset Column</strong>
+            </button>
+            <button id="wpt-add-new-custom-column-btn" class="wpt-btn wpt-btn-small wpt-has-icon wpt-add-new-custom-column-btn">
+                <span><i class="wpt-plus-circle"></i></span>
+                <strong class="form-submit-text">Custom Column</strong>
             </button>
             <div id="wpt-dropdown-container" class="wpt-dropdown-container" style="display:none;">
                 <div class="wpt-dropdown-container-insider">

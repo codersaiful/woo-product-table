@@ -1194,7 +1194,9 @@ jQuery.fn.extend({
 
         e.preventDefault();
         var $this = $(this); 
-        $this.closest('.inside_tab_content').toggleClass('expanded');
+        var $insideTabContent = $this.closest('.inside_tab_content');
+        $insideTabContent.toggleClass('expanded');
+        
         // $this.closest('.inside_tab_content').find('.inside_tab_content_inner').toggle(); // Changed from toggleFade() to toggle()
     });
     
@@ -1226,6 +1228,14 @@ jQuery.fn.extend({
         var $mainWrapper = $button.closest('.add_new_column_main_wrapper');
         var $dropdownContainer = $mainWrapper.find('.wpt-dropdown-container');
         $dropdownContainer.toggle(); // show/hide dropdown
+         
+    });
+    $(document.body).on('click','.wpt-add-new-custom-column-btn', function(e) {
+        e.preventDefault();
+        var $button = $(this);
+        var $mainWrapper = $button.closest('.add_new_column_main_wrapper');
+        var $_device = $mainWrapper.data('device');  
+        $('.add_new_col_wrapper').attr('data-device', $_device);
          
     });
 
