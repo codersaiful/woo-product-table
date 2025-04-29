@@ -82,7 +82,7 @@ ul#wpt_keyword_hide_mobile>li.hide_on_mobile_permits.enabled
 ul#wpt_column_sortable,
 ul#wpt_keyword_hide_mobile
 {
-    background:  white;
+    background:  transparent;
     /*padding:  4px 0;*/
     margin: 0;
 }
@@ -740,6 +740,7 @@ table.wp-list-table.widefat.plugins tr.active[data-slug='product-table-for-wooco
     /* display: none; */
 }
 
+.inside-column-settings-wrapper .inside_tab_content .ultraaddons-panel {background-color: transparent;}
 .inside-column-settings-wrapper .inside_tab_content h4 {
     font-size: 20px !important;
     padding: 17px;
