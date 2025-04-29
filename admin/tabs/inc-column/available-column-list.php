@@ -8,19 +8,16 @@ $columns_array = apply_filters( 'wpto_final_column_arr', $columns_array );
         <?php
         
         
-        //ksort($columns_array);
-//        $meta_enable_column_array = get_post_meta( $post->ID, 'enabled_column_array', true );
-//        if( $meta_enable_column_array && !empty( $meta_enable_column_array ) && !empty( $columns_array ) ){
-//            $columns_array = array_merge($meta_enable_column_array,$columns_array);
-//        }
-//
-//        $column_settings = get_post_meta( $post->ID, 'column_settings', true ); 
-//        if( empty( $column_settings ) ){
-//            $column_settings = array();
-//        }
-//        $additional_collumn = array_diff(array_keys($for_add), array_keys( WPT_Product_Table::$columns_array ));
 
         ?>
+
+        <div class="section-header">
+            <button id="wpt-add-preset-column" class="wpt-btn wpt-btn-small wpt-has-icon wpt-add-preset-column">
+                <span><i class="wpt-plus"></i></span>
+                <strong class="form-submit-text">Add New Column</strong>
+            </button>
+        </div>
+
         <div class="section enable-available-cols switch-enable-available">
             <ul id="wpt-switch-list">
                 <?php 
