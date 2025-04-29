@@ -2534,6 +2534,10 @@ div#wpt-dropdown-container {
     max-height: 250px;
     overflow-y: auto;
 }
+input.wpt-column-search-box {
+    width: 100%;
+    margin-bottom: 10px;
+}
 
 .wpt-dropdown-list li {
     padding: 10px;
