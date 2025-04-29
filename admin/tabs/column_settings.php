@@ -108,7 +108,7 @@ $_device_name = '';
 
     
     <div id="inside-desktop" class="inside_tab_content tab-content tab-content-active expanded">
-        <h4><?php echo esc_html__( 'Default', 'woo-product-table' ); ?> <span>(All Device)</span></h4>
+        <h4 title="<?php echo esc_attr( 'Default', 'woo-product-table' ); ?>"><i class="wpt-laptop"></i><strong><?php echo esc_html__( 'Default', 'woo-product-table' ); ?></strong> <span>(All Device)</span></h4>
         <div class="inside_tab_content_inner"> 
             <?php 
             $column_section_desktop = __DIR__ . '/section/column-section-desktop.php'; 
@@ -118,7 +118,7 @@ $_device_name = '';
     </div>
     <div id="inside-tablet" class="inside_tab_content tab-content  tab-content-active">
     
-        <h4><?php echo esc_html__( 'Tablet', 'woo-product-table' ); ?> <span>(Optional)</span></h4>
+        <h4 title="<?php echo esc_attr( 'Tablet', 'woo-product-table' ); ?>"><i class="wpt-tablet"></i><strong><?php echo esc_html__( 'Tablet', 'woo-product-table' ); ?></strong> <span>(Optional)</span></h4>
         <div class="inside_tab_content_inner">
             <?php 
             $column_section_tablet = __DIR__ . '/section/column-section-tablet.php'; 
@@ -127,8 +127,8 @@ $_device_name = '';
         </div>
     </div>
     
-    <div id="inside-mobile" class="inside_tab_content tab-content  tab-content-active">
-        <h4><?php echo esc_html__( 'Mobile', 'woo-product-table' ); ?> <span>(Optional)</h4>
+    <div id="inside-mobile" class="inside_tab_content tab-content  tab-content-active"> 
+        <h4 title="<?php echo esc_attr( 'Mobile', 'woo-product-table' ); ?>"><i class="wpt-mobile"></i><strong><?php echo esc_html__( 'Mobile', 'woo-product-table' ); ?></strong> <span>(Optional)</span></h4>
         <div class="inside_tab_content_inner">
             <?php 
             $column_section_mobile = __DIR__ . '/section/column-section-mobile.php'; 

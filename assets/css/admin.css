@@ -743,16 +743,26 @@ table.wp-list-table.widefat.plugins tr.active[data-slug='product-table-for-wooco
 .inside-column-settings-wrapper .inside_tab_content .ultraaddons-panel {background-color: transparent;}
 .inside-column-settings-wrapper .inside_tab_content h4 {
     font-size: 20px !important;
-    padding: 17px;
+    padding: 11px 16px;
     margin-bottom: 10px;
+}
+.inside-column-settings-wrapper .inside_tab_content h4:hover{
+    background: #465f7c;
 }
 .inside-column-settings-wrapper .inside_tab_content.expanded h4{
     background: #e3e3e3;
-    /* color: #4CAF50; */
-    /* box-shadow: -9px 9px 8px 0px #20202012; */
-    /* border: 1px solid #80808040; */
     color: black;
     font-weight: bold;
+}
+/* .inside-column-settings-wrapper .inside_tab_content h4 span, */
+.inside-column-settings-wrapper .inside_tab_content h4 strong{
+    display: none; 
+}
+.inside-column-settings-wrapper .inside_tab_content#inside-desktop h4 strong{display: inline-block;}
+
+/* .inside-column-settings-wrapper .inside_tab_content.expanded h4 span, */
+.inside-column-settings-wrapper .inside_tab_content.expanded h4 strong{
+    display: inline-block;
 }
 .inside-column-settings-wrapper .inside_tab_content .inside_tab_content_inner {
     display: none;
@@ -764,16 +774,19 @@ table.wp-list-table.widefat.plugins tr.active[data-slug='product-table-for-wooco
 }
 
 .inside_tab_content.tab-content>h4 {
-    /* padding: 0; */
     margin: 0;
     cursor: pointer;
-    background: #a1a1a1;
+    background: #494949;
     color: white;
 }
 .inside_tab_content.tab-content>h4>span {
-    font-size: 13px;
+    opacity: 0.6;
+    color: white;
+    font-weight: 100;
+    font-size: 80%;
+}
+.inside_tab_content.tab-content.expanded>h4>span {
     color: black;
-    opacity: 0.3;
 }
 .inside-column-settings-wrapper .inside_tab_content.tab-content.tab-content-active {
     /* background: #000102; */
