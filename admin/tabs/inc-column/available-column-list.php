@@ -30,7 +30,7 @@ $columns_array = apply_filters( 'wpto_final_column_arr', $columns_array );
             <ul id="wpt-switch-list">
                 <?php 
                 $available_column_array = $columns_array;
-                asort($available_column_array);
+                // asort($available_column_array);
                 foreach( $available_column_array as $keyword => $title ){ 
                     $updated_title = isset( $updated_columns_array[$keyword] ) ? $updated_columns_array[$keyword] : $title;
                     if( $meta_enable_column_array && !empty( $meta_enable_column_array ) && is_array( $meta_enable_column_array ) ){
