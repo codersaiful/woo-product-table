@@ -1938,7 +1938,7 @@ ul#wpt_column_sortable>li.wpt_sortable_peritem.inside-column-enabled {
     position: fixed !important;
     top: 0;
     left: 0;
-    background: #000000b0;
+    background: #0000008c;
     width: 100%;
     border: 0 none;
     padding: 50px;
@@ -1969,7 +1969,7 @@ ul#wpt_column_sortable>li.wpt_sortable_peritem.inside-column-enabled .wpt_shorta
     /* height: 800px; */
     max-height: 76%;
     overflow-y: auto;
-    box-shadow: 0 10px 30px 0 #000000bf;
+    box-shadow: -4px 11px 17px rgb(0 0 0 / 30%);
     border-radius: 8px;
     padding-bottom: 30px;
     position: relative;
@@ -2394,7 +2394,7 @@ span.wpt-help-icon.wpt-help-focused{
     position: relative;
 }
 .wpt-renew-license-notice a::before {
-    content: "â˜€";
+    content: "Ã¢Ëœâ‚¬";
     position: absolute;
     top: -2px;
     left: -20px;
@@ -2499,7 +2499,7 @@ div#wpt-dropdown-container {
     background: #0000008c;
     width: 100%;
     height: 100%;
-    z-index: 999;
+    z-index: 9999;
     top: 0;
     left: 0;
 }
