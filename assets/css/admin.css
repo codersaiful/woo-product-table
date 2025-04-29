@@ -751,7 +751,7 @@ table.wp-list-table.widefat.plugins tr.active[data-slug='product-table-for-wooco
     top: 6px;
 }
 .inside-column-settings-wrapper .inside_tab_content h4:hover {
-    background: #aeaeaf;
+    background: #494949eb;
 }
 .inside-column-settings-wrapper .inside_tab_content.expanded h4{
     background: #e3e3e3;
@@ -985,7 +985,14 @@ body.wpt_admin_bodys{background-color: white;}
 .add_new_col_wrapper {
     box-sizing: border-box;
     display: flex;
-    padding: 0 15px 15px 15px;
+    padding: 0 !important;
+    width: 911px;
+    max-width: 100%;
+    min-width: 350px;
+    box-shadow: -4px 11px 17px rgb(0 0 0 / 30%);
+    background: white;
+    border-radius: 11px;
+    overflow: hidden;
 }
 
 div#wpt_configuration_form .add_new_col_wrapper .ultraaddons-panel {
@@ -2273,9 +2280,10 @@ div.wpt-content p.wpt-issue-submit a:hover {
 }
 
 div#wpt_configuration_form #column_settings .add_new_col_wrapper .section.ultraaddons-panel.add_new_column {
-    background: white;
-    border: 0 none;
-    box-shadow: -2px 0px 6px #0000001f;
+    background: #e1e1e100;
+    /* border: 0 none; */
+    /* box-shadow: -2px 0px 6px #0000001f; */
+    margin: 0;
 }
 .section.ultraaddons-panel.add_new_column h3 {
     font-size: 18px;
@@ -2550,6 +2558,7 @@ div#wpt-dropdown-container {
 .wpt-dropdown-list li:hover {
     background-color: #f0f0f0;
 }
+button.add_new_column_button,
 button#wpt-add-new-custom-column-btn,
 button#wpt-add-preset-column {
     background: #12121245;
@@ -2557,28 +2566,38 @@ button#wpt-add-preset-column {
     /* border: 1px solid #ddd; */
     box-shadow: 3px 3px 9px 0 #00000021;
 }
+button.add_new_column_button:hover,
 button#wpt-add-new-custom-column-btn:hover,
 button#wpt-add-preset-column:hover {
     background: #ffffff;
     color: #515151;
 }
 
+button.add_new_column_button strong,
 button#wpt-add-new-custom-column-btn strong,
 button#wpt-add-preset-column strong {
     font-weight: normal;
 }
 
 .inside_tab_content.tab-content>h4>span.wpt-col-selected-pre-value {
-    color: #ffffff5e;
+    color: #ffffff3d;
+}
+.inside_tab_content.tab-content>h4>* {
+    margin-right: 10px;
 }
 .add-new-custom-column-wrapper {
     position: fixed;
     width: 100%;
-    background: black;
-    z-index: 99999;
+    background: #0000008c;
+    z-index: 999;
     height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-
+.add-new-custom-column-wrapper.wpt-default-hide {display: none;}
 #wpt-switch-wrapper {
     display: none;
 }

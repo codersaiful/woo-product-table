@@ -156,7 +156,7 @@ $_device_name = '';
         <br>
     </div>
 </div>
-<div class="add-new-custom-column-wrapper">
+<div class="add-new-custom-column-wrapper wpt-default-hide">
 <?php 
 
 /**
