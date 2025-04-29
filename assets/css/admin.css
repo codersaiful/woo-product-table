@@ -2474,3 +2474,43 @@ span.wpt-query-selection-handle.type-pf-premium {
     background: #ffe2e2;
     color: #ff9c9c;
 }
+
+
+
+.wpt-dropdown-container {
+    position: absolute;
+    background: #fff;
+    border: 1px solid #ddd;
+    width: 250px;
+    max-height: 300px;
+    overflow: hidden;
+    z-index: 9999;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    margin-top: 5px;
+}
+
+.wpt-search-box {
+    width: 100%;
+    padding: 8px;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    box-sizing: border-box;
+}
+
+.wpt-dropdown-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+.wpt-dropdown-list li {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.wpt-dropdown-list li:hover {
+    background-color: #f0f0f0;
+}

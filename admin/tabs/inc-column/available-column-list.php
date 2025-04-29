@@ -16,6 +16,12 @@ $columns_array = apply_filters( 'wpto_final_column_arr', $columns_array );
                 <span><i class="wpt-plus"></i></span>
                 <strong class="form-submit-text">Add New Column</strong>
             </button>
+            <div id="wpt-dropdown-container" class="wpt-dropdown-container" style="display:none;">
+                <input type="text" id="wpt-search" placeholder="Search..." class="wpt-search-box" />
+                <ul id="wpt-dropdown-list" class="wpt-dropdown-list">
+                    <!-- Cloned items will go here dynamically -->
+                </ul>
+            </div>
         </div>
 
         <div class="section enable-available-cols switch-enable-available">

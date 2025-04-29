@@ -1183,13 +1183,52 @@ jQuery.fn.extend({
         $this.closest('.inside_tab_content').toggleClass('expanded');
         // $this.closest('.inside_tab_content').find('.inside_tab_content_inner').toggle(); // Changed from toggleFade() to toggle()
     });
-    $(document.body).on('click', '#wpt-add-preset-column', function(e){
+    
 
+    var $button = $('#wpt-add-preset-column');
+    var $dropdownContainer = $('#wpt-dropdown-container');
+    var $originalList = $('#wpt-switch-list').clone(); // clone original items
+
+    // Open dropdown on button click
+    $button.on('click', function(e) {
         e.preventDefault();
-        var $this = $(this); 
-        // $this.closest('.inside_tab_content').toggleClass('expanded');
-        // $this.closest('.inside_tab_content').find('.inside_tab_content_inner').toggle(); // Changed from toggleFade() to toggle()
+        $dropdownContainer.toggle(); // show/hide dropdown
+        $('#wpt-search').val(''); // clear search
+        $('#wpt-dropdown-list').html($originalList.html()); // reset list
     });
+
+    // Search filter
+    $('#wpt-search').on('input', function() {
+        var searchTerm = $(this).val().toLowerCase();
+        $('#wpt-dropdown-list li').each(function() {
+            var text = $(this).text().toLowerCase();
+            if (text.indexOf(searchTerm) > -1) {
+                $(this).show();
+            } else {
+                $(this).hide();
+            }
+        });
+    });
+
+    // When an item is selected
+    $(document).on('click', '#wpt-dropdown-list li', function() {
+        var selectedKeyword = $(this).data('column_keyword');
+        console.log('Selected:', selectedKeyword);
+        
+        // Hide dropdown after selection
+        $dropdownContainer.hide();
+        
+        // You can call your custom function here if needed
+        // yourCustomFunction(selectedKeyword);
+    });
+
+    // Click outside to close dropdown
+    $(document).on('click', function(e) {
+        if (!$(e.target).closest('#wpt-dropdown-container, #wpt-add-preset-column').length) {
+            $dropdownContainer.hide();
+        }
+    });
+
 
 
 })(jQuery);
