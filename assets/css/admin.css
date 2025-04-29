@@ -2542,6 +2542,21 @@ div#wpt-dropdown-container {
 .wpt-dropdown-list li:hover {
     background-color: #f0f0f0;
 }
+button#wpt-add-preset-column {
+    background: #12121245;
+    color: #ffffff;
+    /* border: 1px solid #ddd; */
+    box-shadow: 3px 3px 9px 0 #00000021;
+}
+
+button#wpt-add-preset-column:hover {
+    background: #ffffff;
+    color: #515151;
+}
+
+button#wpt-add-preset-column strong {
+    font-weight: normal;
+}
 #wpt-switch-wrapper {
     display: none;
 }
