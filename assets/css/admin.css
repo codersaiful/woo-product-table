@@ -2497,8 +2497,8 @@ div#wpt-dropdown-container {
     z-index: 9999;
     box-shadow: -4px 11px 17px rgb(0 0 0 / 30%);
     margin-top: 5px;
-    left: calc(50% - 150px);
-    top: calc(50% - 150px);
+    left: calc(50% - 150px - 20px);
+    top: calc(50% - 150px - 20px);
     padding: 20px;
     border-radius: 8px;
 }
