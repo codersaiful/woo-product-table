@@ -21,7 +21,7 @@ $columns_array = apply_filters( 'wpto_final_column_arr', $columns_array );
                     <input type="text" id="wpt-search" placeholder="Search..." class="wpt-search-box" />
                     <ul id="wpt-dropdown-list" class="wpt-dropdown-list">
                     <?php 
-                    /*********************
+                    /*********************/
                 $available_column_array = $columns_array;
                 // asort($available_column_array);
                 foreach( $available_column_array as $keyword => $title ){ 
@@ -47,7 +47,7 @@ $columns_array = apply_filters( 'wpto_final_column_arr', $columns_array );
                         <?php echo esc_html( $updated_title ); ?><i>[<?php echo esc_html( $keyword ); ?>]</i>
                 </li>
                 <?php }
-                *****************/
+                //*****************/
                 ?>
                     </ul>
                 </div>

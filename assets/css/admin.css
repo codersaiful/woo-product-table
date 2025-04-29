@@ -739,8 +739,16 @@ table.wp-list-table.widefat.plugins tr.active[data-slug='product-table-for-wooco
 .inside-column-settings-wrapper .inside_tab_content .ultraaddons-panel {background-color: transparent;}
 .inside-column-settings-wrapper .inside_tab_content h4 {
     font-size: 20px !important;
-    padding: 11px 16px;
+    padding: 11px 16px 11px 49px;
     margin-bottom: 10px;
+    position: relative;
+}
+.inside_tab_content.tab-content>h4>i {
+    /* color: #ffffff; */
+    font-size: 26px;
+    position: absolute;
+    left: 10px;
+    top: 6px;
 }
 .inside-column-settings-wrapper .inside_tab_content h4:hover{
     background: #465f7c;
