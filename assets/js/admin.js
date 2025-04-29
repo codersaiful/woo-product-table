@@ -1181,7 +1181,7 @@ jQuery.fn.extend({
         e.preventDefault();
         var $this = $(this); 
         $this.closest('.inside_tab_content').toggleClass('expanded');
-        $this.closest('.inside_tab_content').find('.inside_tab_content_inner').toggle(); // Changed from toggleFade() to toggle()
+        // $this.closest('.inside_tab_content').find('.inside_tab_content_inner').toggle(); // Changed from toggleFade() to toggle()
     });
 
 

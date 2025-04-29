@@ -749,6 +749,9 @@ table.wp-list-table.widefat.plugins tr.active[data-slug='product-table-for-wooco
     display: none;
     margin-top: 13px;
 }
+.inside-column-settings-wrapper .inside_tab_content.expanded .inside_tab_content_inner {
+    display: block;
+}
 
 .inside_tab_content.tab-content>h4 {
     padding: 0;
