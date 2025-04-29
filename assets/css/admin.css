@@ -100,6 +100,7 @@ li.expanded_li .wpt_shortable_data{
 .wpt_shortable_data
 {
     background: transparent !important;
+    position: relative;
 }
 ul#wpt_column_sortable li>span.handle,
 ul#wpt_keyword_hide_mobile li>span.handle
@@ -126,15 +127,19 @@ ul#wpt_keyword_hide_mobile li>span.handle.checkbox_handle>input.enabled {
     top: 24px;
     left: 32%;
     border: 0 none;
+    font-size: 17px;
     outline: 0 none;
     box-shadow: 0 0 0 0px #f6fbff00;
+}
+ul#wpt_column_sortable li>span.handle.checkbox_handle>input:hover{
+    color: #d00;
 }
 ul#wpt_column_sortable li>span.handle.checkbox_handle>input,
 ul#wpt_keyword_hide_mobile li>span.handle.checkbox_handle>input
 {
     margin-top: 0;
     padding: 0;
-    background: #eaeaea;
+    background: #ff2a2a;
     position: absolute;
     top: 32%;
     left: 32%;
@@ -532,8 +537,8 @@ span.purchase_code_active {
     text-align: right;
     color: #0000009c;
     position: absolute;
-    right: 61px;
-    top: 10px;
+    right: 15px;
+    top: 14px;
     z-index: 0;
 }
 .column_warning{
@@ -917,12 +922,13 @@ div#wpt_configuration_form select.wpt_select2,
 span.wpt_column_arrow {
     position: absolute;
     right: 0px;
-    background: #eae7e7;
+    background: #ffffff;
     z-index: 5;
     width: 13px;
     height: 17px;
     text-align: center;
     cursor: pointer;
+    display: none;
 }
 span.wpt_column_arrow.wpt_arrow_down {
     bottom: 0px;
@@ -2296,8 +2302,8 @@ div#wpt_configuration_form #column_settings .add_new_col_wrapper .section.ultraa
     color: black;
 }
 span.wpt-help-icon {
-    background: rgb(233, 236, 11);
-    color: #000;
+    background: rgb(84 84 84 / 24%);
+    color: #000000af;
     padding-top: 4px;
     width: 25px;
     height: 21px;
@@ -2307,8 +2313,10 @@ span.wpt-help-icon {
     cursor: pointer;
     border-radius: 50%;
     position: absolute;
-    top: 0;
-    right: 0;
+    top: unset;
+    right: unset;
+    left: -30px;
+    bottom: 6px;
 }
 span.wpt-help-icon.wpt-help-focused:before,
 span.wpt-help-icon:hover:before {
@@ -2399,7 +2407,7 @@ span.wpt-help-icon.wpt-help-focused{
     position: relative;
 }
 .wpt-renew-license-notice a::before {
-    content: "Ã¢Ëœâ‚¬";
+    content: "ÃƒÂ¢Ã‹Å“Ã¢â€šÂ¬";
     position: absolute;
     top: -2px;
     left: -20px;
