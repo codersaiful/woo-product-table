@@ -1189,22 +1189,23 @@ jQuery.fn.extend({
 
 
 
-    var $button = $('#wpt-add-preset-column');
-    var $dropdownContainer = $('#wpt-dropdown-container');
-    // var $originalList = $('#wpt-switch-list').clone(); // clone original items
+    var $dropdownContainer = $('.wpt-dropdown-container');
 
-    // Open dropdown on button click
-    $button.on('click', function(e) {
+    $(document.body).on('click','.wpt-add-preset-column', function(e) {
         e.preventDefault();
+        var $button = $(this);
+        var $dropdownContainer = $(this).closest('.add_new_column_main_wrapper').find('.wpt-dropdown-container');
+        // var $dropdownList = $dropdownContainer.find('#wpt-dropdown-list');
         $dropdownContainer.toggle(); // show/hide dropdown
-        // $('#wpt-search').val(''); // clear search
-        // $('#wpt-dropdown-list').html($originalList.html()); // reset list
+        
     });
 
+
     // Search filter
-    $('#wpt-search').on('input', function() {
+    $('.wpt-column-search-box').on('input', function() {
         var searchTerm = $(this).val().toLowerCase();
-        $('#wpt-dropdown-list li').each(function() {
+        var $dropdown_li = $(this).closest('.wpt-dropdown-container').find('.wpt-dropdown-list li');//.each(function() {
+        $dropdown_li.each(function() {
             var text = $(this).text().toLowerCase();
             if (text.indexOf(searchTerm) > -1) {
                 $(this).show();
@@ -1215,25 +1216,22 @@ jQuery.fn.extend({
     });
 
     // When an item is selected
-    $(document).on('click', '#wpt-dropdown-list li', function() {
+    $(document).on('click', '.wpt-dropdown-list li', function() {
         var selectedKeyword = $(this).data('column_keyword');
 
         if ($(this).hasClass('item-enabled')) {
-            console.log('Already enabled. Deselect:', selectedKeyword);
+            // console.log('Already enabled. Deselect:', selectedKeyword);
             // Your custom de-select logic here
             // e.g., remove from active list, update UI, etc.
             $(this).removeClass('item-enabled');
         } else {
             $(this).addClass('item-enabled');
-            console.log('New selection:', selectedKeyword);
+            // console.log('New selection:', selectedKeyword);
             // Your custom select logic here
             // e.g., add to active list, mark as enabled, etc.
         }
 
         $(this).closest('.tab-content').find('.wpt_column_sortable li.wpt_sortable_peritem input.checkbox_handle_input[data-column_keyword="' + selectedKeyword + '"]').trigger('click');
-        setTimeout(function(){
-            detect_responsive_stats();
-        }, 1000);
 
         // console.log('Selected:', selectedKeyword);
         

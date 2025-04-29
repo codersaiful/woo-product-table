@@ -4,7 +4,7 @@ $columns_array = apply_filters( 'wpto_final_column_arr', $columns_array );
 ?>
 <!-- Enable Active Collumn -->
 <div class="add_switch_col_wrapper">
-    <div class="section ultraaddons-panel add_new_column">
+    <div class="section ultraaddons-panel add_new_column add_new_column_main_wrapper">
         <?php
         
         
@@ -18,7 +18,7 @@ $columns_array = apply_filters( 'wpto_final_column_arr', $columns_array );
             </button>
             <div id="wpt-dropdown-container" class="wpt-dropdown-container" style="display:none;">
                 <div class="wpt-dropdown-container-insider">
-                    <input type="text" id="wpt-search" placeholder="Search..." class="wpt-search-box" />
+                    <input type="text" id="wpt-search" placeholder="Search..." class="wpt-column-search-box" />
                     <ul id="wpt-dropdown-list" class="wpt-dropdown-list">
                     <?php 
                     /*********************/
