@@ -601,6 +601,20 @@ jQuery.fn.extend({
                 });
             }
             OptimizeColumnWithName();
+
+            var $mainWrapper = $(this).closest('.inside-column-settings-wrapper .inside_tab_content.tab-content.tab-content-active');
+            var $listWrapper = $(this).closest('.wpt-dropdown-list');
+            // Get all enabled items in the dropdown
+            var $enabledItems = $mainWrapper.find('.wpt-dropdown-list>li.item-enabled');
+            
+            // Get text values of enabled items in one line
+            var enabledItemsText = $enabledItems.map(function() {
+                return $(this).data('column_keyword');
+            }).get().join(',');
+
+            $mainWrapper.find('.wpt-col-selected-pre-value').html(enabledItemsText);
+
+
 //            
 //            targetLiSelector.fadeIn(function(){
 //                $(this).css('opacity','0.3');
@@ -1189,22 +1203,37 @@ jQuery.fn.extend({
 
 
 
+    
+    var $deviceWiseWrapper = $('.inside-column-settings-wrapper .inside_tab_content.tab-content.tab-content-active');
+    $deviceWiseWrapper.each(function() {
+
+        var $mainWrapper = $(this);
+        var $enabledItems = $mainWrapper.find('.wpt-dropdown-list>li.item-enabled');
+        
+        // Get text values of enabled items in one line
+        var enabledItemsText = $enabledItems.map(function() {
+            return $(this).data('column_keyword');
+        }).get().join(',');
+
+        $mainWrapper.find('.wpt-col-selected-pre-value').html(enabledItemsText);
+    });
+
     var $dropdownContainer = $('.wpt-dropdown-container');
 
     $(document.body).on('click','.wpt-add-preset-column', function(e) {
         e.preventDefault();
         var $button = $(this);
-        var $dropdownContainer = $(this).closest('.add_new_column_main_wrapper').find('.wpt-dropdown-container');
-        // var $dropdownList = $dropdownContainer.find('#wpt-dropdown-list');
+        var $mainWrapper = $button.closest('.add_new_column_main_wrapper');
+        var $dropdownContainer = $mainWrapper.find('.wpt-dropdown-container');
         $dropdownContainer.toggle(); // show/hide dropdown
-        
+         
     });
 
 
-    // Search filter
+    // Search filter  
     $('.wpt-column-search-box').on('input', function() {
         var searchTerm = $(this).val().toLowerCase();
-        var $dropdown_li = $(this).closest('.wpt-dropdown-container').find('.wpt-dropdown-list li');//.each(function() {
+        var $dropdown_li = $(this).closest('.wpt-dropdown-container').find('.wpt-dropdown-list li');
         $dropdown_li.each(function() {
             var text = $(this).text().toLowerCase();
             if (text.indexOf(searchTerm) > -1) {
@@ -1231,6 +1260,18 @@ jQuery.fn.extend({
             // e.g., add to active list, mark as enabled, etc.
         }
 
+        var $mainWrapper = $(this).closest('.inside-column-settings-wrapper .inside_tab_content.tab-content.tab-content-active');
+        var $listWrapper = $(this).closest('.wpt-dropdown-list');
+        // Get all enabled items in the dropdown
+        var $enabledItems = $listWrapper.find('li.item-enabled');
+        
+        // Get text values of enabled items in one line
+        var enabledItemsText = $enabledItems.map(function() {
+            return $(this).data('column_keyword');
+        }).get().join(',');
+
+        $mainWrapper.find('.wpt-col-selected-pre-value').html(enabledItemsText);
+        
         $(this).closest('.tab-content').find('.wpt_column_sortable li.wpt_sortable_peritem input.checkbox_handle_input[data-column_keyword="' + selectedKeyword + '"]').trigger('click');
 
         // console.log('Selected:', selectedKeyword);
