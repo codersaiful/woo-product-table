@@ -108,7 +108,7 @@ $_device_name = '';
 
     
     <div id="inside-desktop" class="inside_tab_content tab-content tab-content-active expanded">
-        <h4><?php echo esc_html__( 'Desktop', 'woo-product-table' ); ?> <span>(Default)</span></h4>
+        <h4><?php echo esc_html__( 'Default', 'woo-product-table' ); ?> <span>(All Device)</span></h4>
         <div class="inside_tab_content_inner"> 
             <?php 
             $column_section_desktop = __DIR__ . '/section/column-section-desktop.php'; 
