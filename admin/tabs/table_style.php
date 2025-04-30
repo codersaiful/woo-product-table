@@ -59,17 +59,21 @@ $current_template = $meta_table_style_inPost['template'] ?? '';
             <tr>
                 <td colspan="2" class="wpt_table_style">
                     <h1>Select Template</h1>
-                    <?php
-                    $template_img_url = WPT_ASSETS_URL . 'images/templates-image/';
-                    $template_img_url = apply_filters( 'wpt_template_img_url', $template_img_url );
-                    ?>
+
                     
                     <div id="wpt-template-selector" class="wpt-template-selector-wrapper">
                         <?php foreach ( $table_templates as $key => $template ) : 
+                            $template_img_folder_url = WPT_ASSETS_URL . 'images/templates-image/';
+                            $template_img_folder_url = apply_filters( 'wpt_template_img_url', $template_img_folder_url, $key, $template );
+
                             $type = $template['type'] ?? '';
                             $img_file_name = 'beautiful_blacky';
-                            $img_url = $template_img_url . $key . '.png';
-                            // $img_url = $template_img_url . $img_file_name . '.png';
+                            $img_base_file_dir = WPT_BASE_DIR . "assets/images/templates-image/$key.png";
+                            if( ! is_file($img_base_file_dir)){
+                                $key = 'beautiful_blacky';
+                            }
+                            $img_url = $template_img_folder_url . $key . '.png';
+                            // $img_url = $template_img_folder_url . $img_file_name . '.png';
                             $is_active = ($key === $current_template) ? 'active' : '';
                             ?>
                             <div class="wpt-template-item <?php echo $is_active; ?> wpt-temp-type-<?php echo $type; ?>" data-type="<?php echo esc_attr( $type ); ?>" data-template="<?php echo esc_attr( $key ); ?>">
