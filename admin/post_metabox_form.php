@@ -10,11 +10,11 @@
         'column_settings'   => __( 'Column', 'woo-product-table' ),
         'query'            => __( 'Query', 'woo-product-table' ),
         // 'basics'            => __( 'Basics', 'woo-product-table' ), //Has removed @version 3.1.9.5
-        'table_style'       => sprintf(__( 'Design %sLimited%s', 'woo-product-table' ), '<i class="wpt_limited_badge">', '</i>' ),
+        'table_style'       => __( 'Design', 'woo-product-table' ),
         'options'            => __( 'Options', 'woo-product-table' ),
         // 'conditions'        => __( 'Extra Options', 'woo-product-table' ), //Has removed @version 3.1.9.5
         'search_n_filter'   => __( 'Search & Filter','woo-product-table' ),
-        'config'            => sprintf(__( 'Configuration %sPro%s', 'woo-product-table' ), '<i class="wpt_pro_badge">', '</i>' ),
+        'config'            => __( 'Configuration', 'woo-product-table' ),
     );
     $tab_array = apply_filters( 'wpto_admin_tab_array', $tab_array, $post );
     
