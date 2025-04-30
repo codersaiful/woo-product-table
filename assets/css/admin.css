@@ -2714,7 +2714,7 @@ ul#wpt_column_sortable li>span.handle.checkbox_handle>input.enabled:before, ul#w
     color: #ffffff;
 }
 .style_str_wrapper h3.style-heading {
-    cursor: crosshair;
+    cursor: pointer;
     background: #4caf50;
     display: inline-block;
     border-radius: 3px;

@@ -254,7 +254,15 @@ if( ! function_exists( 'wpt_thumbnails_column_add' ) ){
         $thumb_variation = isset( $column_settings['thumb_variation']) ? $column_settings['thumb_variation'] : false;
         $img_url = WPT_BASE_URL . 'assets/images/pro-features/';
        ?>
-        <?php do_action('wpo_pro_feature_message', 'enable_gallery');?>
+        <?php if( ! wpt_is_pro() ){ ?>
+            <div class="thumb_gallery_wrapper wpt-premium-feature-in-free-version">
+                <label for="thumb_gallery">
+                <input id="thumb_gallery" title="Enable Gallery On Thumbnail Column" class="thumb_gallery" type="checkbox" value="off">
+                Enable Gallery
+                </label>
+            </div>  
+            
+        <?php }?>
         <div class="thumb_variation">
             <label for="popup<?php echo esc_attr( $_device_name ); ?>"><input type="radio" id="popup<?php echo esc_attr( $_device_name ); ?>" name="column_settings<?php echo esc_attr( $_device_name ); ?>[thumb_variation]" value="popup" <?php echo !$thumb_variation || $thumb_variation == 'popup' ? 'checked' : ''; ?>> <?php echo esc_html__( 'Default Popup', 'woo-product-table' ); ?></label>
             <label for="no_action<?php echo esc_attr( $_device_name ); ?>"><input type="radio" id="no_action<?php echo esc_attr( $_device_name ); ?>" name="column_settings<?php echo esc_attr( $_device_name ); ?>[thumb_variation]" value="no_action" <?php echo $thumb_variation == 'no_action' ? 'checked' : ''; ?>> <?php echo esc_html__( 'No Action', 'woo-product-table' ); ?></label>
