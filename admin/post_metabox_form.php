@@ -154,9 +154,9 @@
 <style>
 /*****For Column Moveable Item*******/
 ul#wpt_column_sortable li>span.handle{
-    background-image: url('<?php echo WPT_BASE_URL . 'assets/images/move_color_3.png'; ?>');
+    background-image: url('<?php echo WPT_BASE_URL . 'assets/images/move.png'; ?>');
 }
 ul#wpt_column_sortable li.wpt_sortable_peritem.enabled>span.handle{
-    background-image: url('<?php echo WPT_BASE_URL . 'assets/images/move_color_3.png'; ?>');
+    background-image: url('<?php echo WPT_BASE_URL . 'assets/images/move.png'; ?>');
 }
 </style>

@@ -160,14 +160,15 @@ ul#wpt_keyword_hide_mobile li>span.handle.checkbox_handle>input
     font-weight: 500;
     color: #333333;
 }
-.enabled:hover .wpt_shortable_data>input{
-    border: 1px solid #00769324;
+.enabled:hover .wpt_shortable_data>input {
+    border: 1px solid #35353536;
     font-weight: normal;
-    background: #00769314;
+    background: #ffffff;
 }
 .expanded_li.enabled .wpt_shortable_data>input {
-    background: #5d5d5d14;
+    background: #ffffff;
     border: 1px solid #c8cfd124;
+    outline: 0 none !important;
 }
 
 
@@ -540,6 +541,10 @@ span.purchase_code_active {
     right: 15px;
     top: 14px;
     z-index: 0;
+    display: none;
+}
+ul#wpt_column_sortable>li.wpt_sortable_peritem:hover .wpt_colunm_type {
+    display: inline;
 }
 .column_warning{
     color: #c10098ad;
