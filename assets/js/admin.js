@@ -1204,6 +1204,59 @@ jQuery.fn.extend({
     
 
 
+    $(document.body).on('click', '#wpt-template-selector .wpt-template-item', function() {
+        var type = $(this).data('type');
+        if(type == 'limited'){
+            return;
+        }
+        console.log(type);
+        $('.wpt-template-item').removeClass('active');
+        $(this).addClass('active');
+        
+        var selectedTemplate = $(this).data('template');
+        $('#selected_template').val(selectedTemplate);
+    });
+    $('html body').append('<div id="template-preview-popup" class="template-preview-popup"><img src="" alt="Template Preview"></div>');
+    
+
+    var $popup = $('#template-preview-popup');
+
+    $('#wpt-template-selector .wpt-template-item').on('mouseenter', function(e) {
+        var imgSrc = $(this).find('img').attr('src');
+        $popup.find('img').attr('src', imgSrc).css({ width: 'auto', height: 'auto' });
+        $popup.css({ display: 'block' });
+    }).on('mousemove', function(e) {
+        var mouseX = e.pageX;
+        var mouseY = e.pageY;
+
+        var popupWidth = $popup.outerWidth();
+        var popupHeight = $popup.outerHeight();
+        var windowWidth = $(window).width();
+        var windowHeight = $(window).height();
+        var scrollTop = $(window).scrollTop();
+
+        // Default position: bottom-right of cursor
+        var left = mouseX + 15;
+        var top = mouseY + 15;
+
+        // If popup goes beyond right edge
+        if ((mouseX + popupWidth + 20) > windowWidth) {
+            left = mouseX - popupWidth - 15;
+        }
+
+        // If popup goes beyond bottom edge
+        if ((mouseY + popupHeight + 20) > (windowHeight + scrollTop)) {
+            top = mouseY - popupHeight - 15;
+        }
+
+        $popup.css({
+            top: top + 'px',
+            left: left + 'px'
+        });
+    }).on('mouseleave', function() {
+        $popup.hide();
+    });
+
 
 
 

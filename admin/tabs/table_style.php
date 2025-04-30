@@ -50,16 +50,51 @@ foreach( $pro_templates as $temp_key => $tempplate_name ){
 
 $meta_table_style_inPost = get_post_meta($post->ID, 'table_style', true);
 $current_template = $meta_table_style_inPost['template'] ?? '';
+
 ?>
+
 <div class="section ultraaddons-panel">
     <div class="wpt_column">
         <table class="ultraaddons-table">
+            <tr>
+                <td colspan="2" class="wpt_table_style">
+                    <h1>Select Template</h1>
+                    <?php
+                    $template_img_url = WPT_ASSETS_URL . 'images/templates-image/';
+                    $template_img_url = apply_filters( 'wpt_template_img_url', $template_img_url );
+                    ?>
+                    
+                    <div id="wpt-template-selector" class="wpt-template-selector-wrapper">
+                        <?php foreach ( $table_templates as $key => $template ) : 
+                            $type = $template['type'] ?? '';
+                            $img_file_name = 'beautiful_blacky';
+                            $img_url = $template_img_url . $key . '.png';
+                            // $img_url = $template_img_url . $img_file_name . '.png';
+                            $is_active = ($key === $current_template) ? 'active' : '';
+                            ?>
+                            <div class="wpt-template-item <?php echo $is_active; ?> wpt-temp-type-<?php echo $type; ?>" data-type="<?php echo esc_attr( $type ); ?>" data-template="<?php echo esc_attr( $key ); ?>">
+                                <img src="<?php echo esc_url( $img_url ); ?>" alt="<?php echo esc_attr( $template['value'] ); ?>">
+                                <span class="wpt-template-name"><?php echo esc_html( $template['value'] ); ?></span>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+
+                    
+
+                    <input type="hidden" name="table_style[template]"  data-name="template" id="selected_template" value="<?php echo esc_attr( $current_template ); ?>">
+                    <?php wpt_doc_link('https://wooproducttable.com/docs/doc/table-design/change-table-design-using-template/'); ?>        
+
+                </td>
+            </tr>
             <tr>
                 <th>
                     <label class="wpt_label" for="wpt_style_file_selection"><?php esc_html_e( 'Select Template', 'woo-product-table' ); ?></label>
                 </th>
                 <td>
-                    <select name="table_style[template]" data-name="template" id="wpt_style_file_selection"  class="wpt_fullwidth wpt_data_filed_atts ua_input" >
+                    <?php 
+                    // dd($table_templates);
+                     ?>
+                    <select name="table_styles[templatesss]" data-name="templatesss" id="wpt_style_file_selection"  class="wpt_fullwidth wpt_data_filed_atts ua_input" >
                         <?php
                         foreach ( $table_templates as $key => $template ) {
                             $type = $template['type'];

@@ -2410,7 +2410,7 @@ span.wpt-help-icon.wpt-help-focused{
     position: relative;
 }
 .wpt-renew-license-notice a::before {
-    content: "ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¹ÃƒÆ’Ã¢â‚¬Â¦ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬";
+    content: "ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¹ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¦ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã¢â‚¬Å“ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬";
     position: absolute;
     top: -2px;
     left: -20px;
@@ -2485,6 +2485,7 @@ div.wpt_tab_content table th {
 .wpt-query-terms-selection {
     display: flex;
     gap: 10px;
+    flex-wrap: wrap;
 }
 
 .wpt-query-terms-selection span.wpt-query-selection-handle {
@@ -2631,4 +2632,77 @@ ul#wpt_column_sortable li>span.handle.checkbox_handle>input.enabled:before, ul#w
 }
 #wpt-switch-wrapper {
     display: none;
+}
+
+
+
+
+
+
+
+.wpt-template-selector-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.wpt-template-item {
+    border: 1px solid #000000;
+    padding: 8px;
+    text-align: center;
+    cursor: pointer;
+    width: 120px;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+    overflow: hidden;
+}
+.wpt-template-item.wpt-temp-type-limited {border-color: #b70000;opacity: 0.5;position: relative;}
+
+.wpt-template-item.wpt-temp-type-limited:before {
+    content: "Pro";
+    position: absolute;
+    background: #b70000;
+    padding: 3px 10px;
+    right: -4px;
+    top: 0;
+    color: white;
+    font-size: 14px;
+    text-transform: capitalize;
+}
+.wpt-template-item img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 8px;
+    border-radius: 4px;
+}
+
+.wpt-template-item.active {
+    border-color: #0073aa;
+    box-shadow: 0 0 10px rgba(0,123,170,0.4);
+    background-color: #f1faff;
+}
+
+.wpt-template-name {
+    font-size: 14px;
+    font-weight: 500;
+}
+#template-preview-popup {
+    position: absolute;
+    /* display: none; */
+    border: 2px solid #0073aa;
+    background: #181010;
+    padding: 6px;
+    z-index: 999999;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    border-radius: 6px;
+    top: 100px;
+    left: 200px;
+}
+
+#template-preview-popup img {
+    max-width: 800px;
+    max-height: 800px;
+    display: block;
 }
