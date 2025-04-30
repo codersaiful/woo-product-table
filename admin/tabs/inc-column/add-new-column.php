@@ -23,9 +23,9 @@
                         <td>
                             <?php
                                 $add_new_col_type = array(
-                                    'default' => __( 'Default/No Type', 'woo-product-table' ),
                                     'custom_field' => __( 'Custom Field', 'woo-product-table' ),
                                     'taxonomy' => __( 'Taxonomy', 'woo-product-table' ),
+                                    'default' => __( 'Default/No Type', 'woo-product-table' ),
                                 );
                                 
                                 if( ! wpt_is_pro() ){
