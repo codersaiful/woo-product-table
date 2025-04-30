@@ -1207,7 +1207,7 @@ jQuery.fn.extend({
 
 
 
-    
+    var $dropdownContainer = $('.wpt-dropdown-container');
     var $deviceWiseWrapper = $('.inside-column-settings-wrapper .inside_tab_content.tab-content.tab-content-active');
     $deviceWiseWrapper.each(function() {
 
@@ -1223,7 +1223,7 @@ jQuery.fn.extend({
     });
 
     
-
+    
     $(document.body).on('click','.wpt-add-preset-column', function(e) {
         e.preventDefault();
         var $button = $(this);
@@ -1239,7 +1239,7 @@ jQuery.fn.extend({
         var $_device = $mainWrapper.data('device');  
         $('.add_new_col_wrapper').attr('data-device', $_device);
         $('.add-new-custom-column-wrapper').toggleClass('wpt-default-hide'); // show/hide dropdown
-         
+        $dropdownContainer.hide();  
     });
 
 
@@ -1296,7 +1296,7 @@ jQuery.fn.extend({
         // yourCustomFunction(selectedKeyword);
     });
 
-    var $dropdownContainer = $('.wpt-dropdown-container');
+    
     // Click outside to close dropdown
     $(document).on('click', function(e) {
         if (!$(e.target).closest('.wpt-dropdown-container-insider,.wpt_column_sortable, #wpt-add-preset-column').length) {

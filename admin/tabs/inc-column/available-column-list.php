@@ -14,7 +14,7 @@ $columns_array = apply_filters( 'wpto_final_column_arr', $columns_array );
         <div class="section-header">
             <button id="wpt-add-preset-column" class="wpt-btn wpt-btn-small wpt-has-icon wpt-add-preset-column">
                 <span><i class="wpt-plus"></i></span>
-                <strong class="form-submit-text">Manage Preset Column</strong>
+                <strong class="form-submit-text">Preset Column</strong>
             </button>
             <button id="wpt-add-new-custom-column-btn" class="wpt-btn wpt-btn-small wpt-has-icon wpt-add-new-custom-column-btn">
                 <span><i class="wpt-plus-circle"></i></span>

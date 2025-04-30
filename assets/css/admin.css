@@ -578,9 +578,7 @@ ul#wpt_column_sortable>li.wpt_sortable_peritem {
     padding: 0;
 }
 ul#wpt_column_sortable>li.wpt_sortable_peritem {
-    /* border-top: 0 none; */
-    /* box-shadow: 0px 1px 16px 0 #bbbbbb9c; */
-    border: 1px solid #0000001a;
+    border: 1px dashed #02112b4d;
 }
 ul#wpt_column_sortable li.wpt_sortable_peritem.enabled>span.handle, ul#wpt_keyword_hide_mobile li>span.handle {
     background: #e8e8e840 no-repeat center 20px;
@@ -659,7 +657,7 @@ span.extra_all_on_off.off_now {
 
 li.wpt_sortable_peritem {
     margin-top: 5px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     padding-top: 10px;
     padding-bottom: 10px;
 }
@@ -2580,20 +2578,7 @@ input.wpt-column-search-box {
 .wpt-dropdown-list li:hover {
     background-color: #f0f0f0;
 }
-button.add_new_column_button,
-button#wpt-add-new-custom-column-btn,
-button#wpt-add-preset-column {
-    background: #12121245;
-    color: #ffffff;
-    /* border: 1px solid #ddd; */
-    box-shadow: 3px 3px 9px 0 #00000021;
-}
-button.add_new_column_button:hover,
-button#wpt-add-new-custom-column-btn:hover,
-button#wpt-add-preset-column:hover {
-    background: #ffffff;
-    color: #515151;
-}
+
 
 button.add_new_column_button strong,
 button#wpt-add-new-custom-column-btn strong,
