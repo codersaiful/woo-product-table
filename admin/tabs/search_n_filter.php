@@ -39,11 +39,194 @@ foreach($terms as $term){
             </tr>
         </table>
     </div>
-    <?php do_action( 'wpo_pro_feature_message', 'pf_search_using_custom_field' ); ?>
+    <?php if (!wpt_is_pro()) { ?>
+<div title="Premium Feature" class="wpt-premium-feature-in-free-version">
+    <table class="ultraaddons-table wpt_snf_on_off wpt-table-separator-light">
+        <tbody>
+            <tr>
+                <th>
+                    <label class="wpt_label">Search From</label>
+                </th>
+                <td>
+                    <label class="wpt_label">Search From COMPARE</label>
+                    <label class="switch">
+                        <input saiful="search_n_filter[search_form_compare]" id="wpt-search-form-order" type="checkbox" value="on">
+
+                        <div class="slider round"><!--ADDED HTML -->
+                            <span class="on">==</span><span class="off">LIKE</span><!--END-->
+                        </div>
+                    </label> <a href="https://wooproducttable.com/docs/doc/search-and-filter/create-an-advanced-search-box-table/" target="_blank" class="wpt-doc-lick">Helper doc</a>
+                    <p>Compare: only for custom field chosen option, such: _sku, _price etc.</p>
+                    <hr>
+
+                    <ul class="wpt-tag-list">
+
+                        <li class="wpt_checkbox wpt_search_form_checkbox wpt_ID_checkbox">
+                            <input type="checkbox" saiful="search_n_filter[search_from][ID]" id="search_from_ID" value="posts">
+                            <label for="search_from_ID">ID</label>
+                        </li>
+
+                        <li class="wpt_checkbox wpt_search_form_checkbox wpt_post_title_checkbox">
+                            <input type="checkbox" saiful="search_n_filter[search_from][post_title]" id="search_from_post_title" value="posts">
+                            <label for="search_from_post_title">post_title</label>
+                        </li>
+
+                        <li class="wpt_checkbox wpt_search_form_checkbox wpt_post_content_checkbox">
+                            <input type="checkbox" saiful="search_n_filter[search_from][post_content]" id="search_from_post_content" value="posts">
+                            <label for="search_from_post_content">post_content</label>
+                        </li>
+
+                        <li class="wpt_checkbox wpt_search_form_checkbox wpt_menu_order_checkbox">
+                            <input type="checkbox" saiful="search_n_filter[search_from][menu_order]" id="search_from_menu_order" value="posts">
+                            <label for="search_from_menu_order">menu_order</label>
+                        </li>
+
+                        <li class="wpt_checkbox wpt_search_form_checkbox wpt_post_author_checkbox">
+                            <input type="checkbox" saiful="search_n_filter[search_from][post_author]" id="search_from_post_author" value="posts">
+                            <label for="search_from_post_author">post_author</label>
+                        </li>
+
+                        <li class="wpt_checkbox wpt_search_form_checkbox wpt_post_excerpt_checkbox">
+                            <input type="checkbox" saiful="search_n_filter[search_from][post_excerpt]" id="search_from_post_excerpt" value="posts">
+                            <label for="search_from_post_excerpt">post_excerpt</label>
+                        </li>
+
+                        <li class="wpt_checkbox wpt_search_form_checkbox wpt_post_parent_checkbox">
+                            <input type="checkbox" saiful="search_n_filter[search_from][post_parent]" id="search_from_post_parent" value="posts">
+                            <label for="search_from_post_parent">post_parent</label>
+                        </li>
+
+                        <li class="wpt_checkbox wpt_search_form_checkbox wpt_post_name_checkbox">
+                            <input type="checkbox" saiful="search_n_filter[search_from][post_name]" id="search_from_post_name" value="posts">
+                            <label for="search_from_post_name">post_name</label>
+                        </li>
+
+                        <li class="wpt_checkbox wpt_search_form_checkbox wpt_post_date_checkbox">
+                            <input type="checkbox" saiful="search_n_filter[search_from][post_date]" id="search_from_post_date" value="posts">
+                            <label for="search_from_post_date">post_date</label>
+                        </li>
+
+                        <li class="wpt_checkbox wpt_search_form_checkbox wpt__sku_checkbox">
+                            <input type="checkbox" saiful="search_n_filter[search_from][_sku]" id="search_from__sku" value="postmeta">
+                            <label for="search_from__sku">_sku</label>
+                        </li>
+
+                        <li class="wpt_checkbox wpt_search_form_checkbox wpt__price_checkbox">
+                            <input type="checkbox" saiful="search_n_filter[search_from][_price]" id="search_from__price" value="postmeta">
+                            <label for="search_from__price">_price</label>
+                        </li>
+
+                        <li class="wpt_checkbox wpt_search_form_checkbox wpt__regular_price_checkbox">
+                            <input type="checkbox" saiful="search_n_filter[search_from][_regular_price]" id="search_from__regular_price" value="postmeta">
+                            <label for="search_from__regular_price">_regular_price</label>
+                        </li>
+
+                        <li class="wpt_checkbox wpt_search_form_checkbox wpt__sale_price_checkbox">
+                            <input type="checkbox" saiful="search_n_filter[search_from][_sale_price]" id="search_from__sale_price" value="postmeta">
+                            <label for="search_from__sale_price">_sale_price</label>
+                        </li>
+
+                    </ul>
+
+                    <p>
+                        <label class="wpt_label" for="search_from_cf">Additional Custom Meta Field with Comma</label><br>
+                        <input saiful="search_n_filter[search_from_add_cf]" class="search_from_cf ua_input" data-saiful="stats_post_count" type="text" value="" placeholder="eg: custom_field,_device,_model,_my_field" id="search_from_cf">
+                    </p>
+                    <p class="message">
+                        <b>Tips:</b>
+                        <span>After adding custom_field with comma, Check/uncheck from the <b>Search Form</b> list and finally Save your Product Table.</span>
+                    </p>
+                    <p></p>
+                </td>
+            </tr>
+
+
+
+            <tr>
+                <th>
+                    <label for="wpt-search-form-order" class="wpt_label">On Sale</label>
+                </th>
+                <td>
+
+
+                    <label class="switch">
+                        <input saiful="search_n_filter[fields][on_sale]" id="wpt-search-form-order" type="checkbox" value="on">
+
+                        <div class="slider round"><!--ADDED HTML -->
+                            <span class="on">On</span><span class="off">Off</span><!--END-->
+                        </div>
+                    </label>
+
+
+                </td>
+            </tr>
+
+            <tr>
+                <th>
+                    <label for="wpt-search-form-order" class="wpt_label">Order By field</label>
+                </th>
+                <td>
+                    <label class="switch">
+                        <input saiful="search_n_filter[fields][orderby]" id="wpt-search-form-order" type="checkbox" value="on">
+
+                        <div class="slider round"><!--ADDED HTML -->
+                            <span class="on">On</span><span class="off">Off</span><!--END-->
+                        </div>
+                    </label>
+
+
+                </td>
+            </tr>
+
+
+            <tr>
+                <th>
+                    <label for="wpt-search-form-order" class="wpt_label">Hide Search Input Box</label>
+                </th>
+                <td>
+                                        <label class="switch">
+                    <input saiful="search_n_filter[hide_input]" id="wpt-search-form-order" type="checkbox" value="on">
+                        
+                        <div class="slider round"><!--ADDED HTML -->
+                            <span class="on">On</span><span class="off">Off</span><!--END-->
+                        </div>
+                    </label>
+                    <p class="message">
+                        <b>Tips:</b>
+                        <span>Hide Input Box of Search Area.</span>
+                    </p>
+                </td>
+            </tr>
+
+            <tr>
+                <th>
+                    <label for="wpt-search-form-order" class="wpt_label">Search on Whole Site</label>
+                </th>
+                <td>
+                                        <label class="switch">
+                    <input saiful="search_n_filter[whole_search]" id="wpt-search-form-order" type="checkbox" value="on">
+                        
+                        <div class="slider round"><!--ADDED HTML -->
+                            <span class="on">On</span><span class="off">Off</span><!--END-->
+                        </div>
+                    </label>
+                    <p class="message">
+                        <b>Tips:</b>
+                        <span>Normally search will held based on your selected query. But to search from whole site, Enable it.</span>
+                    </p>
+                </td>
+            </tr>
+
+
+        </tbody>
+    </table>
+</div>
+<?php } ?>
     <?php do_action( 'wpto_admin_search_n_filter_tab', $meta_search_n_filter, $post ); ?>
 
 
         <table class="ultraaddons-table wpt_snf_on_off wpt-table-separator-light">
+           <?php if( wpt_is_pro() ): ?> 
             <tr>
                 <th>
                     <label for="wpt-search-form-order" class="wpt_label"><?php esc_html_e( 'Hide Search Input Box', 'woo-product-table' ); ?></label>
@@ -96,6 +279,7 @@ foreach($terms as $term){
                     </p>
                 </td>
             </tr>
+            <?php endif; ?>
             <tr>
                 <th>
                     <label class="wpt_label" for="wpt_taxonomy_keywords"><?php esc_html_e( 'Taxonomy Keywords for Advance Search Box (Separate with comma[,])', 'woo-product-table' ); ?></label>

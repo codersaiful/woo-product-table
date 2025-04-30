@@ -2699,6 +2699,11 @@ ul#wpt_column_sortable li>span.handle.checkbox_handle>input.enabled:before, ul#w
 }
 .wpt-premium-feature-in-free-version {
     opacity: 0.5;
+    background: #ffbebe40;
+    padding: 0;
+}
+.wpt-premium-feature-in-free-version div,.wpt-premium-feature-in-free-version table, .wpt-premium-feature-in-free-version tr, .wpt-premium-feature-in-free-version td {
+    background: transparent;
 }
 
 .wpt-design-tab-area-wrapper .ultraaddons .with-background, .ultraaddons-panel .with-background{
