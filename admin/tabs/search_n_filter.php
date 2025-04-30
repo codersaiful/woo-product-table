@@ -458,6 +458,85 @@ foreach($terms as $term){
             </tr>
         </table>
     </div>
-    <?php do_action( 'wpo_pro_feature_message', 'pf_custom_field_filter' ); ?>
+    <?php if (!wpt_is_pro()) { ?>
+    <div class="wpt-premium-feature-in-free-version">
+        <table class="ultraaddons-table wpt-table-separator">
+            <tbody>
+                <tr>
+                    <th>
+                        <label class="wpt_label" for="wpt_cf_search_box">Custom Field Filter</label>
+                    </th>
+                    <td>
+                        <select saiful="search_n_filter[cf_search_box]" data-name="cf_search_box" id="wpt_cf_search_box" class="wpt_fullwidth wpt_data_filed_atts ua_input wpt_toggle" data-on="yes|.wpt_custom_field_on_off">
+                            <option value="no">Hide CF Filter</option>
+                            <option value="yes" selected="">Show CF Filter</option>
+                        </select> <a href="https://wooproducttable.com/docs/doc/search-and-filter/filter-product-by-custom-fields/" target="_blank" class="wpt-doc-lick">Helper doc</a>
+                        <p class="warning">
+                            <b>Tips:</b>
+                            <span>Not for WooCommerce Archive page. Such: shop page, product category page.</span>
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table class="ultraaddons-table wpt_custom_field_on_off">
+            <tbody>
+                <tr>
+                    <th>
+                        <label class="wpt_label">Options</label>
+                    </th>
+                    <td>
+
+                        <div class="wpt_cf__wrap">
+                            <h3 class="wpt_header_title">Change Label - <small>custom text</small></h3>
+                            <label for="wpt_key_cf_name_choose">Choose Text</label>
+                            <input id="wpt_key_cf_name_choose" value="Choose" type="text" saiful="text_data[choose_text]" placeholder="Choose">
+                            <p class="wpt-tips">
+                                <b>Tips:</b>
+                                <span>Leave as empty for Multiple Selection.</span>
+                            </p>
+
+                            <h3 class="wpt_header_title">Add Custom Field - <small>Key and Label</small></h3>
+                            <input class="wpt_key_cf" type="text" placeholder="Key. eg: _size">
+                            <input class="wpt_key_cf_name" type="text" placeholder="Names. eg: Size">
+                            <span class="wpt_key_add button button-primary"> <i class=" dashicons dashicons-plus-alt"></i> Add New Field</span>
+                            <span class="wpt_added_message" style="display: none;">Added to list</span>
+
+                            <h3 class="wpt_header_title">Add Value For Filter - <small>Based on cf</small></h3>
+                            <div class="wpt_fields">
+                                <select class="wpt_select_key">
+
+                                    <option value="_model">Model</option>
+                                    <option value="_size">Size</option>
+                                </select>
+                                <input class="wpt_field_adding_input" type="text" placeholder="Value">
+
+                            </div>
+
+                            <span class="wpt_add_field button button-primary" title="Click here to add new custom fields "><i class="dashicons dashicons-plus-alt"></i> Add Value</span>
+                        </div>
+
+
+                        <h3 class="wpt_filt_value_wrapper_head wpt_header_title">Added Values: <smal>(bellow)</smal>
+                        </h3>
+                        <div id="wpt_cf__form_field_wrapper">
+                            <div class="wpt_each_row_wrapper">
+                                <div class="wpt_fld_header">Label: <b>Model</b> | Key: <i>_model</i></div>
+                                <div class="wpt_each_row wpt_each_row__model"><input type="hidden" saiful="_cf_filter[_model][label]" value="Model"><input type="text" saiful="_cf_filter[_model][values][]" value="1101" class="wpt_field_value"><input type="text" saiful="_cf_filter[_model][values][]" value="XT00" class="wpt_field_value"><input type="text" saiful="_cf_filter[_model][values][]" value="4500" class="wpt_field_value"></div><i class="wpt_cross_button">x</i>
+                            </div>
+                            <div class="wpt_each_row_wrapper">
+                                <div class="wpt_fld_header">Label: <b>Size</b> | Key: <i>_size</i></div>
+                                <div class="wpt_each_row wpt_each_row__size"><input type="hidden" saiful="_cf_filter[_size][label]" value="Size"><input type="text" saiful="_cf_filter[_size][values][]" value="small" class="wpt_field_value"><input type="text" saiful="_cf_filter[_size][values][]" value="medium" class="wpt_field_value"><input type="text" saiful="_cf_filter[_size][values][]" value="large" class="wpt_field_value"></div><i class="wpt_cross_button">x</i>
+                            </div>
+                        </div>
+
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+<?php } ?>
     <?php do_action( 'wpto_admin_search_n_filter_tab_bottom', $meta_search_n_filter, $post ); ?>
 </div>
