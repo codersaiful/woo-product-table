@@ -2707,7 +2707,7 @@ ul#wpt_column_sortable li>span.handle.checkbox_handle>input.enabled:before, ul#w
 #template-preview-popup {
     position: absolute;
     display: none;
-    border: 2px solid #0073aa;
+    border: 0 none;
     background: #181010;
     padding: 6px;
     z-index: 999999;
