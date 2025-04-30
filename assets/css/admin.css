@@ -1607,7 +1607,7 @@ tr.user_can_not_edit>td {
     clear: both;
 }
 body.wpt_admin_body .ultraaddons .warning {
-    color: #dd5500;
+    color: #b3b3b3;
 }
 
 
@@ -2309,15 +2309,23 @@ span.wpt-help-icon {
     height: 21px;
     display: inline-block;
     text-align: center;
-    margin: 10px;
+    margin: 15px;
     cursor: pointer;
     border-radius: 50%;
     position: absolute;
+    top: 0;
+    right: 0;
+    left: unset;
+    bottom: unset;
+}
+
+li.wpt_sortable_peritem.column_keyword_action span.wpt-help-icon {
     top: unset;
     right: unset;
-    left: -30px;
-    bottom: 6px;
+    left: -40px;
+    bottom: -2px;
 }
+
 span.wpt-help-icon.wpt-help-focused:before,
 span.wpt-help-icon:hover:before {
     content: attr(title);
@@ -2422,7 +2430,7 @@ img.wpt-license-brand-logo {
 a.wpt-doc-lick{
     text-decoration: none;
     padding: 5px;
-    color: #42b9cc;
+    color: #007694;
     font-style: oblique;
 }
 .wpt-doc-column-link.front {
