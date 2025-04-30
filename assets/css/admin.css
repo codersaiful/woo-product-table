@@ -2630,6 +2630,19 @@ ul#wpt_column_sortable li>span.handle.checkbox_handle>input.enabled:before, ul#w
     flex-direction: row;
     flex-wrap: wrap;
 }
+.wpt_column_setting_single_extra>div input[type="radio"] {
+    background: #a6a6a6;
+    color: #b6b6b6 !important;
+    /* border:1px solid #f7f7f7; */
+}
+.wpt_column_setting_single_extra>div input[type="radio"]:active,
+.wpt_column_setting_single_extra>div input[type="radio"]:checked,
+.wpt_column_setting_single_extra>div input[type="radio"]:hover,
+.wpt_column_setting_single_extra>div input[type="radio"]:focus {
+    background: #000000;
+    color: black;
+    /* border:1px solid #000000; */
+}
 #wpt-switch-wrapper {
     display: none;
 }
