@@ -459,14 +459,23 @@ unset($catalog_orderby_options['menu_order']);
             </tr>
         </table>
     </div>
+    <?php
+    $cond_class = $readonly = '';
+    $cond_name = 'name';
+    if(! wpt_is_pro()){
+        $cond_class = 'wpt-premium-feature-in-free-version';
+        $cond_name = 'saiful';
+    }
+    ?>
     <div class="wpt_column">
         <table class="ultraaddons-table wpt-table-separator">
-            <tr class="">
+            
+            <tr class="<?php echo esc_attr( $cond_class ); ?>">
                 <th>
                     <label class="wpt_label" for="wpt_table_only_stock"><?php esc_html_e( 'Stock Status', 'woo-product-table' ); ?></label>
                 </th>
                 <td>
-                    <select name="conditions[only_stock]" data-name='only_stock' id="wpt_table_only_stock" class="wpt_fullwidth wpt_data_filed_atts ua_input" >
+                    <select <?php echo esc_attr($cond_name); ?>="conditions[only_stock]" data-name='only_stock' id="wpt_table_only_stock" class="wpt_fullwidth wpt_data_filed_atts ua_input" <?php echo esc_attr( $readonly ); ?>>
                         <option value="" <?php echo isset( $meta_conditions['only_stock'] ) && $meta_conditions['only_stock'] == '' ? 'selected' : ''; ?>><?php esc_html_e( 'Default', 'woo-product-table' ); ?></option>
                         <option value="instock" <?php echo isset( $meta_conditions['only_stock'] ) && $meta_conditions['only_stock'] == 'instock' ? 'selected' : ''; ?>><?php esc_html_e( 'instock', 'woo-product-table' ); ?></option>
                         <option value="onbackorder" <?php echo isset( $meta_conditions['only_stock'] ) && $meta_conditions['only_stock'] == 'onbackorder' ? 'selected' : ''; ?>><?php esc_html_e( 'onbackorder', 'woo-product-table' ); ?></option>
@@ -475,12 +484,12 @@ unset($catalog_orderby_options['menu_order']);
                 </td>
             </tr>
 
-            <tr>
+            <tr class="<?php echo esc_attr( $cond_class ); ?>">
                 <th>
                     <label class="wpt_label" for="wpt_table_only_sale"><?php esc_html_e( 'Sale Products', 'woo-product-table' ); ?></label>
                 </th>
                 <td>
-                    <select name="conditions[only_sale]" data-name='only_sale' id="wpt_table_only_sale" class="wpt_fullwidth wpt_data_filed_atts ua_input" >
+                    <select <?php echo esc_attr($cond_name); ?>="conditions[only_sale]" data-name='only_sale' id="wpt_table_only_sale" class="wpt_fullwidth wpt_data_filed_atts ua_input"  <?php echo esc_attr( $readonly ); ?>>
                         <option value="no" <?php echo isset( $meta_conditions['only_sale'] ) && $meta_conditions['only_sale'] == 'no' ? 'selected' : ''; ?>><?php esc_html_e( 'Default', 'woo-product-table' ); ?></option>
                         <option value="yes" <?php echo isset( $meta_conditions['only_sale'] ) && $meta_conditions['only_sale'] == 'yes' ? 'selected' : ''; ?>><?php esc_html_e( 'Only Sale', 'woo-product-table' ); ?></option>
                     </select><?php wpt_doc_link('https://wooproducttable.com/docs/doc/advance-uses/show-only-sale-products/'); ?>
@@ -504,6 +513,50 @@ unset($catalog_orderby_options['menu_order']);
 
         </table>
     </div>
+
+
+
+    <?php if(!wpt_is_pro()){?>
+<div class="wpt-premium-feature-in-free-version">
+
+<div class="wpt_column">
+            <table class="ultraaddons-table">
+                <tbody><tr>
+                    <th>
+                        <label class="wpt_label" for="wpt_table_author">AuthorID/UserID/VendorID (Optional)</label>
+                    </th>
+                    <td>
+                        <input saiful="basics[author]" class="wpt_data_filed_atts ua_input" data-name="author" type="number" value="" placeholder="Author ID/Vendor ID" id="wpt_table_author">
+                        <p style="color: #006394;">Only AuthorID or AuthorName field for both [AuthorID/UserID/VendorID] or [author_name/username/VendorUserName]. Don't use both.</p>
+                    </td>
+                </tr>
+            </tbody></table>
+        </div>
+
+        <div class="wpt_column">
+            <table class="ultraaddons-table wpt-table-separator-light">
+                <tbody><tr>
+                    <th>
+                        <label class="wpt_label wpt_table_ajax_action" for="wpt_table_product_type">Product Type</label>
+                    </th>
+                    <td>
+                        <select saiful="basics[product_type]" data-name="product_type" id="wpt_table_product_type" class="wpt_fullwidth wpt_data_filed_atts ua_input">
+                                                                    <option value="">Product</option>
+                                                                            <option value="product_variation">Only Variation Product</option>
+                                                     
+                        </select>            <a href="https://wooproducttable.com/docs/doc/table-options/show-product-variations-as-table/" target="_blank" class="wpt-doc-lick">Helper doc</a>
+                    <a href="https://demo.wooproducttable.com/product-variant-in-separate-row/" target="_blank" class="wpt-doc-lick">See demo</a>
+                                <p>
+                            If select Variation product, you have to confirm, your all Variation is configured properly. Such: there will not support "any attribute" option for variation. eg: no support "Any Size" type variation.                            <br>And if enable Variation product, Some column and feature will be disable. such: Advernce Search box.                        </p>
+                    </td>
+                </tr>
+            </tbody></table>
+        </div>
+
+</div>
+    
+<?php } ?>
+
 
     
     <?php do_action( 'wpto_admin_basic_tab_bottom', $meta_basics, $tab, $post, $tab_array ); ?>
