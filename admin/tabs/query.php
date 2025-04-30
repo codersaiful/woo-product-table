@@ -267,9 +267,40 @@ do_action( 'wpto_admin_basic_tab',$meta_basics, $tab, $post, $tab_array );
     </div>
 
 
-
+    <?php if (!wpt_is_pro()) { ?>
+    <div class="wpt-premium-feature-in-free-version">
+        <table class="ultraaddons-table wpt-table-separator">
+            <tbody>
+                <tr id="wpt_row_product_id_includes">
+                    <th>
+                        <label class="wpt_label">Product Includes</label>
+                    </th>
+                    <td>
+                        <select class="ua_select product_includes_excludes select2-hidden-accessible" id="product_id_includes" saiful="basics[post_include][]" data-name="post_include" multiple="" data-select2-id="product_id_includes" tabindex="-1" aria-hidden="true">
+                        </select><span class="select2 select2-container select2-container--default select2-container--below" dir="ltr" data-select2-id="104" style="width: 1px;"><span class="selection"><span class="select2-selection select2-selection--multiple" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="-1" aria-disabled="false"><ul class="select2-selection__rendered"><li class="select2-search select2-search--inline"><input class="select2-search__field" type="search" tabindex="-1" autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" role="searchbox" aria-autocomplete="list" placeholder="" style="width: 0.75em;"></li></ul></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span><span class="select2 select2-container select2-container--default select2-container--focus select2-container--open select2-container--above" dir="ltr" data-select2-id="122" style="width: auto;"><span class="selection"></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+                        <p class="notice-for-variations" style="display: none;">Please select only variable products</p>
+                        <p>Choose your selected product to make a table with selected product from your while store. To select multiple products at a time, Please press [CTRL + S]</p>
+                    </td>
+                </tr>
+                <tr id="wpt_row_product_id_cludes">
+                    <th>
+                        <label class="wpt_label">Product Exclude</label> <a href="https://wooproducttable.com/docs/doc/table-options/hide-specific-products/" target="_blank" class="wpt-doc-lick">Helper doc</a>
+                    </th>
+                    <td>
+                        <select class="ua_select product_includes_excludes select2-hidden-accessible" id="product_id_cludes" saiful="basics[post_exclude][]" data-name="post_exclude" multiple="" data-select2-id="product_id_cludes" tabindex="-1" aria-hidden="true">
+                        </select><span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="123" style="width: auto;"><span class="selection"><span class="select2-selection select2-selection--multiple" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="-1" aria-disabled="false">
+                                    <ul class="select2-selection__rendered">
+                                        <li class="select2-search select2-search--inline"><input class="select2-search__field" type="search" tabindex="0" autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" role="searchbox" aria-autocomplete="list" placeholder="" style="width: 0.75em;"></li>
+                                    </ul>
+                                </span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+<?php } ?>
 <?php
-    do_action( 'wpo_pro_feature_message', 'pf_product_includes_by_id' );
+
     $wpt_product_ids_tag = false;
     /**
      * To Get Category List of WooCommerce
