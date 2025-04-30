@@ -2656,16 +2656,16 @@ ul#wpt_column_sortable li>span.handle.checkbox_handle>input.enabled:before, ul#w
 .wpt-template-selector-wrapper {
     display: flex;
     flex-wrap: wrap;
-    gap: 15px;
-    margin-top: 15px;
+    gap: 10px;
+    margin-top: 0px;
 }
 
 .wpt-template-item {
-    border: 1px solid #000000;
+    border: 1px solid #00000029;
     padding: 8px;
     text-align: center;
     cursor: pointer;
-    width: 120px;
+    width: 102px;
     transition: all 0.3s ease;
     border-radius: 2px;
     overflow: hidden;
