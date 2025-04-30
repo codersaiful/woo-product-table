@@ -2689,8 +2689,8 @@ ul#wpt_column_sortable li>span.handle.checkbox_handle>input.enabled:before, ul#w
     margin-bottom: 8px;
     border-radius: 4px;
 }
-.wpt-design-tab-area-wrapper.wpt-design-tab-area-wrapper-pro-in-free {
-    opacity: 0.4;
+.wpt-premium-feature-in-free-version {
+    opacity: 0.5;
 }
 
 .wpt-design-tab-area-wrapper .ultraaddons .with-background, .ultraaddons-panel .with-background{

@@ -97,7 +97,7 @@ $current_template = $meta_table_style_inPost['template'] ?? '';
 <?php
 if (!wpt_is_pro()) {
 ?>
-<div title="Premium Feature" class="wpt-design-tab-area-wrapper wpt-design-tab-area-wrapper-pro-in-free">
+<div title="Premium Feature" class="wpt-design-tab-area-wrapper wpt-premium-feature-in-free-version">
     <div class="section ultraaddons-panel">
         <h1 class="with-background dark-background wpt-design-expand title-table_header">Table Header<span title="Collapse/Expand" class="wpt-design-collaps"> <i class="wpt-expand-collapse"></i></span></h1>
         <table class="ultraaddons-table ultraaddons-table-table_header">
@@ -108,7 +108,7 @@ if (!wpt_is_pro()) {
                     </th>
                     <td>
 
-                        <div class="wp-picker-container"><button type="button" class="button wp-color-result" aria-expanded="false" style="background-color: rgb(221, 51, 51);"><span class="wp-color-result-text">Select Color</span></button><span class="wp-picker-input-wrap hidden"><label><span class="screen-reader-text">Color value</span><input class="regular-text wpt_color_picker wp-color-picker" type="text" name="table_style[tr.wpt_table_head th][background-color]" placeholder="" value="#dd3333"></label><input type="button" class="button button-small wp-picker-clear" value="Clear" aria-label="Clear color"></span>
+                        <div class="wp-picker-container"><button type="button" class="button wp-color-result" aria-expanded="false" style="background-color: rgb(221, 51, 51);"><span class="wp-color-result-text">Select Color</span></button><span class="wp-picker-input-wrap hidden"><label><span class="screen-reader-text">Color value</span><input class="regular-text wpt_color_picker wp-color-picker" type="text" saiful="table_style[tr.wpt_table_head th][background-color]" placeholder="" value="#dd3333"></label><input type="button" class="button button-small wp-picker-clear" value="Clear" aria-label="Clear color"></span>
                             <div class="wp-picker-holder">
                                 <div class="iris-picker iris-border" style="display: none; width: 255px; height: 202.125px; padding-bottom: 23.2209px;">
                                     <div class="iris-picker-inner">
@@ -134,7 +134,7 @@ if (!wpt_is_pro()) {
                     </th>
                     <td>
 
-                        <div class="wp-picker-container"><button type="button" class="button wp-color-result" aria-expanded="false"><span class="wp-color-result-text">Select Color</span></button><span class="wp-picker-input-wrap hidden"><label><span class="screen-reader-text">Color value</span><input class="regular-text wpt_color_picker wp-color-picker" type="text" name="table_style[table thead][border-color]" placeholder="" value=""></label><input type="button" class="button button-small wp-picker-clear" value="Clear" aria-label="Clear color"></span>
+                        <div class="wp-picker-container"><button type="button" class="button wp-color-result" aria-expanded="false"><span class="wp-color-result-text">Select Color</span></button><span class="wp-picker-input-wrap hidden"><label><span class="screen-reader-text">Color value</span><input class="regular-text wpt_color_picker wp-color-picker" type="text" saiful="table_style[table thead][border-color]" placeholder="" value=""></label><input type="button" class="button button-small wp-picker-clear" value="Clear" aria-label="Clear color"></span>
                             <div class="wp-picker-holder">
                                 <div class="iris-picker iris-border" style="display: none; width: 255px; height: 202.125px; padding-bottom: 23.2209px;">
                                     <div class="iris-picker-inner">
@@ -160,7 +160,7 @@ if (!wpt_is_pro()) {
                     </th>
                     <td>
 
-                        <div class="wp-picker-container"><button type="button" class="button wp-color-result" aria-expanded="false" style="background-color: rgb(238, 238, 34);"><span class="wp-color-result-text">Select Color</span></button><span class="wp-picker-input-wrap hidden"><label><span class="screen-reader-text">Color value</span><input class="regular-text wpt_color_picker wp-color-picker" type="text" name="table_style[tr.wpt_table_head th][color]" placeholder="" value="#eeee22"></label><input type="button" class="button button-small wp-picker-clear" value="Clear" aria-label="Clear color"></span>
+                        <div class="wp-picker-container"><button type="button" class="button wp-color-result" aria-expanded="false" style="background-color: rgb(238, 238, 34);"><span class="wp-color-result-text">Select Color</span></button><span class="wp-picker-input-wrap hidden"><label><span class="screen-reader-text">Color value</span><input class="regular-text wpt_color_picker wp-color-picker" type="text" saiful="table_style[tr.wpt_table_head th][color]" placeholder="" value="#eeee22"></label><input type="button" class="button button-small wp-picker-clear" value="Clear" aria-label="Clear color"></span>
                             <div class="wp-picker-holder">
                                 <div class="iris-picker iris-border" style="display: none; width: 255px; height: 202.125px; padding-bottom: 23.2209px;">
                                     <div class="iris-picker-inner">
@@ -186,7 +186,7 @@ if (!wpt_is_pro()) {
                     </th>
                     <td>
 
-                        <input class="regular-text " type="text" name="table_style[table thead][border-width]" placeholder="eg: 1px solid black" value="">
+                        <input class="regular-text " type="text" saiful="table_style[table thead][border-width]" placeholder="eg: 1px solid black" value="">
 
 
                     </td>
@@ -197,7 +197,7 @@ if (!wpt_is_pro()) {
                     </th>
                     <td>
 
-                        <input class="regular-text " type="text" name="table_style[tr.wpt_table_head th][padding]" placeholder="eg: 10px" value="">
+                        <input class="regular-text " type="text" saiful="table_style[tr.wpt_table_head th][padding]" placeholder="eg: 10px" value="">
 
 
                     </td>
@@ -207,7 +207,7 @@ if (!wpt_is_pro()) {
                         <label>Text Alignment </label>
                     </th>
                     <td>
-                        <select class="ua-select " name="table_style[tr.wpt_table_head th][text-align]">
+                        <select class="ua-select " saiful="table_style[tr.wpt_table_head th][text-align]">
                             <option value="" selected="">Blank (Default)</option>
                             <option value="initial">Initial</option>
                             <option value="center">Center</option>
@@ -224,7 +224,7 @@ if (!wpt_is_pro()) {
                     </th>
                     <td>
 
-                        <div class="wp-picker-container"><button type="button" class="button wp-color-result" aria-expanded="false"><span class="wp-color-result-text">Select Color</span></button><span class="wp-picker-input-wrap hidden"><label><span class="screen-reader-text">Color value</span><input class="regular-text wpt_color_picker wp-color-picker" type="text" name="table_style[tr th.this_column_sorted][background-color]" placeholder="" value=""></label><input type="button" class="button button-small wp-picker-clear" value="Clear" aria-label="Clear color"></span>
+                        <div class="wp-picker-container"><button type="button" class="button wp-color-result" aria-expanded="false"><span class="wp-color-result-text">Select Color</span></button><span class="wp-picker-input-wrap hidden"><label><span class="screen-reader-text">Color value</span><input class="regular-text wpt_color_picker wp-color-picker" type="text" saiful="table_style[tr th.this_column_sorted][background-color]" placeholder="" value=""></label><input type="button" class="button button-small wp-picker-clear" value="Clear" aria-label="Clear color"></span>
                             <div class="wp-picker-holder">
                                 <div class="iris-picker iris-border" style="display: none; width: 255px; height: 202.125px; padding-bottom: 23.2209px;">
                                     <div class="iris-picker-inner">
@@ -250,7 +250,7 @@ if (!wpt_is_pro()) {
                     </th>
                     <td>
 
-                        <input class="regular-text " type="text" name="table_style[tr th][font-size]" placeholder="eg: 10px" value="">
+                        <input class="regular-text " type="text" saiful="table_style[tr th][font-size]" placeholder="eg: 10px" value="">
 
 
                     </td>
@@ -261,7 +261,7 @@ if (!wpt_is_pro()) {
                     </th>
                     <td>
 
-                        <input class="regular-text " type="text" name="table_style[tr th][font-weight]" placeholder="eg: bold" value="">
+                        <input class="regular-text " type="text" saiful="table_style[tr th][font-weight]" placeholder="eg: bold" value="">
 
 
                     </td>
@@ -271,7 +271,7 @@ if (!wpt_is_pro()) {
                         <label>Column Label in Auto Responsive </label>
                     </th>
                     <td>
-                        <select class="ua-select " name="table_style[tr.wpt_table_head th][auto-responsive-column-label]">
+                        <select class="ua-select " saiful="table_style[tr.wpt_table_head th][auto-responsive-column-label]">
                             <option value="show" selected="">Show</option>
                             <option value="hide">Hide</option>
                         </select>
@@ -294,7 +294,7 @@ if (!wpt_is_pro()) {
                     </th>
                     <td>
 
-                        <div class="wp-picker-container"><button type="button" class="button wp-color-result" aria-expanded="false" style="background-color: rgb(129, 215, 66);"><span class="wp-color-result-text">Select Color</span></button><span class="wp-picker-input-wrap hidden"><label><span class="screen-reader-text">Color value</span><input class="regular-text wpt_color_picker wp-color-picker" type="text" name="table_style[tbody tr td][background-color]" placeholder="" value="#81d742"></label><input type="button" class="button button-small wp-picker-clear" value="Clear" aria-label="Clear color"></span>
+                        <div class="wp-picker-container"><button type="button" class="button wp-color-result" aria-expanded="false" style="background-color: rgb(129, 215, 66);"><span class="wp-color-result-text">Select Color</span></button><span class="wp-picker-input-wrap hidden"><label><span class="screen-reader-text">Color value</span><input class="regular-text wpt_color_picker wp-color-picker" type="text" saiful="table_style[tbody tr td][background-color]" placeholder="" value="#81d742"></label><input type="button" class="button button-small wp-picker-clear" value="Clear" aria-label="Clear color"></span>
                             <div class="wp-picker-holder">
                                 <div class="iris-picker iris-border" style="display: none; width: 255px; height: 202.125px; padding-bottom: 23.2209px;">
                                     <div class="iris-picker-inner">
@@ -320,7 +320,7 @@ if (!wpt_is_pro()) {
                     </th>
                     <td>
 
-                        <div class="wp-picker-container"><button type="button" class="button wp-color-result" aria-expanded="false" style="background-color: rgb(130, 36, 227);"><span class="wp-color-result-text">Select Color</span></button><span class="wp-picker-input-wrap hidden"><label><span class="screen-reader-text">Color value</span><input class="regular-text wpt_color_picker wp-color-picker" type="text" name="table_style[tbody tr:hover td][background-color]" placeholder="" value="#8224e3"></label><input type="button" class="button button-small wp-picker-clear" value="Clear" aria-label="Clear color"></span>
+                        <div class="wp-picker-container"><button type="button" class="button wp-color-result" aria-expanded="false" style="background-color: rgb(130, 36, 227);"><span class="wp-color-result-text">Select Color</span></button><span class="wp-picker-input-wrap hidden"><label><span class="screen-reader-text">Color value</span><input class="regular-text wpt_color_picker wp-color-picker" type="text" saiful="table_style[tbody tr:hover td][background-color]" placeholder="" value="#8224e3"></label><input type="button" class="button button-small wp-picker-clear" value="Clear" aria-label="Clear color"></span>
                             <div class="wp-picker-holder">
                                 <div class="iris-picker iris-border" style="display: none; width: 255px; height: 202.125px; padding-bottom: 23.2209px;">
                                     <div class="iris-picker-inner">
@@ -346,7 +346,7 @@ if (!wpt_is_pro()) {
                     </th>
                     <td>
 
-                        <div class="wp-picker-container"><button type="button" class="button wp-color-result" aria-expanded="false" style="background-color: rgb(130, 36, 227);"><span class="wp-color-result-text">Select Color</span></button><span class="wp-picker-input-wrap hidden"><label><span class="screen-reader-text">Color value</span><input class="regular-text wpt_color_picker wp-color-picker" type="text" name="table_style[tbody tr td][border-color]" placeholder="" value="#8224e3"></label><input type="button" class="button button-small wp-picker-clear" value="Clear" aria-label="Clear color"></span>
+                        <div class="wp-picker-container"><button type="button" class="button wp-color-result" aria-expanded="false" style="background-color: rgb(130, 36, 227);"><span class="wp-color-result-text">Select Color</span></button><span class="wp-picker-input-wrap hidden"><label><span class="screen-reader-text">Color value</span><input class="regular-text wpt_color_picker wp-color-picker" type="text" saiful="table_style[tbody tr td][border-color]" placeholder="" value="#8224e3"></label><input type="button" class="button button-small wp-picker-clear" value="Clear" aria-label="Clear color"></span>
                             <div class="wp-picker-holder">
                                 <div class="iris-picker iris-border" style="display: none; width: 255px; height: 202.125px; padding-bottom: 23.2209px;">
                                     <div class="iris-picker-inner">
@@ -372,7 +372,7 @@ if (!wpt_is_pro()) {
                     </th>
                     <td>
 
-                        <div class="wp-picker-container"><button type="button" class="button wp-color-result" aria-expanded="false"><span class="wp-color-result-text">Select Color</span></button><span class="wp-picker-input-wrap hidden"><label><span class="screen-reader-text">Color value</span><input class="regular-text wpt_color_picker wp-color-picker" type="text" name="table_style[tbody tr td][color]" placeholder="" value=""></label><input type="button" class="button button-small wp-picker-clear" value="Clear" aria-label="Clear color"></span>
+                        <div class="wp-picker-container"><button type="button" class="button wp-color-result" aria-expanded="false"><span class="wp-color-result-text">Select Color</span></button><span class="wp-picker-input-wrap hidden"><label><span class="screen-reader-text">Color value</span><input class="regular-text wpt_color_picker wp-color-picker" type="text" saiful="table_style[tbody tr td][color]" placeholder="" value=""></label><input type="button" class="button button-small wp-picker-clear" value="Clear" aria-label="Clear color"></span>
                             <div class="wp-picker-holder">
                                 <div class="iris-picker iris-border" style="display: none; width: 255px; height: 202.125px; padding-bottom: 23.2209px;">
                                     <div class="iris-picker-inner">
@@ -397,7 +397,7 @@ if (!wpt_is_pro()) {
                         <label>Text Alignment </label>
                     </th>
                     <td>
-                        <select class="ua-select " name="table_style[.wpt_product_table *, .wpt_product_table tr>td, .wpt_product_table td][text-align]">
+                        <select class="ua-select " saiful="table_style[.wpt_product_table *, .wpt_product_table tr>td, .wpt_product_table td][text-align]">
                             <option value="">Blank (Default)</option>
                             <option value="initial">Initial</option>
                             <option value="center" selected="">Center</option>
@@ -414,7 +414,7 @@ if (!wpt_is_pro()) {
                     </th>
                     <td>
 
-                        <div class="wp-picker-container"><button type="button" class="button wp-color-result" aria-expanded="false"><span class="wp-color-result-text">Select Color</span></button><span class="wp-picker-input-wrap hidden"><label><span class="screen-reader-text">Color value</span><input class="regular-text wpt_color_picker wp-color-picker" type="text" name="table_style[tbody tr td a][color]" placeholder="" value=""></label><input type="button" class="button button-small wp-picker-clear" value="Clear" aria-label="Clear color"></span>
+                        <div class="wp-picker-container"><button type="button" class="button wp-color-result" aria-expanded="false"><span class="wp-color-result-text">Select Color</span></button><span class="wp-picker-input-wrap hidden"><label><span class="screen-reader-text">Color value</span><input class="regular-text wpt_color_picker wp-color-picker" type="text" saiful="table_style[tbody tr td a][color]" placeholder="" value=""></label><input type="button" class="button button-small wp-picker-clear" value="Clear" aria-label="Clear color"></span>
                             <div class="wp-picker-holder">
                                 <div class="iris-picker iris-border" style="display: none; width: 255px; height: 202.125px; padding-bottom: 23.2209px;">
                                     <div class="iris-picker-inner">
@@ -440,7 +440,7 @@ if (!wpt_is_pro()) {
                     </th>
                     <td>
 
-                        <div class="wp-picker-container"><button type="button" class="button wp-color-result" aria-expanded="false"><span class="wp-color-result-text">Select Color</span></button><span class="wp-picker-input-wrap hidden"><label><span class="screen-reader-text">Color value</span><input class="regular-text wpt_color_picker wp-color-picker" type="text" name="table_style[tbody tr td a:hover][color]" placeholder="" value=""></label><input type="button" class="button button-small wp-picker-clear" value="Clear" aria-label="Clear color"></span>
+                        <div class="wp-picker-container"><button type="button" class="button wp-color-result" aria-expanded="false"><span class="wp-color-result-text">Select Color</span></button><span class="wp-picker-input-wrap hidden"><label><span class="screen-reader-text">Color value</span><input class="regular-text wpt_color_picker wp-color-picker" type="text" saiful="table_style[tbody tr td a:hover][color]" placeholder="" value=""></label><input type="button" class="button button-small wp-picker-clear" value="Clear" aria-label="Clear color"></span>
                             <div class="wp-picker-holder">
                                 <div class="iris-picker iris-border" style="display: none; width: 255px; height: 202.125px; padding-bottom: 23.2209px;">
                                     <div class="iris-picker-inner">
@@ -466,7 +466,7 @@ if (!wpt_is_pro()) {
                     </th>
                     <td>
 
-                        <input class="regular-text " type="text" name="table_style[tbody tr td][padding]" placeholder="eg: 5px" value="">
+                        <input class="regular-text " type="text" saiful="table_style[tbody tr td][padding]" placeholder="eg: 5px" value="">
 
 
                     </td>
@@ -477,7 +477,7 @@ if (!wpt_is_pro()) {
                     </th>
                     <td>
 
-                        <div class="wp-picker-container"><button type="button" class="button wp-color-result" aria-expanded="false"><span class="wp-color-result-text">Select Color</span></button><span class="wp-picker-input-wrap hidden"><label><span class="screen-reader-text">Color value</span><input class="regular-text wpt_color_picker wp-color-picker" type="text" name="table_style[tbody tr td.this_column_sorted][background-color]" placeholder="" value=""></label><input type="button" class="button button-small wp-picker-clear" value="Clear" aria-label="Clear color"></span>
+                        <div class="wp-picker-container"><button type="button" class="button wp-color-result" aria-expanded="false"><span class="wp-color-result-text">Select Color</span></button><span class="wp-picker-input-wrap hidden"><label><span class="screen-reader-text">Color value</span><input class="regular-text wpt_color_picker wp-color-picker" type="text" saiful="table_style[tbody tr td.this_column_sorted][background-color]" placeholder="" value=""></label><input type="button" class="button button-small wp-picker-clear" value="Clear" aria-label="Clear color"></span>
                             <div class="wp-picker-holder">
                                 <div class="iris-picker iris-border" style="display: none; width: 255px; height: 202.125px; padding-bottom: 23.2209px;">
                                     <div class="iris-picker-inner">
@@ -503,7 +503,7 @@ if (!wpt_is_pro()) {
                     </th>
                     <td>
 
-                        <input class="regular-text " type="text" name="table_style[.wpt_product_table *, .wpt_product_table tr>td, .wpt_product_table td][font-size]" placeholder="eg: 17px" value="12px">
+                        <input class="regular-text " type="text" saiful="table_style[.wpt_product_table *, .wpt_product_table tr>td, .wpt_product_table td][font-size]" placeholder="eg: 17px" value="12px">
 
 
                     </td>
@@ -514,7 +514,7 @@ if (!wpt_is_pro()) {
                     </th>
                     <td>
 
-                        <input class="regular-text " type="text" name="table_style[.wpt_product_table *, .wpt_product_table tr>td, .wpt_product_table td][font-weight]" placeholder="eg: bold" value="">
+                        <input class="regular-text " type="text" saiful="table_style[.wpt_product_table *, .wpt_product_table tr>td, .wpt_product_table td][font-weight]" placeholder="eg: bold" value="">
 
 
                     </td>
@@ -533,7 +533,7 @@ if (!wpt_is_pro()) {
                     </th>
                     <td>
 
-                        <div class="wp-picker-container"><button type="button" class="button wp-color-result" aria-expanded="false" style="background-color: rgb(221, 153, 51);"><span class="wp-color-result-text">Select Color</span></button><span class="wp-picker-input-wrap hidden"><label><span class="screen-reader-text">Color value</span><input class="regular-text wpt_color_picker wp-color-picker" type="text" name="table_style[input{type=checkbox}:checked%label:before][background-color]" placeholder="" value="#dd9933"></label><input type="button" class="button button-small wp-picker-clear" value="Clear" aria-label="Clear color"></span>
+                        <div class="wp-picker-container"><button type="button" class="button wp-color-result" aria-expanded="false" style="background-color: rgb(221, 153, 51);"><span class="wp-color-result-text">Select Color</span></button><span class="wp-picker-input-wrap hidden"><label><span class="screen-reader-text">Color value</span><input class="regular-text wpt_color_picker wp-color-picker" type="text" saiful="table_style[input{type=checkbox}:checked%label:before][background-color]" placeholder="" value="#dd9933"></label><input type="button" class="button button-small wp-picker-clear" value="Clear" aria-label="Clear color"></span>
                             <div class="wp-picker-holder">
                                 <div class="iris-picker iris-border" style="display: none; width: 255px; height: 202.125px; padding-bottom: 23.2209px;">
                                     <div class="iris-picker-inner">
@@ -559,7 +559,7 @@ if (!wpt_is_pro()) {
                     </th>
                     <td>
 
-                        <div class="wp-picker-container"><button type="button" class="button wp-color-result" aria-expanded="false" style="background-color: rgb(186, 53, 142);"><span class="wp-color-result-text">Select Color</span></button><span class="wp-picker-input-wrap hidden"><label><span class="screen-reader-text">Color value</span><input class="regular-text wpt_color_picker wp-color-picker" type="text" name="table_style[input{type=checkbox}:checked%label:before][border-color]" placeholder="" value="#ba358e"></label><input type="button" class="button button-small wp-picker-clear" value="Clear" aria-label="Clear color"></span>
+                        <div class="wp-picker-container"><button type="button" class="button wp-color-result" aria-expanded="false" style="background-color: rgb(186, 53, 142);"><span class="wp-color-result-text">Select Color</span></button><span class="wp-picker-input-wrap hidden"><label><span class="screen-reader-text">Color value</span><input class="regular-text wpt_color_picker wp-color-picker" type="text" saiful="table_style[input{type=checkbox}:checked%label:before][border-color]" placeholder="" value="#ba358e"></label><input type="button" class="button button-small wp-picker-clear" value="Clear" aria-label="Clear color"></span>
                             <div class="wp-picker-holder">
                                 <div class="iris-picker iris-border" style="display: none; width: 255px; height: 202.125px; padding-bottom: 23.2209px;">
                                     <div class="iris-picker-inner">
@@ -585,7 +585,7 @@ if (!wpt_is_pro()) {
                     </th>
                     <td>
 
-                        <div class="wp-picker-container"><button type="button" class="button wp-color-result" aria-expanded="false" style="background-color: rgb(30, 115, 190);"><span class="wp-color-result-text">Select Color</span></button><span class="wp-picker-input-wrap hidden"><label><span class="screen-reader-text">Color value</span><input class="regular-text wpt_color_picker wp-color-picker" type="text" name="table_style[input{type=checkbox}:checked%label:after][color]" placeholder="" value="#1e73be"></label><input type="button" class="button button-small wp-picker-clear" value="Clear" aria-label="Clear color"></span>
+                        <div class="wp-picker-container"><button type="button" class="button wp-color-result" aria-expanded="false" style="background-color: rgb(30, 115, 190);"><span class="wp-color-result-text">Select Color</span></button><span class="wp-picker-input-wrap hidden"><label><span class="screen-reader-text">Color value</span><input class="regular-text wpt_color_picker wp-color-picker" type="text" saiful="table_style[input{type=checkbox}:checked%label:after][color]" placeholder="" value="#1e73be"></label><input type="button" class="button button-small wp-picker-clear" value="Clear" aria-label="Clear color"></span>
                             <div class="wp-picker-holder">
                                 <div class="iris-picker iris-border" style="display: none; width: 255px; height: 202.125px; padding-bottom: 23.2209px;">
                                     <div class="iris-picker-inner">
@@ -619,7 +619,7 @@ if (!wpt_is_pro()) {
                     </th>
                     <td>
 
-                        <div class="wp-picker-container"><button type="button" class="button wp-color-result" aria-expanded="false" style="background-color: rgb(130, 36, 227);"><span class="wp-color-result-text">Select Color</span></button><span class="wp-picker-input-wrap hidden"><label><span class="screen-reader-text">Color value</span><input class="regular-text wpt_color_picker wp-color-picker" type="text" name="table_style[.button][background-color]" placeholder="" value="#8224e3"></label><input type="button" class="button button-small wp-picker-clear" value="Clear" aria-label="Clear color"></span>
+                        <div class="wp-picker-container"><button type="button" class="button wp-color-result" aria-expanded="false" style="background-color: rgb(130, 36, 227);"><span class="wp-color-result-text">Select Color</span></button><span class="wp-picker-input-wrap hidden"><label><span class="screen-reader-text">Color value</span><input class="regular-text wpt_color_picker wp-color-picker" type="text" saiful="table_style[.button][background-color]" placeholder="" value="#8224e3"></label><input type="button" class="button button-small wp-picker-clear" value="Clear" aria-label="Clear color"></span>
                             <div class="wp-picker-holder">
                                 <div class="iris-picker iris-border" style="display: none; width: 255px; height: 202.125px; padding-bottom: 23.2209px;">
                                     <div class="iris-picker-inner">
@@ -645,7 +645,7 @@ if (!wpt_is_pro()) {
                     </th>
                     <td>
 
-                        <div class="wp-picker-container"><button type="button" class="button wp-color-result" aria-expanded="false" style="background-color: rgb(30, 115, 190);"><span class="wp-color-result-text">Select Color</span></button><span class="wp-picker-input-wrap hidden"><label><span class="screen-reader-text">Color value</span><input class="regular-text wpt_color_picker wp-color-picker" type="text" name="table_style[.button:hover][background-color]" placeholder="" value="#1e73be"></label><input type="button" class="button button-small wp-picker-clear" value="Clear" aria-label="Clear color"></span>
+                        <div class="wp-picker-container"><button type="button" class="button wp-color-result" aria-expanded="false" style="background-color: rgb(30, 115, 190);"><span class="wp-color-result-text">Select Color</span></button><span class="wp-picker-input-wrap hidden"><label><span class="screen-reader-text">Color value</span><input class="regular-text wpt_color_picker wp-color-picker" type="text" saiful="table_style[.button:hover][background-color]" placeholder="" value="#1e73be"></label><input type="button" class="button button-small wp-picker-clear" value="Clear" aria-label="Clear color"></span>
                             <div class="wp-picker-holder">
                                 <div class="iris-picker iris-border" style="display: none; width: 255px; height: 202.125px; padding-bottom: 23.2209px;">
                                     <div class="iris-picker-inner">
@@ -671,7 +671,7 @@ if (!wpt_is_pro()) {
                     </th>
                     <td>
 
-                        <div class="wp-picker-container"><button type="button" class="button wp-color-result" aria-expanded="false" style="background-color: rgb(238, 238, 34);"><span class="wp-color-result-text">Select Color</span></button><span class="wp-picker-input-wrap hidden"><label><span class="screen-reader-text">Color value</span><input class="regular-text wpt_color_picker wp-color-picker" type="text" name="table_style[.button][color]" placeholder="" value="#eeee22"></label><input type="button" class="button button-small wp-picker-clear" value="Clear" aria-label="Clear color"></span>
+                        <div class="wp-picker-container"><button type="button" class="button wp-color-result" aria-expanded="false" style="background-color: rgb(238, 238, 34);"><span class="wp-color-result-text">Select Color</span></button><span class="wp-picker-input-wrap hidden"><label><span class="screen-reader-text">Color value</span><input class="regular-text wpt_color_picker wp-color-picker" type="text" saiful="table_style[.button][color]" placeholder="" value="#eeee22"></label><input type="button" class="button button-small wp-picker-clear" value="Clear" aria-label="Clear color"></span>
                             <div class="wp-picker-holder">
                                 <div class="iris-picker iris-border" style="display: none; width: 255px; height: 202.125px; padding-bottom: 23.2209px;">
                                     <div class="iris-picker-inner">
@@ -697,7 +697,7 @@ if (!wpt_is_pro()) {
                     </th>
                     <td>
 
-                        <div class="wp-picker-container"><button type="button" class="button wp-color-result" aria-expanded="false" style="background-color: rgb(30, 115, 190);"><span class="wp-color-result-text">Select Color</span></button><span class="wp-picker-input-wrap hidden"><label><span class="screen-reader-text">Color value</span><input class="regular-text wpt_color_picker wp-color-picker" type="text" name="table_style[.button:hover][color]" placeholder="" value="#1e73be"></label><input type="button" class="button button-small wp-picker-clear" value="Clear" aria-label="Clear color"></span>
+                        <div class="wp-picker-container"><button type="button" class="button wp-color-result" aria-expanded="false" style="background-color: rgb(30, 115, 190);"><span class="wp-color-result-text">Select Color</span></button><span class="wp-picker-input-wrap hidden"><label><span class="screen-reader-text">Color value</span><input class="regular-text wpt_color_picker wp-color-picker" type="text" saiful="table_style[.button:hover][color]" placeholder="" value="#1e73be"></label><input type="button" class="button button-small wp-picker-clear" value="Clear" aria-label="Clear color"></span>
                             <div class="wp-picker-holder">
                                 <div class="iris-picker iris-border" style="display: none; width: 255px; height: 202.125px; padding-bottom: 23.2209px;">
                                     <div class="iris-picker-inner">
@@ -723,7 +723,7 @@ if (!wpt_is_pro()) {
                     </th>
                     <td>
 
-                        <div class="wp-picker-container"><button type="button" class="button wp-color-result" aria-expanded="false" style="background-color: rgb(130, 36, 227);"><span class="wp-color-result-text">Select Color</span></button><span class="wp-picker-input-wrap hidden"><label><span class="screen-reader-text">Color value</span><input class="regular-text wpt_color_picker wp-color-picker" type="text" name="table_style[.button][background-color]" placeholder="" value="#8224e3"></label><input type="button" class="button button-small wp-picker-clear" value="Clear" aria-label="Clear color"></span>
+                        <div class="wp-picker-container"><button type="button" class="button wp-color-result" aria-expanded="false" style="background-color: rgb(130, 36, 227);"><span class="wp-color-result-text">Select Color</span></button><span class="wp-picker-input-wrap hidden"><label><span class="screen-reader-text">Color value</span><input class="regular-text wpt_color_picker wp-color-picker" type="text" saiful="table_style[.button][background-color]" placeholder="" value="#8224e3"></label><input type="button" class="button button-small wp-picker-clear" value="Clear" aria-label="Clear color"></span>
                             <div class="wp-picker-holder">
                                 <div class="iris-picker iris-border" style="display: none; width: 255px; height: 202.125px; padding-bottom: 23.2209px;">
                                     <div class="iris-picker-inner">
@@ -757,7 +757,7 @@ if (!wpt_is_pro()) {
                     </th>
                     <td>
 
-                        <div class="wp-picker-container"><button type="button" class="button wp-color-result" aria-expanded="false" style="background-color: rgb(221, 51, 51);"><span class="wp-color-result-text">Select Color</span></button><span class="wp-picker-input-wrap hidden"><label><span class="screen-reader-text">Color value</span><input class="regular-text wpt_color_picker wp-color-picker" type="text" name="table_style[a.wpt_woo_add_cart_button][background-color]" placeholder="" value="#dd3333"></label><input type="button" class="button button-small wp-picker-clear" value="Clear" aria-label="Clear color"></span>
+                        <div class="wp-picker-container"><button type="button" class="button wp-color-result" aria-expanded="false" style="background-color: rgb(221, 51, 51);"><span class="wp-color-result-text">Select Color</span></button><span class="wp-picker-input-wrap hidden"><label><span class="screen-reader-text">Color value</span><input class="regular-text wpt_color_picker wp-color-picker" type="text" saiful="table_style[a.wpt_woo_add_cart_button][background-color]" placeholder="" value="#dd3333"></label><input type="button" class="button button-small wp-picker-clear" value="Clear" aria-label="Clear color"></span>
                             <div class="wp-picker-holder">
                                 <div class="iris-picker iris-border" style="display: none; width: 255px; height: 202.125px; padding-bottom: 23.2209px;">
                                     <div class="iris-picker-inner">
@@ -783,7 +783,7 @@ if (!wpt_is_pro()) {
                     </th>
                     <td>
 
-                        <div class="wp-picker-container"><button type="button" class="button wp-color-result" aria-expanded="false" style="background-color: rgb(129, 215, 66);"><span class="wp-color-result-text">Select Color</span></button><span class="wp-picker-input-wrap hidden"><label><span class="screen-reader-text">Color value</span><input class="regular-text wpt_color_picker wp-color-picker" type="text" name="table_style[a.wpt_woo_add_cart_button:hover][background-color]" placeholder="" value="#81d742"></label><input type="button" class="button button-small wp-picker-clear" value="Clear" aria-label="Clear color"></span>
+                        <div class="wp-picker-container"><button type="button" class="button wp-color-result" aria-expanded="false" style="background-color: rgb(129, 215, 66);"><span class="wp-color-result-text">Select Color</span></button><span class="wp-picker-input-wrap hidden"><label><span class="screen-reader-text">Color value</span><input class="regular-text wpt_color_picker wp-color-picker" type="text" saiful="table_style[a.wpt_woo_add_cart_button:hover][background-color]" placeholder="" value="#81d742"></label><input type="button" class="button button-small wp-picker-clear" value="Clear" aria-label="Clear color"></span>
                             <div class="wp-picker-holder">
                                 <div class="iris-picker iris-border" style="display: none; width: 255px; height: 202.125px; padding-bottom: 23.2209px;">
                                     <div class="iris-picker-inner">
@@ -809,7 +809,7 @@ if (!wpt_is_pro()) {
                     </th>
                     <td>
 
-                        <div class="wp-picker-container"><button type="button" class="button wp-color-result" aria-expanded="false" style="background-color: rgb(30, 115, 190);"><span class="wp-color-result-text">Select Color</span></button><span class="wp-picker-input-wrap hidden"><label><span class="screen-reader-text">Color value</span><input class="regular-text wpt_color_picker wp-color-picker" type="text" name="table_style[a.wpt_woo_add_cart_button][color]" placeholder="" value="#1e73be"></label><input type="button" class="button button-small wp-picker-clear" value="Clear" aria-label="Clear color"></span>
+                        <div class="wp-picker-container"><button type="button" class="button wp-color-result" aria-expanded="false" style="background-color: rgb(30, 115, 190);"><span class="wp-color-result-text">Select Color</span></button><span class="wp-picker-input-wrap hidden"><label><span class="screen-reader-text">Color value</span><input class="regular-text wpt_color_picker wp-color-picker" type="text" saiful="table_style[a.wpt_woo_add_cart_button][color]" placeholder="" value="#1e73be"></label><input type="button" class="button button-small wp-picker-clear" value="Clear" aria-label="Clear color"></span>
                             <div class="wp-picker-holder">
                                 <div class="iris-picker iris-border" style="display: none; width: 255px; height: 202.125px; padding-bottom: 23.2209px;">
                                     <div class="iris-picker-inner">
@@ -835,7 +835,7 @@ if (!wpt_is_pro()) {
                     </th>
                     <td>
 
-                        <input class="regular-text " type="text" name="table_style[a.wpt_woo_add_cart_button][font-size]" placeholder="eg: 17px" value="">
+                        <input class="regular-text " type="text" saiful="table_style[a.wpt_woo_add_cart_button][font-size]" placeholder="eg: 17px" value="">
 
 
                     </td>
@@ -846,7 +846,7 @@ if (!wpt_is_pro()) {
                     </th>
                     <td>
 
-                        <div class="wp-picker-container"><button type="button" class="button wp-color-result" aria-expanded="false"><span class="wp-color-result-text">Select Color</span></button><span class="wp-picker-input-wrap hidden"><label><span class="screen-reader-text">Color value</span><input class="regular-text wpt_color_picker wp-color-picker" type="text" name="table_style[a.wpt_woo_add_cart_button:hover][color]" placeholder="" value=""></label><input type="button" class="button button-small wp-picker-clear" value="Clear" aria-label="Clear color"></span>
+                        <div class="wp-picker-container"><button type="button" class="button wp-color-result" aria-expanded="false"><span class="wp-color-result-text">Select Color</span></button><span class="wp-picker-input-wrap hidden"><label><span class="screen-reader-text">Color value</span><input class="regular-text wpt_color_picker wp-color-picker" type="text" saiful="table_style[a.wpt_woo_add_cart_button:hover][color]" placeholder="" value=""></label><input type="button" class="button button-small wp-picker-clear" value="Clear" aria-label="Clear color"></span>
                             <div class="wp-picker-holder">
                                 <div class="iris-picker iris-border" style="display: none; width: 255px; height: 202.125px; padding-bottom: 23.2209px;">
                                     <div class="iris-picker-inner">
@@ -872,7 +872,7 @@ if (!wpt_is_pro()) {
                     </th>
                     <td>
 
-                        <input class="regular-text " type="text" name="table_style[a.wpt_woo_add_cart_button][padding]" placeholder="eg: 10px" value="">
+                        <input class="regular-text " type="text" saiful="table_style[a.wpt_woo_add_cart_button][padding]" placeholder="eg: 10px" value="">
 
 
                     </td>
@@ -882,7 +882,7 @@ if (!wpt_is_pro()) {
                         <label>Button Alignment </label>
                     </th>
                     <td>
-                        <select class="ua-select " name="table_style[tr.product_type_simple .item_inside_cell.wpt_action, tr.product_type_simple .td_or_cell.wpt_action>div][justify-content]">
+                        <select class="ua-select " saiful="table_style[tr.product_type_simple .item_inside_cell.wpt_action, tr.product_type_simple .td_or_cell.wpt_action>div][justify-content]">
                             <option value="" selected="">Left (Default)</option>
                             <option value="center">Center</option>
                             <option value="end">Right</option>
@@ -905,7 +905,7 @@ if (!wpt_is_pro()) {
                     </th>
                     <td>
 
-                        <div class="wp-picker-container"><button type="button" class="button wp-color-result" aria-expanded="false" style="background-color: rgb(129, 215, 66);"><span class="wp-color-result-text">Select Color</span></button><span class="wp-picker-input-wrap hidden"><label><span class="screen-reader-text">Color value</span><input class="regular-text wpt_color_picker wp-color-picker" type="text" name="table_style[.wpt_table_pagination a.page-numbers.current][background-color]" placeholder="" value="#81d742"></label><input type="button" class="button button-small wp-picker-clear" value="Clear" aria-label="Clear color"></span>
+                        <div class="wp-picker-container"><button type="button" class="button wp-color-result" aria-expanded="false" style="background-color: rgb(129, 215, 66);"><span class="wp-color-result-text">Select Color</span></button><span class="wp-picker-input-wrap hidden"><label><span class="screen-reader-text">Color value</span><input class="regular-text wpt_color_picker wp-color-picker" type="text" saiful="table_style[.wpt_table_pagination a.page-numbers.current][background-color]" placeholder="" value="#81d742"></label><input type="button" class="button button-small wp-picker-clear" value="Clear" aria-label="Clear color"></span>
                             <div class="wp-picker-holder">
                                 <div class="iris-picker iris-border" style="display: none; width: 255px; height: 202.125px; padding-bottom: 23.2209px;">
                                     <div class="iris-picker-inner">
@@ -931,7 +931,7 @@ if (!wpt_is_pro()) {
                     </th>
                     <td>
 
-                        <div class="wp-picker-container"><button type="button" class="button wp-color-result" aria-expanded="false" style="background-color: rgb(30, 115, 190);"><span class="wp-color-result-text">Select Color</span></button><span class="wp-picker-input-wrap hidden"><label><span class="screen-reader-text">Color value</span><input class="regular-text wpt_color_picker wp-color-picker" type="text" name="table_style[.wpt_table_pagination a:hover][background-color]" placeholder="" value="#1e73be"></label><input type="button" class="button button-small wp-picker-clear" value="Clear" aria-label="Clear color"></span>
+                        <div class="wp-picker-container"><button type="button" class="button wp-color-result" aria-expanded="false" style="background-color: rgb(30, 115, 190);"><span class="wp-color-result-text">Select Color</span></button><span class="wp-picker-input-wrap hidden"><label><span class="screen-reader-text">Color value</span><input class="regular-text wpt_color_picker wp-color-picker" type="text" saiful="table_style[.wpt_table_pagination a:hover][background-color]" placeholder="" value="#1e73be"></label><input type="button" class="button button-small wp-picker-clear" value="Clear" aria-label="Clear color"></span>
                             <div class="wp-picker-holder">
                                 <div class="iris-picker iris-border" style="display: none; width: 255px; height: 202.125px; padding-bottom: 23.2209px;">
                                     <div class="iris-picker-inner">
@@ -957,7 +957,7 @@ if (!wpt_is_pro()) {
                     </th>
                     <td>
 
-                        <div class="wp-picker-container"><button type="button" class="button wp-color-result" aria-expanded="false" style="background-color: rgb(130, 36, 227);"><span class="wp-color-result-text">Select Color</span></button><span class="wp-picker-input-wrap hidden"><label><span class="screen-reader-text">Color value</span><input class="regular-text wpt_color_picker wp-color-picker" type="text" name="table_style[.wpt_tspan.page-numbers.current, a.page-numbers.current][border-color]" placeholder="" value="#8224e3"></label><input type="button" class="button button-small wp-picker-clear" value="Clear" aria-label="Clear color"></span>
+                        <div class="wp-picker-container"><button type="button" class="button wp-color-result" aria-expanded="false" style="background-color: rgb(130, 36, 227);"><span class="wp-color-result-text">Select Color</span></button><span class="wp-picker-input-wrap hidden"><label><span class="screen-reader-text">Color value</span><input class="regular-text wpt_color_picker wp-color-picker" type="text" saiful="table_style[.wpt_tspan.page-numbers.current, a.page-numbers.current][border-color]" placeholder="" value="#8224e3"></label><input type="button" class="button button-small wp-picker-clear" value="Clear" aria-label="Clear color"></span>
                             <div class="wp-picker-holder">
                                 <div class="iris-picker iris-border" style="display: none; width: 255px; height: 202.125px; padding-bottom: 23.2209px;">
                                     <div class="iris-picker-inner">
@@ -983,7 +983,7 @@ if (!wpt_is_pro()) {
                     </th>
                     <td>
 
-                        <div class="wp-picker-container"><button type="button" class="button wp-color-result" aria-expanded="false" style="background-color: rgb(221, 51, 51);"><span class="wp-color-result-text">Select Color</span></button><span class="wp-picker-input-wrap hidden"><label><span class="screen-reader-text">Color value</span><input class="regular-text wpt_color_picker wp-color-picker" type="text" name="table_style[a.page-numbers, span.page-numbers][color]" placeholder="" value="#dd3333"></label><input type="button" class="button button-small wp-picker-clear" value="Clear" aria-label="Clear color"></span>
+                        <div class="wp-picker-container"><button type="button" class="button wp-color-result" aria-expanded="false" style="background-color: rgb(221, 51, 51);"><span class="wp-color-result-text">Select Color</span></button><span class="wp-picker-input-wrap hidden"><label><span class="screen-reader-text">Color value</span><input class="regular-text wpt_color_picker wp-color-picker" type="text" saiful="table_style[a.page-numbers, span.page-numbers][color]" placeholder="" value="#dd3333"></label><input type="button" class="button button-small wp-picker-clear" value="Clear" aria-label="Clear color"></span>
                             <div class="wp-picker-holder">
                                 <div class="iris-picker iris-border" style="display: none; width: 255px; height: 202.125px; padding-bottom: 23.2209px;">
                                     <div class="iris-picker-inner">
@@ -1009,7 +1009,7 @@ if (!wpt_is_pro()) {
                     </th>
                     <td>
 
-                        <div class="wp-picker-container"><button type="button" class="button wp-color-result" aria-expanded="false" style="background-color: rgb(26, 69, 147);"><span class="wp-color-result-text">Select Color</span></button><span class="wp-picker-input-wrap hidden"><label><span class="screen-reader-text">Color value</span><input class="regular-text wpt_color_picker wp-color-picker" type="text" name="table_style[.wpt_tspan.page-numbers.current, a.page-numbers.current][color]" placeholder="" value="#1a4593"></label><input type="button" class="button button-small wp-picker-clear" value="Clear" aria-label="Clear color"></span>
+                        <div class="wp-picker-container"><button type="button" class="button wp-color-result" aria-expanded="false" style="background-color: rgb(26, 69, 147);"><span class="wp-color-result-text">Select Color</span></button><span class="wp-picker-input-wrap hidden"><label><span class="screen-reader-text">Color value</span><input class="regular-text wpt_color_picker wp-color-picker" type="text" saiful="table_style[.wpt_tspan.page-numbers.current, a.page-numbers.current][color]" placeholder="" value="#1a4593"></label><input type="button" class="button button-small wp-picker-clear" value="Clear" aria-label="Clear color"></span>
                             <div class="wp-picker-holder">
                                 <div class="iris-picker iris-border" style="display: none; width: 255px; height: 202.125px; padding-bottom: 23.2209px;">
                                     <div class="iris-picker-inner">
@@ -1034,7 +1034,7 @@ if (!wpt_is_pro()) {
                         <label>Alignment </label>
                     </th>
                     <td>
-                        <select class="ua-select " name="table_style[.wpt_table_pagination][text-align]">
+                        <select class="ua-select " saiful="table_style[.wpt_table_pagination][text-align]">
                             <option value="" selected="">Blank (Default)</option>
                             <option value="center">Center</option>
                             <option value="left">Left</option>
@@ -1057,7 +1057,7 @@ if (!wpt_is_pro()) {
                         <label>Keywords Field Width </label>
                     </th>
                     <td>
-                        <select class="ua-select " name="table_style[.wpt_search_box .search_single .search_single_column][width]">
+                        <select class="ua-select " saiful="table_style[.wpt_search_box .search_single .search_single_column][width]">
                             <option value="">Blank (Default)</option>
                             <option value="33.33%">33.33%</option>
                             <option value="50%">50%</option>
@@ -1072,7 +1072,7 @@ if (!wpt_is_pro()) {
                         <label>Keywords Field Alignment </label>
                     </th>
                     <td>
-                        <select class="ua-select " name="table_style[.wpt_search_box .search_single .search_single_column][width]">
+                        <select class="ua-select " saiful="table_style[.wpt_search_box .search_single .search_single_column][width]">
                             <option value="">Blank (Default)</option>
                             <option value="left">Left</option>
                             <option value="none" selected="">None</option>
@@ -1096,7 +1096,7 @@ if (!wpt_is_pro()) {
                     </th>
                     <td>
 
-                        <input class="regular-text " type="text" name="table_style[a.wpt_product_title_in_td][font-size]" placeholder="" value="15px">
+                        <input class="regular-text " type="text" saiful="table_style[a.wpt_product_title_in_td][font-size]" placeholder="" value="15px">
 
 
                     </td>
@@ -1107,7 +1107,7 @@ if (!wpt_is_pro()) {
                     </th>
                     <td>
 
-                        <input class="regular-text " type="text" name="table_style[a.wpt_product_title_in_td][text-align]" placeholder="" value="right">
+                        <input class="regular-text " type="text" saiful="table_style[a.wpt_product_title_in_td][text-align]" placeholder="" value="right">
 
 
                     </td>
@@ -1118,7 +1118,7 @@ if (!wpt_is_pro()) {
                     </th>
                     <td>
 
-                        <input class="regular-text " type="text" name="table_style[a.wpt_product_title_in_td][font-weight]" placeholder="" value="bold">
+                        <input class="regular-text " type="text" saiful="table_style[a.wpt_product_title_in_td][font-weight]" placeholder="" value="bold">
 
 
                     </td>
@@ -1129,7 +1129,7 @@ if (!wpt_is_pro()) {
                     </th>
                     <td>
 
-                        <div class="wp-picker-container"><button type="button" class="button wp-color-result" aria-expanded="false" style="background-color: rgb(129, 215, 66);"><span class="wp-color-result-text">Select Color</span></button><span class="wp-picker-input-wrap hidden"><label><span class="screen-reader-text">Color value</span><input class="regular-text wpt_color_picker wp-color-picker" type="text" name="table_style[a.wpt_product_title_in_td][color]" placeholder="" value="#81d742"></label><input type="button" class="button button-small wp-picker-clear" value="Clear" aria-label="Clear color"></span>
+                        <div class="wp-picker-container"><button type="button" class="button wp-color-result" aria-expanded="false" style="background-color: rgb(129, 215, 66);"><span class="wp-color-result-text">Select Color</span></button><span class="wp-picker-input-wrap hidden"><label><span class="screen-reader-text">Color value</span><input class="regular-text wpt_color_picker wp-color-picker" type="text" saiful="table_style[a.wpt_product_title_in_td][color]" placeholder="" value="#81d742"></label><input type="button" class="button button-small wp-picker-clear" value="Clear" aria-label="Clear color"></span>
                             <div class="wp-picker-holder">
                                 <div class="iris-picker iris-border" style="display: none; width: 255px; height: 202.125px; padding-bottom: 23.2209px;">
                                     <div class="iris-picker-inner">
@@ -1155,7 +1155,7 @@ if (!wpt_is_pro()) {
                     </th>
                     <td>
 
-                        <div class="wp-picker-container"><button type="button" class="button wp-color-result" aria-expanded="false" style="background-color: rgb(221, 153, 51);"><span class="wp-color-result-text">Select Color</span></button><span class="wp-picker-input-wrap hidden"><label><span class="screen-reader-text">Color value</span><input class="regular-text wpt_color_picker wp-color-picker" type="text" name="table_style[a.wpt_product_title_in_td:hover][color]" placeholder="" value="#dd9933"></label><input type="button" class="button button-small wp-picker-clear" value="Clear" aria-label="Clear color"></span>
+                        <div class="wp-picker-container"><button type="button" class="button wp-color-result" aria-expanded="false" style="background-color: rgb(221, 153, 51);"><span class="wp-color-result-text">Select Color</span></button><span class="wp-picker-input-wrap hidden"><label><span class="screen-reader-text">Color value</span><input class="regular-text wpt_color_picker wp-color-picker" type="text" saiful="table_style[a.wpt_product_title_in_td:hover][color]" placeholder="" value="#dd9933"></label><input type="button" class="button button-small wp-picker-clear" value="Clear" aria-label="Clear color"></span>
                             <div class="wp-picker-holder">
                                 <div class="iris-picker iris-border" style="display: none; width: 255px; height: 202.125px; padding-bottom: 23.2209px;">
                                     <div class="iris-picker-inner">
@@ -1181,7 +1181,7 @@ if (!wpt_is_pro()) {
                         </th>
                         <td>
 
-                            <div class="wp-picker-container"><button type="button" class="button wp-color-result" aria-expanded="false" style="background-color: rgb(99, 99, 99);"><span class="wp-color-result-text">Select Color</span></button><span class="wp-picker-input-wrap hidden"><label><span class="screen-reader-text">Color value</span><input class="regular-text wpt_color_picker wp-color-picker" type="text" name="table_style[td.td_or_cell .amount][color]" placeholder="" value="#636363"></label><input type="button" class="button button-small wp-picker-clear" value="Clear" aria-label="Clear color"></span>
+                            <div class="wp-picker-container"><button type="button" class="button wp-color-result" aria-expanded="false" style="background-color: rgb(99, 99, 99);"><span class="wp-color-result-text">Select Color</span></button><span class="wp-picker-input-wrap hidden"><label><span class="screen-reader-text">Color value</span><input class="regular-text wpt_color_picker wp-color-picker" type="text" saiful="table_style[td.td_or_cell .amount][color]" placeholder="" value="#636363"></label><input type="button" class="button button-small wp-picker-clear" value="Clear" aria-label="Clear color"></span>
                                 <div class="wp-picker-holder">
                                     <div class="iris-picker iris-border" style="display: none; width: 255px; height: 202.125px; padding-bottom: 23.2209px;">
                                         <div class="iris-picker-inner">
@@ -1207,7 +1207,7 @@ if (!wpt_is_pro()) {
                         </th>
                         <td>
 
-                            <div class="wp-picker-container"><button type="button" class="button wp-color-result" aria-expanded="false" style="background-color: rgb(234, 22, 249);"><span class="wp-color-result-text">Select Color</span></button><span class="wp-picker-input-wrap hidden"><label><span class="screen-reader-text">Color value</span><input class="regular-text wpt_color_picker wp-color-picker" type="text" name="table_style[td.td_or_cell .amount:hover][color]" placeholder="" value="#ea16f9"></label><input type="button" class="button button-small wp-picker-clear" value="Clear" aria-label="Clear color"></span>
+                            <div class="wp-picker-container"><button type="button" class="button wp-color-result" aria-expanded="false" style="background-color: rgb(234, 22, 249);"><span class="wp-color-result-text">Select Color</span></button><span class="wp-picker-input-wrap hidden"><label><span class="screen-reader-text">Color value</span><input class="regular-text wpt_color_picker wp-color-picker" type="text" saiful="table_style[td.td_or_cell .amount:hover][color]" placeholder="" value="#ea16f9"></label><input type="button" class="button button-small wp-picker-clear" value="Clear" aria-label="Clear color"></span>
                                 <div class="wp-picker-holder">
                                     <div class="iris-picker iris-border" style="display: none; width: 255px; height: 202.125px; padding-bottom: 23.2209px;">
                                         <div class="iris-picker-inner">
@@ -1233,7 +1233,7 @@ if (!wpt_is_pro()) {
                         </th>
                         <td>
 
-                            <div class="wp-picker-container"><button type="button" class="button wp-color-result" aria-expanded="false" style="background-color: rgb(221, 51, 51);"><span class="wp-color-result-text">Select Color</span></button><span class="wp-picker-input-wrap hidden"><label><span class="screen-reader-text">Color value</span><input class="regular-text wpt_color_picker wp-color-picker" type="text" name="table_style[td.td_or_cell .amount .woocommerce-Price-currencySymbol][color]" placeholder="" value="#dd3333"></label><input type="button" class="button button-small wp-picker-clear" value="Clear" aria-label="Clear color"></span>
+                            <div class="wp-picker-container"><button type="button" class="button wp-color-result" aria-expanded="false" style="background-color: rgb(221, 51, 51);"><span class="wp-color-result-text">Select Color</span></button><span class="wp-picker-input-wrap hidden"><label><span class="screen-reader-text">Color value</span><input class="regular-text wpt_color_picker wp-color-picker" type="text" saiful="table_style[td.td_or_cell .amount .woocommerce-Price-currencySymbol][color]" placeholder="" value="#dd3333"></label><input type="button" class="button button-small wp-picker-clear" value="Clear" aria-label="Clear color"></span>
                                 <div class="wp-picker-holder">
                                     <div class="iris-picker iris-border" style="display: none; width: 255px; height: 202.125px; padding-bottom: 23.2209px;">
                                         <div class="iris-picker-inner">
@@ -1259,7 +1259,7 @@ if (!wpt_is_pro()) {
                         </th>
                         <td>
 
-                            <input class="regular-text " type="text" name="table_style[td.td_or_cell .amount][font-weight]" placeholder="" value="">
+                            <input class="regular-text " type="text" saiful="table_style[td.td_or_cell .amount][font-weight]" placeholder="" value="">
 
 
                         </td>
@@ -1278,7 +1278,7 @@ if (!wpt_is_pro()) {
                         </th>
                         <td>
 
-                            <div class="wp-picker-container"><button type="button" class="button wp-color-result" aria-expanded="false" style="background-color: rgb(178, 178, 178);"><span class="wp-color-result-text">Select Color</span></button><span class="wp-picker-input-wrap hidden"><label><span class="screen-reader-text">Color value</span><input class="regular-text wpt_color_picker wp-color-picker" type="text" name="table_style[.all_check_footer][background-color]" placeholder="" value="#b2b2b2"></label><input type="button" class="button button-small wp-picker-clear" value="Clear" aria-label="Clear color"></span>
+                            <div class="wp-picker-container"><button type="button" class="button wp-color-result" aria-expanded="false" style="background-color: rgb(178, 178, 178);"><span class="wp-color-result-text">Select Color</span></button><span class="wp-picker-input-wrap hidden"><label><span class="screen-reader-text">Color value</span><input class="regular-text wpt_color_picker wp-color-picker" type="text" saiful="table_style[.all_check_footer][background-color]" placeholder="" value="#b2b2b2"></label><input type="button" class="button button-small wp-picker-clear" value="Clear" aria-label="Clear color"></span>
                                 <div class="wp-picker-holder">
                                     <div class="iris-picker iris-border" style="display: none; width: 255px; height: 202.125px; padding-bottom: 23.2209px;">
                                         <div class="iris-picker-inner">
@@ -1304,7 +1304,7 @@ if (!wpt_is_pro()) {
                         </th>
                         <td>
 
-                            <div class="wp-picker-container"><button type="button" class="button wp-color-result" aria-expanded="false" style="background-color: rgb(129, 215, 66);"><span class="wp-color-result-text">Select Color</span></button><span class="wp-picker-input-wrap hidden"><label><span class="screen-reader-text">Color value</span><input class="regular-text wpt_color_picker wp-color-picker" type="text" name="table_style[div.wpt_notice_board div.woocommerce-message][background-color]" placeholder="" value="#81d742"></label><input type="button" class="button button-small wp-picker-clear" value="Clear" aria-label="Clear color"></span>
+                            <div class="wp-picker-container"><button type="button" class="button wp-color-result" aria-expanded="false" style="background-color: rgb(129, 215, 66);"><span class="wp-color-result-text">Select Color</span></button><span class="wp-picker-input-wrap hidden"><label><span class="screen-reader-text">Color value</span><input class="regular-text wpt_color_picker wp-color-picker" type="text" saiful="table_style[div.wpt_notice_board div.woocommerce-message][background-color]" placeholder="" value="#81d742"></label><input type="button" class="button button-small wp-picker-clear" value="Clear" aria-label="Clear color"></span>
                                 <div class="wp-picker-holder">
                                     <div class="iris-picker iris-border" style="display: none; width: 255px; height: 202.125px; padding-bottom: 23.2209px;">
                                         <div class="iris-picker-inner">
@@ -1330,7 +1330,7 @@ if (!wpt_is_pro()) {
                         </th>
                         <td>
 
-                            <div class="wp-picker-container"><button type="button" class="button wp-color-result" aria-expanded="false" style="background-color: rgb(255, 17, 81);"><span class="wp-color-result-text">Select Color</span></button><span class="wp-picker-input-wrap hidden"><label><span class="screen-reader-text">Color value</span><input class="regular-text wpt_color_picker wp-color-picker" type="text" name="table_style[div.wpt_notice_board div.woocommerce-message][color]" placeholder="" value="#ff1151"></label><input type="button" class="button button-small wp-picker-clear" value="Clear" aria-label="Clear color"></span>
+                            <div class="wp-picker-container"><button type="button" class="button wp-color-result" aria-expanded="false" style="background-color: rgb(255, 17, 81);"><span class="wp-color-result-text">Select Color</span></button><span class="wp-picker-input-wrap hidden"><label><span class="screen-reader-text">Color value</span><input class="regular-text wpt_color_picker wp-color-picker" type="text" saiful="table_style[div.wpt_notice_board div.woocommerce-message][color]" placeholder="" value="#ff1151"></label><input type="button" class="button button-small wp-picker-clear" value="Clear" aria-label="Clear color"></span>
                                 <div class="wp-picker-holder">
                                     <div class="iris-picker iris-border" style="display: none; width: 255px; height: 202.125px; padding-bottom: 23.2209px;">
                                         <div class="iris-picker-inner">
