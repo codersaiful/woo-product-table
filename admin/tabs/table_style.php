@@ -67,12 +67,12 @@ $current_template = $meta_table_style_inPost['template'] ?? '';
                             $template_img_folder_url = apply_filters( 'wpt_template_img_url', $template_img_folder_url, $key, $template );
 
                             $type = $template['type'] ?? '';
-                            $img_file_name = 'beautiful_blacky';
+                            $img_file_name = $key;
                             $img_base_file_dir = WPT_BASE_DIR . "assets/images/templates-image/$key.png";
                             if( ! is_file($img_base_file_dir)){
-                                $key = 'beautiful_blacky';
+                                $img_file_name = 'beautiful_blacky';
                             }
-                            $img_url = $template_img_folder_url . $key . '.png';
+                            $img_url = $template_img_folder_url . $img_file_name . '.png';
                             // $img_url = $template_img_folder_url . $img_file_name . '.png';
                             $is_active = ($key === $current_template) ? 'active' : '';
                             ?>

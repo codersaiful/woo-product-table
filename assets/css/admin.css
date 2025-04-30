@@ -2681,7 +2681,8 @@ ul#wpt_column_sortable li>span.handle.checkbox_handle>input.enabled:before, ul#w
 .wpt-template-item.active {
     border-color: #0073aa;
     box-shadow: 0 0 10px rgba(0,123,170,0.4);
-    background-color: #f1faff;
+    background: #0073aa;
+    color: white;
 }
 
 .wpt-template-name {
