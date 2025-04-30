@@ -2708,9 +2708,21 @@ ul#wpt_column_sortable li>span.handle.checkbox_handle>input.enabled:before, ul#w
 #wpt_configuration_form .wpt-premium-feature-in-free-version span.select2.select2-container+span.select2.select2-container {
     display: none !important;
 }
-.wpt-design-tab-area-wrapper .ultraaddons .with-background, .ultraaddons-panel .with-background{
+.wpt-design-tab-area-wrapper .ultraaddons .with-background, 
+.wpt-design-tab-area-wrapper .ultraaddons-panel .with-background{
     background: #000000;
     color: #ffffff;
+}
+.style_str_wrapper h3.style-heading {
+    cursor: crosshair;
+    background: #4caf50;
+    display: inline-block;
+    border-radius: 3px;
+    padding: 5px 10px;
+    color: white;
+}
+.style_str_wrapper .wpt-style-body {
+    display: none;
 }
 .wpt-template-item.active {
     border-color: #0073aa;

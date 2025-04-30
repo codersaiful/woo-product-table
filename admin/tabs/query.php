@@ -461,10 +461,8 @@ unset($catalog_orderby_options['menu_order']);
     </div>
     <?php
     $cond_class = $readonly = '';
-    $cond_name = 'name';
     if(! wpt_is_pro()){
         $cond_class = 'wpt-premium-feature-in-free-version';
-        $cond_name = 'saiful';
     }
     ?>
     <div class="wpt_column">
@@ -475,7 +473,7 @@ unset($catalog_orderby_options['menu_order']);
                     <label class="wpt_label" for="wpt_table_only_stock"><?php esc_html_e( 'Stock Status', 'woo-product-table' ); ?></label>
                 </th>
                 <td>
-                    <select <?php echo esc_attr($cond_name); ?>="conditions[only_stock]" data-name='only_stock' id="wpt_table_only_stock" class="wpt_fullwidth wpt_data_filed_atts ua_input" <?php echo esc_attr( $readonly ); ?>>
+                    <select name="conditions[only_stock]" data-name='only_stock' id="wpt_table_only_stock" class="wpt_fullwidth wpt_data_filed_atts ua_input" >
                         <option value="" <?php echo isset( $meta_conditions['only_stock'] ) && $meta_conditions['only_stock'] == '' ? 'selected' : ''; ?>><?php esc_html_e( 'Default', 'woo-product-table' ); ?></option>
                         <option value="instock" <?php echo isset( $meta_conditions['only_stock'] ) && $meta_conditions['only_stock'] == 'instock' ? 'selected' : ''; ?>><?php esc_html_e( 'instock', 'woo-product-table' ); ?></option>
                         <option value="onbackorder" <?php echo isset( $meta_conditions['only_stock'] ) && $meta_conditions['only_stock'] == 'onbackorder' ? 'selected' : ''; ?>><?php esc_html_e( 'onbackorder', 'woo-product-table' ); ?></option>
@@ -489,7 +487,7 @@ unset($catalog_orderby_options['menu_order']);
                     <label class="wpt_label" for="wpt_table_only_sale"><?php esc_html_e( 'Sale Products', 'woo-product-table' ); ?></label>
                 </th>
                 <td>
-                    <select <?php echo esc_attr($cond_name); ?>="conditions[only_sale]" data-name='only_sale' id="wpt_table_only_sale" class="wpt_fullwidth wpt_data_filed_atts ua_input"  <?php echo esc_attr( $readonly ); ?>>
+                    <select name="conditions[only_sale]" data-name='only_sale' id="wpt_table_only_sale" class="wpt_fullwidth wpt_data_filed_atts ua_input"  >
                         <option value="no" <?php echo isset( $meta_conditions['only_sale'] ) && $meta_conditions['only_sale'] == 'no' ? 'selected' : ''; ?>><?php esc_html_e( 'Default', 'woo-product-table' ); ?></option>
                         <option value="yes" <?php echo isset( $meta_conditions['only_sale'] ) && $meta_conditions['only_sale'] == 'yes' ? 'selected' : ''; ?>><?php esc_html_e( 'Only Sale', 'woo-product-table' ); ?></option>
                     </select><?php wpt_doc_link('https://wooproducttable.com/docs/doc/advance-uses/show-only-sale-products/'); ?>

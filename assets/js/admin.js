@@ -1203,6 +1203,16 @@ jQuery.fn.extend({
     });
     
 
+    $('.wpt-premium-feature-in-free-version').each(function(){
+        var $this = $(this);
+        $this.attr('title', 'Premium Feature');
+        $this.find('input,select').removeAttr('name');
+    });
+    $(document.body).on('click', '.style_str_wrapper h3.style-heading', function(e){
+        e.preventDefault();
+        $(this).closest('.style_str_wrapper').find('.wpt-style-body').toggle('fast');
+        $(this).text($(this).text() === 'Show style control' ? 'Hide style control' : 'Show style control');
+    });
 
     $(document.body).on('click', '#wpt-template-selector .wpt-template-item', function() {
         var type = $(this).data('type');

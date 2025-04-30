@@ -4,9 +4,13 @@ $meta_basics = get_post_meta( $post->ID, 'basics', true );
 $data = isset( $meta_basics['data'] ) ? $meta_basics['data'] : false;
 
 ?>
-
-
-
+<?php
+    $cond_class = $readonly = '';
+    if(! wpt_is_pro()){
+        $cond_class = 'wpt-premium-feature-in-free-version';
+    }
+ 
+?>
 <div class="section ultraaddons-panel">
 
     <div class="wpt_column">
@@ -36,10 +40,12 @@ $data = isset( $meta_basics['data'] ) ? $meta_basics['data'] : false;
                     <select name="basics[pagination]" data-name='pagination_ajax' id="wpt_table_ajax_pagination" class="wpt_fullwidth wpt_data_filed_atts ua_input" >
                         <option value="on" <?php echo isset( $meta_basics['pagination'] ) && $meta_basics['pagination'] == 'on' ? 'selected' : false; ?>><?php esc_html_e('Number/Paging','woo-product-table');?></option>
                         <option value="off" <?php echo isset( $meta_basics['pagination'] ) && $meta_basics['pagination'] == 'off' ? 'selected' : false; ?>><?php esc_html_e('Disable','woo-product-table');?></option>
-                        <option value="load_more" <?php echo isset( $meta_basics['pagination'] ) && $meta_basics['pagination'] == 'load_more' ? 'selected' : false; ?>><?php esc_html_e('Load More Button','woo-product-table');?></option>
+                        <option <?php echo esc_attr( ! defined('WPT_PRO_DEV_VERSION') ? 'disabled' : '' ); ?>  value="load_more" <?php echo isset( $meta_basics['pagination'] ) && $meta_basics['pagination'] == 'load_more' ? 'selected' : false; ?>><?php esc_html_e('Load More Button','woo-product-table');?></option>
                         <?php if(defined('WPT_PRO_DEV_VERSION')){ ?>
                             <option value="infinite_scroll" <?php echo isset( $meta_basics['pagination'] ) && $meta_basics['pagination'] == 'infinite_scroll' ? 'selected' : false; ?>><?php esc_html_e('Infinite Scroll','woo-product-table');?></option>
-                        <?php } ?>
+                        <?php }else{ ?>
+                            <option disabled value="infinite_scroll"><?php esc_html_e('Infinite Scroll','woo-product-table');?></option>
+                            <?php } ?>
                     </select><?php wpt_doc_link('https://wooproducttable.com/docs/doc/table-options/pagination-on-of/'); ?>   
                     
                     <p><?php esc_html_e( 'To change style, go to Design tab', 'woo-product-table' ); ?></p>
@@ -61,7 +67,7 @@ $data = isset( $meta_basics['data'] ) ? $meta_basics['data'] : false;
         </table>
     </div>
 
-    <div class="wpt_column">
+    <div class="wpt_column <?php echo esc_attr( $cond_class ); ?>">
         <table class="ultraaddons-table">
             <tr>
                 <th>
@@ -80,7 +86,7 @@ $data = isset( $meta_basics['data'] ) ? $meta_basics['data'] : false;
     </div>
     
     <!-- **************COMES FROM COLUMN SETTING TAB, NAME HAS NOT CHANGED YET****************** -->
-    <div class="wpt_column">
+    <div class="wpt_column  <?php echo esc_attr( $cond_class ); ?>">
         <table class="ultraaddons-table">
             <tr>
                 <th>
@@ -106,29 +112,7 @@ $data = isset( $meta_basics['data'] ) ? $meta_basics['data'] : false;
     <?php
     $pagination =  get_post_meta( $post->ID, 'pagination', true );
     ?>
-        <!-- <div class="wpt_column">
-            <table class="ultraaddons-table">
-                <tr>
-                    <th>
-                        <label class="wpt_label" for="wpt_table_pagination_enable"><?php esc_html_e( 'Pagination', 'woo-product-table' ); ?></label>
-                    </th>
-                    <td>
-                        <select name="pagination[start]" data-name='sort' id="wpt_table_pagination_enable" class="wpt_fullwidth wpt_data_filed_atts ua_input" >
 
-                            <option value="1" <?php echo isset( $pagination['start'] ) && $pagination['start'] == '1' ? 'selected' : ''; ?>><?php esc_html_e( 'Enable (Default)', 'woo-product-table' ); ?></option>
-                            <option value="off" <?php echo isset( $pagination['start'] ) && $pagination['start'] == 'off' ? 'selected' : ''; ?>><?php esc_html_e( 'Disable', 'woo-product-table' ); ?></option>
-                        </select>
-                        <p><?php esc_html_e( 'To change style, go to Design tab', 'woo-product-table' ); ?></p>
-                        <p class="warning"><?php echo sprintf(esc_html__( '%1$sPagination will not work%2$s on WooCommerce shop, archive page or created shop archive page by any page builder. %1$sThis feature will only work on table page where table shortcode pasted.%2$s', 'woo-product-table' ), '<b>', '</b>'); ?></p>
-                        <p class="wpt-tips"><?php echo sprintf(esc_html__( '%1$sThis pagination will replaced on WooCommerce shop archive page%2$s by your theme\'s default pagination.', 'woo-product-table' ), '<b>', '</b>'); ?></p>
-                    </td>
-                </tr>
-            </table>
-        </div> -->
-
-    <!-- **************COMES FROM PAGINATION TAB, NAME HAS NOT CHANGED YET****************** -->
-    
-    
     
     
 
@@ -204,7 +188,7 @@ $data = isset( $meta_basics['data'] ) ? $meta_basics['data'] : false;
         </table>
     </div>
 
-    <div class="wpt_column">
+    <div class="wpt_column ">
         <table class="ultraaddons-table">
             <tr>
                 <th>
@@ -234,7 +218,7 @@ $data = isset( $meta_basics['data'] ) ? $meta_basics['data'] : false;
         </table>
     </div>
 
-    <table class="ultraaddons-table wpt-table-separator">
+    <table class="ultraaddons-table wpt-table-separator <?php echo esc_attr( $cond_class ); ?>">
                 <tr>
                     <th>
                         <label class="wpt_label" for="wpt_table_add_to_cart_selected_text"><?php esc_html_e( '(Add to cart[Selected]) Text', 'woo-product-table' );?></label>
@@ -273,7 +257,24 @@ $data = isset( $meta_basics['data'] ) ? $meta_basics['data'] : false;
                     </td>
                 </tr>
     </table>
-    <?php do_action( 'wpo_pro_feature_message', 'pf_bulk_add_to_cart' ); ?>
+    <?php if( ! wpt_is_pro() ){ ?>
+        <div title="Premium Feature" class="wpt_column wpt-premium-feature-in-free-version">
+            <table class="ultraaddons-table wpt-table-separator">
+                <tbody><tr>
+                    <th>
+                        <label class="wpt_label wpt_table_ajax_action" for="wpt_table_checkbox">Checkbox Auto Check on Table Load (Enable/Disable)</label>
+                    </th>
+                    <td>
+                        <select name="basics[checkbox]" data-name="checkbox" id="wpt_table_checkbox" class="wpt_fullwidth wpt_data_filed_atts ua_input">
+                            <option value="wpt_no_checked_table" selected="">Default</option>
+                            <option value="wpt_checked_table">Automatically All Check</option>
+                        </select>            <a href="https://wooproducttable.com/docs/doc/table-options/check-column-options/" target="_blank" class="wpt-doc-lick">Helper doc</a>
+                          
+                    </td>
+                </tr>
+            </tbody></table>
+        </div>    
+    <?php } ?>
     <?php do_action( 'wpto_admin_option_tab_bottom', $meta_basics, $tab, $post, $tab_array ); ?>
 </div>
 

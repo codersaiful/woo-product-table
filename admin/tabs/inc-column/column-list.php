@@ -107,7 +107,7 @@ $columns_array = apply_filters( 'wpto_final_column_arr', $columns_array );
                 
             </div>
             <div class="wpt_column_setting_extra for_all profeatures-message">
-                <?php do_action( 'wpo_pro_feature_message', 'column_extra' ); ?>
+                
             </div>
             
 
