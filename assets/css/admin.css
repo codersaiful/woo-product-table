@@ -1986,9 +1986,11 @@ ul#wpt_column_sortable>li.wpt_sortable_peritem.inside-column-enabled .wpt_shorta
     padding-top: 35px;
 }
 ul#wpt_column_sortable>li.wpt_sortable_peritem.inside-column-enabled .wpt_shortable_data>input {
-    border: 1px solid #000;
-    background: #8bc34a42;
+    border: 1px solid #ffffff;
+    background: #cdcdcd42;
     width: 100%;
+    font-weight: bold;
+    margin-bottom: 15px;
 }
 
 ul#wpt_column_sortable>li.wpt_sortable_peritem.inside-column-enabled span.extra_all_on_off {
