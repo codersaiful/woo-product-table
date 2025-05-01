@@ -40,13 +40,18 @@ $data = isset( $meta_basics['data'] ) ? $meta_basics['data'] : false;
                 $extra_class = 'premium';
                 $term_lists = get_object_taxonomies('product','objects');
                 $ourTermList = [];
-                foreach( $term_lists as $trm_key => $trm_object ){
-                    if( $trm_object->labels->singular_name == 'Tag' && $trm_key !== 'product_tag' ){
-                        $ourTermList[$trm_key] = $trm_key;
-                    }else{
-                        $ourTermList[$trm_key] = $trm_object->labels->singular_name;
-                    }
-                }
+                // foreach( $term_lists as $trm_key => $trm_object ){
+                //     if( $trm_object->labels->singular_name == 'Tag' && $trm_key !== 'product_tag' ){
+                //         $ourTermList[$trm_key] = $trm_key;
+                //     }else{
+                //         $ourTermList[$trm_key] = $trm_object->labels->singular_name;
+                //     }
+                // }
+                $ourTermList['test'] = 'Custom Attribute';
+                $ourTermList['pa_color'] = 'Example Color';
+                $ourTermList['pa_size'] = 'Size';
+                $ourTermList['pa_brand'] = 'Brand';
+                $ourTermList['pa_model'] = 'Model';
                 $supported_terms_labels = array_merge( $supported_terms_labels, $ourTermList );
             }
             
@@ -60,10 +65,10 @@ $data = isset( $meta_basics['data'] ) ? $meta_basics['data'] : false;
                             'order'         => 'DESC',
                         );
                         
-                        $term_obj = get_terms( $key, $args );
-                        if( ! is_array( $term_obj ) || ( is_array($term_obj) && count($term_obj) < 1 ) ){
-                            continue;
-                        }
+                        // $term_obj = get_terms( $key, $args );
+                        // if( ! is_array( $term_obj ) || ( is_array($term_obj) && count($term_obj) < 1 ) ){
+                        //     continue;
+                        // }
 
                         
 
@@ -246,7 +251,7 @@ do_action( 'wpto_admin_basic_tab',$meta_basics, $tab, $post, $tab_array );
 
 
 
-    <div class="wpt_column">
+    <div class="wpt_column wpt-premium-feature-in-free-version">
         <table class="ultraaddons-table">
             <tr>
                 <th>

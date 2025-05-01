@@ -106,9 +106,6 @@ jQuery.fn.extend({
             targetElement.addClass('expanded_li');
             targetElement.addClass(myTargetClass);
             OptimizeColumnWithName();
-            $('a.my-inslide-close-button.button').remove();
-            var myCloseButton = '<a class="my-inslide-close-button button">Close</a>';
-            targetElement.find('.wpt_shortable_data').append(myCloseButton);
         }
 
         $('select.internal_select').on('select2:select', function( e ){
@@ -1208,10 +1205,27 @@ jQuery.fn.extend({
         $this.attr('title', 'Premium Feature');
         $this.find('input,select').removeAttr('name');
     });
+
+    //.column_add_extra_items.extra-inner-item-wrapper,.column_tag_for_all,
+    var findExtraSelection = '.column_label_fullwidth,.column_label_showing,.column_label_showing,.auto_responsive_column_label_show,.column_only_login_user,.column_only_login_user';
+
     $(document.body).on('click', '.style_str_wrapper h3.style-heading', function(e){
         e.preventDefault();
         $(this).closest('.style_str_wrapper').find('.wpt-style-body').toggle('fast');
-        $(this).text($(this).text() === 'Show style control' ? 'Hide style control' : 'Show style control');
+        $(this).text($(this).text() === 'Show Style Control' ? 'Hide Style Control' : 'Show Style Control');
+
+        // $(this).closest('.wpt_column_setting_extra').find(findExtraSelection).hide('fast');
+        // $(this).closest('.style_str_wrapper').find('h3.other-feature-on-off').text($(this).text() === 'Show Others Control' ? 'Hide Others Control' : 'Show Others Control');
+
+    });
+    $(document.body).on('click', '.style_str_wrapper h3.other-feature-on-off', function(e){
+        e.preventDefault();
+        
+        $(this).closest('.wpt_column_setting_extra').find(findExtraSelection).toggle('fast');
+        $(this).text($(this).text() === 'Show Others Control' ? 'Hide Others Control' : 'Show Others Control');
+
+        // $(this).closest('.style_str_wrapper').find('.wpt-style-body').hide('fast');
+        // $(this).closest('.style_str_wrapper').find('h3.style-heading').text($(this).text() === 'Show Style Control' ? 'Hide Style Control' : 'Show Style Control');
     });
 
     $(document.body).on('click', '#wpt-template-selector .wpt-template-item', function() {

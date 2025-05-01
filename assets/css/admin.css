@@ -2060,14 +2060,19 @@ ul#wpt_column_sortable>li.wpt_sortable_peritem.inside-column-enabled .wpt_column
 }
 
 .column_tag_for_all label {
-    font-weight: bold;
+    font-weight: bold !important;
 }
-a.my-inslide-close-button.button {
-    position: absolute;
-    top: 2px;
-    right: 0px;
-    background-color: #000;
-    color: white;
+
+.column_add_extra_items.extra-inner-item-wrapper {
+    margin-top: 10px;
+    /* display: flex; */
+}
+.column_add_extra_items.extra-inner-item-wrapper label {
+    font-weight: bold !important;
+}
+.column_add_extra_items.extra-inner-item-wrapper select {
+    width: 500px;
+    /* max-width: 600px; */
 }
 .inside-column-enabled span.wpt-expand {
     position: absolute;
@@ -2507,6 +2512,8 @@ div.wpt_tab_content table th {
     display: flex;
     gap: 10px;
     flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
 
 .wpt-query-terms-selection span.wpt-query-selection-handle {
@@ -2729,6 +2736,7 @@ ul#wpt_column_sortable li>span.handle.checkbox_handle>input.enabled:before, ul#w
     background: #000000;
     color: #ffffff;
 }
+.style_str_wrapper h3.other-feature-on-off,
 .style_str_wrapper h3.style-heading {
     cursor: pointer;
     background: #4caf50;
@@ -2737,6 +2745,8 @@ ul#wpt_column_sortable li>span.handle.checkbox_handle>input.enabled:before, ul#w
     padding: 5px 10px;
     color: white;
 }
+/* .column_tag_for_all,.column_add_extra_items.extra-inner-item-wrapper, */
+.column_label_fullwidth,.column_label_showing,.column_label_showing,.auto_responsive_column_label_show,.column_only_login_user,.column_only_login_user{display: none;}
 .style_str_wrapper .wpt-style-body {
     display: none;
 }
