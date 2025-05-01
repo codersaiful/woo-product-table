@@ -2741,9 +2741,13 @@ ul#wpt_column_sortable li>span.handle.checkbox_handle>input.enabled:before, ul#w
     cursor: pointer;
     background: #4caf50;
     display: inline-block;
-    border-radius: 3px;
+    border-radius: 6px;
     padding: 5px 10px;
     color: white;
+}
+.style_str_wrapper h3.other-feature-on-off.active, 
+.style_str_wrapper h3.style-heading.active {
+    background: #38823b;
 }
 /* .column_tag_for_all,.column_add_extra_items.extra-inner-item-wrapper, */
 .column_label_fullwidth,.column_label_showing,.column_label_showing,.auto_responsive_column_label_show,.column_only_login_user,.column_only_login_user{display: none;}
