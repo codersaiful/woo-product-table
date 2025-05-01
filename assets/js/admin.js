@@ -1213,20 +1213,20 @@ jQuery.fn.extend({
         e.preventDefault();
         $(this).toggleClass('active');
         $(this).closest('.style_str_wrapper').find('.wpt-style-body').toggle('fast');
-        $(this).text($(this).text() === 'Show Style Control' ? 'Hide Style Control' : 'Show Style Control');
+        // $(this).text($(this).text() === 'Show Style Control' ? 'Hide Style Control' : 'Show Style Control');
 
         $(this).closest('.wpt_column_setting_extra').find(findExtraSelection).hide('fast');
-        $(this).closest('.style_str_wrapper').find('h3.other-feature-on-off').removeClass('active').text($(this).text() === 'Show Others Control' ? 'Hide Others Control' : 'Show Others Control');
+        $(this).closest('.style_str_wrapper').find('h3.other-feature-on-off').removeClass('active');//.text($(this).text() === 'Show Others Control' ? 'Hide Others Control' : 'Show Others Control');
 
     });
     $(document.body).on('click', '.style_str_wrapper h3.other-feature-on-off', function(e){
         e.preventDefault();
         $(this).toggleClass('active');
         $(this).closest('.wpt_column_setting_extra').find(findExtraSelection).toggle('fast');
-        $(this).text($(this).text() === 'Show Others Control' ? 'Hide Others Control' : 'Show Others Control');
+        // $(this).text($(this).text() === 'Show Others Control' ? 'Hide Others Control' : 'Show Others Control');
 
         $(this).closest('.style_str_wrapper').find('.wpt-style-body').hide('fast');
-        $(this).closest('.style_str_wrapper').find('h3.style-heading').removeClass('active').text($(this).text() === 'Show Style Control' ? 'Hide Style Control' : 'Show Style Control');
+        $(this).closest('.style_str_wrapper').find('h3.style-heading').removeClass('active');//.text($(this).text() === 'Show Style Control' ? 'Hide Style Control' : 'Show Style Control');
     });
 
     $(document.body).on('click', '#wpt-template-selector .wpt-template-item', function() {

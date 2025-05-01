@@ -273,8 +273,8 @@ if (!function_exists('wpt_column_style_for_all')) {
                 type="hidden"
                 class="str_str_value_string"
                 value="<?php echo esc_attr($style_str); ?>" name="<?php echo esc_attr($item_name_style_str); ?>">
-            <h3 class="style-heading"><?php echo esc_html('Show Style Control', 'woo-product-table'); ?></h3>
-            <h3 class="other-feature-on-off"><?php echo esc_html('Show Others Control', 'woo-product-table'); ?></h3>
+            <h3 class="style-heading"><i class="wpt-brush"></i><?php echo esc_html('Style', 'woo-product-table'); ?></h3>
+            <h3 class="other-feature-on-off"><i class="wpt-cog-alt"></i><?php echo esc_html('Others', 'woo-product-table'); ?></h3>
             <div class="wpt-style-body">
                 <table class="ultraaddons-table <?php echo esc_attr($class_name); ?>_value_wrapper" style_str_value_wrapper>
                     <?php
