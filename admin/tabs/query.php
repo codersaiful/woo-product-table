@@ -251,7 +251,7 @@ do_action( 'wpto_admin_basic_tab',$meta_basics, $tab, $post, $tab_array );
 
 
 
-    <div class="wpt_column wpt-premium-feature-in-free-version">
+    <div class="wpt_column <?php echo esc_attr( wpt_get_conditional_class() ); ?>">
         <table class="ultraaddons-table">
             <tr>
                 <th>
