@@ -2042,11 +2042,25 @@ ul#wpt_column_sortable>li.wpt_sortable_peritem.inside-column-enabled .wpt_column
 .inside-column-enabled .wpt_column_setting_extra{
 
 }
-.inside-column-enabled .wpt_column_setting_extra{
-
+.extra_all_toggle_description ul.sss {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 25px;
 }
-.inside-column-enabled .wpt_column_setting_extra{
 
+.column_tag_for_all {
+    display: flex;
+    gap: 25px;
+    margin-top: 15px;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.column_tag_for_all label {
+    font-weight: bold;
 }
 a.my-inslide-close-button.button {
     position: absolute;
