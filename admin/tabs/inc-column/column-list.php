@@ -91,7 +91,7 @@ $columns_array = apply_filters( 'wpto_final_column_arr', $columns_array );
                 do_action( 'wpto_column_setting_form_' . $keyword, $_device_name, $column_settings, $columns_array, $updated_columns_array, $post, $additional_data ); ?>
             </div>
             <span data-key="<?php echo esc_attr( $keyword ); ?>" class="extra_all_on_off on_now"><i class="on_off_icon"></i>Expand</span>
-            <div class="wpt_column_setting_extra for_all extra_all_<?php echo esc_attr( $keyword ); ?>" data-wpt_column_setting_extra="extra_all_<?php echo esc_attr( $keyword ); ?>">
+            <div class="wpt_column_setting_extra column_setting_form-default for_all extra_all_<?php echo esc_attr( $keyword ); ?>" data-wpt_column_setting_extra="extra_all_<?php echo esc_attr( $keyword ); ?>">
                 <?php do_action( 'wpto_column_setting_form_inside_' . $keyword, $_device_name, $column_settings, $columns_array, $updated_columns_array, $post, $additional_data ); ?>
                 <?php 
                 /**

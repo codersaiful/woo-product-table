@@ -2052,11 +2052,12 @@ ul#wpt_column_sortable>li.wpt_sortable_peritem.inside-column-enabled .wpt_column
 
 .column_tag_for_all {
     display: flex;
-    gap: 25px;
+    gap: 7px 25px;
     margin-top: 5px;
     align-items: center;
     flex-wrap: wrap;
     justify-content: flex-start;
+    margin-bottom: 19px;
 }
 
 .column_tag_for_all label {
@@ -2741,22 +2742,56 @@ ul#wpt_column_sortable li>span.handle.checkbox_handle>input.enabled:before, ul#w
     color: #ffffff9e;
     margin-right: 5px;
 }
-.style_str_wrapper h3.other-feature-on-off,
-.style_str_wrapper h3.style-heading {
+.style_str_wrapper h3.other-feature-on-off, .style_str_wrapper h3.style-heading {
     cursor: pointer;
     background: #4caf50;
     display: inline-block;
-    border-radius: 6px;
+    border-radius: 3px;
     padding: 5px 10px;
     color: white;
     margin: 0;
-    margin-top: 10px;
+    margin-bottom: 10px;
 }
 .style_str_wrapper h3.other-feature-on-off.active, .style_str_wrapper h3.style-heading.active {
     background: #323232;
 }
 /* .column_tag_for_all,.column_add_extra_items.extra-inner-item-wrapper, */
-.column_label_fullwidth,.column_label_showing,.column_label_showing,.auto_responsive_column_label_show,.column_only_login_user,.column_only_login_user{display: none;}
+
+.column_label_fullwidth, 
+.column_label_showing,.column_label_showing,
+.auto_responsive_column_label_show,
+.column_only_login_user,
+.column_only_login_user{
+    display: none;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 5px 30px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+.column_label_fullwidth.show, 
+.column_label_showing.show,
+.column_label_showing.show,
+.auto_responsive_column_label_show.show,
+.column_only_login_user.show,
+.column_only_login_user.show{
+    display: flex;
+}
+.wpt_column_setting_extra.column_setting_form-default.for_all.extra_all_check>div>label {
+    font-weight: bold;
+    width: 200px;
+}
+
+.column_only_login_user > label:nth-of-type(2),
+.column_only_login_user > input[type="text"],
+.column_only_login_user > p {
+  flex: 1 1 100%; /* forces next row */
+  margin-top: 5px; /* spacing between rows */
+}
+.wpt_column_setting_extra.column_setting_form-default.for_all.extra_all_check>div>p,
+.wpt_column_setting_extra.column_setting_form-default.for_all.extra_all_check>div>label,
+.wpt_column_setting_extra.column_setting_form-default.for_all.extra_all_check>div>input{padding: 0; margin: 0;}
+/* .column_label_fullwidth,.column_label_showing,.column_label_showing,.auto_responsive_column_label_show,.column_only_login_user,.column_only_login_user, */
 .style_str_wrapper .wpt-style-body {
     display: none;
 }
