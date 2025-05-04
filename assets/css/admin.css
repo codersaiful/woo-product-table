@@ -2481,7 +2481,7 @@ img.wpt-license-brand-logo {
 a.wpt-doc-lick{
     text-decoration: none;
     padding: 5px;
-    color: #007694;
+    color: #0073aa;
     font-style: oblique;
 }
 .wpt-doc-column-link.front {
@@ -2506,29 +2506,26 @@ a.wpt-doc-lick{
     display: flex;
     gap: 10px;
 }
-.add-new-column-doc>a{
-    color: #23282d;
-    text-decoration: underline;
-}
+
 .wpt-custom-select-boxes {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 8px;
 }
 
 .wpt-custom-select-box {
     padding: 10px 15px;
     border: 1px solid #656565;
     border-radius: 6px;
-    transition: 0.3s;
+    /* transition: 0.3s; */
     cursor: pointer;
     border-style: dashed;
     font-weight: 500;
-    background: white;
+    background: #0073aa14;
 }
 
 .wpt-custom-select-box:hover {
-    background-color: #e0e0e0;
+    background-color: #0073aa36;
 }
 
 .wpt-custom-select-box.active {
@@ -2839,7 +2836,7 @@ span.wpt-query-selection-handle.type-pf-premium:after,
 }
 .style_str_wrapper h3.other-feature-on-off, .style_str_wrapper h3.style-heading {
     cursor: pointer;
-    background: #4caf50;
+    background: #0073aa;
     display: inline-block;
     border-radius: 3px;
     padding: 5px 10px;

@@ -37,16 +37,36 @@ $data = isset( $meta_basics['data'] ) ? $meta_basics['data'] : false;
                 </th>
                 <td>
                     
-                    <select name="basics[pagination]" data-name='pagination_ajax' id="wpt_table_ajax_pagination" class="wpt_fullwidth wpt_data_filed_atts ua_input" >
-                        <option value="on" <?php echo isset( $meta_basics['pagination'] ) && $meta_basics['pagination'] == 'on' ? 'selected' : false; ?>><?php esc_html_e('Number/Paging','woo-product-table');?></option>
-                        <option value="off" <?php echo isset( $meta_basics['pagination'] ) && $meta_basics['pagination'] == 'off' ? 'selected' : false; ?>><?php esc_html_e('Disable','woo-product-table');?></option>
-                        <option <?php echo esc_attr( ! defined('WPT_PRO_DEV_VERSION') ? 'disabled' : '' ); ?>  value="load_more" <?php echo isset( $meta_basics['pagination'] ) && $meta_basics['pagination'] == 'load_more' ? 'selected' : false; ?>><?php esc_html_e('Load More Button','woo-product-table');?></option>
-                        <?php if(defined('WPT_PRO_DEV_VERSION')){ ?>
-                            <option value="infinite_scroll" <?php echo isset( $meta_basics['pagination'] ) && $meta_basics['pagination'] == 'infinite_scroll' ? 'selected' : false; ?>><?php esc_html_e('Infinite Scroll','woo-product-table');?></option>
-                        <?php }else{ ?>
-                            <option disabled value="infinite_scroll"><?php esc_html_e('Infinite Scroll','woo-product-table');?></option>
-                            <?php } ?>
-                    </select><?php wpt_doc_link('https://wooproducttable.com/docs/doc/table-options/pagination-on-of/'); ?>   
+                <div class="custom-select-box-wrapper">
+                    <input type="hidden" name="basics[pagination]"
+                     value="<?php echo esc_attr( $meta_basics['pagination'] ?? 'on' ); ?>"
+                     class="custom-select-box-input" id="wpt_table_ajax_pagination">
+                    <div class="wpt-custom-select-boxes">
+                        <div class="wpt-custom-select-box <?php echo isset( $meta_basics['pagination'] ) && $meta_basics['pagination'] == 'on' ? 'active' : ''; ?>"
+                        data-value="on">
+                            <?php esc_html_e('Number/Paging','woo-product-table');?>
+                        </div>
+                        <div class="wpt-custom-select-box <?php echo isset( $meta_basics['pagination'] ) && $meta_basics['pagination'] == 'off' ? 'active' : ''; ?>" 
+                        data-value="off">
+                            <?php esc_html_e('Disable','woo-product-table');?>
+                        </div>
+                        <?php
+                        $disabled = ! defined('WPT_PRO_DEV_VERSION') ? 'disabled' : '';
+                        ?>
+                        <div class="wpt-custom-select-box <?php echo esc_attr( $disabled ); ?> <?php echo isset( $meta_basics['pagination'] ) && $meta_basics['pagination'] == 'load_more' ? 'active' : ''; ?>"
+                        data-value="load_more">
+                            <?php esc_html_e('Load More','woo-product-table');?>
+                        </div>
+                        <div class="wpt-custom-select-box <?php echo esc_attr( $disabled ); ?> <?php echo isset( $meta_basics['pagination'] ) && $meta_basics['pagination'] == 'infinite_scroll' ? 'active' : ''; ?>" 
+                        data-value="infinite_scroll">
+                            <?php esc_html_e('Infinite Scroll','woo-product-table');?>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                    <?php wpt_doc_link('https://wooproducttable.com/docs/doc/table-options/pagination-on-of/'); ?>   
                     
                     <p><?php esc_html_e( 'To change style, go to Design tab', 'woo-product-table' ); ?></p>
                         <p class="warning"><?php echo sprintf(esc_html__( '%1$sPagination will not work%2$s on WooCommerce shop, archive page or created shop archive page by any page builder. %1$sThis feature will only work on table page where table shortcode pasted.%2$s', 'woo-product-table' ), '<b>', '</b>'); ?></p>

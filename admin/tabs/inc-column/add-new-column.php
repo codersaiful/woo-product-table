@@ -59,7 +59,7 @@
                             ?>  
 
                             </div>
-                            <p><?php echo esc_html__( 'Such as Taxonomy, Custom Field, ACF Custom Field etc.','woo-product-table' ); ?></p>
+                            
                         </td>
                 </tr>
                 <tr>
