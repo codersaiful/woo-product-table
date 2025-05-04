@@ -452,7 +452,7 @@ span.wpt_keyword {
 }
 #wpt_column_sortable span.wpt_column_cross {
     color: white !important;
-    background: #ab4f01;
+    background: #ff0000;
     width: 19px;
     height: 15px;
     display: inline-block;
@@ -462,6 +462,7 @@ span.wpt_keyword {
     opacity: 1;
     font-size: 11px;
     display: none;
+    border-radius: 4px;
 }
 ul#wpt_column_sortable>li.wpt_sortable_peritem:hover span.wpt_column_cross{display: inline-block;}
 
@@ -536,7 +537,7 @@ span.purchase_code_active {
 }
 .wpt_colunm_type {
     text-align: right;
-    color: #00000045;
+    color: #000000a1;
     position: absolute;
     right: 15px;
     top: 14px;
@@ -996,15 +997,22 @@ body.wpt_admin_bodys{background-color: white;}
     box-sizing: border-box;
     display: flex;
     padding: 0 !important;
-    width: 911px;
+    width: 800px;
     max-width: 100%;
     min-width: 350px;
     box-shadow: -4px 11px 17px rgb(0 0 0 / 30%);
     background: white;
-    border-radius: 11px;
+    border-radius: 6px;
     overflow: hidden;
+    margin: 20px;
 }
-
+.add_new_col_wrapper table tr th, 
+.add_new_col_wrapper table tr td {
+    padding: 0px 0 7px 0;
+}
+.add_new_col_wrapper table tr th{
+    width: 200px;
+}
 div#wpt_configuration_form .add_new_col_wrapper .ultraaddons-panel {
     width: 100%;
 }
@@ -2502,6 +2510,43 @@ a.wpt-doc-lick{
     color: #23282d;
     text-decoration: underline;
 }
+.custom-boxes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.custom-box {
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    cursor: pointer;
+    background-color: #f9f9f9;
+    transition: 0.3s;
+}
+
+.custom-box:hover {
+    background-color: #e0e0e0;
+}
+
+.custom-box.active {
+    background-color: #0073aa;
+    color: #fff;
+    border-color: #0073aa;
+}
+
+.custom-box.disabled {
+    background-color: #f1f1f1;
+    color: #999;
+    cursor: not-allowed;
+    border-style: dashed;
+}
+.custom-box.disabled:hover {
+    background-color: #e0e0e0;
+    color: #999;
+    cursor: not-allowed;
+    border-style: dashed;
+} 
 span.wpt-design-collaps {
     border: 1px solid #ffffff00;
     margin: 0 10px;

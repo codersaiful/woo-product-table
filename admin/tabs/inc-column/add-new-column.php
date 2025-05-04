@@ -21,6 +21,12 @@
                 <tr>
                     <th><label><?php echo esc_html__( 'Column Type','woo-product-table' ); ?></label></th>
                         <td>
+
+                        
+
+                            <div class="custom-select-wrapper">
+                                <input type="hidden" class="add_new_column_type_select" id="selected_column_type" value="">
+
                             <?php
                                 $add_new_col_type = array(
                                     'custom_field' => __( 'Custom Field', 'woo-product-table' ),
@@ -39,15 +45,20 @@
                                 
                                 $add_new_col_type = apply_filters( 'wpto_addnew_col_arr', $add_new_col_type, $columns_array, $column_settings, $post );
                                 if( is_array( $add_new_col_type ) && count( $add_new_col_type ) > 1 ){
-                                echo '<select class="add_new_column_type_select ua_select">';
+                                echo '<div class="custom-boxes">';
                                 foreach($add_new_col_type as $an_key => $an_val){
                                     $disable = is_numeric($an_key) ? 'disabled' : '';
                                     $pro = is_numeric($an_key) ? __( '(Pro)' ) : '';
-                                    echo "<option value='{$an_key}' {$disable}>$an_val $pro</option>";
+                                    ?>
+                                    
+                                    <div class="custom-box <?php echo esc_attr( $disable ); ?>" data-value="<?php echo esc_attr($an_key); ?>"><?php echo esc_html($an_val); ?> <?php echo esc_html($pro); ?></div>
+                                    <?php 
                                 }
-                                echo '</select>';
+                                echo '</div>';
                                 }
                             ?>  
+
+                            </div>
                             <p><?php echo esc_html__( 'Such as Taxonomy, Custom Field, ACF Custom Field etc.','woo-product-table' ); ?></p>
                         </td>
                 </tr>

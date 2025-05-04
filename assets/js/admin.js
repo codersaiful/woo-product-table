@@ -693,6 +693,15 @@ jQuery.fn.extend({
             });
         });
         
+        $('.custom-box').on('click', function() {
+            if ($(this).hasClass('disabled')) return;
+    
+            $('.custom-box').removeClass('active');
+            $(this).addClass('active');
+    
+            const selectedValue = $(this).data('value');
+            $('.add_new_column_type_select').val(selectedValue);
+        });
         /**
          * Add new Column
          * 
@@ -702,7 +711,7 @@ jQuery.fn.extend({
             var keyword = $('.and_new_column_key').val();
             var label = $('.and_new_column_label').val();
             var type = $('.add_new_column_type_select').val();
-            var type_name = $('.add_new_column_type_select option[value='+ type +']').text();
+            var type_name = $('div.custom-boxes .custom-box.active').text();
             var type_name_show = '<i>' + type_name + '</i>: ';
             if(type === 'default'){
                 type_name_show = '';
@@ -751,7 +760,7 @@ jQuery.fn.extend({
                 $('.and_new_column_key').val('');
                 $('.and_new_column_label').val('');
                 $('.add_new_column_type_select').val('');
-                
+                // return;
                 $('body.wpt_admin_body input#publish[name=save]').trigger('click');
             }
             return;
