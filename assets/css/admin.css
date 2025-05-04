@@ -1979,7 +1979,7 @@ a.edit-my-column-easily:hover {
 ul#wpt_column_sortable>li.wpt_sortable_peritem.inside-column-enabled .wpt_shortable_data {
     max-width: 800px;
     background: white !important;
-    margin: auto;
+    margin: 0 20px;
     padding: 50px;
     overflow: hidden;
     /* height: 800px; */
@@ -2726,7 +2726,7 @@ ul#wpt_column_sortable li>span.handle.checkbox_handle>input.enabled:before, ul#w
 .wpt-template-item.wpt-temp-type-limited:before {
     content: ' ';
     position: absolute;
-    background: #9b9b9bad;
+    background: #dfdfdf73;
     padding: 3px 10px;
     right: -9px;
     top: 0;
