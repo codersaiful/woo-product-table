@@ -127,6 +127,7 @@ function wpt_datewise_validation()
     //If pro available, directly return true
     if (defined('WPT_PRO_DEV_VERSION')) return true;
 
+    return;
     $prev_args = array(
         'post_type' => 'wpt_product_table',
         'date_query' => array(

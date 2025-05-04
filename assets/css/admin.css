@@ -1494,6 +1494,7 @@ tr.user_can_not_edit>td:after {
     position: absolute;
     top: 0;
     left: 0;
+    display: none;
 }
 tr.user_can_not_edit>td:last-child:after {
     display: none;

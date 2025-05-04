@@ -1200,14 +1200,14 @@ jQuery.fn.extend({
     });
     
 
-    $('.wpt-premium-feature-in-free-version').each(function(){
+    $('.wpt-premium-feature-in-free-version,.user_can_not_edit').each(function(){
         var $this = $(this);
         $this.attr('title', 'Premium Feature');
         $this.find('input,select').removeAttr('name');
     });
 
     //.column_add_extra_items.extra-inner-item-wrapper,.column_tag_for_all,
-    var findExtraSelection = '.column_tag_for_all,.column_label_fullwidth,.column_label_showing,.column_label_showing,.auto_responsive_column_label_show,.column_only_login_user,.column_only_login_user';
+    var findExtraSelection = '.column_label_fullwidth,.column_label_showing,.column_label_showing,.auto_responsive_column_label_show,.column_only_login_user,.column_only_login_user';
 
     $(document.body).on('click', '.style_str_wrapper h3.style-heading', function(e){
         e.preventDefault();
