@@ -1483,6 +1483,7 @@ tr.user_can_not_edit>td:first-child:before {
     left: 30px;
     top: -7px;
 }
+.wpt-premium-feature-in-free-version tr.user_can_not_edit>td:first-child:before{display: none;}
 
 tr.user_can_not_edit>td:after {
     content: "";

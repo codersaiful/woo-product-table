@@ -123,7 +123,7 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
         // var_dump($page);
         ?>
 
-<div class="wpt-section-panel basic-settings basic <?php echo esc_attr( $page ); ?>" id="wpt-basic-settings">
+<div class="wpt-section-panel basic-settings basic <?php echo esc_attr( wpt_get_conditional_class() ); ?> <?php echo esc_attr( $page ); ?>" id="wpt-basic-settings">
     <table class="wpt-my-table basic-setting-table">
         <thead>
             <tr>
@@ -190,7 +190,7 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
                             <label class="wpt_label" for="wpt_table_thumbs_image_size"><?php echo sprintf(esc_html__( 'Thumbs Image Size', 'woo-product-table' ), '<small>', '</small>' ); ?></label>
                         </div>
                         <div class="form-field col-lg-6">
-                            <input name="<?php echo esc_attr( $field_name ); ?>[thumbs_image_size]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['thumbs_image_size'] ); ?>" id="wpt_table_thumbs_image_size" type="text" placeholder="<?php esc_attr_e( 'Thumbnail size. eg: 56', 'woo-product-table' ); ?>" min="16" max="" pattern="[0-9]*" inputmode="numeric">
+                            <input name="<?php echo esc_attr( $field_name ); ?>[thumbs_image_size]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['thumbs_image_size'] ?? '' ); ?>" id="wpt_table_thumbs_image_size" type="text" placeholder="<?php esc_attr_e( 'Thumbnail size. eg: 56', 'woo-product-table' ); ?>" min="16" max="" pattern="[0-9]*" inputmode="numeric">
                         </div>
                     </div>
                 </td>
@@ -290,7 +290,7 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
                             <label class="wpt_label" for="wpt_table_footer_cart_size"><?php echo sprintf(esc_html__( 'Floating Cart Size %s[Only Int]%s', 'woo-product-table' ), '<small>', '</small>' ); ?></label>
                         </div>
                         <div class="form-field col-lg-6">
-                            <input name="<?php echo esc_attr( $field_name ); ?>[footer_cart_size]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['footer_cart_size'] ); ?>" id="wpt_table_footer_cart_size" type="number" placeholder="<?php esc_attr_e( 'Default Size. eg: 70', 'woo-product-table' ); ?>" min="50" max="" pattern="[0-9]*" inputmode="numeric">
+                            <input name="<?php echo esc_attr( $field_name ); ?>[footer_cart_size]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['footer_cart_size'] ?? '' ); ?>" id="wpt_table_footer_cart_size" type="number" placeholder="<?php esc_attr_e( 'Default Size. eg: 70', 'woo-product-table' ); ?>" min="50" max="" pattern="[0-9]*" inputmode="numeric">
                         </div>
                     </div>
                 </td>
@@ -398,7 +398,7 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
                             <label for="wpt_table_instant_search_text" class="wpt_label"><?php echo sprintf(esc_html__( '%s[Instance Search]%s - Text', 'woo-product-table' ), '<b>', '</b>' ); ?></label>
                         </div>
                         <div class="form-field col-lg-6">
-                            <input name="<?php echo esc_attr( $field_name ); ?>[instant_search_text]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['instant_search_text'] ); ?>" id="wpt_table_instant_search_text" type="text" placeholder="<?php esc_attr_e( 'attr', 'woo-product-table' ); ?>">
+                            <input name="<?php echo esc_attr( $field_name ); ?>[instant_search_text]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['instant_search_text'] ?? '' ); ?>" id="wpt_table_instant_search_text" type="text" placeholder="<?php esc_attr_e( 'attr', 'woo-product-table' ); ?>">
                         </div>
                     </div>
                 </td>
@@ -660,7 +660,7 @@ if( !function_exists( 'wpt_configure_label_part' ) ){
                 </td>
             </tr>
 
-            <tr class="<?php echo esc_attr( $user_can_edit ); ?>">
+            <tr>
                 <td>
                     <div class="wpt-form-control">
                         <div class="form-label col-lg-6">
@@ -736,7 +736,7 @@ if( !function_exists( 'wpt_configure_label_part' ) ){
 
             
 
-            <tr class="<?php echo esc_attr( $user_can_edit ); ?>">
+            <tr>
                 <td>
                     <div class="wpt-form-control">
                         <div class="form-label col-lg-6">
@@ -756,7 +756,7 @@ if( !function_exists( 'wpt_configure_label_part' ) ){
             
 
             <!-- ----add to cart selected---- -->
-            <tr class="divider-row">
+            <tr class="divider-row <?php echo esc_attr( wpt_get_conditional_class() ); ?>">
                 <td>
                     <div class="wqpmb-form-control">
                         <div class="form-label col-lg-6">
@@ -774,7 +774,7 @@ if( !function_exists( 'wpt_configure_label_part' ) ){
                 </td>
             </tr>
 
-            <tr>
+            <tr class="<?php echo esc_attr( wpt_get_conditional_class() ); ?>">
                 <td>
                     <div class="wpt-form-control">
                         <div class="form-label col-lg-6">
@@ -791,7 +791,7 @@ if( !function_exists( 'wpt_configure_label_part' ) ){
                     </div> 
                 </td>
             </tr>
-            <tr>
+            <tr class="<?php echo esc_attr( wpt_get_conditional_class() ); ?>">
                 <td>
                     <div class="wpt-form-control">
                         <div class="form-label col-lg-6">
@@ -809,7 +809,7 @@ if( !function_exists( 'wpt_configure_label_part' ) ){
                 </td>
             </tr>
 
-            <tr>
+            <tr class="<?php echo esc_attr( wpt_get_conditional_class() ); ?>">
                 <td>
                     <div class="wpt-form-control">
                         <div class="form-label col-lg-6">
@@ -828,7 +828,7 @@ if( !function_exists( 'wpt_configure_label_part' ) ){
             </tr>
 
             
-            <tr class="divider-row">
+            <tr class="divider-row <?php echo esc_attr( wpt_get_conditional_class() ); ?>">
                 <td>
                     <div class="wqpmb-form-control">
                         <div class="form-label col-lg-6">
@@ -845,7 +845,7 @@ if( !function_exists( 'wpt_configure_label_part' ) ){
                     </div> 
                 </td>
             </tr>
-            <tr>
+            <tr class="<?php echo esc_attr( wpt_get_conditional_class() ); ?>">
                 <td>
                     <div class="wpt-form-control">
                         <div class="form-label col-lg-6">
@@ -862,7 +862,7 @@ if( !function_exists( 'wpt_configure_label_part' ) ){
                     </div> 
                 </td>
             </tr>
-            <tr>
+            <tr class="<?php echo esc_attr( wpt_get_conditional_class() ); ?>">
                 <td>
                     <div class="wpt-form-control">
                         <div class="form-label col-lg-6">
@@ -879,7 +879,7 @@ if( !function_exists( 'wpt_configure_label_part' ) ){
                     </div> 
                 </td>
             </tr>
-            <tr>
+            <tr class="<?php echo esc_attr( wpt_get_conditional_class() ); ?>">
                 <td>
                     <div class="wpt-form-control">
                         <div class="form-label col-lg-6">
@@ -917,7 +917,7 @@ if( !function_exists( 'wpt_configure_label_part' ) ){
                 </td>
             </tr>
             <?php } ?>
-            <tr>
+            <tr class="<?php echo esc_attr( wpt_get_conditional_class() ); ?>">
                 <td>
                     <div class="wpt-form-control">
                         <div class="form-label col-lg-6">
@@ -935,7 +935,7 @@ if( !function_exists( 'wpt_configure_label_part' ) ){
                 </td>
             </tr>
             
-            <tr>
+            <tr class="<?php echo esc_attr( wpt_get_conditional_class() ); ?>">
                 <td>
                     <div class="wpt-form-control">
                         <div class="form-label col-lg-6">
@@ -952,7 +952,7 @@ if( !function_exists( 'wpt_configure_label_part' ) ){
                     </div> 
                 </td>
             </tr>
-            <tr>
+            <tr class="<?php echo esc_attr( wpt_get_conditional_class() ); ?>">
                 <td>
                     <div class="wpt-form-control">
                         <div class="form-label col-lg-6">
@@ -970,7 +970,7 @@ if( !function_exists( 'wpt_configure_label_part' ) ){
                 </td>
             </tr>
 
-            <tr class="divider-row">
+            <tr class="divider-row <?php echo esc_attr( wpt_get_conditional_class() ); ?>">
                 <td>
                     <div class="wqpmb-form-control">
                         <div class="form-label col-lg-6">
@@ -987,7 +987,7 @@ if( !function_exists( 'wpt_configure_label_part' ) ){
                     </div> 
                 </td>
             </tr>
-            <tr>
+            <tr class="<?php echo esc_attr( wpt_get_conditional_class() ); ?>">
                 <td>
                     <div class="wpt-form-control">
                         <div class="form-label col-lg-6">
@@ -1005,7 +1005,7 @@ if( !function_exists( 'wpt_configure_label_part' ) ){
                 </td>
             </tr>
             
-            <tr>
+            <tr class="<?php echo esc_attr( wpt_get_conditional_class() ); ?>">
                 <td>
                     <div class="wpt-form-control">
                         <div class="form-label col-lg-6">
@@ -1046,8 +1046,11 @@ if( !function_exists( 'wpt_configure_external_part' ) ){
      * @return void
      */
     function wpt_configure_external_part( $settings,$current_config_value,$field_name ){
+        if( !defined( 'YITH_WCQV_VERSION' ) ){
+            return;
+        }
         $display = '';
-        if( ! defined( 'YITH_YWRAQ_VERSION' ) ){
+        if( ! defined( 'YITH_WCQV_VERSION' ) ){
             $display = 'display:none';
         }
 
@@ -1177,7 +1180,7 @@ if( !function_exists( 'wpt_configure_all_message_part' ) ){
 
         // label <?php echo esc_attr( $page ); "
         ?>
-<div class="wpt-section-panel basic-settings yith <?php echo esc_attr( $page ); ?>" id="wpt-yith-settings">
+<div class="wpt-section-panel basic-settings <?php echo esc_attr( wpt_get_conditional_class() ); ?> <?php echo esc_attr( $page ); ?>" id="wpt-all-messages-settings">
     <table class="wpt-my-table basic-setting-table">
         <thead>
             <tr>
