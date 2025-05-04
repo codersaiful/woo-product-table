@@ -44,7 +44,15 @@ li#menu-posts-wpt_product_table.wp-has-current-submenu .wp-menu-name {
     background-size: 200% 200%; /* Ensure the gradient can animate smoothly */
     animation: wpt-gradient-animation 10s ease infinite; /* Applies the animation */
 }
-
+li#menu-posts-wpt_product_table ul.wp-submenu li a[href='https://wooproducttable.com/pricing'] {
+    background: #FFEB3B;
+    color: black !important;
+    font-weight: 900;
+}
+li#menu-posts-wpt_product_table ul.wp-submenu li:hover a[href='https://wooproducttable.com/pricing'] {
+    background: #E91E63;
+    color: #ffffff !important;
+}
 
 .notice.ca-notice.notice-offer {
     background: #ffffff;
