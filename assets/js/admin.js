@@ -693,14 +693,16 @@ jQuery.fn.extend({
             });
         });
         
-        $('.custom-box').on('click', function() {
+        $(document.body).on('click','.wpt-custom-select-box', function() {
             if ($(this).hasClass('disabled')) return;
     
-            $('.custom-box').removeClass('active');
+            var wrapper = $(this).closest('.custom-select-box-wrapper');
+
+            wrapper.find('.wpt-custom-select-box').removeClass('active');
             $(this).addClass('active');
     
             const selectedValue = $(this).data('value');
-            $('.add_new_column_type_select').val(selectedValue);
+            wrapper.find('input').val(selectedValue);
         });
         /**
          * Add new Column
@@ -711,7 +713,7 @@ jQuery.fn.extend({
             var keyword = $('.and_new_column_key').val();
             var label = $('.and_new_column_label').val();
             var type = $('.add_new_column_type_select').val();
-            var type_name = $('div.custom-boxes .custom-box.active').text();
+            var type_name = $('div.wpt-custom-select-boxes .wpt-custom-select-box.active').text();
             var type_name_show = '<i>' + type_name + '</i>: ';
             if(type === 'default'){
                 type_name_show = '';

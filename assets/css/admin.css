@@ -2510,38 +2510,43 @@ a.wpt-doc-lick{
     color: #23282d;
     text-decoration: underline;
 }
-.custom-boxes {
+.wpt-custom-select-boxes {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
 }
 
-.custom-box {
+.wpt-custom-select-box {
     padding: 10px 15px;
-    border: 1px solid #ccc;
+    border: 1px solid #656565;
     border-radius: 6px;
-    cursor: pointer;
-    background-color: #f9f9f9;
     transition: 0.3s;
+    cursor: pointer;
+    border-style: dashed;
+    font-weight: 500;
+    background: white;
 }
 
-.custom-box:hover {
+.wpt-custom-select-box:hover {
     background-color: #e0e0e0;
 }
 
-.custom-box.active {
+.wpt-custom-select-box.active {
     background-color: #0073aa;
     color: #fff;
     border-color: #0073aa;
 }
 
-.custom-box.disabled {
+.wpt-custom-select-box.disabled {
     background-color: #f1f1f1;
     color: #999;
     cursor: not-allowed;
     border-style: dashed;
+    position: relative;
+    opacity: 0.8;
+    border-color: #a7a7a7;
 }
-.custom-box.disabled:hover {
+.wpt-custom-select-box.disabled:hover {
     background-color: #e0e0e0;
     color: #999;
     cursor: not-allowed;
@@ -2793,6 +2798,7 @@ ul#wpt_column_sortable li>span.handle.checkbox_handle>input.enabled:before, ul#w
     background: #ffbebe70;
     padding: 6px;
 }
+.wpt-custom-select-box.disabled::after,
 .wpt-template-item.wpt-temp-type-limited:after,
 .wpt-premium-feature-in-free-version>*:before {
     content: "Pro";
@@ -2806,6 +2812,7 @@ ul#wpt_column_sortable li>span.handle.checkbox_handle>input.enabled:before, ul#w
     border-radius: 4px;
     box-shadow: 1px 2px 3px #ffffff;
 }
+.wpt-custom-select-box.disabled::after{padding: 0 5px;}
 .wpt-template-item.wpt-temp-type-limited:after{opacity: 0.8;}
 
 .wpt-premium-feature-in-free-version {
