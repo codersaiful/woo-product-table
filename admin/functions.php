@@ -306,6 +306,11 @@ if (!function_exists('wpt_column_style_for_all')) {
                     <input type="checkbox" class="" name="column_settings[check][inside_label]">
                     <p>To show Label of Item before Inside Item.</p>
                 </div>
+                <div class="auto_responsive_column_label_show">
+                    <label for="column_settings[thumbnails][auto_responsive_column_label_show]">Hide column label for Mobile/Tablet</label>
+                    <input type="checkbox" class="" id="column_settings[thumbnails][auto_responsive_column_label_show]" name="column_settings[thumbnails][auto_responsive_column_label_show]" checked="">
+                    <p>Hide column label for Mobile/Tablet before each item. Importance: Only for Auto Responsive Mode.</p>
+                </div>
                 <div class="column_only_login_user">
                     <label>Only Login user</label>
                     <input type="checkbox" class="" name="column_settings[check][only_login_user]">

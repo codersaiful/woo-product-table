@@ -24,6 +24,13 @@
         'border'=>__('Border' , 'woo-product-table' ),
         'text-align'=>__('Text Align' , 'woo-product-table' ),
         'vertical-align'=>__('Vertical Align' , 'woo-product-table' ),
+        'width' => 'Column/Item width',
+        'height' => 'Column/Item Height',
+        'font-size' => 'Font or Text Size',
+        'font-style' => 'Font Style',
+        'font-weight' => 'Font Weight',
+        'padding' => 'Element Padding',
+        'margin' => 'Element Margin',
     );
     $supported_css_property = apply_filters( 'wpto_supported_css_property', $supported_css_property, $tab_array, $post );
 
