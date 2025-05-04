@@ -15,7 +15,13 @@ $premium_column = [
     'viewed' => __('Viewed', 'woo-product-table'), //Added at V8.0.1.0
     'toggle_description' => __('Toggle Description', 'woo-product-table'),
 ];
-$available_column_array = array_merge( $premium_column, $columns_array );
+if( ! wpt_is_pro() ){
+    $available_column_array = array_merge( $premium_column, $columns_array );
+    $premium_column = [];
+}else{
+    $available_column_array = $columns_array;
+}
+
 asort($available_column_array);
 
 ?>
@@ -69,7 +75,7 @@ asort($available_column_array);
                     }
 
                     //eta specially pro badge dekhanor jonno ebong eta js er maddhome off kore dite hobe, jodi disabled thake
-                    $premium = in_array( $keyword, array_keys( $premium_column ) ) ? 'premium' : '';
+                    $premium =! wpt_is_pro() && in_array( $keyword, array_keys( $premium_column ) ) ? 'premium' : '';
                     
                 ?>
                 <li class="switch-enable-item switch-enable-item-<?php echo esc_attr( $keyword . ' ' . $enabled_class . ' ' . $premium ); ?>" 
