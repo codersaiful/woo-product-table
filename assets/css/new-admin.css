@@ -272,10 +272,10 @@ a.wpt-button, button.wpt-button {
 }
 
 a.wpt-button:hover, button.wpt-button:hover {
-    background-color: #4CAF50;
+    background-color: #0073aa;
 }
 a.wpt-button.reverse, button.wpt-button.reverse {
-    background-color: #4CAF50;
+    background-color: #0073aa;
 }
 a.wpt-button.reverse:hover, button.wpt-button.reverse:hover {
     background-color: #607D8B;

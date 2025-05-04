@@ -1348,6 +1348,7 @@ jQuery.fn.extend({
 
     // When an item is selected
     $(document).on('click', '.wpt-dropdown-list li', function() {
+        if ($(this).hasClass('premium')) {return;}
         var selectedKeyword = $(this).data('column_keyword');
 
         if ($(this).hasClass('item-enabled')) {
