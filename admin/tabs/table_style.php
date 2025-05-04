@@ -9,8 +9,8 @@ $templates_default = array(
     // 'brazil'            =>  __( 'Brazil', 'woo-product-table' ),
 );
 $pro_templates = array(
-    'greeny'            =>  __('Greeny', 'woo-product-table'),
-    'redy'              =>  __('Redy', 'woo-product-table'),
+    'greeny'            =>  __('Greeny', 'woo-product-table'), //Take from Free Version
+    'redy'              =>  __('Redy', 'woo-product-table'), //Take from Free Version
     'smart'             =>  __('Smart Thin', 'woo-product-table'),
     'green'             =>  __('Green Style', 'woo-product-table'),
     'blue'              =>  __('Blue Style', 'woo-product-table'),
