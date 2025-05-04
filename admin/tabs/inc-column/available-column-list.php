@@ -1,23 +1,24 @@
 <?php 
 $columns_array = apply_filters( 'wpto_final_column_arr', $columns_array );
-$premium_column = [
-    'category' => __('Category', 'woo-product-table'),
-    'stock' => __('Stock', 'woo-product-table'),
-    'total' => __('Total', 'woo-product-table'),
-    'sku' => __('SKU', 'woo-product-table'),
-    'message' => __('Short Message', 'woo-product-table'),
-    'short_description' => __('Short Description', 'woo-product-table'),
-    'shortcode' => __('Shortcode', 'woo-product-table'),
-    'content' => __('Content', 'woo-product-table'),
-    'audio_player' => __('Audio', 'woo-product-table'),
-    'quick_qty' => __('Quick Qty', 'woo-product-table'), //Added at V7.0.9.0
-    'variation_name' => __('Variation Name', 'woo-product-table'), //Added at V8.0.3.1
-    'viewed' => __('Viewed', 'woo-product-table'), //Added at V8.0.1.0
-    'toggle_description' => __('Toggle Description', 'woo-product-table'),
-];
+$premium_column = [];
+
 if( ! wpt_is_pro() ){
+    $premium_column = [
+        'category' => __('Category', 'woo-product-table'),
+        'stock' => __('Stock', 'woo-product-table'),
+        'total' => __('Total', 'woo-product-table'),
+        'sku' => __('SKU', 'woo-product-table'),
+        'message' => __('Short Message', 'woo-product-table'),
+        'short_description' => __('Short Description', 'woo-product-table'),
+        'shortcode' => __('Shortcode', 'woo-product-table'),
+        'content' => __('Content', 'woo-product-table'),
+        'audio_player' => __('Audio', 'woo-product-table'),
+        'quick_qty' => __('Quick Qty', 'woo-product-table'), //Added at V7.0.9.0
+        'variation_name' => __('Variation Name', 'woo-product-table'), //Added at V8.0.3.1
+        'viewed' => __('Viewed', 'woo-product-table'), //Added at V8.0.1.0
+        'toggle_description' => __('Toggle Description', 'woo-product-table'),
+    ];
     $available_column_array = array_merge( $premium_column, $columns_array );
-    $premium_column = [];
 }else{
     $available_column_array = $columns_array;
 }
@@ -75,7 +76,7 @@ asort($available_column_array);
                     }
 
                     //eta specially pro badge dekhanor jonno ebong eta js er maddhome off kore dite hobe, jodi disabled thake
-                    $premium =! wpt_is_pro() && in_array( $keyword, array_keys( $premium_column ) ) ? 'premium' : '';
+                    $premium = in_array( $keyword, array_keys( $premium_column ) ) ? 'premium' : '';
                     
                 ?>
                 <li class="switch-enable-item switch-enable-item-<?php echo esc_attr( $keyword . ' ' . $enabled_class . ' ' . $premium ); ?>" 

@@ -761,7 +761,7 @@ table.wp-list-table.widefat.plugins tr.active[data-slug='product-table-for-wooco
     top: 6px;
 }
 .inside-column-settings-wrapper .inside_tab_content h4:hover {
-    background: #494949eb;
+    background: #007ebb;
 }
 .inside-column-settings-wrapper .inside_tab_content.expanded h4{
     background: #e3e3e3;
@@ -790,7 +790,7 @@ table.wp-list-table.widefat.plugins tr.active[data-slug='product-table-for-wooco
 .inside_tab_content.tab-content>h4 {
     margin: 0;
     cursor: pointer;
-    background: #000000;
+    background: #00557e;
     color: white;
 }
 .inside_tab_content.tab-content>h4>span {
@@ -812,7 +812,7 @@ table.wp-list-table.widefat.plugins tr.active[data-slug='product-table-for-wooco
 
 
 .inside_tab_content.tab-content.tab-content-active.expanded {
-    border-top: 2px solid #060606;
+    border-top: 2px solid #00557e;
     background: #ffffff;
 }
 .inside-column-settings-wrapper .inside_tab_content.tab-content.tab-content-active{display: block;}
@@ -2321,6 +2321,13 @@ div.wpt-content p.wpt-issue-submit a:hover {
     clear: both;
     box-sizing: border-box;
     box-shadow: 0px 9px 13px 0 #0000004a;
+}
+#wpt_configuration_form .wpt-configure-tab-wrapper.wpt-section-panel a[href="#wpt-label-settings"],
+#wpt_configuration_form .wpt-configure-tab-wrapper.wpt-section-panel a[href="#wpt-all-messages-settings"],
+#wpt_configuration_form .wpt-configure-tab-wrapper.wpt-section-panel a[href="#show-all"],
+#wpt_configuration_form div#wpt-label-settings, 
+#wpt_configuration_form div#wpt-all-messages-settings {
+    display: none !important;
 }
 /********Configure Tab Area End*********/
 
