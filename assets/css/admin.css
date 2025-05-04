@@ -1335,10 +1335,9 @@ ul#wpt_column_sortable>li.wpt_sortable_peritem.enabled{display: flex;border-radi
 }
 li.switch-enable-item i {
     font-size: 11px;
-    color: #939393;
-    display: inline-block;
     padding: 0 12px;
     font-weight: normal;
+    opacity: 0.6;
 }
 .add_switch_col_wrapper .enable-available-cols ul li.switch-enable-item.item-disabled {
     background: #e4e4e459;
@@ -1944,17 +1943,21 @@ p.wpt-shorcode-render-box {
 } */
 
 ul#wpt_column_sortable>li.wpt_sortable_peritem.inside-column-enabled {
-    display: block !important;
+    display: flex !important;
     position: fixed !important;
     top: 0;
     left: 0;
     background: #0000008c;
     width: 100%;
     border: 0 none;
-    padding: 50px;
+    padding: 0;
     height: 100%;
     opacity: 1;
     z-index: 70;
+    margin: 0;
+    align-items: center;
+    justify-content: center;
+    z-index: 78;
 }
 a.edit-my-column-easily {
     padding: 0 12px;
@@ -2377,8 +2380,8 @@ span.wpt-help-icon:hover:before {
     font-size: 14px;
 }
 span.wpt-help-icon:hover {
-    background: green;
-    color: wheat;
+    background: #000000;
+    color: #ffffff;
 }
 span.wpt-help-icon.wpt-help-focused{
     background: rgb(3, 3, 3);
@@ -2597,16 +2600,11 @@ input.wpt-column-search-box {
     padding: 10px;
     cursor: pointer;
     border-bottom: 1px solid #f1f1f1;
-    color: #4d4d4d;
-    font-weight: 200;
+    color: #121212;
+    font-weight: 500;
     position: relative;
 }
-.wpt-dropdown-list li.item-enabled {
-    /* background: #4CAF50; */
-    /* color: white; */
-    font-weight: 500;
-    color: #4CAF50;
-}
+
 .wpt-dropdown-list li.item-enabled:after {
     content: '\e811';
     font-family: "wptfontelo";
@@ -2616,7 +2614,13 @@ input.wpt-column-search-box {
 .wpt-dropdown-list li:hover {
     background-color: #f0f0f0;
 }
-
+.wpt-dropdown-list li.item-enabled:hover,
+.wpt-dropdown-list li.item-enabled {
+    background: #f0ffe7;
+    color: #027e07;
+    font-weight: 600;
+    /* border-bottom: 1px solid #f0ffe7; */
+}
 
 button.add_new_column_button strong,
 button#wpt-add-new-custom-column-btn strong,
