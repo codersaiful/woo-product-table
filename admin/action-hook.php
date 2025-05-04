@@ -1657,7 +1657,7 @@ if( !function_exists( 'wpto_admin_configuration_form_top_free' ) ){
                             <div class="form-field col-lg-6">
                                 <select name="data[archive_table_id]" class="wpt_fullwidth ua_input wpt_table_on_archive">
                                     <option value="">Select a Table</option>
-                                    <option value="1" selected="">Table 1</option>
+                                    <option value="1">Table 1</option>
                                     <option value="2">Table 2</option>
                                     <option value="3">Table 3</option>
                                     <option value="4">Table 4</option>
@@ -1733,7 +1733,7 @@ if( !function_exists( 'wpto_admin_configuration_form_top_free' ) ){
                             <div class="form-field col-lg-6">
                                 <select class="wpt_fullwidth ua_input wpt_table__for_variation">
                                     <option value="">Select a Table</option>
-                                    <option value="1" selected="">Table 1</option>
+                                    <option value="1">Table 1</option>
                                     <option value="2">Table 2</option>
                                     <option value="3">Table 3</option>
                                     <option value="4">Table 4</option>
