@@ -18,13 +18,15 @@ if( ! wpt_is_pro() ){
         'viewed' => __('Viewed', 'woo-product-table'), //Added at V8.0.1.0
         'toggle_description' => __('Toggle Description', 'woo-product-table'),
     ];
-    $available_column_array = array_merge( $premium_column, $columns_array );
+    $available_column_array = array_merge( $columns_array, $premium_column );
 }else{
     $available_column_array = $columns_array;
 }
 
-asort($available_column_array);
+$enabledd_column_array = is_array($meta_enable_column_array) && ! empty($meta_enable_column_array) ? $meta_enable_column_array : $default_enable_array;
 
+asort($available_column_array);
+$available_column_array = array_merge( $enabledd_column_array, $available_column_array );
 ?>
 <!-- Enable Active Collumn -->
 <div class="add_switch_col_wrapper">
@@ -32,7 +34,7 @@ asort($available_column_array);
         <?php
         
         
-
+$saifful = [];
         ?>
 
         <div class="section-header">
@@ -61,19 +63,15 @@ asort($available_column_array);
                 foreach( $available_column_array as $keyword => $title ){ 
                     // dd($keyword);
                     $updated_title = isset( $updated_columns_array[$keyword] ) ? $updated_columns_array[$keyword] : $title;
-                    if( $meta_enable_column_array && !empty( $meta_enable_column_array ) && is_array( $meta_enable_column_array ) ){
-                        $enabled_class = 'item-disabled';
-                        $enabled_class = '';
-                        if( in_array( $keyword, array_keys( $meta_enable_column_array ) ) ){
-                            $enabled_class = 'item-enabled';
-                        }
-                    }else{
+
+                    $enabled_class = '';
+                    if( in_array( $keyword, array_keys( $enabledd_column_array ) ) ){
                         $enabled_class = 'item-enabled';
-                        if( !in_array( $keyword, $default_enable_array ) ){
-                            $enabled_class = 'item-disabled';
-                            $enabled_class = '';
-                        }
                     }
+
+                    $saifful[] = $title;
+
+                   
 
                     //eta specially pro badge dekhanor jonno ebong eta js er maddhome off kore dite hobe, jodi disabled thake
                     $premium = in_array( $keyword, array_keys( $premium_column ) ) ? 'premium' : '';
@@ -90,37 +88,6 @@ asort($available_column_array);
                     </ul>
                 </div>
             </div>
-        </div>
-        <br style="clear: both;">
-        <div class="section enable-available-cols switch-enable-available" id="wpt-switch-wrapper">
-            <ul id="wpt-switch-list" class="wpt-switch-list">
-                <?php 
-                $available_column_array = $columns_array;
-                // asort($available_column_array);
-                foreach( $available_column_array as $keyword => $title ){ 
-                    $updated_title = isset( $updated_columns_array[$keyword] ) ? $updated_columns_array[$keyword] : $title;
-                    if( $meta_enable_column_array && !empty( $meta_enable_column_array ) && is_array( $meta_enable_column_array ) ){
-                        $enabled_class = 'item-disabled';
-                        $enabled_class = '';
-                        if( in_array( $keyword, array_keys( $meta_enable_column_array ) ) ){
-                            $enabled_class = 'item-enabled';
-                        }
-                    }else{
-                        $enabled_class = 'item-enabled';
-                        if( !in_array( $keyword, $default_enable_array ) ){
-                            $enabled_class = 'item-disabled';
-                            $enabled_class = '';
-                        }
-                    }
-                    
-                ?>
-                <li class="switch-enable-item switch-enable-item-<?php echo esc_attr( $keyword ); ?> <?php echo esc_attr( $enabled_class ); ?>" 
-                    title="<?php echo esc_html( "key: $keyword & title: $updated_title" ); ?>"
-                    data-column_keyword="<?php echo esc_attr( $keyword ); ?>">
-                        <?php echo esc_html( $updated_title ); ?><i>[<?php echo esc_html( $keyword ); ?>]</i>
-                </li>
-                <?php } ?>
-            </ul>
         </div>
     </div>
 </div>
