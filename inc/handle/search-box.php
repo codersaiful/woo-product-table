@@ -27,7 +27,7 @@ class Search_Box{
         
         $config_value = $shortcode->_config;
         // var_dump($config_value);
-        $search_box_title = $config_value['search_box_title'];
+        $search_box_title = $config_value['search_box_title'] ?? '';
         $html = false;
         $html .= "<div id='search_box_{$shortcode->table_id}' class='wpt_search_box search_box_{$shortcode->table_id}'>";
         $html .= '<div class="search_box_fixer">'; //Search_box inside fixer
@@ -40,8 +40,8 @@ class Search_Box{
         }else{
             $html_inputBox = '';
             $search_keyword = isset( $_GET['search_key'] ) ? sanitize_text_field( $_GET['search_key'] ) : '';
-            $single_keyword = $config_value['search_keyword_text'];//__( 'Search keyword', 'woo-product-table' );
-            $search_order_placeholder = $config_value['search_box_searchkeyword'];//__( 'Search keyword', 'woo-product-table' );
+            $single_keyword = $config_value['search_keyword_text'] ?? '';//__( 'Search keyword', 'woo-product-table' );
+            $search_order_placeholder = $config_value['search_box_searchkeyword'] ?? '';//__( 'Search keyword', 'woo-product-table' );
             $html_inputBox .= '<div class="search_single_search_by_keyword">';// /.search_single_column 
             $html_inputBox .= '<label class="search_keyword_label single_keyword" for="single_keyword_' . $shortcode->table_id . '">' . $single_keyword . '</label>';
             $html_inputBox .= '<input data-key="s" value="' . $search_keyword . '" class="query-keyword-input-box query_box_direct_value" id="single_keyword_' . $shortcode->table_id . '" value="" placeholder="' . $search_order_placeholder . '"/>';
