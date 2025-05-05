@@ -27,6 +27,35 @@ foreach($terms as $term){
                     <label class="wpt_label" for="wpt_search_box"><?php esc_html_e( 'Advance Search Box', 'woo-product-table' ); ?></label>
                 </th>
                 <td>
+                <div class="custom-select-box-wrapper">
+                    <?php
+                    $name = 'search_n_filter[search_box]';
+                    $id = 'wpt_search_box';
+                    $current_val = $meta_search_n_filter['search_box'] ?? 'yes';
+                    $options = [
+                        'yes' => esc_html__( 'Show Search Box', 'woo-product-table' ),
+                        'no' => esc_html__( 'Hide Search Box', 'woo-product-table' ),
+                    ];
+                    ?>
+
+                    <input type="hidden" name="<?php echo esc_attr( $name ); ?>"
+                    data-on="yes|.wpt_snf_on_off"
+                     value="<?php echo esc_attr( $current_val ); ?>"
+                     class="custom-select-box-input wpt_toggle" id="<?php echo esc_attr( $id ); ?>">
+                    <div class="wpt-custom-select-boxes">
+
+                        <?php foreach ($options as $value => $label): ?>
+                            <div class="wpt-custom-select-box <?php echo $current_val === $value ? 'active' : ''; ?>" data-value="<?php echo esc_attr($value); ?>">
+                                <?php echo $label; ?>
+                            </div>
+                        <?php endforeach; $current_val = null; $options = []; ?>
+                    </div>
+                    <p class="warning">
+                        <b><?php echo esc_html__( 'Tips:', 'woo-product-table' ); ?></b>
+                        <span><?php echo esc_html__( 'Not for WooCommerce Archive page. Such: shop page, product category page.','woo-product-table' ); ?></span>
+                    </p>
+                </div>
+<!--                     
                     <select name="search_n_filter[search_box]" data-name='search_box' id="wpt_search_box" class="wpt_fullwidth wpt_data_filed_atts ua_input wpt_toggle" data-on="yes|.wpt_snf_on_off" >
                         <option value="yes" <?php echo isset( $meta_search_n_filter['search_box'] ) && $meta_search_n_filter['search_box'] == 'yes' ? 'selected' : ''; ?>><?php esc_html_e( 'Show Search Box', 'woo-product-table' ); ?></option>
                         <option value="no" <?php echo isset( $meta_search_n_filter['search_box'] ) && $meta_search_n_filter['search_box'] == 'no' ? 'selected' : ''; ?>><?php esc_html_e( 'Hide Search Box', 'woo-product-table' ); ?></option>
@@ -34,7 +63,7 @@ foreach($terms as $term){
                     <p class="warning">
                         <b><?php echo esc_html__( 'Tips:', 'woo-product-table' ); ?></b>
                         <span><?php echo esc_html__( 'Not for WooCommerce Archive page. Such: shop page, product category page.','woo-product-table' ); ?></span>
-                    </p>
+                    </p> -->
                 </td>
             </tr>
         </table>
@@ -407,6 +436,11 @@ foreach($terms as $term){
                     <label class="wpt_label" for="wpt_filter_box"><?php esc_html_e( 'Mini Filter', 'woo-product-table' ); ?></label>
                 </th>
                 <td>
+
+                
+
+
+
                     <select name="search_n_filter[filter_box]" data-name='filter_box' id="wpt_filter_box" class="wpt_fullwidth wpt_data_filed_atts ua_input wpt_toggle"  data-on="yes|.wpt_filtr_on_off">
                         <option value="no" <?php echo isset( $meta_search_n_filter['filter_box'] ) && $meta_search_n_filter['filter_box'] == 'no' ? 'selected' : ''; ?>><?php esc_html_e( 'Hide Filter', 'woo-product-table' ); ?></option>
                         <option value="yes" <?php echo isset( $meta_search_n_filter['filter_box'] ) && $meta_search_n_filter['filter_box'] == 'yes' ? 'selected' : ''; ?>><?php esc_html_e( 'Show Filter', 'woo-product-table' ); ?></option>

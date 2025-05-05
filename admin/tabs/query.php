@@ -366,11 +366,33 @@ unset($catalog_orderby_options['menu_order']);
                     <label class="wpt_label" for="wpt_table_shorting"><?php esc_html_e( 'Sorting/Order', 'woo-product-table' ); ?></label>
                 </th>
                 <td>
-                    <select name="conditions[sort]" data-name='sort' id="wpt_table_shorting" class="wpt_fullwidth wpt_data_filed_atts ua_input" >
-                        <option value="ASC" <?php echo isset( $meta_conditions['sort'] ) && $meta_conditions['sort'] == 'ASC' ? 'selected' : ''; ?>><?php esc_html_e( 'ASCENDING (Default)', 'woo-product-table' ); ?></option>
-                        <option value="DESC" <?php echo isset( $meta_conditions['sort'] ) && $meta_conditions['sort'] == 'DESC' ? 'selected' : ''; ?>><?php esc_html_e( 'DESCENDING', 'woo-product-table' ); ?></option>
-                        <option value="random" <?php echo isset( $meta_conditions['sort'] ) && $meta_conditions['sort'] == 'random' ? 'selected' : ''; ?>><?php esc_html_e( 'Random', 'woo-product-table' ); ?></option>
-                    </select>
+                <div class="custom-select-box-wrapper">
+
+                    <?php
+                    $name = 'conditions[sort]';
+                    $id = 'wpt_table_shorting';
+                    $current_val = $meta_conditions['sort'] ?? 'ASC';
+                    $options = [
+                        'ASC' => esc_html__( 'ASCENDING (Default)', 'woo-product-table' ),
+                        'DESC' => esc_html__( 'DESCENDING', 'woo-product-table' ),
+                        'random' => esc_html__( 'Random', 'woo-product-table' ),
+                    ];
+                    ?>
+
+                    <input type="hidden" name="<?php echo esc_attr( $name ); ?>"
+                     value="<?php echo esc_attr( $current_val ); ?>"
+                     class="custom-select-box-input" id="<?php echo esc_attr( $id ); ?>">
+                    <div class="wpt-custom-select-boxes">
+
+                        <?php foreach ($options as $value => $label): ?>
+                            <div class="wpt-custom-select-box <?php echo $current_val === $value ? 'active' : ''; ?>" data-value="<?php echo esc_attr($value); ?>">
+                                <?php echo $label; ?>
+                            </div>
+                        <?php endforeach; $current_val = null; $options = []; ?>
+                    </div>
+                    <p>Order your products for table.</p>
+                </div>
+
                 </td>
             </tr>
 
@@ -380,56 +402,78 @@ unset($catalog_orderby_options['menu_order']);
                     <label class="wpt_label" for="wpt_table_sort_order_by"><?php esc_html_e( 'Order By', 'woo-product-table' ); ?></label>
                 </th>
                 <td>
-                    <select name="conditions[sort_order_by]" data-name='sort_order_by' id="wpt_table_sort_order_by" class="wpt_fullwidth wpt_data_filed_atts ua_input" >
-                        <option value="menu_order" <?php echo isset( $meta_conditions['sort_order_by'] ) && $meta_conditions['sort_order_by'] == 'menu_order' ? 'selected' : ''; ?>><?php esc_html_e( $menu_order ); ?></option>
-                        <option value="name" <?php echo isset( $meta_conditions['sort_order_by'] ) && $meta_conditions['sort_order_by'] == 'name' ? 'selected' : ''; ?>><?php esc_html_e( 'Name', 'woo-product-table' ); ?></option>
-                        
-                        <option value="title" <?php echo isset( $meta_conditions['sort_order_by'] ) && $meta_conditions['sort_order_by'] == 'title' ? 'selected' : ''; ?>><?php esc_html_e( 'Product Title', 'woo-product-table' ); ?></option>
 
-                        <option value="publish-date" <?php echo isset( $meta_conditions['sort_order_by'] ) && $meta_conditions['sort_order_by'] == 'publish-date' ? 'selected' : ''; ?>><?php esc_html_e( 'Date', 'woo-product-table' ); ?></option>
-                        <option value="meta_value" <?php echo isset( $meta_conditions['sort_order_by'] ) && $meta_conditions['sort_order_by'] == 'meta_value' ? 'selected' : ''; ?>><?php esc_html_e( 'Custom Meta Value', 'woo-product-table' ); ?></option>
-                        
-                        
-                        <?php  
-                        if( $access ){
-                        ?>
-                        <option value="meta_value_num" <?php echo isset( $meta_conditions['sort_order_by'] ) && $meta_conditions['sort_order_by'] == 'meta_value_num' ? 'selected' : ''; ?>><?php esc_html_e( 'Custom Meta Number (if numeric data)', 'woo-product-table' ); ?></option>
-                        <?php
-                        foreach ( $catalog_orderby_options as $id => $name ) :
-                        
-                        $val = $meta_conditions['sort_order_by'] ?? '';
-                        $selected = $val == $id ? 'selected' : '';
-                        ?>
-                            <option value="<?php echo esc_attr( $id ); ?>" 
-                                <?php echo esc_attr( $selected ); ?>>
-                                <?php esc_html_e( $name ); ?>
-                            </option>
-                        <?php endforeach; ?>
-                        <option value="author" <?php echo isset( $meta_conditions['sort_order_by'] ) && $meta_conditions['sort_order_by'] == 'author' ? 'selected' : ''; ?>><?php esc_html_e( 'Author', 'woo-product-table' ); ?></option>
-                        
-                        <option value="type" <?php echo isset( $meta_conditions['sort_order_by'] ) && $meta_conditions['sort_order_by'] == 'type' ? 'selected' : ''; ?>><?php esc_html_e( 'Type', 'woo-product-table' ); ?></option>
+                <div class="custom-select-box-wrapper">
 
-                        <option value="modified" <?php echo isset( $meta_conditions['sort_order_by'] ) && $meta_conditions['sort_order_by'] == 'modified' ? 'selected' : ''; ?>><?php esc_html_e( 'Modified', 'woo-product-table' ); ?></option>
+                    <?php
+                    $name = 'conditions[sort_order_by]';
+                    $id = 'wpt_table_sort_order_by';
+                    $current_val = $meta_conditions['sort_order_by'] ?? 'menu_order';
+
+                    $options = [
+                        'title' => esc_html__( 'Product Title', 'woo-product-table' ),
+                        'name' => esc_html__( 'Name', 'woo-product-table' ),
+                        'rand' => esc_html__( 'Random', 'woo-product-table' ),
+                        'ID' => esc_html__( 'ID', 'woo-product-table' ),
                         
-                        <option value="rand" <?php echo isset( $meta_conditions['sort_order_by'] ) && $meta_conditions['sort_order_by'] == 'rand' ? 'selected' : ''; ?>><?php esc_html_e( 'Rand', 'woo-product-table' ); ?></option>
                         
-                        <?php }else{ 
-                                foreach ( $catalog_orderby_options as $id => $name ) : ?>
-                                    <option disabled><?php echo esc_html( $name ); ?>  (<?php echo esc_html__( 'Pro', 'woo-product-table' ); ?>)</option>
-                                <?php endforeach; ?>
-                                <option disabled><?php echo esc_html__( 'Custom Meta Number(Pro)', 'woo-product-table' ); ?></option>
-                                <option disabled><?php echo esc_html__( 'Author(Pro)', 'woo-product-table' ); ?></option>
-                                <option disabled><?php echo esc_html__( 'Type(Pro)', 'woo-product-table' ); ?></option>
-                                <option disabled><?php echo esc_html__( 'Modified(Pro)', 'woo-product-table' ); ?></option>
-                                <option disabled><?php echo esc_html__( 'Rand(Pro)', 'woo-product-table' ); ?></option>
-                        <?php } ?>
-                        <option value="parent" <?php echo isset( $meta_conditions['sort_order_by'] ) && $meta_conditions['sort_order_by'] == 'parent' ? 'selected' : ''; ?>><?php esc_html_e( 'Parent', 'woo-product-table' ); ?></option>
-                        <option value="comment_count" <?php echo isset( $meta_conditions['sort_order_by'] ) && $meta_conditions['sort_order_by'] == 'comment_count' ? 'selected' : ''; ?>><?php esc_html_e( 'Reviews/Comment Count', 'woo-product-table' ); ?></option>
-                        <option value="relevance" <?php echo isset( $meta_conditions['sort_order_by'] ) && $meta_conditions['sort_order_by'] == 'relevance' ? 'selected' : ''; ?>><?php esc_html_e( 'Relevance', 'woo-product-table' ); ?></option> 
-                        <option value="ID" <?php echo isset( $meta_conditions['sort_order_by'] ) && $meta_conditions['sort_order_by'] == 'ID' ? 'selected' : ''; ?>><?php esc_html_e( 'ID', 'woo-product-table' ); ?></option>
-                        <option value="none" <?php echo isset( $meta_conditions['sort_order_by'] ) && $meta_conditions['sort_order_by'] == 'none' ? 'selected' : ''; ?>><?php esc_html_e( 'None', 'woo-product-table' ); ?></option>
-                    </select>
+                        'menu_order' => esc_html__( 'Menu Order', 'woo-product-table' ),
+                        'popularity' => esc_html__( 'Sort by popularity', 'woo-product-table' ),
+                        'rating'     => esc_html__( 'Sort by average rating', 'woo-product-table' ),
+                        'date'       => esc_html__( 'Sort by latest', 'woo-product-table' ),
+                        'price'      => esc_html__( 'Sort by price: low to high', 'woo-product-table' ),
+                        'price-desc' => esc_html__( 'Sort by price: high to low', 'woo-product-table' ),
+                        'featured_products' => esc_html__( 'Sort by Featured Products', 'woo-product-table' ),
+                        
+
+                        'publish-date' => esc_html__( 'Date', 'woo-product-table' ),
+                        'meta_value' => esc_html__( 'Custom Meta Value', 'woo-product-table' ),
+                        'meta_value_num' => esc_html__( 'Custom Meta Number', 'woo-product-table' ),
+
+                        'author' => esc_html__( 'Author', 'woo-product-table' ),
+                        'type' => esc_html__( 'Type', 'woo-product-table' ),
+                        'modified' => esc_html__( 'Modified', 'woo-product-table' ),
+
+                        'parent' => esc_html__( 'Parent', 'woo-product-table' ),
+                        'comment_count' => esc_html__( 'Reviews Count', 'woo-product-table' ),
+                        'relevance' => esc_html__( 'Relevance', 'woo-product-table' ),
+                        
+                        
+
+
+                        
+                        'none' => esc_html__( 'None', 'woo-product-table' ),
+                        
+                    ];
+                    //If some premium feature, 
+                    // $free_option_keys = ['menu_order', 'name', 'title', 'ID', 'rand', 'publish-date', 'meta_value', 'meta_value_num', 'author', 'type', 'modified', 'parent', 'comment_count', 'relevance'];
+                    $only_free_keys = ['rand', 'name', 'title', 'ID', 'publish-date'];
+                    if( wpt_is_pro() ){
+                        $only_free_keys = [];
+                    }
+                    ?>
+
+                    <input type="hidden" name="<?php echo esc_attr( $name ); ?>"
+                     value="<?php echo esc_attr( $current_val ); ?>"
+                     class="custom-select-box-input" id="<?php echo esc_attr( $id ); ?>">
+                    <div class="wpt-custom-select-boxes">
+
+                        <?php foreach ($options as $value => $label): ?>
+                            <?php
+                            $disabled_class = ! empty($only_free_keys ) && ! in_array( $value, $only_free_keys ) ? 'disabled' : '';    
+                            $active_class = $current_val === $value ? 'active' : '';
+                            $ext_class = $disabled_class . ' ' . $active_class;
+                            ?>
+                            <div class="wpt-custom-select-box <?php echo esc_attr( $ext_class ); ?>" data-value="<?php echo esc_attr($value); ?>">
+                                <?php echo $label; ?>
+                            </div>
+                        <?php endforeach; $current_val = null; $options = []; ?>
+                    </div>
                     <p><?php echo esc_html__( 'Chose [custom_meta or custom_meta_value] - if you want to sort by price, model, sku, color itc. For price or any number, Please chose Custom Meta value(if number)', 'woo-product-table' ); ?></p>
+                </div>
+
+
+                    
                 </td>
             </tr>
         

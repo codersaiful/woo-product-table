@@ -505,10 +505,10 @@ jQuery.fn.extend({
          * Supposse: your 
          * REMEMEBER: select tag's class would be '.wpt_toggle' to activate this part
          */
-        $('select.wpt_toggle').each(function(){
+        $('.wpt_toggle').each(function(){
             changeOnOffElement(this)
         });
-        $(document).on('change','select.wpt_toggle',function(){
+        $(document).on('change','.wpt_toggle',function(){
             changeOnOffElement(this);
         });
         function changeOnOffElement(ElObject){
@@ -688,7 +688,7 @@ jQuery.fn.extend({
             $(this).addClass('active');
     
             const selectedValue = $(this).data('value');
-            wrapper.find('input').val(selectedValue);
+            wrapper.find('input').val(selectedValue).trigger('change');
         });
         /**
          * Add new Column
