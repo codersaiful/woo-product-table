@@ -931,11 +931,6 @@ jQuery.fn.extend({
     }
 
 
-    $(document.body).on('click,change','tr.user_can_not_edit input,tr.user_can_not_edit select',function(e){
-        e.preventDefault();
-        alert("Sorry");
-    });
-    
 
     $(document.body).on('submit', 'form#wpt-main-configuration-form', function (e){
 
@@ -1200,8 +1195,41 @@ jQuery.fn.extend({
     $('.wpt-premium-feature-in-free-version,.user_can_not_edit').each(function(){
         var $this = $(this);
         $this.attr('title', 'Premium Feature');
+        if($this.closest('form#wpt-main-configuration-form').length > 0) return;
         $this.find('input,select').removeAttr('name');
     });
+
+    // Store initial values
+    var $userCanNotEdit = '.wpt-premium-feature-in-free-version input,.wpt-premium-feature-in-free-version select,.user_can_not_edit input, .user_can_not_edit select, .user_can_not_edit textarea';
+    $($userCanNotEdit).each(function() {
+        if($(this).closest('form#wpt-main-configuration-form').length < 1) return;
+        $(this).data('original-value', $(this).val());
+    });
+
+    // For checkboxes and radio buttons, store checked state
+    var $userCanNotEditCheck = '.wpt-premium-feature-in-free-version input[type="checkbox"], .wpt-premium-feature-in-free-version input[type="radio"],.user_can_not_edit input[type="checkbox"], .user_can_not_edit input[type="radio"]';
+    $($userCanNotEditCheck).each(function() {
+        if($(this).closest('form#wpt-main-configuration-form').length < 1) return;
+        $(this).data('original-checked', this.checked);
+    });
+
+    // Listen to changes
+    $('.wpt-premium-feature-in-free-version,.user_can_not_edit').on('change input', 'input, select, textarea', function(e) {
+        const $el = $(this);
+        if($el.closest('form#wpt-main-configuration-form').length < 1) return;
+        if ($el.is(':checkbox') || $el.is(':radio')) {
+            // Revert checkbox/radio state
+            this.checked = $el.data('original-checked');
+        } else {
+            // Revert other input/select/textarea value
+            $el.val($el.data('original-value'));
+        }
+
+        // Optionally alert or notify user
+        // alert("This field is not editable.");
+    });
+
+
 
     //.column_add_extra_items.extra-inner-item-wrapper,.column_tag_for_all,
     var findExtraSelection = '.column_label_fullwidth,.column_label_showing,.column_label_showing,.auto_responsive_column_label_show,.column_only_login_user,.column_only_login_user';

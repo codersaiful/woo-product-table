@@ -1494,6 +1494,17 @@ tr.user_can_not_edit>td:first-child:before {
     left: unset;
 }
 .wpt-premium-feature-in-free-version tr.user_can_not_edit>td:first-child:before{display: none;}
+.wpt-extra-data {
+    display: flex;
+    flex-direction: column;
+    gap: 0 5px;
+    align-items: flex-start;
+    justify-content: center;
+    color: #a4a4a4;
+    font-size: 12px;
+    position: relative;
+}
+span.wpt-pro-version-data span.title-name {color: #0073aa;font-weight: bold;}
 
 tr.user_can_not_edit>td:after {
     content: "";

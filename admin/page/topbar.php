@@ -39,9 +39,22 @@ if( isset( $this->topbar_sub_title ) && ! empty( $this->topbar_sub_title ) ){
                     <img src="<?php echo esc_url( $wpt_logo ); ?>" class="wpt-brand-logo">
                 </div>
                 <div class="wpt-main-title">
-                    <h2 class="wpt-ntitle"><?php _e("Woo Product Table", "wpt");?></h2>
+                    <h2 class="wpt-ntitle">
+                        <?php _e("Woo Product Table", "wpt");?>
+                        <!-- <span class="wpt-version">v<?php echo esc_html( WPT_DEV_VERSION ); ?></span> -->
+                    </h2>
                 </div>
-                
+                <div class="wpt-extra-data">
+                    
+                    <span class="wpt-version">v<?php echo esc_html( WPT_DEV_VERSION ); ?></span>
+                    <?php if( wpt_is_pro() ) : ?>
+                        <span class="wpt-pro-version-data">
+                            <span class="title-name"><?php _e("Premium", "wpt"); ?></span>
+                            <span class="wpt-version">v<?php echo esc_html( WPT_PRO_DEV_VERSION ); ?></span>
+                        </span>
+                    <?php endif; ?>
+                    
+                </div>
                 <div class="wpt-main-title wpt-main-title-secondary">
                     <h2 class="wpt-ntitle"><?php echo esc_html( $topbar_sub_title );?></h2>
                 </div>
