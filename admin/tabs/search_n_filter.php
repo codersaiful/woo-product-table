@@ -437,15 +437,37 @@ foreach($terms as $term){
                 </th>
                 <td>
 
-                
+                <div class="custom-select-box-wrapper">
+                    <?php
+                    $name = 'search_n_filter[filter_box]';
+                    $id = 'wpt_filter_box';
+                    $current_val = $meta_search_n_filter['filter_box'] ?? 'no';
+                    $options = [
+                        
+                        'yes' => esc_html__( 'Show Filter', 'woo-product-table' ),
+                        'no' => esc_html__( 'Hide Filter', 'woo-product-table' ),
+                    ];
+                    ?>
 
+                    <input type="hidden" name="<?php echo esc_attr( $name ); ?>"
+                    data-on="yes|.wpt_filtr_on_off"
+                     value="<?php echo esc_attr( $current_val ); ?>"
+                     class="custom-select-box-input wpt_toggle" id="<?php echo esc_attr( $id ); ?>">
+                    <div class="wpt-custom-select-boxes">
 
-
-                    <select name="search_n_filter[filter_box]" data-name='filter_box' id="wpt_filter_box" class="wpt_fullwidth wpt_data_filed_atts ua_input wpt_toggle"  data-on="yes|.wpt_filtr_on_off">
-                        <option value="no" <?php echo isset( $meta_search_n_filter['filter_box'] ) && $meta_search_n_filter['filter_box'] == 'no' ? 'selected' : ''; ?>><?php esc_html_e( 'Hide Filter', 'woo-product-table' ); ?></option>
-                        <option value="yes" <?php echo isset( $meta_search_n_filter['filter_box'] ) && $meta_search_n_filter['filter_box'] == 'yes' ? 'selected' : ''; ?>><?php esc_html_e( 'Show Filter', 'woo-product-table' ); ?></option>
-                    </select><?php wpt_doc_link('https://wooproducttable.com/docs/doc/advance-uses/use-mini-filter/');?>
+                        <?php foreach ($options as $value => $label): ?>
+                            <div class="wpt-custom-select-box <?php echo $current_val === $value ? 'active' : ''; ?>" data-value="<?php echo esc_attr($value); ?>">
+                                <?php echo $label; ?>
+                            </div>
+                        <?php endforeach; $current_val = null; $options = []; ?>
+                    </div>
+                    <?php wpt_doc_link('https://wooproducttable.com/docs/doc/advance-uses/use-mini-filter/');?>
                     <p><?php echo esc_html__( 'Only for Visible products of current table.', 'woo-product-table' ) ?></p>
+                </div>
+
+
+
+                    
                 </td>
             </tr>
         </table>
