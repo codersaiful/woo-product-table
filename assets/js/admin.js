@@ -1191,7 +1191,7 @@ jQuery.fn.extend({
         // $this.closest('.inside_tab_content').find('.inside_tab_content_inner').toggle(); // Changed from toggleFade() to toggle()
     });
     
-
+    //free version a premium feature gullor field name attr remove kora hoyeche.
     $('.wpt-premium-feature-in-free-version,.user_can_not_edit').each(function(){
         var $this = $(this);
         $this.attr('title', 'Premium Feature');
@@ -1199,6 +1199,7 @@ jQuery.fn.extend({
         $this.find('input,select').removeAttr('name');
     });
 
+    //asole free ver theke jeno configure page e kono data change na hoy er jonne nicher code ta use kora hoyeche.
     // Store initial values
     var $userCanNotEdit = '.wpt-premium-feature-in-free-version input,.wpt-premium-feature-in-free-version select,.user_can_not_edit input, .user_can_not_edit select, .user_can_not_edit textarea';
     $($userCanNotEdit).each(function() {
@@ -1352,7 +1353,8 @@ jQuery.fn.extend({
         var $dropdown_li = $(this).closest('.wpt-dropdown-container').find('.wpt-dropdown-list li');
         $dropdown_li.each(function() {
             var text = $(this).text().toLowerCase();
-            if (text.indexOf(searchTerm) > -1) {
+            var character = $(this).data('character').toLowerCase();
+            if (text.indexOf(searchTerm) > -1 || character.indexOf(searchTerm) > -1) {
                 $(this).show();
             } else {
                 $(this).hide();

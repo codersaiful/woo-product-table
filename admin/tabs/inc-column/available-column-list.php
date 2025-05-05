@@ -27,15 +27,25 @@ $enabledd_column_array = is_array($meta_enable_column_array) && ! empty($meta_en
 
 asort($available_column_array);
 $available_column_array = array_merge( $enabledd_column_array, $available_column_array );
+$extra_character = [
+    'action' => 'add to cart, added, cart, checkout, buy now, purchase, order',
+    'audio_player' => 'audio, mp3, ogg, wav, music, song',
+    'quick_qty' => 'quantity, amount, count',
+    'variation_name' => 'variation, type, model',
+    'viewed' => 'view, seen, observed, watched',
+    'category' => 'category, categories, product category',
+    'toggle_description' => 'toggle, show, hide, description, details',
+    'stock' => 'stock, availability, in stock, out of stock, backorder, pre-order',
+    'total' => 'total, total sales, sold, sold out',
+    'sku' => 'sku, stock keeping unit, product code',
+    'message' => 'message, note, comment',
+    'short_description' => 'short description, product details, overview',
+    'quantity' => 'quantity, amount, count, qty, minimum, maximum, min, max',
+];
 ?>
-<!-- Enable Active Collumn -->
+<!-- Enable Active Column -->
 <div class="add_switch_col_wrapper">
     <div class="section ultraaddons-panel add_new_column add_new_column_main_wrapper" data-device="<?php echo esc_attr( $_device_name ); ?>">
-        <?php
-        
-        
-$saifful = [];
-        ?>
 
         <div class="section-header">
             <button id="wpt-add-preset-column" class="wpt-btn wpt-btn-small wpt-has-icon wpt-add-preset-column">
@@ -69,15 +79,13 @@ $saifful = [];
                         $enabled_class = 'item-enabled';
                     }
 
-                    $saifful[] = $title;
-
-                   
 
                     //eta specially pro badge dekhanor jonno ebong eta js er maddhome off kore dite hobe, jodi disabled thake
                     $premium = in_array( $keyword, array_keys( $premium_column ) ) ? 'premium' : '';
                     
                 ?>
                 <li class="switch-enable-item switch-enable-item-<?php echo esc_attr( $keyword . ' ' . $enabled_class . ' ' . $premium ); ?>" 
+                    data-character ="<?php echo esc_attr( $extra_character[$keyword] ?? '' ); ?>"
                     title="<?php echo esc_html( "key: $keyword & title: $updated_title" ); ?>"
                     data-column_keyword="<?php echo esc_attr( $keyword ); ?>">
                         <?php echo esc_html( $updated_title ); ?><i>[<?php echo esc_html( $keyword ); ?>]</i>
