@@ -2513,11 +2513,19 @@ a.wpt-doc-lick{
     display: flex;
     gap: 10px;
 }
-
+.custom-select-box-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: flex-start;
+    align-items: center;
+}
 .wpt-custom-select-boxes {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 .wpt-custom-select-box {

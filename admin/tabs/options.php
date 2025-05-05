@@ -17,13 +17,36 @@ $data = isset( $meta_basics['data'] ) ? $meta_basics['data'] : false;
         <table class="ultraaddons-table">
             <tr>
                 <th>
-                    <label class="wpt_label wpt_table_ajax_action" for='wpt_table_ajax_enable'><?php esc_html_e('Ajax Action (Enable/Disable)','woo-product-table');?></label>
+                    <label class="wpt_label wpt_table_ajax_action" for='wpt_table_ajax_enable'><?php esc_html_e('Ajax Action','woo-product-table');?></label>
                 </th>
                 <td>
-                    <select name="basics[ajax_action]" data-name='ajax_action' id="wpt_table_ajax_enable" class="wpt_fullwidth wpt_data_filed_atts ua_input" >
-                        <option value="ajax_active" <?php echo isset( $meta_basics['ajax_action'] ) && $meta_basics['ajax_action'] == 'ajax_active' ? 'selected' : false; ?>><?php esc_html_e('Active Ajax (Default)','woo-product-table');?></option>
-                        <option value="no_ajax_action" <?php echo isset( $meta_basics['ajax_action'] ) && $meta_basics['ajax_action'] == 'no_ajax_action' ? 'selected' : false; ?>><?php esc_html_e('Disable Ajax Action','woo-product-table');?></option>
-                    </select><?php wpt_doc_link('https://wooproducttable.com/docs/doc/table-options/enable-disable-ajax-action/');?>
+
+                <div class="custom-select-box-wrapper">
+
+                    <?php
+                    $name = 'basics[ajax_action]';
+                    $id = 'wpt_table_ajax_enable';
+                    $current_val = $meta_basics['ajax_action'] ?? 'ajax_active';
+                    $options = [
+                        'ajax_active' => esc_html__( 'Active', 'woo-product-table' ),
+                        'no_ajax_action' => esc_html__( 'Disable', 'woo-product-table' ),
+                    ];
+                    ?>
+
+                    <input type="hidden" name="<?php echo esc_attr( $name ); ?>"
+                     value="<?php echo esc_attr( $current_val ); ?>"
+                     class="custom-select-box-input" id="<?php echo esc_attr( $id ); ?>">
+                    <div class="wpt-custom-select-boxes">
+
+                        <?php foreach ($options as $value => $label): ?>
+                            <div class="wpt-custom-select-box <?php echo $current_val === $value ? 'active' : ''; ?>" data-value="<?php echo esc_attr($value); ?>">
+                                <?php echo $label; ?>
+                            </div>
+                        <?php endforeach; $current_val = null; $options = []; ?>
+                    </div>
+                    <?php wpt_doc_link('https://wooproducttable.com/docs/doc/table-options/enable-disable-ajax-action/');?>
+                </div>
+
                 </td>
             </tr>
         </table>
@@ -63,14 +86,15 @@ $data = isset( $meta_basics['data'] ) ? $meta_basics['data'] : false;
                         </div>
 
                     </div>
+                    <?php wpt_doc_link('https://wooproducttable.com/docs/doc/table-options/pagination-on-of/'); ?>   
+                    
                 </div>
 
 
-                    <?php wpt_doc_link('https://wooproducttable.com/docs/doc/table-options/pagination-on-of/'); ?>   
                     
                     <p><?php esc_html_e( 'To change style, go to Design tab', 'woo-product-table' ); ?></p>
-                        <p class="warning"><?php echo sprintf(esc_html__( '%1$sPagination will not work%2$s on WooCommerce shop, archive page or created shop archive page by any page builder. %1$sThis feature will only work on table page where table shortcode pasted.%2$s', 'woo-product-table' ), '<b>', '</b>'); ?></p>
-                        <p class="wpt-tips"><?php echo sprintf(esc_html__( '%1$sThis pagination will replaced on WooCommerce shop archive page%2$s by your theme\'s default pagination.', 'woo-product-table' ), '<b>', '</b>'); ?></p>
+                    <p class="warning"><?php echo sprintf(esc_html__( '%1$sPagination will not work%2$s on WooCommerce shop, archive page or created shop archive page by any page builder. %1$sThis feature will only work on table page where table shortcode pasted.%2$s', 'woo-product-table' ), '<b>', '</b>'); ?></p>
+                    <p class="wpt-tips"><?php echo sprintf(esc_html__( '%1$sThis pagination will replaced on WooCommerce shop archive page%2$s by your theme\'s default pagination.', 'woo-product-table' ), '<b>', '</b>'); ?></p>
                 </td>
             </tr>
             <tr>
