@@ -1,3 +1,6 @@
+<?php
+return; // This is a premium feature, so we don't want to show the rest of the code.
+?>
 <div class="wrap wpt_wrap wpt-content">
 <h1 class="wp-heading "></h1>
 <div class="fieldwrap">

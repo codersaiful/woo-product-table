@@ -1476,20 +1476,22 @@ body.wpt_admin_body .ultraaddons-panel td .notice-for-variations{
 
 tr.user_can_not_edit {
     position: relative;
-    background: #ffbebeb3;
+    background: #ffbebe4a;
 }
 
 tr.user_can_not_edit>td:first-child:before {
     content: "Pro";
-    background: #f4433659;
-    color: black;
-    padding: 1px 5px;
-    border-radius: 6px;
+    background: #ff1100;
+    color: white;
+    padding: 0px 5px;
+    border-radius: 4px;
     z-index: 2;
     font-size: 10px;
     position: absolute;
-    left: 30px;
-    top: -7px;
+    right: 0;
+    top: 0;
+    border: 0 navajowhite;
+    left: unset;
 }
 .wpt-premium-feature-in-free-version tr.user_can_not_edit>td:first-child:before{display: none;}
 

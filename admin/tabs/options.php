@@ -99,13 +99,35 @@ $data = isset( $meta_basics['data'] ) ? $meta_basics['data'] : false;
             </tr>
             <tr>
                 <th>
-                    <label class="wpt_label wpt_table_ajax_action" for='wpt_table_ajax_pagination'><?php esc_html_e('Ajax for Pagination (Enable/Disable)','woo-product-table');?></label>
+                    <label class="wpt_label wpt_table_ajax_action" for='wpt_table_ajax_pagination'><?php esc_html_e('Ajax for Pagination','woo-product-table');?></label>
                 </th>
                 <td>
-                    <select name="basics[pagination_ajax]" data-name='pagination_ajax' id="wpt_table_ajax_pagination" class="wpt_fullwidth wpt_data_filed_atts ua_input" >
-                        <option value="pagination_ajax" <?php echo isset( $meta_basics['pagination_ajax'] ) && $meta_basics['pagination_ajax'] == 'pagination_ajax' ? 'selected' : false; ?>><?php esc_html_e('Ajax Pagination (Default)','woo-product-table');?></option>
-                        <option value="no_pagination_ajax" <?php echo isset( $meta_basics['pagination_ajax'] ) && $meta_basics['pagination_ajax'] == 'no_pagination_ajax' ? 'selected' : false; ?>><?php esc_html_e('Disable Ajax Pagination','woo-product-table');?></option>
-                    </select> <?php wpt_doc_link('https://wooproducttable.com/docs/doc/table-options/pagination-on-of/'); ?>                  
+
+                <div class="custom-select-box-wrapper">
+
+                    <?php
+                    $name = 'basics[pagination_ajax]';
+                    $id = 'wpt_table_ajax_pagination';
+                    $current_val = $meta_basics['pagination_ajax'] ?? 'pagination_ajax';
+                    $options = [
+                        'pagination_ajax' => esc_html__( 'Enable', 'woo-product-table' ),
+                        'no_pagination_ajax' => esc_html__( 'Disable', 'woo-product-table' ),
+                    ];
+                    ?>
+
+                    <input type="hidden" name="<?php echo esc_attr( $name ); ?>"
+                    value="<?php echo esc_attr( $current_val ); ?>"
+                    class="custom-select-box-input" id="<?php echo esc_attr( $id ); ?>">
+                    <div class="wpt-custom-select-boxes">
+
+                        <?php foreach ($options as $value => $label): ?>
+                            <div class="wpt-custom-select-box <?php echo $current_val === $value ? 'active' : ''; ?>" data-value="<?php echo esc_attr($value); ?>">
+                                <?php echo $label; ?>
+                            </div>
+                        <?php endforeach; $current_val = null; $options = []; ?>
+                    </div>
+                    <?php wpt_doc_link('https://wooproducttable.com/docs/doc/table-options/pagination-on-of/'); ?>
+                    </div>                    
                 </td>
             </tr>
         </table>
