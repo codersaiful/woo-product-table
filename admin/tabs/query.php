@@ -408,7 +408,7 @@ unset($catalog_orderby_options['menu_order']);
                     <?php
                     $name = 'conditions[sort_order_by]';
                     $id = 'wpt_table_sort_order_by';
-                    $current_val = $meta_conditions['sort_order_by'] ?? 'menu_order';
+                    $current_val = $meta_conditions['sort_order_by'] ?? 'title';
 
                     $options = [
                         'title' => esc_html__( 'Product Title', 'woo-product-table' ),

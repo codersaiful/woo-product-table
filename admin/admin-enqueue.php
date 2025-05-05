@@ -19,8 +19,8 @@ if( !function_exists( 'wpt_admin_enqueue' ) ){
         * Customized fontello file
         * @since 3.1.8.2
         */
-       wp_enqueue_style( 'wpt-fontello', WPT_Product_Table::getPath('BASE_URL') . 'assets/fontello/css/wptfontelo.css', array(), WPT_Product_Table::getVersion(), 'all' );
-       wp_enqueue_style( 'wpt-fontello-animate', WPT_Product_Table::getPath('BASE_URL') . 'assets/fontello/css/animation.css', array(), WPT_Product_Table::getVersion(), 'all' );
+       wp_enqueue_style( 'wpt-fontello', WPT_Product_Table::getPath('BASE_URL') . 'assets/fontello/css/wptfontelo.css', array(), WPT_DEV_VERSION, 'all' );
+       wp_enqueue_style( 'wpt-fontello-animate', WPT_Product_Table::getPath('BASE_URL') . 'assets/fontello/css/animation.css', array(), WPT_DEV_VERSION, 'all' );
 
 
         /**
@@ -86,7 +86,7 @@ if( !function_exists( 'wpt_admin_js_fast_load' ) ){
         }
         //wp_enqueue_script( 'select2-wpt' );
 
-        wp_enqueue_script( 'wpt-admin', WPT_Product_Table::getPath( 'BASE_URL' ) . 'assets/js/admin.js', array( 'jquery','select2' ), '1.0.0', true );
+        wp_enqueue_script( 'wpt-admin', WPT_Product_Table::getPath( 'BASE_URL' ) . 'assets/js/admin.js', array( 'jquery','select2-wpt' ), WPT_DEV_VERSION, true );
         
         $ajax_url = admin_url( 'admin-ajax.php' );
         $version = class_exists( 'WOO_Product_Table' ) && WOO_Product_Table::getVersion() ? __( 'WTP Pro: ', 'woo-product-table' ) . WOO_Product_Table::getVersion() : WPT_Product_Table::getVersion();
