@@ -2542,7 +2542,7 @@ a.wpt-doc-lick{
 }
 
 .wpt-custom-select-box {
-    padding: 10px 15px;
+    padding: 9px 13px;
     border: 1px solid #656565;
     border-radius: 6px;
     /* transition: 0.3s; */
@@ -2642,24 +2642,26 @@ div#wpt-dropdown-container {
     background: #0000008c;
     width: 100%;
     height: 100%;
-    z-index: 9999;
+    z-index: 78;
     top: 0;
     left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
 }
 .wpt-dropdown-container-insider {
-    position: absolute;
     background: #fff;
     border: 1px solid #ddd;
-    width: 300px;
-    height: 300px;
+    width: 309px;
     overflow: hidden;
-    z-index: 9999;
+    z-index: 88;
     box-shadow: -4px 11px 17px rgb(0 0 0 / 30%);
-    margin-top: 5px;
-    left: calc(50% - 150px - 20px);
-    top: calc(50% - 150px - 20px);
+    margin: 0px 15px;
     padding: 20px;
-    border-radius: 8px;
+    border-radius: 11px;
 }
 
 .wpt-search-box {
@@ -2674,8 +2676,9 @@ div#wpt-dropdown-container {
     list-style: none;
     margin: 0;
     padding: 0;
-    max-height: 250px;
+    height: 400px;
     overflow-y: auto;
+    max-height: 90%;
 }
 input.wpt-column-search-box {
     width: 100%;
