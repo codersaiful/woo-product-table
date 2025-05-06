@@ -3001,3 +3001,7 @@ span.wpt-query-selection-handle.type-pf-premium:after,
     
     background: rgb(255, 255, 255) !important;
 }
+input#wpt-setting-search-input {
+    padding: 3px 10px;
+    margin: 2px !important;
+}
