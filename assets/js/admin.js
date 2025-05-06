@@ -13,6 +13,26 @@ jQuery.fn.extend({
     }
 });
 
+(function($){
+    'use strict';
+    $.fn.customSelect = function() {
+        return this.each(function() {
+            var $this = $(this);
+            var $wrapper = $('<div class="custom-select-box-wrapper"></div>');
+            var $select = $('<input type="hidden" />').attr('name', $this.attr('name')).val($this.val()).appendTo($wrapper);
+            var $options = $('<div class="wpt-custom-select-boxes"></div>').appendTo($wrapper);
+            $this.find('option').each(function() {
+                var $option = $('<div class="wpt-custom-select-box"></div>').text($(this).text()).data('value', $(this).val()).appendTo($options);
+                if ($(this).is(':selected')) {
+                    $option.addClass('active');
+                }
+            });
+            $wrapper.appendTo($this);
+        });
+    };
+})(jQuery);
+
+
 (function($) {
     'use strict';
     $(document).ready(function() {
@@ -24,7 +44,7 @@ jQuery.fn.extend({
 
             wptUpdateStyleData(this);
         });
-        
+        $('select.wpt-my-custom-smart-select').customSelect();
         $('span.wpt-help-icon').click(function(){
             // $('span.wpt-help-icon').removeClass('wpt-help-focused');
             $(this).toggleClass('wpt-help-focused');

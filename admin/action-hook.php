@@ -226,7 +226,7 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
                             <label class="wpt_label" for="wpt_table_footer_cart"><?php esc_html_e( 'Floating Cart Option', 'woo-product-table' ); ?></label>
                         </div>
                         <div class="form-field col-lg-6">
-                            <select name="<?php echo esc_attr( $field_name ); ?>[footer_cart]" id="wpt_table_footer_cart" class="wpt_fullwidth ua_input" >
+                            <select name="<?php echo esc_attr( $field_name ); ?>[footer_cart]" id="wpt_table_footer_cart" class="wpt_fullwidth ua_input wpt-my-custom-smart-select" >
                                 <?php wpt_default_option( $page ) ?>
                                 <option value="always_hide" <?php wpt_selected( 'footer_cart', 'always_hide', $current_config_value ); ?>><?php esc_html_e( 'Always Hide', 'woo-product-table' ); ?></option>
                                 <option value="hide_for_zerro" <?php wpt_selected( 'footer_cart', 'hide_for_zerro', $current_config_value ); ?>><?php esc_html_e( 'Hide for Zero', 'woo-product-table' ); ?></option>
