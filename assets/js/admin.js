@@ -13,24 +13,113 @@ jQuery.fn.extend({
     }
 });
 
-(function($){
-    'use strict';
-    $.fn.customSelect = function() {
-        return this.each(function() {
-            var $this = $(this);
-            var $wrapper = $('<div class="custom-select-box-wrapper"></div>');
-            var $select = $('<input type="hidden" />').attr('name', $this.attr('name')).val($this.val()).appendTo($wrapper);
-            var $options = $('<div class="wpt-custom-select-boxes"></div>').appendTo($wrapper);
-            $this.find('option').each(function() {
-                var $option = $('<div class="wpt-custom-select-box"></div>').text($(this).text()).data('value', $(this).val()).appendTo($options);
-                if ($(this).is(':selected')) {
-                    $option.addClass('active');
+(function ($) {
+    $.fn.customSelect = function (options) {
+        const settings = $.extend({
+            parentClass: '',
+            parentId: '',
+            className: ''
+        }, options);
+        // return;
+        // if(this.hasClass('wpt_table__for_variation') || this.hasClass('wpt_table_footer_cart_template')) return;
+        
+        // if(this.hasClass('select2') || this.hasClass('wpt_table__for_variation')) return;
+        return this.each(function () {
+            const $select = $(this);
+            var tagName = $select[0].tagName.toLowerCase();
+            if(tagName !== 'select') return;
+
+
+            if($select.find('option').length > 4) return;
+            // if($select.hasClass('wpt_table_product_inc_exc_variation')) return;
+            if($select.hasClass('wpt_select2')) return;
+            if($select.hasClass('wpt_query_terms')) return;
+            if($select.hasClass('wpt_table__for_variation')) return;
+            if($select.hasClass('wpt_table_on_archive')) return;
+            if($select.hasClass('product_includes_excludes')) return;
+            const selectedValue = $select.val();
+            const name = $select.attr('name');
+            const id = $select.attr('id');
+
+            // Copy all attributes except "class"
+            const attributes = $select[0].attributes;
+            const inputAttrs = {};
+            var hindenInputClassName = '';
+            $.each(attributes, function () {
+                if (this.name !== 'class') {
+                    inputAttrs[this.name] = this.value;
+                }else if (this.name == 'class') {
+                    inputAttrs['backup_class'] = this.value;
+                    hindenInputClassName = this.value;
                 }
             });
-            $wrapper.appendTo($this);
+
+            // Create wrapper and elements
+            const $wrapper = $('<div class="custom-select-box-wrapper sfl-auto-gen-box"></div>');
+            if (settings.parentClass){
+                $wrapper.addClass(settings.parentClass);
+            }
+            if (settings.parentId){
+                $wrapper.attr('id', settings.parentId);
+            }
+
+            const $hiddenInput = $('<input type="hidden">')
+                .addClass('custom-select-box-input')
+                .val(selectedValue)
+                .attr('name', name)
+                .attr('id', id)
+                .attr(inputAttrs);
+
+            if (settings.className) {
+                $hiddenInput.addClass(settings.className);
+            }
+            $hiddenInput.addClass(hindenInputClassName);
+
+            const $boxesContainer = $('<div class="wpt-custom-select-boxes"></div>');
+
+            $select.find('option').each(function () {
+                const $option = $(this);
+                const value = $option.val();
+                const text = $option.text();
+                const isSelected = $option.is(':selected');
+                const isDisabled = $option.is(':disabled');
+
+                const $box = $('<div class="wpt-custom-select-box"></div>')
+                    .text(text)
+                    .attr('data-value', value);
+
+                if (isSelected) $box.addClass('active');
+                if (isDisabled) $box.addClass('disabled');
+
+                $boxesContainer.append($box);
+            });
+
+            // Move specific siblings (p, span, strong, a)
+            const $parent = $select.parent();
+            const $afterSelectContent = $select.nextAll('p, span, strong, a');
+            const $contentWrapper = $('<div class="wpt-extra-content"></div>');
+            if ($afterSelectContent.length) {
+                $afterSelectContent.each(function () {
+                    $contentWrapper.append($(this).detach());
+                });
+            }
+
+            $wrapper.append($hiddenInput).append($boxesContainer).append($contentWrapper);
+            $select.replaceWith($wrapper);
+
+            // Click behavior
+            $boxesContainer.on('click', '.wpt-custom-select-box', function () {
+                const $clicked = $(this);
+                if ($clicked.hasClass('disabled')) return;
+
+                $boxesContainer.find('.wpt-custom-select-box').removeClass('active');
+                $clicked.addClass('active');
+                $hiddenInput.val($clicked.data('value')).trigger('change');
+            });
         });
     };
 })(jQuery);
+
 
 
 (function($) {
@@ -44,7 +133,7 @@ jQuery.fn.extend({
 
             wptUpdateStyleData(this);
         });
-        $('select.wpt-my-custom-smart-select').customSelect();
+        
         $('span.wpt-help-icon').click(function(){
             // $('span.wpt-help-icon').removeClass('wpt-help-focused');
             $(this).toggleClass('wpt-help-focused');
@@ -698,10 +787,13 @@ jQuery.fn.extend({
                 $(this).remove();
             });
         });
-        
+
+        $('#wpt-main-configuration-form .wpt-form-control select,#wpt_table_footer_possition').customSelect();
+        $('#wpt_cf_search_box').customSelect();
+        $('.wpt-design-tab-area-wrapper td select,.wpt_column select').customSelect();
+
         $(document.body).on('click','.wpt-custom-select-box', function() {
             if ($(this).hasClass('disabled')) return;
-    
             var wrapper = $(this).closest('.custom-select-box-wrapper');
 
             wrapper.find('.wpt-custom-select-box').removeClass('active');

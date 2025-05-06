@@ -1383,7 +1383,7 @@ span.fork-button-wpt>a:hover {
 div#wpt_configuration_form .add_switch_col_wrapper .ultraaddons-panel {
     padding: 0;
     border: 0 none;
-    margin-bottom: 0;
+    margin-bottom: 7px;
 }
 
 div#wpt_configuration_form #column_settings .ultraaddons-panel{width: 100%;}
@@ -2550,6 +2550,7 @@ a.wpt-doc-lick{
     border-style: dashed;
     font-weight: 500;
     background: #0073aa14;
+    color: black;
 }
 
 .wpt-custom-select-box:hover {
@@ -2577,6 +2578,22 @@ a.wpt-doc-lick{
     cursor: not-allowed;
     border-style: dashed;
 } 
+.wpt-extra-content>* {
+    padding: 0;
+    margin: 0 !important;
+}
+.sfl-auto-gen-box .wpt-custom-select-boxes {
+    gap: 0;
+    border: 1px #0073aa;
+    border-style: double;
+    border-radius: 6px;
+    overflow: hidden;
+}
+.sfl-auto-gen-box .wpt-custom-select-boxes .wpt-custom-select-box {
+    border-radius: 0;
+    border: 0 none;
+}
+
 span.wpt-design-collaps {
     border: 1px solid #ffffff00;
     margin: 0 10px;

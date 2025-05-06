@@ -27,7 +27,7 @@ foreach($terms as $term){
                     <label class="wpt_label" for="wpt_search_box"><?php esc_html_e( 'Advance Search Box', 'woo-product-table' ); ?></label>
                 </th>
                 <td>
-                <div class="custom-select-box-wrapper">
+                <div class="custom-select-box-wrapper sfl-auto-gen-box">
                     <?php
                     $name = 'search_n_filter[search_box]';
                     $id = 'wpt_search_box';
@@ -437,7 +437,7 @@ foreach($terms as $term){
                 </th>
                 <td>
 
-                <div class="custom-select-box-wrapper">
+                <div class="custom-select-box-wrapper sfl-auto-gen-box">
                     <?php
                     $name = 'search_n_filter[filter_box]';
                     $id = 'wpt_filter_box';

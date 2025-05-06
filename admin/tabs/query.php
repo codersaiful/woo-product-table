@@ -366,7 +366,7 @@ unset($catalog_orderby_options['menu_order']);
                     <label class="wpt_label" for="wpt_table_shorting"><?php esc_html_e( 'Sorting/Order', 'woo-product-table' ); ?></label>
                 </th>
                 <td>
-                <div class="custom-select-box-wrapper">
+                <div class="custom-select-box-wrapper sfl-auto-gen-box">
 
                     <?php
                     $name = 'conditions[sort]';

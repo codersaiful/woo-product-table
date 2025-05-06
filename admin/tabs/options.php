@@ -21,7 +21,7 @@ $data = isset( $meta_basics['data'] ) ? $meta_basics['data'] : false;
                 </th>
                 <td>
 
-                <div class="custom-select-box-wrapper">
+                <div class="custom-select-box-wrapper sfl-auto-gen-box">
 
                     <?php
                     $name = 'basics[ajax_action]';
@@ -60,7 +60,7 @@ $data = isset( $meta_basics['data'] ) ? $meta_basics['data'] : false;
                 </th>
                 <td>
                     
-                <div class="custom-select-box-wrapper">
+                <div class="custom-select-box-wrapper sfl-auto-gen-box">
                     <input type="hidden" name="basics[pagination]"
                      value="<?php echo esc_attr( $meta_basics['pagination'] ?? 'on' ); ?>"
                      class="custom-select-box-input" id="wpt_table_ajax_pagination">
@@ -103,7 +103,7 @@ $data = isset( $meta_basics['data'] ) ? $meta_basics['data'] : false;
                 </th>
                 <td>
 
-                <div class="custom-select-box-wrapper">
+                <div class="custom-select-box-wrapper sfl-auto-gen-box">
 
                     <?php
                     $name = 'basics[pagination_ajax]';
