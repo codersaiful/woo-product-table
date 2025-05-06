@@ -2846,7 +2846,10 @@ ul#wpt_column_sortable li>span.handle.checkbox_handle>input.enabled:before, ul#w
 .wpt-premium-feature-in-free-version {
     opacity: 0.7;
     background: #ffbebe70;
-    padding: 6px;
+}
+.wpt-premium-feature-in-free-version>* {
+    margin: 5px;
+    padding: 2px;
 }
 
 .wpt-dropdown-list li.switch-enable-item.premium::after,
