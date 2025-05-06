@@ -50,7 +50,11 @@ $wrapper_class = isset($settings['module']) ? $settings['module'] : '';
     <div class="fieldwrap">
         <form action="" method="POST"  id="wpt-main-configuration-form">
 
-            <div class="wpt-configure-tab-wrapper wpt-section-panel no-background"></div>
+            
+            <div class="wpt-configure-form-header">
+                <div class="wpt-configure-tab-wrapper wpt-temp-menu-wrapper wpt-section-panel no-background"></div>
+                <input type="text" id="wpt-setting-search-input" class="wpt-setting-search-input" placeholder="Search settings by label/value/anything">
+            </div>
             <!-- <div class="wpt-section-panel no-background wpt-full-form-submit-wrapper">
                 <button name="configure_submit" type="submit" class="wpt-btn wpt-has-icon configure_submit">
                     <span><i class="wpt-floppy"></i></span>

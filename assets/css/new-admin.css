@@ -39,6 +39,9 @@ body .wpt-header, body .wpt-content {
     .wpt-header.wpt-clearfix.topbar-fixed-on-scroll {
         top: 0;
     }
+    .header-button-wrapper{
+        display: none !important;
+    }
 }
 .topbar-fixed-on-scroll-main-element{
     margin-top: 200px;

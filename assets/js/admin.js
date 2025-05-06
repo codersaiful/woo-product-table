@@ -1458,7 +1458,58 @@ jQuery.fn.extend({
         $dropdownContainer.hide();  
     });
 
+    function findOnlyText(Element){
+        var output = Element.map(function () {
+            var val = $(this).val();
+            var text = $(this).text();
+            return val + ' ' + text; // Get text from each element
+            return $(this).text(); // Get text from each element
+        })
+        .get() // Convert jQuery object to plain array
+        .join(' ') // Join with space
+        .replace(/\s+/g, ' ') // Replace multiple whitespaces with one space
+        .trim();
+        return output;
+    }
 
+    $('#wpt-setting-search-input').on('input', function() {
+        var searchTerm = $(this).val().replace(/\s+/g, ' ').trim();
+        searchTerm = searchTerm.toLowerCase();
+        
+        if(searchTerm !== ''){
+            $('.wpt-temp-menu-wrapper').hide();
+        }else{
+
+            $('.wpt-temp-menu-wrapper').show();
+            $('.wpt-temp-menu-wrapper').find('a').last().trigger('click');
+        }
+        var singlePanel = $('#wpt-main-configuration-form').find('.wpt-section-panel');
+        singlePanel.each(function(){
+            var selectedElName = 'td label, td input,td select option,.wpt-custom-select-box';
+            var targetElement = $(this).find(selectedElName);
+            var text = findOnlyText( targetElement ).toLowerCase();
+            if(text == ''){return;}
+            console.log(text);
+            if (text.indexOf(searchTerm) > -1) {
+
+                $(this).show();
+                var TableTr = $(this).find('table tr');
+                TableTr.each(function(){
+                    var tableHead = $(this).find('div.wpt-table-header-inside');
+                    var targetRow = $(this).find(selectedElName);
+                    var towText = findOnlyText( targetRow ).toLowerCase();// $(this).find('label').text();
+
+                   if(towText.indexOf(searchTerm) > -1 || tableHead.length > 0){
+                       $(this).show();
+                   }else{
+                       $(this).fadeOut('fast');
+                   }
+                });
+            } else {
+                $(this).hide();
+            }
+        });
+    });
     // Search filter  
     $('.wpt-column-search-box').on('input', function() {
         var searchTerm = $(this).val().toLowerCase();

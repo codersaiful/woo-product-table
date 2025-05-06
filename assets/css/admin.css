@@ -2538,7 +2538,7 @@ a.wpt-doc-lick{
     flex-wrap: wrap;
     gap: 8px;
     justify-content: flex-start;
-    align-items: center;
+    align-items: stretch;
 }
 
 .wpt-custom-select-box {
@@ -2588,6 +2588,8 @@ a.wpt-doc-lick{
     border-style: double;
     border-radius: 6px;
     overflow: hidden;
+    flex-wrap: nowrap;
+    flex-direction: row;
 }
 .sfl-auto-gen-box .wpt-custom-select-boxes .wpt-custom-select-box {
     border-radius: 0;
@@ -2976,4 +2978,26 @@ span.wpt-query-selection-handle.type-pf-premium:after,
     max-width: 500px;
     max-height: 500px;
     display: block;
+}
+
+.wpt-configure-form-header {
+    display: flex;
+    align-items: stretch;
+    gap: 25px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.wpt-configure-form-header>* {
+    padding: 0;
+    margin: 0;
+}
+.wpt-setting-search-input{
+    margin: 2px !important;
+    /* flex: 1; */
+    width: 400px;
+    max-width: 100%;
+    min-width: 300px;
+    
+    background: rgb(255, 255, 255) !important;
 }
