@@ -41,7 +41,6 @@ if( isset( $this->topbar_sub_title ) && ! empty( $this->topbar_sub_title ) ){
                 <div class="wpt-main-title">
                     <h2 class="wpt-ntitle">
                         <?php _e("Woo Product Table", "wpt");?>
-                        <!-- <span class="wpt-version">v<?php echo esc_html( WPT_DEV_VERSION ); ?></span> -->
                     </h2>
                 </div>
                 <div class="wpt-extra-data">

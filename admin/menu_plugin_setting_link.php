@@ -23,41 +23,6 @@ if( !function_exists( 'wpt_add_action_links' ) ){
     }                                       
 }
 
-
-
-
-if( !function_exists( 'wpt_getting_start' ) ){
-    
-    /**
-     * Displaying/Present Pro Features
-     * in HTML file
-     */
-    function wpt_getting_start(){
-
-        ?>
-        <h2>Getting Start</h2>
-        <h2>CodeAstrology</h2>
-        
-        <?php 
-    }
-}
-
-if( !function_exists( 'wpt_pro_features_content' ) ){
-    
-    /**
-     * Displaying/Present Pro Features
-     * in HTML file
-     */
-    function wpt_pro_features_content(){
-
-        if( !current_user_can( WPT_CAPABILITY ) ){
-            WPT_Product_Table::install();
-        }
-
-        include __DIR__ . '/pro-features-html.php';
-    }
-}
-
 add_filter( 'plugins_api_result', 'wpt_browse_plugin_result', 1, 3 );
 function wpt_browse_plugin_result( $res, $action, $args ){
     

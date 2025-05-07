@@ -21,7 +21,8 @@ if( ! class_exists( 'CA_Framework\App\Base\Notice_Base' ) ){
             wp_enqueue_style(
                 "ca-notice-css",
                 $this->plugin_path() . "assets/css/ca-notification.css",
-                []
+                [],
+                '1.0.0'
             );
             wp_enqueue_script(
                 "ca-notice-update-js",
