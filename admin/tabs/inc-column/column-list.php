@@ -38,7 +38,7 @@ $columns_array = apply_filters( 'wpto_final_column_arr', $columns_array );
                    class="colum_data_input <?php echo esc_attr( $keyword ); ?>" 
                    type="text" 
                    title="<?php echo esc_attr__( 'Click for Expand/Collapse. Edit your Column Title here.', 'woo-product-table' ); ?>"
-                   value="<?php echo htmlentities( $updated_title ); ?>" <?php echo esc_attr( $readOnly ); ?>> 
+                   value="<?php echo esc_attr( htmlentities( $updated_title ) ); ?>" <?php echo esc_attr( $readOnly ); ?>> 
                    <span data-key="<?php echo esc_attr( $keyword ); ?>" class="wpt-expand"><i class="wpt-expand-collapse"></i>Expand</span>
             
             <?php
