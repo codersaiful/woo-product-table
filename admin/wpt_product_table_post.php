@@ -85,6 +85,7 @@ if( ! function_exists( 'wpt_shortcode_column_head' ) ){
 
         if ( 'wpt_product_table' == get_post_type() ){
         $default['wpt_shortcode'] = "Shortcode";
+		if(isset( $default['date'] )) unset($default['date']);
         }
         return $default;
     }
