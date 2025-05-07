@@ -1472,10 +1472,20 @@ jQuery.fn.extend({
         return output;
     }
 
-    $('#wpt-setting-search-input').on('input', function() {
+    function urlUpdateBasedOnSearchTerm( searchTerm ){
+        let url = new URL(window.location.href);
+
+        url.hash = 'search=' + searchTerm;
+        window.history.replaceState(null, '', url);
+        // url.searchParams.set('search', searchTerm); // Add or update 'search' param
+        // window.history.replaceState(null, '', url);
+    }
+
+    $(document.body).on('input','#wpt-setting-search-input', function() {
         var searchTerm = $(this).val().replace(/\s+/g, ' ').trim();
         searchTerm = searchTerm.toLowerCase();
-        
+        // console.log(searchTerm);
+        // urlUpdateBasedOnSearchTerm( searchTerm );
         if(searchTerm !== ''){
             $('.wpt-temp-menu-wrapper').hide();
         }else{
@@ -1483,13 +1493,16 @@ jQuery.fn.extend({
             $('.wpt-temp-menu-wrapper').show();
             $('.wpt-temp-menu-wrapper').find('a').last().trigger('click');
         }
+
+        
+
         var singlePanel = $('#wpt-main-configuration-form').find('.wpt-section-panel');
         singlePanel.each(function(){
             var selectedElName = 'td label, td input,td select option,.wpt-custom-select-box';
             var targetElement = $(this).find(selectedElName);
             var text = findOnlyText( targetElement ).toLowerCase();
             if(text == ''){return;}
-            console.log(text);
+            // console.log(text);
             if (text.indexOf(searchTerm) > -1) {
 
                 $(this).show();
@@ -1500,6 +1513,7 @@ jQuery.fn.extend({
                     var towText = findOnlyText( targetRow ).toLowerCase();// $(this).find('label').text();
 
                    if(towText.indexOf(searchTerm) > -1 || tableHead.length > 0){
+                    // urlUpdateBasedOnSearchTerm( searchTerm );
                        $(this).show();
                    }else{
                        $(this).fadeOut('fast');
