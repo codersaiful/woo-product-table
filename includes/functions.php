@@ -585,7 +585,7 @@ function wpt_wp_dropdown_categories( $args = '', $get_taxonomy = false ) {
 		'show_count'        => 0,
 		'hide_empty'        => 1,
 		'child_of'          => 0,
-		'exclude'           => '',
+		// 'exclude'           => '',
 		'echo'              => 1,
 		'selected'          => 0,
 		'hierarchical'      => 0,
@@ -1190,6 +1190,63 @@ if( ! function_exists( 'wpt_args_manipulation_frontend' ) ){
 }
 add_filter( 'wpto_table_query_args', 'wpt_args_manipulation_frontend', 10, 3 );
 
+function wpt_url_encode_array(array $data): string {
+    $output = '';
+    foreach ($data as $groupKey => $groupValues) {
+        $inner = '';
+        foreach ($groupValues as $key => $value) {
+            if (is_array($value)) {
+                $value = implode(',', $value);
+            }
+            $inner .= "({$key}-{$value})";
+        }
+        $output .= "[{$groupKey}-[{$inner}]]";
+    }
+    return $output;
+}
+
+function wpt_tax_url_decode($input) {
+    $result = [];
+
+    // Validate overall format first using regex
+    if (!preg_match('/^([a-z_]+_[A-Z]+-\d+(,\d+)*)(__([a-z_]+_[A-Z]+-\d+(,\d+)*))*$/', $input)) {
+        return []; // Invalid format
+    }
+
+    $filters = explode('__', $input);
+
+    foreach ($filters as $filter) {
+        // Split into key and values
+        $parts = explode('-', $filter, 2);
+        if (count($parts) !== 2) return [];
+
+        [$key, $termString] = $parts;
+
+        // Ensure key is valid: only lowercase letters and underscores + underscore + UPPERCASE operator
+        if (!preg_match('/^[a-z_]+_[A-Z]+$/', $key)) return [];
+
+        // Ensure terms are only digits and commas
+        if (!preg_match('/^\d+(,\d+)*$/', $termString)) return [];
+
+        // Extract taxonomy and operator
+        $keyParts = explode('_', $key);
+        $operator = array_pop($keyParts);
+        $taxonomy = implode('_', $keyParts);
+
+        // Convert terms to array
+        $terms = explode(',', $termString);
+
+        $result[$key] = [
+            'taxonomy' => $taxonomy,
+            'field'    => 'id',
+            'terms'    => $terms,
+            'operator' => $operator,
+        ];
+    }
+
+    return $result;
+}
+
 
 if( ! function_exists( 'wpt_args_manage_by_get_args' ) ){
     
@@ -1202,19 +1259,15 @@ if( ! function_exists( 'wpt_args_manage_by_get_args' ) ){
      * @return Array
      */
     function wpt_args_manage_by_get_args( $args, $table_ID ){
-        if( ! is_array( $args ) ) return $args;
+
+        $founded_table_ID = isset( $_GET['table_ID'] ) ? absint( $_GET['table_ID'] ) : false;
+        if( ! $founded_table_ID ) return $args;
+        if( $founded_table_ID != $table_ID ) return $args;
         /**
          * Check WooCommerce Archive Page, such product taxonomy
          * show page, search page. etc
          */
-        if( is_shop() || is_product_taxonomy() ||  empty( $_GET ) ){
-            return $args;
-        }
-        
-        /**
-         * Check if already not set table id in link
-         */
-        if( isset( $_GET['table_ID'] ) && $_GET['table_ID'] != $table_ID ){
+        if( is_shop() || is_product_taxonomy() ){
             return $args;
         }
         
@@ -1222,35 +1275,19 @@ if( ! function_exists( 'wpt_args_manage_by_get_args' ) ){
             'table_ID' => ! empty( $_GET['table_ID'] ) ? absint($_GET['table_ID']) : false,
             'orderby' => ! empty( $_GET['orderby'] ) ? sanitize_text_field($_GET['orderby']) : false,
             'order' => ! empty( $_GET['order'] ) ? sanitize_text_field($_GET['order']) : false,
+            's' => isset($_GET['search_key']) ? sanitize_text_field($_GET['search_key']) : false,
         );
         $MY_GETS = array_filter( $MY_GETS );
-
-        if( isset( $_GET['search_key'] ) && ! empty( $_GET['search_key'] ) ){
-            $MY_GETS['s'] = sanitize_text_field( $_GET['search_key'] );
+        $tax = isset( $_GET['tax'] ) ? sanitize_text_field( $_GET['tax'] ) : '';
+        if( ! empty( $tax ) ){
+            $MY_GETS['tax_query'] = wpt_tax_url_decode( $tax );
+            if( isset( $args['tax_query'] ) ) unset( $args['tax_query'] );
         }
 
-        /**
-         * Handle Tax Query
-         */
-        if( isset( $_GET['tax'] ) && ! empty( $_GET['tax'] ) ){
-            $tax = sanitize_text_field( $_GET['tax'] );
-            $tax = stripslashes( $tax );
-            $tax = json_decode($tax,true);
-
-            $MY_GETS['tax_query'] = $tax;
-            unset( $args['tax_query'] );
-        }
-
-        /**
-         * Handle Meta Query
-         */
-        if( isset( $_GET['meta'] ) && ! empty( $_GET['meta'] ) ){
-            $meta = sanitize_text_field( $_GET['meta'] );
-            $meta = stripslashes( $meta );
-            $meta = json_decode($meta,true);
-
-            $MY_GETS['meta_query'] = $meta;
-            unset( $args['meta_query'] );
+        $meta = isset( $_GET['meta'] ) ? sanitize_text_field( $_GET['meta'] ) : '';
+        if( ! empty( $meta ) ){
+            $MY_GETS['meta_query'] = wpt_tax_url_decode( $meta );
+            if( isset( $args['meta_query'] ) ) unset( $args['meta_query'] );
         }
         
        $args = array_merge($args,$MY_GETS);

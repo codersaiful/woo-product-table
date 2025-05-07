@@ -1385,245 +1385,7 @@ jQuery(function($) {
         
 
         
-        /**
-         * Search Box Query and Scripting Here
-         * @since 1.9
-         * @date 9.6.2018 d.m.y
-         */
-        
-        $( 'body' ).on('click','button.wpt_query_search_button,button.wpt_load_mores', function(){
-            
-            var temp_number = $(this).data('temp_number');
-            config_json = getConfig_json( temp_number ); //Added vat V5.0
-            //Added at 2.7
 
-            var loadingText = config_json.loading_more_text;// 'Loading...';
-            
-            var searchText = config_json.search_button_text;
-            var loadMoreText = config_json.load_more_text;//'Load More';
-            var thisButton = $(this);
-            var actionType = $(this).data('type');
-            var load_type = $(this).data('load_type');
-            
-            thisButton.html(loadingText);
-
-            
-            var targetTable = $('#table_id_' + temp_number + ' table#wpt_table');
-            var targetTableArgs = targetTable.attr( 'data-data_json' );
-             targetTableArgs = JSON.parse(targetTableArgs);
-            var targetTableArgsBackup = targetTable.data( 'data_json' );
-
-            var targetTableBody = $('#table_id_' + temp_number + ' table#wpt_table>tbody');
-            var pageNumber = targetTable.attr( 'data-page_number' );
-            if( actionType === 'query' ){
-                pageNumber = 1;
-            }
-            
-            
-            
-            var key,value;
-            var directkey = {};
-            $('#search_box_' + temp_number + ' .search_single_direct .query_box_direct_value').each(function(){
-                
-                key = $(this).data('key');
-                value = $(this).val();
-                //if(value != "" && value != null){
-                    directkey[key] = value;
-                //}
-            });
-            
-            var texonomies = {};
-            value = false;
-            $('#search_box_' + temp_number + ' .search_select.query').each(function(){
-                
-                key = $(this).data('key');
-                var value = $(this).val();//[];var tempSerial = 0;
-                if(value != ""){
-                    texonomies[key] = value;
-                }
-            });
-            var custom_field = {};
-            var multiple_attr = {};
-            value = false;
-
-            $('#search_box_' + temp_number + ' .search_select.cf_query').each(function(){
-                var attr = $(this).attr('multiple');
-                
-                key = $(this).data('key');
-                var value = $(this).val();//[];var tempSerial = 0;
-                if(value != ""){
-                    custom_field[key] = value;
-                    multiple_attr[key] = attr;
-                }
-            });
-            
-
-            //Generating Taxonomy for Query Args inside wp_query
-            var tax_query = {};
-            Object.keys(texonomies).forEach(function(aaa,bbb){
-                var key = aaa + '_IN';
-                if(texonomies[aaa] !== null && Object.keys(texonomies[aaa]).length > 0){
-                    tax_query[key] = {
-                        taxonomy: aaa,
-                        field:  'id',  
-                        terms:  texonomies[aaa],
-                        operator:   'IN'
-                    };
-                }else{
-                    targetTableArgs.args.tax_query[key] =targetTableArgsBackup.args.tax_query[key];
-                } 
-            });
-            if(Object.keys(texonomies).length > 0){
-                Object.assign(targetTableArgs.args.tax_query,tax_query);
-            }else{
-                targetTableArgs.args.tax_query = targetTableArgsBackup.args.tax_query;
-            }
-
-            //Generating Custom Field/Meqa Query for Query Args inside wp_query
-            var final_custom_field = {};
-            Object.keys(custom_field).forEach(function(key,bbb){
-
-                if(Object.keys(custom_field[key]).length > 0){ //custom_field[key] !== null && 
-                    var compare = multiple_attr[key];
-                    
-                    if(! compare){
-                            final_custom_field[key] = {
-                                    key: key,  
-                                    value:  custom_field[key],
-                                    compare: 'LIKE'
-                            };   
-                    }else{
-                            final_custom_field[key] = {
-                                    key: key,  
-                                    value:  custom_field[key]
-                            }; 
-                    }
-                }else{
-                    targetTableArgs.args.meta_query[key] =targetTableArgsBackup.args.meta_query[key];
-                } 
-            });
-            if(Object.keys(custom_field).length > 0){
-                var backupMetaQuery = targetTableArgsBackup.args.meta_query;
-                Object.keys(backupMetaQuery).forEach(function(key,index){
-                    final_custom_field[key] = backupMetaQuery[key];
-                });
-                targetTableArgs.args.meta_query = final_custom_field;
-            }else{
-                targetTableArgs.args.meta_query = targetTableArgsBackup.args.meta_query;
-            }
-
-            //Display Loading on before load
-            targetTableBody.prepend("<div class='wpt_loader_text'>" + config_json.loading_more_text + "</div>"); //Laoding..
-            var data = {
-                action:         'wpt_query_table_load_by_args',
-                temp_number:    temp_number,
-                directkey:      directkey,
-                targetTableArgs:targetTableArgs, 
-                texonomies:     texonomies,
-                pageNumber:     pageNumber,
-                load_type:     load_type,
-                custom_field:    custom_field,
-            };
-            var whold_data = JSON.stringify(data);
-            $('#table_id_' + temp_number + ' .wpt_table_pagination').attr('data-whole_data', whold_data);
-            $(document.body).trigger('wpt_query_progress',targetTableArgs, data);
-            $.ajax({
-                type: 'POST',
-                url: ajax_url,// + get_data,
-                data: data,
-                complete: function(){
-                    $( document ).trigger( 'wc_fragments_refreshed' );
-                    arrangingTDContentForMobile(); //@Since 5.2
-                    loadMiniFilter(); //@Since 4.8
-                    fixAfterAjaxLoad();
-                    $('div.wpt_loader_text').remove();
-                    
-                    /**
-                     * Link Generating here, based on Query
-                     * 
-                     * @type String
-                     * @since 2.8.9
-                     */
-                    var extra_link_tax_cf = "";
-                    if( !$.isEmptyObject(texonomies)){
-                        extra_link_tax_cf = "tax=" + JSON.stringify(targetTableArgs.args.tax_query)
-                    }
-                    if( !$.isEmptyObject(custom_field)){
-                        extra_link_tax_cf = "meta=" + JSON.stringify(targetTableArgs.args.meta_query)
-                    }
-                    
-                    //Set a Attr value in table tag, If already queried
-                    $('#table_id_' + temp_number + ' table.wpt_product_table').attr('data-queried','true');
-                    /**
-                     * Generate here where query
-                     */
-                    generate_url_by_search_query(temp_number, extra_link_tax_cf);
-                    $('#wpt_query_reset_button_' + temp_number).fadeIn('medium');
-                    /**
-                     * Trigger on this event, when search will be completed
-                     * 
-                     * @since 2.8.9
-                     */
-                    $(document.body).trigger('wpt_query_done',targetTableArgs);
-                },
-                success: function(data) {
-                    
-                    $('.table_row_loader').remove();
-                    
-                    if( actionType === 'query' ){
-                        $('#wpt_load_more_wrapper_' + temp_number).remove();
-                        targetTableBody.html( data );
-
-                        
-                        $('#table_id_' + temp_number + ' .wpt_table_tag_wrapper .wpt_product_not_found').remove();
-                        if(data.match('wpt_product_not_found')){
-                            targetTableBody.html("");
-                            $('#table_id_' + temp_number + ' .wpt_table_tag_wrapper').append(data);
-                        }
-                        
-                        var $data = {
-                                action:         'wpt_ajax_paginate_links_load',
-                                temp_number:    temp_number,
-                                directkey:      directkey,
-                                targetTableArgs:targetTableArgs, 
-                                texonomies:     texonomies,
-                                pageNumber:     pageNumber,
-                                load_type:     load_type,
-                            };
-                        loadPaginationLinks($data,temp_number);
-                        
-                        targetTable.after('<div id="wpt_load_more_wrapper_' + temp_number + '" class="wpt_load_more_wrapper ' + config_json.disable_loading_more + '"><button data-temp_number="' + temp_number + '" data-type="load_more" class="button wpt_load_more">' + loadMoreText + '</button></div>');
-                        targetTable.addClass('wpt_overflow_hiddent');
-                        thisButton.html(searchText);
-                    }
-                    if( actionType === 'load_more' ){
-                        if(!data.match('wpt_product_not_found')){ //'Product not found' //Products not found!
-                            targetTableBody.append( data );
-                            thisButton.html(loadMoreText);
-                            
-                            //Actually If you Already Filter, Than table will load with Filtered.
-                            filterTableRow(temp_number);
-                            
-                        }else{
-                            $('#wpt_load_more_wrapper_' + temp_number).remove();
-                            targetTable.removeClass('wpt_overflow_hiddent');
-                            showAlert(config_json.no_more_query_message);//"There is no more products based on current Query."
-                        }
-                        
-                    }
-                    removeCatTagLings();//Removing Cat,tag link, if eanabled from configure page
-                    pageNumber++; //Page Number Increasing 1 Plus
-                    targetTable.attr('data-page_number',pageNumber);
-                },
-                error: function() {
-                    $(document.body).trigger('wpt_query_failed',targetTableArgs);
-                    console.log("Error On Ajax Query Load. Please check console. - wpt_query_search_button");
-                },
-            });
-            
-            emptyInstanceSearchBox(temp_number);//When query finished, Instant search box will empty
-            
-        });
         
         
         /**
@@ -1655,43 +1417,45 @@ jQuery(function($) {
             });
             var page_number = $('#table_id_' + table_id + ' table').attr('data-page_number');
             page_number = parseInt( page_number ) - 1;
-            link += "paged=" + page_number;
+            link += "page_number=" + page_number;
             $('a.search_box_reset').show();
             link += extra;
-            //window.location.href = link;
             window.history.pushState('data', null, link.replace(/(^&)|(&$)/g, ""));
         }
         
-        // var extra_link_tax_cf = "";
-        // if( !$.isEmptyObject(texonomies)){
-        //     extra_link_tax_cf = "tax=" + JSON.stringify(targetTableArgs.args.tax_query)
-        // }
-        // if( !$.isEmptyObject(custom_field)){
-        //     extra_link_tax_cf = "meta=" + JSON.stringify(targetTableArgs.args.meta_query)
-        // }
-        
-        //Set a Attr value in table tag, If already queried
-        // $('#table_id_' + temp_number + ' table.wpt_product_table').attr('data-queried','true');
-        /**
-         * Generate here where query
-         */
-        // generate_url_by_search_query(temp_number, extra_link_tax_cf);
 
         $(document.body).on('wpt_ajax_load_data',function(Event,data){
             var table_id = data.table_id;
 
             var page_number = data.others.page_number;
             var extra_link_tax_cf = "";
+            console.log(data.args.tax_query, convertToSimpleFormat(data.args.tax_query));
             if( typeof data.args.tax_query === 'object' && !$.isEmptyObject(data.args.tax_query)){
-                extra_link_tax_cf = "&tax=" + JSON.stringify(data.args.tax_query)
+                extra_link_tax_cf = "&tax=" + convertToSimpleFormat(data.args.tax_query);
             }
             if( typeof data.args.meta_query === 'object'  && !$.isEmptyObject(data.args.meta_query)){
-                extra_link_tax_cf = "&meta=" + JSON.stringify(data.args.meta_query)
+                extra_link_tax_cf = "&meta=" + convertToSimpleFormat(data.args.meta_query);
             }
+
             generate_url_by_search_query(table_id, extra_link_tax_cf);
 
             
         });
+
+        function convertToSimpleFormat(obj) {
+            const parts = [];
+
+            for (const key in obj) {
+                const terms = obj[key].terms;
+                if (Array.isArray(terms)) {
+                    parts.push(`${key}-${terms.join(',')}`);
+                }else{
+                    parts.push(`${key}-${terms}`);
+                }
+            }
+
+            return parts.join('__');
+        }
 
         
         function loadPaginationLinks($data,temp_number){
