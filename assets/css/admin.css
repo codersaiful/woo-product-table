@@ -2443,61 +2443,7 @@ span.wpt-help-icon.wpt-help-focused{
 
     }
 }
-.wpt-renew-license-notice>div {
-    background: white;
-    padding: 10px 15px;
-    display: block !important;
-    clear: both;
-    border-left: 5px solid #d00;
-    margin: 13px 0 0 0;
-    box-sizing: border-box;
-    height: max-content;
-    line-height: 30px;
-}
 
-.wpt-renew-license-notice {
-    display: block;
-    clear: both;
-    height: max-content;
-    background: transparent;
-}
-.error.wpt-renew-license-notice {
-    border: 0 none !important;
-    padding: 0;
-}
-.wpt-renew-license-notice a {
-    background: #E91E63;
-    border-color: #E91E63;
-    text-transform: uppercase !important;
-    padding: 6px 10px !important;
-    border-left: 27px solid #7a052d;
-    position: relative;
-    color: white;
-    text-decoration: none;
-    white-space: nowrap;
-}
-.wpt-renew-license-notice a:hover {
-    
-    background: #4caf50;
-    border-color: #38823b;
-    text-transform: uppercase !important;
-    padding: 6px 10px !important;
-    border-left: 27px solid #38823b;
-    position: relative;
-}
-.wpt-renew-license-notice a::before {
-    content: "☀";
-    position: absolute;
-    top: -2px;
-    left: -20px;
-    color: rgb(255, 255, 255);
-}
-img.wpt-license-brand-logo {
-    width: 25px;
-    height: auto;
-    display: inline-block;
-    margin-bottom: -8px;
-}
 a.wpt-doc-lick{
     text-decoration: none;
     padding: 5px;
