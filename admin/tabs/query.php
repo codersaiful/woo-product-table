@@ -406,7 +406,7 @@ unset($catalog_orderby_options['menu_order']);
                     <label class="wpt_label" for="wpt_product_meta_value_sort"><?php echo sprintf( esc_html__( 'Meta Value for [Custom Meta Value] of %s Custom Meta Value %s', 'woo-product-table' ),'<b>','</b>' ); ?></label>
                 </th>
                 <td>
-                    <input name="conditions[meta_value_sort]" value="<?php echo esc_attr( $meta_conditions['meta_value_sort'] ); ?>" data-name='meta_value_sort' id="wpt_product_meta_value_sort" class="wpt_fullwidth wpt_data_filed_atts ua_input" type="text">
+                    <input name="conditions[meta_value_sort]" value="<?php echo esc_attr( $meta_conditions['meta_value_sort'] ?? '' ); ?>" data-name='meta_value_sort' id="wpt_product_meta_value_sort" class="wpt_fullwidth wpt_data_filed_atts ua_input" type="text">
                     <p style="color: #00aef0;"><?php esc_html_e( 'Type your Right meta value here. EG: "_sku,_price,_customNumber" - use any one only, there should no any space or comma', 'woo-product-table' ); ?></p>
                 </td>
             </tr>
@@ -472,7 +472,7 @@ unset($catalog_orderby_options['menu_order']);
                     <label class="wpt_label" for="wpt_posts_per_page"><?php esc_html_e( 'Posts per page', 'woo-product-table' ); ?></label>
                 </th>
                 <td>
-                    <input name="conditions[posts_per_page]" data-name='posts_per_page' value="<?php echo esc_attr( $meta_conditions['posts_per_page'] ); ?>" id="wpt_posts_per_page" class="wpt_fullwidth wpt_data_filed_atts ua_input" type="number" pattern="[0-9]*" placeholder="<?php esc_attr_e( 'Eg: 50 (for display 50 products', 'woo-product-table' ); ?>" value="20">
+                    <input name="conditions[posts_per_page]" data-name='posts_per_page' value="<?php echo esc_attr( $meta_conditions['posts_per_page'] ?? 20 ); ?>" id="wpt_posts_per_page" class="wpt_fullwidth wpt_data_filed_atts ua_input" type="number" pattern="[0-9]*" placeholder="<?php esc_attr_e( 'Eg: 50 (for display 50 products', 'woo-product-table' ); ?>" value="20">
                     <?php wpt_doc_link('https://wooproducttable.com/docs/doc/table-options/display-limited-quantity-of-products/'); ?>
                     <p>Posts limit on each load.</p>
                     <p class="warning">
