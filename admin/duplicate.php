@@ -3,19 +3,21 @@ if( !function_exists( 'wpt_duplicate_as_draft' ) ){
     function wpt_duplicate_as_draft(){
             global $wpdb;
             if (! ( isset( $_GET['post']) || isset( $_POST['post'])  || ( isset($_REQUEST['action']) && 'wpt_duplicate_as_draft' == $_REQUEST['action'] ) ) ) {
-                    wp_die('No product for duplicating!');
+                    wp_die( esc_html__( 'No product for duplicating!', 'woo-product-table' ) );
             }
 
-            /*
-             * Nonce verification
-             */
-            if ( !isset( $_GET['duplicate_nonce'] ) || !wp_verify_nonce( $_GET['duplicate_nonce'], basename( __FILE__ ) ) )
-                    return;
+
+            //Nonce verification
+            $nonce = sanitize_text_field(   wp_unslash( $_GET['duplicate_nonce'] ?? ''));
+            if ( empty($nonce) || ! wp_verify_nonce( $nonce, basename( __FILE__ ) ) ) {
+                return;
+            }
+
 
             /*
              * get the original post id
              */
-            $post_id = (isset($_GET['post']) ? absint( $_GET['post'] ) : absint( $_POST['post'] ) );
+            $post_id = ( isset($_GET['post']) ? absint( $_GET['post'] ) : absint( $_POST['post'] ) );
             /*
              * and all the original post data then
              */
@@ -45,7 +47,7 @@ if( !function_exists( 'wpt_duplicate_as_draft' ) ){
                             'post_name'      => $post->post_name,
                             //'post_parent'    => $post->post_parent,
                             //'post_password'  => $post->post_password,
-                            'post_status'    => 'draft',
+                            'post_status'    => 'publish',
                             'post_title'     => $post->post_title . " " . $post_id,
                             'post_type'      => $post->post_type,
                             //'to_ping'        => $post->to_ping,
@@ -57,15 +59,7 @@ if( !function_exists( 'wpt_duplicate_as_draft' ) ){
                      */
                     $new_post_id = wp_insert_post( $args );
 
-                    /*
-                     * get all current post terms ad set them to the new post draft
-                    // ****************************
-                    $taxonomies = get_object_taxonomies($post->post_type); // returns array of taxonomy names for post type, ex array("category", "post_tag");
-                    foreach ($taxonomies as $ddp_taxonomy) {
-                            $post_terms = wp_get_object_terms($post_id, $ddp_taxonomy, array('fields' => 'slugs'));
-                            wp_set_object_terms($new_post_id, $post_terms, $ddp_taxonomy, false);
-                    }
-                    //*****************************/
+
                     /*
                      * duplicate all post meta just in two SQL queries
                      */
@@ -83,23 +77,9 @@ if( !function_exists( 'wpt_duplicate_as_draft' ) ){
                                         $meta_value = unserialize( $meta_value );
                                         update_post_meta($new_post_id, $meta_key, $meta_value);
                                     }
-                                    /*
-                                    //var_dump($meta_key);
-                                    if( $meta_key == 'basics' && is_serialized( $meta_value ) ){
-                                        $temp_val = unserialize($meta_value);
-                                        $temp_val['temp_number'] = $temp_val['temp_number'] + rand(13,235);
-
-                                        $meta_value = serialize($temp_val);
-                                    }
-
-                                    $meta_value = addslashes($meta_value);
-                                    $sql_query_sel[]= "SELECT $new_post_id, '$meta_key', '$meta_value'";
-                                    */
+                                    
                             }
-                            /*
-                            $sql_query.= implode(" UNION ALL ", $sql_query_sel);
-                            $wpdb->query($sql_query);
-                            */
+
                     }
                     wp_redirect( admin_url( 'post.php?post='. $new_post_id . '&action=edit&classic-editor' ) );
                     exit;

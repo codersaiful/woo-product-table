@@ -52,14 +52,17 @@
     if( empty( $wpt_active_tab ) ){
         $wpt_active_tab = 'column_settings';
     }
-    echo '<nav class="nav-tab-wrapper">';
-    
+    ?>
+    <nav class="nav-tab-wrapper">
+    <?php
     foreach ($tab_array as $nav => $title) {
         $active_nav = $nav == $wpt_active_tab ? 'nav-tab-active' : '';
-        echo "<a href='#{$nav}' data-tab='{$nav}' class='wpt_nav_for_{$nav} wpt_nav_tab nav-tab " . esc_attr( $active_nav ) . "'>" . wp_kses_post( $title ). "</a>";
+        ?>
+        <a href='#<?php echo esc_attr($nav); ?>' data-tab='<?php echo esc_attr($nav); ?>' class='wpt_nav_for_<?php echo esc_attr($nav); ?> wpt_nav_tab nav-tab <?php echo esc_attr( $active_nav ); ?>'><?php echo wp_kses_post( $title ); ?></a>
+        <?php 
     }
-    echo '</nav>';
     ?> 
+    </nav>
     <!-- actually to store last active tab, we will use this. 
     See from post_metabox.php file and admin.js file
     using: setLastActiveTab(tabName); from js code
@@ -71,9 +74,11 @@
     $active_tab_content = 'tab-content-active';
     foreach ($tab_array as $tab => $title) {
         $active_tab_content = $tab == $wpt_active_tab ? 'tab-content-active' : '';
-        echo '<div class="wpt_tab_content tab-content ' . esc_attr( $active_tab_content ) . '" id="' . esc_attr( $tab ) . '">';
-        echo '<div class="fieldwrap">';
-        
+        ?>
+        <div class="wpt_tab_content tab-content <?php echo esc_attr( $active_tab_content ); ?>" id="<?php echo esc_attr( $tab ); ?>">
+        <div class="fieldwrap">
+        <?php
+
         /**
          * @Hook Action: wpto_form_tab_top_{$tab}
          * 
@@ -101,7 +106,9 @@
             include $tab_file_of_admin; 
             do_action( 'wpto_admin_tab_bottom_' . $tab, $post, $tab_array );
         }elseif( $tab_validation ){
-            echo '<h2>' . $tab . '.php ' . esc_html__( 'file is not found in tabs folder','woo-product-table' ) . '</h2>';
+            ?>
+            <p class="warning"><?php echo esc_html( $tab ); ?>.php <?php echo esc_html__( 'file is not found in tabs folder','woo-product-table' ); ?></p>
+            <?php
         }
         
         /**
@@ -113,9 +120,11 @@
          * @date 8 July, 2020
          */
         do_action( 'wpto_form_tab_bottom_' . $tab, $post );
-        
-        echo '</div>'; //End of .fieldwrap
-        echo '</div>'; //End of Tab content div
+        ?>
+        </div>
+    </div>
+        <?php
+
     }
     ?>
 
@@ -161,9 +170,9 @@
 <style>
 /*****For Column Moveable Item*******/
 ul#wpt_column_sortable li>span.handle{
-    background-image: url('<?php echo WPT_BASE_URL . 'assets/images/move.png'; ?>');
+    background-image: url('<?php echo esc_url( WPT_BASE_URL . 'assets/images/move.png' ); ?>');
 }
 ul#wpt_column_sortable li.wpt_sortable_peritem.enabled>span.handle{
-    background-image: url('<?php echo WPT_BASE_URL . 'assets/images/move.png'; ?>');
+    background-image: url('<?php echo esc_url( WPT_BASE_URL . 'assets/images/move.png' ); ?>');
 }
 </style>

@@ -3005,3 +3005,5 @@ input#wpt-setting-search-input {
     padding: 3px 10px;
     margin: 2px !important;
 }
+.wpt_copy_button_metabox{display: none;}
+.wpt_metabox_copy_content{color: #007692;font-weight:bold;display:none; padding-left: 12px;}
