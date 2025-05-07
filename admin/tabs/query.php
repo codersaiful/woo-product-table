@@ -65,12 +65,6 @@ $data = isset( $meta_basics['data'] ) ? $meta_basics['data'] : false;
                             'order'         => 'DESC',
                         );
                         
-                        // $term_obj = get_terms( $key, $args );
-                        // if( ! is_array( $term_obj ) || ( is_array($term_obj) && count($term_obj) < 1 ) ){
-                        //     continue;
-                        // }
-
-                        
 
                         $title = $each;
                         $my_extr_class = 'ok';
@@ -100,9 +94,9 @@ $data = isset( $meta_basics['data'] ) ? $meta_basics['data'] : false;
             'orderby'       => 'count',
             'order'         => 'DESC',
         );
-        // dd($supported_terms);
+
         foreach( $supported_terms as $key => $each ){
-            // dd($key, $each);
+
             $term_key = $key;
             $term_name = $each;
             $term_obj = get_terms( $term_key, $args );
@@ -130,24 +124,7 @@ $data = isset( $meta_basics['data'] ) ? $meta_basics['data'] : false;
                         }
                         foreach ( $term_obj as $terms ) {
                             $extra_message = '';
-//                            //if( 'product_cat' == $term_key ){
-//                            
-//                            $parents = get_term_parents_list($terms->term_id,$term_key, array(
-//                                'link' => false,
-//                                'separator'=> '/',
-//                                'inclusive'=> false,
-//                            ));
-//                            $parents = rtrim( $parents, '/' );
-//
-//                            if( ! empty( $parents ) ){
-//                                $parents_exp = explode('/',$parents);
-//                                $count = count( $parents_exp );
-//                                //var_dump( str_repeat( '-', $count ) );
-//                                $taxo_tree_sepa = apply_filters( 'wpto_taxonomy_tree_separator', '- ', $terms );
-//                                $extra_message = str_repeat( $taxo_tree_sepa, $count );
-//                            }
-//                                
-//                            //}
+
                             $selected = is_array( $selected_term_ids ) && in_array( $terms->term_id,$selected_term_ids ) ? 'selected' : false;
                             $options_item .= "<option value='{$terms->term_id}' {$selected}>{$extra_message} {$terms->name} ({$terms->count})</option>";
                         }
@@ -155,70 +132,13 @@ $data = isset( $meta_basics['data'] ) ? $meta_basics['data'] : false;
 
                     if( !empty( $options_item ) ){
                         
-/*****************************************                        
-                        
-                        
-                        $defaults = array(
-		'show_option_all'   => '',
-		'show_option_none'  => '',
-		'orderby'           => 'name',
-		'order'             => 'ASC',
-		'show_count'        => 0,
-		'hide_empty'        => 1,
-		'child_of'          => 0,
-		'exclude'           => '',
-		'echo'              => 1,
-		'selected'          => $selecteds,
-		'hierarchical'      => 1,//0, // 1 for Tree format, and 0 for plane format
-		'name'              => "basics[data][terms][$term_key]",//'cat',
-		'id'                => 'wpt_term_' . $term_key,//'',
-		'class'             => "wpt_select2 ua_select wpt_query_terms ua_query_terms_" . $term_key,//'postform',
-		'depth'             => 0,
-		'tab_index'         => 0,
-		'taxonomy'          => $term_key,//'category',
-		'hide_if_empty'     => false,
-		'option_none_value' => -1,
-		'value_field'       => 'term_id',
-		'multiple'          => true,
-                'data-key'          => $term_key,
-	);
-        //Helping from https://wordpress.stackexchange.com/questions/216070/wp-dropdown-categories-with-multiple-select/253403
-         wpt_wp_dropdown_categories( $defaults );
-         
-//***************************************/  
+
                     ?>
                     <select name="basics[data][terms][<?php echo esc_attr( $term_key ); ?>][]" class="wpt_select2 wpt_query_terms ua_query_terms_<?php echo esc_attr( $term_key ); ?> ua_select" id="wpt_term_<?php echo esc_attr( $term_key ); ?>" multiple="multiple">
                         <?php
                         $allowed_atts = array(
                             'selected'      => array(),
                             'value'      => array(),
-                            
-//                            'align'      => array(),
-//                            'class'      => array(),
-//                            'type'       => array(),
-//                            'id'         => array(),
-//                            'dir'        => array(),
-//                            'lang'       => array(),
-//                            'style'      => array(),
-//                            'xml:lang'   => array(),
-//                            'src'        => array(),
-//                            'alt'        => array(),
-//                            'href'       => array(),
-//                            'rel'        => array(),
-//                            'rev'        => array(),
-//                            'target'     => array(),
-//                            'novalidate' => array(),
-//                            'type'       => array(),
-//                            'value'      => array(),
-//                            'name'       => array(),
-//                            'tabindex'   => array(),
-//                            'action'     => array(),
-//                            'method'     => array(),
-//                            'for'        => array(),
-//                            'width'      => array(),
-//                            'height'     => array(),
-//                            'data'       => array(),
-//                            'title'      => array(),
                     );
                     
                     $allowed_tags['option']     = $allowed_atts;
@@ -242,7 +162,6 @@ $data = isset( $meta_basics['data'] ) ? $meta_basics['data'] : false;
     </div>
 
 <?php 
-// do_action( 'wpo_pro_feature_message', 'under_taxonomy_includes' );
 /**
  * To add something 
  */
@@ -255,13 +174,20 @@ do_action( 'wpto_admin_basic_tab',$meta_basics, $tab, $post, $tab_array );
         <table class="ultraaddons-table">
             <tr>
                 <th>
-                    <label class="wpt_label" for="wpt_product_cat_excludes"><?php echo esc_html__( 'Category Exclude', 'woo-product-table' );?></label><?php wpt_doc_link('https://wooproducttable.com/docs/doc/table-options/hide-specific-categories-products/');?>
+                    <label class="wpt_label" for="wpt_product_cat_excludes"><?php echo esc_html__( 'sCategory Exclude', 'woo-product-table' );?></label><?php wpt_doc_link('https://wooproducttable.com/docs/doc/table-options/hide-specific-categories-products/');?>
                 </th>
                 <td>
                     <select name="basics[cat_explude][]" data-name="cat_explude" id="wpt_product_cat_excludes" class="wpt_fullwidth wpt_data_filed_atts ua_select wpt_select2" multiple>
-                        <?php
+                    <?php
                         foreach ( $wpt_product_cat_object as $category ) {
-                            echo "<option value='{$category->term_id}' " . ( isset( $meta_basics['cat_explude'] ) && is_array( $meta_basics['cat_explude'] ) && in_array( $category->term_id, $meta_basics['cat_explude'] ) ? 'selected' : false ) . ">{$category->name} - {$category->slug} ({$category->count})</option>";
+                            $cat_explude = $meta_basics['cat_explude'] ?? [];
+                            ?>
+                            <option value='<?php echo esc_attr( $category->term_id ); ?>'
+                            <?php echo esc_attr( is_array( $cat_explude ) && in_array( $category->term_id, $cat_explude ) ? 'selected' : '' ); ?>
+                            >
+                                <?php echo esc_html( $category->name ); ?> (<?php echo esc_html( $category->count ); ?>)
+                            </option>
+                            <?php
                         }
                         ?>
                     </select>
@@ -351,8 +277,6 @@ $catalog_orderby_options = apply_filters(
         'date'       => __( 'Sort by latest', 'woo-product-table' ),
         'price'      => __( 'Sort by price: low to high', 'woo-product-table' ),
         'price-desc' => __( 'Sort by price: high to low', 'woo-product-table' ),
-        //New added @since 3.2.3.1
-        //'featured_products' => __( 'Sort by Featured Products', 'woo-product-table' ),
     )
 );
 
@@ -385,8 +309,8 @@ unset($catalog_orderby_options['menu_order']);
                     <div class="wpt-custom-select-boxes">
 
                         <?php foreach ($options as $value => $label): ?>
-                            <div class="wpt-custom-select-box <?php echo $current_val === $value ? 'active' : ''; ?>" data-value="<?php echo esc_attr($value); ?>">
-                                <?php echo $label; ?>
+                            <div class="wpt-custom-select-box <?php echo esc_attr( $current_val === $value ? 'active' : '' ); ?>" data-value="<?php echo esc_attr($value); ?>">
+                                <?php echo esc_html( $label ); ?>
                             </div>
                         <?php endforeach; $current_val = null; $options = []; ?>
                     </div>
@@ -465,7 +389,7 @@ unset($catalog_orderby_options['menu_order']);
                             $ext_class = $disabled_class . ' ' . $active_class;
                             ?>
                             <div class="wpt-custom-select-box <?php echo esc_attr( $ext_class ); ?>" data-value="<?php echo esc_attr($value); ?>">
-                                <?php echo $label; ?>
+                                <?php echo esc_html( $label ); ?>
                             </div>
                         <?php endforeach; $current_val = null; $options = []; ?>
                     </div>
@@ -482,7 +406,7 @@ unset($catalog_orderby_options['menu_order']);
                     <label class="wpt_label" for="wpt_product_meta_value_sort"><?php echo sprintf( esc_html__( 'Meta Value for [Custom Meta Value] of %s Custom Meta Value %s', 'woo-product-table' ),'<b>','</b>' ); ?></label>
                 </th>
                 <td>
-                    <input name="conditions[meta_value_sort]" value="<?php echo isset( $meta_conditions['meta_value_sort'] ) ? $meta_conditions['meta_value_sort'] : ''; ?>" data-name='meta_value_sort' id="wpt_product_meta_value_sort" class="wpt_fullwidth wpt_data_filed_atts ua_input" type="text">
+                    <input name="conditions[meta_value_sort]" value="<?php echo esc_attr( $meta_conditions['meta_value_sort'] ); ?>" data-name='meta_value_sort' id="wpt_product_meta_value_sort" class="wpt_fullwidth wpt_data_filed_atts ua_input" type="text">
                     <p style="color: #00aef0;"><?php esc_html_e( 'Type your Right meta value here. EG: "_sku,_price,_customNumber" - use any one only, there should no any space or comma', 'woo-product-table' ); ?></p>
                 </td>
             </tr>
@@ -492,7 +416,7 @@ unset($catalog_orderby_options['menu_order']);
                     <label class="wpt_label" for="wpt_product_min_price"><?php esc_html_e( 'Minimum Price', 'woo-product-table' ); ?></label>
                 </th>
                 <td>
-                    <input name="conditions[min_price]" data-name='min_price' value="<?php echo isset( $meta_conditions['min_price'] ) ?$meta_conditions['min_price'] : ''; ?>" id="wpt_product_min_price" class="wpt_fullwidth wpt_data_filed_atts ua_input" type="number" step="0.001" pattern="[0-9]+([\.,][0-9]+)?">
+                    <input name="conditions[min_price]" data-name='min_price' value="<?php echo esc_attr($meta_conditions['min_price'] ?? ''); ?>" id="wpt_product_min_price" class="wpt_fullwidth wpt_data_filed_atts ua_input" type="number" step="0.001" pattern="[0-9]+([\.,][0-9]+)?">
                     <?php wpt_doc_link('https://wooproducttable.com/docs/doc/table-options/set-minimum-maximum-price/'); ?>
                 </td>
             </tr>
@@ -502,7 +426,7 @@ unset($catalog_orderby_options['menu_order']);
                     <label class="wpt_label" for="wpt_product_max_price"><?php esc_html_e( 'Maximum Price', 'woo-product-table' ); ?></label>
                 </th>
                 <td>
-                    <input name="conditions[max_price]" data-name='max_price' value="<?php echo isset( $meta_conditions['max_price'] ) ?$meta_conditions['max_price'] : ''; ?>" id="wpt_product_max_price" class="wpt_fullwidth wpt_data_filed_atts ua_input" type="number" step="0.001" pattern="[0-9]+([\.,][0-9]+)?">
+                    <input name="conditions[max_price]" data-name='max_price' value="<?php echo esc_attr($meta_conditions['max_price'] ?? ''); ?>" id="wpt_product_max_price" class="wpt_fullwidth wpt_data_filed_atts ua_input" type="number" step="0.001" pattern="[0-9]+([\.,][0-9]+)?">
                     <?php wpt_doc_link('https://wooproducttable.com/docs/doc/table-options/set-minimum-maximum-price/'); ?>
                 </td>
             </tr>
@@ -523,10 +447,10 @@ unset($catalog_orderby_options['menu_order']);
                 </th>
                 <td>
                     <select name="conditions[only_stock]" data-name='only_stock' id="wpt_table_only_stock" class="wpt_fullwidth wpt_data_filed_atts ua_input" >
-                        <option value="" <?php echo isset( $meta_conditions['only_stock'] ) && $meta_conditions['only_stock'] == '' ? 'selected' : ''; ?>><?php esc_html_e( 'Default', 'woo-product-table' ); ?></option>
-                        <option value="instock" <?php echo isset( $meta_conditions['only_stock'] ) && $meta_conditions['only_stock'] == 'instock' ? 'selected' : ''; ?>><?php esc_html_e( 'instock', 'woo-product-table' ); ?></option>
-                        <option value="onbackorder" <?php echo isset( $meta_conditions['only_stock'] ) && $meta_conditions['only_stock'] == 'onbackorder' ? 'selected' : ''; ?>><?php esc_html_e( 'onbackorder', 'woo-product-table' ); ?></option>
-                        <option value="outofstock" <?php echo isset( $meta_conditions['only_stock'] ) && $meta_conditions['only_stock'] == 'outofstock' ? 'selected' : ''; ?>><?php esc_html_e( 'outofstock', 'woo-product-table' ); ?></option>
+                        <option value="" <?php echo esc_attr( isset( $meta_conditions['only_stock'] ) && $meta_conditions['only_stock'] == '' ? 'selected' : '' ); ?>><?php esc_html_e( 'Default', 'woo-product-table' ); ?></option>
+                        <option value="instock" <?php echo esc_attr(isset( $meta_conditions['only_stock'] ) && $meta_conditions['only_stock'] == 'instock' ? 'selected' : ''); ?>><?php esc_html_e( 'instock', 'woo-product-table' ); ?></option>
+                        <option value="onbackorder" <?php echo esc_attr(  isset( $meta_conditions['only_stock'] ) && $meta_conditions['only_stock'] == 'onbackorder' ? 'selected' : ''); ?>><?php esc_html_e( 'onbackorder', 'woo-product-table' ); ?></option>
+                        <option value="outofstock" <?php echo esc_attr( isset( $meta_conditions['only_stock'] ) && $meta_conditions['only_stock'] == 'outofstock' ? 'selected' : ''); ?>><?php esc_html_e( 'outofstock', 'woo-product-table' ); ?></option>
                     </select><?php wpt_doc_link('https://wooproducttable.com/docs/doc/advance-uses/show-stock-products-by-stock-status/'); ?>
                 </td>
             </tr>
@@ -537,8 +461,8 @@ unset($catalog_orderby_options['menu_order']);
                 </th>
                 <td>
                     <select name="conditions[only_sale]" data-name='only_sale' id="wpt_table_only_sale" class="wpt_fullwidth wpt_data_filed_atts ua_input"  >
-                        <option value="no" <?php echo isset( $meta_conditions['only_sale'] ) && $meta_conditions['only_sale'] == 'no' ? 'selected' : ''; ?>><?php esc_html_e( 'Default', 'woo-product-table' ); ?></option>
-                        <option value="yes" <?php echo isset( $meta_conditions['only_sale'] ) && $meta_conditions['only_sale'] == 'yes' ? 'selected' : ''; ?>><?php esc_html_e( 'Only Sale', 'woo-product-table' ); ?></option>
+                        <option value="no" <?php echo esc_attr( isset( $meta_conditions['only_sale'] ) && $meta_conditions['only_sale'] == 'no' ? 'selected' : '' ); ?>><?php esc_html_e( 'Default', 'woo-product-table' ); ?></option>
+                        <option value="yes" <?php echo esc_attr( isset( $meta_conditions['only_sale'] ) && $meta_conditions['only_sale'] == 'yes' ? 'selected' : '' ); ?>><?php esc_html_e( 'Only Sale', 'woo-product-table' ); ?></option>
                     </select><?php wpt_doc_link('https://wooproducttable.com/docs/doc/advance-uses/show-only-sale-products/'); ?>
                 </td>
             </tr>
@@ -548,7 +472,7 @@ unset($catalog_orderby_options['menu_order']);
                     <label class="wpt_label" for="wpt_posts_per_page"><?php esc_html_e( 'Posts per page', 'woo-product-table' ); ?></label>
                 </th>
                 <td>
-                    <input name="conditions[posts_per_page]" data-name='posts_per_page' value="<?php echo isset( $meta_conditions['posts_per_page'] ) ?$meta_conditions['posts_per_page'] : '20'; ?>" id="wpt_posts_per_page" class="wpt_fullwidth wpt_data_filed_atts ua_input" type="number" pattern="[0-9]*" placeholder="<?php esc_attr_e( 'Eg: 50 (for display 50 products', 'woo-product-table' ); ?>" value="20">
+                    <input name="conditions[posts_per_page]" data-name='posts_per_page' value="<?php echo esc_attr( $meta_conditions['posts_per_page'] ); ?>" id="wpt_posts_per_page" class="wpt_fullwidth wpt_data_filed_atts ua_input" type="number" pattern="[0-9]*" placeholder="<?php esc_attr_e( 'Eg: 50 (for display 50 products', 'woo-product-table' ); ?>" value="20">
                     <?php wpt_doc_link('https://wooproducttable.com/docs/doc/table-options/display-limited-quantity-of-products/'); ?>
                     <p>Posts limit on each load.</p>
                     <p class="warning">
@@ -602,9 +526,6 @@ unset($catalog_orderby_options['menu_order']);
 
 </div>
     
-<?php } ?>
-
-
-    
-    <?php do_action( 'wpto_admin_basic_tab_bottom', $meta_basics, $tab, $post, $tab_array ); ?>
+<?php } 
+do_action( 'wpto_admin_basic_tab_bottom', $meta_basics, $tab, $post, $tab_array ); ?>
 </div>
