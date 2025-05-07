@@ -221,9 +221,9 @@ class Page_Loader extends Base
         if( empty( $this->license_status ) || $this->license_status === 'invalid' || $this->license_status === 'site_inactive' || $this->license_status === 'inactive' ){
             $wpt_logo = WPT_ASSETS_URL . 'images/logo.png';
             
-            $link_label = __( 'Activate License', 'wpt_pro' );
+            $link_label = __( 'Activate License', 'woo-product-table' );
             $link = admin_url('edit.php?post_type=wpt_product_table&page=woo-product-table-license');
-            $message = esc_html__( ' Please Activate License to get Pro Feature', 'wpt_pro' );
+            $message = esc_html__( ' Please Activate License to get Pro Feature', 'woo-product-table' );
             ob_start();
             ?>
             <div class="error wpt-renew-license-notice">
@@ -235,7 +235,7 @@ class Page_Loader extends Base
             </div>
             <?php
             $full_message = ob_get_clean();
-            printf( $full_message, $message, $link, $link_label );      
+            printf( wp_kses_post( $full_message ), esc_html( $message ), esc_url( $link ), esc_html( $link_label ) );        
         }
     }
     public function renew_license_notice()
@@ -244,9 +244,9 @@ class Page_Loader extends Base
         if(empty($this->item_id)) return;
         $wpt_logo = WPT_ASSETS_URL . 'images/logo.png';
         $expired_date = date( 'd M, Y', $this->exp_timestamp );
-        $link_label = __( 'Renew License', 'wpt_pro' );
+        $link_label = __( 'Renew License', 'woo-product-table' );
         $link = "https://codeastrology.com/checkout/?edd_license_key={$this->license_key}&download_id={$this->item_id}";
-		$message = esc_html__( ' Renew it to enable pro features.', 'wpt_pro' ) . '</strong>';
+		$message = esc_html__( ' Renew it to enable pro features.', 'woo-product-table' );
         ob_start();
         ?>
         <div class="error wpt-renew-license-notice">
@@ -258,6 +258,6 @@ class Page_Loader extends Base
         </div>
         <?php
         $full_message = ob_get_clean();
-        printf( $full_message, $message, $link, $link_label );
+        printf( wp_kses_post( $full_message ), esc_html( $message ), esc_url( $link ), esc_html( $link_label ) );    
     }
 }

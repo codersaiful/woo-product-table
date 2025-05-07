@@ -121,7 +121,7 @@ if( !function_exists( 'wpt_duplicate_as_draft' ) ){
 
                     exit;
             } else {
-                    wp_die('Failed. Not Found Post: ' . $post_id);
+                    wp_die( esc_html__( 'Failed', 'woo-product-table' ) );
             }
     }
 }

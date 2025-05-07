@@ -34,7 +34,8 @@ if (!function_exists('wpt_selected')) {
     function wpt_selected($keyword, $gotten_value, $default_config = false)
     {
         $current_config_value = is_array($default_config) ? $default_config : get_option(WPT_OPTION_KEY);
-        echo (isset($current_config_value[$keyword]) && $current_config_value[$keyword] == $gotten_value ? 'selected' : false);
+        $output = (isset($current_config_value[$keyword]) && $current_config_value[$keyword] == $gotten_value ? 'selected' : false);
+        echo esc_attr( $output );
     }
 }
 if (!function_exists('wpt_default_option')) {
@@ -50,12 +51,11 @@ if (!function_exists('wpt_default_option')) {
      */
     function wpt_default_option($page)
     {
-        $html = "";
         if ($page == 'wpt_configuration_tab') {
-            $default = esc_html__("Default", 'woo-product-table');
-            $html .= "<option value=''>$default</option>";
+            ?>
+            <option value=""><?php echo esc_html__("Default", 'woo-product-table'); ?></option>
+            <?php
         }
-        echo $html;
     }
 }
 

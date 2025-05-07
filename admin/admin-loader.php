@@ -3,7 +3,6 @@ namespace WOO_PRODUCT_TABLE\Admin;
 
 use WOO_PRODUCT_TABLE\Admin\Page_Loader;
 use WOO_PRODUCT_TABLE\Core\Base;
-use WOO_PRODUCT_TABLE\Admin\Handle\Tracker;
 use WOO_PRODUCT_TABLE\Admin\Handle\Feature_Loader;
 use WOO_PRODUCT_TABLE\Admin\Handle\Pro_Version_Update;
 use WOO_PRODUCT_TABLE\Admin\Handle\Deactive_Form as Old_Deactive_Form;
@@ -30,15 +29,6 @@ class Admin_Loader extends Base{
 
         $features = new Feature_Loader();
         $features->run();
-
-
-        // add_action('admin_init', [$this, 'admin_init']);
     }
 
-    public function admin_init(){
-
-        // $tracker = new Tracker();
-        // $tracker->run();
-        
-    }
 }
