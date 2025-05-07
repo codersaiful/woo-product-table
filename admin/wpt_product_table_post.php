@@ -98,9 +98,12 @@ if( ! function_exists( 'wpt_shortcode_column_content' ) ){
         if ($column_name == 'wpt_shortcode') {
             $post_title = get_the_title( $post_id );
             $post_title = preg_replace( '/[#$%^&*()+=\-\[\]\';,.\/{}|":<>?~\\\\]/',"$1", $post_title );
-            echo "<input style='display: inline-block;width:300px;' class='wpt_auto_select_n_copy' type='text' value=\"[Product_Table id='{$post_id}' name='{$post_title}']\" id='wpt_shotcode_content_{$post_id}' readonly>";
-            echo '<a style="font-size: 12px !important;padding: 4px 13px !important" class="button button-primary wpt_copy_button_metabox" data-target_id="wpt_shotcode_content_' . $post_id . '">'. esc_html__( 'Copy','woo-product-table' ).'</a>';
-            echo '<p style="color: green;font-weight:bold;display:none; padding-left: 12px;" class="wpt_shotcode_content_' . $post_id . '"></p>';
+			?>
+			<input class='wpt_auto_select_n_copy' type='text'
+			 value='[Product_Table id="<?php echo esc_attr( absint( $post_id ) ); ?>" name="<?php echo esc_attr( $post_title ); ?>"]' id='wpt_shotcode_content_<?php echo esc_attr( absint( $post_id ) ); ?>' readonly>
+			 <a class="button button-primary wpt_copy_button_metabox wpt_copy_button_metabox-column" data-target_id="wpt_shotcode_content_<?php echo esc_attr( absint( $post_id ) ); ?>"><?php echo esc_html__( 'Copy','woo-product-table' ); ?></a>
+			 <p class="wpt_shotcode_content_column wpt_shotcode_content_<?php echo esc_attr( absint( $post_id ) ); ?>"></p>
+			<?php
         }  
     }
 }
