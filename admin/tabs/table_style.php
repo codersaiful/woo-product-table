@@ -78,9 +78,9 @@ $current_template = $meta_table_style_inPost['template'] ?? '';
                             // $img_url = $template_img_folder_url . $img_file_name . '.png';
                             $is_active = ($key === $current_template) ? 'active' : '';
                         ?>
-                            <div class="wpt-template-item <?php echo $is_active; ?> wpt-temp-type-<?php echo $type; ?>" data-type="<?php echo esc_attr($type); ?>" data-template="<?php echo esc_attr($key); ?>">
-                                <img src="<?php echo esc_url($img_url); ?>" alt="<?php echo esc_attr($template['value']); ?>">
-                                <span class="wpt-template-name"><?php echo esc_html($template['value']); ?></span>
+                            <div class="wpt-template-item <?php echo esc_attr( $is_active ); ?> wpt-temp-type-<?php echo esc_attr($type); ?>" data-type="<?php echo esc_attr($type); ?>" data-template="<?php echo esc_attr($key); ?>">
+                                <img src="<?php echo esc_url($img_url); ?>" alt="<?php echo esc_attr($template['value'] ?? '' ); ?>">
+                                <span class="wpt-template-name"><?php echo esc_html( $template['value'] ?? '' ); ?></span>
                             </div>
                         <?php endforeach; ?>
                     </div>

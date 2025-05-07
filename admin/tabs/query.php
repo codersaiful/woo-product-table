@@ -174,7 +174,7 @@ do_action( 'wpto_admin_basic_tab',$meta_basics, $tab, $post, $tab_array );
         <table class="ultraaddons-table">
             <tr>
                 <th>
-                    <label class="wpt_label" for="wpt_product_cat_excludes"><?php echo esc_html__( 'sCategory Exclude', 'woo-product-table' );?></label><?php wpt_doc_link('https://wooproducttable.com/docs/doc/table-options/hide-specific-categories-products/');?>
+                    <label class="wpt_label" for="wpt_product_cat_excludes"><?php echo esc_html__( 'Category Exclude', 'woo-product-table' );?></label><?php wpt_doc_link('https://wooproducttable.com/docs/doc/table-options/hide-specific-categories-products/');?>
                 </th>
                 <td>
                     <select name="basics[cat_explude][]" data-name="cat_explude" id="wpt_product_cat_excludes" class="wpt_fullwidth wpt_data_filed_atts ua_select wpt_select2" multiple>
