@@ -365,6 +365,10 @@ if( ! function_exists( 'wpt_shortcode_configuration_metabox_save_meta' ) ){
         $submitte_data = filter_input_array( INPUT_POST, $filtar_args );
 
         $submitte_data = wpt_remove_empty_value_from_array($submitte_data);
+
+        //Some special Sanitizzze 
+        $table_class = $submitte_data['basics']['table_class'] ?? '';
+        $submitte_data['basics']['table_class'] = sanitize_html_class( $table_class );
         /********* Column Setting Optimizing Start here ***********/
 
         //Fixing for tablet setting
