@@ -242,7 +242,7 @@ if( ! class_exists( 'CA_Framework\Notice' ) ){
          */
         public function notice_output(){
         ?>
-            <div data-notice_id="<?php echo $this->notice_id; ?>" class='notice ca-notice notice-<?php echo esc_attr( $this->notice_type ); ?>'>
+            <div data-notice_id="<?php echo esc_attr( $this->notice_id ); ?>" class='notice ca-notice notice-<?php echo esc_attr( $this->notice_type ); ?>'>
             <?php $this->notice_html(); ?>
             </div>
          <?php
@@ -252,7 +252,7 @@ if( ! class_exists( 'CA_Framework\Notice' ) ){
          */
         public function location_notice_output(){
         ?>
-            <div data-notice_id="<?php echo $this->notice_id; ?>" class='anywhere-notice ca-notice notice-<?php echo esc_attr( $this->notice_type ); ?>'>
+            <div data-notice_id="<?php echo esc_attr( $this->notice_id ); ?>" class='anywhere-notice ca-notice notice-<?php echo esc_attr( $this->notice_type ); ?>'>
             <?php $this->notice_html(); ?>
             </div>
          <?php

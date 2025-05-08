@@ -58,15 +58,16 @@ if( function_exists('xoo_wl_frontend') ){
             $add_to_cart_text_final = apply_filters( 'wpto_add_to_cart_text', $add_to_cart_text_final, $settings, $column_settings, $table_ID, $product );
             
             if( $product->is_sold_individually() && 0 < wpt_matched_cart_items( $product->get_id() )){
-                echo apply_filters( 'wpt_view_cart_link', 
+                $output = apply_filters( 'wpt_view_cart_link', 
                     sprintf( '<a href="%s" class="%s" title="%s">%s</a>',
                         esc_url( wc_get_cart_url() ),
                         esc_attr( 'added_to_cart wc-forward' ),
                         __( 'View Cart', 'woo-product-table' ),
                         __( 'View Cart', 'woo-product-table' )
                     ), $product, false, false );
+                    echo wp_kses_post( $output );
             }else{
-                echo apply_filters( 'woocommerce_loop_add_to_cart_link',
+                $output = apply_filters( 'woocommerce_loop_add_to_cart_link',
                     sprintf('<a rel="nofollow" data-add_to_cart_url="%s" href="%s" data-quantity="%s" data-product_id="%s" data-product_sku="%s" class="%s" target="%s">%s</a>', 
                             esc_attr( $add_to_cart_url ),
                             esc_url( $add_to_cart_url ), 
@@ -77,6 +78,7 @@ if( function_exists('xoo_wl_frontend') ){
                             esc_attr( $target ),
                             esc_html__( $add_to_cart_text_final, 'woo-product-table' )
                     ), $product,false,false);
+                    echo wp_kses_post( $output );
                 }
         }
     }
