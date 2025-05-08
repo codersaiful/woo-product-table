@@ -26,7 +26,7 @@ if( class_exists( '\WOO_Product_Table' ) ){
 }
 $current_page = $_GET['page'] ?? '';
 
-$topbar_sub_title = __( 'Manage and Settings', 'wpt' );
+$topbar_sub_title = __( 'Manage and Settings', 'woo-product-table' );
 if( isset( $this->topbar_sub_title ) && ! empty( $this->topbar_sub_title ) ){
     $topbar_sub_title = $this->topbar_sub_title;
 }

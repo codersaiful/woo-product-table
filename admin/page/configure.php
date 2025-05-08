@@ -55,21 +55,9 @@ $wrapper_class = isset($settings['module']) ? $settings['module'] : '';
                 <div class="wpt-configure-tab-wrapper wpt-temp-menu-wrapper wpt-section-panel no-background"></div>
                 <input type="text" id="wpt-setting-search-input" class="wpt-setting-search-input" placeholder="Search settings by label/value/anything">
             </div>
-            <!-- <div class="wpt-section-panel no-background wpt-full-form-submit-wrapper">
-                <button name="configure_submit" type="submit" class="wpt-btn wpt-has-icon configure_submit">
-                    <span><i class="wpt-floppy"></i></span>
-                    <strong class="form-submit-text">
-                        <?php echo esc_html__('Save Change', 'wpt'); ?>
-                    </strong>
-                </button>
-            </div> -->
+
 
             <?php
-            /**
-             * Here wil will include two input Like bellow:
-             * <input name="config[plugin_version]" type="hidden" value="<?php echo WOO_Product_Table::getVersion(); ?>">
-            <input name="config[plugin_name]" type="hidden" value="<?php echo WOO_Product_Table::getName(); ?>">
-             */
             do_action('wpto_admin_configuration_form_version_data', $settings, $current_config_value);
 
             if ($default_lang_bool) {
@@ -81,7 +69,7 @@ $wrapper_class = isset($settings['module']) ? $settings['module'] : '';
                             <tr>
                                 <th class="wpt-inside">
                                     <div class="wpt-table-header-inside">
-                                        <h3><?php echo esc_html__('Settings', 'wpt'); ?></h3>
+                                        <h3><?php echo esc_html__( 'Settings', 'woo-product-table' ); ?></h3>
                                     </div>
 
                                 </th>
@@ -136,7 +124,7 @@ $wrapper_class = isset($settings['module']) ? $settings['module'] : '';
                     <tr>
                         <th class="wpt-inside">
                             <div class="wpt-table-header-inside">
-                                <h3><?php echo esc_html__('Recommendation Area', 'wpt'); ?> <small class="wpt-small-title">To increase Sale</small></h3>
+                                <h3><?php echo esc_html__('Recommendation Area', 'woo-product-table'); ?> <small class="wpt-small-title">To increase Sale</small></h3>
                             </div>
 
                         </th>

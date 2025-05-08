@@ -181,7 +181,7 @@ class Deactive_Form
         ];
 
 
-        $this->form_top_message = __('Please let us know why you are deactivating. (All Optional)', $this->text_domain);
+        $this->form_top_message = __('Please let us know why you are deactivating. (All Optional)', 'woo-product-table');
         add_action('admin_footer', array($this, 'form'));
         add_action('admin_enqueue_scripts', [$this, 'enqueue']);
     }

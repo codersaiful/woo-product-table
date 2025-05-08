@@ -522,7 +522,7 @@ if (! function_exists('wpt_doc_link')) {
     function wpt_doc_link($url, $title = 'Helper doc')
     {
     ?>
-        <a href="<?php echo esc_url($url) ?>" target="_blank" class="wpt-doc-lick"><?php esc_html_e($title); ?></a>
+        <a href="<?php echo esc_url( $url ) ?>" target="_blank" class="wpt-doc-lick"><?php esc_html( $title ); ?></a>
     <?php
     }
 }
@@ -541,11 +541,11 @@ if (! function_exists('wpt_doc_link')) {
  */
 function wpt_help_icon_render($msg = false, $extra_msg = false)
 {
-    $title = __($msg, 'woo-product-table');
+    $title = $msg;
     if (empty($msg)) {
         $title = __("Don't change for auto translate. Leave empty to get translated text.", 'woo-product-table');
     }
-    $extra_msg_text = $extra_msg ? "\n" . __('Write with default or English language.') : '';
+    $extra_msg_text = $extra_msg ? "\n" . __('Write with default or English language.', 'woo-product-table') : '';
     ?>
     <span class="wpt-help-icon" title="<?php echo esc_attr($title .  $extra_msg_text); ?>">?</span>
 <?php

@@ -103,12 +103,14 @@ class Page_Loader extends Base
     public function admin_footer_text($text)
     {
         $rev_link = 'https://wordpress.org/support/plugin/woo-product-table/reviews/#new-post';
+        
         $text = sprintf(
-			__( 'Thank you for using Woo Product Table. <a href="%s" target="_blank">%sPlease review us</a>.' ),
+            /* translators: 1: Plugin review submit link 2: star rating */
+			__( 'Thank you for using Woo Product Table. <a href="%1$s" target="_blank">%2$sPlease review us</a>.', 'woo-product-table' ),
 			$rev_link,
             '<i class="wpt-star-filled"></i><i class="wpt-star-filled"></i><i class="wpt-star-filled"></i><i class="wpt-star-filled"></i><i class="wpt-star-filled"></i>'
 		);
-        return '<span id="footer-thankyou" class="wpt-footer-thankyou">' . $text . '</span>';
+        return '<span id="footer-thankyou" class="wpt-footer-thankyou">' . wp_kses_post( $text ) . '</span>';
     }
     public function browse_plugins_html()
     {
