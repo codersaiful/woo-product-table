@@ -485,10 +485,10 @@ class Shortcode extends Shortcode_Base{
         
         ?>
         <p class="wpt-stats-post-count">
-            <?php printf( esc_html__( $stats_post_count, "woo-product-table" ), $display_count, $this->found_posts  ); ?>
+            <?php printf( esc_html__( $stats_post_count, "woo-product-table" ), esc_html( $display_count ), esc_html( $this->found_posts )  ); ?>
         </p>
         <p class="wpt-stats-page-count">
-        <?php printf( esc_html__( $stats_page_count, "woo-product-table" ), $display_pagN, $this->max_num_pages  ); ?>
+        <?php printf( esc_html__( $stats_page_count, "woo-product-table" ), esc_html( $display_pagN ), esc_html( $this->max_num_pages )  ); ?>
         </p>
         <?php 
 
@@ -1005,14 +1005,40 @@ class Shortcode extends Shortcode_Base{
         <thead style="<?php echo esc_attr( $show_stats ); ?>">
             <tr data-temp_number="<?php echo esc_attr( $this->table_id ); ?>" class="wpt_table_header_row wpt_table_head">
             <?php 
-            foreach( $this->_enable_cols as $key => $col ){
-            $col_content = $this->column_array[$key] ?? $col;
-            if( $key == 'check' ){
-                $col_content = "<input data-type='universal_checkbox' data-temp_number='{$this->table_id}' class='wpt_check_universal' id='wpt_check_uncheck_column_{$this->table_id}' type='checkbox'><label for=wpt_check_uncheck_column_{$this->table_id}></label>";
-            }
-            ?>
+            foreach( $this->_enable_cols as $key => $col ){ ?>
             <th class="wpt_<?php echo esc_attr( $key ); ?>">
-                <?php echo __( $col_content, 'woo-product-table' ); ?>
+                <?php 
+                $col_content = $this->column_array[$key] ?? $col;
+                if( $key == 'check' ){
+                    $col_content = "<input data-type='universal_checkbox' data-temp_number='" . esc_attr( $this->table_id) . "' class='wpt_check_universal' id='wpt_check_uncheck_column_" .  esc_attr( $this->table_id ). "' type='checkbox'><label for='wpt_check_uncheck_column_" . esc_attr( $this->table_id ). "'></label>";
+                    $allowed_tags = array(
+                        'input' => array(
+                            'type' => true,
+                            'name' => true,
+                            'value' => true,
+                            'id' => true,
+                            'class' => true,
+                            'checked' => true,
+                            'placeholder' => true,
+                            'data-type' => true,
+                            'data-temp_number' => true,
+    
+                        ),
+                        'label' => array(
+                            'for' => true,
+                            'class' => true,
+                        ),
+                        'span' => array(
+                            'class' => true,
+                        ),
+                        'br' => array(),
+                    );
+                    
+                    echo wp_kses( $col_content, $allowed_tags );
+                }else{
+                    echo wp_kses_data( __( $col_content, 'woo-product-table' ) );
+                }
+                ?>
             </th>
             <?php
             }
