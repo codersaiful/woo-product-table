@@ -6,18 +6,8 @@ $data = isset( $meta_basics['data'] ) ? $meta_basics['data'] : false;
 ?>
 
 <?php
-    /**
-     * To Get Category List of WooCommerce
-     * @since 1.0.0 -10
-     */
-    $args = array(
-        'hide_empty'    => false, 
-        'orderby'       => 'count',
-        'order'         => 'DESC',
-    );
-
-    //WooCommerce Product Category Object as Array
-    $wpt_product_cat_object = get_terms('product_cat', $args);
+//WooCommerce Product Category Object as Array
+$wpt_product_cat_object = get_terms('product_cat');
 ?>
 
 <!-- HIDDEN INPUT START HERE  -->
@@ -86,20 +76,13 @@ $data = isset( $meta_basics['data'] ) ? $meta_basics['data'] : false;
             </th>
         </tr>
 
-            <?php
-        
-
-        $args = array(
-            'hide_empty'    => false, 
-            'orderby'       => 'count',
-            'order'         => 'DESC',
-        );
+        <?php
 
         foreach( $supported_terms as $key => $each ){
 
             $term_key = $key;
             $term_name = $each;
-            $term_obj = get_terms( $term_key, $args );
+            $term_obj = get_terms( $term_key );
             if( ! is_array( $term_obj ) || ( is_array($term_obj) && count($term_obj) < 1 ) ){
                 continue;
             }
@@ -232,19 +215,10 @@ do_action( 'wpto_admin_basic_tab',$meta_basics, $tab, $post, $tab_array );
 <?php } ?>
 <?php
 
-    $wpt_product_ids_tag = false;
-    /**
-     * To Get Category List of WooCommerce
-     * @since 1.0.0 -10
-     */
-    $args = array(
-        'hide_empty' => true,
-        'orderby' => 'count',
-        'order' => 'DESC',
-    );
+$wpt_product_ids_tag = false;
 
-    //WooCommerce Product Category Object as Array
-    $wpt_product_tag_object = get_terms('product_tag', $args);
+//WooCommerce Product Category Object as Array
+$wpt_product_tag_object = get_terms('product_tag');
 ?>
 
 

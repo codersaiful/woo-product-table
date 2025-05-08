@@ -2581,15 +2581,15 @@ div.wpt_tab_content table th {
 .wpt-query-terms-selection span.wpt-query-selection-handle {
     background: #e5e5e557;
     padding: 10px;
-    color: #0000004f;
+    color: #000000;
     cursor: pointer;
 }
 .wpt-query-terms-selection span.wpt-query-selection-handle[data-status="active"] {
-    background: #e5e5e5;
-    color: #000000;
+    background: #0073aa;
+    color: white;
 }
 .wpt-query-terms-selection span.wpt-query-selection-handle:hover {
-    background: #607D8B;
+    background: #0073aa;
     color: white;
 }
 tr.wpt_query_terms_each_tr.hide {
