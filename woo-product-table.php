@@ -303,7 +303,7 @@ class WPT_Product_Table{
      *
      * @var string Minimum PHP version required to run the plugin.
      */
-    const MINIMUM_PHP_VERSION = '5.6';
+    const MINIMUM_PHP_VERSION = '7.0';
     
     /**
      * check minimum Woo Product Table Pro Version
@@ -570,7 +570,7 @@ class WPT_Product_Table{
                     self::MINIMUM_PHP_VERSION
            );
 
-           printf( '<div class="notice notice-error is-dismissible"><p>%1$s</p></div>', $message );
+           printf( '<div class="notice notice-error is-dismissible"><p>%1$s</p></div>', wp_kses_post( $message ) );
 
     }
     

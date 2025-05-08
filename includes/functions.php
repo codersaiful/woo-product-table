@@ -1155,7 +1155,7 @@ if( ! function_exists( 'wpt_args_manipulation_frontend' ) ){
         //MainTain for Archives Page
         global $wpdb;
         $query_vars = isset( $GLOBALS['wp_query']->query_vars ) ? $GLOBALS['wp_query']->query_vars : false;
-        //var_dump($query_vars);
+
         $page_query = isset( $GLOBALS['wp_query'] ) ? $GLOBALS['wp_query']->query_vars : null;
         $args_product_in = false;
         if( ( isset( $query_vars['post_type'] ) && !empty( $query_vars['post_type'] ) && $query_vars['post_type'] == 'product' ) 
@@ -1166,7 +1166,6 @@ if( ! function_exists( 'wpt_args_manipulation_frontend' ) ){
                 return $args;
             }
             
-        //if( isset( $page_query['wc_query'] ) && $page_query['wc_query'] == 'product_query' ){
             $gen_args = is_array( $args) && is_array($GLOBALS['wp_query']->query_vars) ? array_merge( $args,$GLOBALS['wp_query']->query_vars ) : $args;
             $gen_args['post_type'] = isset( $args['post_type'] ) && !empty( $args['post_type'] ) ? $args['post_type'] : 'product';
             $args = $gen_args;
@@ -1184,7 +1183,7 @@ if( ! function_exists( 'wpt_args_manipulation_frontend' ) ){
             unset( $args['term'] );
             unset( $args['meta_query'] );
         }
-        //var_dump($args);
+
         return $args;
     }
 }

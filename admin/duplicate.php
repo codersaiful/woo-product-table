@@ -64,22 +64,18 @@ if( !function_exists( 'wpt_duplicate_as_draft' ) ){
                      * duplicate all post meta just in two SQL queries
                      */
                     $post_meta_infos = $wpdb->get_results("SELECT meta_key, meta_value FROM $wpdb->postmeta WHERE post_id=$post_id");
-                    //var_dump($post_meta_infos);
 
                     if (count($post_meta_infos)!=0) {
-                            //$sql_query = "INSERT INTO $wpdb->postmeta (post_id, meta_key, meta_value) ";
-                            foreach ($post_meta_infos as $meta_info) {
+                        foreach ($post_meta_infos as $meta_info) {
 
-                                    $meta_key = $meta_info->meta_key;
-                                    $meta_value = $meta_info->meta_value;
-                                    if( $meta_key == '_wp_old_slug' ) continue;
-                                    if( is_serialized( $meta_value ) ){
+                                $meta_key = $meta_info->meta_key;
+                                $meta_value = $meta_info->meta_value;
+                                if( $meta_key == '_wp_old_slug' ) continue;
+                                if( is_serialized( $meta_value ) ){
                                         $meta_value = unserialize( $meta_value );
                                         update_post_meta($new_post_id, $meta_key, $meta_value);
-                                    }
-                                    
-                            }
-
+                                }
+                        }
                     }
                     wp_redirect( admin_url( 'post.php?post='. $new_post_id . '&action=edit&classic-editor' ) );
                     exit;
