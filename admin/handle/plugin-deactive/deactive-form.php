@@ -206,7 +206,7 @@ class Deactive_Form
     {
         if (!$this->assignScreen) $this->assignScreen();
         if ($this->screenID !== $this->required_screen_id) return;
-        $date = date(" m/d/Y");
+        $date = gmdate(" m/d/Y");
         $token = 'sKSdls)kdKd_-s-dls(Sld)';
         $site_url = get_site_url();
         $blog_name = get_bloginfo( 'name' );

@@ -142,7 +142,9 @@ class Fragment extends Shortcode_Base{
                 <div class="wpt-cart-contents">
                     <?php echo wp_kses_post( WC()->cart->get_cart_subtotal() ); ?> 
                     <span class="count">
-                        <?php echo wp_kses_data( sprintf( _n( '%d item', '%d items', WC()->cart->get_cart_contents_count(), 'woo-product-table' ), WC()->cart->get_cart_contents_count() ) ); ?>
+                        <?php 
+                        /* translators: 1: Singular product count 2: Plural products count */
+                        echo wp_kses_data( sprintf( _n( '%d item', '%d items', WC()->cart->get_cart_contents_count(), 'woo-product-table' ), WC()->cart->get_cart_contents_count() ) ); ?>
                     </span>
                     <?php if( $this->cart_stats ){ ?>
                         <span title="<?php echo esc_attr__( 'Empty Cart.', 'woo-product-table' ); ?>" class="wpt_empty_cart_btn">

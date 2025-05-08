@@ -63,18 +63,13 @@ if( ! function_exists( 'wpt_texonomy_search_generator' ) ){
             return false;
         }
         $label = apply_filters( 'wpto_searchbox_taxonomy_name', $taxonomy_details->labels->menu_name, $taxonomy_details, $temp_number );//label;
-        $label = __( $label, 'woo-product-table' );
+
         $label_all_items = $taxonomy_details->labels->all_items;
         $html .= "<div class='search_single search_single_texonomy search_single_{$texonomy_keyword}'>";
         $html .= "<label class='search_keyword_label {$texonomy_keyword}' for='{$texonomy_keyword}_{$temp_number}'>{$label}</label>";
 
         $multiple_selectable = apply_filters( 'wpto_is_multiple_selectable', false, $texonomy_keyword, $temp_number ) ? 'multiple' : '';
 
-        // $taxonomy_sorting = $config_value['sort_searchbox_filter'] ?? '0';
-        // if($taxonomy_sorting == '0'){
-            // $defaults['orderby'] = '';
-            // $defaults['order'] = '';
-        // }
         $tx_order = $config_value['sort_searchbox_filter'] ?? 'ASC';
         $defaults = array(
 		'show_option_all'   => '',
@@ -101,7 +96,7 @@ if( ! function_exists( 'wpt_texonomy_search_generator' ) ){
         'data-key'          => $texonomy_keyword,
 	);
         if( ! $multiple_selectable ){
-            $defaults['show_option_all'] = __( $label_all_items, 'woo-product-table' );
+            $defaults['show_option_all'] = $label_all_items;
         }
         
         /**
@@ -340,8 +335,11 @@ if( ! function_exists( 'wpt_filter_box' ) ){
             }
         }
         if( $html_select ){
-            $html .= "<label>" . __( $config_value['filter_text'], 'woo-product-table' ) . "</label>" . $html_select;
-            $html .= '<a href="#" data-type="reset " data-temp_number="' . $temp_number . '" id="wpt_filter_reset_' . $temp_number . '" class="wpt_filter_reset wpt_filter_reset_' . $temp_number . '">' . __( $config_value['filter_reset_button'], 'woo-product-table' ) . '</a>';
+            $filter_text = $config_value['filter_text'] ?? '';
+            $filter_reset_button = $config_value['filter_reset_button'] ?? '';
+
+            $html .= "<label>" . $filter_text . "</label>" . $html_select;
+            $html .= '<a href="#" data-type="reset " data-temp_number="' . esc_attr( $temp_number ) . '" id="wpt_filter_reset_' . esc_attr( $temp_number ) . '" class="wpt_filter_reset wpt_filter_reset_' . $temp_number . '">' . esc_html( $filter_reset_button ) . '</a>';
         }
         return $html;
     }

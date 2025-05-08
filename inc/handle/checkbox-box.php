@@ -16,9 +16,8 @@ class Checkbox_Box{
             $check_uncheck_text = $shortcode->basics['check_uncheck_text' . $lang] ?? $check_uncheck_text;
         }
         
-        // $text = ! empty( $text ) ? __( $text, 'woo-product-table' ) : __( 'Add to cart', 'woo-product-table' );
-        $selected_text = ! empty( $selected_text ) ? __( $selected_text, 'woo-product-table' ) : __( 'Add to Cart (Selected)','woo-product-table' );
-        $check_uncheck_text = ! empty( $check_uncheck_text ) ? __( $check_uncheck_text, 'woo-product-table' ) : __( 'Select All','woo-product-table' );
+        $selected_text = ! empty( $selected_text ) ? esc_html( $selected_text ) : __( 'Add to Cart (Selected)','woo-product-table' );
+        $check_uncheck_text = ! empty( $check_uncheck_text ) ? esc_html( $check_uncheck_text ) : __( 'Select All','woo-product-table' );
 
         /**
          * Some site can be slow, then we will

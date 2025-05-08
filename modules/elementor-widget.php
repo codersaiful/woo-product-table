@@ -188,7 +188,8 @@ class WPT_Elementor_Widget extends \Elementor\Widget_Base{
                             'label' => __( 'Additional Information', 'woo-product-table' ),
                             'type' => Controls_Manager::RAW_HTML,
                             'raw' => $wpt_extra_msg . sprintf( 
-                                    __( 'Create %sa new table%s.', 'woo-product-table' ), 
+                                    /* translators: 1: open anchor tag, 2: close anchor tag */
+                                    __( 'Create %1$sa new table%2$s.', 'woo-product-table' ), 
                                     '<a href="' . admin_url( 'post-new.php?post_type=wpt_product_table' ) . '">',
                                     '</a>'
                                     ),

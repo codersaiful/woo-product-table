@@ -59,7 +59,7 @@ global $wp_taxonomies;
 
             <?php } else { ?>
 
-                <p class="dokan-info"><?php esc_html_e( 'No products were found of this vendor!', 'dokan-lite' ); ?></p>
+                <p class="dokan-info"><?php esc_html_e( 'No products were found of this vendor!', 'woo-product-table' ); ?></p>
 
             <?php }
             }

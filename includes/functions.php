@@ -611,7 +611,7 @@ function wpt_wp_dropdown_categories( $args = '', $get_taxonomy = false ) {
 			'3.0.0',
 			sprintf(
 				/* translators: 1: "type => link", 2: "taxonomy => link_category" */
-				__( '%1$s is deprecated. Use %2$s instead.' ),
+				__( '%1$s is deprecated. Use %2$s instead.', 'woo-product-table' ),
 				'<code>type => link</code>',
 				'<code>taxonomy => link_category</code>'
 			)

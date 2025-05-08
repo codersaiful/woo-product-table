@@ -1084,6 +1084,7 @@ class Mobile_Detect
     {
         // make sure the name starts with 'is', otherwise
         if (substr($name, 0, 2) !== 'is') {
+            /* translators: 1: method name */
             throw new BadMethodCallException( sprintf( esc_html__( "No such method exists: %s", 'woo-product-table' ), esc_html( $name )) );
         }
 
