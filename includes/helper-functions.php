@@ -300,7 +300,7 @@ if( ! function_exists( 'wpt_save_custom_message_field' ) ){
             $generated_message = isset( $_REQUEST['wpt_custom_message'] ) ? sanitize_text_field( $_REQUEST['wpt_custom_message'] ) : '';
             $cart_item_data[ 'wpt_custom_message' ] =  $generated_message;
             /* below statement make sure every add to cart action as unique line item */
-            $cart_item_data['unique_key'] = $product_id . '_' . $generated_message;//md5( microtime().rand() );
+            $cart_item_data['unique_key'] = $product_id . '_' . $generated_message;
         }
         return $cart_item_data;
     }
