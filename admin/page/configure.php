@@ -12,25 +12,16 @@ $default_lang_bool = $lang == $default_lang ? true : false;
 $root_option_key = WPT_OPTION_KEY;
 $option_key =  $root_option_key . $lang_ex;
 $settings = apply_filters('wpto_configuration_settings', $settings);
-if (isset($_POST['data']) && isset($_POST['reset_button'])) {
-    //Reset 
-    $value = WPT_Product_Table::$default;
-    update_option($option_key,  $value);
-} else if (isset($_POST['data']) && isset($_POST['configure_submit'])) {
-    //configure_submit
-    $value = false;
-    if (is_array($_POST['data'])) {
-        $value = array_map(
-            function ($field) {
-                //All post value is santized here using array_map
-                return is_array($field) ? $field : sanitize_text_field($field);
-            },
-            $_POST['data']
-        );
-    }
-    // $value 's all key_value is sanitized before update on database
-    update_option($option_key,  $value);
+
+//Nonce verification
+$nonce = sanitize_text_field( wp_unslash($_POST['wpt_configure_nonce'] ?? '' ));
+if ( ! empty($nonce) && wp_verify_nonce( $nonce, plugin_basename( __DIR__ ) ) ) {
+    //Manage form submission over that file
+    include_once trailingslashit( __DIR__ ) . 'form-submit.php';
 }
+
+
+
 $current_config_value = get_option($option_key);
 
 if (empty($current_config_value)) {
@@ -49,7 +40,7 @@ $wrapper_class = isset($settings['module']) ? $settings['module'] : '';
     <h1 class="wp-heading "></h1>
     <div class="fieldwrap">
         <form action="" method="POST"  id="wpt-main-configuration-form">
-
+        <input type="hidden" name="wpt_configure_nonce" value="<?php echo esc_attr( wp_create_nonce( plugin_basename( __DIR__ ) ) ); ?>" />
             
             <div class="wpt-configure-form-header">
                 <div class="wpt-configure-tab-wrapper wpt-temp-menu-wrapper wpt-section-panel no-background"></div>

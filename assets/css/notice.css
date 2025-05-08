@@ -215,10 +215,10 @@ li#menu-posts-wpt_product_table ul.wp-submenu li:hover a[href='https://wooproduc
     padding: 0;
 }
 .wpt-renew-license-notice a {
-    background: #59c55c;
-    border-color: #38823b;
+    background: #00cde2;
+    border-color: #00cde2;
     padding: 4px 5px !important;
-    border-left: 27px solid #38823b;
+    border-left: 27px solid #323a47;
     position: relative;
     color: white;
     text-decoration: none;
@@ -226,9 +226,9 @@ li#menu-posts-wpt_product_table ul.wp-submenu li:hover a[href='https://wooproduc
 }
 .wpt-renew-license-notice a:hover {
     
-    background: #4caf50;
-    border-color: #38823b;
-    border-left: 27px solid #38823b;
+    background: #00abbe;
+    border-color: #00cde2;
+    border-left: 27px solid #15191f;
     position: relative;
 }
 .wpt-renew-license-notice a::before {

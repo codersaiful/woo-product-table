@@ -2,16 +2,19 @@
 if( !function_exists( 'wpt_duplicate_as_draft' ) ){
     function wpt_duplicate_as_draft(){
             global $wpdb;
-            if (! ( isset( $_GET['post']) || isset( $_POST['post'])  || ( isset($_REQUEST['action']) && 'wpt_duplicate_as_draft' == $_REQUEST['action'] ) ) ) {
-                    wp_die( esc_html__( 'No product for duplicating!', 'woo-product-table' ) );
-            }
-
 
             //Nonce verification
             $nonce = sanitize_text_field(   wp_unslash( $_GET['duplicate_nonce'] ?? ''));
             if ( empty($nonce) || ! wp_verify_nonce( $nonce, basename( __FILE__ ) ) ) {
                 return;
             }
+
+            if (! ( isset( $_GET['post']) || isset( $_POST['post'])  || ( isset($_REQUEST['action']) && 'wpt_duplicate_as_draft' == $_REQUEST['action'] ) ) ) {
+                    wp_die( esc_html__( 'No product for duplicating!', 'woo-product-table' ) );
+            }
+
+
+            
 
 
             /*
