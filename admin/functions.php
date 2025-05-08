@@ -522,7 +522,7 @@ if (! function_exists('wpt_doc_link')) {
     function wpt_doc_link($url, $title = 'Helper doc')
     {
     ?>
-        <a href="<?php echo esc_url( $url ) ?>" target="_blank" class="wpt-doc-lick"><?php esc_html( $title ); ?></a>
+        <a href="<?php echo esc_url( $url ) ?>" target="_blank" class="wpt-doc-lick"><?php echo esc_html( $title ); ?></a>
     <?php
     }
 }

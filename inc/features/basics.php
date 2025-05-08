@@ -78,7 +78,7 @@ class Basics extends Shortcode_Base{
         
         $this->empty_cart_text = $this->base_config['empty_cart_text'] ?? '';
         ?>
-        <a title="<?php echo esc_attr__( 'Empty Cart', 'woo-product-table' ); ?>" class="wpt_empty_cart_btn button"><i class="wpt-trash-empty"></i><?php echo esc_html__( $this->empty_cart_text, 'woo-product-table' ); ?></a>
+        <a title="<?php echo esc_attr__( 'Empty Cart', 'woo-product-table' ); ?>" class="wpt_empty_cart_btn button"><i class="wpt-trash-empty"></i><?php echo esc_html( $this->empty_cart_text ); ?></a>
         <?php
     }
 }

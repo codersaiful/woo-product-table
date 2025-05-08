@@ -326,9 +326,9 @@ if( ! class_exists( 'CA_Framework\Require_Control' ) ){
 
         public function get_order_message()
         {
-            if( $this->status == 'install' ) return __( 'to be Install and Activated.', 'ca-framework' );
-            if( $this->status == 'activate' ) return __( 'to be Activated.', 'ca-framework' );
-            if( $this->status == 'upgrade' ) return __( 'to be Upgrade Version.', 'ca-framework' );
+            if( $this->status == 'install' ) return __( 'to be Install and Activated.', 'woo-product-table' );
+            if( $this->status == 'activate' ) return __( 'to be Activated.', 'woo-product-table' );
+            if( $this->status == 'upgrade' ) return __( 'to be Upgrade Version.', 'woo-product-table' );
         }
 
 
@@ -352,7 +352,7 @@ if( ! class_exists( 'CA_Framework\Require_Control' ) ){
             //Check User Permission 
             if ( ! current_user_can( 'activate_plugins' ) ) return;
 
-            $recommend = $this->required ? __( 'Requires', 'ca-framework' ) : __( 'Recommends', 'ca-framework' );
+            $recommend = $this->required ? __( 'Requires', 'woo-product-table' ) : __( 'Recommends', 'woo-product-table' );
             $order_message = $this->get_order_message();
         
             $p_name = $this->get_full_plugin_name(); //Requried plugin full name, with strong or download link

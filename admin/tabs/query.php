@@ -403,11 +403,11 @@ unset($catalog_orderby_options['menu_order']);
         
             <tr id="wpt_meta_value_wrapper">
                 <th>
-                    <label class="wpt_label" for="wpt_product_meta_value_sort"><?php echo sprintf( esc_html__( 'Meta Value for [Custom Meta Value] of %s Custom Meta Value %s', 'woo-product-table' ),'<b>','</b>' ); ?></label>
+                    <label class="wpt_label" for="wpt_product_meta_value_sort"><?php echo esc_html__( 'Meta Value for [Custom Meta Value] of Custom Meta Value', 'woo-product-table' ); ?></label>
                 </th>
                 <td>
                     <input name="conditions[meta_value_sort]" value="<?php echo esc_attr( $meta_conditions['meta_value_sort'] ?? '' ); ?>" data-name='meta_value_sort' id="wpt_product_meta_value_sort" class="wpt_fullwidth wpt_data_filed_atts ua_input" type="text">
-                    <p style="color: #00aef0;"><?php esc_html_e( 'Type your Right meta value here. EG: "_sku,_price,_customNumber" - use any one only, there should no any space or comma', 'woo-product-table' ); ?></p>
+                    <p><?php esc_html_e( 'Type your Right meta value here. EG: "_sku,_price,_customNumber" - use any one only, there should no any space or comma', 'woo-product-table' ); ?></p>
                 </td>
             </tr>
  

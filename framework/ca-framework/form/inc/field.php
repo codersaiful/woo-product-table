@@ -11,7 +11,7 @@ class Field extends Field_Base
     {
         
         if( ! is_array( $args ) ){
-            $this->errors[] = __( 'Fields args Should be an array!' );
+            $this->errors[] = __( 'Fields args Should be an array!', 'woo-product-table' );
         };
         parent::__construct( $args );
     }

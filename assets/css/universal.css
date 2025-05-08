@@ -941,30 +941,33 @@ div.wpt-wrap .elementor-menu-cart__product-image img {
 .wpt_search_box .search_box_wrapper a.search_box_reset, 
 .wpt_search_box .search_box_wrapper a.search_box_reset, a.search_box_reset {
     position: absolute;
-    right: -28px;
-    bottom: 0;
+    right: unset;
+    bottom: unset;
     height: 25px;
     padding: 0;
-    width: 25px;
+    width: auto;
     text-align: center;
-    font-family: Helvetica;
+    font-family: 'wptfontelo';
     font-weight: normal;
-    color: #ff8989;
+    color: #ff0000;
     background: black;
     border-radius: 5px;
     line-height: 25px;
-    font-size: 11px;
+    font-size: 17px;
     transition: all .1s;
     outline: none !important;
     border: none !important;
     text-decoration: none !important;
     display: none;
-    min-width: 0;
+    min-width: 23px;
+    top: -35px;
+    left: 0;
+    padding: 0 10px;
 }
-a.search_box_reset:focus,
+a.search_box_reset:focus, 
 .wpt_search_box .search_box_wrapper a.search_box_reset:hover, a.search_box_reset:hover {
-    color: #ff4747;
-    background: #5d0202;
+    color: #ffffff;
+    background: #ff0000;
 }
 /***************Search Box or option start****************/
 /*option.level-1 {

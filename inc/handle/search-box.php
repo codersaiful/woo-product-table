@@ -109,7 +109,7 @@ class Search_Box{
             
             $cutnt_link = get_page_link();
             $style = isset( $_GET['table_ID'] ) ? "display:inline;": '';
-            $html .= '<a href="' . $cutnt_link . '" data-type="close-button" data-table_ID="' . $shortcode->table_id . '" id="wpt_query_reset_button_' . $shortcode->table_id . '" class="search_box_reset search_box_reset_' . $shortcode->table_id . '" style="' . $style . '">x</a>';
+            $html .= '<a href="' . $cutnt_link . '" data-type="close-button" data-table_ID="' . $shortcode->table_id . '" id="wpt_query_reset_button_' . $shortcode->table_id . '" class="search_box_reset search_box_reset_' . $shortcode->table_id . '" style="' . $style . '"><i class="wpt-cancel-circled"></i></a>';
         }
         
         $html .= '</div>'; //End of .search_box_singles
