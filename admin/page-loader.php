@@ -238,7 +238,7 @@ class Page_Loader extends Base
     }
     public function renew_license_notice()
     {
-        return;
+
         if(empty($this->item_id)) return;
         $wpt_logo = WPT_ASSETS_URL . 'images/logo.png';
         $expired_date = gmdate( 'd M, Y', $this->exp_timestamp );
