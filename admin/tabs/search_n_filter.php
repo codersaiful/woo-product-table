@@ -332,7 +332,7 @@ foreach($terms as $term){
                     
                     
                     ?>
-                    <select name="search_n_filter[taxonomy_keywords][]" class="wpt_fullwidth wpt_data_filed_atts wpt_select2 ua_input" multiple>
+                    <select name="search_n_filter[taxonomy_keywords][]" id="wpt_advance_search_taxonomy_choose" class="wpt_fullwidth wpt_data_filed_atts wpt_select2 ua_input" multiple>
                         <?php
                         foreach($newArrs as $eTerms){
                             $taxonomy_details = get_taxonomy( $eTerms );
@@ -346,7 +346,7 @@ foreach($terms as $term){
                         ?>
                     </select>
                     
-                    <h4 style="margin:0;">Need Reload Page after change Taxonomy to select specific taxonomies.</h4>
+                    <h4 style="margin:5px 0 0 0;" class="wpt_astaxonomy_choose_notice">After change, Please submit and relaod the page.</h4>
                     
                 </td>
             </tr>

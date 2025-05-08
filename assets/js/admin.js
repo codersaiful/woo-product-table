@@ -869,6 +869,10 @@ jQuery.fn.extend({
             
             
         });
+        $(document.body).on('change','#wpt_advance_search_taxonomy_choose',function(){
+            $('.wpt_astaxonomy_choose_notice').html('Submitting...');
+            $('body.wpt_admin_body input#publish[name=save]').trigger('click');
+        });
         /**
          * Data Save by Ctrl + S
          */
