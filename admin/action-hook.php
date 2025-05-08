@@ -1602,7 +1602,8 @@ if( !function_exists( 'wpto_admin_configuration_form_top_free' ) ){
                             <p>Enable Table on Shop/Archive/Taxonomy Page. Such as: Archive Page, Tag Page, Taxonomy Page. First Select a table and check [On] to show in shop/archive page.</p>
                             <p class="wpt-tips">
                                 <b>Notice:</b>
-                                <span>Product table will display products according to WooCommerce default query and Advance Search box is not available on Archive page.</span>
+                                <span>Product table will display products according to WooCommerce default query and Advance Search box is not available on Archive page.</span><br>
+                                <b>Tips:</b><span>Use <code>remove_filter( 'wpto_table_query_args', 'wpt_args_manipulation_frontend', 10 )</code> to get Table based on personal query.</span>
                             </p>
                         </div>
                     </td>

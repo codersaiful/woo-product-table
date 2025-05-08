@@ -1189,6 +1189,11 @@ if( ! function_exists( 'wpt_args_manipulation_frontend' ) ){
 }
 add_filter( 'wpto_table_query_args', 'wpt_args_manipulation_frontend', 10, 3 );
 
+/**
+ * Use folowing filter to get original table
+ * remove_filter( 'wpto_table_query_args', 'wpt_args_manipulation_frontend', 10 );
+ */
+
 function wpt_url_encode_array(array $data): string {
     $output = '';
     foreach ($data as $groupKey => $groupValues) {
