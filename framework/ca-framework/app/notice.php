@@ -212,7 +212,7 @@ if( ! class_exists( 'CA_Framework\Notice' ) ){
                                  
             $close_date   = get_option( $this->notice_id . "_notice_close_date");
             if( ! empty($close_date) && is_numeric( $close_date )){
-                $close_date		        = date("Y-m-d", $close_date);
+                $close_date		        = gmdate("Y-m-d", $close_date);
     
                 $date				    = new \DateTime($close_date);
                 $now 				    = new \DateTime();
