@@ -33,7 +33,7 @@ $columns_array = apply_filters( 'wpto_final_column_arr', $columns_array );
         <div class="wpt_shortable_data">
             <input placeholder="<?php echo esc_attr( $keyword ); ?>" 
                    name="column_array<?php echo esc_attr( $_device_name ); ?>[<?php echo esc_attr( $keyword ); ?>]"  
-                   data-column_title="<?php echo esc_attr__( $updated_title,'woo-product-table' ); ?>" 
+                   data-column_title="<?php echo esc_attr( $updated_title ); ?>" 
                    data-keyword="<?php echo esc_attr( $keyword ); ?>" 
                    class="colum_data_input <?php echo esc_attr( $keyword ); ?>" 
                    type="text" 
@@ -51,8 +51,8 @@ $columns_array = apply_filters( 'wpto_final_column_arr', $columns_array );
             
             <span class="wpt_colunm_type">
             <?php if( !empty( $type ) &&  $type !== 'default'){ ?>
-                <i><?php echo esc_html__( $type_name); ?> </i>: 
-            <?php } echo esc_html__( $keyword ); ?>
+                <i><?php echo esc_html( $type_name); ?> </i>: 
+            <?php } echo esc_html( $keyword ); ?>
             </span>
             <?php 
             
