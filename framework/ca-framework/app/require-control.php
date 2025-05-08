@@ -108,11 +108,6 @@ if( ! class_exists( 'CA_Framework\Require_Control' ) ){
                 return;
             }
             
-            //Return Null Controll;
-            if( isset( $_GET['action'] ) && ( $_GET['action'] == 'install-plugin' || $_GET['action'] == 'activate' ) ){
-                $this->stop_next = 1;
-                return;
-            }
 
             //Check Aganin installation prosibility when reconneded and Date over. by default we set diff_limit = 5 days.
             if( ! $this->required && $this->repeat_display() ) return;
@@ -174,10 +169,6 @@ if( ! class_exists( 'CA_Framework\Require_Control' ) ){
                 return false;
             }
             return true;
-        }
-        public function return_null()
-        {
-            if( isset( $_GET['action'] ) && ( $_GET['action'] == 'install-plugin' || $_GET['action'] == 'activate' ) ) return;
         }
 
         /**
