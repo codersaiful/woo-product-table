@@ -26,7 +26,7 @@ class Search_Box{
         self::$fields = $shortcode->search_n_filter['fields'] ?? [];
         
         $config_value = $shortcode->_config;
-        // var_dump($config_value);
+
         $search_box_title = $config_value['search_box_title'] ?? '';
         $html = false;
         $html .= "<div id='search_box_{$shortcode->table_id}' class='wpt_search_box search_box_{$shortcode->table_id}'>";

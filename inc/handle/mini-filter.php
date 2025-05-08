@@ -16,7 +16,7 @@ class Mini_Filter{
         ?>
         <div class="wpt-mini-filter-wrapper">
             <div class="wpt-mini-filter">
-                <?php echo self::filter_box(); ?>
+                <?php echo wp_kses( self::filter_box(), 'post' ); ?>
             </div>
         </div>
         <?php 
