@@ -1,8 +1,5 @@
 <?php
 
-// if('variable' !== $product_type && $table_type !== 'advance_table'){
-//     echo wc_get_stock_html( $product );
-// }
 $wpt_single_action = false;
 if( $table_type == 'advance_table'){
     if ($product_type != 'variation') {
