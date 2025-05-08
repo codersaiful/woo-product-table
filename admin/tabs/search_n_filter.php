@@ -360,16 +360,10 @@ foreach($terms as $term){
             
             foreach( $snf_keywords as $per_keyword ){
 
-                $args = array(
-                    'hide_empty'    => false, 
-                    'orderby'       => 'count',
-                    'order'         => 'DESC',
-                );
-
                 $taxonomy = get_taxonomy( $per_keyword );
                 $t_name = $taxonomy->labels->singular_name ?? '';
                 //WooCommerce Product Category Object as Array
-                $tax_object = get_terms( $per_keyword, $args );
+                $tax_object = get_terms( $per_keyword );
                 // dd($tax_object);
                 if( !isset( $tax_object->errors ) ){
                     $my_tax_obj = [];
