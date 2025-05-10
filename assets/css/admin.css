@@ -2541,6 +2541,21 @@ a.wpt-doc-lick{
     border-radius: 0;
     border: 0 none;
 }
+.sfl-auto-gen-box .wpt-custom-select-boxes .wpt-custom-select-box.active {
+    color: white;
+    background: #0073aa;
+}
+
+.sfl-auto-gen-box .wpt-custom-select-boxes {
+    border-color: #0073aa;
+    border-radius: 2px;
+}
+
+.sfl-auto-gen-box .wpt-custom-select-boxes .wpt-custom-select-box {
+    background: #ededed61;
+    color: black;
+    box-shadow: 1px 0px 1px #00000062;
+}
 
 span.wpt-design-collaps {
     border: 1px solid #ffffff00;

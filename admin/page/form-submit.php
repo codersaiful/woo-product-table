@@ -2,7 +2,7 @@
 $nonce = sanitize_text_field( wp_unslash($_POST['wpt_configure_nonce'] ?? '' ));
 if ( empty($nonce) || ! wp_verify_nonce( $nonce, plugin_basename( __DIR__ ) ) ) return;
 
-$data =  ! empty($_POST['data']) ? wp_unslash($_POST['data']) : [];
+$data = wp_unslash( $_POST['data'] ?? [] );
 if( empty($data) ) return;
 
 if ( isset($_POST['reset_button'])) {
