@@ -14,7 +14,7 @@ if ( isset($_POST['reset_button'])) {
     $value = array_map(
         function ($field) {
             //All post value is santized here using array_map
-            return is_array($field) ? $field : sanitize_text_field($field);
+            return is_string($field) ? sanitize_text_field($field) : '';
         },
         $data
     );
