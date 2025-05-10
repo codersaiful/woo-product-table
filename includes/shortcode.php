@@ -192,11 +192,6 @@ if( ! function_exists( 'wpt_texonomy_filter_generator' ) ){
             return false;
         }
 
-        /**
-         * Need for get_texonomy and get_terms
-         */
-        $texonomy_sarch_args = array('hide_empty' => true,'orderby' => 'count','order' => 'DESC');
-
             $taxonomy_details = get_taxonomy( $texonomy_keyword );
             if( !$taxonomy_details ){
                 return false;
@@ -205,8 +200,6 @@ if( ! function_exists( 'wpt_texonomy_filter_generator' ) ){
             $label = $taxonomy_details->labels->singular_name;
             $html .= "<select data-temp_number='{$temp_number}' data-key='{$texonomy_keyword}' data-label='{$label}' class='filter_select select2 filter filter_select_{$texonomy_keyword}' id='{$texonomy_keyword}_{$temp_number}'>";
 
-                $texonomy_boj = get_terms( $texonomy_keyword, $texonomy_sarch_args );
-                
             $html .= "</select>";
         return $html;
     }

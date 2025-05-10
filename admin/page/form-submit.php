@@ -1,5 +1,5 @@
 <?php
-dd($_POST['reset_button'] ?? null );
+
 if (isset($_POST['data']) && isset($_POST['reset_button'])) {
     //Reset 
     $value = WPT_Product_Table::$default;
