@@ -20,15 +20,22 @@ class Shortcode_Ajax extends Shortcode{
     }
 
     public function wpt_load_both(){
+        
         $atts = $this->set_atts();
 
+        
+        $nonce = sanitize_text_field( wp_unslash( $_POST['nonce'] ?? '' ) );
+        if ( empty($nonce) || ! wp_verify_nonce( $nonce, WPT_PLUGIN_FOLDER_NAME ) ) {
+            echo '';
+            wp_die();
+        }
+        
         $args = $_POST['args'] ?? [];
         $others = $_POST['others'] ?? [];
         $args = $this->arrayFilter( $args );
         $temp_args = $args;
         unset($temp_args['base_link']);
         $this->args_ajax_called = true;
-
         /**
          * we need to track reset button click of search box.
          * 
@@ -358,15 +365,18 @@ class Shortcode_Ajax extends Shortcode{
     }
 
     public function wpt_remove_from_cart(){
+        $nonce = sanitize_text_field( wp_unslash( $_POST['nonce'] ?? '' ) );
+        if ( empty($nonce) || ! wp_verify_nonce( $nonce, WPT_PLUGIN_FOLDER_NAME ) ) {
+            echo 'not-founded';
+            wp_die();
+        }
+
         $product_id = $_POST['product_id'] ?? 0;
         /**
          * Founded $cart_item_key 
          * called $req_cart_item_key
          */
         $req_cart_item_key = $_POST['cart_item_key'] ?? false;
-        // if( $req_cart_item_key ){
-        //     $product_id = 0;
-        // }
         
         global $wpdb, $woocommerce;
         $removed = false;
@@ -406,6 +416,10 @@ class Shortcode_Ajax extends Shortcode{
      * @return void
      */
     public function set_atts(){
+        $nonce = sanitize_text_field( wp_unslash( $_POST['nonce'] ?? '' ) );
+        if ( empty($nonce) || ! wp_verify_nonce( $nonce, WPT_PLUGIN_FOLDER_NAME ) ) {
+            return [];
+        }
         $table_id = $_POST['table_id'] ?? 0;
         $table_id = (int) $table_id;
         $atts = $_POST['atts'] ?? [];

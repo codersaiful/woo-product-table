@@ -1312,7 +1312,7 @@ jQuery(function($) {
 
             var page_number = data.others.page_number;
             var extra_link_tax_cf = "";
-            console.log(data.args.tax_query, convertToSimpleFormat(data.args.tax_query));
+
             if( typeof data.args.tax_query === 'object' && !$.isEmptyObject(data.args.tax_query)){
                 extra_link_tax_cf = "&tax=" + convertToSimpleFormat(data.args.tax_query);
             }

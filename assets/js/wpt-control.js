@@ -45,7 +45,8 @@ jQuery(function($) {
                 table_id: table_id,
                 others: others,
                 args: args,
-                atts: data_json.atts //Available ATTS also here
+                atts: data_json.atts, //Available ATTS also here
+                nonce: WPT_DATA.nonce
             };
             
             TableTagWrap.addClass('wpt-ajax-loading'); //.wpt-wrap.wpt-ajax-loading
@@ -411,13 +412,13 @@ jQuery(function($) {
                 action: 'wpt_remove_from_cart',
                 product_id: product_id,
                 cart_item_key: cart_item_key,
+                nonce: WPT_DATA.nonce
             };
             $.ajax({
                 type: 'POST',
                 url: ajax_url,
                 data: data,
                 success:function(result){
-                    // $('.wpt_edit_table').html(result);
                     if(result == 'removed'){
                         
                     }

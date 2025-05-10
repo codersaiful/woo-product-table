@@ -303,6 +303,7 @@ class Deactive_Form
             'plugin_slug' => $this->plugin_slug,
             'prefix' => $this->prefix,
             'data'   => $this->data,
+            'nonce'          => wp_create_nonce( WPT_PLUGIN_FOLDER_NAME )
         ];
         
         wp_localize_script( $enq_name, $this->localize_name, $data );
