@@ -207,6 +207,7 @@ if( ! function_exists( 'wpt_texonomy_filter_generator' ) ){
 
 if( !function_exists( 'wpt_search_box' ) ){
     /**
+     * deprecated
      * ##########################
      * THIS WILL REMOVED
      * ##########################
@@ -217,6 +218,7 @@ if( !function_exists( 'wpt_search_box' ) ){
      * @param type $search_box_texonomiy_keyword Obviously should be a Array, for product_cat tag etc
      * @param int $search_n_filter getting search and fileter meta
      * @return string
+     * @deprecated 3.3 has been transfer to Class Object Shortcode (inc/Shortcode.php)
      */
     function wpt_search_box($temp_number, $search_box_texonomiy_keyword = array( 'product_cat', 'product_tag' ), $order_by = false, $order = false, $search_n_filter = false,$table_ID = false ){
         
@@ -233,7 +235,7 @@ if( !function_exists( 'wpt_search_box' ) ){
          */
         $html .= "<div class='search_single search_single_direct'>";
         
-        $search_keyword = isset( $_GET['search_key'] ) ? sanitize_text_field( $_GET['search_key'] ) : '';
+        $search_keyword = '';
         
 
         $single_keyword = $config_value['search_keyword_text'];//__( 'Search keyword', 'woo-product-table' );
@@ -281,7 +283,7 @@ if( !function_exists( 'wpt_search_box' ) ){
         if( isset( $config_value['query_by_url'] ) && $config_value['query_by_url'] ){
             
             $cutnt_link = get_page_link();
-            $style = isset( $_GET['table_ID'] ) ? "display:inline;": '';
+            $style = '';
             $html .= '<a href="' . $cutnt_link . '" data-type="close-button" data-table_ID="' . $temp_number . '" id="wpt_query_reset_button_' . $temp_number . '" class="search_box_reset search_box_reset_' . $temp_number . '" style="' . $style . '">x</a>';
         }
         
