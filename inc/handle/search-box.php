@@ -41,7 +41,7 @@ class Search_Box{
             $html_inputBox = '';
             $nonce = wp_create_nonce( WPT_PLUGIN_FOLDER_NAME );
             if ( wp_verify_nonce( $nonce, WPT_PLUGIN_FOLDER_NAME ) ) {
-                $search_keyword = sanitize_text_field( wp_unslash( $_GET['search_key'] ?? '' ) ) ;// isset( $_GET['search_key'] ) ? sanitize_text_field( $_GET['search_key'] ) : '';
+                $search_keyword = sanitize_text_field( wp_unslash( $_GET['search_key'] ?? '' ) ) ;
             } else {
                 $search_keyword = '';
             }

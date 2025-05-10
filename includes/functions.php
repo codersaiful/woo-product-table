@@ -1264,7 +1264,11 @@ if( ! function_exists( 'wpt_args_manage_by_get_args' ) ){
      */
     function wpt_args_manage_by_get_args( $args, $table_ID ){
 
-        $founded_table_ID = isset( $_GET['table_ID'] ) ? absint( $_GET['table_ID'] ) : false;
+        $nonce = wp_create_nonce( "woo-product-table" );
+        if ( empty( $nonce ) || ! wp_verify_nonce( $nonce, WPT_PLUGIN_FOLDER_NAME ) ) {
+            return $args;
+        }
+        $founded_table_ID = absint( wp_unslash( $_GET['table_ID'] ?? '' ) );
         if( ! $founded_table_ID ) return $args;
         if( $founded_table_ID != $table_ID ) return $args;
         /**
@@ -1276,19 +1280,19 @@ if( ! function_exists( 'wpt_args_manage_by_get_args' ) ){
         }
         
         $MY_GETS = array(
-            'table_ID' => ! empty( $_GET['table_ID'] ) ? absint($_GET['table_ID']) : false,
-            'orderby' => ! empty( $_GET['orderby'] ) ? sanitize_text_field($_GET['orderby']) : false,
-            'order' => ! empty( $_GET['order'] ) ? sanitize_text_field($_GET['order']) : false,
-            's' => isset($_GET['search_key']) ? sanitize_text_field($_GET['search_key']) : false,
+            'table_ID' => absint( wp_unslash( $_GET['table_ID'] ?? false ) ),
+            'orderby' => sanitize_text_field( wp_unslash( $_GET['orderby'] ?? false ) ),
+            'order' => sanitize_text_field( wp_unslash( $_GET['order'] ?? false ) ),
+            's' => sanitize_text_field( wp_unslash( $_GET['search_key'] ?? false ) ),
         );
         $MY_GETS = array_filter( $MY_GETS );
-        $tax = isset( $_GET['tax'] ) ? sanitize_text_field( $_GET['tax'] ) : '';
+        $tax = sanitize_text_field( wp_unslash( $_GET['tax'] ?? '' ) );
         if( ! empty( $tax ) ){
             $MY_GETS['tax_query'] = wpt_tax_url_decode( $tax );
             if( isset( $args['tax_query'] ) ) unset( $args['tax_query'] );
         }
 
-        $meta = isset( $_GET['meta'] ) ? sanitize_text_field( $_GET['meta'] ) : '';
+        $meta = sanitize_text_field( wp_unslash( $_GET['meta'] ?? '' ) );
         if( ! empty( $meta ) ){
             $MY_GETS['meta_query'] = wpt_tax_url_decode( $meta );
             if( isset( $args['meta_query'] ) ) unset( $args['meta_query'] );
@@ -1430,7 +1434,7 @@ if( ! function_exists( 'wpt_shop_archive_sorting_args' ) ){
     function wpt_shop_archive_sorting_args( $args ){
 
         if( is_shop() || is_product_taxonomy() ){
-            $_orderby = isset( $_GET['orderby'] ) && !empty( $_GET['orderby'] ) ? sanitize_text_field( $_GET['orderby'] ) : '';
+            $_orderby = sanitize_text_field( wp_unslash( $_GET['orderby'] ?? '' ) );
             $args['paged'] = 1;
             $args['post_type'] = ['product'];
             switch( $_orderby ){
