@@ -13,13 +13,8 @@ $root_option_key = WPT_OPTION_KEY;
 $option_key =  $root_option_key . $lang_ex;
 $settings = apply_filters('wpto_configuration_settings', $settings);
 
-//Nonce verification
-$nonce = sanitize_text_field( wp_unslash($_POST['wpt_configure_nonce'] ?? '' ));
-if ( ! empty($nonce) && wp_verify_nonce( $nonce, plugin_basename( __DIR__ ) ) ) {
-    //Manage form submission over that file
-    include_once trailingslashit( __DIR__ ) . 'form-submit.php';
-}
-
+//Manage form submission over that file
+include_once trailingslashit( __DIR__ ) . 'form-submit.php';
 
 
 $current_config_value = get_option($option_key);
