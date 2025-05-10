@@ -1,4 +1,4 @@
-=== Product Table for WooCommerce by CodeAstrology (wooproducttable.com) ===
+=== Product Table for WooCommerce ===
 Contributors: codersaiful,mdibrahimk48,ultraaddons,unikforce,rafiul17,fazlebari
 Donate link: https://donate.stripe.com/4gw2bB2Pzdjd8mYfYZ
 Tags: woo product table, wc product table, woo table, woocommerce product table, product table
