@@ -190,8 +190,7 @@ function wpt_redirect_after_save($location, $post_id) {
         return $location;
     }
 
-    $wpt_last_active_tab = $_POST['wpt_last_active_tab'] ?? 'column_settings';
-    $wpt_last_active_tab = sanitize_text_field( $wpt_last_active_tab );
+    $wpt_last_active_tab = sanitize_text_field( wp_unslash( $_POST['wpt_last_active_tab'] ?? 'column_settings' ) );
     if( empty( $wpt_last_active_tab ) ){
         $wpt_last_active_tab = 'column_settings';
     }
@@ -215,17 +214,9 @@ if( ! function_exists( 'wpt_shortcode_configuration_metabox_save_meta' ) ){
             return;
         }
         
-        /**
-         * Importing Data Here
-         * 
-         * @since 2.8.7.1
-         * @by Saiful
-         * @date 10.5.2021
-         */
-        
-        if( isset( $_POST['wpt-import-data'] ) && ! empty( $_POST['wpt-import-data'] ) ){
-            $wpt_import_data = sanitize_text_field( $_POST['wpt-import-data'] );
 
+        $wpt_import_data = sanitize_text_field( wp_unslash( $_POST['wpt-import-data'] ?? '' ) );
+        if( ! empty( $wpt_import_data ) ){
             /**
              * Do something, when something importing on Import Box
              * 

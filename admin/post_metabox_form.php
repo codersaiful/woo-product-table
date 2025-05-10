@@ -48,10 +48,8 @@
     );
     $additional_data = apply_filters( 'wpto_additional_variable', $additional_variable, $post );
     
-    $wpt_active_tab = $_GET['wpt_active_tab'] ?? 'column_settings';
-    if( empty( $wpt_active_tab ) ){
-        $wpt_active_tab = 'column_settings';
-    }
+    $wpt_active_tab = sanitize_text_field( wp_unslash( $_GET['wpt_active_tab'] ?? 'column_settings' ) );
+
     ?>
     <nav class="nav-tab-wrapper">
     <?php
