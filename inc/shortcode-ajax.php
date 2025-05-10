@@ -29,13 +29,14 @@ class Shortcode_Ajax extends Shortcode{
             echo '';
             wp_die();
         }
-        
-        $args = $_POST['args'] ?? [];
-        $others = $_POST['others'] ?? [];
+
+        $args = wp_unslash( $_POST['args'] ?? [] );
+        $others = wp_unslash( $_POST['others'] ?? [] );
         $args = $this->arrayFilter( $args );
         $temp_args = $args;
         unset($temp_args['base_link']);
         $this->args_ajax_called = true;
+        // dd($args);
         /**
          * we need to track reset button click of search box.
          * 
@@ -115,7 +116,7 @@ class Shortcode_Ajax extends Shortcode{
          * but now it wll show page linke: example.com/page/2 
          * @since 3.2.5.2
          */
-        $this->pagination_base_url = $_POST['args']['base_link'] ?? null;
+        $this->pagination_base_url = wp_unslash( $_POST['args']['base_link'] ?? null );
 
         $this->args['paged'] = $this->page_number = $page_number;
 
@@ -371,12 +372,13 @@ class Shortcode_Ajax extends Shortcode{
             wp_die();
         }
 
-        $product_id = $_POST['product_id'] ?? 0;
+        $product_id = absint( $_POST['product_id'] ?? 0 );
+
         /**
          * Founded $cart_item_key 
          * called $req_cart_item_key
          */
-        $req_cart_item_key = $_POST['cart_item_key'] ?? false;
+        $req_cart_item_key = sanitize_key( wp_unslash( $_POST['cart_item_key'] ?? '' ) );
         
         global $wpdb, $woocommerce;
         $removed = false;
@@ -420,9 +422,9 @@ class Shortcode_Ajax extends Shortcode{
         if ( empty($nonce) || ! wp_verify_nonce( $nonce, WPT_PLUGIN_FOLDER_NAME ) ) {
             return [];
         }
-        $table_id = $_POST['table_id'] ?? 0;
+        $table_id = absint( $_POST['table_id'] ?? 0);
         $table_id = (int) $table_id;
-        $atts = $_POST['atts'] ?? [];
+        $atts = wp_unslash( $_POST['atts'] ?? [] );//$_POST['atts'] ?? [];
         $atts['id'] = $table_id;
         return $atts;
     }
