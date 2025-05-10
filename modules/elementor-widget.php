@@ -152,7 +152,6 @@ class WPT_Elementor_Widget extends \Elementor\Widget_Base{
                 
 		
                 wp_reset_postdata();
-                wp_reset_query();
                 if( $table_options && is_array( $table_options ) ){
                     $this->add_control(
                             'table_id',

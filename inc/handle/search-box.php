@@ -39,7 +39,13 @@ class Search_Box{
             $html_inputBox = false;
         }else{
             $html_inputBox = '';
-            $search_keyword = isset( $_GET['search_key'] ) ? sanitize_text_field( $_GET['search_key'] ) : '';
+            $nonce = wp_create_nonce( WPT_PLUGIN_FOLDER_NAME );
+            if ( wp_verify_nonce( $nonce, WPT_PLUGIN_FOLDER_NAME ) ) {
+                $search_keyword = sanitize_text_field( wp_unslash( $_GET['search_key'] ?? '' ) ) ;// isset( $_GET['search_key'] ) ? sanitize_text_field( $_GET['search_key'] ) : '';
+            } else {
+                $search_keyword = '';
+            }
+            
             $single_keyword = $config_value['search_keyword_text'] ?? '';//__( 'Search keyword', 'woo-product-table' );
             $search_order_placeholder = $config_value['search_box_searchkeyword'] ?? '';//__( 'Search keyword', 'woo-product-table' );
             $html_inputBox .= '<div class="search_single_search_by_keyword">';// /.search_single_column 
@@ -108,8 +114,7 @@ class Search_Box{
         if( isset( $config_value['query_by_url'] ) && $config_value['query_by_url'] ){
             
             $cutnt_link = get_page_link();
-            $style = isset( $_GET['table_ID'] ) ? "display:inline;": '';
-            $html .= '<a href="' . $cutnt_link . '" data-type="close-button" data-table_ID="' . $shortcode->table_id . '" id="wpt_query_reset_button_' . $shortcode->table_id . '" class="search_box_reset search_box_reset_' . $shortcode->table_id . '" style="' . $style . '"><i class="wpt-cancel-circled"></i></a>';
+            $html .= '<a href="' . $cutnt_link . '" data-type="close-button" data-table_ID="' . $shortcode->table_id . '" id="wpt_query_reset_button_' . $shortcode->table_id . '" class="search_box_reset search_box_reset_' . $shortcode->table_id . '" style="display: inline;"><i class="wpt-cancel-circled"></i></a>';
         }
         
         $html .= '</div>'; //End of .search_box_singles
