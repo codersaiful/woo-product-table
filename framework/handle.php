@@ -69,7 +69,7 @@ if( ! class_exists( 'WPT_Required' ) ){
             $temp_numb = wp_rand(4,5);
             //eta sudhu matro amader selected plugin er kkhetre always ba all time show korbe add
             //Only when in product table page, So it will show always
-            $s_id = $_SERVER['REQUEST_URI'] ?? '';
+            $s_id = sanitize_url( wp_unslash( $_SERVER['REQUEST_URI'] ?? '' ) );
             if( strpos( $s_id, 'product_table') !== false ){
                 if( self::$PRO_DEV_VERSION ){
                     self::OtherOffer($temp_numb, $s_id);

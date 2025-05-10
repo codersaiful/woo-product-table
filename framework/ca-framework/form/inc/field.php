@@ -75,7 +75,6 @@ class Field extends Field_Base
     {
         if( $bool && $this->errors ){
             foreach( $this->errors as $error ){
-                var_dump($error);
             }
             return;
         }

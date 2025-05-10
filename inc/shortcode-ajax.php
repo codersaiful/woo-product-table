@@ -116,7 +116,7 @@ class Shortcode_Ajax extends Shortcode{
          * but now it wll show page linke: example.com/page/2 
          * @since 3.2.5.2
          */
-        $this->pagination_base_url = wp_unslash( $_POST['args']['base_link'] ?? null );
+        $this->pagination_base_url = sanitize_text_field( wp_unslash( $_POST['args']['base_link'] ?? null ) );
 
         $this->args['paged'] = $this->page_number = $page_number;
 

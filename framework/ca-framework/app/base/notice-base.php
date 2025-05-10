@@ -34,6 +34,7 @@ if( ! class_exists( 'CA_Framework\App\Base\Notice_Base' ) ){
     
             wp_localize_script("ca-notice-update-js", "ajaxobj", [
                 "ajaxurl" => admin_url("admin-ajax.php"),
+                'nonce'   => wp_create_nonce('ajax-nonce'),
             ]);
         }
         
@@ -50,8 +51,14 @@ if( ! class_exists( 'CA_Framework\App\Base\Notice_Base' ) ){
          * Update Option by Ajax
          */
         public function update_notice_status(){
-            
-            $fonded_notc_id = isset( $_POST['notice_id'] ) && ! empty( $_POST['notice_id'] ) ? $_POST['notice_id'] : false;
+
+            $nonce = sanitize_text_field(wp_unslash($_POST['nonce'] ?? ''));
+            if ( empty($nonce) || ! wp_verify_nonce( $nonce, plugin_basename(__FILE__) ) ) {
+                echo '';
+                wp_die();
+            }
+
+            $fonded_notc_id = absint( wp_unslash( $_POST['notice_id'] ?? 0 ) );
             if( $fonded_notc_id ){
                 update_option( sanitize_key( $fonded_notc_id ) .'_notice_close_date', current_time( 'timestamp' ) );
                 wp_die();

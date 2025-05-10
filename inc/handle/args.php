@@ -108,8 +108,9 @@ class Args{
             'table_ID'    => $shortcode->table_id,
         ];
 
-        if( isset( $_GET['s'] ) && !empty( $_GET['s'] ) ){
-            $args['s'] = sanitize_text_field( $_GET['s'] );
+        $ars_s = sanitize_text_field( wp_unslash( $_GET['s'] ?? '') );
+        if( ! empty( $ars_s ) ){
+            $args['s'] = $ars_s;
             unset($args['suppress_filters']);
         }else{
             $args['suppress_filters'] = 1;

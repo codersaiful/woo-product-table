@@ -62,8 +62,6 @@ class CA_Test_From
             ]);
             $forrm->addFields( $fields_args );
             $forrm->render();
-
-            var_dump($forrm);
             
             /**
             Form::createField([

@@ -234,7 +234,7 @@ if( ! function_exists( 'wpt_add_custom_message_field' ) ){
         $message = apply_filters( 'wpt_message_box_label_product_page', esc_html__( 'Message', 'woo-product-table' )  );
         global $product;
         $product_id = $product->get_id();
-        // var_dump($product->get_id());
+
         ?>
         <table class="variations wpt-message-box-table" cellspacing="0">
               <tbody>
@@ -252,37 +252,6 @@ if( ! function_exists( 'wpt_add_custom_message_field' ) ){
         <?php
     }
 }
-/**
- * If you want to show this Field even in Single Product Page,
- * You have to add the following Action Hook.
- * You can use Code Snipet plugin to activate this action
- * or add on theme's functions.php file
- * 
- * Uses:
- * add_action( 'woocommerce_before_add_to_cart_quantity', 'wpt_add_custom_message_field' );
- */
-
-
-if( ! function_exists( 'wpt_custom_message_validation' ) ){
-
-    /**
-     * To set Validation, I mean: Required.
-     * By Default: Disable, if you need, you can active it by enable action under this function
-     * 
-     * @since 1.9
-     * @return boolean
-     */
-    function wpt_custom_message_validation() { 
-
-        if ( isset( $_REQUEST['wpt_custom_message'] ) && empty( $_REQUEST['wpt_custom_message'] ) ) {
-            $short_mesg_warning = __( 'Please enter Short Message', 'woo-product-table' );
-            $short_mesg_warning = apply_filters( 'wpto_short_message_warning', $short_mesg_warning );
-            wc_add_notice( $short_mesg_warning, 'error' );
-            return false;
-        }
-        return true;
-    }
-}
 
 
 if( ! function_exists( 'wpt_save_custom_message_field' ) ){
@@ -296,11 +265,12 @@ if( ! function_exists( 'wpt_save_custom_message_field' ) ){
      */
     function wpt_save_custom_message_field( $cart_item_data, $product_id ) {
         
-        if( isset( $_REQUEST['wpt_custom_message'] ) && ! empty( $_REQUEST['wpt_custom_message'] ) ) {
-            $generated_message = isset( $_REQUEST['wpt_custom_message'] ) ? sanitize_text_field( $_REQUEST['wpt_custom_message'] ) : '';
-            $cart_item_data[ 'wpt_custom_message' ] =  $generated_message;
+        $wpt_custom_message = sanitize_text_field(wp_unslash( $_REQUEST['wpt_custom_message'] ?? ''));
+
+        if( ! $wpt_custom_message ) {
+            $cart_item_data[ 'wpt_custom_message' ] =  $wpt_custom_message;
             /* below statement make sure every add to cart action as unique line item */
-            $cart_item_data['unique_key'] = $product_id . '_' . $generated_message;
+            $cart_item_data['unique_key'] = $product_id . '_' . $wpt_custom_message;
         }
         return $cart_item_data;
     }
