@@ -24,7 +24,8 @@ if( class_exists( '\WOO_Product_Table' ) ){
     $license_direct = property_exists( '\WOO_Product_Table','direct' ) ? \WOO_Product_Table::$direct : false;
     $license_page_slug = defined('WPT_EDD_LICENSE_PAGE') ? WPT_EDD_LICENSE_PAGE : false;
 }
-$current_page = $_GET['page'] ?? '';
+global $current_screen;
+$lisence_page_bool = strpos( $current_screen->id, $license_page_slug );
 
 $topbar_sub_title = __( 'Manage and Settings', 'woo-product-table' );
 if( isset( $this->topbar_sub_title ) && ! empty( $this->topbar_sub_title ) ){
@@ -69,7 +70,7 @@ if( isset( $this->topbar_sub_title ) && ! empty( $this->topbar_sub_title ) ){
                         <i class="wpt-heart-filled"></i>
                         Get Premium Offer
                     </a>
-                <?php }else if( $license_direct && $license_page_slug !== $current_page ){ ?>
+                <?php }else if( $license_direct && ! $lisence_page_bool ){ ?>
                     <a class="wpt-btn wpt-has-icon" 
                         href="<?php echo esc_attr( admin_url( 'edit.php?post_type=wpt_product_table&page=' . $license_page_slug ) ) ?>">
                         <span><i class=" wpt-heart-1"></i></span>
