@@ -245,11 +245,10 @@ class Row extends Table_Base{
         data-href="<?php echo esc_url( $this->product_permalink ); ?>"
         data-product_variations="<?php echo esc_attr( htmlspecialchars( wp_json_encode( $this->available_variations ) ) ); ?>"
         additional_json=""
-        <?php echo wp_kses_post( $this->row_attr ); ?>
+        <?php if(! empty( $this->row_attr ) ) echo wp_kses_post( $this->row_attr ); ?>
         role="row">
         <?php
-
-        echo wp_kses_post( $this->generated_td_start );
+        if(! empty( $this->generated_td_start ) ) echo wp_kses_post( $this->generated_td_start );
 
         foreach( $this->_enable_cols as $keyword => $col ){
 
@@ -411,7 +410,7 @@ class Row extends Table_Base{
             <?php
             
         }
-        echo wp_kses_post( $this->generated_td_end );
+        if(! empty( $this->generated_td_end ) ) echo wp_kses_post( $this->generated_td_end );
         ?>
         </tr>
         <?php
