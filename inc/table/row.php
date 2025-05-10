@@ -245,7 +245,7 @@ class Row extends Table_Base{
         data-href="<?php echo esc_url( $this->product_permalink ); ?>"
         data-product_variations="<?php echo esc_attr( htmlspecialchars( wp_json_encode( $this->available_variations ) ) ); ?>"
         additional_json=""
-        <?php echo esc_attr( $this->row_attr ); ?>
+        <?php echo wp_kses_post( $this->row_attr ); ?>
         role="row">
         <?php
 
