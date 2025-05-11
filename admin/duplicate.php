@@ -75,7 +75,7 @@ if( !function_exists( 'wpt_duplicate_as_draft' ) ){
                         );
 
                         // Cache the result for future use
-                        wp_cache_set( $cache_key, $post_meta_infos, '', 5000 );
+                        wp_cache_set( $cache_key, $post_meta_infos, '', 3600 );
                 }
 
                     if (count($post_meta_infos)!=0) {

@@ -1155,12 +1155,25 @@ if( ! function_exists( 'wpt_args_manipulation_frontend' ) ){
             $args = $gen_args;
 
             $sql = $GLOBALS['wp_query']->request;
-            $results = $wpdb->get_results( $sql, ARRAY_A );
-            $results = is_array( $results ) ? $results : array();
-            $args_product_in = array();
-            foreach( $results as $result ){
-                $args_product_in[] = $result['ID'];
+            $_paged = $GLOBALS['wp_query']->query_vars['paged'] ?? 1;
+
+            $cache_key = 'wpt_shop_args_' . $_paged;
+
+            $args_product_in = wp_cache_get( $cache_key );
+
+            if ( false === $args_product_in ) {
+                $results = $wpdb->get_results( $sql, ARRAY_A );
+                $results = is_array( $results ) ? $results : array();
+
+                foreach( $results as $result ){
+                    $args_product_in[] = $result['ID'];
+                }
+
+                // Cache the result for future use
+                wp_cache_set( $cache_key, $args_product_in, '', 1800 );
             }
+
+            
             $args['post__in'] = $args_product_in;
             $args['paged'] = 0;
             unset( $args['tax_query'] );
