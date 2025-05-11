@@ -67,15 +67,15 @@ if( !function_exists( 'wpt_duplicate_as_draft' ) ){
                 $post_meta_infos = wp_cache_get( $cache_key );
 
                 if ( false === $post_meta_infos ) {
-                $post_meta_infos = $wpdb->get_results(
-                        $wpdb->prepare(
-                        "SELECT meta_key, meta_value FROM {$wpdb->postmeta} WHERE post_id = %d",
-                        $post_id
-                        )
-                );
+                        $post_meta_infos = $wpdb->get_results(
+                                $wpdb->prepare(
+                                "SELECT meta_key, meta_value FROM {$wpdb->postmeta} WHERE post_id = %d",
+                                $post_id
+                                )
+                        );
 
-                // Cache the result for future use
-                wp_cache_set( $cache_key, $post_meta_infos, '', 5000 );
+                        // Cache the result for future use
+                        wp_cache_set( $cache_key, $post_meta_infos, '', 5000 );
                 }
 
                     if (count($post_meta_infos)!=0) {
