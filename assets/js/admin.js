@@ -20,10 +20,6 @@ jQuery.fn.extend({
             parentId: '',
             className: ''
         }, options);
-        // return;
-        // if(this.hasClass('wpt_table__for_variation') || this.hasClass('wpt_table_footer_cart_template')) return;
-        
-        // if(this.hasClass('select2') || this.hasClass('wpt_table__for_variation')) return;
         return this.each(function () {
             const $select = $(this);
             var tagName = $select[0].tagName.toLowerCase();
@@ -135,13 +131,9 @@ jQuery.fn.extend({
         });
         
         $('span.wpt-help-icon').click(function(){
-            // $('span.wpt-help-icon').removeClass('wpt-help-focused');
             $(this).toggleClass('wpt-help-focused');
         });
 
-        //For select, used select2 addons of jquery
-        //$('.wpt_wrap select,.wpt_shortcode_gen_panel select, select#wpt_product_ids,select#product_tag_ids').select2();
-        
         function wptSelectItem(target, id) { // refactored this a bit, don't pay attention to this being a function
             var option = $(target).children('[value='+id+']');
             option.detach();
@@ -163,12 +155,7 @@ jQuery.fn.extend({
         $('select.internal_select').select2({
             placeholder: "Select mulitple inner Items.",
             allowClear: true,
-            // escapeMarkup: function(m) { return m; },
-            // templateResult:customizedItem,
             templateSelection:selectionWithEditLink,
-            // templateSelection:customizedItem,
-
-
         });
         
         function selectionWithEditLink(state, container){
@@ -245,7 +232,6 @@ jQuery.fn.extend({
          * That's why, we have added here
          */
         $('.product_includes_excludes,select#product_id_includes,select#product_id_cludes').select2({
-            //templateSelection //templateResult
             templateSelection: function(option,ccc){
                 
                 /**
@@ -259,26 +245,6 @@ jQuery.fn.extend({
                  * ::processResults er vitoreo emon kora hoyeche.
                  */
                 return option.text;
-                
-                if (!option.id) { return option.text; }
-                if(typeof option.title === 'undefined'){
-                    return option.text;
-                }
-                var content = option.title.split('|');
-                var display = '';
-                display += '<div class="wpt_select2_item_wrap">';
-                if(option.title){
-                    display += '<div class="image wpt_item wpt_item_left">';
-                    display += '<img height="50" width="50" src="' + content[0] + '">';
-                    display += '</div>';
-                }
-                display += '<div class="details wpt_item wpt_item_right">';
-                display += '<h4>' + option.text + '</h4>';
-                display += '<p>' + content[1] + '</p>';
-                display += '<b>' + content[2] + '</b>';
-                display += '</div>';
-                display += '</div>';
-                return display;
             },
             
             escapeMarkup: function (m) {
@@ -288,11 +254,11 @@ jQuery.fn.extend({
                 url: WPT_DATA_ADMIN.ajax_url,
                 dataType: 'json',
                 data: function (params) {
-                                    return {
-                                            q: params.term, // search query
-                                            action: 'wpt_pro_admin_product_list' // AJAX action for admin-ajax.php
-                                    };
-                            },
+                        return {
+                            q: params.term, // search query
+                            action: 'wpt_pro_admin_product_list' // AJAX action for admin-ajax.php
+                        };
+                    },
                 processResults: function( data ) {
                             var options = [];
                             if ( data ) {
@@ -312,7 +278,6 @@ jQuery.fn.extend({
                                         display += '</div>';
                                         display += '</div>';
 
-                                            //options.push( { id: text['id'], text: display  } );
                                             /**
                                              * Uporer ongsho tuku age chilo
                                              * admin panel a kaj korchilo na, tai apatoto seta
@@ -401,9 +366,6 @@ jQuery.fn.extend({
                     var parent = $(this).closest('ul.wpt_column_sortable');
                     if( typeof data == 'object' && data.length > 0){
                         $(data).each(function(index,value){
-                            // saiful[value] = value;
-                            // console.log('.wpt_sortable_peritem.column_keyword_' + value);
-                            // parent.find('.wpt_sortable_peritem.column_keyword_' + value).addClass('saiful-islam-hello');
                             parent.find('.wpt_sortable_peritem.column_keyword_' + value).find('input,select').renameAttr('backup-name', 'name' );
                         });
                     }
@@ -462,7 +424,7 @@ jQuery.fn.extend({
             var ID_SELECTOR = $(this).data('target_id');
             copyMySelectedITem(ID_SELECTOR);
         });
-        //wpt_metabox_copy_content
+
         function copyMySelectedITem(ID_SELECTOR) {
           var copyText = document.getElementById(ID_SELECTOR);
           copyText.select();
@@ -477,18 +439,7 @@ jQuery.fn.extend({
           },1000);
         }
         
-        /**
-         * Inside Tab of Column
-         * 
-         * @type String
-         */
-        // $('body').on('click','#wpt_configuration_form .inside-column-settings-wrapper .inside-nav-tab-wrapper a', function(){
-        //     $('.inside-nav-tab-wrapper a.nav-tab-active').removeClass('nav-tab-active');
-        //     $(this).addClass('nav-tab-active');
-        //     var target_tab = $(this).data('target');
-        //     $('.inside-column-settings-wrapper .inside_tab_content.tab-content-active').removeClass('tab-content-active');
-        //     $('.inside-column-settings-wrapper .inside_tab_content#'+target_tab).addClass('tab-content-active');
-        // });
+        
         /**************Admin Panel's Setting Tab Start Here For Tab****************/
         var selectLinkTabSelector = "body.wpt_admin_body #wpt_configuration_form a.wpt_nav_tab";
         var selectTabContentSelector = "body.wpt_admin_body #wpt_configuration_form .wpt_tab_content";
@@ -659,11 +610,9 @@ jQuery.fn.extend({
             var targetLiSelector = thisWPTSortAble.find(' li.wpt_sortable_peritem.column_keyword_' + keyword);
             
             if ($(this).prop('checked')) {
-                //$(this).addClass('enabled');
                 $(this).fadeIn('fast',function(){
                     $(this).addClass('enabled')
                 }).css("display", "flex");
-                //targetLiSelector.addClass('enabled');
                 targetLiSelector.fadeIn('fast',function(){
                     targetLiSelector.addClass('enabled')
                 }).css("display", "flex");
@@ -679,15 +628,11 @@ jQuery.fn.extend({
                     return false;
                 }
                 //Counting colum End here
-                
-                
-                
-                //$(this).removeClass('enabled');
+
                 $(this).fadeOut(function(){
                     $(this).removeClass('enabled');
                 });
                 $('.switch-enable-item-' + keyword).removeClass('item-enabled');
-                //targetLiSelector.removeClass('enabled');
                 targetLiSelector.fadeOut(function(){
                     targetLiSelector.removeClass('enabled');
                 });
@@ -705,12 +650,6 @@ jQuery.fn.extend({
             }).get().join(',');
 
             $mainWrapper.find('.wpt-col-selected-pre-value').html(enabledItemsText);
-
-
-//            
-//            targetLiSelector.fadeIn(function(){
-//                $(this).css('opacity','0.3');
-//            });
         });
         
         detect_responsive_stats();
@@ -879,9 +818,7 @@ jQuery.fn.extend({
         $(window).bind('keydown', function(event) {
             if (event.ctrlKey || event.metaKey) {
                 if($('.form_bottom.form_bottom_submit_button').hasClass('wrapper_wpt_ajax_update') && String.fromCharCode(event.which).toLowerCase() === 's' ){
-                    //Detect and set Responsive Stats
-                    ///detect_responsive_stats();
-                    
+
                     event.preventDefault();
                     $('body.wpt_admin_body input#publish[name=save]').trigger('click');
                 }
@@ -906,7 +843,6 @@ jQuery.fn.extend({
         });
         
         //I will remove ajax save button for now.
-        // $(document).on('click','body.wpt_admin_body .form_bottom.form_bottom_submit_button button.button.wpt_ajax_update, body.wpt_admin_body input#publish[name=save]',function(e){
         $(document).on('click','body.wpt_admin_body .form_bottom.form_bottom_submit_button button.button.wpt_ajax_update',function(e){
             //Detect and set Responsive Stats
             detect_responsive_stats();
@@ -972,15 +908,7 @@ jQuery.fn.extend({
             $('.form_bottom.form_bottom_submit_button').removeClass('wrapper_wpt_ajax_update');
         });
         
-        //console.log(tinymce.Editor);
-//        tinymce.init({
-//  selector: 'textarea',
-//  init_instance_callback: function (editor) {
-//    editor.on('Change', function (e) {
-//      alert('Editor contents was changed.');
-//    });
-//  }
-//});
+
         function wptUpdateStyleData(element){
             //style_str_value_wrapper
             var wrapper = $(element).closest('.style_str_wrapper');
@@ -1098,11 +1026,6 @@ jQuery.fn.extend({
             let conPass = bodyHeight - screenHeight - 100 - targetElement.height();
             let leftWill = configFormElement.width() - targetElement.width() - 20;
             
-    
-            // targetElement.css({
-            //     left: leftWill,
-            //     right: 'unset'
-            // });
             if(scrollTop < conPass){
                 targetElement.addClass('stick_on_scroll-on');
             }else{
@@ -1267,9 +1190,6 @@ jQuery.fn.extend({
         
     });
 
-    
-
-
     $(document.body).on('click','span.wpt-query-selection-handle',function(){
         var $this = $(this);
         var $key = $this.data('key');
@@ -1303,8 +1223,6 @@ jQuery.fn.extend({
         var $this = $(this); 
         var $insideTabContent = $this.closest('.inside_tab_content');
         $insideTabContent.toggleClass('expanded');
-        
-        // $this.closest('.inside_tab_content').find('.inside_tab_content_inner').toggle(); // Changed from toggleFade() to toggle()
     });
     
     //free version a premium feature gullor field name attr remove kora hoyeche.
@@ -1315,8 +1233,7 @@ jQuery.fn.extend({
         $this.find('input,select').removeAttr('name');
     });
 
-    //asole free ver theke jeno configure page e kono data change na hoy er jonne nicher code ta use kora hoyeche.
-    // Store initial values
+    //Store initial values - asole free ver theke jeno configure page e kono data change na hoy er jonne nicher code ta use kora hoyeche.
     var $userCanNotEdit = '.wpt-premium-feature-in-free-version input,.wpt-premium-feature-in-free-version select,.user_can_not_edit input, .user_can_not_edit select, .user_can_not_edit textarea';
     $($userCanNotEdit).each(function() {
         if($(this).closest('form#wpt-main-configuration-form').length < 1) return;
@@ -1341,21 +1258,14 @@ jQuery.fn.extend({
             // Revert other input/select/textarea value
             $el.val($el.data('original-value'));
         }
-
-        // Optionally alert or notify user
-        // alert("This field is not editable.");
     });
 
-
-
-    //.column_add_extra_items.extra-inner-item-wrapper,.column_tag_for_all,
     var findExtraSelection = '.column_label_fullwidth,.column_label_showing,.column_label_showing,.auto_responsive_column_label_show,.column_only_login_user,.column_only_login_user';
 
     $(document.body).on('click', '.style_str_wrapper h3.style-heading', function(e){
         e.preventDefault();
         $(this).toggleClass('active');
         $(this).closest('.style_str_wrapper').find('.wpt-style-body').toggle('fast');
-        // $(this).text($(this).text() === 'Show Style Control' ? 'Hide Style Control' : 'Show Style Control');
 
         $(this).closest('.wpt_column_setting_extra').find(findExtraSelection).removeClass('show');
         $(this).closest('.style_str_wrapper').find('h3.other-feature-on-off').removeClass('active');//.text($(this).text() === 'Show Others Control' ? 'Hide Others Control' : 'Show Others Control');
@@ -1365,7 +1275,6 @@ jQuery.fn.extend({
         e.preventDefault();
         $(this).toggleClass('active');
         $(this).closest('.wpt_column_setting_extra').find(findExtraSelection).toggleClass('show');
-        // $(this).text($(this).text() === 'Show Others Control' ? 'Hide Others Control' : 'Show Others Control');
 
         $(this).closest('.style_str_wrapper').find('.wpt-style-body').hide('fast');
         $(this).closest('.style_str_wrapper').find('h3.style-heading').removeClass('active');//.text($(this).text() === 'Show Style Control' ? 'Hide Style Control' : 'Show Style Control');
@@ -1467,7 +1376,6 @@ jQuery.fn.extend({
             var val = $(this).val();
             var text = $(this).text();
             return val + ' ' + text; // Get text from each element
-            return $(this).text(); // Get text from each element
         })
         .get() // Convert jQuery object to plain array
         .join(' ') // Join with space
@@ -1481,15 +1389,12 @@ jQuery.fn.extend({
 
         url.hash = 'search=' + searchTerm;
         window.history.replaceState(null, '', url);
-        // url.searchParams.set('search', searchTerm); // Add or update 'search' param
-        // window.history.replaceState(null, '', url);
     }
 
     $(document.body).on('input','#wpt-setting-search-input', function() {
         var searchTerm = $(this).val().replace(/\s+/g, ' ').trim();
         searchTerm = searchTerm.toLowerCase();
-        // console.log(searchTerm);
-        // urlUpdateBasedOnSearchTerm( searchTerm );
+
         if(searchTerm !== ''){
             $('.wpt-temp-menu-wrapper').hide();
         }else{
@@ -1498,15 +1403,13 @@ jQuery.fn.extend({
             $('.wpt-temp-menu-wrapper').find('a').last().trigger('click');
         }
 
-        
-
         var singlePanel = $('#wpt-main-configuration-form').find('.wpt-section-panel');
         singlePanel.each(function(){
             var selectedElName = 'td label, td input,td select option,.wpt-custom-select-box';
             var targetElement = $(this).find(selectedElName);
             var text = findOnlyText( targetElement ).toLowerCase();
             if(text == ''){return;}
-            // console.log(text);
+
             if (text.indexOf(searchTerm) > -1) {
 
                 $(this).show();
@@ -1517,7 +1420,7 @@ jQuery.fn.extend({
                     var towText = findOnlyText( targetRow ).toLowerCase();// $(this).find('label').text();
 
                    if(towText.indexOf(searchTerm) > -1 || tableHead.length > 0){
-                    // urlUpdateBasedOnSearchTerm( searchTerm );
+
                        $(this).show();
                    }else{
                        $(this).fadeOut('fast');
@@ -1549,15 +1452,11 @@ jQuery.fn.extend({
         var selectedKeyword = $(this).data('column_keyword');
 
         if ($(this).hasClass('item-enabled')) {
-            // console.log('Already enabled. Deselect:', selectedKeyword);
-            // Your custom de-select logic here
+
             // e.g., remove from active list, update UI, etc.
             $(this).removeClass('item-enabled');
         } else {
             $(this).addClass('item-enabled');
-            // console.log('New selection:', selectedKeyword);
-            // Your custom select logic here
-            // e.g., add to active list, mark as enabled, etc.
         }
 
         var $mainWrapper = $(this).closest('.inside-column-settings-wrapper .inside_tab_content.tab-content.tab-content-active');
@@ -1574,13 +1473,6 @@ jQuery.fn.extend({
         
         $(this).closest('.tab-content').find('.wpt_column_sortable li.wpt_sortable_peritem input.checkbox_handle_input[data-column_keyword="' + selectedKeyword + '"]').trigger('click');
 
-        // console.log('Selected:', selectedKeyword);
-        
-        // Hide dropdown after selection
-        // $dropdownContainer.hide();
-        
-        // You can call your custom function here if needed
-        // yourCustomFunction(selectedKeyword);
     });
 
     
@@ -1618,11 +1510,7 @@ var i;
 for (i = 0; i < coll.length; i++) {
   coll[i].addEventListener("click", function() {
     var content = this.nextElementSibling;
-    // if (content.style.display === "block") {
-    //   content.style.display = "none";
-    // } else {
-    //   content.style.display = "block";
-    // }
+
 
     if (content.style.display === "none") {
         content.style.display = "block";
