@@ -111,10 +111,16 @@ if( !function_exists( 'wpt_duplicate_link' ) ){
      * Add the duplicate link to action list for post_row_actions
      */
     function wpt_duplicate_link( $actions, $post ) {
-            if (current_user_can('edit_posts') && get_post_type($post->ID) == 'wpt_product_table') {
-                    $actions['duplicate'] = '<a href="' . wp_nonce_url('admin.php?action=wpt_duplicate_as_draft&post=' . $post->ID, basename(__FILE__), 'duplicate_nonce' ) . '" title="Duplicate this Product Table" rel="permalink">Duplicate Product Table</a>';
-            }
-            return $actions;
+        if( get_post_type($post->ID) !== 'wpt_product_table' ) return $actions;
+        if(isset( $actions['edit'] )){
+              $actions['edit'] = '<a href="' . get_edit_post_link( $post->ID ) . '" title="Edit this Product Table" rel="permalink"><i class="wpt-cog-alt"></i> Edit Table</a>';  
+        }
+        if(isset( $actions['view'] )) unset($actions['view']);
+        if(isset( $actions['inline hide-if-no-js'] )) unset($actions['inline hide-if-no-js']);
+        if (current_user_can('edit_posts') ) {
+                $actions['duplicate'] = '<a href="' . wp_nonce_url('admin.php?action=wpt_duplicate_as_draft&post=' . $post->ID, basename(__FILE__), 'duplicate_nonce' ) . '" title="Duplicate this Product Table" rel="permalink"><i class="wpt-table"></i> Duplicate</a>';
+        }
+        return $actions;
     }
 }
 add_filter( 'post_row_actions', 'wpt_duplicate_link', 10, 2 );
