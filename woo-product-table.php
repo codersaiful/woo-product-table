@@ -559,8 +559,6 @@ class WPT_Product_Table{
      */
     public function admin_notice_minimum_php_version() {
 
-           if ( isset( $_GET['activate'] ) ) unset( $_GET['activate'] );
-
            $message = sprintf(
                    /* translators: 1: Plugin name 2: PHP 3: Required PHP version */
                    esc_html__( '"%1$s" requires "%2$s" version %3$s or greater.', 'woo-product-table' ),

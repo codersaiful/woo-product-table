@@ -29,12 +29,20 @@
 
                             <?php
                                 $add_new_col_type = array(
-                                    'custom_field' => __( 'Custom Field', 'woo-product-table' ),
                                     'taxonomy' => __( 'Taxonomy', 'woo-product-table' ),
                                     'default' => __( 'Type None', 'woo-product-table' ),
                                 );
                                 
+                                if( wpt_is_pro() ){
+                                    $add_new_col_type = array(
+                                        'custom_field' => __( 'Custom Field', 'woo-product-table' ),
+                                        'taxonomy' => __( 'Taxonomy', 'woo-product-table' ),
+                                        'default' => __( 'Type None', 'woo-product-table' ),
+                                    );
+                                }
                                 if( ! wpt_is_pro() ){
+                                    
+                                    $add_new_col_type[] = __( 'Custom Field', 'woo-product-table' );
                                     $add_new_col_type[] = __( 'Blank', 'woo-product-table' );
                                     $add_new_col_type[] = __( 'Advance Custom Field', 'woo-product-table' );
                                     $add_new_col_type[] = __( 'Action Hooks', 'woo-product-table' );
