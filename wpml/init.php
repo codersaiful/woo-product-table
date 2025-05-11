@@ -12,7 +12,7 @@ $wpt_current_lang = apply_filters( 'wpml_current_language', NULL );
 if( empty( $wpt_current_lang ) ) return null;
 
 global $sitepress;
-// var_dump($sitepress->get_active_languages());
+
 if(is_admin()){
     include_once WPT_WPML_PATH . 'admin-area.php';
 }

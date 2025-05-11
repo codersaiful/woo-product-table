@@ -137,10 +137,7 @@ if( ! function_exists( 'wpt_texonomy_search_generator' ) ){
                 $tx_order = wpt_get_config('sort_searchbox_filter');
                 if( $tx_order == 'ASC' ) return $prev->name > $next->name ? 1 : -1;
                 if( $tx_order == 'DESC' ) return $prev->name > $next->name ? -1 : 1;
-                
-             
-                // if($prev->name == $next->name) return 0;
-                // var_dump($prev->name,$next->name);
+
                 return 0;
             });
         }

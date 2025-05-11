@@ -364,7 +364,7 @@ foreach($terms as $term){
                 $t_name = $taxonomy->labels->singular_name ?? '';
                 //WooCommerce Product Category Object as Array
                 $tax_object = get_terms( $per_keyword );
-                // dd($tax_object);
+
                 if( !isset( $tax_object->errors ) ){
                     $my_tax_obj = [];
                     foreach($tax_object as $key => $value){

@@ -369,57 +369,43 @@ if( ! function_exists( 'wpt_column_add_extra_items' ) ){
         }
         ?>
         <div class="column_add_extra_items extra-inner-item-wrapper">
-        <label for="<?php echo esc_attr( "column_settings{$_device_name}_{$keyword}" ); ?>"><?php echo esc_html__( 'Select multiple inner items:', 'woo-product-table' ); ?><?php wpt_doc_link('https://wooproducttable.com/docs/doc/table-options/select-multiple-inner-items/'); ?></label>
-        
-        <?php
-        $select = "";
-        $items_columns = $columns_array;
-        $items_columns = apply_filters( 'wpto_inside_item_arr', $items_columns, $keyword, $column_settings, $post );
-        $items_columns = apply_filters( 'wpto_inside_item_arr_' . $keyword, $items_columns, $column_settings, $post );
-        foreach($items_columns as $key => $key_val){
-            $seleced = in_array( $key,$items ) ? 'checked' : false;
-            $seleced_option = in_array( $key,$items ) ? 'selected' : false;
-            $unique_id = $keyword . '_' . $key . '_' . $_device_name;
-            $select .= "<option value='" . esc_attr( $key ) . "' " . esc_attr( $seleced_option ) . "> " . esc_html( $key_val . " - " . $key ) . "</option>";
-
-        }
-        ?>
-
-        <select 
-            class="internal_select" 
-            multiple="multiple" 
-            id="<?php echo esc_attr( "column_settings{$_device_name}_{$keyword}" ); ?>"
-            name="<?php echo esc_attr( "column_settings{$_device_name}[{$keyword}][items][]" ); ?>"
-            >
-            <?php 
-            $allowed_atts = array(
-                'class'      => array(),
-                'id'         => array(),
-                'xml:lang'   => array(),
-                'value'      => array(),
-                'selected'   => array(),
-            );
-
-            echo wp_kses( $select, array(
-                'option' => $allowed_atts
-            ) ); ?>
-        </select>
-
-        <!-- <p class="wpt-inter-trigger-wrapper">
-        <?php
-            foreach( $_items as $_item ){
-            $_target_key = $_item;
-            $_target_name = $items_columns[$_item] ?? "";
-        ?>
-        <span class="wpt-inner-trigger" data-target="<?php echo esc_attr( $_target_key ); ?>" ><?php echo esc_html( $_target_name ); ?></span>
-        <?php } ?>
-        </p> -->
-        </div>
-        <!-- <div class="inside-column-edit">
+            <label for="<?php echo esc_attr( "column_settings{$_device_name}_{$keyword}" ); ?>"><?php echo esc_html__( 'Select multiple inner items:', 'woo-product-table' ); ?><?php wpt_doc_link('https://wooproducttable.com/docs/doc/table-options/select-multiple-inner-items/'); ?></label>
+            
             <?php
-            // var_dump($_items);
+            $select = "";
+            $items_columns = $columns_array;
+            $items_columns = apply_filters( 'wpto_inside_item_arr', $items_columns, $keyword, $column_settings, $post );
+            $items_columns = apply_filters( 'wpto_inside_item_arr_' . $keyword, $items_columns, $column_settings, $post );
+            foreach($items_columns as $key => $key_val){
+                $seleced = in_array( $key,$items ) ? 'checked' : false;
+                $seleced_option = in_array( $key,$items ) ? 'selected' : false;
+                $unique_id = $keyword . '_' . $key . '_' . $_device_name;
+                $select .= "<option value='" . esc_attr( $key ) . "' " . esc_attr( $seleced_option ) . "> " . esc_html( $key_val . " - " . $key ) . "</option>";
+
+            }
             ?>
-        </div> -->
+
+            <select 
+                class="internal_select" 
+                multiple="multiple" 
+                id="<?php echo esc_attr( "column_settings{$_device_name}_{$keyword}" ); ?>"
+                name="<?php echo esc_attr( "column_settings{$_device_name}[{$keyword}][items][]" ); ?>"
+                >
+                <?php 
+                $allowed_atts = array(
+                    'class'      => array(),
+                    'id'         => array(),
+                    'xml:lang'   => array(),
+                    'value'      => array(),
+                    'selected'   => array(),
+                );
+
+                echo wp_kses( $select, array(
+                    'option' => $allowed_atts
+                ) ); ?>
+            </select>
+
+        </div>
         <?php
     }
 }
@@ -522,7 +508,6 @@ function wpt_config_translate( $config_value, $table_ID = false ){
     }, $config_value );
 
     //Actually we will change this bellow filter keyword, removed o from wpt
-    // $config_value = apply_filters( 'wpto_get_config_value', $config_value, $table_ID );
     $config_value = apply_filters( 'wpt_get_config_value', $config_value, $table_ID );
 
     return $config_value;
@@ -700,7 +685,7 @@ function wpt_wp_dropdown_categories( $args = '', $get_taxonomy = false ) {
 		} else {
 			$depth = -1; // Flat.
 		}
-                //var_dump($categories, $depth, $parsed_args);
+
 		$output .= walk_category_dropdown_tree( $categories, $depth, $parsed_args );
 	}
 
@@ -770,8 +755,7 @@ if( ! function_exists( 'wpt_pagination_by_args' ) ){
          * 
          * @since 3.1.9.3
          */
-        // $args = apply_filters( 'wpto_table_query_args', $args, $temp_number, $whole_data, false, false, false );
-        
+
         if( $args ){
             $html .= "<div class='wpt_table_pagination' data-temp_number='{$temp_number}' data-whole_data='". esc_attr( wp_json_encode( $whole_data ) ) ."'>";
             $paginate = wpt_paginate_links( $args );

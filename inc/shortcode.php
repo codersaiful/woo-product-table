@@ -285,8 +285,7 @@ class Shortcode extends Shortcode_Base{
 
         if( $this->error_name ) Msg::handle($this);
         if( ! $this->table_display ) return;
-        // var_dump($this->product_loop);
-        //wpto_action_table_wrapper_top
+
         ob_start();
         
         ?>
@@ -460,7 +459,6 @@ class Shortcode extends Shortcode_Base{
         $page_number = $this->max_num_pages > 0 ? $this->page_number : 0; 
         $display_count = "$min_one - $this->product_count";
 
-        // var_dump($this->found_posts);
         $display_pagN = $page_number;
         if( $this->paginated_load && $page_number > 1 ){
             $prev_ttl_post = ( $page_number - 1 ) * $this->posts_per_page;
@@ -498,7 +496,7 @@ class Shortcode extends Shortcode_Base{
         $this->status = get_post_status( $this->table_id );
         $this->post_type = get_post_type( $this->table_id );
         $this->unique_id = str_shuffle("CodeAstrologySaifulIslam");
-        // set_query_var( 'woo_product_table', $this->table_id );
+
         set_query_var( $this->req_post_type, $this->table_id );
 
         $this->is_table = $this->table_id && $this->post_type == $this->req_post_type && $this->status == 'publish';
@@ -971,7 +969,7 @@ class Shortcode extends Shortcode_Base{
         if ($this->orderby == 'random') {
             shuffle( $product_loop->posts );
         }
-        // var_dump($this->product_loop);
+
         /**
          * @deprecated 3.2.4.2 wpto_product_loop filter will removed in next version
          */

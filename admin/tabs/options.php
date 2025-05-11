@@ -258,7 +258,6 @@ $data = isset( $meta_basics['data'] ) ? $meta_basics['data'] : false;
                 </th>
                 <td>
                     <?php
-                    // var_dump($meta_basics);
                     $stats_page_count_text = $meta_basics['stats_page_count'] ?? '';// __( 'Page %s out of %s', 'woo-product-table' );
                     if(property_exists($post, 'post_status') && $post->post_status == 'auto-draft'){
                         /* translators: 1: current page number 2: total page count */

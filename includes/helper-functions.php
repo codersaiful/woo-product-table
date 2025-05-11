@@ -41,8 +41,7 @@ if( ! function_exists( 'wpt_ajax_add_to_cart' ) ){
         $cart_item_data = apply_filters('wpto_cart_meta_by_additional_json', $cart_item_data, $additinal_json, $product_id, $data);
 
         wpt_adding_to_cart( $product_id, $quantity, $variation_id, $variation, $cart_item_data );
-        // var_dump( $product_id, $quantity, $variation_id, $variation, $cart_item_data );
-        
+
         die();
     }
 }

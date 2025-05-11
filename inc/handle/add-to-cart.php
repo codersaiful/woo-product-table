@@ -12,13 +12,16 @@ class Add_To_Cart extends Shortcode_Ajax{
     }
 
     public function wpt_add_to_cart(){
-        // $atts = ['id' => 19674];
-        // $this->assing_property($atts);
-        // var_dump($this);
 
-        $product_id = $_POST['product_id'] ?? 0;
-        $quantity = $_POST['quantity'] ?? 1;
-        $variation_id = $_POST['variation_id'] ?? 0;
+        //Nonce verification
+        $nonce = sanitize_text_field(   wp_unslash( $_GET['cart_nonce'] ?? ''));
+        if ( empty($nonce) || ! wp_verify_nonce( $nonce, WPT_PLUGIN_FOLDER_NAME ) ) {
+            return;
+        }
+
+        $product_id = absint(   wp_unslash( $_POST['product_id'] ?? ''));
+        $quantity = sanitize_text_field(   wp_unslash( $_POST['quantity'] ?? 1 ));
+        $variation_id = absint(   wp_unslash( $_POST['variation_id'] ?? ''));
 
         WC()->cart->add_to_cart($product_id,$quantity,$variation_id);
         echo 'Added';
@@ -26,6 +29,6 @@ class Add_To_Cart extends Shortcode_Ajax{
     }
 
     public function add_to_cart(){
-        // WC()->cart->add_to_cart()
+
     }
 }

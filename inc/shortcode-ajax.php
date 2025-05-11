@@ -36,7 +36,7 @@ class Shortcode_Ajax extends Shortcode{
         $temp_args = $args;
         unset($temp_args['base_link']);
         $this->args_ajax_called = true;
-        // dd($args);
+
         /**
          * we need to track reset button click of search box.
          * 
@@ -336,13 +336,11 @@ class Shortcode_Ajax extends Shortcode{
         $Cart = WC()->cart->cart_contents;
         if( is_array( $Cart ) && count( $Cart ) > 0 ){
             foreach($Cart as $cart_item_key => $perItem){
-                // var_dump($cart_item_key,$perItem);
                 $pr_id = $perItem['product_id'];
 
                 $pqt_value = $perItem['quantity'];
                 $total_qty = isset( $qtys[$pr_id] ) ? $qtys[$pr_id] + $pqt_value : $pqt_value;
                 $qtys[$pr_id] =  round($total_qty, 5);
-                // $qtys[$pr_id] = $total_qty;
 
                 $per_items[$pr_id]['cart_item_key'] = $cart_item_key;
                 $per_items[$pr_id]['quantity'] = $qtys[$pr_id];
@@ -359,7 +357,6 @@ class Shortcode_Ajax extends Shortcode{
         }
         $output['per_items'] = $per_items;
 
-        // var_dump($output);
         wp_send_json( $output );
         
         die();
@@ -388,14 +385,11 @@ class Shortcode_Ajax extends Shortcode{
             if($cart_item_key === $req_cart_item_key){
                 WC()->cart->set_quantity( $cart_item_key, 0, true );
                 $removed = true;
-                // break;
             }
             if( $product_id && ( $cart_item_data['product_id'] == $product_id || $cart_item_data['variation_id'] == $product_id ) ){
 
                 WC()->cart->set_quantity( $cart_item_key, 0, true );
                 $removed = true;
-                // break;
-
             }
             
         }

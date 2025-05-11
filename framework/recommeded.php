@@ -39,11 +39,9 @@ class Recommeded
         $pssg_message = __('Help you to connect your WooCommerce website with Google Sheet as well as Manage your Stock easy from one menu with Advance Filter','woo-product-table');
         $req_pssg->set_message($pssg_message);
         $req_pssg->get_full_this_plugin_name($this_plugin);
-        // var_dump(method_exists($req_pssg, 'set_location'),$req_pssg);
-        // ->set_required();
+
         if( method_exists($req_pssg, 'set_location') ){
             $req_pssg->set_location('wpto_column_setting_form_quantity'); //wpt_premium_image_bottom
-            // $req_pssg->set_location('wpto_column_setting_form_inside_quantity'); //wpt_premium_image_bottom
             $req_pssg->run();
 
             $req_pssg->get_full_this_plugin_name($this_plugin2);
@@ -64,11 +62,9 @@ class Recommeded
         $mmp_message = __('If you want to set CONDITION for minimum and maximum limit and want to control step, then you can install it. Otherwise ignore it.','woo-product-table');
         $req_mmp->set_message($mmp_message);
         $req_mmp->get_full_this_plugin_name($this_plugin);
-        // var_dump(method_exists($req_mmp, 'set_location'),$req_mmp);
-        // ->set_required();
+
         if( method_exists($req_mmp, 'set_location') ){
             $req_mmp->set_location('wpto_column_setting_form_quantity'); //wpt_premium_image_bottom
-            // $req_mmp->set_location('wpto_column_setting_form_inside_quantity'); //wpt_premium_image_bottom
             $req_mmp->run();
 
             $req_mmp->get_full_this_plugin_name($this_plugin2);
@@ -86,9 +82,8 @@ class Recommeded
         $pmb_message = __('If you want to set plus minus button for your Quantity Box, you can Install this plugin. If already by your theme, ignore it.','woo-product-table');
         $req_pmb->set_message($pmb_message);
         $req_pmb->get_full_this_plugin_name($this_plugin);
-        // ->set_required();
+
         if( method_exists($req_pmb, 'set_location') ){
-            // $req_pmb->set_location('wpto_column_setting_form_quantity'); //wpt_premium_image_bottom
             $req_pmb->set_location('wpto_column_setting_form_inside_quantity'); //wpt_premium_image_bottom
             $req_pmb->run();
             
@@ -106,7 +101,7 @@ class Recommeded
         $pmb_message = __('There are many WooCommerce Widget available at UltraAddons. You can Try it. Just Recommended','woo-product-table');
         $req_pmb->set_message($pmb_message);
         $req_pmb->get_full_this_plugin_name($this_plugin);
-        // ->set_required();
+
         if( method_exists($req_pmb, 'set_location') && did_action( 'elementor/loaded' ) ){
 
             $req_pmb->get_full_this_plugin_name($this_plugin2);

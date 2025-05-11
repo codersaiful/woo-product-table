@@ -414,8 +414,6 @@ class Row extends Table_Base{
         ?>
         </tr>
         <?php
-
-        // var_dump($this);
     }
 
     /**

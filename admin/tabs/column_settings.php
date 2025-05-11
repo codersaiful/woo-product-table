@@ -2,8 +2,7 @@
 $default_enable_array = WPT_Product_Table::$default_enable_columns_array;
 
 $columns_array = WPT_Product_Table::$columns_array;
-//asort($columns_array);
-//var_dump(WPT_Product_Table::$columns_array);
+
 $for_add =  $meta_column_array = $updated_columns_array = get_post_meta( $post->ID, 'column_array', true );
 
 if( !$meta_column_array && empty( $meta_column_array ) ){
@@ -11,11 +10,8 @@ if( !$meta_column_array && empty( $meta_column_array ) ){
 }
 if( $updated_columns_array && !empty( $updated_columns_array ) && !empty( $columns_array ) ){
     $columns_array = $columns_array + $updated_columns_array;
-    // $columns_array = array_merge( $columns_array, $updated_columns_array );
 }
 
-//var_dump(array_merge( $columns_array,$updated_columns_array ));
-//unset($columns_array['description']); //Again Start Description Column From V6.0.25
 $meta_enable_column_array = get_post_meta( $post->ID, 'enabled_column_array', true );
 if( is_array( $meta_enable_column_array ) && !empty( $meta_enable_column_array ) && !empty( $columns_array ) ){
     $columns_array = $columns_array + $meta_enable_column_array;
@@ -30,11 +26,7 @@ if( empty( $column_settings ) ){
 
 $additional_collumn = array_diff(array_keys($for_add), array_keys( WPT_Product_Table::$columns_array ));
 
-//var_dump($meta_enable_column_array,array_merge($meta_enable_column_array,$columns_array));
-
-//var_dump( $meta_enable_column_array, $columns_array );
 if( is_array( $meta_enable_column_array ) && !empty( $meta_enable_column_array ) ){
-    //$columns_array = array_merge( $meta_enable_column_array, array_diff( $columns_array, $meta_enable_column_array ));
     $final_cols_arr = $meta_enable_column_array;
 }else{
    $final_cols_arr = $default_enable_array; 
@@ -43,13 +35,6 @@ if( is_array( $meta_enable_column_array ) && !empty( $meta_enable_column_array )
 if( !is_array( $final_cols_arr ) ){
     return;
 }
-
-
-//$columns_array = array_merge($meta_enable_column_array,array_diff($columns_array,$meta_enable_column_array));
-//var_dump($columns_array,$meta_enable_column_array);
-
-
-//var_dump($updated_columns_array,$meta_enable_column_array);
 
 /**
  * Some input name keyword as variable
@@ -143,7 +128,6 @@ $_device_name = '';
 
                 $meta_basics = get_post_meta( $post->ID, 'basics', true );
                 $responsive_switch = isset( $meta_basics['responsive_switch'] ) ? 'checked="checked"' : '';
-                // var_dump($responsive_switch);
                 ?>
                 <input name="basics[responsive_switch]" type="checkbox" id="responsive_switch-switcher" <?php echo esc_attr( $responsive_switch ); ?>>
                 <div class="slider round"><!--ADDED HTML -->

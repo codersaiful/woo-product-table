@@ -60,25 +60,16 @@ $extra_character = [
                 <div class="wpt-dropdown-container-insider">
                     <input type="text" id="wpt-search" placeholder="Search column..." class="wpt-column-search-box" />
                     <ul id="wpt-dropdown-list" class="wpt-dropdown-list">
-                    <?php 
-                    /*********************/
-                // $available_column_array = $columns_array;
+                <?php 
 
-                // sort columns array by title
-                // rsort($available_column_array);
-                
-
-
-                // asort($available_column_array);
                 foreach( $available_column_array as $keyword => $title ){ 
-                    // dd($keyword);
+
                     $updated_title = isset( $updated_columns_array[$keyword] ) ? $updated_columns_array[$keyword] : $title;
 
                     $enabled_class = '';
                     if( in_array( $keyword, array_keys( $enabledd_column_array ) ) ){
                         $enabled_class = 'item-enabled';
                     }
-
 
                     //eta specially pro badge dekhanor jonno ebong eta js er maddhome off kore dite hobe, jodi disabled thake
                     $premium = in_array( $keyword, array_keys( $premium_column ) ) ? 'premium' : '';
@@ -91,7 +82,7 @@ $extra_character = [
                         <?php echo esc_html( $updated_title ); ?><i>[<?php echo esc_html( $keyword ); ?>]</i>
                 </li>
                 <?php }
-                //*****************/
+
                 ?>
                     </ul>
                 </div>

@@ -193,7 +193,7 @@ class Page_Loader extends Base
         if($exp_timestamp < time()){
 
             $this->exp_timestamp = $exp_timestamp;
-            // var_dump($this->license_data);
+
             if($this->license_status == 'valid'){
                 $this->invalid_status = 'invalid';
                 $this->license_data->license = $this->invalid_status;
