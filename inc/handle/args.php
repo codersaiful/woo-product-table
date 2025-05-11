@@ -298,8 +298,6 @@ class Args{
      */
     public static function get_parent_ids_by_term(){
         global $wpdb;
-        $type = 'term_id';
-        $prepare = array();
         $results = $terms = [];
         
         foreach( self::$tax_query as $tax_details){
@@ -307,20 +305,33 @@ class Args{
             $terms_genArr = ! empty( $tax_details['terms'] ) && is_numeric( $tax_details['terms'] ) ? [ $tax_details['terms'] ] : [];
             $terms = is_array( $tax_details['terms'] ) ? $tax_details['terms'] : $terms_genArr;
             $taxonomy = $tax_details['taxonomy'];
-            foreach($terms as $term){
-                $s_result = $wpdb->get_col( "
-                SELECT DISTINCT p.ID
-                FROM {$wpdb->prefix}posts as p
-                INNER JOIN {$wpdb->prefix}posts as p2 ON p2.post_parent = p.ID
-                INNER JOIN {$wpdb->prefix}term_relationships as tr ON p.ID = tr.object_id
-                INNER JOIN {$wpdb->prefix}term_taxonomy as tt ON tr.term_taxonomy_id = tt.term_taxonomy_id
-                INNER JOIN {$wpdb->prefix}terms as t ON tt.term_id = t.term_id
-                WHERE p.post_type = 'product'
-                AND p.post_status = 'publish'
-                AND p2.post_status = 'publish'
-                AND tt.taxonomy = '$taxonomy'
-                AND t.$type = '$term'
-                " );
+            foreach($terms as $term_id){
+
+
+                $cache_key = 'wpt_parent_by_term_' . $term_id;
+                $s_result = wp_cache_get( $cache_key );
+
+                if ( false === $s_result ) {
+                    $s_result = $wpdb->get_col( 
+                        $wpdb->prepare("SELECT DISTINCT p.ID
+                        FROM {$wpdb->prefix}posts as p
+                        INNER JOIN {$wpdb->prefix}posts as p2 ON p2.post_parent = p.ID
+                        INNER JOIN {$wpdb->prefix}term_relationships as tr ON p.ID = tr.object_id
+                        INNER JOIN {$wpdb->prefix}term_taxonomy as tt ON tr.term_taxonomy_id = tt.term_taxonomy_id
+                        INNER JOIN {$wpdb->prefix}terms as t ON tt.term_id = t.term_id
+                        WHERE p.post_type = 'product'
+                        AND p.post_status = 'publish'
+                        AND p2.post_status = 'publish'
+                        AND tt.taxonomy = %s
+                        AND t.term_id = %d",$taxonomy, $term_id)
+                    );    
+
+                    // Cache the result for future use
+                    wp_cache_set( $cache_key, $s_result, '', 3600 );
+                }
+
+
+                
                 if( !is_array($s_result) ) continue;
                 $results = array_merge($results, $s_result );
             }
