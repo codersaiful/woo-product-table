@@ -2262,6 +2262,8 @@ div.wpt-content p.wpt-issue-submit a {
     letter-spacing: 0;
     font-style: normal;
     background: transparent;
+    white-space: nowrap;
+    line-height: 31px;
 }
 div.wpt-content a.wpt-create-ticket {
     background: #aeaeae !important;
