@@ -14,7 +14,7 @@ if( $updated_columns_array && !empty( $updated_columns_array ) && !empty( $colum
 
 $meta_enable_column_array = get_post_meta( $post->ID, 'enabled_column_array', true );
 if( is_array( $meta_enable_column_array ) && !empty( $meta_enable_column_array ) && !empty( $columns_array ) ){
-    $columns_array = $columns_array + $meta_enable_column_array;
+    $columns_array = $meta_enable_column_array + $columns_array;
     
 }
 
