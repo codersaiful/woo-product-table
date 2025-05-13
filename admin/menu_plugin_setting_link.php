@@ -17,7 +17,6 @@ if( !function_exists( 'wpt_add_action_links' ) ){
         $wpt_links[] = '<a href="' . admin_url( 'post-new.php?post_type=wpt_product_table' ) . '" title="' . esc_attr__( 'Add Table', 'woo-product-table' ) . '">' . esc_html__( 'Create Table', 'woo-product-table' ).'</a>';
         $wpt_links[] = '<a href="' . admin_url( 'edit.php?post_type=wpt_product_table&page=woo-product-table-config' ) . '" title="' . esc_attr__( 'Table Settings', 'woo-product-table' ) . '">' . esc_html__( 'Table Settings', 'woo-product-table' ) . '</a>';
         $wpt_links[] = '<a href="https://codeastrology.com/my-support/?utm_source=Product+Table+Dashboard&utm_medium=Free+Version" title="' . esc_attr__( 'CodeAstrology Support', 'woo-product-table' ) . '" target="_blank">'.esc_html__( 'Support','woo-product-table' ).'</a>';
-        // $wpt_links[] = '<a href="https://github.com/codersaiful/woo-product-table" title="' . esc_attr__( 'Github Repo Link', 'woo-product-table' ) . '" target="_blank">'.esc_html__( 'Github Repository','woo-product-table' ).'</a>';
 
         return array_merge( $wpt_links, $links );
     }                                       
