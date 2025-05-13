@@ -244,7 +244,14 @@ img.wpt-license-brand-logo {
     display: inline-block;
     margin-bottom: -8px;
 }
-
+a.wpt-wp-plugin-list-link {
+    color: red;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+a.wpt-wp-plugin-list-link:hover {
+    color: black;
+}
 
 
 
