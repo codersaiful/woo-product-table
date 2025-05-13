@@ -336,6 +336,11 @@ You can easily show specific category products. While creating new table click o
 
 == Changelog ==
 
+= 5.0.1 =
+* Fixed: Column arranging issue from dashboard issue has been fixed.
+* Code Optimized
+* Bug fixed 
+
 = 5.0.0 =
 * Tested with latest WordPress version 6.8.1
 * Fixed: Vulnerability issue fixed.
