@@ -17,7 +17,7 @@ if( ! function_exists( 'wpt_shortcode_metabox' ) ){
     function wpt_shortcode_metabox(){
 
         add_meta_box( 'wpt_shortcode_metabox_id', 'Shortcode', 'wpt_shortcode_metabox_render', 'wpt_product_table', 'normal' );
-        add_meta_box( 'wpt_shortcode_configuration_metabox_id', 'Table Configuration', 'wpt_shortcode_configuration_metabox_render', 'wpt_product_table', 'normal' ); //Added at 4.1.4
+        add_meta_box( 'wpt_shortcode_configuration_metabox_id', 'Table Modification', 'wpt_shortcode_configuration_metabox_render', 'wpt_product_table', 'normal' ); //Added at 4.1.4
         //add_meta_box( 'wpt_column_panel_metabox_id', __( 'Available Columns', 'woo-product-table' ), 'wpt_column_panel_metabox_render', 'wpt_product_table', 'side', 'low' ); //Added at 4.1.4
         
     }
@@ -26,9 +26,14 @@ if( ! function_exists( 'wpt_shortcode_metabox' ) ){
 if( ! function_exists( 'wpt_column_panel_metabox_render' ) ){
 
     /**
+     * HAS BEEN REMOVED
+     * it was removed from 4.1.4
+     * It's a Deprecated function. Now it's not using.
+     * 
      * This function showing column panel 
      * 
      * @since 2.7.8.1
+     * @deprecated version 4.1.4
      */
     function wpt_column_panel_metabox_render(){
 
