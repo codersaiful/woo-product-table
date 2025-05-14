@@ -39,7 +39,7 @@ $wrapper_class = isset($settings['module']) ? $settings['module'] : '';
             
             <div class="wpt-configure-form-header">
                 <div class="wpt-configure-tab-wrapper wpt-temp-menu-wrapper wpt-section-panel no-background"></div>
-                <input type="text" id="wpt-setting-search-input" class="wpt-setting-search-input" placeholder="Search settings by label/value/anything">
+                <input type="text" id="wpt-setting-search-input" class="wpt-setting-search-input" placeholder="🔍 Search settings by label/value/anything">
             </div>
 
 
