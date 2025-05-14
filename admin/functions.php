@@ -208,7 +208,14 @@ if (!function_exists('wpt_column_style_for_all')) {
      */
     function wpt_column_style_for_all($keyword, $_device_name, $column_settings, $columns_array, $updated_columns_array, $post, $additional_data)
     {
+        switch( $keyword ){
+            case 'check':
+            case 'tick':
+            case 'serial_number':
+            case 'total':
+            case 'product_id': return;
 
+        }
         $style_property = isset($additional_data['css_property']) && is_array($additional_data['css_property']) ? $additional_data['css_property'] : array();
         $class_name = "style_str{$_device_name}_{$keyword}";
 

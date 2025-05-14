@@ -350,8 +350,13 @@ tr.wpt-row.wpt-added-to-cart>td:first-child:before {
   left: 0;
   height: 100%;
 }
-
-div.wpt_table_tag_wrapper tr.wpt-row.wpt-added-to-cart>td.wpt_tick:before {
+div.wpt_table_tag_wrapper tr.wpt-row.wpt-added-to-cart div.wpt_tick.item_inside_cell,
+div.wpt-wrap table.wpt_product_table tbody tr.wpt_row td.td_or_cell.wpt_tick {
+    position: relative;
+    padding: 0;
+}
+div.wpt_table_tag_wrapper tr.wpt-row.wpt-added-to-cart td>div.wpt_tick.item_inside_cell:before,
+div.wpt_table_tag_wrapper tr.wpt-row.wpt-added-to-cart div.item_inside_cell.wpt_tick:before {
     content: "\e811";
     font-family: 'wptfontelo';
     color: var(--wpt_cart_highliter);

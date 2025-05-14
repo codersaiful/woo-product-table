@@ -283,6 +283,15 @@ if( ! function_exists( 'wpt_column_tag_for_all' ) ){
 
     function wpt_column_tag_for_all( $keyword, $_device_name, $column_settings ){
 
+        switch( $keyword ){
+            case 'check':
+            case 'tick':
+            case 'serial_number':
+            case 'total':
+            case 'product_id': return;
+
+        }
+
         $input_one = isset( $column_settings[$keyword]['input_one'] ) ? $column_settings[$keyword]['input_one'] : false;
         $tag_value = isset( $column_settings[$keyword]['tag'] ) ? $column_settings[$keyword]['tag'] : false;
 
@@ -336,6 +345,7 @@ if( ! function_exists( 'wpt_column_add_extra_items' ) ){
         // if( $keyword == 'check' || $keyword == 'product_id' ) return;
         switch( $keyword ){
             case 'check': return;
+            case 'tick': return;
             case 'serial_number': return;
             case 'total': return;
             case 'product_id': return;
