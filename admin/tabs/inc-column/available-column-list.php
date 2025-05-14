@@ -41,6 +41,8 @@ $extra_character = [
     'message' => 'message, note, comment',
     'short_description' => 'short description, product details, overview',
     'quantity' => 'quantity, amount, count, qty, minimum, maximum, min, max',
+    'tick' => 'tick, sign, tik, yes, no, true, false',
+    'check' => 'check,checkbox, yes, no, true, false, checked, unchecked',
 ];
 ?>
 <!-- Enable Active Column -->

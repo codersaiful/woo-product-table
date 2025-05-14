@@ -101,6 +101,7 @@ include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 WPT_Product_Table::getInstance();
 
 $column_array = array(
+    'tick'         => __( 'Tick', 'woo-product-table' ),
     'check'         => __( 'Check', 'woo-product-table' ),
     'thumbnails'    => __( 'Thumbnails', 'woo-product-table' ),
     'product_title' => __( 'Products', 'woo-product-table' ),
@@ -137,7 +138,7 @@ $column_array = array(
 $column_array = apply_filters( 'wpto_default_column_arr', $column_array );
 WPT_Product_Table::$columns_array =  $column_array;
 $default_enabled_col_array = array(
-    // 'check'         => 'check',  
+    'tick'         => 'tick',  
     'thumbnails'    => 'thumbnails',  
     'product_title' => 'product_title',  
     'quantity'      => 'quantity',  

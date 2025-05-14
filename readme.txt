@@ -336,6 +336,11 @@ You can easily show specific category products. While creating new table click o
 
 == Changelog ==
 
+= 5.0.2 =
+* Added: new column Tick sign added for showing status of add to cart button event.
+* Code Optimized
+* Bug fixed 
+
 = 5.0.1 =
 * Fixed: Column arranging issue from dashboard issue has been fixed.
 * Code Optimized

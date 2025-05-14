@@ -1845,3 +1845,12 @@ body[class^="wpt-"]:before, body[class*=" wpt-"]:before {
 .wpt_product_title .item_inside_cell.wpt_category {
     display: inline-block;
 }
+.wpt-wrap table thead tr.wpt_table_header_row th.wpt_tick {
+    opacity: 0;
+}
+
+.wpt-wrap table thead tr.wpt_table_header_row .wpt_tick {
+    width: 20px;
+    padding: 0px;
+    margin: 0;
+}
