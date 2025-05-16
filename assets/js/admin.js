@@ -1292,7 +1292,7 @@ jQuery.fn.extend({
         var selectedTemplate = $(this).data('template');
         $('#selected_template').val(selectedTemplate);
     });
-    $('html body').append('<div id="template-preview-popup" class="template-preview-popup"><img src="" alt="Template Preview"></div>');
+    $('html body.post-type-wpt_product_table').append('<div id="template-preview-popup" class="template-preview-popup"><img src="" alt="Template Preview"></div>');
     
 
     var $popup = $('#template-preview-popup');

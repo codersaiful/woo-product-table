@@ -80,6 +80,12 @@ if( !function_exists( 'wpt_admin_js_fast_load' ) ){
      * For first load, It's specially loaded
      */
     function wpt_admin_js_fast_load(){
+
+        global $current_screen;
+
+        $s_id = isset( $current_screen->id ) ? $current_screen->id : '';
+        if( strpos( $s_id, 'wpt' ) === false ) return;
+
         wp_register_script( 'select2-wpt', WPT_Product_Table::getPath( 'BASE_URL' ) . 'assets/select2/js/select2.min.js', array( 'jquery' ), '4.0.13', true );
         if( 'wpt_product_table' == get_current_screen()->post_type ){
             wp_enqueue_script( 'select2-wpt' );
