@@ -954,7 +954,7 @@ if( ! function_exists( 'wpt_limit_words' ) ){
      * Making new String/description based on word Limit.
      * 
      * @param String $string
-     * @param Integer $word_limit
+     * @param int $word_limit
      * @return String
      */
     function wpt_limit_words( $string = '', $word_limit = 10 ){
