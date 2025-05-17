@@ -28,14 +28,7 @@ li#menu-posts-wpt_product_table ul.wp-submenu.wp-submenu-wrap:hover li>a>i {
 li#menu-posts-wpt_product_table .wp-menu-name {
     font-size: 97%;
     background: linear-gradient(90deg, #515c4a4d, #2271b133, #4caf5033);
-    
-    /* background: linear-gradient(90deg, #b2ff7e4d, #ff758c0f, #e208ff99); */
-    /* background: linear-gradient(90deg, #b2ff7e4d, #ff758c0f, #e208ff99); */
     background-size: 200% 200%; /* Ensure the gradient can animate smoothly */
-    /* -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; */
-     /* -webkit-background-clip: text; Clips the background to the text */
-     /* -webkit-text-fill-color: transparent; Makes the text itself transparent */
     animation: wpt-gradient-animation 10s ease infinite; /* Applies the animation */
 }
 
@@ -53,7 +46,9 @@ li#menu-posts-wpt_product_table ul.wp-submenu li:hover a[href='https://wooproduc
     background: #E91E63;
     color: #ffffff !important;
 }
-
+.notice.wpt-discount-notice {padding: 5px 7px;background: white;border-top: 0 none;border-bottom: 0;border-right: 0 none;}
+.notice.wpt-discount-notice img {max-height: 25px;max-width: 25px;}
+.wpt-discount-notice a {text-decoration: none;padding: 0 5px;font-weight: 500;}
 .notice.ca-notice.notice-offer {
     background: #ffffff;
     border: 0 none;

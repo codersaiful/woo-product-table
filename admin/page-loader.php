@@ -21,6 +21,8 @@ class Page_Loader extends Base
         if($this->is_pro && class_exists( '\WOO_Product_Table' ) ){
             $this->pro_version = WPT_PRO_DEV_VERSION;
             $this->handle_license_n_update();
+        }else{
+            add_action( 'admin_notices', [$this, 'discount_notice'] );
         }
         $this->page_folder_dir = $this->base_dir . 'admin/page/';
         $this->topbar_file = $this->page_folder_dir . 'topbar.php';
@@ -257,5 +259,49 @@ class Page_Loader extends Base
         <?php
         $full_message = ob_get_clean();
         printf( wp_kses_post( $full_message ), esc_html( $message ), esc_url( $link ), esc_html( $link_label ) );    
+    }
+
+    /**
+     * Displays an admin notice offering a discount for Woo Product Table Pro.
+     *
+     * The notice includes a 15% discount offer with a link to the pricing page and 
+     * another link to free plugins. The notice is shown randomly with a 5% chance 
+     * on non-Woo Product Table admin pages.
+     *
+     * @global object $current_screen The current screen object in the WordPress admin.
+     *
+     * @return void
+     */
+
+    public function discount_notice()
+    {
+        
+
+        $wpt_logo = WPT_ASSETS_URL . 'images/logo.png';
+        $link_label = __( 'Claim Your Coupon', 'woo-product-table' );
+        $link = "https://wooproducttable.com/pricing/";
+        $link2 = "https://profiles.wordpress.org/codersaiful/#content-plugins";
+
+        global $current_screen;
+        $s_id = isset( $current_screen->id ) ? $current_screen->id : '';
+        $wpt = strpos( $s_id, $this->plugin_prefix ) !== false;
+        $is_dissmissable_class = ! $wpt ? 'is-dismissible' : '';
+        $rand = wp_rand( 1, 20 );
+
+        if( ! $wpt && $rand != 1 ) return;
+        ob_start();
+        
+        ?>
+        <div class="notice <?php echo esc_attr( $is_dissmissable_class ); ?> notice-warning updated wpt-discount-notice">
+            <div class="wpt-license-notice-inside">
+                <img src="<?php echo esc_url( $wpt_logo ); ?>" class="wpt-license-brand-logo">
+                🎉 <span style="color: #d00;font-weight:bold;">Unlock 10% OFF</span> <strong>Woo Product Table Pro</strong> - Use your coupon at checkout (Limited time)
+                <a class="wpt-get-discount" href="<?php echo esc_url( $link ); ?>" target="_blank"><?php echo esc_html( $link_label ); ?></a>
+                <a class="wpt-get-free" href="<?php echo esc_url( $link2 ); ?>" target="_blank">Free plugins for you</a>
+            </div>
+        </div>
+        <?php
+        $full_message = ob_get_clean();
+        echo wp_kses_post( $full_message );  
     }
 }
