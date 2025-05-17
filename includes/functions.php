@@ -1457,7 +1457,8 @@ if( ! function_exists( 'wpt_shop_archive_sorting_args' ) ){
     function wpt_shop_archive_sorting_args( $args ){
 
         if( is_shop() || is_product_taxonomy() ){
-            $_orderby = sanitize_text_field( wp_unslash( $_GET['orderby'] ?? '' ) );
+            $get_param = filter_input_array( INPUT_GET);
+            $_orderby = sanitize_text_field( wp_unslash( $get_param['orderby'] ?? '' ) );
             $args['paged'] = 1;
             $args['post_type'] = ['product'];
             switch( $_orderby ){

@@ -9,10 +9,11 @@ use WOO_PRODUCT_TABLE\Inc\Handle\Pagination;
 
 class Shortcode_Ajax extends Shortcode{
     public $_root = __CLASS__;
+    public $post_params;
     public static $get_args;
     public function __construct()
     {
-
+        $this->post_params = filter_input_array( INPUT_POST );
         $this->ajax_action('wpt_load_both');
         $this->ajax_action('wpt_remove_from_cart');
         $this->ajax_action('wpt_wc_fragments');
@@ -30,8 +31,10 @@ class Shortcode_Ajax extends Shortcode{
             wp_die();
         }
 
-        $args = wp_unslash( $_POST['args'] ?? [] );
-        $others = wp_unslash( $_POST['others'] ?? [] );
+        $post_params = filter_input_array( INPUT_POST );
+
+        $args = wp_unslash( $this->post_params['args'] ?? [] );
+        $others = wp_unslash( $this->post_params['others'] ?? [] );
         $args = $this->arrayFilter( $args );
         $temp_args = $args;
         unset($temp_args['base_link']);
@@ -116,8 +119,7 @@ class Shortcode_Ajax extends Shortcode{
          * but now it wll show page linke: example.com/page/2 
          * @since 3.2.5.2
          */
-        $this->pagination_base_url = sanitize_text_field( wp_unslash( $_POST['args']['base_link'] ?? null ) );
-
+        $this->pagination_base_url = sanitize_text_field( wp_unslash( $this->post_params['args']['base_link'] ?? null ) );
         $this->args['paged'] = $this->page_number = $page_number;
 
         /**
@@ -369,13 +371,13 @@ class Shortcode_Ajax extends Shortcode{
             wp_die();
         }
 
-        $product_id = absint( $_POST['product_id'] ?? 0 );
+        $product_id = absint( $this->post_params['product_id'] ?? 0 );
 
         /**
          * Founded $cart_item_key 
          * called $req_cart_item_key
          */
-        $req_cart_item_key = sanitize_key( wp_unslash( $_POST['cart_item_key'] ?? '' ) );
+        $req_cart_item_key = sanitize_key( wp_unslash( $this->post_params['cart_item_key'] ?? '' ) );
         
         global $wpdb, $woocommerce;
         $removed = false;
@@ -416,9 +418,9 @@ class Shortcode_Ajax extends Shortcode{
         if ( empty($nonce) || ! wp_verify_nonce( $nonce, WPT_PLUGIN_FOLDER_NAME ) ) {
             return [];
         }
-        $table_id = absint( $_POST['table_id'] ?? 0);
+        $table_id = absint( wp_unslash( $this->post_params['table_id'] ?? 0 ));
         $table_id = (int) $table_id;
-        $atts = wp_unslash( $_POST['atts'] ?? [] );//$_POST['atts'] ?? [];
+        $atts = wp_unslash( $this->post_params['atts'] ?? [] );//$_POST['atts'] ?? [];
         $atts['id'] = $table_id;
         return $atts;
     }
