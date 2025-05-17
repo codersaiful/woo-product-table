@@ -167,18 +167,14 @@ table.wpt-my-table tr td label {
 
 .wpt-my-table > thead > tr > th:last-child, 
 .wpt-my-table > tbody > tr > td:last-child {
-    background-color: #f6f6f6;
-    /* background-color: #fbfaf9; */
+    background-color: #ffc10712;
 }
 
 .wpt_tab_content.tab-content .wpt-my-table > thead > tr > th:last-child,
 .wpt_tab_content.tab-content .wpt-my-table > tbody > tr > td:last-child {
     display: none;
 }
-/* .wpt-my-table > thead > tr:hover > th:last-child, */
-.wpt-my-table > tbody > tr:hover > td:last-child {
-    background-color: #fdfdfd;
-}
+
 table.wpt-my-table thead tr h3 {
     font-size: 22px;
     font-weight: 100;
@@ -466,6 +462,9 @@ Screen and devicewise Custom CSS
     .header-button-wrapper {
         justify-content: flex-end;
         margin-top: 0;
+    }
+    .topbar-fixed-on-scroll .header-button-wrapper {
+        justify-content: flex-start;
     }
     .wrap.wpt_wrap.wpt-content {
         margin: 0 40px;

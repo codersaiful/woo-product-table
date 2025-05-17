@@ -2,14 +2,14 @@
 $nonce = sanitize_text_field( wp_unslash($_POST['wpt_configure_nonce'] ?? '' ));
 if ( empty($nonce) || ! wp_verify_nonce( $nonce, plugin_basename( __DIR__ ) ) ) return;
 
-$data = wp_unslash( $_POST['data'] ?? [] );
-if( empty($data) ) return;
+$full_data = filter_input_array(INPUT_POST);
 
 if ( isset($_POST['reset_button'])) {
     //Reset 
     $value = WPT_Product_Table::$default;
     update_option($option_key,  $value);
-} else if ( isset($_POST['configure_submit']) && is_array( $data ) ) {
+} else if ( isset($_POST['configure_submit']) && is_array( $full_data ) ) {
+    $data = $full_data['data'] ?? [];
     //configure_submit
     $value = array_map(
         function ($field) {
