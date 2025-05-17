@@ -239,9 +239,12 @@ class Shortcode extends Shortcode_Base{
     public $found_products;
     public $product_loop;
 
+    public $get_params = [];
+
     public function run(){
 
         add_shortcode( $this->shortcde_text, [$this, 'shortcode'] );
+        $this->get_params = filter_input_array( INPUT_GET );
 
         /**
          * All lf our Ajax for our Table/Shortcode will handle from

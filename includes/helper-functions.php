@@ -263,8 +263,8 @@ if( ! function_exists( 'wpt_save_custom_message_field' ) ){
      * @return string
      */
     function wpt_save_custom_message_field( $cart_item_data, $product_id ) {
-        
-        $wpt_custom_message = sanitize_text_field(wp_unslash( $_REQUEST['wpt_custom_message'] ?? ''));
+        $post_request = filter_input_array( INPUT_POST );
+        $wpt_custom_message = sanitize_text_field(wp_unslash( $post_request['wpt_custom_message'] ?? ''));
 
         if( ! empty( $wpt_custom_message ) ) {
             $cart_item_data[ 'wpt_custom_message' ] =  $wpt_custom_message;
