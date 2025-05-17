@@ -10,6 +10,7 @@ if ( isset($_POST['reset_button'])) {
     update_option($option_key,  $value);
 } else if ( isset($_POST['configure_submit']) && is_array( $full_data ) ) {
     $data = $full_data['data'] ?? [];
+    if( ! is_array( $data ) ) return;
     //configure_submit
     $value = array_map(
         function ($field) {

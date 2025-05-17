@@ -2964,6 +2964,7 @@ span.wpt-query-selection-handle.type-pf-premium:after,
 input#wpt-setting-search-input {
     padding: 3px 10px;
     margin: 2px !important;
+    flex: 1;
 }
 .wpt_shotcode_content_column{color: green;font-weight:bold;display:none; padding-left: 12px;}
 .wpt_auto_select_n_copy{display: inline-block;width:300px;}
