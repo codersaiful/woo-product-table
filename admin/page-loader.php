@@ -277,7 +277,7 @@ class Page_Loader extends Base
     {
         
 
-        $wpt_logo = WPT_ASSETS_URL . 'images/logo.png';
+        $logo = WPT_ASSETS_URL . 'images/logo.png';
         $link_label = __( 'Claim Your Coupon', 'woo-product-table' );
         $link = "https://wooproducttable.com/pricing/";
         $link2 = "https://profiles.wordpress.org/codersaiful/#content-plugins";
@@ -294,7 +294,7 @@ class Page_Loader extends Base
         ?>
         <div class="notice <?php echo esc_attr( $is_dissmissable_class ); ?> notice-warning updated wpt-discount-notice">
             <div class="wpt-license-notice-inside">
-                <img src="<?php echo esc_url( $wpt_logo ); ?>" class="wpt-license-brand-logo">
+                <img src="<?php echo esc_url( $logo ); ?>" class="wpt-license-brand-logo">
                 🎉 <span style="color: #d00;font-weight:bold;">Unlock 10% OFF</span> <strong>Woo Product Table Pro</strong> - Use your coupon at checkout (Limited time)
                 <a class="wpt-get-discount" href="<?php echo esc_url( $link ); ?>" target="_blank"><?php echo esc_html( $link_label ); ?></a>
                 <a class="wpt-get-free" href="<?php echo esc_url( $link2 ); ?>" target="_blank">Free plugins for you</a>
