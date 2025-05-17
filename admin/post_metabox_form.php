@@ -48,7 +48,11 @@
     );
     $additional_data = apply_filters( 'wpto_additional_variable', $additional_variable, $post );
     
-    $wpt_active_tab = sanitize_text_field( wp_unslash( $_GET['wpt_active_tab'] ?? 'column_settings' ) );
+    $wpt_active_tab = 'column_settings';
+    $nonce = sanitize_text_field( wp_unslash( $_GET['_nonce'] ?? '' ) );
+    if ( ! empty($nonce) && wp_verify_nonce( $nonce, WPT_PLUGIN_FOLDER_NAME ) ) {
+        $wpt_active_tab = sanitize_text_field( wp_unslash( $_GET['wpt_active_tab'] ?? $wpt_active_tab ) );
+    }
 
     ?>
     <nav class="nav-tab-wrapper">
