@@ -286,7 +286,7 @@ class Page_Loader extends Base
         $s_id = isset( $current_screen->id ) ? $current_screen->id : '';
         $wpt = strpos( $s_id, $this->plugin_prefix ) !== false;
         $is_dissmissable_class = ! $wpt ? 'is-dismissible' : '';
-        $rand = wp_rand( 1, 25 );
+        $rand = wp_rand( 1, 15 );
 
         if( ! $wpt && $rand != 1 ) return;
         ob_start();
