@@ -409,7 +409,6 @@ jQuery.fn.extend({
             var next = thisElement.next();
             var nextClass = next.attr('class');
 
-            //console.log(typeof prev, typeof next, typeof thisElement);
             if( target == 'next' && typeof next.html() !== 'undefined'){
                 thisElement.before('<li class="' + nextClass + '">'+next.html()+'</li>');
                 next.remove();
@@ -446,11 +445,15 @@ jQuery.fn.extend({
         var selectLinkTab = $(selectLinkTabSelector);
         var selectTabContent = $(selectTabContentSelector);
         var tabName = window.location.hash.substr(1);
-        if (tabName) {
-            setLastActiveTab(tabName);
-            removingActiveClass();
-            $('body.wpt_admin_body #wpt_configuration_form #' + tabName).addClass('tab-content-active');
-            $('body.wpt_admin_body #wpt_configuration_form .nav-tab-wrapper a.wpt_nav_tab.wpt_nav_for_' + tabName).addClass('nav-tab-active');
+
+        if (tabName && selectTabContent.length > 0) {
+            var currentTab = $('body.wpt_admin_body #wpt_configuration_form #' + tabName);
+            if( ! currentTab.hasClass('tab-content-active')){
+                removingActiveClass();
+                currentTab.addClass('tab-content-active');
+                $('body.wpt_admin_body #wpt_configuration_form .nav-tab-wrapper a.wpt_nav_tab.wpt_nav_for_' + tabName).addClass('nav-tab-active');
+            }
+            
         }
         
         $('body.wpt_admin_body').on('click','#wpt_configuration_form a.wpt_nav_tab',function(e){
@@ -483,19 +486,20 @@ jQuery.fn.extend({
         function setLastActiveTab(tabName) {
 
             $('input#wpt-last-active-tab').attr('value',tabName);
-            //and
             if( tabName == '' ){
                 return;
             }
             // Get the current URL
-            var currentUrl = window.location.href;
+            var currentUrl = new URL(window.location.href);
             
-            // Replace the value of 'wpt_active_tab'
-            var newUrl = currentUrl.replace(/(wpt_active_tab=)[^\&]+/, '$1' + tabName);
+            // Replace the value of wpt_active_tab, _nonce in the query parameters
+            currentUrl.searchParams.set('wpt_active_tab', tabName);
+            currentUrl.searchParams.set('_nonce', WPT_DATA_ADMIN._nonce);
+            //set hash to url
+            currentUrl.hash = tabName;
 
-            // Replace the current URL with the new URL
-            // Change the URL without reloading the page
-            history.replaceState(null, null, newUrl);
+            // Replace the current URL with the new URL without reloading the page
+            history.replaceState(null, null, currentUrl);
         }
 
 
@@ -659,7 +663,7 @@ jQuery.fn.extend({
             $('body.wpt_admin_body #inside-tablet li.wpt_sortable_peritem.enabled .wpt_shortable_data input.colum_data_input,body.wpt_admin_body #inside-mobile li.wpt_sortable_peritem.enabled .wpt_shortable_data input.colum_data_input').each(function(Index) {
                 detect_responsive[Index] = 1;
             });
-            // console.log(detect_responsive.length);
+
             var hid_respn_field = $('#hidden_responsive_data');
             if( detect_responsive.length > 0 ){
                 hid_respn_field.val('no_responsive');
@@ -762,7 +766,7 @@ jQuery.fn.extend({
                 device_wise_section = 'desktop';
             }
             device_wise_section = device_wise_section.replace('_', '');
-            console.log(device_wise_section);
+
             var html = '';
             html = '<li class="wpt_sortable_peritem  column_keyword_' + keyword + ' enabled">';
                 html += '<span title="Move Handle" class="handle ui-sortable-handle"></span>';
@@ -913,7 +917,7 @@ jQuery.fn.extend({
             //style_str_value_wrapper
             var wrapper = $(element).closest('.style_str_wrapper');
             var targetWrapper = wrapper.data('target_value_wrapper');
-            // console.log(targetWrapper,"#" + targetWrapper + " .str_str_each_value");
+            
             var property_name, property_value;
             var str_str = "";
             $("." + targetWrapper + " .str_str_each_value").each(function() {
@@ -1160,11 +1164,35 @@ jQuery.fn.extend({
             let target = $(this).attr('href');
             if(target == '#show-all'){
                 sectionPanel.fadeIn();
-                return;
+
+            }else{
+                $(mainSelector + ' ' + target).fadeIn().addClass('active');
             }
-            $(mainSelector + ' ' + target).fadeIn().addClass('active');
+            
+
+            //Address replace
+            var currentUrl = new URL(window.location.href);
+            currentUrl.hash = target;
+            history.replaceState(null, null, currentUrl);
             
         });
+
+        var tabName = window.location.hash;
+
+        setTimeout(function(){
+            if(sectionPanel.length > 0 && tabName.length > 0){
+                $(mainSelector + ' .wpt-configure-tab-wrapper a.tab-button').removeClass('active');
+                $(mainSelector + ' .wpt-configure-tab-wrapper a[href="' + tabName + '"]').addClass('active');
+                
+                if(tabName == '#show-all'){
+                    sectionPanel.fadeIn();
+                    return;
+                }
+                $(mainSelector + ' .wpt-section-panel').not('.wpt-configure-tab-wrapper').hide().removeClass('active');
+
+                $(mainSelector + ' ' + tabName).show().addClass('active');
+            }
+        },100);
     }
 
     $('.wpt_query_terms_each_tr').each(function(){
@@ -1200,7 +1228,6 @@ jQuery.fn.extend({
         }
  
         var $status = $this.attr('data-status');
-        console.log($status);
         if($status == 'hide'){
             $('.wpt_query_terms_each_tr[data-key="' + $key + '"]').removeClass('hide').addClass('active').fadeIn();
             $this.attr('data-status','active');
@@ -1285,7 +1312,7 @@ jQuery.fn.extend({
         if(type == 'limited'){
             return;
         }
-        console.log(type);
+
         $('.wpt-template-item').removeClass('active');
         $(this).addClass('active');
         
