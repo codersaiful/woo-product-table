@@ -337,6 +337,9 @@ You can easily show specific category products. While creating new table click o
 == Changelog ==
 
 = 5.0.2 =
+* Tested with latest WooCommerce version 9.8.5
+* Tested with latest WordPress version 6.8.1
+* Fixed: Vulnerability issue fixed.
 * Added: new column Tick sign added for showing status of add to cart button event.
 * Code Optimized
 * Bug fixed 
