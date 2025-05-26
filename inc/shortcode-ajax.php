@@ -9,10 +9,11 @@ use WOO_PRODUCT_TABLE\Inc\Handle\Pagination;
 
 class Shortcode_Ajax extends Shortcode{
     public $_root = __CLASS__;
+    public $post_params;
     public static $get_args;
     public function __construct()
     {
-
+        $this->post_params = filter_input_array( INPUT_POST );
         $this->ajax_action('wpt_load_both');
         $this->ajax_action('wpt_remove_from_cart');
         $this->ajax_action('wpt_wc_fragments');
@@ -20,10 +21,20 @@ class Shortcode_Ajax extends Shortcode{
     }
 
     public function wpt_load_both(){
+        
         $atts = $this->set_atts();
 
-        $args = $_POST['args'] ?? [];
-        $others = $_POST['others'] ?? [];
+        
+        $nonce = sanitize_text_field( wp_unslash( $_POST['nonce'] ?? '' ) );
+        if ( empty($nonce) || ! wp_verify_nonce( $nonce, WPT_PLUGIN_FOLDER_NAME ) ) {
+            echo '';
+            wp_die();
+        }
+
+        $post_params = filter_input_array( INPUT_POST );
+
+        $args = wp_unslash( $this->post_params['args'] ?? [] );
+        $others = wp_unslash( $this->post_params['others'] ?? [] );
         $args = $this->arrayFilter( $args );
         $temp_args = $args;
         unset($temp_args['base_link']);
@@ -108,8 +119,7 @@ class Shortcode_Ajax extends Shortcode{
          * but now it wll show page linke: example.com/page/2 
          * @since 3.2.5.2
          */
-        $this->pagination_base_url = $_POST['args']['base_link'] ?? null;
-
+        $this->pagination_base_url = sanitize_text_field( wp_unslash( $this->post_params['args']['base_link'] ?? null ) );
         $this->args['paged'] = $this->page_number = $page_number;
 
         /**
@@ -328,13 +338,11 @@ class Shortcode_Ajax extends Shortcode{
         $Cart = WC()->cart->cart_contents;
         if( is_array( $Cart ) && count( $Cart ) > 0 ){
             foreach($Cart as $cart_item_key => $perItem){
-                // var_dump($cart_item_key,$perItem);
                 $pr_id = $perItem['product_id'];
 
                 $pqt_value = $perItem['quantity'];
                 $total_qty = isset( $qtys[$pr_id] ) ? $qtys[$pr_id] + $pqt_value : $pqt_value;
                 $qtys[$pr_id] =  round($total_qty, 5);
-                // $qtys[$pr_id] = $total_qty;
 
                 $per_items[$pr_id]['cart_item_key'] = $cart_item_key;
                 $per_items[$pr_id]['quantity'] = $qtys[$pr_id];
@@ -351,22 +359,25 @@ class Shortcode_Ajax extends Shortcode{
         }
         $output['per_items'] = $per_items;
 
-        // var_dump($output);
         wp_send_json( $output );
         
         die();
     }
 
     public function wpt_remove_from_cart(){
-        $product_id = $_POST['product_id'] ?? 0;
+        $nonce = sanitize_text_field( wp_unslash( $_POST['nonce'] ?? '' ) );
+        if ( empty($nonce) || ! wp_verify_nonce( $nonce, WPT_PLUGIN_FOLDER_NAME ) ) {
+            echo 'not-founded';
+            wp_die();
+        }
+
+        $product_id = absint( $this->post_params['product_id'] ?? 0 );
+
         /**
          * Founded $cart_item_key 
          * called $req_cart_item_key
          */
-        $req_cart_item_key = $_POST['cart_item_key'] ?? false;
-        // if( $req_cart_item_key ){
-        //     $product_id = 0;
-        // }
+        $req_cart_item_key = sanitize_key( wp_unslash( $this->post_params['cart_item_key'] ?? '' ) );
         
         global $wpdb, $woocommerce;
         $removed = false;
@@ -376,14 +387,11 @@ class Shortcode_Ajax extends Shortcode{
             if($cart_item_key === $req_cart_item_key){
                 WC()->cart->set_quantity( $cart_item_key, 0, true );
                 $removed = true;
-                // break;
             }
             if( $product_id && ( $cart_item_data['product_id'] == $product_id || $cart_item_data['variation_id'] == $product_id ) ){
 
                 WC()->cart->set_quantity( $cart_item_key, 0, true );
                 $removed = true;
-                // break;
-
             }
             
         }
@@ -406,9 +414,13 @@ class Shortcode_Ajax extends Shortcode{
      * @return void
      */
     public function set_atts(){
-        $table_id = $_POST['table_id'] ?? 0;
+        $nonce = sanitize_text_field( wp_unslash( $_POST['nonce'] ?? '' ) );
+        if ( empty($nonce) || ! wp_verify_nonce( $nonce, WPT_PLUGIN_FOLDER_NAME ) ) {
+            return [];
+        }
+        $table_id = absint( wp_unslash( $this->post_params['table_id'] ?? 0 ));
         $table_id = (int) $table_id;
-        $atts = $_POST['atts'] ?? [];
+        $atts = wp_unslash( $this->post_params['atts'] ?? [] );//$_POST['atts'] ?? [];
         $atts['id'] = $table_id;
         return $atts;
     }

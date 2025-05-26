@@ -181,7 +181,7 @@ class Deactive_Form
         ];
 
 
-        $this->form_top_message = __('Please let us know why you are deactivating. (All Optional)', $this->text_domain);
+        $this->form_top_message = __('Please let us know why you are deactivating. (All Optional)', 'woo-product-table');
         add_action('admin_footer', array($this, 'form'));
         add_action('admin_enqueue_scripts', [$this, 'enqueue']);
     }
@@ -206,7 +206,7 @@ class Deactive_Form
     {
         if (!$this->assignScreen) $this->assignScreen();
         if ($this->screenID !== $this->required_screen_id) return;
-        $date = date(" m/d/Y");
+        $date = gmdate(" m/d/Y");
         $token = 'sKSdls)kdKd_-s-dls(Sld)';
         $site_url = get_site_url();
         $blog_name = get_bloginfo( 'name' );
@@ -303,6 +303,7 @@ class Deactive_Form
             'plugin_slug' => $this->plugin_slug,
             'prefix' => $this->prefix,
             'data'   => $this->data,
+            'nonce'          => wp_create_nonce( WPT_PLUGIN_FOLDER_NAME )
         ];
         
         wp_localize_script( $enq_name, $this->localize_name, $data );

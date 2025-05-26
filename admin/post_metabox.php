@@ -17,7 +17,7 @@ if( ! function_exists( 'wpt_shortcode_metabox' ) ){
     function wpt_shortcode_metabox(){
 
         add_meta_box( 'wpt_shortcode_metabox_id', 'Shortcode', 'wpt_shortcode_metabox_render', 'wpt_product_table', 'normal' );
-        add_meta_box( 'wpt_shortcode_configuration_metabox_id', 'Table Configuration', 'wpt_shortcode_configuration_metabox_render', 'wpt_product_table', 'normal' ); //Added at 4.1.4
+        add_meta_box( 'wpt_shortcode_configuration_metabox_id', 'Table Modification', 'wpt_shortcode_configuration_metabox_render', 'wpt_product_table', 'normal' ); //Added at 4.1.4
         //add_meta_box( 'wpt_column_panel_metabox_id', __( 'Available Columns', 'woo-product-table' ), 'wpt_column_panel_metabox_render', 'wpt_product_table', 'side', 'low' ); //Added at 4.1.4
         
     }
@@ -26,9 +26,14 @@ if( ! function_exists( 'wpt_shortcode_metabox' ) ){
 if( ! function_exists( 'wpt_column_panel_metabox_render' ) ){
 
     /**
+     * HAS BEEN REMOVED
+     * it was removed from 4.1.4
+     * It's a Deprecated function. Now it's not using.
+     * 
      * This function showing column panel 
      * 
      * @since 2.7.8.1
+     * @deprecated version 4.1.4
      */
     function wpt_column_panel_metabox_render(){
 
@@ -81,12 +86,12 @@ if( ! function_exists( 'wpt_shortcode_metabox_render' ) ){
         global $post;
         $curent_post_id = $post->ID;
         $post_title = preg_replace( '/[#$%^&*()+=\-\[\]\';,.\/{}|":<>?~\\\\]/',"$1", $post->post_title );
-        echo '<div class="wpt-shortcode-box-inside">';
-        echo '<input type="text" value="[Product_Table id=\'' . $curent_post_id . '\' name=\'' . $post_title . '\']" class="wpt_auto_select_n_copy wpt_meta_box_shortcode mb-text-input mb-field" id="wpt_metabox_copy_content" readonly>'; // class='wpt_auto_select_n_copy'
-        echo '<a style="display:none;"  class="button button-primary wpt_copy_button_metabox" data-target_id="wpt_metabox_copy_content">Copy</a>';
-        echo '<p style="color: #007692;font-weight:bold;display:none; padding-left: 12px;" class="wpt_metabox_copy_content"></p>';
-        echo '</div>';
         ?>
+        <div class="wpt-shortcode-box-inside">
+            <input type="text" value="[Product_Table id='<?php echo esc_attr( absint( $curent_post_id ) ); ?>' name='<?php echo esc_attr( $post_title ); ?>']" class="wpt_auto_select_n_copy wpt_meta_box_shortcode mb-text-input mb-field" id="wpt_metabox_copy_content" readonly>
+            <a  class="button button-primary wpt_copy_button_metabox" data-target_id="wpt_metabox_copy_content">Copy</a>
+            <p class="wpt_metabox_copy_content"></p>
+        </div>
 
         <p class="wpt-shorcode-render-box">
             <strong>First Publish Product Table</strong> and then 
@@ -115,8 +120,9 @@ if( ! function_exists( 'wpt_shortcode_configuration_metabox_render' ) ){
          */
         WPT_Product_Table::$columns_array = apply_filters( 'wpto_default_column_arr', WPT_Product_Table::$columns_array );
         WPT_Product_Table::$default_enable_columns_array = apply_filters( 'wpto_default_enable_column_arr', WPT_Product_Table::$default_enable_columns_array );
-        
-        echo '<input type="hidden" name="wpt_shortcode_nonce_value" value="' . wp_create_nonce( plugin_basename( __FILE__ ) ) . '" />'; //We have to remove it later
+        ?>
+        <input type="hidden" name="wpt_shortcode_nonce_value" value="<?php echo esc_attr( wp_create_nonce( plugin_basename( __FILE__ ) ) ); ?>" />
+        <?php 
         include __DIR__ . '/post_metabox_form.php';
         ?> 
         <br style="clear: both;">
@@ -183,28 +189,19 @@ add_filter('redirect_post_location', 'wpt_redirect_after_save', 10, 2);
  * @return string The updated redirect URL.
  */
 function wpt_redirect_after_save($location, $post_id) {
-    /*
-    * We need to verify this came from our screen and with proper authorization,
-    * because the save_post action can be triggered at other times.
-    */
 
-    if ( ! isset( $_POST['wpt_shortcode_nonce_value'] ) ) { // Check if our nonce is set.
+    $nonce = sanitize_text_field(wp_unslash($_POST['wpt_shortcode_nonce_value'] ?? ''));
+    if ( empty($nonce) || ! wp_verify_nonce( $nonce, plugin_basename(__FILE__) ) ) {
         return $location;
     }
 
-    // verify this came from the our screen and with proper authorization,
-    // because save_post can be triggered at other times
-    if( ! wp_verify_nonce( $_POST['wpt_shortcode_nonce_value'], plugin_basename(__FILE__) ) ) {
-        return $location;
-    }
-
-    $wpt_last_active_tab = $_POST['wpt_last_active_tab'] ?? 'column_settings';
+    $wpt_last_active_tab = sanitize_text_field( wp_unslash( $_POST['wpt_last_active_tab'] ?? 'column_settings' ) );
     if( empty( $wpt_last_active_tab ) ){
         $wpt_last_active_tab = 'column_settings';
     }
 
     // Check if it's the desired post type
-    if (get_post_type($post_id) == 'wpt_product_table') {
+    if ( get_post_type($post_id) == 'wpt_product_table' ) {
         // Append the desired anchor to the redirect location
         $location = add_query_arg('message', 'updated', $location);
         $location = add_query_arg('wpt_active_tab', $wpt_last_active_tab, $location);
@@ -217,32 +214,14 @@ if( ! function_exists( 'wpt_shortcode_configuration_metabox_save_meta' ) ){
 
     function wpt_shortcode_configuration_metabox_save_meta( $post_id, $post ) { // save the data
         
-        /*
-        * We need to verify this came from our screen and with proper authorization,
-        * because the save_post action can be triggered at other times.
-        */
-
-        if ( ! isset( $_POST['wpt_shortcode_nonce_value'] ) ) { // Check if our nonce is set.
-            return;
-        }
-
-        // verify this came from the our screen and with proper authorization,
-        // because save_post can be triggered at other times
-        if( ! wp_verify_nonce( $_POST['wpt_shortcode_nonce_value'], plugin_basename(__FILE__) ) ) {
+        $nonce = sanitize_text_field( wp_unslash( $_POST['wpt_shortcode_nonce_value'] ?? '' ) );
+        if ( empty($nonce) || ! wp_verify_nonce( $nonce, plugin_basename(__FILE__) ) ) {
             return;
         }
         
-        /**
-         * Importing Data Here
-         * 
-         * @since 2.8.7.1
-         * @by Saiful
-         * @date 10.5.2021
-         */
-        
-        if( isset( $_POST['wpt-import-data'] ) && ! empty( $_POST['wpt-import-data'] ) ){
-            $wpt_import_data = sanitize_text_field( $_POST['wpt-import-data'] );
 
+        $wpt_import_data = sanitize_text_field( wp_unslash( $_POST['wpt-import-data'] ?? '' ) );
+        if( ! empty( $wpt_import_data ) ){
             /**
              * Do something, when something importing on Import Box
              * 
@@ -382,6 +361,10 @@ if( ! function_exists( 'wpt_shortcode_configuration_metabox_save_meta' ) ){
         $submitte_data = filter_input_array( INPUT_POST, $filtar_args );
 
         $submitte_data = wpt_remove_empty_value_from_array($submitte_data);
+
+        //Some special Sanitizzze 
+        $table_class = $submitte_data['basics']['table_class'] ?? '';
+        $submitte_data['basics']['table_class'] = sanitize_html_class( $table_class );
         /********* Column Setting Optimizing Start here ***********/
 
         //Fixing for tablet setting

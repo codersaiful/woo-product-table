@@ -32,9 +32,9 @@ class Pagination{
          //Actually I have to check.
         // if( 'on' !== $shortcode->pagination ) return;
         ?>
-        <div data-base_link="<?php echo esc_attr( $shortcode->pagination_base_url ); ?>" class='<?php echo esc_attr( $pagi_class ); ?>' data-table_id='<?php echo $shortcode->table_id; ?>'>
+        <div data-base_link="<?php echo esc_attr( $shortcode->pagination_base_url ); ?>" class='<?php echo esc_attr( $pagi_class ); ?>' data-table_id='<?php echo esc_attr( $shortcode->table_id ); ?>'>
         <?php 
-        echo self::get_paginate_links( $shortcode );
+        echo wp_kses( self::get_paginate_links( $shortcode ), 'post' );
         ?>
         </div>
         <?php

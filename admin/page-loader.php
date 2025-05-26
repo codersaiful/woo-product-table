@@ -21,6 +21,8 @@ class Page_Loader extends Base
         if($this->is_pro && class_exists( '\WOO_Product_Table' ) ){
             $this->pro_version = WPT_PRO_DEV_VERSION;
             $this->handle_license_n_update();
+        }else{
+            add_action( 'admin_notices', [$this, 'discount_notice'] );
         }
         $this->page_folder_dir = $this->base_dir . 'admin/page/';
         $this->topbar_file = $this->page_folder_dir . 'topbar.php';
@@ -48,18 +50,16 @@ class Page_Loader extends Base
     public function admin_menu()
     {
         $proString = $this->is_pro ? esc_html__( ' Pro', 'woo-product-table' ) : '';
-        add_submenu_page( $this->main_slug, esc_html__( 'Configuration ', 'woo-product-table' ) . $proString,  esc_html__( 'Configure', 'woo-product-table' ), WPT_CAPABILITY, 'woo-product-table-config', [$this, 'configure_page_render'] );
-        add_submenu_page( $this->main_slug, esc_html__( 'Pro Demo', 'woo-product-table' ),  esc_html__( 'Pro Demo', 'woo-product-table' ), 'read', 'https://https://wpprincipal.xyz/?site=wpt&utm=PluginDashboard' );
-        add_submenu_page( $this->main_slug, esc_html__( 'Tutorials', 'woo-product-table' ). $proString,  __( 'Tutorial', 'woo-product-table' ), 'read', 'wpt-live-support', [$this, 'html_tutorial_page'] );
-
+        add_submenu_page( $this->main_slug, esc_html__( 'Table Settings ', 'woo-product-table' ) . $proString,  esc_html__( 'Table Settings', 'woo-product-table' ), WPT_CAPABILITY, 'woo-product-table-config', [$this, 'configure_page_render'] );
         
-        add_submenu_page( $this->main_slug, esc_html__( 'Browse Plugins', 'woo-product-table' ). $proString,  __( 'Browse Plugins', 'woo-product-table' ), 'read', 'wpt-browse-plugins',[$this, 'browse_plugins_html'] );
-        add_submenu_page( $this->main_slug, esc_html__( 'Addons', 'woo-product-table' ). $proString,  __( 'Addons', 'woo-product-table' ), 'read', 'wpt-addons-list',[$this, 'addons_list_html'] );
-        add_submenu_page( $this->main_slug, esc_html__( 'Issue Submit', 'woo-product-table' ). $proString,  __( 'Issue Submit', 'woo-product-table' ), 'read', 'https://github.com/codersaiful/woo-product-table/issues/new' );
         if( ! $this->is_pro ){
-            add_submenu_page( $this->main_slug, esc_html__( 'GET PRO VERSION', 'woo-product-table' ),  __( 'Get <strong>Pro</strong>', 'woo-product-table' ), 'read', 'https://wooproducttable.com/pricing/' );
+            add_submenu_page( $this->main_slug, esc_html__( 'GET PRO VERSION', 'woo-product-table' ),  __( 'Get <strong>Premium</strong>', 'woo-product-table' ), 'read', 'https://wooproducttable.com/pricing/' );
         }
-        add_submenu_page( $this->main_slug, esc_html__( 'Product Bulk Edit', 'woo-product-table' ) . $proString,  __( 'Bulk Edit', 'woo-product-table' ), WPT_CAPABILITY, 'wpt-product-quick-edit', [$this, 'product_quick_edit'] );
+
+        if (class_exists('\PSSG_Sync_Sheet\App\Handle\Quick_Table')) {
+            add_submenu_page( $this->main_slug, esc_html__( 'Product Bulk Edit', 'woo-product-table' ) . $proString,  __( 'Bulk Edit', 'woo-product-table' ), WPT_CAPABILITY, 'wpt-product-quick-edit', [$this, 'product_quick_edit'] );
+        }
+        
 
     }
 
@@ -99,12 +99,14 @@ class Page_Loader extends Base
     public function admin_footer_text($text)
     {
         $rev_link = 'https://wordpress.org/support/plugin/woo-product-table/reviews/#new-post';
+        
         $text = sprintf(
-			__( 'Thank you for using Woo Product Table. <a href="%s" target="_blank">%sPlease review us</a>.' ),
+            /* translators: 1: Plugin review submit link 2: star rating */
+			__( 'Thank you for using Woo Product Table. <a href="%1$s" target="_blank">%2$sPlease review us</a>.', 'woo-product-table' ),
 			$rev_link,
             '<i class="wpt-star-filled"></i><i class="wpt-star-filled"></i><i class="wpt-star-filled"></i><i class="wpt-star-filled"></i><i class="wpt-star-filled"></i>'
 		);
-        return '<span id="footer-thankyou" class="wpt-footer-thankyou">' . $text . '</span>';
+        return '<span id="footer-thankyou" class="wpt-footer-thankyou">' . wp_kses_post( $text ) . '</span>';
     }
     public function browse_plugins_html()
     {
@@ -193,7 +195,7 @@ class Page_Loader extends Base
         if($exp_timestamp < time()){
 
             $this->exp_timestamp = $exp_timestamp;
-            // var_dump($this->license_data);
+
             if($this->license_status == 'valid'){
                 $this->invalid_status = 'invalid';
                 $this->license_data->license = $this->invalid_status;
@@ -209,17 +211,19 @@ class Page_Loader extends Base
 
     public function license_activation_message()
     {
-        
-        if( ! empty( $_GET['page'] ) && $_GET['page'] === 'woo-product-table-license' ) return;
+
+        global $current_screen;
+        if(strpos($current_screen->id, 'woo-product-table-license') !== false) return;
+
         if(empty($this->item_id)) return;
         $wpt_logo = WPT_ASSETS_URL . 'images/logo.png';
 
         if( empty( $this->license_status ) || $this->license_status === 'invalid' || $this->license_status === 'site_inactive' || $this->license_status === 'inactive' ){
             $wpt_logo = WPT_ASSETS_URL . 'images/logo.png';
             
-            $link_label = __( 'Activate License', 'wpt_pro' );
+            $link_label = __( 'Activate License', 'woo-product-table' );
             $link = admin_url('edit.php?post_type=wpt_product_table&page=woo-product-table-license');
-            $message = esc_html__( ' Please Activate License to get Pro Feature', 'wpt_pro' );
+            $message = esc_html__( ' Please Activate License to get Pro Feature', 'woo-product-table' );
             ob_start();
             ?>
             <div class="error wpt-renew-license-notice">
@@ -231,7 +235,7 @@ class Page_Loader extends Base
             </div>
             <?php
             $full_message = ob_get_clean();
-            printf( $full_message, $message, $link, $link_label );      
+            printf( wp_kses_post( $full_message ), esc_html( $message ), esc_url( $link ), esc_html( $link_label ) );        
         }
     }
     public function renew_license_notice()
@@ -239,10 +243,10 @@ class Page_Loader extends Base
 
         if(empty($this->item_id)) return;
         $wpt_logo = WPT_ASSETS_URL . 'images/logo.png';
-        $expired_date = date( 'd M, Y', $this->exp_timestamp );
-        $link_label = __( 'Renew License', 'wpt_pro' );
+        $expired_date = gmdate( 'd M, Y', $this->exp_timestamp );
+        $link_label = __( 'Renew License', 'woo-product-table' );
         $link = "https://codeastrology.com/checkout/?edd_license_key={$this->license_key}&download_id={$this->item_id}";
-		$message = esc_html__( ' Renew it to enable pro features.', 'wpt_pro' ) . '</strong>';
+		$message = esc_html__( ' Renew it to enable pro features.', 'woo-product-table' );
         ob_start();
         ?>
         <div class="error wpt-renew-license-notice">
@@ -254,6 +258,50 @@ class Page_Loader extends Base
         </div>
         <?php
         $full_message = ob_get_clean();
-        printf( $full_message, $message, $link, $link_label );
+        printf( wp_kses_post( $full_message ), esc_html( $message ), esc_url( $link ), esc_html( $link_label ) );    
+    }
+
+    /**
+     * Displays an admin notice offering a discount for Woo Product Table Pro.
+     *
+     * The notice includes a 15% discount offer with a link to the pricing page and 
+     * another link to free plugins. The notice is shown randomly with a 5% chance 
+     * on non-Woo Product Table admin pages.
+     *
+     * @global object $current_screen The current screen object in the WordPress admin.
+     *
+     * @return void
+     */
+
+    public function discount_notice()
+    {
+        
+
+        $logo = WPT_ASSETS_URL . 'images/logo.png';
+        $link_label = __( 'Claim Your Coupon', 'woo-product-table' );
+        $link = "https://wooproducttable.com/pricing/";
+        $plug_name = __( 'Woo Product Table Pro', 'woo-product-table' );
+
+        global $current_screen;
+        $s_id = isset( $current_screen->id ) ? $current_screen->id : '';
+        $wpt = strpos( $s_id, $this->plugin_prefix ) !== false;
+        $is_dissmissable_class = ! $wpt ? 'is-dismissible' : '';
+        $rand = wp_rand( 1, 15 );
+
+        if( ! $wpt && $rand != 1 ) return;
+        ob_start();
+        
+        ?>
+        <div class="notice <?php echo esc_attr( $is_dissmissable_class ); ?> notice-warning updated wpt-discount-notice">
+            <div class="wpt-license-notice-inside">
+                <img src="<?php echo esc_url( $logo ); ?>" class="wpt-license-brand-logo">
+                🎉 <span style="color: #d00;font-weight:bold;">Unlock 20% OFF</span> <strong><?php echo esc_html( $plug_name ); ?></strong> - Use your coupon at checkout (Limited time)
+                <a class="wpt-get-discount" href="<?php echo esc_url( $link ); ?>" target="_blank"><?php echo esc_html( $link_label ); ?></a>
+                <a class="wpt-get-free" href="https://profiles.wordpress.org/codersaiful/#content-plugins" target="_blank">Free plugins for you</a>
+            </div>
+        </div>
+        <?php
+        $full_message = ob_get_clean();
+        echo wp_kses_post( $full_message );  
     }
 }

@@ -19,8 +19,8 @@ if( !function_exists( 'wpt_admin_enqueue' ) ){
         * Customized fontello file
         * @since 3.1.8.2
         */
-       wp_enqueue_style( 'wpt-fontello', WPT_Product_Table::getPath('BASE_URL') . 'assets/fontello/css/wptfontelo.css', array(), WPT_Product_Table::getVersion(), 'all' );
-       wp_enqueue_style( 'wpt-fontello-animate', WPT_Product_Table::getPath('BASE_URL') . 'assets/fontello/css/animation.css', array(), WPT_Product_Table::getVersion(), 'all' );
+       wp_enqueue_style( 'wpt-fontello', WPT_Product_Table::getPath('BASE_URL') . 'assets/fontello/css/wptfontelo.css', array(), WPT_DEV_VERSION, 'all' );
+       wp_enqueue_style( 'wpt-fontello-animate', WPT_Product_Table::getPath('BASE_URL') . 'assets/fontello/css/animation.css', array(), WPT_DEV_VERSION, 'all' );
 
 
         /**
@@ -80,27 +80,33 @@ if( !function_exists( 'wpt_admin_js_fast_load' ) ){
      * For first load, It's specially loaded
      */
     function wpt_admin_js_fast_load(){
+
+        global $current_screen;
+
+        $s_id = isset( $current_screen->id ) ? $current_screen->id : '';
+        if( strpos( $s_id, 'wpt' ) === false ) return;
+
         wp_register_script( 'select2-wpt', WPT_Product_Table::getPath( 'BASE_URL' ) . 'assets/select2/js/select2.min.js', array( 'jquery' ), '4.0.13', true );
         if( 'wpt_product_table' == get_current_screen()->post_type ){
             wp_enqueue_script( 'select2-wpt' );
         }
         //wp_enqueue_script( 'select2-wpt' );
 
-        wp_enqueue_script( 'wpt-admin', WPT_Product_Table::getPath( 'BASE_URL' ) . 'assets/js/admin.js', array( 'jquery','select2' ), '1.0.0', true );
+        wp_enqueue_script( 'wpt-admin', WPT_Product_Table::getPath( 'BASE_URL' ) . 'assets/js/admin.js', array( 'jquery','select2-wpt' ), WPT_DEV_VERSION, true );
         
         $ajax_url = admin_url( 'admin-ajax.php' );
         $version = class_exists( 'WOO_Product_Table' ) && WOO_Product_Table::getVersion() ? __( 'WTP Pro: ', 'woo-product-table' ) . WOO_Product_Table::getVersion() : WPT_Product_Table::getVersion();
         $is_pro = class_exists( 'WOO_Product_Table' ) ? 'yes' : 'no';
         $WPT_DATA = array( 
-           'ajaxurl' => $ajax_url,
-           'ajax_url' => $ajax_url,
-           'site_url' => site_url(),
-           'checkout_url' => wc_get_checkout_url(),
-           'cart_url' => wc_get_cart_url(),
-           'priceFormat' => wpt_price_formatter(),
-           'version' => $version,
+            'ajaxurl' => $ajax_url,
+            'ajax_url' => $ajax_url,
+            'site_url' => site_url(),
+            'checkout_url' => wc_get_checkout_url(),
+            'cart_url' => wc_get_cart_url(),
+            'priceFormat' => wpt_price_formatter(),
+            'version' => $version,
             'is_pro' => $is_pro,
-
+            '_nonce' => wp_create_nonce( WPT_PLUGIN_FOLDER_NAME ),
            );
         $WPT_DATA = apply_filters( 'wpto_localize_data', $WPT_DATA );
        wp_localize_script( 'wpt-admin', 'WPT_DATA_ADMIN', $WPT_DATA );

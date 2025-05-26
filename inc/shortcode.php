@@ -239,9 +239,12 @@ class Shortcode extends Shortcode_Base{
     public $found_products;
     public $product_loop;
 
+    public $get_params = [];
+
     public function run(){
 
         add_shortcode( $this->shortcde_text, [$this, 'shortcode'] );
+        $this->get_params = filter_input_array( INPUT_GET );
 
         /**
          * All lf our Ajax for our Table/Shortcode will handle from
@@ -285,8 +288,7 @@ class Shortcode extends Shortcode_Base{
 
         if( $this->error_name ) Msg::handle($this);
         if( ! $this->table_display ) return;
-        // var_dump($this->product_loop);
-        //wpto_action_table_wrapper_top
+
         ob_start();
         
         ?>
@@ -382,12 +384,6 @@ class Shortcode extends Shortcode_Base{
         </div><!-- /.main wrapper -->
         
         <?php 
-
-        /**
-         * Dev version for Get Vardump to get Object Details Var Dump
-         * Only avialble visible Object Details.
-         */
-        $this->get_var_for_Dev();
         /**
          * It's important to make new table always
          * Actually we have created it based on already created condition actually
@@ -466,7 +462,6 @@ class Shortcode extends Shortcode_Base{
         $page_number = $this->max_num_pages > 0 ? $this->page_number : 0; 
         $display_count = "$min_one - $this->product_count";
 
-        // var_dump($this->found_posts);
         $display_pagN = $page_number;
         if( $this->paginated_load && $page_number > 1 ){
             $prev_ttl_post = ( $page_number - 1 ) * $this->posts_per_page;
@@ -485,10 +480,10 @@ class Shortcode extends Shortcode_Base{
         
         ?>
         <p class="wpt-stats-post-count">
-            <?php printf( esc_html__( $stats_post_count, "woo-product-table" ), $display_count, $this->found_posts  ); ?>
+            <?php printf( esc_html( $stats_post_count ), esc_html( $display_count ), esc_html( $this->found_posts )  ); ?>
         </p>
         <p class="wpt-stats-page-count">
-        <?php printf( esc_html__( $stats_page_count, "woo-product-table" ), $display_pagN, $this->max_num_pages  ); ?>
+        <?php printf( esc_html( $stats_page_count ), esc_html( $display_pagN ), esc_html( $this->max_num_pages )  ); ?>
         </p>
         <?php 
 
@@ -504,7 +499,7 @@ class Shortcode extends Shortcode_Base{
         $this->status = get_post_status( $this->table_id );
         $this->post_type = get_post_type( $this->table_id );
         $this->unique_id = str_shuffle("CodeAstrologySaifulIslam");
-        // set_query_var( 'woo_product_table', $this->table_id );
+
         set_query_var( $this->req_post_type, $this->table_id );
 
         $this->is_table = $this->table_id && $this->post_type == $this->req_post_type && $this->status == 'publish';
@@ -608,7 +603,7 @@ class Shortcode extends Shortcode_Base{
             $this->add_to_cart_text = $this->basics['add_to_cart_text' . $lang] ?? '';
         }
 
-        $this->add_to_cart_text = ! empty( $this->add_to_cart_text ) ? __( $this->add_to_cart_text, 'woo-product-table' ) : __( 'Add to cart', 'woo-product-table' );
+        $this->add_to_cart_text = ! empty( $this->add_to_cart_text ) ? $this->add_to_cart_text : __( 'Add to cart', 'woo-product-table' );
 
         //Some others from other meta
 
@@ -964,6 +959,7 @@ class Shortcode extends Shortcode_Base{
             ?>
             <p class="wpt-error-wrapper">
                 <span class="wpt-error wpt-error-assing_property"><?php echo esc_html__( "Error: on assing_property on the table_body!!", 'woo-product-table' ); ?></span>
+                <code>post_status to be publish.</code>
                 <a href="https://wordpress.org/support/topic/error-on-assing_property-on-the-table_body-2/" class="wpt-get-tutorial" target="_blank"><?php echo esc_html__( "Get Tutorial for this issue from wpOrg", 'woo-product-table' ); ?>.</a>
                 OR
                 <a href="https://wooproducttable.com/doc/troubleshoots/error-on-assing_property-on-the-table_body/" class="wpt-get-tutorial" target="_blank"><?php echo esc_html__( "Tutorial from website with Screenshot", 'woo-product-table' ); ?>.</a>
@@ -976,7 +972,7 @@ class Shortcode extends Shortcode_Base{
         if ($this->orderby == 'random') {
             shuffle( $product_loop->posts );
         }
-        // var_dump($this->product_loop);
+
         /**
          * @deprecated 3.2.4.2 wpto_product_loop filter will removed in next version
          */
@@ -994,7 +990,6 @@ class Shortcode extends Shortcode_Base{
         Msg::not_found_product_tr($this);
         endif;
 
-        wp_reset_query();
         wp_reset_postdata();
     }
     protected function table_head(){
@@ -1005,14 +1000,40 @@ class Shortcode extends Shortcode_Base{
         <thead style="<?php echo esc_attr( $show_stats ); ?>">
             <tr data-temp_number="<?php echo esc_attr( $this->table_id ); ?>" class="wpt_table_header_row wpt_table_head">
             <?php 
-            foreach( $this->_enable_cols as $key => $col ){
-            $col_content = $this->column_array[$key] ?? $col;
-            if( $key == 'check' ){
-                $col_content = "<input data-type='universal_checkbox' data-temp_number='{$this->table_id}' class='wpt_check_universal' id='wpt_check_uncheck_column_{$this->table_id}' type='checkbox'><label for=wpt_check_uncheck_column_{$this->table_id}></label>";
-            }
-            ?>
+            foreach( $this->_enable_cols as $key => $col ){ ?>
             <th class="wpt_<?php echo esc_attr( $key ); ?>">
-                <?php echo __( $col_content, 'woo-product-table' ); ?>
+                <?php 
+                $col_content = $this->column_array[$key] ?? $col;
+                if( $key == 'check' ){
+                    $col_content = "<input data-type='universal_checkbox' data-temp_number='" . esc_attr( $this->table_id) . "' class='wpt_check_universal' id='wpt_check_uncheck_column_" .  esc_attr( $this->table_id ). "' type='checkbox'><label for='wpt_check_uncheck_column_" . esc_attr( $this->table_id ). "'></label>";
+                    $allowed_tags = array(
+                        'input' => array(
+                            'type' => true,
+                            'name' => true,
+                            'value' => true,
+                            'id' => true,
+                            'class' => true,
+                            'checked' => true,
+                            'placeholder' => true,
+                            'data-type' => true,
+                            'data-temp_number' => true,
+    
+                        ),
+                        'label' => array(
+                            'for' => true,
+                            'class' => true,
+                        ),
+                        'span' => array(
+                            'class' => true,
+                        ),
+                        'br' => array(),
+                    );
+                    
+                    echo wp_kses( $col_content, $allowed_tags );
+                }else{
+                    echo wp_kses_data( __( $col_content, 'woo-product-table' ) );
+                }
+                ?>
             </th>
             <?php
             }

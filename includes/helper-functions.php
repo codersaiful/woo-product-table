@@ -1,286 +1,4 @@
 <?php
-if( ! function_exists( 'wpt_ajax_paginate_links_load' ) ){
-    /**
-     * Loading paginate lins for product table
-     * for ajax
-     * 
-     * @return String it will render paginate link
-     */
-    function wpt_ajax_paginate_links_load(){
-
-        $filter_args = array(
-            'action' => FILTER_SANITIZE_STRING,
-            'load_type' => FILTER_SANITIZE_STRING,
-            'temp_number' => FILTER_SANITIZE_NUMBER_INT,
-            'pageNumber' => FILTER_SANITIZE_NUMBER_INT,
-            'targetTableArgs' => array(
-                'filter' => FILTER_SANITIZE_STRING,
-                'flags' => FILTER_REQUIRE_ARRAY,
-            ),
-            'directkey' => array(
-                'filter' => FILTER_SANITIZE_STRING,
-                'flags' => FILTER_REQUIRE_ARRAY,
-            ),
-            'texonomies' => array(
-                'filter' => FILTER_SANITIZE_STRING,
-                'flags' => FILTER_REQUIRE_ARRAY,
-            ),
-            
-            'custom_field' => array(
-                'filter' => FILTER_SANITIZE_STRING,
-                'flags' => FILTER_REQUIRE_ARRAY,
-            ),
-            
-        );
-        
-        $data = filter_input_array(INPUT_POST,$filter_args);
-        $data = array_filter( $data );
-        
-        $targetTableArgs = ( isset( $data['targetTableArgs'] ) ? $data['targetTableArgs'] : false );
-        $temp_number = ( isset( $data['temp_number'] ) ? absint( $data['temp_number'] ) : false );   
-        $directkey = ( isset( $data['directkey'] ) && is_array( $data['directkey'] ) ? $data['directkey'] : false ); //Already Filterized
-        $texonomies = ( isset( $data['texonomies'] ) && is_array( $data['texonomies']) ? $data['texonomies'] : false );//Already Filterized
-        $custom_field = ( isset( $data['custom_field'] ) && is_array( $data['custom_field']) ? $data['custom_field'] : false );//Already Filterized
-        $pageNumber = ( isset( $data['pageNumber'] ) && $data['pageNumber'] > 0 ? absint( $data['pageNumber'] ) : 1 );
-        $load_type = ( isset( $data['load_type'] ) && $data['load_type'] == 'current_page' ? true : false );
-
-        $args = $targetTableArgs['args'];
-        $args['wpt_query_type'] = 'search';//Added on 6.0.3 - 12.6.2020
- 
-        $table_ID = $args['table_ID'];
-        $search_from = get_post_meta( $table_ID, 'search_n_filter', true );
-
-        $search_from = isset( $search_from['search_from'] ) && is_array( $search_from['search_from'] ) && count( $search_from['search_from'] ) > 0 ? $search_from['search_from'] : false;
-
-        $search_key = isset( $directkey['s'] ) && !empty( $directkey['s'] ) ? sanitize_text_field( $directkey['s'] ) : "";
-        
-        if( !$load_type ){
-            
-            $args['wpt_custom_search'] = $search_key; //Already sanitized as text field
-            $args['s'] = $search_key; //Already sanitized as text field
-
-            if( !empty($search_key) && $search_from){
-                $args['wpt_custom_search'] = $search_key;
-                $args['s'] = false;
-            }elseif(!empty($search_key) && !$search_from){
-                $args['wpt_custom_search'] = false;
-                $args['s'] = $search_key;
-            }
-            
-        }
-
-        /**
-         * Page Number Hander
-         */
-        /**
-         * All Var Already filtered/sanitized
-         * using filter_var_array and sanitize_text_field
-         * 
-         * @since 2.9.1
-         */
-        $args['paged']   = $pageNumber;
-        $table_column_keywords  = $targetTableArgs['wpt_table_column_keywords'];
-        $sort                       = $args['order'];
-        $wpt_permitted_td           = $targetTableArgs['wpt_permitted_td'];
-        $add_to_cart_text           = $targetTableArgs['wpt_add_to_cart_text'];
-        $texonomy_key               = isset( $targetTableArgs['texonomy_key'] ) ? $targetTableArgs['texonomy_key'] : false;
-        $customfield_key            = isset( $targetTableArgs['customfield_key'] ) && is_array( $targetTableArgs['customfield_key'] ) ? $targetTableArgs['customfield_key'] : false;
-        $filter_keywords            = $targetTableArgs['filter_key'];
-        $filter_box                 = $targetTableArgs['filter_box'];
-        $description_type           = $targetTableArgs['description_type'];
-        $ajax_action                = $targetTableArgs['ajax_action'];
-        $table_type           = $targetTableArgs['table_type'];
-        $checkbox                 = $targetTableArgs['checkbox'];
-
-        /**
-         * Args fixer
-         * 
-         * @since 3.0.2.1
-         */
-        if(isset( $args['s'] ) && $args['s'] == 'false'){
-            $args['s'] = false;
-        }
-
-        $conditions = get_post_meta( $table_ID, 'conditions', true );
-        $sort = $conditions['sort'] ?? '';
-        $sort_order_by = $conditions['sort_order_by'] ?? '';
-        
-
-        $args['orderby'] = $directkey['orderby'] ?? $sort_order_by;
-        $args['order'] = $directkey['order'] ?? $sort;
-        
-        $args = apply_filters( 'wpto_query_arg_ajax', $args, $directkey, $targetTableArgs, $custom_field, $texonomies );
-
-        $args['posts_per_page'] = is_numeric( $args['posts_per_page'] ) ? (int) $args['posts_per_page'] : $args['posts_per_page'];
-        
-        if(isset($args['post__in']) && ( $args['post__in'] == 'false' || empty($args['post__in']) )){
-            unset($args['post__in']);
-        }
-        
-        $table_row_generator_array = array(
-            'args'                      => $args,
-            'wpt_table_column_keywords' => $table_column_keywords,
-            'wpt_product_short'         => $sort,
-            'wpt_permitted_td'          => $wpt_permitted_td,
-            'wpt_add_to_cart_text'      => $add_to_cart_text,
-            'temp_number'               => $temp_number,
-            'texonomy_key'              => $texonomy_key,
-            'customfield_key'           => $customfield_key,
-            'filter_key'                => $filter_keywords,
-            'filter_box'                => $filter_box,
-            'description_type'          => $description_type,
-            'ajax_action'               => $ajax_action,
-            'table_type'            => $table_type, //$table_type           = $targetTableArgs['table_type'];
-            'checkbox'            => $checkbox, 
-        );
-        echo '<mypagi myjson="'. esc_attr( wp_json_encode( $table_row_generator_array ) ) .'">'. wpt_paginate_links( $args ) . '</mypagi>';
-        // var_dump($args);
-        // echo '<pre>';
-        // print_r( $_POST );
-        // echo '</pre>';
-        die();
-    }
-}
-add_action( 'wp_ajax_wpt_ajax_paginate_links_load', 'wpt_ajax_paginate_links_load' );
-add_action( 'wp_ajax_nopriv_wpt_ajax_paginate_links_load', 'wpt_ajax_paginate_links_load' );
-
-if( ! function_exists( 'wpt_ajax_table_row_load' ) ){
-
-    /**
-     * Table Load by ajax Query before on Tables Top
-     * 
-     * @since 1.9
-     */
-    function wpt_ajax_table_row_load(){
-
-        $filter_args = array(
-            'action' => FILTER_SANITIZE_STRING,
-            'load_type' => FILTER_SANITIZE_STRING,
-            'temp_number' => FILTER_SANITIZE_NUMBER_INT,
-            'pageNumber' => FILTER_SANITIZE_NUMBER_INT,
-            'targetTableArgs' => array(
-                'filter' => FILTER_SANITIZE_STRING,
-                'flags' => FILTER_REQUIRE_ARRAY,
-            ),
-            'directkey' => array(
-                'filter' => FILTER_SANITIZE_STRING,
-                'flags' => FILTER_REQUIRE_ARRAY,
-            ),
-            'texonomies' => array(
-                'filter' => FILTER_SANITIZE_STRING,
-                'flags' => FILTER_REQUIRE_ARRAY,
-            ),
-            
-            'custom_field' => array(
-                'filter' => FILTER_SANITIZE_STRING,
-                'flags' => FILTER_REQUIRE_ARRAY,
-            ),
-            
-        );
-        
-        $data = filter_input_array(INPUT_POST,$filter_args);
-        $data = array_filter( $data );
-        
-        $targetTableArgs = ( isset( $data['targetTableArgs'] ) && is_array( $data['targetTableArgs'] ) ? $data['targetTableArgs'] : false );
-        $temp_number = ( isset( $data['temp_number'] ) ? absint( $data['temp_number'] ) : false );
-        $directkey = ( isset( $data['directkey'] ) && is_array( $data['directkey'] ) ? $data['directkey'] : false );
-        $texonomies = ( isset( $data['texonomies'] ) && is_array( $data['texonomies'] ) ? $data['texonomies'] : false );
-        $custom_field = ( isset( $data['custom_field'] ) && is_array( $data['custom_field'] ) ? $data['custom_field'] : false );
-        $pageNumber = ( isset( $data['pageNumber'] ) && $data['pageNumber'] > 0 ? absint( $data['pageNumber'] ) : 1 );
-        $load_type = ( isset( $data['load_type'] ) && $data['load_type'] == 'current_page' ? true : false );
-        $args = $targetTableArgs['args'];
-        $args['wpt_query_type'] = 'search';//Added on 6.0.3 - 12.6.2020
-        $table_ID = $args['table_ID'];
-        $search_from = get_post_meta( $table_ID, 'search_n_filter', true );
-        $search_from = isset($search_from['search_from']) && is_array( $search_from['search_from'] ) && count( $search_from['search_from'] ) > 0 ? $search_from['search_from'] : false;
-        $search_key = isset( $directkey['s'] ) && !empty( $directkey['s'] ) ? sanitize_text_field( $directkey['s'] ) : "";
-    
-        
-        if( !$load_type ){
-
-        
-            $args['wpt_custom_search'] = $search_key;
-            $args['s'] = $search_key;
-
-            if( ! empty($search_key) && $search_from){
-                $args['wpt_custom_search'] = $search_key;
-                $args['s'] = false;
-            } elseif( ! empty($search_key ) && !$search_from){
-                $args['wpt_custom_search'] = false;
-                $args['s'] = $search_key;
-            }
-
-        }
-        
-        // if( !empty( $directkey ) && isset( $directkey['orderby'] ) && isset( $directkey['order'] ) ){
-        //     $args['orderby'] = sanitize_text_field( $directkey['orderby'] );
-        //     $args['order'] = sanitize_text_field( $directkey['order'] );
-        // }
-
-        $conditions = get_post_meta( $table_ID, 'conditions', true );
-        $sort = $conditions['sort'] ?? '';
-        $sort_order_by = $conditions['sort_order_by'] ?? '';
-        
-
-        $args['orderby'] = $directkey['orderby'] ?? $sort_order_by;
-        $args['order'] = $directkey['order'] ?? $sort;
-        
-        /**
-         * Page Number Hander
-         */
-        /**
-         * All var already filtered
-         * using filter_var_array and sanitize_text_field
-         */
-        $args['paged']   = $pageNumber;
-        $table_column_keywords  = $targetTableArgs['wpt_table_column_keywords'];
-        $sort                       = $args['order'];
-        $wpt_permitted_td           = $targetTableArgs['wpt_permitted_td'];
-        $add_to_cart_text           = $targetTableArgs['wpt_add_to_cart_text'];
-        $texonomy_key               = isset( $targetTableArgs['texonomy_key'] ) ? $targetTableArgs['texonomy_key'] : false;
-        $customfield_key            = isset( $targetTableArgs['customfield_key'] ) && is_array( $targetTableArgs['customfield_key'] ) ? $targetTableArgs['customfield_key'] : false;
-        $filter_keywords            = $targetTableArgs['filter_key'];
-        $filter_box                 = $targetTableArgs['filter_box'];
-        $description_type           = $targetTableArgs['description_type'];
-        $ajax_action                = $targetTableArgs['ajax_action'];
-        $table_type           = $targetTableArgs['table_type'];
-        $checkbox                 = $targetTableArgs['checkbox'];
-
-        if(isset( $args['s'] ) && $args['s'] == 'false'){
-            $args['s'] = false;
-        }
-        
-        $args = apply_filters( 'wpto_query_arg_ajax', $args, $directkey, $targetTableArgs, $custom_field, $texonomies );
-        
-        if(isset($args['post__in']) && ( $args['post__in'] == 'false' || empty($args['post__in']) )){
-            unset($args['post__in']);
-        }
-        // var_dump($directkey,$args);
-        $table_row_generator_array = array(
-            'args'                      => $args,
-            'wpt_table_column_keywords' => $table_column_keywords,
-            'wpt_product_short'         => $sort,
-            'wpt_permitted_td'          => $wpt_permitted_td,
-            'wpt_add_to_cart_text'      => $add_to_cart_text,
-            'temp_number'               => $temp_number,
-            'texonomy_key'              => $texonomy_key,
-            'customfield_key'           => $customfield_key,
-            'filter_key'                => $filter_keywords,
-            'filter_box'                => $filter_box,
-            'description_type'          => $description_type,
-            'ajax_action'               => $ajax_action,
-            'table_type'            => $table_type,
-            'checkbox'            => $checkbox, 
-            //'custom_field'            => $custom_field,
-        );
-
-        echo wpt_table_row_generator( $table_row_generator_array );
-
-        die();
-    }
-}
-add_action( 'wp_ajax_wpt_query_table_load_by_args', 'wpt_ajax_table_row_load' );
-add_action( 'wp_ajax_nopriv_wpt_query_table_load_by_args', 'wpt_ajax_table_row_load' );
 
 if( ! function_exists( 'wpt_ajax_add_to_cart' ) ){
 
@@ -323,8 +41,7 @@ if( ! function_exists( 'wpt_ajax_add_to_cart' ) ){
         $cart_item_data = apply_filters('wpto_cart_meta_by_additional_json', $cart_item_data, $additinal_json, $product_id, $data);
 
         wpt_adding_to_cart( $product_id, $quantity, $variation_id, $variation, $cart_item_data );
-        // var_dump( $product_id, $quantity, $variation_id, $variation, $cart_item_data );
-        
+
         die();
     }
 }
@@ -516,7 +233,7 @@ if( ! function_exists( 'wpt_add_custom_message_field' ) ){
         $message = apply_filters( 'wpt_message_box_label_product_page', esc_html__( 'Message', 'woo-product-table' )  );
         global $product;
         $product_id = $product->get_id();
-        // var_dump($product->get_id());
+
         ?>
         <table class="variations wpt-message-box-table" cellspacing="0">
               <tbody>
@@ -534,37 +251,6 @@ if( ! function_exists( 'wpt_add_custom_message_field' ) ){
         <?php
     }
 }
-/**
- * If you want to show this Field even in Single Product Page,
- * You have to add the following Action Hook.
- * You can use Code Snipet plugin to activate this action
- * or add on theme's functions.php file
- * 
- * Uses:
- * add_action( 'woocommerce_before_add_to_cart_quantity', 'wpt_add_custom_message_field' );
- */
-
-
-if( ! function_exists( 'wpt_custom_message_validation' ) ){
-
-    /**
-     * To set Validation, I mean: Required.
-     * By Default: Disable, if you need, you can active it by enable action under this function
-     * 
-     * @since 1.9
-     * @return boolean
-     */
-    function wpt_custom_message_validation() { 
-
-        if ( isset( $_REQUEST['wpt_custom_message'] ) && empty( $_REQUEST['wpt_custom_message'] ) ) {
-            $short_mesg_warning = __( 'Please enter Short Message', 'woo-product-table' );
-            $short_mesg_warning = apply_filters( 'wpto_short_message_warning', $short_mesg_warning );
-            wc_add_notice( $short_mesg_warning, 'error' );
-            return false;
-        }
-        return true;
-    }
-}
 
 
 if( ! function_exists( 'wpt_save_custom_message_field' ) ){
@@ -577,12 +263,13 @@ if( ! function_exists( 'wpt_save_custom_message_field' ) ){
      * @return string
      */
     function wpt_save_custom_message_field( $cart_item_data, $product_id ) {
-        
-        if( isset( $_REQUEST['wpt_custom_message'] ) && ! empty( $_REQUEST['wpt_custom_message'] ) ) {
-            $generated_message = isset( $_REQUEST['wpt_custom_message'] ) ? sanitize_text_field( $_REQUEST['wpt_custom_message'] ) : '';
-            $cart_item_data[ 'wpt_custom_message' ] =  $generated_message;
+        $post_request = filter_input_array( INPUT_POST );
+        $wpt_custom_message = sanitize_text_field(wp_unslash( $post_request['wpt_custom_message'] ?? ''));
+
+        if( ! empty( $wpt_custom_message ) ) {
+            $cart_item_data[ 'wpt_custom_message' ] =  $wpt_custom_message;
             /* below statement make sure every add to cart action as unique line item */
-            $cart_item_data['unique_key'] = $product_id . '_' . $generated_message;//md5( microtime().rand() );
+            $cart_item_data['unique_key'] = $product_id . '_' . $wpt_custom_message;
         }
         return $cart_item_data;
     }

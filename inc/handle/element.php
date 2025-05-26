@@ -7,7 +7,7 @@ class Element{
         ?>
     <div id="wpt_load_more_wrapper_<?php echo esc_attr( $shortcode->table_id ); ?>" 
     class="wpt_load_more_wrapper wpt-type-pagination-<?php echo esc_attr( $shortcode->pagination ); ?>">
-        <?php echo self::loadMoreButton( $shortcode ); ?>
+        <?php echo wp_kses( self::loadMoreButton( $shortcode ), 'post' ); ?>
     </div>
         <?php
     }

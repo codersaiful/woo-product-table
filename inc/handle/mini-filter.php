@@ -16,7 +16,26 @@ class Mini_Filter{
         ?>
         <div class="wpt-mini-filter-wrapper">
             <div class="wpt-mini-filter">
-                <?php echo self::filter_box(); ?>
+                <?php
+                $allowed_html = array(
+                    'select' => array(
+                        'class' => true,
+                        'id' => true,
+                        'data-temp_number' => true,
+                        'data-key' => true,
+                        'data-label' => true,
+                        
+                    ),
+                    'label' => array(),
+                    'a' => array(
+                        'href' => true,
+                        'data-type' => true,
+                        'data-temp_number' => true,
+                        'id' => true,
+                        'class' => true,
+                    ),
+                    );
+                echo wp_kses( self::filter_box(), $allowed_html ); ?>
             </div>
         </div>
         <?php 

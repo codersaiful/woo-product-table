@@ -13,6 +13,111 @@ jQuery.fn.extend({
     }
 });
 
+(function ($) {
+    $.fn.customSelect = function (options) {
+        const settings = $.extend({
+            parentClass: '',
+            parentId: '',
+            className: ''
+        }, options);
+        return this.each(function () {
+            const $select = $(this);
+            var tagName = $select[0].tagName.toLowerCase();
+            if(tagName !== 'select') return;
+
+
+            if($select.find('option').length > 4) return;
+            // if($select.hasClass('wpt_table_product_inc_exc_variation')) return;
+            if($select.hasClass('wpt_select2')) return;
+            if($select.hasClass('wpt_query_terms')) return;
+            if($select.hasClass('wpt_table__for_variation')) return;
+            if($select.hasClass('wpt_table_on_archive')) return;
+            if($select.hasClass('product_includes_excludes')) return;
+            const selectedValue = $select.val();
+            const name = $select.attr('name');
+            const id = $select.attr('id');
+
+            // Copy all attributes except "class"
+            const attributes = $select[0].attributes;
+            const inputAttrs = {};
+            var hindenInputClassName = '';
+            $.each(attributes, function () {
+                if (this.name !== 'class') {
+                    inputAttrs[this.name] = this.value;
+                }else if (this.name == 'class') {
+                    inputAttrs['backup_class'] = this.value;
+                    hindenInputClassName = this.value;
+                }
+            });
+
+            // Create wrapper and elements
+            const $wrapper = $('<div class="custom-select-box-wrapper sfl-auto-gen-box"></div>');
+            if (settings.parentClass){
+                $wrapper.addClass(settings.parentClass);
+            }
+            if (settings.parentId){
+                $wrapper.attr('id', settings.parentId);
+            }
+
+            const $hiddenInput = $('<input type="hidden">')
+                .addClass('custom-select-box-input')
+                .val(selectedValue)
+                .attr('name', name)
+                .attr('id', id)
+                .attr(inputAttrs);
+
+            if (settings.className) {
+                $hiddenInput.addClass(settings.className);
+            }
+            $hiddenInput.addClass(hindenInputClassName);
+
+            const $boxesContainer = $('<div class="wpt-custom-select-boxes"></div>');
+
+            $select.find('option').each(function () {
+                const $option = $(this);
+                const value = $option.val();
+                const text = $option.text();
+                const isSelected = $option.is(':selected');
+                const isDisabled = $option.is(':disabled');
+
+                const $box = $('<div class="wpt-custom-select-box"></div>')
+                    .text(text)
+                    .attr('data-value', value);
+
+                if (isSelected) $box.addClass('active');
+                if (isDisabled) $box.addClass('disabled');
+
+                $boxesContainer.append($box);
+            });
+
+            // Move specific siblings (p, span, strong, a)
+            const $parent = $select.parent();
+            const $afterSelectContent = $select.nextAll('p, span, strong, a');
+            const $contentWrapper = $('<div class="wpt-extra-content"></div>');
+            if ($afterSelectContent.length) {
+                $afterSelectContent.each(function () {
+                    $contentWrapper.append($(this).detach());
+                });
+            }
+
+            $wrapper.append($hiddenInput).append($boxesContainer).append($contentWrapper);
+            $select.replaceWith($wrapper);
+
+            // Click behavior
+            $boxesContainer.on('click', '.wpt-custom-select-box', function () {
+                const $clicked = $(this);
+                if ($clicked.hasClass('disabled')) return;
+
+                $boxesContainer.find('.wpt-custom-select-box').removeClass('active');
+                $clicked.addClass('active');
+                $hiddenInput.val($clicked.data('value')).trigger('change');
+            });
+        });
+    };
+})(jQuery);
+
+
+
 (function($) {
     'use strict';
     $(document).ready(function() {
@@ -26,13 +131,9 @@ jQuery.fn.extend({
         });
         
         $('span.wpt-help-icon').click(function(){
-            // $('span.wpt-help-icon').removeClass('wpt-help-focused');
             $(this).toggleClass('wpt-help-focused');
         });
 
-        //For select, used select2 addons of jquery
-        //$('.wpt_wrap select,.wpt_shortcode_gen_panel select, select#wpt_product_ids,select#product_tag_ids').select2();
-        
         function wptSelectItem(target, id) { // refactored this a bit, don't pay attention to this being a function
             var option = $(target).children('[value='+id+']');
             option.detach();
@@ -54,12 +155,7 @@ jQuery.fn.extend({
         $('select.internal_select').select2({
             placeholder: "Select mulitple inner Items.",
             allowClear: true,
-            // escapeMarkup: function(m) { return m; },
-            // templateResult:customizedItem,
             templateSelection:selectionWithEditLink,
-            // templateSelection:customizedItem,
-
-
         });
         
         function selectionWithEditLink(state, container){
@@ -106,9 +202,6 @@ jQuery.fn.extend({
             targetElement.addClass('expanded_li');
             targetElement.addClass(myTargetClass);
             OptimizeColumnWithName();
-            $('a.my-inslide-close-button.button').remove();
-            var myCloseButton = '<a class="my-inslide-close-button button">Close</a>';
-            targetElement.find('.wpt_shortable_data').append(myCloseButton);
         }
 
         $('select.internal_select').on('select2:select', function( e ){
@@ -139,7 +232,6 @@ jQuery.fn.extend({
          * That's why, we have added here
          */
         $('.product_includes_excludes,select#product_id_includes,select#product_id_cludes').select2({
-            //templateSelection //templateResult
             templateSelection: function(option,ccc){
                 
                 /**
@@ -153,26 +245,6 @@ jQuery.fn.extend({
                  * ::processResults er vitoreo emon kora hoyeche.
                  */
                 return option.text;
-                
-                if (!option.id) { return option.text; }
-                if(typeof option.title === 'undefined'){
-                    return option.text;
-                }
-                var content = option.title.split('|');
-                var display = '';
-                display += '<div class="wpt_select2_item_wrap">';
-                if(option.title){
-                    display += '<div class="image wpt_item wpt_item_left">';
-                    display += '<img height="50" width="50" src="' + content[0] + '">';
-                    display += '</div>';
-                }
-                display += '<div class="details wpt_item wpt_item_right">';
-                display += '<h4>' + option.text + '</h4>';
-                display += '<p>' + content[1] + '</p>';
-                display += '<b>' + content[2] + '</b>';
-                display += '</div>';
-                display += '</div>';
-                return display;
             },
             
             escapeMarkup: function (m) {
@@ -182,11 +254,11 @@ jQuery.fn.extend({
                 url: WPT_DATA_ADMIN.ajax_url,
                 dataType: 'json',
                 data: function (params) {
-                                    return {
-                                            q: params.term, // search query
-                                            action: 'wpt_pro_admin_product_list' // AJAX action for admin-ajax.php
-                                    };
-                            },
+                        return {
+                            q: params.term, // search query
+                            action: 'wpt_pro_admin_product_list' // AJAX action for admin-ajax.php
+                        };
+                    },
                 processResults: function( data ) {
                             var options = [];
                             if ( data ) {
@@ -206,7 +278,6 @@ jQuery.fn.extend({
                                         display += '</div>';
                                         display += '</div>';
 
-                                            //options.push( { id: text['id'], text: display  } );
                                             /**
                                              * Uporer ongsho tuku age chilo
                                              * admin panel a kaj korchilo na, tai apatoto seta
@@ -295,9 +366,6 @@ jQuery.fn.extend({
                     var parent = $(this).closest('ul.wpt_column_sortable');
                     if( typeof data == 'object' && data.length > 0){
                         $(data).each(function(index,value){
-                            // saiful[value] = value;
-                            // console.log('.wpt_sortable_peritem.column_keyword_' + value);
-                            // parent.find('.wpt_sortable_peritem.column_keyword_' + value).addClass('saiful-islam-hello');
                             parent.find('.wpt_sortable_peritem.column_keyword_' + value).find('input,select').renameAttr('backup-name', 'name' );
                         });
                     }
@@ -341,7 +409,6 @@ jQuery.fn.extend({
             var next = thisElement.next();
             var nextClass = next.attr('class');
 
-            //console.log(typeof prev, typeof next, typeof thisElement);
             if( target == 'next' && typeof next.html() !== 'undefined'){
                 thisElement.before('<li class="' + nextClass + '">'+next.html()+'</li>');
                 next.remove();
@@ -356,7 +423,7 @@ jQuery.fn.extend({
             var ID_SELECTOR = $(this).data('target_id');
             copyMySelectedITem(ID_SELECTOR);
         });
-        //wpt_metabox_copy_content
+
         function copyMySelectedITem(ID_SELECTOR) {
           var copyText = document.getElementById(ID_SELECTOR);
           copyText.select();
@@ -371,29 +438,22 @@ jQuery.fn.extend({
           },1000);
         }
         
-        /**
-         * Inside Tab of Column
-         * 
-         * @type String
-         */
-        $('body').on('click','#wpt_configuration_form .inside-column-settings-wrapper .inside-nav-tab-wrapper a', function(){
-            $('.inside-nav-tab-wrapper a.nav-tab-active').removeClass('nav-tab-active');
-            $(this).addClass('nav-tab-active');
-            var target_tab = $(this).data('target');
-            $('.inside-column-settings-wrapper .inside_tab_content.tab-content-active').removeClass('tab-content-active');
-            $('.inside-column-settings-wrapper .inside_tab_content#'+target_tab).addClass('tab-content-active');
-        });
+        
         /**************Admin Panel's Setting Tab Start Here For Tab****************/
         var selectLinkTabSelector = "body.wpt_admin_body #wpt_configuration_form a.wpt_nav_tab";
         var selectTabContentSelector = "body.wpt_admin_body #wpt_configuration_form .wpt_tab_content";
         var selectLinkTab = $(selectLinkTabSelector);
         var selectTabContent = $(selectTabContentSelector);
         var tabName = window.location.hash.substr(1);
-        if (tabName) {
-            setLastActiveTab(tabName);
-            removingActiveClass();
-            $('body.wpt_admin_body #wpt_configuration_form #' + tabName).addClass('tab-content-active');
-            $('body.wpt_admin_body #wpt_configuration_form .nav-tab-wrapper a.wpt_nav_tab.wpt_nav_for_' + tabName).addClass('nav-tab-active');
+
+        if (tabName && selectTabContent.length > 0) {
+            var currentTab = $('body.wpt_admin_body #wpt_configuration_form #' + tabName);
+            if( ! currentTab.hasClass('tab-content-active')){
+                removingActiveClass();
+                currentTab.addClass('tab-content-active');
+                $('body.wpt_admin_body #wpt_configuration_form .nav-tab-wrapper a.wpt_nav_tab.wpt_nav_for_' + tabName).addClass('nav-tab-active');
+            }
+            
         }
         
         $('body.wpt_admin_body').on('click','#wpt_configuration_form a.wpt_nav_tab',function(e){
@@ -426,19 +486,20 @@ jQuery.fn.extend({
         function setLastActiveTab(tabName) {
 
             $('input#wpt-last-active-tab').attr('value',tabName);
-            //and
             if( tabName == '' ){
                 return;
             }
             // Get the current URL
-            var currentUrl = window.location.href;
+            var currentUrl = new URL(window.location.href);
             
-            // Replace the value of 'wpt_active_tab'
-            var newUrl = currentUrl.replace(/(wpt_active_tab=)[^\&]+/, '$1' + tabName);
+            // Replace the value of wpt_active_tab, _nonce in the query parameters
+            currentUrl.searchParams.set('wpt_active_tab', tabName);
+            currentUrl.searchParams.set('_nonce', WPT_DATA_ADMIN._nonce);
+            //set hash to url
+            currentUrl.hash = tabName;
 
-            // Replace the current URL with the new URL
-            // Change the URL without reloading the page
-            history.replaceState(null, null, newUrl);
+            // Replace the current URL with the new URL without reloading the page
+            history.replaceState(null, null, currentUrl);
         }
 
 
@@ -508,10 +569,10 @@ jQuery.fn.extend({
          * Supposse: your 
          * REMEMEBER: select tag's class would be '.wpt_toggle' to activate this part
          */
-        $('select.wpt_toggle').each(function(){
+        $('.wpt_toggle').each(function(){
             changeOnOffElement(this)
         });
-        $(document).on('change','select.wpt_toggle',function(){
+        $(document).on('change','.wpt_toggle',function(){
             changeOnOffElement(this);
         });
         function changeOnOffElement(ElObject){
@@ -543,21 +604,7 @@ jQuery.fn.extend({
             }
         }
         
-        /**
-         * Managing Column from Activation Column List
-         * 
-         * @since We have added this featre at Version 2.7.8.2
-         */
-        $( 'body.wpt_admin_body' ).on('click', '.add_switch_col_wrapper .switch-enable-available li.switch-enable-item', function(){
-            var keyword = $(this).data('column_keyword');
-            $(this).toggleClass('item-enabled');
-            //Detect and set Responsive Stats
-            ///detect_responsive_stats();
-            $(this).closest('.tab-content').find('.wpt_column_sortable li.wpt_sortable_peritem input.checkbox_handle_input[data-column_keyword="' + keyword + '"]').trigger('click');
-            setTimeout(function(){
-                detect_responsive_stats();
-            }, 1000);
-        });
+
         /**
          * Column Section Managing
          */
@@ -567,11 +614,9 @@ jQuery.fn.extend({
             var targetLiSelector = thisWPTSortAble.find(' li.wpt_sortable_peritem.column_keyword_' + keyword);
             
             if ($(this).prop('checked')) {
-                //$(this).addClass('enabled');
                 $(this).fadeIn('fast',function(){
                     $(this).addClass('enabled')
                 }).css("display", "flex");
-                //targetLiSelector.addClass('enabled');
                 targetLiSelector.fadeIn('fast',function(){
                     targetLiSelector.addClass('enabled')
                 }).css("display", "flex");
@@ -587,24 +632,28 @@ jQuery.fn.extend({
                     return false;
                 }
                 //Counting colum End here
-                
-                
-                
-                //$(this).removeClass('enabled');
+
                 $(this).fadeOut(function(){
                     $(this).removeClass('enabled');
                 });
                 $('.switch-enable-item-' + keyword).removeClass('item-enabled');
-                //targetLiSelector.removeClass('enabled');
                 targetLiSelector.fadeOut(function(){
                     targetLiSelector.removeClass('enabled');
                 });
             }
             OptimizeColumnWithName();
-//            
-//            targetLiSelector.fadeIn(function(){
-//                $(this).css('opacity','0.3');
-//            });
+
+            var $mainWrapper = $(this).closest('.inside-column-settings-wrapper .inside_tab_content.tab-content.tab-content-active');
+            var $listWrapper = $(this).closest('.wpt-dropdown-list');
+            // Get all enabled items in the dropdown
+            var $enabledItems = $mainWrapper.find('.wpt-dropdown-list>li.item-enabled');
+            
+            // Get text values of enabled items in one line
+            var enabledItemsText = $enabledItems.map(function() {
+                return $(this).data('column_keyword');
+            }).get().join(',');
+
+            $mainWrapper.find('.wpt-col-selected-pre-value').html(enabledItemsText);
         });
         
         detect_responsive_stats();
@@ -614,7 +663,7 @@ jQuery.fn.extend({
             $('body.wpt_admin_body #inside-tablet li.wpt_sortable_peritem.enabled .wpt_shortable_data input.colum_data_input,body.wpt_admin_body #inside-mobile li.wpt_sortable_peritem.enabled .wpt_shortable_data input.colum_data_input').each(function(Index) {
                 detect_responsive[Index] = 1;
             });
-            // console.log(detect_responsive.length);
+
             var hid_respn_field = $('#hidden_responsive_data');
             if( detect_responsive.length > 0 ){
                 hid_respn_field.val('no_responsive');
@@ -681,27 +730,55 @@ jQuery.fn.extend({
                 $(this).remove();
             });
         });
-        
+
+        $('#wpt-main-configuration-form .wpt-form-control select,#wpt_table_footer_possition').customSelect();
+        $('#wpt_cf_search_box').customSelect();
+        $('.wpt-design-tab-area-wrapper td select,.wpt_column select').customSelect();
+
+        $(document.body).on('click','.wpt-custom-select-box', function() {
+            if ($(this).hasClass('disabled')) return;
+            var wrapper = $(this).closest('.custom-select-box-wrapper');
+
+            wrapper.find('.wpt-custom-select-box').removeClass('active');
+            $(this).addClass('active');
+    
+            const selectedValue = $(this).data('value');
+            wrapper.find('input').val(selectedValue).trigger('change');
+        });
         /**
          * Add new Column
          * 
          */
         $(document).on('click','.add_new_column_button',function(e){
+            //add_new_col_wrapper 
             e.preventDefault();
-            var keyword = $('.and_new_column_key').val();
-            var label = $('.and_new_column_label').val();
-            var type = $('.add_new_column_type_select').val();
-            var type_name = $('.add_new_column_type_select option[value='+ type +']').text();
+            var parentWrapper = $(this).closest('.add_new_col_wrapper');
+            var keyword = parentWrapper.find('.and_new_column_key').val().trim();
+
+            // Regex: matches a string that contains only special characters (no letters or digits)
+            var specialCharOnly = /^[^a-zA-Z0-9]+$/;
+
+            if (keyword === "" || specialCharOnly.test(keyword)) {
+                alert("Empty or special character is not supported.");
+                return;
+            }
+            var label = parentWrapper.find('.and_new_column_label').val();
+            var type = parentWrapper.find('#selected_column_type').val();
+            var type_name = parentWrapper.find('div.wpt-custom-select-boxes .wpt-custom-select-box.active').text();
+            console.log(type_name);
+
             var type_name_show = '<i>' + type_name + '</i>: ';
             if(type === 'default'){
                 type_name_show = '';
             }
-            var device_name = $('.inside-column-settings-wrapper nav.inside-nav-tab-wrapper a.wpt_inside_nav_tab.nav-tab-active').data('device');
-            var device = '_' + device_name;
-            if(device_name === 'desktop'){
-                device = '';
+            var device = $(this).closest('.add_new_col_wrapper').attr('data-device');
+            var device_wise_section = device;
+            // var device = '_' + device_name;
+            if(device === ''){
+                device_wise_section = 'desktop';
             }
-            
+            device_wise_section = device_wise_section.replace('_', '');
+
             var html = '';
             html = '<li class="wpt_sortable_peritem  column_keyword_' + keyword + ' enabled">';
                 html += '<span title="Move Handle" class="handle ui-sortable-handle"></span>';
@@ -720,32 +797,34 @@ jQuery.fn.extend({
             //Check Empty Field
             if(keyword === '' || label === ''){
                alert("No empty field suported.");
-               return;
+               return; 
             }
             //Check if already same keyword is Available
-            if($('#inside-' + device_name + ' .wpt_column_sortable li.wpt_sortable_peritem').hasClass('column_keyword_' + keyword)){
+            if($('#inside-' + device_wise_section + ' .wpt_column_sortable li.wpt_sortable_peritem').hasClass('column_keyword_' + keyword)){
                 alert('Same keyword already in list');
                 return;
-            }
-            
+            }  
+
             if(keyword !== '' || label !== ''){
                 //Remove Ajax Save
                 $('.button,button').removeClass('wpt_ajax_update');
                 
                 
                 
-                $('#inside-' + device_name + ' .wpt_column_sortable').append(html);
+                $('#inside-' + device_wise_section + ' .wpt_column_sortable').append(html);
                 $('.and_new_column_key').val('');
                 $('.and_new_column_label').val('');
                 $('.add_new_column_type_select').val('');
-                
+                // return;
                 $('body.wpt_admin_body input#publish[name=save]').trigger('click');
             }
             return;
-            
-            
-            
-            
+
+
+        });
+        $(document.body).on('change','#wpt_advance_search_taxonomy_choose',function(){
+            $('.wpt_astaxonomy_choose_notice').html('Submitting...');
+            $('body.wpt_admin_body input#publish[name=save]').trigger('click');
         });
         /**
          * Data Save by Ctrl + S
@@ -753,9 +832,7 @@ jQuery.fn.extend({
         $(window).bind('keydown', function(event) {
             if (event.ctrlKey || event.metaKey) {
                 if($('.form_bottom.form_bottom_submit_button').hasClass('wrapper_wpt_ajax_update') && String.fromCharCode(event.which).toLowerCase() === 's' ){
-                    //Detect and set Responsive Stats
-                    ///detect_responsive_stats();
-                    
+
                     event.preventDefault();
                     $('body.wpt_admin_body input#publish[name=save]').trigger('click');
                 }
@@ -780,7 +857,6 @@ jQuery.fn.extend({
         });
         
         //I will remove ajax save button for now.
-        // $(document).on('click','body.wpt_admin_body .form_bottom.form_bottom_submit_button button.button.wpt_ajax_update, body.wpt_admin_body input#publish[name=save]',function(e){
         $(document).on('click','body.wpt_admin_body .form_bottom.form_bottom_submit_button button.button.wpt_ajax_update',function(e){
             //Detect and set Responsive Stats
             detect_responsive_stats();
@@ -846,20 +922,12 @@ jQuery.fn.extend({
             $('.form_bottom.form_bottom_submit_button').removeClass('wrapper_wpt_ajax_update');
         });
         
-        //console.log(tinymce.Editor);
-//        tinymce.init({
-//  selector: 'textarea',
-//  init_instance_callback: function (editor) {
-//    editor.on('Change', function (e) {
-//      alert('Editor contents was changed.');
-//    });
-//  }
-//});
+
         function wptUpdateStyleData(element){
             //style_str_value_wrapper
             var wrapper = $(element).closest('.style_str_wrapper');
             var targetWrapper = wrapper.data('target_value_wrapper');
-            // console.log(targetWrapper,"#" + targetWrapper + " .str_str_each_value");
+            
             var property_name, property_value;
             var str_str = "";
             $("." + targetWrapper + " .str_str_each_value").each(function() {
@@ -921,11 +989,6 @@ jQuery.fn.extend({
     }
 
 
-    $(document.body).on('click,change','tr.user_can_not_edit input,tr.user_can_not_edit select',function(e){
-        e.preventDefault();
-        alert("Sorry");
-    });
-    
 
     $(document.body).on('submit', 'form#wpt-main-configuration-form', function (e){
 
@@ -977,11 +1040,6 @@ jQuery.fn.extend({
             let conPass = bodyHeight - screenHeight - 100 - targetElement.height();
             let leftWill = configFormElement.width() - targetElement.width() - 20;
             
-    
-            // targetElement.css({
-            //     left: leftWill,
-            //     right: 'unset'
-            // });
             if(scrollTop < conPass){
                 targetElement.addClass('stick_on_scroll-on');
             }else{
@@ -1116,12 +1174,359 @@ jQuery.fn.extend({
             let target = $(this).attr('href');
             if(target == '#show-all'){
                 sectionPanel.fadeIn();
-                return;
+
+            }else{
+                $(mainSelector + ' ' + target).fadeIn().addClass('active');
             }
-            $(mainSelector + ' ' + target).fadeIn().addClass('active');
+            
+
+            //Address replace
+            var currentUrl = new URL(window.location.href);
+            currentUrl.hash = target;
+            history.replaceState(null, null, currentUrl);
             
         });
+
+        var tabName = window.location.hash;
+
+        setTimeout(function(){
+            if(sectionPanel.length > 0 && tabName.length > 0){
+                $(mainSelector + ' .wpt-configure-tab-wrapper a.tab-button').removeClass('active');
+                $(mainSelector + ' .wpt-configure-tab-wrapper a[href="' + tabName + '"]').addClass('active');
+                
+                if(tabName == '#show-all'){
+                    sectionPanel.fadeIn();
+                    return;
+                }
+                $(mainSelector + ' .wpt-section-panel').not('.wpt-configure-tab-wrapper').hide().removeClass('active');
+
+                $(mainSelector + ' ' + tabName).show().addClass('active');
+            }
+        },100);
     }
+
+    $('.wpt_query_terms_each_tr').each(function(){
+        var $this = $(this);
+        var $select = $this.find('select');
+        var $selectVal = $select.val();
+        var $key = $this.data('key');
+        var $status = 'hide';
+        if($selectVal.length > 0){
+
+            $this.removeClass('hide');
+            $this.addClass('active');
+            $status = 'active';
+        }else{
+            $this.addClass('hide');
+            $this.removeClass('active');
+            $status = 'hide';
+        }
+        $('.wpt-qs-handle-' + $key).attr('data-status',$status);
+
+
+        
+        
+    });
+
+    $(document.body).on('click','span.wpt-query-selection-handle',function(){
+        var $this = $(this);
+        var $key = $this.data('key');
+
+        var $target_ttr = $('.wpt_query_terms_each_tr.' + $key);
+        if($target_ttr.find('select').val().length > 0){
+            return;
+        }
+ 
+        var $status = $this.attr('data-status');
+        if($status == 'hide'){
+            $('.wpt_query_terms_each_tr[data-key="' + $key + '"]').removeClass('hide').addClass('active').fadeIn();
+            $this.attr('data-status','active');
+            $('tr.wpt_query_terms_each_tr.' + $key).addClass('active').removeClass('hide');
+        }else{
+            $('.wpt_query_terms_each_tr[data-key="' + $key + '"]').addClass('hide').removeClass('active').fadeOut();
+            $this.attr('data-status','hide');
+            $('tr.wpt_query_terms_each_tr.' + $key).removeClass('active').addClass('hide');
+        }
+    });
+
+    $('.wpt_query_terms_each_tr.product_cat').addClass('active').removeClass('hide');
+    $('span.wpt-query-selection-handle.wpt-qs-handle-product_cat').addClass('active'); 
+    $('span.wpt-query-selection-handle.wpt-qs-handle-product_cat').attr('data-status', 'active');
+
+
+    $(document.body).on('click', '.inside_tab_content.tab-content>h4', function(e){
+
+        e.preventDefault();
+        var $this = $(this); 
+        var $insideTabContent = $this.closest('.inside_tab_content');
+        $insideTabContent.toggleClass('expanded');
+    });
+    
+    //free version a premium feature gullor field name attr remove kora hoyeche.
+    $('.wpt-premium-feature-in-free-version,.user_can_not_edit').each(function(){
+        var $this = $(this);
+        $this.attr('title', 'Premium Feature');
+        if($this.closest('form#wpt-main-configuration-form').length > 0) return;
+        $this.find('input,select').removeAttr('name');
+    });
+
+    //Store initial values - asole free ver theke jeno configure page e kono data change na hoy er jonne nicher code ta use kora hoyeche.
+    var $userCanNotEdit = '.wpt-premium-feature-in-free-version input,.wpt-premium-feature-in-free-version select,.user_can_not_edit input, .user_can_not_edit select, .user_can_not_edit textarea';
+    $($userCanNotEdit).each(function() {
+        if($(this).closest('form#wpt-main-configuration-form').length < 1) return;
+        $(this).data('original-value', $(this).val());
+    });
+
+    // For checkboxes and radio buttons, store checked state
+    var $userCanNotEditCheck = '.wpt-premium-feature-in-free-version input[type="checkbox"], .wpt-premium-feature-in-free-version input[type="radio"],.user_can_not_edit input[type="checkbox"], .user_can_not_edit input[type="radio"]';
+    $($userCanNotEditCheck).each(function() {
+        if($(this).closest('form#wpt-main-configuration-form').length < 1) return;
+        $(this).data('original-checked', this.checked);
+    });
+
+    // Listen to changes
+    $('.wpt-premium-feature-in-free-version,.user_can_not_edit').on('change input', 'input, select, textarea', function(e) {
+        const $el = $(this);
+        if($el.closest('form#wpt-main-configuration-form').length < 1) return;
+        if ($el.is(':checkbox') || $el.is(':radio')) {
+            // Revert checkbox/radio state
+            this.checked = $el.data('original-checked');
+        } else {
+            // Revert other input/select/textarea value
+            $el.val($el.data('original-value'));
+        }
+    });
+
+    var findExtraSelection = '.column_label_fullwidth,.column_label_showing,.column_label_showing,.auto_responsive_column_label_show,.column_only_login_user,.column_only_login_user';
+
+    $(document.body).on('click', '.style_str_wrapper h3.style-heading', function(e){
+        e.preventDefault();
+        $(this).toggleClass('active');
+        $(this).closest('.style_str_wrapper').find('.wpt-style-body').toggle('fast');
+
+        $(this).closest('.wpt_column_setting_extra').find(findExtraSelection).removeClass('show');
+        $(this).closest('.style_str_wrapper').find('h3.other-feature-on-off').removeClass('active');//.text($(this).text() === 'Show Others Control' ? 'Hide Others Control' : 'Show Others Control');
+
+    });
+    $(document.body).on('click', '.style_str_wrapper h3.other-feature-on-off', function(e){
+        e.preventDefault();
+        $(this).toggleClass('active');
+        $(this).closest('.wpt_column_setting_extra').find(findExtraSelection).toggleClass('show');
+
+        $(this).closest('.style_str_wrapper').find('.wpt-style-body').hide('fast');
+        $(this).closest('.style_str_wrapper').find('h3.style-heading').removeClass('active');//.text($(this).text() === 'Show Style Control' ? 'Hide Style Control' : 'Show Style Control');
+    });
+
+    $(document.body).on('click', '#wpt-template-selector .wpt-template-item', function() {
+        var type = $(this).data('type');
+        if(type == 'limited'){
+            return;
+        }
+
+        $('.wpt-template-item').removeClass('active');
+        $(this).addClass('active');
+        
+        var selectedTemplate = $(this).data('template');
+        $('#selected_template').val(selectedTemplate);
+    });
+    $('html body.post-type-wpt_product_table').append('<div id="template-preview-popup" class="template-preview-popup"><img src="" alt="Template Preview"></div>');
+    
+
+    var $popup = $('#template-preview-popup');
+
+    $('#wpt-template-selector .wpt-template-item').on('mouseenter', function(e) {
+        var imgSrc = $(this).find('img').attr('src');
+        $popup.find('img').attr('src', imgSrc).css({ width: 'auto', height: 'auto' });
+        $popup.css({ display: 'block' });
+    }).on('mousemove', function(e) {
+        var mouseX = e.pageX;
+        var mouseY = e.pageY;
+
+        var popupWidth = $popup.outerWidth();
+        var popupHeight = $popup.outerHeight();
+        var windowWidth = $(window).width();
+        var windowHeight = $(window).height();
+        var scrollTop = $(window).scrollTop();
+
+        // Default position: bottom-right of cursor
+        var left = mouseX + 15;
+        var top = mouseY + 15;
+
+        // If popup goes beyond right edge
+        if ((mouseX + popupWidth + 20) > windowWidth) {
+            left = mouseX - popupWidth - 15;
+        }
+
+        // If popup goes beyond bottom edge
+        if ((mouseY + popupHeight + 20) > (windowHeight + scrollTop)) {
+            top = mouseY - popupHeight - 15;
+        }
+
+        $popup.css({
+            top: top + 'px',
+            left: left + 'px'
+        });
+    }).on('mouseleave', function() {
+        $popup.hide();
+    });
+
+
+
+
+    var $dropdownContainer = $('.wpt-dropdown-container');
+    var $deviceWiseWrapper = $('.inside-column-settings-wrapper .inside_tab_content.tab-content.tab-content-active');
+    $deviceWiseWrapper.each(function() {
+
+        var $mainWrapper = $(this);
+        var $enabledItems = $mainWrapper.find('.wpt-dropdown-list>li.item-enabled');
+        
+        // Get text values of enabled items in one line
+        var enabledItemsText = $enabledItems.map(function() {
+            return $(this).data('column_keyword');
+        }).get().join(',');
+
+        $mainWrapper.find('.wpt-col-selected-pre-value').html(enabledItemsText);
+    });
+
+    
+    
+    $(document.body).on('click','.wpt-add-preset-column', function(e) {
+        e.preventDefault();
+        var $button = $(this);
+        var $mainWrapper = $button.closest('.add_new_column_main_wrapper');
+        var $dropdownContainer = $mainWrapper.find('.wpt-dropdown-container');
+        $dropdownContainer.toggle(); // show/hide dropdown
+         
+    });
+    $(document.body).on('click','.wpt-add-new-custom-column-btn', function(e) {
+        e.preventDefault();
+        var $button = $(this);
+        var $mainWrapper = $button.closest('.add_new_column_main_wrapper');
+        var $_device = $mainWrapper.data('device');  
+        $('.add_new_col_wrapper').attr('data-device', $_device);
+        $('.add-new-custom-column-wrapper').toggleClass('wpt-default-hide'); // show/hide dropdown
+        $dropdownContainer.hide();  
+    });
+
+    function findOnlyText(Element){
+        var output = Element.map(function () {
+            var val = $(this).val();
+            var text = $(this).text();
+            return val + ' ' + text; // Get text from each element
+        })
+        .get() // Convert jQuery object to plain array
+        .join(' ') // Join with space
+        .replace(/\s+/g, ' ') // Replace multiple whitespaces with one space
+        .trim();
+        return output;
+    }
+
+    function urlUpdateBasedOnSearchTerm( searchTerm ){
+        let url = new URL(window.location.href);
+
+        url.hash = 'search=' + searchTerm;
+        window.history.replaceState(null, '', url);
+    }
+
+    $(document.body).on('input','#wpt-setting-search-input', function() {
+        var searchTerm = $(this).val().replace(/\s+/g, ' ').trim();
+        searchTerm = searchTerm.toLowerCase();
+
+        if(searchTerm !== ''){
+            $('.wpt-temp-menu-wrapper').hide();
+        }else{
+
+            $('.wpt-temp-menu-wrapper').show();
+            $('.wpt-temp-menu-wrapper').find('a').last().trigger('click');
+        }
+
+        var singlePanel = $('#wpt-main-configuration-form').find('.wpt-section-panel');
+        singlePanel.each(function(){
+            var selectedElName = 'td label, td input,td select option,.wpt-custom-select-box';
+            var targetElement = $(this).find(selectedElName);
+            var text = findOnlyText( targetElement ).toLowerCase();
+            if(text == ''){return;}
+
+            if (text.indexOf(searchTerm) > -1) {
+
+                $(this).show();
+                var TableTr = $(this).find('table tr');
+                TableTr.each(function(){
+                    var tableHead = $(this).find('div.wpt-table-header-inside');
+                    var targetRow = $(this).find(selectedElName);
+                    var towText = findOnlyText( targetRow ).toLowerCase();// $(this).find('label').text();
+
+                   if(towText.indexOf(searchTerm) > -1 || tableHead.length > 0){
+
+                       $(this).show();
+                   }else{
+                       $(this).fadeOut('fast');
+                   }
+                });
+            } else {
+                $(this).hide();
+            }
+        });
+    });
+    // Search filter  
+    $('.wpt-column-search-box').on('input', function() {
+        var searchTerm = $(this).val().toLowerCase();
+        var $dropdown_li = $(this).closest('.wpt-dropdown-container').find('.wpt-dropdown-list li');
+        $dropdown_li.each(function() {
+            var text = $(this).text().toLowerCase();
+            var character = $(this).data('character').toLowerCase();
+            if (text.indexOf(searchTerm) > -1 || character.indexOf(searchTerm) > -1) {
+                $(this).show();
+            } else {
+                $(this).hide();
+            }
+        });
+    });
+
+    // When an item is selected
+    $(document).on('click', '.wpt-dropdown-list li', function() {
+        if ($(this).hasClass('premium')) {return;}
+        var selectedKeyword = $(this).data('column_keyword');
+
+        if ($(this).hasClass('item-enabled')) {
+
+            // e.g., remove from active list, update UI, etc.
+            $(this).removeClass('item-enabled');
+        } else {
+            $(this).addClass('item-enabled');
+        }
+
+        var $mainWrapper = $(this).closest('.inside-column-settings-wrapper .inside_tab_content.tab-content.tab-content-active');
+        var $listWrapper = $(this).closest('.wpt-dropdown-list');
+        // Get all enabled items in the dropdown
+        var $enabledItems = $listWrapper.find('li.item-enabled');
+        
+        // Get text values of enabled items in one line
+        var enabledItemsText = $enabledItems.map(function() {
+            return $(this).data('column_keyword');
+        }).get().join(',');
+
+        $mainWrapper.find('.wpt-col-selected-pre-value').html(enabledItemsText);
+        
+        $(this).closest('.tab-content').find('.wpt_column_sortable li.wpt_sortable_peritem input.checkbox_handle_input[data-column_keyword="' + selectedKeyword + '"]').trigger('click');
+
+    });
+
+    
+    // Click outside to close dropdown
+    $(document).on('click', function(e) {
+        if (!$(e.target).closest('.wpt-dropdown-container-insider,.wpt_column_sortable, #wpt-add-preset-column').length) {
+            $dropdownContainer.hide();
+        }
+    });
+    var $addCustomColWrapperContainer = $('.add-new-custom-column-wrapper');
+    // Click outside to close dropdown
+    $(document).on('click', function(e) {
+        if (!$(e.target).closest('.add_new_col_wrapper,.wpt_column_sortable,.inside_tab_content').length) {
+            $addCustomColWrapperContainer.addClass('wpt-default-hide');
+        }
+    });
+
 
 
 })(jQuery);
@@ -1142,11 +1547,7 @@ var i;
 for (i = 0; i < coll.length; i++) {
   coll[i].addEventListener("click", function() {
     var content = this.nextElementSibling;
-    // if (content.style.display === "block") {
-    //   content.style.display = "none";
-    // } else {
-    //   content.style.display = "block";
-    // }
+
 
     if (content.style.display === "none") {
         content.style.display = "block";

@@ -27,7 +27,8 @@ class Pro_Version_Update{
             $pro_upd_notice = new Notice( WPT_DEV_VERSION );
 
             $title = sprintf( __( 'RECOMMED UPDATE: Woo Product table Pro - CodeAstrology', 'woo-product-table' ), "" );
-            $message = sprintf( __( "Your pro version need to update. Minimum Request version: <code>v%s</code> and your current pro version is: <code>v%s</code>. To get all perfect result, Please update your pro version.", 'woo-product-table' ), $this->request_min_pro, WPT_PRO_DEV_VERSION );
+            /* translators: 1: Minimum Request version 2: Current Pro version */
+            $message = sprintf( __( 'Your pro version need to update. Minimum Request version: <code>v%2$s</code> and your current pro version is: <code>v%1$s</code>. To get all perfect result, Please update your pro version.', 'woo-product-table' ), $this->request_min_pro, WPT_PRO_DEV_VERSION );
             $pro_upd_notice->set_title( $title );
             $pro_upd_notice->set_message( $message );
             $pro_upd_notice->set_diff_limit(5)->set_type('offer');

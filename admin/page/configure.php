@@ -12,25 +12,11 @@ $default_lang_bool = $lang == $default_lang ? true : false;
 $root_option_key = WPT_OPTION_KEY;
 $option_key =  $root_option_key . $lang_ex;
 $settings = apply_filters('wpto_configuration_settings', $settings);
-if (isset($_POST['data']) && isset($_POST['reset_button'])) {
-    //Reset 
-    $value = WPT_Product_Table::$default;
-    update_option($option_key,  $value);
-} else if (isset($_POST['data']) && isset($_POST['configure_submit'])) {
-    //configure_submit
-    $value = false;
-    if (is_array($_POST['data'])) {
-        $value = array_map(
-            function ($field) {
-                //All post value is santized here using array_map
-                return is_array($field) ? $field : sanitize_text_field($field);
-            },
-            $_POST['data']
-        );
-    }
-    // $value 's all key_value is sanitized before update on database
-    update_option($option_key,  $value);
-}
+
+//Manage form submission over that file
+include_once trailingslashit( __DIR__ ) . 'form-submit.php';
+
+
 $current_config_value = get_option($option_key);
 
 if (empty($current_config_value)) {
@@ -49,23 +35,15 @@ $wrapper_class = isset($settings['module']) ? $settings['module'] : '';
     <h1 class="wp-heading "></h1>
     <div class="fieldwrap">
         <form action="" method="POST"  id="wpt-main-configuration-form">
+        <input type="hidden" name="wpt_configure_nonce" value="<?php echo esc_attr( wp_create_nonce( plugin_basename( __DIR__ ) ) ); ?>" />
+            
+            <div class="wpt-configure-form-header">
+                <div class="wpt-configure-tab-wrapper wpt-temp-menu-wrapper wpt-section-panel no-background"></div>
+                <input type="text" id="wpt-setting-search-input" class="wpt-setting-search-input" placeholder="🔍 Search settings by label/value/anything">
+            </div>
 
-            <div class="wpt-configure-tab-wrapper wpt-section-panel no-background"></div>
-            <!-- <div class="wpt-section-panel no-background wpt-full-form-submit-wrapper">
-                <button name="configure_submit" type="submit" class="wpt-btn wpt-has-icon configure_submit">
-                    <span><i class="wpt-floppy"></i></span>
-                    <strong class="form-submit-text">
-                        <?php echo esc_html__('Save Change', 'wpt'); ?>
-                    </strong>
-                </button>
-            </div> -->
 
             <?php
-            /**
-             * Here wil will include two input Like bellow:
-             * <input name="config[plugin_version]" type="hidden" value="<?php echo WOO_Product_Table::getVersion(); ?>">
-            <input name="config[plugin_name]" type="hidden" value="<?php echo WOO_Product_Table::getName(); ?>">
-             */
             do_action('wpto_admin_configuration_form_version_data', $settings, $current_config_value);
 
             if ($default_lang_bool) {
@@ -77,7 +55,7 @@ $wrapper_class = isset($settings['module']) ? $settings['module'] : '';
                             <tr>
                                 <th class="wpt-inside">
                                     <div class="wpt-table-header-inside">
-                                        <h3><?php echo esc_html__('Settings', 'wpt'); ?></h3>
+                                        <h3><?php echo esc_html__( 'Settings', 'woo-product-table' ); ?></h3>
                                     </div>
 
                                 </th>
@@ -132,7 +110,7 @@ $wrapper_class = isset($settings['module']) ? $settings['module'] : '';
                     <tr>
                         <th class="wpt-inside">
                             <div class="wpt-table-header-inside">
-                                <h3><?php echo esc_html__('Recommendation Area', 'wpt'); ?> <small class="wpt-small-title">To increase Sale</small></h3>
+                                <h3><?php echo esc_html__('Recommendation Area', 'woo-product-table'); ?> <small class="wpt-small-title">To increase Sale</small></h3>
                             </div>
 
                         </th>

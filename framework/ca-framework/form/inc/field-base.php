@@ -27,7 +27,7 @@ class Field_Base
         $this->id = $this->args['id'] = $args['id'] ?? 'id';
         $this->name = $this->args['name']  = $args['name'] ?? 'ca-field[' . $this->id . ']';
         $this->type = $this->args['type'] = $args['type'] ?? 'input';
-        $this->label = $this->args['label'] = $args['label'] ?? __( 'Form Label' );
+        $this->label = $this->args['label'] = $args['label'] ?? __( 'Form Label', 'woo-product-table' );
         $this->wrapper_class = $this->args['wrapper_class'] = $args['wrapper_class'] ?? '';
         $this->class_name = $this->args['class_name'] = $args['class_name'] ?? '';
         $this->desc = $this->args['desc'] = $args['desc'] ?? '';

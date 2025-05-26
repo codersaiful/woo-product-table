@@ -245,11 +245,10 @@ class Row extends Table_Base{
         data-href="<?php echo esc_url( $this->product_permalink ); ?>"
         data-product_variations="<?php echo esc_attr( htmlspecialchars( wp_json_encode( $this->available_variations ) ) ); ?>"
         additional_json=""
-        <?php echo $this->row_attr; ?>
+        <?php if(! empty( $this->row_attr ) ) echo wp_kses_post( $this->row_attr ); ?>
         role="row">
         <?php
-
-        echo $this->generated_td_start;
+        if(! empty( $this->generated_td_start ) ) echo wp_kses_post( $this->generated_td_start );
 
         foreach( $this->_enable_cols as $keyword => $col ){
 
@@ -327,7 +326,7 @@ class Row extends Table_Base{
              */
             $td_class = Table_Attr::td_class($keyword, $this);
             ?>
-            <<?php echo $this->td_tag; ?> class="td_or_cell <?php echo esc_attr($class_iner_avail . ' ' .$td_class ); ?>"
+            <<?php echo esc_html( $this->td_tag ); ?> class="td_or_cell <?php echo esc_attr($class_iner_avail . ' ' .$td_class ); ?>"
             data-keyword="<?php echo esc_attr( $keyword ); ?>" 
             data-temp_number="<?php echo esc_attr( $this->table_id ); ?>" 
             data-sku="<?php echo esc_attr( $this->product_sku ); ?>"
@@ -407,16 +406,14 @@ class Row extends Table_Base{
             //Old code: do_action( 'wpt_column_bottom', $keyword, $this );
             do_action( 'wpt_column_bottom', $this );
             ?>
-            </<?php echo $this->td_tag; ?>><!--EndTd-->
+            </<?php echo esc_html( $this->td_tag ); ?>><!--EndTd-->
             <?php
             
         }
-        echo $this->generated_td_end;
+        if(! empty( $this->generated_td_end ) ) echo wp_kses_post( $this->generated_td_end );
         ?>
         </tr>
         <?php
-
-        // var_dump($this);
     }
 
     /**

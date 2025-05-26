@@ -63,18 +63,13 @@ if( ! function_exists( 'wpt_texonomy_search_generator' ) ){
             return false;
         }
         $label = apply_filters( 'wpto_searchbox_taxonomy_name', $taxonomy_details->labels->menu_name, $taxonomy_details, $temp_number );//label;
-        $label = __( $label, 'woo-product-table' );
+
         $label_all_items = $taxonomy_details->labels->all_items;
         $html .= "<div class='search_single search_single_texonomy search_single_{$texonomy_keyword}'>";
         $html .= "<label class='search_keyword_label {$texonomy_keyword}' for='{$texonomy_keyword}_{$temp_number}'>{$label}</label>";
 
         $multiple_selectable = apply_filters( 'wpto_is_multiple_selectable', false, $texonomy_keyword, $temp_number ) ? 'multiple' : '';
 
-        // $taxonomy_sorting = $config_value['sort_searchbox_filter'] ?? '0';
-        // if($taxonomy_sorting == '0'){
-            // $defaults['orderby'] = '';
-            // $defaults['order'] = '';
-        // }
         $tx_order = $config_value['sort_searchbox_filter'] ?? 'ASC';
         $defaults = array(
 		'show_option_all'   => '',
@@ -101,7 +96,7 @@ if( ! function_exists( 'wpt_texonomy_search_generator' ) ){
         'data-key'          => $texonomy_keyword,
 	);
         if( ! $multiple_selectable ){
-            $defaults['show_option_all'] = __( $label_all_items, 'woo-product-table' );
+            $defaults['show_option_all'] = $label_all_items;
         }
         
         /**
@@ -142,10 +137,7 @@ if( ! function_exists( 'wpt_texonomy_search_generator' ) ){
                 $tx_order = wpt_get_config('sort_searchbox_filter');
                 if( $tx_order == 'ASC' ) return $prev->name > $next->name ? 1 : -1;
                 if( $tx_order == 'DESC' ) return $prev->name > $next->name ? -1 : 1;
-                
-             
-                // if($prev->name == $next->name) return 0;
-                // var_dump($prev->name,$next->name);
+
                 return 0;
             });
         }
@@ -197,11 +189,6 @@ if( ! function_exists( 'wpt_texonomy_filter_generator' ) ){
             return false;
         }
 
-        /**
-         * Need for get_texonomy and get_terms
-         */
-        $texonomy_sarch_args = array('hide_empty' => true,'orderby' => 'count','order' => 'DESC');
-
             $taxonomy_details = get_taxonomy( $texonomy_keyword );
             if( !$taxonomy_details ){
                 return false;
@@ -210,8 +197,6 @@ if( ! function_exists( 'wpt_texonomy_filter_generator' ) ){
             $label = $taxonomy_details->labels->singular_name;
             $html .= "<select data-temp_number='{$temp_number}' data-key='{$texonomy_keyword}' data-label='{$label}' class='filter_select select2 filter filter_select_{$texonomy_keyword}' id='{$texonomy_keyword}_{$temp_number}'>";
 
-                $texonomy_boj = get_terms( $texonomy_keyword, $texonomy_sarch_args );
-                
             $html .= "</select>";
         return $html;
     }
@@ -219,6 +204,7 @@ if( ! function_exists( 'wpt_texonomy_filter_generator' ) ){
 
 if( !function_exists( 'wpt_search_box' ) ){
     /**
+     * deprecated
      * ##########################
      * THIS WILL REMOVED
      * ##########################
@@ -229,6 +215,7 @@ if( !function_exists( 'wpt_search_box' ) ){
      * @param type $search_box_texonomiy_keyword Obviously should be a Array, for product_cat tag etc
      * @param int $search_n_filter getting search and fileter meta
      * @return string
+     * @deprecated 3.3 has been transfer to Class Object Shortcode (inc/Shortcode.php)
      */
     function wpt_search_box($temp_number, $search_box_texonomiy_keyword = array( 'product_cat', 'product_tag' ), $order_by = false, $order = false, $search_n_filter = false,$table_ID = false ){
         
@@ -245,7 +232,7 @@ if( !function_exists( 'wpt_search_box' ) ){
          */
         $html .= "<div class='search_single search_single_direct'>";
         
-        $search_keyword = isset( $_GET['search_key'] ) ? sanitize_text_field( $_GET['search_key'] ) : '';
+        $search_keyword = '';
         
 
         $single_keyword = $config_value['search_keyword_text'];//__( 'Search keyword', 'woo-product-table' );
@@ -293,7 +280,7 @@ if( !function_exists( 'wpt_search_box' ) ){
         if( isset( $config_value['query_by_url'] ) && $config_value['query_by_url'] ){
             
             $cutnt_link = get_page_link();
-            $style = isset( $_GET['table_ID'] ) ? "display:inline;": '';
+            $style = '';
             $html .= '<a href="' . $cutnt_link . '" data-type="close-button" data-table_ID="' . $temp_number . '" id="wpt_query_reset_button_' . $temp_number . '" class="search_box_reset search_box_reset_' . $temp_number . '" style="' . $style . '">x</a>';
         }
         
@@ -340,8 +327,11 @@ if( ! function_exists( 'wpt_filter_box' ) ){
             }
         }
         if( $html_select ){
-            $html .= "<label>" . __( $config_value['filter_text'], 'woo-product-table' ) . "</label>" . $html_select;
-            $html .= '<a href="#" data-type="reset " data-temp_number="' . $temp_number . '" id="wpt_filter_reset_' . $temp_number . '" class="wpt_filter_reset wpt_filter_reset_' . $temp_number . '">' . __( $config_value['filter_reset_button'], 'woo-product-table' ) . '</a>';
+            $filter_text = $config_value['filter_text'] ?? '';
+            $filter_reset_button = $config_value['filter_reset_button'] ?? '';
+
+            $html .= "<label>" . $filter_text . "</label>" . $html_select;
+            $html .= '<a href="#" data-type="reset " data-temp_number="' . esc_attr( $temp_number ) . '" id="wpt_filter_reset_' . esc_attr( $temp_number ) . '" class="wpt_filter_reset wpt_filter_reset_' . $temp_number . '">' . esc_html( $filter_reset_button ) . '</a>';
         }
         return $html;
     }

@@ -95,7 +95,7 @@ if( ! class_exists( 'CA_Framework\Notice' ) ){
         {
             $defl = array(
                 'type'      =>  'primary',
-                'text'      =>  __( 'Click here', 'ca-framework' ),
+                'text'      =>  __( 'Click here', 'woo-product-table' ),
                 'target'    =>  '_blank',
                 'link'      =>  '#'
             );
@@ -212,7 +212,7 @@ if( ! class_exists( 'CA_Framework\Notice' ) ){
                                  
             $close_date   = get_option( $this->notice_id . "_notice_close_date");
             if( ! empty($close_date) && is_numeric( $close_date )){
-                $close_date		        = date("Y-m-d", $close_date);
+                $close_date		        = gmdate("Y-m-d", $close_date);
     
                 $date				    = new \DateTime($close_date);
                 $now 				    = new \DateTime();
@@ -242,7 +242,7 @@ if( ! class_exists( 'CA_Framework\Notice' ) ){
          */
         public function notice_output(){
         ?>
-            <div data-notice_id="<?php echo $this->notice_id; ?>" class='notice ca-notice notice-<?php echo esc_attr( $this->notice_type ); ?>'>
+            <div data-notice_id="<?php echo esc_attr( $this->notice_id ); ?>" class='notice ca-notice notice-<?php echo esc_attr( $this->notice_type ); ?>'>
             <?php $this->notice_html(); ?>
             </div>
          <?php
@@ -252,7 +252,7 @@ if( ! class_exists( 'CA_Framework\Notice' ) ){
          */
         public function location_notice_output(){
         ?>
-            <div data-notice_id="<?php echo $this->notice_id; ?>" class='anywhere-notice ca-notice notice-<?php echo esc_attr( $this->notice_type ); ?>'>
+            <div data-notice_id="<?php echo esc_attr( $this->notice_id ); ?>" class='anywhere-notice ca-notice notice-<?php echo esc_attr( $this->notice_type ); ?>'>
             <?php $this->notice_html(); ?>
             </div>
          <?php

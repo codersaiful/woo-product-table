@@ -75,9 +75,9 @@ if( !function_exists( 'wpt_configuration_page_head' ) ){
                     <img src="<?php echo esc_url( $brand_logo ); ?>" class="wpt-brand-logo">
                     Woo Product Table 
                     
-                    <span class="plugin-version">v <?php echo WPT_Product_Table::getVersion(); ?></span>
+                    <span class="plugin-version">v <?php echo esc_attr( WPT_Product_Table::getVersion() ); ?></span>
                     <?php if(method_exists('WOO_Product_Table', 'getVersion')){ ?>
-                        <span class="plugin-version" title="Pro Version">v <?php echo WOO_Product_Table::getVersion(); ?></span></h1>
+                        <span class="plugin-version" title="Pro Version">v <?php echo esc_html( WOO_Product_Table::getVersion() ); ?></span></h1>
                     <?php } ?>
                 </h1>
 
@@ -99,8 +99,8 @@ if( !function_exists( 'wpt_configuration_page_version_data' ) ){
      */
     function wpt_configuration_page_version_data(){
         ?>
-        <input name="data[plugin_version]" type="hidden" value="<?php echo WPT_Product_Table::getVersion(); ?>">
-        <input name="data[plugin_name]" type="hidden" value="<?php echo WPT_Product_Table::getName(); ?>"> 
+        <input name="data[plugin_version]" type="hidden" value="<?php echo esc_html( WPT_Product_Table::getVersion() ); ?>">
+        <input name="data[plugin_name]" type="hidden" value="<?php echo esc_html( WPT_Product_Table::getName() ); ?>"> 
             
          <?php
     }
@@ -123,7 +123,7 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
         // var_dump($page);
         ?>
 
-<div class="wpt-section-panel basic-settings basic <?php echo esc_attr( $page ); ?>" id="wpt-basic-settings">
+<div class="wpt-section-panel basic-settings basic <?php echo esc_attr( wpt_get_conditional_class() ); ?> <?php echo esc_attr( $page ); ?>" id="wpt-basic-settings">
     <table class="wpt-my-table basic-setting-table">
         <thead>
             <tr>
@@ -187,10 +187,10 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
                 <td>
                     <div class="wpt-form-control">
                         <div class="form-label col-lg-6">
-                            <label class="wpt_label" for="wpt_table_thumbs_image_size"><?php echo sprintf(esc_html__( 'Thumbs Image Size', 'woo-product-table' ), '<small>', '</small>' ); ?></label>
+                            <label class="wpt_label" for="wpt_table_thumbs_image_size"><?php echo esc_html__( 'Thumbs Image Size', 'woo-product-table' ); ?></label>
                         </div>
                         <div class="form-field col-lg-6">
-                            <input name="<?php echo esc_attr( $field_name ); ?>[thumbs_image_size]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['thumbs_image_size'] ); ?>" id="wpt_table_thumbs_image_size" type="text" placeholder="<?php esc_attr_e( 'Thumbnail size. eg: 56', 'woo-product-table' ); ?>" min="16" max="" pattern="[0-9]*" inputmode="numeric">
+                            <input name="<?php echo esc_attr( $field_name ); ?>[thumbs_image_size]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['thumbs_image_size'] ?? '' ); ?>" id="wpt_table_thumbs_image_size" type="text" placeholder="<?php esc_attr_e( 'Thumbnail size. eg: 56', 'woo-product-table' ); ?>" min="16" max="" pattern="[0-9]*" inputmode="numeric">
                         </div>
                     </div>
                 </td>
@@ -226,7 +226,7 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
                             <label class="wpt_label" for="wpt_table_footer_cart"><?php esc_html_e( 'Floating Cart Option', 'woo-product-table' ); ?></label>
                         </div>
                         <div class="form-field col-lg-6">
-                            <select name="<?php echo esc_attr( $field_name ); ?>[footer_cart]" id="wpt_table_footer_cart" class="wpt_fullwidth ua_input" >
+                            <select name="<?php echo esc_attr( $field_name ); ?>[footer_cart]" id="wpt_table_footer_cart" class="wpt_fullwidth ua_input wpt-my-custom-smart-select" >
                                 <?php wpt_default_option( $page ) ?>
                                 <option value="always_hide" <?php wpt_selected( 'footer_cart', 'always_hide', $current_config_value ); ?>><?php esc_html_e( 'Always Hide', 'woo-product-table' ); ?></option>
                                 <option value="hide_for_zerro" <?php wpt_selected( 'footer_cart', 'hide_for_zerro', $current_config_value ); ?>><?php esc_html_e( 'Hide for Zero', 'woo-product-table' ); ?></option>
@@ -250,7 +250,7 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
                             <label for="wpt_table_footer_bg_color" class="wpt_label"><?php esc_html_e( 'Floating Cart BG Color', 'woo-product-table' ); ?></label>
                         </div>
                         <div class="form-field col-lg-6">
-                            <input name="<?php echo esc_attr( $field_name ); ?>[footer_bg_color]" class="wpt_data_filed_atts wpt_color_picker" value="<?php echo esc_attr( $current_config_value['footer_bg_color'] ); ?>" id="wpt_table_footer_bg_colort" type="text" placeholder="<?php esc_attr_e( 'BG Color', 'woo-product-table' ); ?>">
+                            <input name="<?php echo esc_attr( $field_name ); ?>[footer_bg_color]" class="wpt_data_filed_atts wpt_color_picker" value="<?php echo esc_attr( $current_config_value['footer_bg_color'] ?? '' ); ?>" id="wpt_table_footer_bg_colort" type="text" placeholder="<?php esc_attr_e( 'BG Color', 'woo-product-table' ); ?>">
                         </div>
                     </div>
                 </td>
@@ -287,10 +287,10 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
                 <td>
                     <div class="wpt-form-control">
                         <div class="form-label col-lg-6">
-                            <label class="wpt_label" for="wpt_table_footer_cart_size"><?php echo sprintf(esc_html__( 'Floating Cart Size %s[Only Int]%s', 'woo-product-table' ), '<small>', '</small>' ); ?></label>
+                            <label class="wpt_label" for="wpt_table_footer_cart_size"><?php echo esc_html__( 'Floating Cart Size [Only Int]', 'woo-product-table' ); ?></label>
                         </div>
                         <div class="form-field col-lg-6">
-                            <input name="<?php echo esc_attr( $field_name ); ?>[footer_cart_size]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['footer_cart_size'] ); ?>" id="wpt_table_footer_cart_size" type="number" placeholder="<?php esc_attr_e( 'Default Size. eg: 70', 'woo-product-table' ); ?>" min="50" max="" pattern="[0-9]*" inputmode="numeric">
+                            <input name="<?php echo esc_attr( $field_name ); ?>[footer_cart_size]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['footer_cart_size'] ?? '' ); ?>" id="wpt_table_footer_cart_size" type="number" placeholder="<?php esc_attr_e( 'Default Size. eg: 70', 'woo-product-table' ); ?>" min="50" max="" pattern="[0-9]*" inputmode="numeric">
                         </div>
                     </div>
                 </td>
@@ -395,10 +395,10 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
                 <td>
                     <div class="wpt-form-control">
                         <div class="form-label col-lg-6">
-                            <label for="wpt_table_instant_search_text" class="wpt_label"><?php echo sprintf(esc_html__( '%s[Instance Search]%s - Text', 'woo-product-table' ), '<b>', '</b>' ); ?></label>
+                            <label for="wpt_table_instant_search_text" class="wpt_label"><?php echo esc_html__( '[Instance Search] - Text', 'woo-product-table' ); ?></label>
                         </div>
                         <div class="form-field col-lg-6">
-                            <input name="<?php echo esc_attr( $field_name ); ?>[instant_search_text]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['instant_search_text'] ); ?>" id="wpt_table_instant_search_text" type="text" placeholder="<?php esc_attr_e( 'attr', 'woo-product-table' ); ?>">
+                            <input name="<?php echo esc_attr( $field_name ); ?>[instant_search_text]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['instant_search_text'] ?? '' ); ?>" id="wpt_table_instant_search_text" type="text" placeholder="<?php esc_attr_e( 'attr', 'woo-product-table' ); ?>">
                         </div>
                     </div>
                 </td>
@@ -453,7 +453,7 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
                 <td>
                     <div class="wpt-form-control">
                         <div class="form-label col-lg-6">
-                            <label class="wpt_label" for="wpt_table_disable_cat_tag_link"><?php echo sprintf(esc_html__( '%sCategories, Tags%s Link', 'woo-product-table' ), '<strong>', '</strong>' ); ?></label>
+                            <label class="wpt_label" for="wpt_table_disable_cat_tag_link"><?php echo esc_html__( 'Categories, Tags Link', 'woo-product-table' ); ?></label>
                         </div>
                         <div class="form-field col-lg-6">
                             <select name="<?php echo esc_attr( $field_name ); ?>[disable_cat_tag_link]" id="wpt_table_disable_cat_tag_link" class="wpt_fullwidth ua_input" >
@@ -525,9 +525,9 @@ if( !function_exists( 'wpt_configure_basic_part' ) ){
                                 <option 
                                     <?php 
                                     echo wpt_user_can_edit() ? '' : 'disabled'; 
-                                    $wpt_cart_page_redirect = wpt_user_can_edit() ? '' : esc_html__( ' (Pro)' );
+                                    $wpt_cart_page_redirect = wpt_user_can_edit() ? '' :  ' ' . __( 'Pro', 'woo-product-table' );
                                     ?>
-                                    value="cart" <?php wpt_selected( 'product_direct_checkout', 'cart', $current_config_value ); ?>><?php echo esc_html__( 'Cart Page', 'woo-product-table' ) . $wpt_cart_page_redirect; ?></option>
+                                    value="cart" <?php wpt_selected( 'product_direct_checkout', 'cart', $current_config_value ); ?>><?php echo esc_html__( 'Cart Page', 'woo-product-table' ) . esc_html( $wpt_cart_page_redirect); ?></option>
                                 <option value="yes" <?php wpt_selected( 'product_direct_checkout', 'yes', $current_config_value ); ?>><?php esc_html_e( 'Checkout Page', 'woo-product-table' ); ?></option>
                             </select>
                         </div>
@@ -646,10 +646,10 @@ if( !function_exists( 'wpt_configure_label_part' ) ){
                 <td>
                     <div class="wpt-form-control">
                         <div class="form-label col-lg-6">
-                            <label for="wpt_table_product_not_founded" class="wpt_label"><?php echo sprintf(esc_html__( '%s[Products not found!]%s - Message Text', 'woo-product-table' ), '<b>', '</b>' ); ?></label>
+                            <label for="wpt_table_product_not_founded" class="wpt_label"><?php echo esc_html__( '[Products not found!] - Message Text', 'woo-product-table' ); ?></label>
                         </div>
                         <div class="form-field col-lg-6">
-                            <input name="<?php echo esc_attr( $field_name ); ?>[product_not_founded]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['product_not_founded'] ); ?>" id="wpt_table_product_not_founded" type="text" placeholder="<?php esc_attr_e( 'No products found in this query.', 'woo-product-table' ); ?>">
+                            <input name="<?php echo esc_attr( $field_name ); ?>[product_not_founded]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['product_not_founded'] ?? '' ); ?>" id="wpt_table_product_not_founded" type="text" placeholder="<?php esc_attr_e( 'No products found in this query.', 'woo-product-table' ); ?>">
                         </div>
                     </div>
                 </td>
@@ -660,14 +660,14 @@ if( !function_exists( 'wpt_configure_label_part' ) ){
                 </td>
             </tr>
 
-            <tr class="<?php echo esc_attr( $user_can_edit ); ?>">
+            <tr>
                 <td>
                     <div class="wpt-form-control">
                         <div class="form-label col-lg-6">
                             <label for="wpt_table_type_your_message" class="wpt_label"><?php esc_html_e( '[Type your Message.] Placeholder', 'woo-product-table' );?></label>
                         </div>
                         <div class="form-field col-lg-6">
-                            <input name="<?php echo esc_attr( $field_name ); ?>[type_your_message]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['type_your_message'] ); ?>" id="wpt_table_type_your_message" type="text" placeholder="<?php esc_attr_e( 'Type your Message.', 'woo-product-table' );?>">
+                            <input name="<?php echo esc_attr( $field_name ); ?>[type_your_message]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['type_your_message'] ?? '' ); ?>" id="wpt_table_type_your_message" type="text" placeholder="<?php esc_attr_e( 'Type your Message.', 'woo-product-table' );?>">
                         </div>
                     </div>
                 </td>
@@ -682,10 +682,10 @@ if( !function_exists( 'wpt_configure_label_part' ) ){
                 <td>
                     <div class="wpt-form-control">
                         <div class="form-label col-lg-6">
-                            <label for="wpt_table_load_more_text" class="wpt_label"><?php echo sprintf(esc_html__( '%s[Load More]%s - Button Text', 'woo-product-table' ), '<b>', '</b>' ); ?></label>
+                            <label for="wpt_table_load_more_text" class="wpt_label"><?php echo esc_html__( '[Load More] - Button Text', 'woo-product-table' ); ?></label>
                         </div>
                         <div class="form-field col-lg-6">
-                            <input name="<?php echo esc_attr( $field_name ); ?>[load_more_text]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['load_more_text'] ); ?>" id="wpt_table_load_more_text" type="text" placeholder="<?php esc_attr_e( 'Load More text write here', 'woo-product-table' ); ?>">
+                            <input name="<?php echo esc_attr( $field_name ); ?>[load_more_text]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['load_more_text'] ?? '' ); ?>" id="wpt_table_load_more_text" type="text" placeholder="<?php esc_attr_e( 'Load More text write here', 'woo-product-table' ); ?>">
                         </div>
                     </div>
                 </td>
@@ -702,10 +702,10 @@ if( !function_exists( 'wpt_configure_label_part' ) ){
                 <td>
                     <div class="wpt-form-control">
                         <div class="form-label col-lg-6">
-                            <label for="wpt_table_loading_more_text" class="wpt_label"><?php echo sprintf(esc_html__( '%s[Loading..]%s - Button Text', 'woo-product-table' ), '<b>', '</b>' ); ?></label>
+                            <label for="wpt_table_loading_more_text" class="wpt_label"><?php echo esc_html__( '[Loading..] - Button Text', 'woo-product-table' ); ?></label>
                         </div>
                         <div class="form-field col-lg-6">
-                            <input name="<?php echo esc_attr( $field_name ); ?>[loading_more_text]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['loading_more_text'] ); ?>" id="wpt_table_loading_more_text" type="text" placeholder="<?php esc_attr_e( 'Loading.. text write here', 'woo-product-table' ); ?>"> 
+                            <input name="<?php echo esc_attr( $field_name ); ?>[loading_more_text]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['loading_more_text'] ?? '' ); ?>" id="wpt_table_loading_more_text" type="text" placeholder="<?php esc_attr_e( 'Loading.. text write here', 'woo-product-table' ); ?>"> 
                         </div>
                     </div>
                 </td>
@@ -720,10 +720,10 @@ if( !function_exists( 'wpt_configure_label_part' ) ){
                 <td>
                     <div class="wpt-form-control">
                         <div class="form-label col-lg-6">
-                            <label for="wpt_table_search_button_text" class="wpt_label"><?php echo sprintf(esc_html__( '%s[Search]%s - Button Text', 'woo-product-table' ), '<b>', '</b>' ); ?></label>
+                            <label for="wpt_table_search_button_text" class="wpt_label"><?php echo esc_html__( '[Search] - Button Text', 'woo-product-table' ); ?></label>
                         </div>
                         <div class="form-field col-lg-6">
-                            <input name="<?php echo esc_attr( $field_name ); ?>[search_button_text]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['search_button_text'] ); ?>" id="wpt_table_search_button_textt" type="text" placeholder="<?php esc_attr_e( 'Search text write here', 'woo-product-table' ); ?>">
+                            <input name="<?php echo esc_attr( $field_name ); ?>[search_button_text]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['search_button_text'] ?? '' ); ?>" id="wpt_table_search_button_textt" type="text" placeholder="<?php esc_attr_e( 'Search text write here', 'woo-product-table' ); ?>">
                         </div>
                     </div>
                 </td>
@@ -736,14 +736,14 @@ if( !function_exists( 'wpt_configure_label_part' ) ){
 
             
 
-            <tr class="<?php echo esc_attr( $user_can_edit ); ?>">
+            <tr>
                 <td>
                     <div class="wpt-form-control">
                         <div class="form-label col-lg-6">
-                            <label for="wpt_table_empty_cart_text" class="wpt_label"><?php echo sprintf(esc_html__( '%s[Empty Cart]%s - Text of Empty Cart', 'woo-product-table' ), '<b>', '</b>' ); ?></label>
+                            <label for="wpt_table_empty_cart_text" class="wpt_label"><?php echo esc_html__( '[Empty Cart] - Text of Empty Cart', 'woo-product-table' ); ?></label>
                         </div>
                         <div class="form-field col-lg-6">
-                            <input name="<?php echo esc_attr( $field_name ); ?>[empty_cart_text]" class="wpt_data_filed_atts ua_input" value="<?php echo isset( $current_config_value['empty_cart_text'] ) ? esc_attr( $current_config_value['empty_cart_text'] ) : ''; ?>" id="wpt_table_filter_text" type="text" placeholder="<?php esc_attr_e( 'eg: Empty Cart', 'woo-product-table' ); ?>">
+                            <input name="<?php echo esc_attr( $field_name ); ?>[empty_cart_text]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['empty_cart_text'] ?? '' ); ?>" id="wpt_table_filter_text" type="text" placeholder="<?php esc_attr_e( 'eg: Empty Cart', 'woo-product-table' ); ?>">
                         </div>
                     </div>
                 </td>
@@ -756,7 +756,7 @@ if( !function_exists( 'wpt_configure_label_part' ) ){
             
 
             <!-- ----add to cart selected---- -->
-            <tr class="divider-row">
+            <tr class="divider-row <?php echo esc_attr( wpt_get_conditional_class() ); ?>">
                 <td>
                     <div class="wqpmb-form-control">
                         <div class="form-label col-lg-6">
@@ -774,14 +774,14 @@ if( !function_exists( 'wpt_configure_label_part' ) ){
                 </td>
             </tr>
 
-            <tr>
+            <tr class="<?php echo esc_attr( wpt_get_conditional_class() ); ?>">
                 <td>
                     <div class="wpt-form-control">
                         <div class="form-label col-lg-6">
                             <label for="wpt_table_item_add_selct_all" class="wpt_label"><?php esc_html_e( 'Add to Cart all selected [Added] Text', 'woo-product-table' ); ?></label>
                         </div>
                         <div class="form-field col-lg-6">
-                            <input name="<?php echo esc_attr( $field_name ); ?>[add2cart_all_added_text]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['add2cart_all_added_text'] ); ?>" id="wpt_table_item_add_selct_all" type="text" placeholder="<?php esc_attr_e( 'Added text for [Add to cart Selected]', 'woo-product-table' ); ?>">
+                            <input name="<?php echo esc_attr( $field_name ); ?>[add2cart_all_added_text]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['add2cart_all_added_text'] ?? '' ); ?>" id="wpt_table_item_add_selct_all" type="text" placeholder="<?php esc_attr_e( 'Added text for [Add to cart Selected]', 'woo-product-table' ); ?>">
                         </div>
                     </div>
                 </td>
@@ -791,14 +791,14 @@ if( !function_exists( 'wpt_configure_label_part' ) ){
                     </div> 
                 </td>
             </tr>
-            <tr>
+            <tr class="<?php echo esc_attr( wpt_get_conditional_class() ); ?>">
                 <td>
                     <div class="wpt-form-control">
                         <div class="form-label col-lg-6">
                             <label for="wpt_table_item" class="wpt_label"><?php esc_html_e( 'Item [for Singular]', 'woo-product-table' ); ?></label>
                         </div>
                         <div class="form-field col-lg-6">
-                            <input name="<?php echo esc_attr( $field_name ); ?>[item]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['item'] ); ?>" id="wpt_table_item" type="text" placeholder="<?php esc_attr_e( 'Item | for All selected Button', 'woo-product-table' ); ?>">
+                            <input name="<?php echo esc_attr( $field_name ); ?>[item]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['item'] ?? '' ); ?>" id="wpt_table_item" type="text" placeholder="<?php esc_attr_e( 'Item | for All selected Button', 'woo-product-table' ); ?>">
                         </div>
                     </div>
                 </td>
@@ -809,14 +809,14 @@ if( !function_exists( 'wpt_configure_label_part' ) ){
                 </td>
             </tr>
 
-            <tr>
+            <tr class="<?php echo esc_attr( wpt_get_conditional_class() ); ?>">
                 <td>
                     <div class="wpt-form-control">
                         <div class="form-label col-lg-6">
                             <label for="wpt_table_items" class="wpt_label"><?php esc_html_e( 'Item [for Plural]', 'woo-product-table' ); ?></label>
                         </div>
                         <div class="form-field col-lg-6">
-                            <input name="<?php echo esc_attr( $field_name ); ?>[items]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['items'] ); ?>" id="wpt_table_items" type="text" placeholder="<?php esc_attr_e( 'Item | for All selected Button', 'woo-product-table' ); ?>">
+                            <input name="<?php echo esc_attr( $field_name ); ?>[items]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['items'] ?? '' ); ?>" id="wpt_table_items" type="text" placeholder="<?php esc_attr_e( 'Item | for All selected Button', 'woo-product-table' ); ?>">
                         </div>
                     </div>
                 </td>
@@ -828,7 +828,7 @@ if( !function_exists( 'wpt_configure_label_part' ) ){
             </tr>
 
             
-            <tr class="divider-row">
+            <tr class="divider-row <?php echo esc_attr( wpt_get_conditional_class() ); ?>">
                 <td>
                     <div class="wqpmb-form-control">
                         <div class="form-label col-lg-6">
@@ -845,14 +845,14 @@ if( !function_exists( 'wpt_configure_label_part' ) ){
                     </div> 
                 </td>
             </tr>
-            <tr>
+            <tr class="<?php echo esc_attr( wpt_get_conditional_class() ); ?>">
                 <td>
                     <div class="wpt-form-control">
                         <div class="form-label col-lg-6">
                             <label for="wpt_table_search_box_title" class="wpt_label"><?php esc_html_e( 'Searchbox Area title', 'woo-product-table' ); ?></label>
                         </div>
                         <div class="form-field col-lg-6">
-                            <input name="<?php echo esc_attr( $field_name ); ?>[search_box_title]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['search_box_title'] ); ?>" id="wpt_table_search_box_title" type="text" placeholder="<?php esc_attr_e( 'Search Box title', 'woo-product-table' ); ?>">
+                            <input name="<?php echo esc_attr( $field_name ); ?>[search_box_title]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['search_box_title'] ?? '' ); ?>" id="wpt_table_search_box_title" type="text" placeholder="<?php esc_attr_e( 'Search Box title', 'woo-product-table' ); ?>">
                         </div>
                     </div>
                 </td>
@@ -862,14 +862,14 @@ if( !function_exists( 'wpt_configure_label_part' ) ){
                     </div> 
                 </td>
             </tr>
-            <tr>
+            <tr class="<?php echo esc_attr( wpt_get_conditional_class() ); ?>">
                 <td>
                     <div class="wpt-form-control">
                         <div class="form-label col-lg-6">
-                            <label for="wpt_table_search_keyword_text" class="wpt_label"><?php echo sprintf(esc_html__( '%s[Search Input Label]%s - Text', 'woo-product-table' ), '<b>', '</b>' ); ?></label>
+                            <label for="wpt_table_search_keyword_text" class="wpt_label"><?php echo esc_html__( '[Search Input Label] - Text', 'woo-product-table' ); ?></label>
                         </div>
                         <div class="form-field col-lg-6">
-                            <input name="<?php echo esc_attr( $field_name ); ?>[search_keyword_text]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['search_keyword_text'] ); ?>" id="wpt_table_search_keyword_text" type="text" placeholder="<?php esc_attr_e( 'Search Keyword', 'woo-product-table' ); ?>">
+                            <input name="<?php echo esc_attr( $field_name ); ?>[search_keyword_text]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['search_keyword_text'] ?? '' ); ?>" id="wpt_table_search_keyword_text" type="text" placeholder="<?php esc_attr_e( 'Search Keyword', 'woo-product-table' ); ?>">
                         </div>
                     </div>
                 </td>
@@ -879,14 +879,14 @@ if( !function_exists( 'wpt_configure_label_part' ) ){
                     </div> 
                 </td>
             </tr>
-            <tr>
+            <tr class="<?php echo esc_attr( wpt_get_conditional_class() ); ?>">
                 <td>
                     <div class="wpt-form-control">
                         <div class="form-label col-lg-6">
                             <label for="wpt_table_search_box_searchkeyword" class="wpt_label"><?php esc_html_e( 'Search Keyword Placeholder', 'woo-product-table' ); ?></label>
                         </div>
                         <div class="form-field col-lg-6">
-                            <input name="<?php echo esc_attr( $field_name ); ?>[search_box_searchkeyword]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['search_box_searchkeyword'] ); ?>" id="wpt_table_search_box_searchkeyword" type="text" placeholder="<?php esc_attr_e( 'Search Keyword text', 'woo-product-table' ); ?>">
+                            <input name="<?php echo esc_attr( $field_name ); ?>[search_box_searchkeyword]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['search_box_searchkeyword'] ?? '' ); ?>" id="wpt_table_search_box_searchkeyword" type="text" placeholder="<?php esc_attr_e( 'Search Keyword text', 'woo-product-table' ); ?>">
                         </div>
                     </div>
                 </td>
@@ -917,14 +917,14 @@ if( !function_exists( 'wpt_configure_label_part' ) ){
                 </td>
             </tr>
             <?php } ?>
-            <tr>
+            <tr class="<?php echo esc_attr( wpt_get_conditional_class() ); ?>">
                 <td>
                     <div class="wpt-form-control">
                         <div class="form-label col-lg-6">
                             <label for="wpt_table_search_box_orderby" class="wpt_label"><?php esc_html_e( 'SearchBox Order By text', 'woo-product-table' ); ?></label></label>
                         </div>
                         <div class="form-field col-lg-6">
-                            <input name="<?php echo esc_attr( $field_name ); ?>[search_box_orderby]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['search_box_orderby'] ); ?>" id="wpt_table_search_box_orderby" type="text" placeholder="<?php esc_attr_e( 'Order By text', 'woo-product-table' ); ?>">
+                            <input name="<?php echo esc_attr( $field_name ); ?>[search_box_orderby]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['search_box_orderby'] ?? '' ); ?>" id="wpt_table_search_box_orderby" type="text" placeholder="<?php esc_attr_e( 'Order By text', 'woo-product-table' ); ?>">
                         </div>
                     </div>
                 </td>
@@ -935,14 +935,14 @@ if( !function_exists( 'wpt_configure_label_part' ) ){
                 </td>
             </tr>
             
-            <tr>
+            <tr class="<?php echo esc_attr( wpt_get_conditional_class() ); ?>">
                 <td>
                     <div class="wpt-form-control">
                         <div class="form-label col-lg-6">
                             <label for="wpt_table_search_eee" class="wpt_label"><?php esc_html_e( 'SearchBox Order text', 'woo-product-table' ); ?></label></label>
                         </div>
                         <div class="form-field col-lg-6">
-                            <input name="<?php echo esc_attr( $field_name ); ?>[search_box_order]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['search_box_order'] ); ?>" id="wpt_table_search_eee" type="text" placeholder="<?php esc_attr_e( 'Order text', 'woo-product-table' ); ?>">
+                            <input name="<?php echo esc_attr( $field_name ); ?>[search_box_order]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['search_box_order'] ?? '' ); ?>" id="wpt_table_search_eee" type="text" placeholder="<?php esc_attr_e( 'Order text', 'woo-product-table' ); ?>">
                         </div>
                     </div>
                 </td>
@@ -952,7 +952,7 @@ if( !function_exists( 'wpt_configure_label_part' ) ){
                     </div> 
                 </td>
             </tr>
-            <tr>
+            <tr class="<?php echo esc_attr( wpt_get_conditional_class() ); ?>">
                 <td>
                     <div class="wpt-form-control">
                         <div class="form-label col-lg-6">
@@ -970,7 +970,7 @@ if( !function_exists( 'wpt_configure_label_part' ) ){
                 </td>
             </tr>
 
-            <tr class="divider-row">
+            <tr class="divider-row <?php echo esc_attr( wpt_get_conditional_class() ); ?>">
                 <td>
                     <div class="wqpmb-form-control">
                         <div class="form-label col-lg-6">
@@ -987,14 +987,14 @@ if( !function_exists( 'wpt_configure_label_part' ) ){
                     </div> 
                 </td>
             </tr>
-            <tr>
+            <tr class="<?php echo esc_attr( wpt_get_conditional_class() ); ?>">
                 <td>
                     <div class="wpt-form-control">
                         <div class="form-label col-lg-6">
-                            <label for="wpt_table_filter_text" class="wpt_label"><?php echo sprintf(esc_html__( '%s[Filter]%s - Text of Filter', 'woo-product-table' ), '<b>', '</b>' ); ?></label>
+                            <label for="wpt_table_filter_text" class="wpt_label"><?php echo esc_html__( '[Filter] - Text of Filter', 'woo-product-table' ); ?></label>
                         </div>
                         <div class="form-field col-lg-6">
-                        <input name="<?php echo esc_attr( $field_name ); ?>[filter_text]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['filter_text'] ); ?>" id="wpt_table_filter_text" type="text" placeholder="<?php esc_attr_e( 'eg: Filter', 'woo-product-table' ); ?>">
+                        <input name="<?php echo esc_attr( $field_name ); ?>[filter_text]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['filter_text'] ?? '' ); ?>" id="wpt_table_filter_text" type="text" placeholder="<?php esc_attr_e( 'eg: Filter', 'woo-product-table' ); ?>">
                         </div>
                     </div>
                 </td>
@@ -1005,14 +1005,14 @@ if( !function_exists( 'wpt_configure_label_part' ) ){
                 </td>
             </tr>
             
-            <tr>
+            <tr class="<?php echo esc_attr( wpt_get_conditional_class() ); ?>">
                 <td>
                     <div class="wpt-form-control">
                         <div class="form-label col-lg-6">
-                            <label for="wpt_table_filter_reset_button" class="wpt_label"><?php echo sprintf(esc_html__( '%s[Reset]%s - Button Text of Filter', 'woo-product-table' ), '<b>', '</b>' ); ?></label>
+                            <label for="wpt_table_filter_reset_button" class="wpt_label"><?php echo esc_html__( '[Reset] - Button Text of Filter', 'woo-product-table' ); ?></label>
                         </div>
                         <div class="form-field col-lg-6">
-                            <input name="<?php echo esc_attr( $field_name ); ?>[filter_reset_button]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['filter_reset_button'] ); ?>" id="wpt_table_filter_reset_button" type="text" placeholder="<?php esc_attr_e( 'eg: Reset', 'woo-product-table' ); ?>">
+                            <input name="<?php echo esc_attr( $field_name ); ?>[filter_reset_button]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['filter_reset_button'] ?? '' ); ?>" id="wpt_table_filter_reset_button" type="text" placeholder="<?php esc_attr_e( 'eg: Reset', 'woo-product-table' ); ?>">
                         </div>
                     </div>
                 </td>
@@ -1046,8 +1046,11 @@ if( !function_exists( 'wpt_configure_external_part' ) ){
      * @return void
      */
     function wpt_configure_external_part( $settings,$current_config_value,$field_name ){
+        if( !defined( 'YITH_WCQV_VERSION' ) ){
+            return;
+        }
         $display = '';
-        if( ! defined( 'YITH_YWRAQ_VERSION' ) ){
+        if( ! defined( 'YITH_WCQV_VERSION' ) ){
             $display = 'display:none';
         }
 
@@ -1060,7 +1063,7 @@ if( !function_exists( 'wpt_configure_external_part' ) ){
             <tr>
                 <th class="wpt-inside">
                     <div class="wpt-table-header-inside">
-                        <h3><?php echo sprintf( esc_html__( 'External Plugin\'s %s[YITH]%s ', 'woo-product-table' ),'<span style="color: orange; font-size: 18px;">', '</span>' );?></h3>
+                        <h3><?php echo esc_html__( 'External Plugin [YITH]', 'woo-product-table' );?></h3>
                     </div>
                     
                 </th>
@@ -1074,7 +1077,7 @@ if( !function_exists( 'wpt_configure_external_part' ) ){
                 <td>
                     <div class="wpt-form-control">
                         <div class="form-label col-lg-6">
-                            <label for="wpt_table_quick_view_btn_text" class="wpt_label"><?php echo sprintf(esc_html__( '%s[Quick View]%s - Button Text', 'woo-product-table' ), '<b>', '</b>' ); ?></label>
+                            <label for="wpt_table_quick_view_btn_text" class="wpt_label"><?php echo esc_html__( '[Quick View] - Button Text', 'woo-product-table' ); ?></label>
                         </div>
                         <div class="form-field col-lg-6">
                             <input name="<?php echo esc_attr( $field_name ); ?>[quick_view_btn_text]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['quick_view_btn_text'] ?? __( 'Quick View', 'woo-product-table' ) ); ?>" id="wpt_table_quick_view_btn_text" type="text" placeholder="<?php esc_attr_e( 'eg: Quick View', 'woo-product-table' ); ?>">
@@ -1083,7 +1086,7 @@ if( !function_exists( 'wpt_configure_external_part' ) ){
                 </td>
                 <td>
                     <div class="wpt-form-info">
-                        <p><?php echo sprintf(esc_html__( 'Only for %s YITH WooCommerce Quick View%s Plugin', 'woo-product-table' ), '<a target="_blank" href="https://wordpress.org/plugins/yith-woocommerce-quick-view/">', '</a>' ); ?></p>
+                        <p><?php echo esc_html__( 'Only for YITH WooCommerce Quick View Plugin', 'woo-product-table' ); ?></p>
                     </div> 
                 </td>
             </tr>
@@ -1092,7 +1095,7 @@ if( !function_exists( 'wpt_configure_external_part' ) ){
                 <td>
                     <div class="wpt-form-control">
                         <div class="form-label col-lg-6">
-                            <label for="wpt_table_yith_browse_list" class="wpt_label"><?php echo sprintf(esc_html__( '%s[Browse Quote list]%s - text ', 'woo-product-table' ), '<b>', '</b>' ); ?></label>
+                            <label for="wpt_table_yith_browse_list" class="wpt_label"><?php echo esc_html__( '[Browse Quote list] - text ', 'woo-product-table' ); ?></label>
                         </div>
                         <div class="form-field col-lg-6">
                             <input name="<?php echo esc_attr( $field_name ); ?>[yith_browse_list]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['yith_browse_list'] ?? __( 'Browse the list', 'woo-product-table' ) ); ?>" id="wpt_table_yith_browse_list" type="text" placeholder="<?php esc_attr_e( 'Browse the list - text write here', 'woo-product-table' ); ?>">
@@ -1110,7 +1113,7 @@ if( !function_exists( 'wpt_configure_external_part' ) ){
                 <td>
                     <div class="wpt-form-control">
                         <div class="form-label col-lg-6">
-                            <label for="wpt_table_yith_add_to_quote_text" class="wpt_label"><?php echo sprintf(esc_html__( '%s[Add to Quote]%s - button text', 'woo-product-table' ), '<b>', '</b>' ); ?></label>
+                            <label for="wpt_table_yith_add_to_quote_text" class="wpt_label"><?php echo esc_html__( '[Add to Quote] - button text', 'woo-product-table' ); ?></label>
                         </div>
                         <div class="form-field col-lg-6">
                             <input name="<?php echo esc_attr( $field_name ); ?>[yith_add_to_quote_text]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['yith_add_to_quote_text'] ?? __( 'Add to Quote', 'woo-product-table' ) ); ?>" id="wpt_table_yith_add_to_quote_text" type="text" placeholder="<?php esc_attr_e( 'Add to Quote text write here', 'woo-product-table' ); ?>">
@@ -1127,7 +1130,7 @@ if( !function_exists( 'wpt_configure_external_part' ) ){
                 <td>
                     <div class="wpt-form-control">
                         <div class="form-label col-lg-6">
-                            <label for="wpt_table_yith_add_to_quote_adding" class="wpt_label"><?php echo sprintf(esc_html__( '%s[Quote Adding]%s - text', 'woo-product-table' ), '<b>', '</b>' ); ?></label>
+                            <label for="wpt_table_yith_add_to_quote_adding" class="wpt_label"><?php echo esc_html__( '[Quote Adding] - text', 'woo-product-table' ); ?></label>
                         </div>
                         <div class="form-field col-lg-6">
                             <input name="<?php echo esc_attr( $field_name ); ?>[yith_add_to_quote_adding]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['yith_add_to_quote_adding'] ?? __( 'Adding', 'woo-product-table' ) ); ?>" id="wpt_table_yith_add_to_quote_adding" type="text" placeholder="<?php esc_attr_e( 'Adding text write here', 'woo-product-table' ); ?>">
@@ -1145,7 +1148,7 @@ if( !function_exists( 'wpt_configure_external_part' ) ){
                 <td>
                     <div class="wpt-form-control">
                         <div class="form-label col-lg-6">
-                            <label for="wpt_table_yith_add_to_quote_added" class="wpt_label"><?php echo sprintf(esc_html__( '%s[Quote Added]%s - text ', 'woo-product-table' ), '<b>', '</b>' ); ?></label>
+                            <label for="wpt_table_yith_add_to_quote_added" class="wpt_label"><?php echo esc_html__( '[Quote Added] - text ', 'woo-product-table' ); ?></label>
                         </div>
                         <div class="form-field col-lg-6">
                             <input name="<?php echo esc_attr( $field_name ); ?>[yith_add_to_quote_added]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['yith_add_to_quote_added'] ?? __( 'Quote Added', 'woo-product-table' ) ); ?>" id="wpt_table_yith_add_to_quote_added" type="text" placeholder="<?php esc_attr_e( 'Quote Added text write here', 'woo-product-table' ); ?>">
@@ -1177,7 +1180,7 @@ if( !function_exists( 'wpt_configure_all_message_part' ) ){
 
         // label <?php echo esc_attr( $page ); "
         ?>
-<div class="wpt-section-panel basic-settings yith <?php echo esc_attr( $page ); ?>" id="wpt-yith-settings">
+<div class="wpt-section-panel basic-settings <?php echo esc_attr( wpt_get_conditional_class() ); ?> <?php echo esc_attr( $page ); ?>" id="wpt-all-messages-settings">
     <table class="wpt-my-table basic-setting-table">
         <thead>
             <tr>
@@ -1201,7 +1204,7 @@ if( !function_exists( 'wpt_configure_all_message_part' ) ){
                             <label for="wpt_table_right_combination_message" class="wpt_label"><?php esc_html_e( 'Variations [Not available] Message', 'woo-product-table' );?></label>
                         </div>
                         <div class="form-field col-lg-6">
-                            <input name="<?php echo esc_attr( $field_name ); ?>[right_combination_message]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['right_combination_message'] ); ?>" id="wpt_table_right_combination_message" type="text" placeholder="<?php esc_attr_e( 'Not Available', 'woo-product-table' );?>">
+                            <input name="<?php echo esc_attr( $field_name ); ?>[right_combination_message]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['right_combination_message'] ?? '' ); ?>" id="wpt_table_right_combination_message" type="text" placeholder="<?php esc_attr_e( 'Not Available', 'woo-product-table' );?>">
                         </div>
                     </div>
                 </td>
@@ -1219,7 +1222,7 @@ if( !function_exists( 'wpt_configure_all_message_part' ) ){
                             <label for="wpt_table_right_combination_message_alt" class="wpt_label"><?php esc_html_e( '[Product variations is not set Properly.] Message', 'woo-product-table' );?></label>
                         </div>
                         <div class="form-field col-lg-6">
-                            <input name="<?php echo esc_attr( $field_name ); ?>[right_combination_message_alt]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['right_combination_message_alt'] ); ?>" id="wpt_table_right_combination_message_alt" type="text" placeholder="<?php esc_attr_e( 'Product variations is not set Properly. May be: price is not inputted. may be: Out of Stock.', 'woo-product-table' );?>">
+                            <input name="<?php echo esc_attr( $field_name ); ?>[right_combination_message_alt]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['right_combination_message_alt'] ?? '' ); ?>" id="wpt_table_right_combination_message_alt" type="text" placeholder="<?php esc_attr_e( 'Product variations is not set Properly. May be: price is not inputted. may be: Out of Stock.', 'woo-product-table' );?>">
                         </div>
                     </div>
                 </td>
@@ -1236,7 +1239,7 @@ if( !function_exists( 'wpt_configure_all_message_part' ) ){
                             <label for="wpt_table_select_all_items_message" class="wpt_label"><?php esc_html_e( '[Please select all items.] Message', 'woo-product-table' );?></label>
                         </div>
                         <div class="form-field col-lg-6">
-                            <input name="<?php echo esc_attr( $field_name ); ?>[select_all_items_message]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['select_all_items_message'] ); ?>" id="wpt_table_select_all_items_message" type="text" placeholder="<?php esc_attr_e( 'Please select all items.', 'woo-product-table' );?>">
+                            <input name="<?php echo esc_attr( $field_name ); ?>[select_all_items_message]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['select_all_items_message'] ?? '' ); ?>" id="wpt_table_select_all_items_message" type="text" placeholder="<?php esc_attr_e( 'Please select all items.', 'woo-product-table' );?>">
                         </div>
                     </div>
                 </td>
@@ -1254,7 +1257,7 @@ if( !function_exists( 'wpt_configure_all_message_part' ) ){
                             <label for="wpt_table_please_choose_items" class="wpt_label"><?php esc_html_e( '[Please Choose items] Alert!', 'woo-product-table' );?></label>
                         </div>
                         <div class="form-field col-lg-6">
-                            <input name="<?php echo esc_attr( $field_name ); ?>[please_choose_items]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['please_choose_items'] ); ?>" id="wpt_table_please_choose_items" type="text" placeholder="<?php esc_attr_e( 'Please select all items.', 'woo-product-table' );?>">
+                            <input name="<?php echo esc_attr( $field_name ); ?>[please_choose_items]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['please_choose_items'] ?? '' ); ?>" id="wpt_table_please_choose_items" type="text" placeholder="<?php esc_attr_e( 'Please select all items.', 'woo-product-table' );?>">
                         </div>
                     </div>
                 </td>
@@ -1272,7 +1275,7 @@ if( !function_exists( 'wpt_configure_all_message_part' ) ){
                             <label for="wpt_table_out_of_stock_message" class="wpt_label"><?php esc_html_e( '[Out of Stock] Message', 'woo-product-table' );?></label>
                         </div>
                         <div class="form-field col-lg-6">
-                            <input name="<?php echo esc_attr( $field_name ); ?>[out_of_stock_message]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['out_of_stock_message'] ); ?>" id="wpt_table_out_of_stock_message" type="text" placeholder="<?php esc_attr_e( 'Out of Stock', 'woo-product-table' );?>">
+                            <input name="<?php echo esc_attr( $field_name ); ?>[out_of_stock_message]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['out_of_stock_message'] ?? '' ); ?>" id="wpt_table_out_of_stock_message" type="text" placeholder="<?php esc_attr_e( 'Out of Stock', 'woo-product-table' );?>">
                         </div>
                     </div>
                 </td>
@@ -1290,7 +1293,7 @@ if( !function_exists( 'wpt_configure_all_message_part' ) ){
                             <label for="wpt_table_no_more_query_message" class="wpt_label"><?php esc_html_e( '[There is no more products based on current Query.] Message', 'woo-product-table' );?></label>
                         </div>
                         <div class="form-field col-lg-6">
-                        <input name="<?php echo esc_attr( $field_name ); ?>[no_more_query_message]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['no_more_query_message'] ); ?>" id="wpt_table_no_more_query_message" type="text" placeholder="<?php esc_attr_e( 'There is no more products based on current Query.', 'woo-product-table' );?>">
+                        <input name="<?php echo esc_attr( $field_name ); ?>[no_more_query_message]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['no_more_query_message'] ?? '' ); ?>" id="wpt_table_no_more_query_message" type="text" placeholder="<?php esc_attr_e( 'There is no more products based on current Query.', 'woo-product-table' );?>">
                         </div>
                     </div>
                 </td>
@@ -1308,7 +1311,7 @@ if( !function_exists( 'wpt_configure_all_message_part' ) ){
                             <label for="wpt_table_out_adding_progress" class="wpt_label"><?php esc_html_e( '[ Adding in Progress ] Message', 'woo-product-table' );?></label>
                         </div>
                         <div class="form-field col-lg-6">
-                            <input name="<?php echo esc_attr( $field_name ); ?>[adding_in_progress]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['adding_in_progress'] ); ?>" id="wpt_table_out_adding_progress" type="text" placeholder="<?php esc_attr_e( 'Adding in Progress', 'woo-product-table' );?>">
+                            <input name="<?php echo esc_attr( $field_name ); ?>[adding_in_progress]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['adding_in_progress'] ?? '' ); ?>" id="wpt_table_out_adding_progress" type="text" placeholder="<?php esc_attr_e( 'Adding in Progress', 'woo-product-table' );?>">
                         </div>
                     </div>
                 </td>
@@ -1326,7 +1329,7 @@ if( !function_exists( 'wpt_configure_all_message_part' ) ){
                             <label for="wpt_table_no_right_comb" class="wpt_label"><?php esc_html_e( '[ No Right Combination ] Message', 'woo-product-table' );?></label>
                         </div>
                         <div class="form-field col-lg-6">
-                            <input name="<?php echo esc_attr( $field_name ); ?>[no_right_combination]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['no_right_combination'] ); ?>" id="wpt_table_no_right_comb" type="text" placeholder="<?php esc_attr_e( 'No Right Combination', 'woo-product-table' );?>">
+                            <input name="<?php echo esc_attr( $field_name ); ?>[no_right_combination]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['no_right_combination'] ?? '' ); ?>" id="wpt_table_no_right_comb" type="text" placeholder="<?php esc_attr_e( 'No Right Combination', 'woo-product-table' );?>">
                         </div>
                     </div>
                 </td>
@@ -1344,7 +1347,7 @@ if( !function_exists( 'wpt_configure_all_message_part' ) ){
                             <label for="wpt_table_sorry_plz_right_combination" class="wpt_label"><?php esc_html_e( '[ Sorry, Please choose right combination. ] Message', 'woo-product-table' );?></label>
                         </div>
                         <div class="form-field col-lg-6">
-                            <input name="<?php echo esc_attr( $field_name ); ?>[sorry_plz_right_combination]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['sorry_plz_right_combination'] ); ?>" id="wpt_table_sorry_plz_right_combination" type="text" placeholder="<?php esc_attr_e( 'Sorry, Please choose right combination.', 'woo-product-table' );?>">
+                            <input name="<?php echo esc_attr( $field_name ); ?>[sorry_plz_right_combination]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['sorry_plz_right_combination'] ?? '' ); ?>" id="wpt_table_sorry_plz_right_combination" type="text" placeholder="<?php esc_attr_e( 'Sorry, Please choose right combination.', 'woo-product-table' );?>">
                         </div>
                     </div>
                 </td>
@@ -1362,7 +1365,7 @@ if( !function_exists( 'wpt_configure_all_message_part' ) ){
                             <label for="wpt_table_sorry_out_stock" class="wpt_label"><?php esc_html_e( '[ Sorry! Out of Stock! ] Message', 'woo-product-table' );?></label>
                         </div>
                         <div class="form-field col-lg-6">
-                            <input name="<?php echo esc_attr( $field_name ); ?>[sorry_out_of_stock]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['sorry_out_of_stock'] ); ?>" id="wpt_table_sorry_out_stock" type="text" placeholder="<?php esc_attr_e( 'Sorry! Out of Stock!', 'woo-product-table' );?>">
+                            <input name="<?php echo esc_attr( $field_name ); ?>[sorry_out_of_stock]" class="wpt_data_filed_atts ua_input" value="<?php echo esc_attr( $current_config_value['sorry_out_of_stock'] ?? '' ); ?>" id="wpt_table_sorry_out_stock" type="text" placeholder="<?php esc_attr_e( 'Sorry! Out of Stock!', 'woo-product-table' );?>">
                         </div>
                     </div>
                 </td>
@@ -1440,46 +1443,7 @@ if( !function_exists( 'wpt_extra_field_for_disc_limit' ) ){
  }
  add_action( 'wpto_column_setting_form_inside_short_description', 'wpt_extra_field_for_disc_limit', 10, 2 );
 
- if( !function_exists( 'wpt_tawkto_code_header' ) ){
-    /**
-     * tawk.to Chatbox Added and 
-     * condition applied
-     * 
-     * @return String
-     */
-    function wpt_tawkto_code_header(){
-        global $current_screen;
-        $s_id = isset( $current_screen->id ) ? $current_screen->id : '';
-        if( strpos( $s_id, 'wpt') === false ) return;
-        $temp_permission = false;
-        $submitted = filter_input_array(INPUT_POST);
-        if( isset( $submitted['data'] ) ){
-            if(isset( $submitted['data']['disable_live_support'] )) return;
-            $temp_permission = true;
-        }
-        $disable_live_support = $temp_permission ? false : wpt_get_config('disable_live_support');
-        if( $disable_live_support ) return;
-        ?>
-        <!--Start of Tawk.to Script-->
-        <script type="text/javascript">
-        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-        (function(){
-        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-        s1.async=true;
-        s1.src='https://embed.tawk.to/628f5d4f7b967b1179915ad7/1g4009033';
-        s1.charset='UTF-8';
-        s1.setAttribute('crossorigin','*');
-        s0.parentNode.insertBefore(s1,s0);
-        })();
-        </script>
-        <!--End of Tawk.to Script-->      
-        <?php
-
-        
-    }
-}
-add_filter( 'admin_head', 'wpt_tawkto_code_header', 999 );
-
+ 
 /**
  * "Table Column Sorting" option was in pro version, we move that into free version
  * @since 3.2.5.4
@@ -1584,7 +1548,9 @@ if( !function_exists( 'wpto_admin_configuration_form_top_free' ) ){
                                 $footer_cart_templates = [1,2,3,4,5,6,7,7,9,10,11,12,13,14,15,16,17,18,19,20,21,22];
                                 foreach($footer_cart_templates as $template){
                                     $selected = isset( $current_config_value['footer_cart_template'] ) && $current_config_value['footer_cart_template'] == $template? 'selected' : '';
-                                    echo '<option value="'. $template .'" ' . $selected . '>'."Template No " . $template . '</option>'; 
+                            ?>
+                                <option value="<?php echo esc_attr( $template ); ?>" <?php echo esc_attr( $selected ); ?>><?php echo esc_html( $template ); ?></option>
+                            <?php
                                 } 
                             ?>
                         </select>
@@ -1598,48 +1564,7 @@ if( !function_exists( 'wpto_admin_configuration_form_top_free' ) ){
             </td>
         </tr>
 
-        <tr class="divider-row">
-            <td>
-                <div class="wqpmb-form-control">
-                    <div class="form-label col-lg-6">
-                        <h4 class="section-divider-title">Chat Area (Optional)</h4>
-                    </div>
-                    <div class="form-field col-lg-6">
-                        
-                    </div>
-                </div>
-            </td>
-            <td>
-                <div class="wqpmb-form-info">
-                    
-                </div> 
-            </td>
-        </tr>
-        <?php $live_support = isset( $current_config_value['disable_live_support' ] ) && $current_config_value['disable_live_support' ] == '1' ? 'checked' : false; ?>
-        <tr>
-            <td>
-                <div class="wpt-form-control">
-                    <div class="form-label col-lg-6">
-                        <label for="_disable_live_support"><?php echo esc_html__('Chatbox Live Support','woo-product-table');?></label>
-                    </div>
-                    <div class="form-field col-lg-6">
-                        <label class="switch reverse">
-                            <input value="1" name="data[disable_live_support]"
-                                <?php echo $live_support; /* finding checked or null */ ?> type="checkbox" id="_disable_live_support">
-                            <div class="slider round"><!--ADDED HTML -->
-                                <span class="on"><?php echo esc_html__('ON','woo-product-table');?></span><span class="off"> <?php echo esc_html__('OFF','woo-product-table');?></span><!--END-->
-                            </div>
-                        </label>
-                    </div>
-                </div>
-            </td>
-            <td>
-                <div class="wpt-form-info">
-                    <?php wpt_doc_link('https://codeastrology.com/my-support', 'Customer Support'); ?>
-                    <p>You can Disable/Off Chatbox. Live Support chatbox are showing in your dashboard at right bottom corner. If you need any help, Just knock over there.</p>
-                </div> 
-            </td>
-        </tr>
+        
         </tbody>
     </table>
     <?php if( ! $is_pro ){ ?>
@@ -1654,7 +1579,11 @@ if( !function_exists( 'wpto_admin_configuration_form_top_free' ) ){
                             <div class="form-field col-lg-6">
                                 <select name="data[archive_table_id]" class="wpt_fullwidth ua_input wpt_table_on_archive">
                                     <option value="">Select a Table</option>
-                                    
+                                    <option value="1">Table 1</option>
+                                    <option value="2">Table 2</option>
+                                    <option value="3">Table 3</option>
+                                    <option value="4">Table 4</option>
+                                    <option value="5">Table 5</option>
                                 </select>
                                 <br>
                                 <label class="switch">
@@ -1673,7 +1602,8 @@ if( !function_exists( 'wpto_admin_configuration_form_top_free' ) ){
                             <p>Enable Table on Shop/Archive/Taxonomy Page. Such as: Archive Page, Tag Page, Taxonomy Page. First Select a table and check [On] to show in shop/archive page.</p>
                             <p class="wpt-tips">
                                 <b>Notice:</b>
-                                <span>Product table will display products according to WooCommerce default query and Advance Search box is not available on Archive page.</span>
+                                <span>Product table will display products according to WooCommerce default query and Advance Search box is not available on Archive page.</span><br>
+                                <b>Tips:</b><span>Use <code>remove_filter( 'wpto_table_query_args', 'wpt_args_manipulation_frontend', 10 )</code> to get Table based on personal query.</span>
                             </p>
                         </div>
                     </td>
@@ -1702,7 +1632,7 @@ if( !function_exists( 'wpto_admin_configuration_form_top_free' ) ){
                         </div>
                     </td>
                 </tr>
-                <tr class="divider-row">
+                <tr class="divider-row <?php echo esc_attr( wpt_get_conditional_class() ); ?>">
                     <td>
                         <div class="wqpmb-form-control">
                             <div class="form-label col-lg-6">
@@ -1726,7 +1656,11 @@ if( !function_exists( 'wpto_admin_configuration_form_top_free' ) ){
                             <div class="form-field col-lg-6">
                                 <select class="wpt_fullwidth ua_input wpt_table__for_variation">
                                     <option value="">Select a Table</option>
-                                   
+                                    <option value="1">Table 1</option>
+                                    <option value="2">Table 2</option>
+                                    <option value="3">Table 3</option>
+                                    <option value="4">Table 4</option>
+                                    <option value="5">Table 5</option>
                                 </select>
                             </div>
                         </div>
@@ -1787,7 +1721,7 @@ if( !function_exists( 'wpto_admin_configuration_form_top_free' ) ){
                         </div>
                     </td>
                 </tr>
-                <tr class="divider-row">
+                <tr class="divider-row <?php echo esc_attr( wpt_get_conditional_class() ); ?>">
                     <td>
                         <div class="wqpmb-form-control">
                             <div class="form-label col-lg-6">

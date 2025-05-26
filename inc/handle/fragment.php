@@ -142,7 +142,9 @@ class Fragment extends Shortcode_Base{
                 <div class="wpt-cart-contents">
                     <?php echo wp_kses_post( WC()->cart->get_cart_subtotal() ); ?> 
                     <span class="count">
-                        <?php echo wp_kses_data( sprintf( _n( '%d item', '%d items', WC()->cart->get_cart_contents_count(), 'woo-product-table' ), WC()->cart->get_cart_contents_count() ) ); ?>
+                        <?php 
+                        /* translators: 1: Singular product count 2: Plural products count */
+                        echo wp_kses_data( sprintf( _n( '%d item', '%d items', WC()->cart->get_cart_contents_count(), 'woo-product-table' ), WC()->cart->get_cart_contents_count() ) ); ?>
                     </span>
                     <?php if( $this->cart_stats ){ ?>
                         <span title="<?php echo esc_attr__( 'Empty Cart.', 'woo-product-table' ); ?>" class="wpt_empty_cart_btn">
@@ -193,7 +195,7 @@ class Fragment extends Shortcode_Base{
                     <?php 
                     echo wp_kses_post( $product_name );
                     echo wc_get_formatted_cart_item_data( $cart_item );
-                    echo apply_filters( 'woocommerce_widget_cart_item_quantity', '<span class="quantity">' . sprintf( '%s &times; %s', $cart_item['quantity'], $product_price ) . '</span>', $cart_item, $cart_item_key );
+                    echo wp_kses( apply_filters( 'woocommerce_widget_cart_item_quantity', '<span class="quantity">' . sprintf( '%s &times; %s', $cart_item['quantity'], $product_price ) . '</span>', $cart_item, $cart_item_key ), 'post' );
                     ?></span>
                     <span class="wpt-vc-left"><?php echo wc_price( $cart_item['line_total'] ?? 0 ); ?></span>
                      

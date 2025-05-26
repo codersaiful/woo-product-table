@@ -5,7 +5,8 @@ jQuery( document ).ready( function() {
         parentWrap.fadeOut();
         var data = {
             action: 'update_notice_status',
-            notice_id: notice_id
+            notice_id: notice_id,
+            nonce: ajaxobj.nonce
         };
 
 		jQuery.post( ajaxobj.ajaxurl, data, function(res) {

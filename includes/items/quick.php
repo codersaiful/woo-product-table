@@ -1,6 +1,6 @@
 <?php
 $text = $config_value['quick_view_btn_text'] ?? __( 'Qiuck View', 'woo-product-table' );
-$text = __( $text, 'woo-product-table' );
+
 /**
  * Quick View Column Default validation.
  * User able to show/hide default quick view

@@ -2,8 +2,7 @@
 $default_enable_array = WPT_Product_Table::$default_enable_columns_array;
 
 $columns_array = WPT_Product_Table::$columns_array;
-//asort($columns_array);
-//var_dump(WPT_Product_Table::$columns_array);
+
 $for_add =  $meta_column_array = $updated_columns_array = get_post_meta( $post->ID, 'column_array', true );
 
 if( !$meta_column_array && empty( $meta_column_array ) ){
@@ -11,15 +10,11 @@ if( !$meta_column_array && empty( $meta_column_array ) ){
 }
 if( $updated_columns_array && !empty( $updated_columns_array ) && !empty( $columns_array ) ){
     $columns_array = $columns_array + $updated_columns_array;
-    // $columns_array = array_merge( $columns_array, $updated_columns_array );
 }
 
-//var_dump(array_merge( $columns_array,$updated_columns_array ));
-//unset($columns_array['description']); //Again Start Description Column From V6.0.25
 $meta_enable_column_array = get_post_meta( $post->ID, 'enabled_column_array', true );
-if( $meta_enable_column_array && !empty( $meta_enable_column_array ) && !empty( $columns_array ) ){
+if( is_array( $meta_enable_column_array ) && !empty( $meta_enable_column_array ) && !empty( $columns_array ) ){
     $columns_array = $meta_enable_column_array + $columns_array;
-    // $columns_array = array_merge($meta_enable_column_array,$columns_array);
     
 }
 
@@ -31,11 +26,7 @@ if( empty( $column_settings ) ){
 
 $additional_collumn = array_diff(array_keys($for_add), array_keys( WPT_Product_Table::$columns_array ));
 
-//var_dump($meta_enable_column_array,array_merge($meta_enable_column_array,$columns_array));
-
-//var_dump( $meta_enable_column_array, $columns_array );
 if( is_array( $meta_enable_column_array ) && !empty( $meta_enable_column_array ) ){
-    //$columns_array = array_merge( $meta_enable_column_array, array_diff( $columns_array, $meta_enable_column_array ));
     $final_cols_arr = $meta_enable_column_array;
 }else{
    $final_cols_arr = $default_enable_array; 
@@ -45,13 +36,6 @@ if( !is_array( $final_cols_arr ) ){
     return;
 }
 
-
-//$columns_array = array_merge($meta_enable_column_array,array_diff($columns_array,$meta_enable_column_array));
-//var_dump($columns_array,$meta_enable_column_array);
-
-
-//var_dump($updated_columns_array,$meta_enable_column_array);
-
 /**
  * Some input name keyword as variable
  */
@@ -60,10 +44,64 @@ $_device_name = '';
 ?>
 
 <div class="inside-column-settings-wrapper">
+    
+
+    
+    <div id="inside-desktop" class="inside_tab_content tab-content tab-content-active expanded">
+        <h4 title="<?php echo esc_attr( 'Default', 'woo-product-table' ); ?>">
+            <i class="wpt-laptop"></i>
+            <strong><?php echo esc_html__( 'Default', 'woo-product-table' ); ?></strong> 
+            <span>(All Device)</span>
+            <span class="wpt-col-selected-pre-value"></span>
+        </h4>
+        <div class="inside_tab_content_inner"> 
+            <?php 
+            $column_section_desktop = __DIR__ . '/section/column-section-desktop.php'; 
+            include $column_section_desktop;
+            ?> 
+        </div>
+    </div>
+    <div id="inside-tablet" class="inside_tab_content tab-content  tab-content-active">
+    
+        <h4 title="<?php echo esc_attr( 'Tablet', 'woo-product-table' ); ?>">
+            <i class="wpt-tablet"></i>
+            <strong><?php echo esc_html__( 'Tablet', 'woo-product-table' ); ?></strong> 
+            <span>(Optional)</span>
+            <span class="wpt-col-selected-pre-value"></span>
+        </h4>
+        <div class="inside_tab_content_inner">
+            <?php 
+            $column_section_tablet = __DIR__ . '/section/column-section-tablet.php'; 
+            include $column_section_tablet;
+            ?>
+        </div>
+    </div>
+    
+    <div id="inside-mobile" class="inside_tab_content tab-content  tab-content-active"> 
+        <h4 title="<?php echo esc_attr( 'Mobile', 'woo-product-table' ); ?>">
+            <i class="wpt-mobile"></i>
+            <strong><?php echo esc_html__( 'Mobile', 'woo-product-table' ); ?></strong> 
+            <span>(Optional)</span>
+            <span class="wpt-col-selected-pre-value"></span>
+        </h4>
+        <div class="inside_tab_content_inner">
+            <?php 
+            $column_section_mobile = __DIR__ . '/section/column-section-mobile.php'; 
+            include $column_section_mobile;
+            ?>
+        </div>
+    </div>
+    
+
+
+
+
+
+</div>
+<div class="inside-column-settings-wrapper">
     <div class="inside-column-setting-header">
-        <h2><?php echo esc_html__( 'Device Wise Column Setting', 'woo-product-table' ); ?></h2>
-        
-        <div class="auto-responsive-area-wrapper">
+
+        <div class="auto-responsive-area-wrapper" title="Tips: If not set any column for mobile and tablet, our Plugin will generate a mobile responsive Table automatically. Turn off 'Auto Responsive' If you don't want an auto-responsive table.">
             <b for="responsive_switch-switcher">Auto Responsive</b>
             <label class="switch switch-reverse"><!-- switch-big #2ab934a6 #2ab934a6 -->
                 <?php
@@ -90,95 +128,18 @@ $_device_name = '';
 
                 $meta_basics = get_post_meta( $post->ID, 'basics', true );
                 $responsive_switch = isset( $meta_basics['responsive_switch'] ) ? 'checked="checked"' : '';
-                // var_dump($responsive_switch);
                 ?>
                 <input name="basics[responsive_switch]" type="checkbox" id="responsive_switch-switcher" <?php echo esc_attr( $responsive_switch ); ?>>
                 <div class="slider round"><!--ADDED HTML -->
                     <span class="on">Off</span><span class="off">On</span><!--END-->
                 </div>
             </label>
-            <p class="warning">
-                <b>Tips:</b>
-                <span>If not set any column for mobile and tablet, our Plugin will generate a mobile responsive Table automatically. Turn off 'Auto Responsive' If you don't want an auto-responsive table.</span>
-            </p>
         </div>
         <br>
         <br>
     </div>
-    <nav class="inside-nav-tab-wrapper">
-        <a data-target="inside-desktop" data-device="desktop" class="wpt_inside_nav_tab nav-tab nav-tab-active"><?php echo esc_html__( 'Desktop','woo-product-table' ); ?></a>
-        <a data-target="inside-tablet" data-device="tablet" class="wpt_inside_nav_tab nav-tab"><?php echo esc_html__( 'Tablet','woo-product-table' ); ?></a>
-        <a data-target="inside-mobile" data-device="mobile" class="wpt_inside_nav_tab nav-tab"><?php echo esc_html__( 'Mobile','woo-product-table' ); ?></a>
-    </nav>
-    
-    
-    <div id="inside-desktop" class="inside_tab_content tab-content tab-content-active">
-<?php 
-$enabled_column_array = $enabled_column_array_name;
-
-$availe_column_list_file = __DIR__ . '/inc-column/available-column-list.php';
-include $availe_column_list_file;
-
-
-$column_list_file = __DIR__ . '/inc-column/column-list.php';
-include $column_list_file;
-
-
-?>
-    </div>
-    
-    
-    
-    <div id="inside-tablet" class="inside_tab_content tab-content">
-    
-<?php 
-
-
-
-
-$_device_name = '_tablet';
-
-$tablet_header_file = __DIR__ . '/inc-column/tablet-header.php';
-include $tablet_header_file;
-?>
-<p class="device_wise_col_message"><?php echo esc_html__( 'Set columns for tablet, otherwise desktop columns will be shown on tablet.', 'woo-product-table' ); ?></p>
-<?php
-$availe_column_list_file = __DIR__ . '/inc-column/available-column-list.php';
-include $availe_column_list_file;
-
-$column_list_file = __DIR__ . '/inc-column/column-list.php';
-include $column_list_file;
-
-
-?>
-    </div>
-    
-    
-    
-    
-    
-    <div id="inside-mobile" class="inside_tab_content tab-content">
-<?php 
-$_device_name = '_mobile';
-
-$tablet_header_file = __DIR__ . '/inc-column/mobile-header.php';
-include $tablet_header_file;
-?>
-<p class="device_wise_col_message"><?php echo esc_html__( 'Set columns for mobile, otherwise tablet columns will be shown on mobile.', 'woo-product-table' ); ?></p>
-<?php
-$availe_column_list_file = __DIR__ . '/inc-column/available-column-list.php';
-include $availe_column_list_file;
-
-$column_list_file = __DIR__ . '/inc-column/column-list.php';
-include $column_list_file;
-
-
-?>
-    </div>
-    
 </div>
-
-
+<div class="add-new-custom-column-wrapper wpt-default-hide">
 <?php 
 
 /**
@@ -196,3 +157,4 @@ $add_new_col_file = __DIR__ . '/inc-column/add-new-column.php';
 
 include $add_new_col_file;
 ?>
+</div>

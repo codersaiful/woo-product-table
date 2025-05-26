@@ -33,12 +33,12 @@ $columns_array = apply_filters( 'wpto_final_column_arr', $columns_array );
         <div class="wpt_shortable_data">
             <input placeholder="<?php echo esc_attr( $keyword ); ?>" 
                    name="column_array<?php echo esc_attr( $_device_name ); ?>[<?php echo esc_attr( $keyword ); ?>]"  
-                   data-column_title="<?php echo esc_attr__( $updated_title,'woo-product-table' ); ?>" 
+                   data-column_title="<?php echo esc_attr( $updated_title ); ?>" 
                    data-keyword="<?php echo esc_attr( $keyword ); ?>" 
                    class="colum_data_input <?php echo esc_attr( $keyword ); ?>" 
                    type="text" 
                    title="<?php echo esc_attr__( 'Click for Expand/Collapse. Edit your Column Title here.', 'woo-product-table' ); ?>"
-                   value="<?php echo htmlentities( $updated_title ); ?>" <?php echo esc_attr( $readOnly ); ?>> 
+                   value="<?php echo esc_attr( htmlentities( $updated_title ) ); ?>" <?php echo esc_attr( $readOnly ); ?>> 
                    <span data-key="<?php echo esc_attr( $keyword ); ?>" class="wpt-expand"><i class="wpt-expand-collapse"></i>Expand</span>
             
             <?php
@@ -51,8 +51,8 @@ $columns_array = apply_filters( 'wpto_final_column_arr', $columns_array );
             
             <span class="wpt_colunm_type">
             <?php if( !empty( $type ) &&  $type !== 'default'){ ?>
-                <i><?php echo esc_html__( $type_name); ?> </i>: 
-            <?php } echo esc_html__( $keyword ); ?>
+                <i><?php echo esc_html( $type_name); ?> </i>: 
+            <?php } echo esc_html( $keyword ); ?>
             </span>
             <?php 
             
@@ -91,7 +91,7 @@ $columns_array = apply_filters( 'wpto_final_column_arr', $columns_array );
                 do_action( 'wpto_column_setting_form_' . $keyword, $_device_name, $column_settings, $columns_array, $updated_columns_array, $post, $additional_data ); ?>
             </div>
             <span data-key="<?php echo esc_attr( $keyword ); ?>" class="extra_all_on_off on_now"><i class="on_off_icon"></i>Expand</span>
-            <div class="wpt_column_setting_extra for_all extra_all_<?php echo esc_attr( $keyword ); ?>" data-wpt_column_setting_extra="extra_all_<?php echo esc_attr( $keyword ); ?>">
+            <div class="wpt_column_setting_extra column_setting_form-default for_all extra_all_<?php echo esc_attr( $keyword ); ?>" data-wpt_column_setting_extra="extra_all_<?php echo esc_attr( $keyword ); ?>">
                 <?php do_action( 'wpto_column_setting_form_inside_' . $keyword, $_device_name, $column_settings, $columns_array, $updated_columns_array, $post, $additional_data ); ?>
                 <?php 
                 /**
@@ -107,7 +107,7 @@ $columns_array = apply_filters( 'wpto_final_column_arr', $columns_array );
                 
             </div>
             <div class="wpt_column_setting_extra for_all profeatures-message">
-                <?php do_action( 'wpo_pro_feature_message', 'column_extra' ); ?>
+                
             </div>
             
 

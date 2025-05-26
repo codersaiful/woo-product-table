@@ -1,8 +1,5 @@
 <?php
 
-// if('variable' !== $product_type && $table_type !== 'advance_table'){
-//     echo wc_get_stock_html( $product );
-// }
 $wpt_single_action = false;
 if( $table_type == 'advance_table'){
     if ($product_type != 'variation') {
@@ -84,7 +81,7 @@ if( $table_type == 'advance_table'){
                     esc_attr($product->get_sku()), 
                     esc_attr( $ajax_action_final . ( $row_class ? 'wpt_variation_product single_add_to_cart_button button alt disabled wc-variation-selection-needed wpt_woo_add_cart_button' : 'button wpt_woo_add_cart_button ' . $stock_status_class ) ), //ajax_add_to_cart  //|| !$data['price']
                     esc_attr( $target ),
-                    esc_html__( $add_to_cart_text_final, 'woo-product-table' )
+                    esc_html( $add_to_cart_text_final )
             ), $product,false,false);
         }
 }

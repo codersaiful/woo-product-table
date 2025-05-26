@@ -37,7 +37,7 @@ if( ! function_exists( 'wpt_wpml_column_title' ) ){
                     $flag = $active_lang['country_flag_url'];
                 ?>
                 <p class="wpt-each-input">
-                    <label><img src="<?php echo esc_url( $flag ); ?>" class="wpt-wpml-admin-flag"> <?php echo esc_html( $lang_name ); ?></label>
+                    <label><img src="<?php echo esc_attr( $flag ); ?>" class="wpt-wpml-admin-flag"> <?php echo esc_html( $lang_name ); ?></label>
                     <input 
                     class="wpml-col-title"
                     name="column_settings<?php echo esc_attr( $_device_name ); ?>[<?php echo esc_attr( $keyword ); ?>][<?php echo esc_attr( $code ); ?>]" 

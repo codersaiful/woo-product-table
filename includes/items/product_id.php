@@ -1,2 +1,2 @@
 <?php
-echo the_ID();
+echo esc_html( absint( the_ID() ) );

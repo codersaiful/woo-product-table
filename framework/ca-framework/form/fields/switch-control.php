@@ -24,7 +24,6 @@ class Switch_Control extends Field_Base
     }
     public function render()
     {
-        // var_dump($this);
         ?>
 
 

@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: Product Table for WooCommerce by CodeAstrology (WooproductTable)
+ * Plugin Name: Product Table for WooCommerce
  * Requires Plugins: woocommerce
  * Plugin URI: https://wooproducttable.com/pricing/?utm_source=WPT+Plugin+Dashboard&utm_medium=Free+Version
  * Description: (WooProductTable - woo product table) WooCommerce product table plugin helps you to display your products in a searchable table layout with filters. Boost conversions & sales. Woo Product Table is best for Wholesale. wooproducttable, woo-product-table
@@ -8,11 +8,11 @@
  * Author URI: https://wooproducttable.com/?utm_source=WPT+Plugin+Dashboard&utm_medium=Free+Version
  * Tags: wooproducttable, woocommerce product list,woocommerce product table, wc product table, product grid view, inventory, shop product table
  * 
- * Version: 4.0.1
+ * Version: 5.0.3
  * Requires at least:    6.2
- * Tested up to:         6.7.2
+ * Tested up to:         6.8
  * WC requires at least: 6.2.2
- * WC tested up to: 	 9.7.1
+ * WC tested up to: 	 9.8.5
  * 
  * License: GPLv2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -41,7 +41,7 @@ if( ! defined( 'WPT_PLUGIN_BASE_FOLDER' ) ){
 }
 
 if( ! defined( 'WPT_DEV_VERSION' ) ){
-    define( 'WPT_DEV_VERSION', '4.0.1.0' );
+    define( 'WPT_DEV_VERSION', '5.0.3.0' );
 }
 
 if( ! defined( 'WPT_CAPABILITY' ) ){
@@ -101,6 +101,7 @@ include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 WPT_Product_Table::getInstance();
 
 $column_array = array(
+    'tick'         => __( 'Tick', 'woo-product-table' ),
     'check'         => __( 'Check', 'woo-product-table' ),
     'thumbnails'    => __( 'Thumbnails', 'woo-product-table' ),
     'product_title' => __( 'Products', 'woo-product-table' ),
@@ -137,7 +138,7 @@ $column_array = array(
 $column_array = apply_filters( 'wpto_default_column_arr', $column_array );
 WPT_Product_Table::$columns_array =  $column_array;
 $default_enabled_col_array = array(
-    'check'         => 'check',  
+    'tick'         => 'tick',  
     'thumbnails'    => 'thumbnails',  
     'product_title' => 'product_title',  
     'quantity'      => 'quantity',  
@@ -242,9 +243,8 @@ $default = array(
     
     'all_selected_direct_checkout' => 'no',
     'product_direct_checkout' => 'no',
-    
-    //Added Search Box Features @Since 3.3
-    'search_box_title' => __( 'Search Box (%sAll Fields Optional%s)', 'woo-product-table' ),
+
+    'search_box_title' => __( 'Product Search & Filter', 'woo-product-table' ),
     'search_box_searchkeyword' => __( 'Search Keyword', 'woo-product-table' ),
     'search_box_orderby'    => __( 'Sort By', 'woo-product-table' ),
     'search_box_order'      => __( 'Order', 'woo-product-table' ),
@@ -303,7 +303,7 @@ class WPT_Product_Table{
      *
      * @var string Minimum PHP version required to run the plugin.
      */
-    const MINIMUM_PHP_VERSION = '5.6';
+    const MINIMUM_PHP_VERSION = '7.0';
     
     /**
      * check minimum Woo Product Table Pro Version
@@ -486,10 +486,7 @@ class WPT_Product_Table{
             include_once $this->path('BASE_DIR','admin/functions.php'); //Added at V7.0.0 @date 
             
             include_once $this->path('BASE_DIR','admin/menu_plugin_setting_link.php');
-            include_once $this->path('BASE_DIR','admin/admin-enqueue.php');
-            // include_once $this->path('BASE_DIR','admin/fac_support_page.php'); //has removed
-            include_once $this->path('BASE_DIR','admin/configuration_page.php');
-            // include_once $this->path('BASE_DIR','admin/live_support_page.php');  //has removed
+            include_once $this->path('BASE_DIR','admin/admin-enqueue.php');  //has removed
             //Admin Section Action Hook, which we can Control from Addon
             include_once $this->path('BASE_DIR','admin/action-hook.php');
        }
@@ -563,8 +560,6 @@ class WPT_Product_Table{
      */
     public function admin_notice_minimum_php_version() {
 
-           if ( isset( $_GET['activate'] ) ) unset( $_GET['activate'] );
-
            $message = sprintf(
                    /* translators: 1: Plugin name 2: PHP 3: Required PHP version */
                    esc_html__( '"%1$s" requires "%2$s" version %3$s or greater.', 'woo-product-table' ),
@@ -573,7 +568,7 @@ class WPT_Product_Table{
                     self::MINIMUM_PHP_VERSION
            );
 
-           printf( '<div class="notice notice-error is-dismissible"><p>%1$s</p></div>', $message );
+           printf( '<div class="notice notice-error is-dismissible"><p>%1$s</p></div>', wp_kses_post( $message ) );
 
     }
     

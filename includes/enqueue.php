@@ -69,6 +69,7 @@ if( !function_exists( 'wpt_enqueue' ) ){
            'return_quanity' => apply_filters( 'wpto_qty_return_quanity', true ),
            'search_select_placeholder' => wpt_get_config( 'search_order_placeholder' ),//esc_html__( 'Select inner Item.', 'woo-product-table' ),
            'notice_timeout' => 3000,
+           'nonce'          => wp_create_nonce( WPT_PLUGIN_FOLDER_NAME )
            );
        $WPT_DATA = apply_filters( 'wpto_localize_data', $WPT_DATA );
        wp_localize_script( 'wpt-custom-js', 'WPT_DATA', $WPT_DATA );
@@ -151,6 +152,7 @@ if( ! function_exists( 'wpt_datatables_enqueue' ) ){
 
         $DATATABLE = array( 
             'table_id'        => $table_ID,
+            'nonce'          => wp_create_nonce( WPT_PLUGIN_FOLDER_NAME )
         );
 
         /**

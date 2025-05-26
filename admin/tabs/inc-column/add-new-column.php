@@ -1,6 +1,6 @@
 
 <!-- Add new Custom Collumn -->
-<div class="add_new_col_wrapper">
+<div class="add_new_col_wrapper" data-device="">
     <div class="section ultraaddons-panel add_new_column">
         <h3 class="with-background dark-background slim-title"><?php echo esc_html__( 'Add New Column','woo-product-table' ); ?> <small style="color: orange; font-size: 12px;"></small></h3>
 
@@ -21,14 +21,33 @@
                 <tr>
                     <th><label><?php echo esc_html__( 'Column Type','woo-product-table' ); ?></label></th>
                         <td>
+
+                        <?php
+                        $default_column_type = 'taxonomy';
+                        if( wpt_is_pro() ){
+                            $default_column_type = 'custom_field';
+                        }
+                        ?>
+
+                            <div class="custom-select-box-wrapper">
+                                <input type="hidden" class="custom-select-box-input" id="selected_column_type" value="<?php echo esc_attr( $default_column_type ); ?>">
+
                             <?php
                                 $add_new_col_type = array(
-                                    'default' => __( 'Default/No Type', 'woo-product-table' ),
-                                    'custom_field' => __( 'Custom Field', 'woo-product-table' ),
                                     'taxonomy' => __( 'Taxonomy', 'woo-product-table' ),
+                                    'default' => __( 'Type None', 'woo-product-table' ),
                                 );
                                 
+                                if( wpt_is_pro() ){
+                                    $add_new_col_type = array(
+                                        'custom_field' => __( 'Custom Field', 'woo-product-table' ),
+                                        'taxonomy' => __( 'Taxonomy', 'woo-product-table' ),
+                                        'default' => __( 'Type None', 'woo-product-table' ),
+                                    );
+                                }
                                 if( ! wpt_is_pro() ){
+                                    
+                                    $add_new_col_type[] = __( 'Custom Field', 'woo-product-table' );
                                     $add_new_col_type[] = __( 'Blank', 'woo-product-table' );
                                     $add_new_col_type[] = __( 'Advance Custom Field', 'woo-product-table' );
                                     $add_new_col_type[] = __( 'Action Hooks', 'woo-product-table' );
@@ -39,16 +58,22 @@
                                 
                                 $add_new_col_type = apply_filters( 'wpto_addnew_col_arr', $add_new_col_type, $columns_array, $column_settings, $post );
                                 if( is_array( $add_new_col_type ) && count( $add_new_col_type ) > 1 ){
-                                echo '<select class="add_new_column_type_select ua_select">';
+                                echo '<div class="wpt-custom-select-boxes">';
                                 foreach($add_new_col_type as $an_key => $an_val){
                                     $disable = is_numeric($an_key) ? 'disabled' : '';
-                                    $pro = is_numeric($an_key) ? __( '(Pro)' ) : '';
-                                    echo "<option value='{$an_key}' {$disable}>$an_val $pro</option>";
+                                    // $pro = is_numeric($an_key) ? __( '(Pro)' ) : '';
+                                    $active_class = ( $an_key == $default_column_type ) ? 'active' : '';
+                                    ?>
+
+                                    <div class="wpt-custom-select-box <?php echo esc_attr( $disable ); ?> <?php echo esc_attr( $active_class ); ?>" data-value="<?php echo esc_attr($an_key); ?>"><?php echo esc_html($an_val); ?></div>
+                                    <?php
                                 }
-                                echo '</select>';
+                                echo '</div>';
                                 }
                             ?>  
-                            <p><?php echo esc_html__( 'Such as Taxonomy, Custom Field, ACF Custom Field etc.','woo-product-table' ); ?></p>
+
+                            </div>
+                            
                         </td>
                 </tr>
                 <tr>
