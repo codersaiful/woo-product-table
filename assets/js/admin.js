@@ -750,11 +750,23 @@ jQuery.fn.extend({
          * 
          */
         $(document).on('click','.add_new_column_button',function(e){
+            //add_new_col_wrapper 
             e.preventDefault();
-            var keyword = $('.and_new_column_key').val();
-            var label = $('.and_new_column_label').val();
-            var type = $('.add_new_column_type_select').val();
-            var type_name = $('div.wpt-custom-select-boxes .wpt-custom-select-box.active').text();
+            var parentWrapper = $(this).closest('.add_new_col_wrapper');
+            var keyword = parentWrapper.find('.and_new_column_key').val().trim();
+
+            // Regex: matches a string that contains only special characters (no letters or digits)
+            var specialCharOnly = /^[^a-zA-Z0-9]+$/;
+
+            if (keyword === "" || specialCharOnly.test(keyword)) {
+                alert("Empty or special character is not supported.");
+                return;
+            }
+            var label = parentWrapper.find('.and_new_column_label').val();
+            var type = parentWrapper.find('#selected_column_type').val();
+            var type_name = parentWrapper.find('div.wpt-custom-select-boxes .wpt-custom-select-box.active').text();
+            console.log(type_name);
+
             var type_name_show = '<i>' + type_name + '</i>: ';
             if(type === 'default'){
                 type_name_show = '';
@@ -792,7 +804,7 @@ jQuery.fn.extend({
                 alert('Same keyword already in list');
                 return;
             }  
-            
+
             if(keyword !== '' || label !== ''){
                 //Remove Ajax Save
                 $('.button,button').removeClass('wpt_ajax_update');
@@ -807,10 +819,8 @@ jQuery.fn.extend({
                 $('body.wpt_admin_body input#publish[name=save]').trigger('click');
             }
             return;
-            
-            
-            
-            
+
+
         });
         $(document.body).on('change','#wpt_advance_search_taxonomy_choose',function(){
             $('.wpt_astaxonomy_choose_notice').html('Submitting...');
