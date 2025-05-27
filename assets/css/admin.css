@@ -2971,3 +2971,6 @@ input#wpt-setting-search-input {
 .wpt_copy_button_metabox-column{font-size: 12px !important;padding: 4px 13px !important;}
 .wpt_copy_button_metabox{display: none;}
 .wpt_metabox_copy_content{color: #007692;font-weight:bold;display:none; padding-left: 12px;}
+input.wpt-error {
+    border-color: #d00 !important;
+}
