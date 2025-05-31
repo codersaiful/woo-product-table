@@ -70,6 +70,7 @@ function wpt_product_table_post() {
 		"rewrite" => [ "slug" => "wpt_product_table", "with_front" => true ],
 		'map_meta_cap' => true,
 		'register_meta_box_cb'  => 'wpt_shortcode_metabox',
+		'show_in_rest' => true,
 	);
 	register_post_type( 'wpt_product_table', $args );
 
