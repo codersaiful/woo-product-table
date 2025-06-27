@@ -20,7 +20,7 @@ return array(
 			'table'
 		),
 		'icon' => 'table-col-after',
-		'description' => 'Default block for displaying a product table in WooCommerce via Woo Product Table plugin.(product-table)',
+		'description' => 'Block for displaying a product table in WooCommerce via Woo Product Table plugin.(woo-product-table)',
 		'version' => '1.0.0',
 		'supports' => array(
 			'html' => false,
