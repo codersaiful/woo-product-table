@@ -754,18 +754,26 @@ jQuery.fn.extend({
             e.preventDefault();
             var parentWrapper = $(this).closest('.add_new_col_wrapper');
             var keyword = parentWrapper.find('.and_new_column_key').val().trim();
+            var temp_keyword = keyword;
+            // Convert to slug format with underscores
+            keyword = keyword
+            .replace(/\s+/g, '_')          // replace spaces with underscores
+            .replace(/[^\w_]/g, '');       // remove non-word characters (optional)
+
+            var keywordInput = parentWrapper.find('.and_new_column_key.column-keyword');
+            keywordInput.removeClass('wpt-error');
 
             // Regex: matches a string that contains only special characters (no letters or digits)
             var specialCharOnly = /^[^a-zA-Z0-9]+$/;
-
             if (keyword === "" || specialCharOnly.test(keyword)) {
+                keywordInput.addClass('wpt-error');
                 alert("Empty or special character is not supported.");
                 return;
             }
+            
             var label = parentWrapper.find('.and_new_column_label').val();
             var type = parentWrapper.find('#selected_column_type').val();
             var type_name = parentWrapper.find('div.wpt-custom-select-boxes .wpt-custom-select-box.active').text();
-            console.log(type_name);
 
             var type_name_show = '<i>' + type_name + '</i>: ';
             if(type === 'default'){
@@ -794,18 +802,14 @@ jQuery.fn.extend({
                 html += '</span>';
             html += '</li>';
             
-            //Check Empty Field
-            if(keyword === '' || label === ''){
-               alert("No empty field suported.");
-               return; 
-            }
+
             //Check if already same keyword is Available
             if($('#inside-' + device_wise_section + ' .wpt_column_sortable li.wpt_sortable_peritem').hasClass('column_keyword_' + keyword)){
                 alert('Same keyword already in list');
                 return;
             }  
 
-            if(keyword !== '' || label !== ''){
+            if(keyword !== ''){
                 //Remove Ajax Save
                 $('.button,button').removeClass('wpt_ajax_update');
                 

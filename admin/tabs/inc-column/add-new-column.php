@@ -9,13 +9,13 @@
                 <tr>
                     <th><label class=""><?php echo esc_html__( 'Column Keyword','woo-product-table' ); ?></label></th>
                         <td>
-                           <input class="and_new_column_key wpt_data_filed_atts ua_input" type="text" placeholder="Column Keyword">
+                           <input class="and_new_column_key wpt_data_filed_atts column-keyword ua_input" type="text" placeholder="Column Keyword">
                         </td>
                 </tr>
                 <tr>
                     <th><label><?php echo esc_html__( 'Column Label','woo-product-table' ); ?></label></th>
                         <td>
-                            <input class="and_new_column_label wpt_data_filed_atts ua_input" type="text" placeholder="Column Label">
+                            <input class="and_new_column_label wpt_data_filed_atts column-label ua_input" type="text" placeholder="Column Label">
                         </td>
                 </tr>
                 <tr>

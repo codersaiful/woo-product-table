@@ -10,7 +10,7 @@ if ( ! function_exists('wpt_product_table_post') ) {
  */
 function wpt_product_table_post() {
 
-        $icon = WPT_Product_Table::getPath( 'BASE_URL' ) . 'assets/images/table_icon.png';
+    $icon = WPT_Product_Table::getPath( 'BASE_URL' ) . 'assets/images/new-table-icon.png';
 	$labels = array(
 		'name'                  => _x( 'Product Table', 'Product Table', 'woo-product-table' ),
 		'singular_name'         => _x( 'PRODUCT TABLE', 'PRODUCT TABLE', 'woo-product-table' ),
@@ -51,6 +51,7 @@ function wpt_product_table_post() {
 		'show_in_menu'          => true,
 		'menu_position'         => 40,
         'menu_icon'             => $icon,
+        // 'menu_icon'             => 'data:image/svg+xml;base64,' . base64_encode($svg_icon),
 		'show_in_admin_bar'     => true,
 		'show_in_nav_menus'     => true,
 		'can_export'            => true,
@@ -70,6 +71,7 @@ function wpt_product_table_post() {
 		"rewrite" => [ "slug" => "wpt_product_table", "with_front" => true ],
 		'map_meta_cap' => true,
 		'register_meta_box_cb'  => 'wpt_shortcode_metabox',
+		'show_in_rest' => true,
 	);
 	register_post_type( 'wpt_product_table', $args );
 
