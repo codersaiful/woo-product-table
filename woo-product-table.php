@@ -8,11 +8,11 @@
  * Author URI: https://wooproducttable.com/?utm_source=WPT+Plugin+Dashboard&utm_medium=Free+Version
  * Tags: wooproducttable, woocommerce product list,woocommerce product table, wc product table, product grid view, inventory, shop product table
  * 
- * Version: 5.0.3
+ * Version: 5.0.4
  * Requires at least:    6.2
  * Tested up to:         6.8
  * WC requires at least: 6.2.2
- * WC tested up to: 	 9.8.5
+ * WC tested up to: 	 9.9.5
  * 
  * License: GPLv2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
