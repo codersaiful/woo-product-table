@@ -5,7 +5,7 @@
   "authorURI": "https://codeastrology.com",
   "license": "GPL-2.0-or-later",
   "title": "Woo Product Table",
-  "category": "widgets",
+  "category": "text",
   "keywords": [
     "woo",
     "wpt",
@@ -16,8 +16,8 @@
     "codeastroloy",
     "table"
   ],
-  "icon": "table-col-after",
-  "description": "Default block for displaying a product table in WooCommerce via Woo Product Table plugin.(product-table)",
+  "icon": "editor-table",
+  "description": "Block for displaying a product table in WooCommerce via Woo Product Table plugin.(woo-product-table)",
   "version": "1.0.0",
   "supports": {
     "html": false,
