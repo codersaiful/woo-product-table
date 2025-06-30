@@ -278,6 +278,9 @@ class Page_Loader extends Base
         $coupon_show_bool = apply_filters( 'wpt_campaign_bool', true );
         if( ! $coupon_show_bool ) return;
 
+        $campaign_bool = apply_filters( 'ca_campaign_bool', true );
+        if( ! $campaign_bool ) return;
+
         $logo = WPT_ASSETS_URL . 'images/logo.png';
         $link_label = __( 'Claim Your Coupon', 'woo-product-table' );
         $link = "https://wooproducttable.com/pricing/";
