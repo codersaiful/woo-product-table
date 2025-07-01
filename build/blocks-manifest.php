@@ -35,5 +35,28 @@ return array(
 		'editorStyle' => 'file:./index.css',
 		'style' => 'file:./style-index.css',
 		'viewScript' => 'file:./view.js'
+	),
+	'tab-product-table' => array(
+		'apiVersion' => 3,
+		'name' => 'woo-product-table/tab-product-table',
+		'title' => 'Tab - Product Table',
+		'description' => 'A block for displaying multiple product tables in WooCommerce using the Woo Product Table plugin.',
+		'category' => 'text',
+		'keywords' => array(
+			'woo',
+			'tab',
+			'tabbedtab',
+			'table',
+			'product table',
+			'codeastroloy',
+			'table'
+		),
+		'icon' => 'index-card',
+		'version' => '1.0.0',
+		'textdomain' => 'tab-product-table',
+		'editorScript' => 'file:./index.js',
+		'editorStyle' => 'file:./index.css',
+		'style' => 'file:./style-index.css',
+		'viewScript' => 'file:./view.js'
 	)
 );
