@@ -15,15 +15,24 @@ if( ! function_exists('dd') ){
      *
      * @param mixed ...$vals Variable number of arguments to be dumped.
      */
-	function dd( ...$vals){
-		if( ! empty($vals) && is_array($vals) ){
-			foreach($vals as $val ){
-				echo "<pre>";
-				var_dump($val);
-				echo "</pre>";
-			}
-		}
-	}
+	function dd(...$vals) {
+        $backtrace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 1)[0];
+        $file = $backtrace['file'] ?? 'Unknown file';
+        $line = $backtrace['line'] ?? 'Unknown line';
+        echo '<div style="background: #e1e1e1;border-left: 3px solid #888;padding: 15px;margin: 15px 0;font-family: monospace;border-radius: 6px;overflow-x: auto;">';
+        echo '<div style="margin-bottom: 10px;color: #3F51B5;">';
+        echo "🛠️ <strong>File:</strong> <span style='color:#8d8d8d;'>$file</span> on line <span style='color:#4b4b4b;'>$line</span>";
+        echo '</div>';
+        foreach ($vals as $val) {
+            ob_start();
+            var_dump($val);
+            $output = ob_get_clean();
+            // HTML entities
+            echo '<pre style="color: #777777;background: #ffffff9c;">' . htmlspecialchars($output) . '</pre>';
+        }
+        echo '</div>';
+    }
+
 }
 
 if( !function_exists( 'wpt_column_setting_for_tax_cf' ) ){
