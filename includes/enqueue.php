@@ -14,8 +14,11 @@ if( !function_exists( 'wpt_enqueue' ) ){
      * @since 1.0.0
      */
    function wpt_enqueue(){
+        global $post;
+        $pass = is_a($post, 'WP_Post') && has_shortcode($post->post_content, 'Product_Table') || is_woocommerce();
+        if( ! $pass ) return;
 
-       wpt_enqueue_common();
+        wpt_enqueue_common();
        //Custom CSS Style for Woo Product Table's Table (Universal-for all table) and (template-for defien-table)
        wp_enqueue_style( 'wpt-universal', WPT_Product_Table::getPath('BASE_URL') . 'assets/css/universal.css', array(), WPT_DEV_VERSION, 'all' );
        
