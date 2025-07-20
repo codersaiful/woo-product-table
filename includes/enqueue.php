@@ -24,6 +24,8 @@ if( !function_exists( 'wpt_enqueue' ) ){
        
        //jQuery file including. jQuery is a already registerd to WordPress
        wp_enqueue_script( 'jquery' );
+       wp_enqueue_script( 'wc-cart-fragments' );
+       wp_enqueue_script( 'wc-add-to-cart-variation' );
 
        ///custom JavaScript for Woo Product Table pro plugin
        wp_enqueue_script( 'wpt-custom-js', WPT_Product_Table::getPath('BASE_URL') . 'assets/js/custom.js', array( 'jquery','wc-cart-fragments','wc-add-to-cart-variation' ), WPT_DEV_VERSION, true );
@@ -76,6 +78,8 @@ if( !function_exists( 'wpt_enqueue' ) ){
            );
        $WPT_DATA = apply_filters( 'wpto_localize_data', $WPT_DATA );
        wp_localize_script( 'wpt-custom-js', 'WPT_DATA', $WPT_DATA );
+       wp_localize_script( 'wpt-js-plugin', 'WPT_DATA', $WPT_DATA );
+       wp_localize_script( 'wpt-custom-pro-js', 'WPT_DATA', $WPT_DATA );
 
        /**
         * Compatible with other plugin

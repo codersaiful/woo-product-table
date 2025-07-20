@@ -12,8 +12,13 @@ jQuery(function($) {
         if(WPT_DATA.notice_timeout){
             notice_timeout = WPT_DATA.notice_timeout;
         }
-        
-
+        // console.log(window.WPTControl);
+        // $(document.body).on('click', 'label.search_keyword_label.product_cat', function() {
+        //     const self = $(this);
+        //     console.log('WPTControl.handleResetSearch() clicked');
+        //     const ddddd = $('.wpt-query-reset-button');
+        //     window.WPTControl.handleResetSearch(self);
+        // });
         //Select2
         if(typeof $('.wpt-wrap .search_select').select2 === 'function' && $('.wpt-wrap .search_select').length > 0 && WPT_DATA.select2 !== 'disable' ){
             var select2Object = {};

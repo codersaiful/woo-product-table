@@ -20,9 +20,9 @@ class Enqueue extends Shortcode_Base{
     public $_is_table;
 
     public function run(){
-        
-        $this->_js_plugin_url = $this->assets_url . 'js/wpt-control.js';
-        
+
+        $this->_js_plugin_url = $this->assets_url . 'js/wpt-control-v2.js';
+
         $this->action('wp_enqueue_scripts');
 
     }
