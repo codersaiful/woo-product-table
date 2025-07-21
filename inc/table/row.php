@@ -234,11 +234,12 @@ class Row extends Table_Base{
 
         ?>
         <tr
-        class="<?php echo esc_attr( $this->tr_class ); ?>"
+        class="<?php echo esc_attr( $this->tr_class ); ?> page_number-<?php echo esc_attr( $this->page_number ); ?>"
         data-title="<?php echo esc_attr( $this->product_title ); ?>"
         id="product_id_<?php echo esc_attr( $this->product_id ); ?>"
         data-product_id="<?php echo esc_attr( $this->product_id ); ?>"
         data-temp_number="<?php echo esc_attr( $this->table_id ); ?>"
+        page_number="<?php echo esc_attr( $this->page_number ); ?>"
         data-type="<?php echo esc_attr( $this->product_type ); ?>"
         data-parent_id="<?php echo esc_attr( $this->product_parent_id ); ?>"
         data-quantity="<?php echo esc_attr( $this->default_quantity ); ?>"

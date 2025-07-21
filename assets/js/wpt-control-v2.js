@@ -249,6 +249,8 @@
                     }
                     if (typeof result !== 'object') return;
 
+                    let page_number = others.page_number || 1;
+                    thisTable.attr('data-page_number', page_number);
                     const load_type = others.type;
                     if (result && load_type !== 'load_more') {
                         $.each(result, function(key, value) {

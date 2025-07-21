@@ -9,6 +9,7 @@ class Table_Attr{
 
         $shortcode->wrapper_class = [
             $shortcode->table_type . "_wrapper",
+            "pagination_" . $shortcode->pagination,
             "detected_device_" . $shortcode->_device . '_wrapper',
             " wpt_temporary_wrapper_" . $shortcode->table_id,
             " wpt_id_" . $shortcode->table_id,
