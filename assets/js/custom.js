@@ -76,58 +76,13 @@ jQuery(function($) {
             return false;
         }
 
-        /**
-         * Pagination
-         * @type Objectt
-         */
-        // changeSpanToAPagi();
-        function changeSpanToAPagi(){
-            return;
-            $('div.wpt_table_pagination span.page-numbers.current').each(function(){
-                var _number = $(this).html();
-                $('div.wpt_table_pagination span.page-numbers.current').replaceWith('<a class="page-numbers current">' + _number + '</a>');
-            });
-
-            $('div.wpt_table_pagination a.page-numbers').each(function(){
-                var _number = $(this).html();
-                $(this).attr('data-page_number',_number);
-            });
-        }
         
         $('body').on('click','.wpt_table_pagination.pagination_loading a',function(e){
             e.preventDefault();
             return false;
         });
         
-        
-
-        //New Pagination
-        $(document.body).on('click','dddd.wpt_pagination_ajax .wpt_my_pagination a',function(e){
-            
-            e.preventDefault();
-            var thisButton = $(this);
-            var thisPagination = thisButton.closest('.wpt_my_pagination');
-            var page_number = $(thisButton).text();
-
-            var table_id = thisPagination.data('table_id');
-            
-            var data = {
-                action: 'wpt_pagination',
-                table_id: table_id,
-                page_number: page_number,
-            };
-            $.ajax({
-                type: 'POST',
-                url: ajax_url,// + get_data,
-                data: data,
-                success:function(result){
-                    $('header.entry-header').html(result);
-                    thisPagination.html(result);
-                }
-            });
-        });
-
-        
+                
         setTimeout(function(){
 			$('table.wpt_product_table td select').trigger('change');
 		}, 4000);
@@ -257,7 +212,7 @@ jQuery(function($) {
         $( document.body ).trigger( 'wc_fragments_refreshed' );
         $( document.body ).trigger( 'wc_fragments_refresh' );
         $( document.body ).trigger( 'wc_fragment_refresh' );
-        // $( document.body ).trigger( 'removed_from_cart' );
+
         WPT_MiniCart();
         
         //if(config_json.thumbs_lightbox === '1' || config_json.thumbs_lightbox === 1){
@@ -361,29 +316,6 @@ jQuery(function($) {
             return false;
         });
         
-        /**
-         * Click Action/Event on No ajax product in Add to cart button
-         * No Ajax Add to cart product button Action
-         *
-        $('body').on('click','a.no_ajax_action.wpt_woo_add_cart_button',function(e){
-            e.preventDefault();
-            var quantity = $(this).attr('data-quantity');
-            var uri = $(this).attr('href') + '&quantity=' + quantity;
-            uri = encodeURI(uri);
-            window.location = uri;
-        });
-        /**
-         * Click Action/Event on No ajax product in Add to cart button
-         * for Grouped and External Product
-         *
-        $('body').on('click','tr.product_type_grouped.grouped a.no_ajax_action.wpt_woo_add_cart_button,tr.product_type_external.external a.no_ajax_action.wpt_woo_add_cart_button',function(e){
-            e.preventDefault();
-            //var quantity = $(this).attr('data-quantity');
-            var uri = $(this).attr('href');
-            uri = encodeURI(uri);
-            window.location = uri;
-        });
-        //***********************************/
         
         function footerCartAnimation(){
             $('a.wpt-view-n .wpt-bag').addClass('wpt-spin4 animate-spin');
@@ -1163,70 +1095,6 @@ jQuery(function($) {
 
         $('body').append('<style>div.wpt-footer-cart-wrapper>a:after,div.wpt-footer-cart-wrapper>a{background-color: ' + footer_bg_color + ';}</style>');
         
-        /**
-         * set Fragments Refresh
-         * @param {type} response
-         * @returns {undefined}
-         */
-        function setFragmentsRefresh( response ){
-            var FooterCart = $('div.wpt-footer-cart-wrapper');
-            
-            $('span.wpt-cart-remove').remove();
-            $('span.wpt_ccount').html('');
-            $( '.wpt_action>a.wpt_woo_add_cart_button' ).removeClass( 'added' );
-            if(typeof response !== 'undefined'){
-                    var fragments = response.fragments;
-                    /******IF NOT WORK CART UPDATE, JUST ADD A RIGHT SLASH AT THE BEGINING OF THIS LINE AND ACTIVATE BELLOW CODE***********/
-                    if ( fragments ) {
-                        $.each( fragments, function( key, value ) {
-                            if('string' === typeof key && typeof $( key ) === 'object'){
-                                $( "div.wpt-wrap " + key ).replaceWith( value );
-
-                            }
-                        });
-                    }
-                    //******************/
-                    if(typeof fragments.wpt_per_product !== 'string' && typeof fragments.wpt_per_product === 'undefined'){
-                        return false;
-                    }
-                    
-                    var wpt_per_product = fragments.wpt_per_product;
-                    try{
-                            wpt_per_product = $.parseJSON(wpt_per_product);
-                    }catch(e){
-                        wpt_per_product = false;
-                            //Get error message
-                    }
-
-                    if( wpt_per_product && typeof wpt_per_product  === 'object'){
-                        
-                    if(footer_cart !== 'always_hide'){
-                            FooterCart.fadeIn('slow');
-                        }
-                        
-                        $.each( wpt_per_product, function( key, value ) {
-                            $( '.wpt_row_product_id_' + key + ' .wpt_action button.single_add_to_cart_button>.wpt_ccount.wpt_ccount_' + key ).remove();
-                            $( '.wpt_row_product_id_' + key + ' .wpt_action .wpt_woo_add_cart_button' ).addClass( 'added' );
-                            if(!$('.wpt_ccount.wpt_ccount_' + key ).length){
-                                $( '.wpt_row_product_id_' + key + ' .wpt_action .wpt_woo_add_cart_button' ).append( '<span class="wpt_ccount wpt_ccount_' + key + '">' + value + '</span>' );
-                                $( '.wpt_row_product_id_' + key + ' .single_add_to_cart_button' ).append( '<span class="wpt_ccount wpt_ccount_' + key + '">' + value + '</span>' );
-                            }
-                            if( $('.wpt-cart-remove.wpt-cart-remove-' + key ).length < 1){
-
-                                $( '.wpt_row_product_id_' + key + ' .wpt_action .wpt_woo_add_cart_button' ).after( '<span data-product_id="' + key + '" class="wpt-cart-remove wpt-cart-remove-' + key + '"></span>' );
-                                $( '.wpt_row_product_id_' + key + ' .single_add_to_cart_button' ).after( '<span data-product_id="' + key + '" class="wpt-cart-remove wpt-cart-remove-' + key + '"></span>' );
-                            }
-                        });
-                    }else{
-                        if(footer_cart === 'hide_for_zerro'){
-                            FooterCart.fadeOut('slow');
-                        }
-                        
-                    }
-                    $('div.wpt-footer-cart-wrapper>a').css('background-color',footer_bg_color);
-                }
-                return false;
-        }
         
         /**
          * Delay One Second Delay
@@ -1346,29 +1214,6 @@ jQuery(function($) {
         }
 
         
-        function loadPaginationLinks($data,temp_number){
-            var targetTable = $('#table_id_' + temp_number + ' table#wpt_table');
-            $.ajax({
-                    type: 'POST',
-                    url: ajax_url,// + get_data,
-                    data: $data,
-                    success: function(paginate_data){
-                        var thisPagiWrappers = $('#table_id_' + temp_number + ' .wpt_table_pagination');
-                        
-                        thisPagiWrappers.html(paginate_data);
-                        changeSpanToAPagi();
-                        var newjsonData = $('#table_id_' + temp_number + ' mypagi').attr('myjson');
-                        // var thisNewPagiWrappers = $('#table_id_' + temp_number + ' .wpt_table_pagination').attr('data-whole_data');
-                        
-                        // thisNewPagiWrappers = JSON.parse(thisNewPagiWrappers);
-                        // thisNewPagiWrappers = thisNewPagiWrappers.targetTableArgs;
-                        
-                        targetTable.attr( 'data-data_json', newjsonData );
-                        thisPagiWrappers.removeClass('pagination_loading');
-                    }
-                });
-        }
-        
         /**
          * Handleling Filter Features
          */
@@ -1393,7 +1238,7 @@ jQuery(function($) {
             var temp_number = $(this).data('temp_number');
             $('#table_id_' + temp_number + ' select.filter_select').each(function(){
                 $(this).prop('selectedIndex', 0);
-                //$(this).children().first().attr('selected','selected');
+
             });
             $('#table_id_' + temp_number + ' select.filter_select').trigger('change');
 
@@ -1474,14 +1319,7 @@ jQuery(function($) {
                 $( thisRow + ' .message').val(msg);
         });
         
-        /**
-         * keyup is actually for total price live changing 
-         * When someone type quantity then total price will change live 
-         * if($('#table_id_' + table_id + ' .wpt_total').length > 0){
-                inputBoxChangeHandle();
-            }
-         */
-        // $(document).on('keyup','.wpt_row input.input-text.qty.text', inputBoxChangeHandle);
+
         $(document).on('keyup','.wpt_row input.input-text.qty.text', oneSecondDelay(inputBoxChangeHandle,1500));
  
         $(document.body).on('change', '.wpt_row input.input-text.qty.text', inputBoxChangeHandle);
@@ -1554,9 +1392,7 @@ jQuery(function($) {
 
             $('.yith_request_temp_' + temp_number + '_id_' + product_id).attr('data-quantity', Qty_Val);
             $('#table_id_' + temp_number + ' .product_id_' + product_id + ' .wpt_total_item.total_general strong').html(newPrice);
-            // $('tr.stock_status_outofstock .wpt_total_item.total_general strong').html("00");
-            //$(target_row_id + ' a.add_to_cart_button').attr('data-quantity', Qty_Val); //wpt_total_item total_general
-            
+
             updateCheckBoxCount(temp_number);
         }
 
