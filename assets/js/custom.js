@@ -1766,6 +1766,8 @@ jQuery(function($) {
         }
 
         /**
+         * sort order organization
+         * column sort sorting
          * Colunm Sorting Option
          * js base column sorting.
          * N.B: you have to enable it from Configuration page.
@@ -2279,115 +2281,7 @@ jQuery(function($) {
         });
         $(".wpt_second_wrapper").scroll(function () {
             $(".wpt_table_tag_wrapper").scrollLeft($(".wpt_second_wrapper").scrollLeft());
-        });
-        
-        // arrangingTDContentForMobile();
-        function arrangingTDContentForMobile(){
-            return;
-            $('table.mobile_responsive tr.wpt_row').each(function(){
-                return;
-                var already_updated = $(this).attr('already');
-                if((typeof already_updated === 'undefined')){
-                    $(this).attr('already','yes');
-
-                    var htmlDesc,htmlAction,htmlImg,htmlCfTax;
-                    var actionElement = $(this).children('td.wpt_action');
-                    var productDescElement = $(this).children('td.wpt_product_title');
-                    if(!productDescElement.length){
-                        productDescElement = $(this).children('td').first();
-                        productDescElement.css('display','block');
-                    }
-                    
-                    htmlDesc = "";
-
-                    htmlDesc += "<div class='wpt_mobile_desc_part'>";
-                    $(this).children('td.wpt_for_product_desc').each(function(){
-                        var attr = "";
-                        $.each(this.attributes, function() {
-                            if(this.specified) {
-                                attr += ' ' + this.name + '="' + this.value + '"';
-                            }
-                        });
-                        htmlDesc += "<div " + attr + ">" + $(this).html() + "</div>";//"<div class='" + td_class + "'>" + $(this).html() + "</div>";
-
-                    });
-                    htmlDesc += "</div>"
-
-
-                    htmlImg = ""; //wpt_for_thumbs_desc
-
-                    $(this).children('td.wpt_for_thumbs_desc').each(function(){
-                        var attr = "";
-                        $.each(this.attributes, function() {
-                            if(this.specified) {
-                                attr += ' ' + this.name + '="' + this.value + '"';
-                            }
-                        });
-                        htmlImg += "<div " + attr + ">" + $(this).html() + "</div>";//"<div class='" + td_class + "'>" + $(this).html() + "</div>";
-
-                    });
-                    //htmlDesc += "</div>"
-
-
-
-                    htmlCfTax = "";
-                    $(this).children('td.wpt_custom_cf_tax').each(function(){
-                        var cf_tax_keyword = $(this).data('keyword');
-                        var cf_tax_columnName = $('th.' + cf_tax_keyword).html(); //undefined
-                        if(typeof cf_tax_columnName !== 'undefined'){
-                            cf_tax_columnName = "<span>" + cf_tax_columnName + ": </span>";
-                        }else{
-                            cf_tax_columnName = "";
-                        }
-                        
-                        var attr = "";
-                        $.each(this.attributes, function() {
-                            if(this.specified) {
-                                attr += ' ' + this.name + '="' + this.value + '"';
-                            }
-                        });
-                        htmlCfTax += "<div " + attr + ">" + cf_tax_columnName + $(this).html() + "</div>";//"<div class='" + td_class + "'>" + $(this).html() + "</div>";
-
-                    });
-                    if(htmlCfTax !== ""){
-                        htmlDesc += "<div class='wpt_custom_cf_tax_wrapper'>";
-                        htmlDesc += htmlCfTax;
-                        htmlDesc += "</div>";
-                    }
-                    
-                    htmlAction = "";
-                    $(this).children('td.wpt_for_product_action').each(function(){
-                        var attr = "";
-                        $.each(this.attributes, function() {
-                            if(this.specified && this.name !== 'data-price_html') {
-                                attr += ' ' + this.name + '="' + this.value + '"';
-                            }
-                        });
-                        htmlAction += "<div " + attr + ">" + $(this).html() + "</div>";//"<div class='" + td_class + "'>" + $(this).html() + "</div>";
-
-                    });
-
-                    if(actionElement.length > 0){
-                        actionElement.prepend(htmlAction);
-                    }else{
-                        htmlDesc += "<div class='wpt_conditon_desc_load'>";
-                        htmlDesc += htmlAction;
-                        htmlDesc += "<div>";
-                    }
-                    productDescElement.prepend(htmlImg);
-                    productDescElement.append(htmlDesc);
-                }
-
-            });
-
-            //Fix checkbox issue for .wpt_for_product_desc.wpt_check
-            $('table td div.wpt_for_product_desc.wpt_check').each(function(){
-                var id = $(this).children('input.wpt_tabel_checkbox').attr('id') + "_mob";
-                $(this).children('input.wpt_tabel_checkbox').attr('id',id);
-                $(this).children('label').attr('for',id);
-
-            });
-        }     
+        }); 
         
         
         /**
