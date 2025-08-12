@@ -15,7 +15,7 @@ if( !function_exists( 'wpt_enqueue' ) ){
      */
    function wpt_enqueue(){
         global $post;
-        $pass = is_a($post, 'WP_Post') && has_shortcode($post->post_content, 'Product_Table') || is_woocommerce();
+        $pass = is_a($post, 'WP_Post') && has_shortcode($post->post_content, 'Product_Table') || is_woocommerce() || ( is_a($post, 'WP_Post') && $post->post_type === 'wpt_product_table' );
         if( ! $pass ) return;
 
         wpt_enqueue_common();
