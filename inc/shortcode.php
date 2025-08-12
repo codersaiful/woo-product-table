@@ -293,6 +293,7 @@ class Shortcode extends Shortcode_Base{
         
         ?>
         <div id="table_id_<?php echo esc_attr( $this->table_id ); ?>" 
+        data-page_number="<?php echo esc_attr( $this->page_number ); ?>"
         class="<?php echo esc_attr( Table_Attr::wrapper_class( $this ) ); ?>"
         data-unique_id="<?php echo esc_attr( $this->unique_id ); ?>"
         data-temp_number="<?php echo esc_attr( $this->table_id ); ?>" 
@@ -324,7 +325,6 @@ class Shortcode extends Shortcode_Base{
                 <div class="wpt-ob_get_clean"></div>
                 <!-- data-config_json attr is important for custom.js-->
                 <table 
-                data-page_number="<?php echo esc_attr( $this->page_number + 1 ); ?>"
                 data-temp_number="<?php echo esc_attr( $this->table_id ); ?>"
                 data-config_json="<?php echo esc_attr( wp_json_encode( $this->_config ) ); ?>"
                 data-data_json=""

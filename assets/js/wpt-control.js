@@ -66,7 +66,8 @@ jQuery(function($) {
                         return;
                     }
 
-
+                    var page_number = others.page_number || 1;
+                    thisTable.attr('data-page_number', page_number);
                     if ( result && load_type !== 'load_more') {
                         $.each( result, function( key, value ) {
                             if('string' === typeof key){

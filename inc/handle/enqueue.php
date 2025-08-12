@@ -20,14 +20,17 @@ class Enqueue extends Shortcode_Base{
     public $_is_table;
 
     public function run(){
-        
-        $this->_js_plugin_url = $this->assets_url . 'js/wpt-control.js';
-        
+
+        $this->_js_plugin_url = $this->assets_url . 'js/wpt-control-v2.js';
+
         $this->action('wp_enqueue_scripts');
 
     }
     public function wp_enqueue_scripts(){
-        if(!$this->get_is_table()) return;
+        global $post;
+        $pass = is_a($post, 'WP_Post') && has_shortcode($post->post_content, 'Product_Table') || is_woocommerce() || ( is_a($post, 'WP_Post') && $post->post_type === 'wpt_product_table' );
+        if( ! $pass ) return;
+        // if(!$this->get_is_table()) return;
         wp_enqueue_script( $this->_js_plugin_name, $this->_js_plugin_url, array( 'jquery' ), $this->dev_version, true );
         
     }
