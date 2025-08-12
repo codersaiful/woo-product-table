@@ -570,7 +570,15 @@ body.wpt_pro_table_body.wpt_pro_table table.wpt_product_table a.button.wpt_woo_a
     box-shadow: -1px 0px 6px rgba(0, 0, 0, 0.04);
     left: inherit;
 }
+.single_add_to_cart_button.button>span.wpt_ccount:empty,
 a.button.wpt_woo_add_cart_button>span.wpt_ccount:empty{display: none;}
+a.button.wpt_woo_add_cart_button>span.wpt_ccount.wpt-spin5.animate-spin,
+.single_add_to_cart_button.button>span.wpt_ccount.wpt-spin5.animate-spin{display: flex;}
+span.wpt_ccount.wpt-spin5.animate-spin:before {
+    font-size: 13px;
+}
+tr.wpt-row a.remove.remove_from_cart_button.empty-cart{display: none;}
+
 
 /*Footer Cart Box*/
 .wpt-footer-cart-wrapper {
