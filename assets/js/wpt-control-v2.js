@@ -227,6 +227,8 @@
                 console.log('Error on: ajaxTableLoad. Table not found!');
                 return;
             }
+            console.log("Checking it");
+            this.showNotification('Loading table data...', 'info', 'top_left');
             others.reset_search_clicked = this.state.resetSearchClicked;
             const data = {
                 action: 'wpt_load_both',
@@ -465,6 +467,73 @@
                 let reslt = RowData.replaceAll('<div class="td_or_cell', '<td class="td_or_cell');
                 reslt = reslt.replaceAll('</div><!--EndTd-->', '</td><!--EndTd-->');
                 TableRow.html(reslt);
+            });
+        },
+
+        // =========================
+        // Notification System
+        // =========================
+
+        showNotification: function (message, type = 'info', position = 'top_right', timeout = 3000) {
+            const $notification = $(`<div class="wcmmq-notification wcmmq-notification-${type}">${message}</div>`);
+
+            // style for notification
+            $notification.css({
+                background: type === 'success' ? '#46b450' : (type === 'error' ? '#dc3232' : 'var(--wpt_thead_bg)'),
+                color: 'white',
+                padding: '10px 18px',
+                borderRadius: '4px',
+                fontSize: '13px',
+                fontWeight: '500',
+                boxShadow: '0 2px 5px rgba(0,0,0,0.2)',
+                transform: 'translateX(120%)',
+                transition: 'transform 0.3s ease',
+                cursor: 'pointer'
+            });
+
+            // container for stacking
+            let $container = $('.wcmmq-notification-container');
+            if (!$container.length) {
+                $container = $('<div class="wcmmq-notification-container"></div>').css({
+                    position: 'fixed',
+                    display: 'flex',
+                    flexDirection: 'row',
+                    alignItems: 'flex-end',
+                    gap: '10px',
+                    zIndex: 1000000
+                });
+                // position wise styles
+                switch (position) {
+                    case 'top_left':
+                        $container.css({ top: '52px', left: '20px', alignItems: 'flex-start' });
+                        break;
+                    case 'bottom_right':
+                        $container.css({ bottom: '20px', right: '20px', alignItems: 'flex-end' });
+                        break;
+                    case 'bottom_left':
+                        $container.css({ bottom: '20px', left: '20px', alignItems: 'flex-start' });
+                        break;
+                    default: // top_right
+                        $container.css({ top: '52px', right: '20px', alignItems: 'flex-end' });
+                }
+
+                $('body').append($container);
+            }
+
+            // add to container
+            $container.append($notification);
+
+            // animate in
+            setTimeout(() => $notification.css('transform', 'translateX(0)'), 30);
+
+            // auto remove after 3s
+            setTimeout(() => {
+                $notification.css('transform', 'translateX(120%)');
+                setTimeout(() => $notification.remove(), 300);
+            }, timeout);
+            $notification.on('click', function() {
+                $(this).css('transform', 'translateX(100%)');
+                setTimeout(() => $(this).remove(), 300);
             });
         }
     };
