@@ -501,10 +501,13 @@ jQuery(function($) {
             if(typeof alertMessage == 'string'){
                 var tempMsg = alertMessage.trim();
                 if(tempMsg.length !== 0){
-                    alert(alertMessage);
+                    // alert(alertMessage);
+                    WPTControl.showNotification(alertMessage, 'error', 'top_right', 4000);
                 }
             }else{
-                console.log("You have inserted " + typeof alertMessage + " Variable. But should be a String.");
+                let errMsgErr = "You have inserted " + typeof alertMessage + " Variable. But should be a String.";
+                WPTControl.showNotification(errMsgErr, 'error', 'top_right', 2000);
+                console.log(errMsgErr);
             }
         }
         $('body').on('click', 'a.wpt_variation_product.single_add_to_cart_button.button.disabled,a.disabled.yith_add_to_quote_request.button', function(e) {

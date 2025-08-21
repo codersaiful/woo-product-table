@@ -92,7 +92,8 @@
             });
 
             $(document.body).on('click', '.caqv-open-modal-notfound', function() {
-                alert('Quick View by CodeAstrology plugin is required.\nPlease Install and Activate it.\nPlugin will load on new tab.');
+                this.showNotification('Quick View by CodeAstrology plugin is required.<br>Please Install and Activate it.<br>Plugin will load on new tab.', 'error');
+                // alert('Quick View by CodeAstrology plugin is required.\nPlease Install and Activate it.\nPlugin will load on new tab.');
                 window.open('https://wordpress.org/plugins/ca-quick-view/', '_blank');
             });
 
@@ -225,10 +226,10 @@
             const data_json = thisTable.data('basic_settings');
             if (!thisTable.length) {
                 console.log('Error on: ajaxTableLoad. Table not found!');
+                this.showNotification('Error on: ajaxTableLoad. Table not found!', 'error');
                 return;
             }
-            console.log("Checking it");
-            this.showNotification('Loading table data...', 'info', 'top_left');
+
             others.reset_search_clicked = this.state.resetSearchClicked;
             const data = {
                 action: 'wpt_load_both',
@@ -297,6 +298,7 @@
                     TableTagWrap.removeClass('wpt-ajax-loading');
                     SearchWrap.removeClass('wpt-ajax-loading');
                     console.log('Error on: ajaxTableLoad. Error on Ajax load!', error);
+                    this.showNotification('Error on: ajaxTableLoad. Error on Ajax load!', 'error');
                 }
             });
         },
@@ -386,6 +388,7 @@
                 $(document.body).trigger('wpt_fragents_loaded', ownFragment);
             } catch (e) {
                 console.log('Something went wrong on ownFragment loads.', ownFragment);
+                this.showNotification('Something went wrong on ownFragment loads.', 'error');
             }
         },
 
