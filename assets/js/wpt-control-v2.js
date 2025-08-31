@@ -229,7 +229,7 @@
                 this.showNotification('Error on: ajaxTableLoad. Table not found!', 'error');
                 return;
             }
-
+            this.showNotification('<i class="wpt-spin6 animate-spin"></i>', 'success', 'top_right', 20000);
             others.reset_search_clicked = this.state.resetSearchClicked;
             const data = {
                 action: 'wpt_load_both',
@@ -246,6 +246,7 @@
                 url: this.config.ajaxUrl,
                 data,
                 success: (result) => {
+                    this.removeNotification();
                     if (typeof result === 'string') {
                         thisTable.find('table#wpt_table tbody').html(result);
                         return;
@@ -482,7 +483,7 @@
 
             // style for notification
             $notification.css({
-                background: type === 'success' ? '#46b450' : (type === 'error' ? '#dc3232' : 'var(--wpt_thead_bg)'),
+                background: type === 'success' ? 'var(--wpt_cart_highliter)' : (type === 'error' ? 'var(--wpt_danger)' : 'var(--wpt_thead_bg)'),
                 color: 'white',
                 padding: '10px 18px',
                 borderRadius: '4px',
@@ -538,6 +539,10 @@
                 $(this).css('transform', 'translateX(100%)');
                 setTimeout(() => $(this).remove(), 300);
             });
+        },
+        //Remove full notification
+        removeNotification: function() {
+            $('.wcmmq-notification-container').remove();
         }
     };
 
