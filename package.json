@@ -15,7 +15,7 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "zip": "node build-zip.js",
+    "zip": "mkdir dist && node build-zip.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {

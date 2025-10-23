@@ -1,7 +1,7 @@
 const fs = require("fs");
 const archiver = require("archiver");
 
-const output = fs.createWriteStream("dist/aaa-git-action-test.zip");
+const output = fs.createWriteStream("dist/woo-product-table.zip");
 const archive = archiver("zip", { zlib: { level: 9 } });
 
 archive.pipe(output);

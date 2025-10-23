@@ -1,5 +1,13 @@
 ![Product Table for WooCommerce](https://raw.githubusercontent.com/codersaiful/woo-product-table/master/assets/images/wpt-logo.png)
 
+## Install NPM
+```npm install```
+
+## Make Zip
+```npm run zip```
+
+
+
 # Product Table for WooCommerce by [CodeAstrology](https://codeastrology.com/)
 Product Table for WooCommerce has Tiny Shortcode. Easy to use and No need programming knowledge to use. Easily able to handle by Graphical User Interface. Just like following:
 ```[Product_Table id='123']```
