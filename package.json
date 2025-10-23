@@ -1,0 +1,24 @@
+{
+  "name": "woo-product-table",
+  "version": "1.0.0",
+  "description": "To manage woo product table using node",
+  "homepage": "https://github.com/codersaiful/woo-product-table#readme",
+  "bugs": {
+    "url": "https://github.com/codersaiful/woo-product-table/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codersaiful/woo-product-table.git"
+  },
+  "license": "MIT",
+  "author": "Saiful Islam",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "zip": "node build-zip.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "archiver": "^7.0.1"
+  }
+}
