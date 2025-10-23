@@ -21,8 +21,16 @@ archive.glob("**/*", {
     ".gitignore",
     "build-zip.js",
     "readme.md",
+    "README.md",
+    "README.MD",
     "package.json",
-    "package-lock.json"
+    "package-lock.json",
+    "editorconfig.json",
+    "editorconfig",
+    "webpack.config.js",
+    ".ftpconfig",
+    ".vscode/**",
+    ".ftpignore"
   ]
 });
 
