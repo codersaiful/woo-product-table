@@ -1,6 +1,10 @@
 const fs = require("fs");
 const archiver = require("archiver");
 
+if(!fs.existsSync("dist")){
+  fs.mkdirSync("dist");
+}
+
 const output = fs.createWriteStream("dist/woo-product-table.zip");
 const archive = archiver("zip", { zlib: { level: 9 } });
 

@@ -10,7 +10,7 @@
  * 
  * Version: 5.0.5
  * Requires at least:    6.2
- * Tested up to:         6.8
+ * Tested up to:         6.9
  * WC requires at least: 6.2.2
  * WC tested up to: 	 9.9.5
  * 
@@ -41,7 +41,7 @@ if( ! defined( 'WPT_PLUGIN_BASE_FOLDER' ) ){
 }
 
 if( ! defined( 'WPT_DEV_VERSION' ) ){
-    define( 'WPT_DEV_VERSION', '5.0.5.2' );
+    define( 'WPT_DEV_VERSION', '5.0.5.3' );
 }
 
 if( ! defined( 'WPT_CAPABILITY' ) ){

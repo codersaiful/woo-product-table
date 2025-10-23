@@ -3,7 +3,7 @@ Contributors: codersaiful,mdibrahimk48,ultraaddons,unikforce,rafiul17,fazlebari
 Donate link: https://donate.stripe.com/4gw2bB2Pzdjd8mYfYZ
 Tags: woo product table, wc product table, woo table, woocommerce product table, product table
 Requires at least: 6.2
-Tested up to: 6.8
+Tested up to: 6.9
 Stable tag: 5.0.5
 Requires PHP: 7.0
 License: GPLv2 or later
