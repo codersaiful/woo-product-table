@@ -92,7 +92,8 @@
             });
 
             $(document.body).on('click', '.caqv-open-modal-notfound', function() {
-                alert('Quick View by CodeAstrology plugin is required.\nPlease Install and Activate it.\nPlugin will load on new tab.');
+                this.showNotification('Quick View by CodeAstrology plugin is required.<br>Please Install and Activate it.<br>Plugin will load on new tab.', 'error');
+                // alert('Quick View by CodeAstrology plugin is required.\nPlease Install and Activate it.\nPlugin will load on new tab.');
                 window.open('https://wordpress.org/plugins/ca-quick-view/', '_blank');
             });
 
@@ -225,8 +226,10 @@
             const data_json = thisTable.data('basic_settings');
             if (!thisTable.length) {
                 console.log('Error on: ajaxTableLoad. Table not found!');
+                this.showNotification('Error on: ajaxTableLoad. Table not found!', 'error');
                 return;
             }
+            this.showNotification('<i class="wpt-spin6 animate-spin"></i>', 'success', 'top_right', 20000);
             others.reset_search_clicked = this.state.resetSearchClicked;
             const data = {
                 action: 'wpt_load_both',
@@ -243,6 +246,7 @@
                 url: this.config.ajaxUrl,
                 data,
                 success: (result) => {
+                    this.removeNotification();
                     if (typeof result === 'string') {
                         thisTable.find('table#wpt_table tbody').html(result);
                         return;
@@ -295,6 +299,7 @@
                     TableTagWrap.removeClass('wpt-ajax-loading');
                     SearchWrap.removeClass('wpt-ajax-loading');
                     console.log('Error on: ajaxTableLoad. Error on Ajax load!', error);
+                    this.showNotification('Error on: ajaxTableLoad. Error on Ajax load!', 'error');
                 }
             });
         },
@@ -384,6 +389,7 @@
                 $(document.body).trigger('wpt_fragents_loaded', ownFragment);
             } catch (e) {
                 console.log('Something went wrong on ownFragment loads.', ownFragment);
+                this.showNotification('Something went wrong on ownFragment loads.', 'error');
             }
         },
 
@@ -466,6 +472,77 @@
                 reslt = reslt.replaceAll('</div><!--EndTd-->', '</td><!--EndTd-->');
                 TableRow.html(reslt);
             });
+        },
+
+        // =========================
+        // Notification System
+        // =========================
+
+        showNotification: function (message, type = 'info', position = 'top_right', timeout = 3000) {
+            const $notification = $(`<div class="wcmmq-notification wcmmq-notification-${type}">${message}</div>`);
+
+            // style for notification
+            $notification.css({
+                background: type === 'success' ? 'var(--wpt_cart_highliter)' : (type === 'error' ? 'var(--wpt_danger)' : 'var(--wpt_thead_bg)'),
+                color: 'white',
+                padding: '10px 18px',
+                borderRadius: '4px',
+                fontSize: '13px',
+                fontWeight: '500',
+                boxShadow: '0 2px 5px rgba(0,0,0,0.2)',
+                transform: 'translateX(120%)',
+                transition: 'transform 0.3s ease',
+                cursor: 'pointer'
+            });
+
+            // container for stacking
+            let $container = $('.wcmmq-notification-container');
+            if (!$container.length) {
+                $container = $('<div class="wcmmq-notification-container"></div>').css({
+                    position: 'fixed',
+                    display: 'flex',
+                    flexDirection: 'row',
+                    alignItems: 'flex-end',
+                    gap: '10px',
+                    zIndex: 1000000
+                });
+                // position wise styles
+                switch (position) {
+                    case 'top_left':
+                        $container.css({ top: '52px', left: '20px', alignItems: 'flex-start' });
+                        break;
+                    case 'bottom_right':
+                        $container.css({ bottom: '20px', right: '20px', alignItems: 'flex-end' });
+                        break;
+                    case 'bottom_left':
+                        $container.css({ bottom: '20px', left: '20px', alignItems: 'flex-start' });
+                        break;
+                    default: // top_right
+                        $container.css({ top: '52px', right: '20px', alignItems: 'flex-end' });
+                }
+
+                $('body').append($container);
+            }
+
+            // add to container
+            $container.append($notification);
+
+            // animate in
+            setTimeout(() => $notification.css('transform', 'translateX(0)'), 30);
+
+            // auto remove after 3s
+            setTimeout(() => {
+                $notification.css('transform', 'translateX(120%)');
+                setTimeout(() => $notification.remove(), 300);
+            }, timeout);
+            $notification.on('click', function() {
+                $(this).css('transform', 'translateX(100%)');
+                setTimeout(() => $(this).remove(), 300);
+            });
+        },
+        //Remove full notification
+        removeNotification: function() {
+            $('.wcmmq-notification-container').remove();
         }
     };
 

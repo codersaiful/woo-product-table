@@ -307,6 +307,7 @@ jQuery.fn.extend({
 
         var removeAjax = function(aaa,bb){
                 $('.button,button').removeClass('wpt_ajax_update');
+                WPT_ADMIN_CONTROL.showNotification('Moved', 'info', 'bottom_left', 1000);
             };
         //code for Sortable
         $( ".wpt_column_sortable" ).sortable({
@@ -428,6 +429,7 @@ jQuery.fn.extend({
           var copyText = document.getElementById(ID_SELECTOR);
           copyText.select();
           document.execCommand("copy");
+          WPT_ADMIN_CONTROL.showNotification('Copied', 'success');
           $('.' + ID_SELECTOR).html("Copied");
           $('.' + ID_SELECTOR).fadeIn();
           
@@ -828,6 +830,7 @@ jQuery.fn.extend({
         });
         $(document.body).on('change','#wpt_advance_search_taxonomy_choose',function(){
             $('.wpt_astaxonomy_choose_notice').html('Submitting...');
+            WPT_ADMIN_CONTROL.showNotification('Submitting...', 'info');
             $('body.wpt_admin_body input#publish[name=save]').trigger('click');
         });
         /**
@@ -1002,8 +1005,7 @@ jQuery.fn.extend({
         submitBtn.find('strong.form-submit-text').text('Saving...');
         submitBtnIcon.attr('class', 'wpt-spin5 animate-spin');
         // submitBtnIcon.attr('class', 'wpt-floppy');
-        
-        
+        WPT_ADMIN_CONTROL.showNotification('Saving .... !', 'success');
     });
 
     
@@ -1438,12 +1440,13 @@ jQuery.fn.extend({
 
         if(searchTerm !== ''){
             $('.wpt-temp-menu-wrapper').hide();
+            // WPT_ADMIN_CONTROL.showNotification('Loading', 'info', 'bottom_left', 1000);
         }else{
 
             $('.wpt-temp-menu-wrapper').show();
             $('.wpt-temp-menu-wrapper').find('a').last().trigger('click');
         }
-
+        
         var singlePanel = $('#wpt-main-configuration-form').find('.wpt-section-panel');
         singlePanel.each(function(){
             var selectedElName = 'td label, td input,td select option,.wpt-custom-select-box';
@@ -1531,6 +1534,96 @@ jQuery.fn.extend({
         }
     });
 
+
+    const WPT_ADMIN_CONTROL = {
+        init: function() {
+            this.bindEvents();
+        },
+        bindEvents: function() {
+            // Bind your events here
+        },
+        
+        // =========================
+        // Notification System
+        // =========================
+
+        showNotification: function (message, type = 'info', position = 'top_right', timeout = 3000) {
+            const $notification = $(`<div class="wcmmq-notification wcmmq-notification-${type}">${message}</div>`);
+
+            // style for notification
+            $notification.css({
+                background: type === 'success' ? '#46b450' : (type === 'error' ? '#dc3232' : '#0073aa'),
+                color: 'white',
+                padding: '10px 18px',
+                borderRadius: '4px',
+                fontSize: '13px',
+                fontWeight: '500',
+                boxShadow: '0 2px 5px rgba(0,0,0,0.2)',
+                transform: 'translateX(120%)',
+                transition: 'transform 0.3s ease',
+                cursor: 'pointer'
+            });
+
+            // container for stacking
+            let $container = $('.wcmmq-notification-container');
+            if (!$container.length) {
+                $container = $('<div class="wcmmq-notification-container"></div>').css({
+                    position: 'fixed',
+                    display: 'flex',
+                    flexDirection: 'row',
+                    alignItems: 'flex-end',
+                    gap: '10px',
+                    zIndex: 1000000
+                });
+                // position wise styles
+                switch (position) {
+                    case 'top_left':
+                        $container.css({ top: '52px', left: '20px', alignItems: 'flex-start' });
+                        break;
+                    case 'bottom_right':
+                        $container.css({ bottom: '20px', right: '20px', alignItems: 'flex-end' });
+                        break;
+                    case 'bottom_left':
+                        $container.css({ bottom: '20px', left: '20px', alignItems: 'flex-start' });
+                        break;
+                    default: // top_right
+                        $container.css({ top: '52px', right: '20px', alignItems: 'flex-end' });
+                }
+
+                $('body').append($container);
+            }
+
+            // add to container
+            $container.append($notification);
+
+            // animate in
+            setTimeout(() => $notification.css('transform', 'translateX(0)'), 30);
+
+            // auto remove after 3s
+            setTimeout(() => {
+                $notification.css('transform', 'translateX(120%)');
+                setTimeout(() => $notification.remove(), 300);
+            }, timeout);
+            $notification.on('click', function() {
+                $(this).css('transform', 'translateX(100%)');
+                setTimeout(() => $(this).remove(), 300);
+            });
+        },
+        //Remove full notification
+        removeNotification: function() {
+            $('.wcmmq-notification-container').remove();
+        },
+        log: function (...args) {
+            if (window?.console) console.log('[WPT_ADMIN_CONTROL]', ...args);
+        }
+    };
+
+    $(document).ready(function() {
+        WPT_ADMIN_CONTROL.init();
+    });
+
+    // Expose to global for debugging
+    window.WPT_ADMIN_CONTROL = WPT_ADMIN_CONTROL;
 
 
 })(jQuery);
