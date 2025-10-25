@@ -41,7 +41,7 @@ if( isset( $this->topbar_sub_title ) && ! empty( $this->topbar_sub_title ) ){
                 </div>
                 <div class="wpt-main-title">
                     <h2 class="wpt-ntitle">
-                        <?php echo esc_html_e("Woo Product Table", 'woo-product-table');?>
+                        <?php esc_html_e("Woo Product Table", 'woo-product-table');?>
                     </h2>
                 </div>
                 <div class="wpt-extra-data">
@@ -49,7 +49,7 @@ if( isset( $this->topbar_sub_title ) && ! empty( $this->topbar_sub_title ) ){
                     <span class="wpt-version">v<?php echo esc_html( WPT_DEV_VERSION ); ?></span>
                     <?php if( wpt_is_pro() ) : ?>
                         <span class="wpt-pro-version-data">
-                            <span class="title-name"><?php echo esc_html_e("Premium", 'woo-product-table'); ?></span>
+                            <span class="title-name"><?php esc_html_e("Premium", 'woo-product-table'); ?></span>
                             <span class="wpt-version">v<?php echo esc_html( WPT_PRO_DEV_VERSION ); ?></span>
                         </span>
                     <?php endif; ?>
